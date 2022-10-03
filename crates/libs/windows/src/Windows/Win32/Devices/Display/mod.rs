@@ -1350,21 +1350,7 @@ impl ICloneViewHelper {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), ffinalcall.into()).ok()
     }
 }
-impl ::core::convert::From<ICloneViewHelper> for ::windows::core::IUnknown {
-    fn from(value: ICloneViewHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICloneViewHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICloneViewHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICloneViewHelper> for ::windows::core::IUnknown {
-    fn from(value: &ICloneViewHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICloneViewHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICloneViewHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1437,21 +1423,7 @@ impl IViewHelper {
         (::windows::core::Vtable::vtable(self).GetProceedOnNewConfiguration)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IViewHelper> for ::windows::core::IUnknown {
-    fn from(value: IViewHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IViewHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IViewHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IViewHelper> for ::windows::core::IUnknown {
-    fn from(value: &IViewHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IViewHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IViewHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())

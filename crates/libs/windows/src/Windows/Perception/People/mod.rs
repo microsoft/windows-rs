@@ -220,36 +220,7 @@ unsafe impl ::windows::core::Interface for EyesPose {
 impl ::windows::core::RuntimeName for EyesPose {
     const NAME: &'static str = "Windows.Perception.People.EyesPose";
 }
-impl ::core::convert::From<EyesPose> for ::windows::core::IUnknown {
-    fn from(value: EyesPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EyesPose> for ::windows::core::IUnknown {
-    fn from(value: &EyesPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EyesPose> for &::windows::core::IUnknown {
-    fn from(value: &EyesPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EyesPose> for ::windows::core::IInspectable {
-    fn from(value: EyesPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EyesPose> for ::windows::core::IInspectable {
-    fn from(value: &EyesPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EyesPose> for &::windows::core::IInspectable {
-    fn from(value: &EyesPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EyesPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -344,36 +315,7 @@ unsafe impl ::windows::core::Interface for HandMeshObserver {
 impl ::windows::core::RuntimeName for HandMeshObserver {
     const NAME: &'static str = "Windows.Perception.People.HandMeshObserver";
 }
-impl ::core::convert::From<HandMeshObserver> for ::windows::core::IUnknown {
-    fn from(value: HandMeshObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandMeshObserver> for ::windows::core::IUnknown {
-    fn from(value: &HandMeshObserver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IUnknown {
-    fn from(value: &HandMeshObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HandMeshObserver> for ::windows::core::IInspectable {
-    fn from(value: HandMeshObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandMeshObserver> for ::windows::core::IInspectable {
-    fn from(value: &HandMeshObserver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IInspectable {
-    fn from(value: &HandMeshObserver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HandMeshObserver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -435,36 +377,7 @@ unsafe impl ::windows::core::Interface for HandMeshVertexState {
 impl ::windows::core::RuntimeName for HandMeshVertexState {
     const NAME: &'static str = "Windows.Perception.People.HandMeshVertexState";
 }
-impl ::core::convert::From<HandMeshVertexState> for ::windows::core::IUnknown {
-    fn from(value: HandMeshVertexState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandMeshVertexState> for ::windows::core::IUnknown {
-    fn from(value: &HandMeshVertexState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandMeshVertexState> for &::windows::core::IUnknown {
-    fn from(value: &HandMeshVertexState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HandMeshVertexState> for ::windows::core::IInspectable {
-    fn from(value: HandMeshVertexState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandMeshVertexState> for ::windows::core::IInspectable {
-    fn from(value: &HandMeshVertexState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandMeshVertexState> for &::windows::core::IInspectable {
-    fn from(value: &HandMeshVertexState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HandMeshVertexState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
 unsafe impl ::core::marker::Sync for HandMeshVertexState {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -537,36 +450,7 @@ unsafe impl ::windows::core::Interface for HandPose {
 impl ::windows::core::RuntimeName for HandPose {
     const NAME: &'static str = "Windows.Perception.People.HandPose";
 }
-impl ::core::convert::From<HandPose> for ::windows::core::IUnknown {
-    fn from(value: HandPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandPose> for ::windows::core::IUnknown {
-    fn from(value: &HandPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandPose> for &::windows::core::IUnknown {
-    fn from(value: &HandPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HandPose> for ::windows::core::IInspectable {
-    fn from(value: HandPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HandPose> for ::windows::core::IInspectable {
-    fn from(value: &HandPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HandPose> for &::windows::core::IInspectable {
-    fn from(value: &HandPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HandPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HandPose {}
 unsafe impl ::core::marker::Sync for HandPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -633,36 +517,7 @@ unsafe impl ::windows::core::Interface for HeadPose {
 impl ::windows::core::RuntimeName for HeadPose {
     const NAME: &'static str = "Windows.Perception.People.HeadPose";
 }
-impl ::core::convert::From<HeadPose> for ::windows::core::IUnknown {
-    fn from(value: HeadPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HeadPose> for ::windows::core::IUnknown {
-    fn from(value: &HeadPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HeadPose> for &::windows::core::IUnknown {
-    fn from(value: &HeadPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HeadPose> for ::windows::core::IInspectable {
-    fn from(value: HeadPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HeadPose> for ::windows::core::IInspectable {
-    fn from(value: &HeadPose) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HeadPose> for &::windows::core::IInspectable {
-    fn from(value: &HeadPose) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HeadPose, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HeadPose {}
 unsafe impl ::core::marker::Sync for HeadPose {}
 #[doc = "*Required features: `\"Perception_People\"`*"]

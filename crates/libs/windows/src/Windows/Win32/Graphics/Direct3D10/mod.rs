@@ -381,36 +381,7 @@ impl ID3D10Asynchronous {
         (::windows::core::Vtable::vtable(self).GetDataSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10Asynchronous> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Asynchronous) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Asynchronous> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Asynchronous) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Asynchronous> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Asynchronous) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Asynchronous> for ID3D10DeviceChild {
-    fn from(value: ID3D10Asynchronous) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Asynchronous> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Asynchronous) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Asynchronous> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Asynchronous) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Asynchronous, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10Asynchronous {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -469,36 +440,7 @@ impl ID3D10BlendState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10BlendState> for ::windows::core::IUnknown {
-    fn from(value: ID3D10BlendState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10BlendState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10BlendState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10BlendState> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10BlendState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10BlendState> for ID3D10DeviceChild {
-    fn from(value: ID3D10BlendState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10BlendState> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10BlendState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10BlendState> for ID3D10DeviceChild {
-    fn from(value: &ID3D10BlendState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10BlendState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10BlendState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -562,51 +504,7 @@ impl ID3D10BlendState1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10BlendState1> for ::windows::core::IUnknown {
-    fn from(value: ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10BlendState1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10BlendState1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10BlendState1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10BlendState1> for ID3D10DeviceChild {
-    fn from(value: ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10BlendState1> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10BlendState1> for ID3D10DeviceChild {
-    fn from(value: &ID3D10BlendState1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10BlendState1> for ID3D10BlendState {
-    fn from(value: ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10BlendState1> for &'a ID3D10BlendState {
-    fn from(value: &'a ID3D10BlendState1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10BlendState1> for ID3D10BlendState {
-    fn from(value: &ID3D10BlendState1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10BlendState1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10BlendState);
 impl ::core::clone::Clone for ID3D10BlendState1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -678,51 +576,7 @@ impl ID3D10Buffer {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Buffer> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Buffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Buffer> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Buffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Buffer> for ID3D10DeviceChild {
-    fn from(value: ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Buffer> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Buffer> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Buffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Buffer> for ID3D10Resource {
-    fn from(value: ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Buffer> for &'a ID3D10Resource {
-    fn from(value: &'a ID3D10Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Buffer> for ID3D10Resource {
-    fn from(value: &ID3D10Buffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Buffer, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::clone::Clone for ID3D10Buffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -790,51 +644,7 @@ impl ID3D10Counter {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Counter> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Counter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Counter> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Counter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Counter> for ID3D10DeviceChild {
-    fn from(value: ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Counter> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Counter> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Counter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Counter> for ID3D10Asynchronous {
-    fn from(value: ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Counter> for &'a ID3D10Asynchronous {
-    fn from(value: &'a ID3D10Counter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Counter> for ID3D10Asynchronous {
-    fn from(value: &ID3D10Counter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Counter, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ::core::clone::Clone for ID3D10Counter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -899,21 +709,7 @@ impl ID3D10Debug {
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID3D10Debug> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Debug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Debug> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Debug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Debug> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Debug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Debug, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10Debug {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -981,36 +777,7 @@ impl ID3D10DepthStencilState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10DepthStencilState> for ::windows::core::IUnknown {
-    fn from(value: ID3D10DepthStencilState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DepthStencilState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10DepthStencilState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DepthStencilState> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10DepthStencilState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10DepthStencilState> for ID3D10DeviceChild {
-    fn from(value: ID3D10DepthStencilState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DepthStencilState> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10DepthStencilState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DepthStencilState> for ID3D10DeviceChild {
-    fn from(value: &ID3D10DepthStencilState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10DepthStencilState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10DepthStencilState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1072,51 +839,7 @@ impl ID3D10DepthStencilView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10DepthStencilView> for ::windows::core::IUnknown {
-    fn from(value: ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DepthStencilView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DepthStencilView> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10DepthStencilView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10DepthStencilView> for ID3D10DeviceChild {
-    fn from(value: ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DepthStencilView> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DepthStencilView> for ID3D10DeviceChild {
-    fn from(value: &ID3D10DepthStencilView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10DepthStencilView> for ID3D10View {
-    fn from(value: ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DepthStencilView> for &'a ID3D10View {
-    fn from(value: &'a ID3D10DepthStencilView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DepthStencilView> for ID3D10View {
-    fn from(value: &ID3D10DepthStencilView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10DepthStencilView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::clone::Clone for ID3D10DepthStencilView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1575,21 +1298,7 @@ impl ID3D10Device {
         (::windows::core::Vtable::vtable(self).GetTextFilterSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwidth.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pheight.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<ID3D10Device> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Device> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Device) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Device> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Device) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Device, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10Device {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2223,36 +1932,7 @@ impl ID3D10Device1 {
         (::windows::core::Vtable::vtable(self).GetFeatureLevel)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10Device1> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Device1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Device1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Device1> for ID3D10Device {
-    fn from(value: ID3D10Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Device1> for &'a ID3D10Device {
-    fn from(value: &'a ID3D10Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Device1> for ID3D10Device {
-    fn from(value: &ID3D10Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Device1, ::windows::core::IUnknown, ID3D10Device);
 impl ::core::clone::Clone for ID3D10Device1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2311,21 +1991,7 @@ impl ID3D10DeviceChild {
         (::windows::core::Vtable::vtable(self).SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D10DeviceChild> for ::windows::core::IUnknown {
-    fn from(value: ID3D10DeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10DeviceChild> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10DeviceChild) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10DeviceChild> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10DeviceChild) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10DeviceChild, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10DeviceChild {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2425,21 +2091,7 @@ impl ID3D10Effect {
         (::windows::core::Vtable::vtable(self).IsOptimized)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10Effect> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Effect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Effect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Effect> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Effect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Effect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10Effect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2604,21 +2256,7 @@ impl ID3D10EffectBlendVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(pblenddesc)).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectBlendVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectBlendVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectBlendVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectBlendVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectBlendVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectBlendVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectBlendVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectBlendVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2771,21 +2409,7 @@ impl ID3D10EffectConstantBuffer {
         (::windows::core::Vtable::vtable(self).GetTextureBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10ShaderResourceView>(result__)
     }
 }
-impl ::core::convert::From<ID3D10EffectConstantBuffer> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectConstantBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectConstantBuffer> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectConstantBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectConstantBuffer> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectConstantBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectConstantBuffer, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectConstantBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2927,21 +2551,7 @@ impl ID3D10EffectDepthStencilVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_DEPTH_STENCIL_DESC>(result__)
     }
 }
-impl ::core::convert::From<ID3D10EffectDepthStencilVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectDepthStencilVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectDepthStencilVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectDepthStencilVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectDepthStencilVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectDepthStencilVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectDepthStencilVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectDepthStencilVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3090,21 +2700,7 @@ impl ID3D10EffectDepthStencilViewVariable {
         (::windows::core::Vtable::vtable(self).GetDepthStencilArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectDepthStencilViewVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectDepthStencilViewVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectDepthStencilViewVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectDepthStencilViewVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectDepthStencilViewVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectDepthStencilViewVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectDepthStencilViewVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectDepthStencilViewVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3260,21 +2856,7 @@ impl ID3D10EffectMatrixVariable {
         (::windows::core::Vtable::vtable(self).GetMatrixTransposeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), offset, count).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectMatrixVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectMatrixVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectMatrixVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectMatrixVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectMatrixVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectMatrixVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectMatrixVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectMatrixVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3401,21 +2983,7 @@ impl ID3D10EffectPool {
         (::windows::core::Vtable::vtable(self).AsEffect)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10EffectPool> for ::windows::core::IUnknown {
-    fn from(value: ID3D10EffectPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectPool> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10EffectPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectPool> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10EffectPool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectPool, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10EffectPool {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3557,21 +3125,7 @@ impl ID3D10EffectRasterizerVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_RASTERIZER_DESC>(result__)
     }
 }
-impl ::core::convert::From<ID3D10EffectRasterizerVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectRasterizerVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectRasterizerVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectRasterizerVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectRasterizerVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectRasterizerVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectRasterizerVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectRasterizerVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3720,21 +3274,7 @@ impl ID3D10EffectRenderTargetViewVariable {
         (::windows::core::Vtable::vtable(self).GetRenderTargetArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectRenderTargetViewVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectRenderTargetViewVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectRenderTargetViewVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectRenderTargetViewVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectRenderTargetViewVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectRenderTargetViewVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectRenderTargetViewVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectRenderTargetViewVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3874,21 +3414,7 @@ impl ID3D10EffectSamplerVariable {
         (::windows::core::Vtable::vtable(self).GetBackingStore)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SAMPLER_DESC>(result__)
     }
 }
-impl ::core::convert::From<ID3D10EffectSamplerVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectSamplerVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectSamplerVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectSamplerVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectSamplerVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectSamplerVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectSamplerVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectSamplerVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4068,21 +3594,7 @@ impl ID3D10EffectScalarVariable {
         (::windows::core::Vtable::vtable(self).GetBoolArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), offset, pdata.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectScalarVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectScalarVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectScalarVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectScalarVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectScalarVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectScalarVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectScalarVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectScalarVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4250,21 +3762,7 @@ impl ID3D10EffectShaderResourceVariable {
         (::windows::core::Vtable::vtable(self).GetResourceArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectShaderResourceVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectShaderResourceVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectShaderResourceVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectShaderResourceVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectShaderResourceVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectShaderResourceVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectShaderResourceVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectShaderResourceVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4426,21 +3924,7 @@ impl ID3D10EffectShaderVariable {
         (::windows::core::Vtable::vtable(self).GetOutputSignatureElementDesc)(::windows::core::Vtable::as_raw(self), shaderindex, element, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
 }
-impl ::core::convert::From<ID3D10EffectShaderVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectShaderVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectShaderVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectShaderVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectShaderVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectShaderVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectShaderVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectShaderVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4590,21 +4074,7 @@ impl ID3D10EffectStringVariable {
         (::windows::core::Vtable::vtable(self).GetStringArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppstrings.as_ptr()), offset, ppstrings.len() as _).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectStringVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectStringVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectStringVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectStringVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectStringVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectStringVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectStringVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectStringVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5094,21 +4564,7 @@ impl ID3D10EffectVectorVariable {
         (::windows::core::Vtable::vtable(self).GetFloatVectorArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), offset, count).ok()
     }
 }
-impl ::core::convert::From<ID3D10EffectVectorVariable> for ID3D10EffectVariable {
-    fn from(value: ID3D10EffectVectorVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10EffectVectorVariable> for &'a ID3D10EffectVariable {
-    fn from(value: &'a ID3D10EffectVectorVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10EffectVectorVariable> for ID3D10EffectVariable {
-    fn from(value: &ID3D10EffectVectorVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10EffectVectorVariable, ID3D10EffectVariable);
 impl ::core::clone::Clone for ID3D10EffectVectorVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5179,36 +4635,7 @@ impl ID3D10GeometryShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D10GeometryShader> for ::windows::core::IUnknown {
-    fn from(value: ID3D10GeometryShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10GeometryShader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10GeometryShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10GeometryShader> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10GeometryShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10GeometryShader> for ID3D10DeviceChild {
-    fn from(value: ID3D10GeometryShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10GeometryShader> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10GeometryShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10GeometryShader> for ID3D10DeviceChild {
-    fn from(value: &ID3D10GeometryShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10GeometryShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10GeometryShader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5382,21 +4809,7 @@ impl ID3D10InfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10InfoQueue> for ::windows::core::IUnknown {
-    fn from(value: ID3D10InfoQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10InfoQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10InfoQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10InfoQueue> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10InfoQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10InfoQueue, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10InfoQueue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5505,36 +4918,7 @@ impl ID3D10InputLayout {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D10InputLayout> for ::windows::core::IUnknown {
-    fn from(value: ID3D10InputLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10InputLayout> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10InputLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10InputLayout> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10InputLayout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10InputLayout> for ID3D10DeviceChild {
-    fn from(value: ID3D10InputLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10InputLayout> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10InputLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10InputLayout> for ID3D10DeviceChild {
-    fn from(value: &ID3D10InputLayout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10InputLayout, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10InputLayout {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5588,21 +4972,7 @@ impl ID3D10Multithread {
         (::windows::core::Vtable::vtable(self).GetMultithreadProtected)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10Multithread> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Multithread) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Multithread> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Multithread) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Multithread> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Multithread) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Multithread, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10Multithread {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5662,36 +5032,7 @@ impl ID3D10PixelShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D10PixelShader> for ::windows::core::IUnknown {
-    fn from(value: ID3D10PixelShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10PixelShader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10PixelShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10PixelShader> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10PixelShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10PixelShader> for ID3D10DeviceChild {
-    fn from(value: ID3D10PixelShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10PixelShader> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10PixelShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10PixelShader> for ID3D10DeviceChild {
-    fn from(value: &ID3D10PixelShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10PixelShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10PixelShader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5756,66 +5097,7 @@ impl ID3D10Predicate {
         (::windows::core::Vtable::vtable(self).base__.GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Predicate> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Predicate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Predicate> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Predicate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Predicate> for ID3D10DeviceChild {
-    fn from(value: ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Predicate> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Predicate> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Predicate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Predicate> for ID3D10Asynchronous {
-    fn from(value: ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Predicate> for &'a ID3D10Asynchronous {
-    fn from(value: &'a ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Predicate> for ID3D10Asynchronous {
-    fn from(value: &ID3D10Predicate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Predicate> for ID3D10Query {
-    fn from(value: ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Predicate> for &'a ID3D10Query {
-    fn from(value: &'a ID3D10Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Predicate> for ID3D10Query {
-    fn from(value: &ID3D10Predicate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Predicate, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous, ID3D10Query);
 impl ::core::clone::Clone for ID3D10Predicate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5880,51 +5162,7 @@ impl ID3D10Query {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Query> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Query> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Query> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Query) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Query> for ID3D10DeviceChild {
-    fn from(value: ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Query> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Query> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Query) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Query> for ID3D10Asynchronous {
-    fn from(value: ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Query> for &'a ID3D10Asynchronous {
-    fn from(value: &'a ID3D10Query) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Query> for ID3D10Asynchronous {
-    fn from(value: &ID3D10Query) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Query, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Asynchronous);
 impl ::core::clone::Clone for ID3D10Query {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5980,36 +5218,7 @@ impl ID3D10RasterizerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10RasterizerState> for ::windows::core::IUnknown {
-    fn from(value: ID3D10RasterizerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10RasterizerState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10RasterizerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10RasterizerState> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10RasterizerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10RasterizerState> for ID3D10DeviceChild {
-    fn from(value: ID3D10RasterizerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10RasterizerState> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10RasterizerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10RasterizerState> for ID3D10DeviceChild {
-    fn from(value: &ID3D10RasterizerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10RasterizerState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10RasterizerState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6071,51 +5280,7 @@ impl ID3D10RenderTargetView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10RenderTargetView> for ::windows::core::IUnknown {
-    fn from(value: ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10RenderTargetView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10RenderTargetView> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10RenderTargetView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10RenderTargetView> for ID3D10DeviceChild {
-    fn from(value: ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10RenderTargetView> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10RenderTargetView> for ID3D10DeviceChild {
-    fn from(value: &ID3D10RenderTargetView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10RenderTargetView> for ID3D10View {
-    fn from(value: ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10RenderTargetView> for &'a ID3D10View {
-    fn from(value: &'a ID3D10RenderTargetView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10RenderTargetView> for ID3D10View {
-    fn from(value: &ID3D10RenderTargetView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10RenderTargetView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::clone::Clone for ID3D10RenderTargetView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6178,36 +5343,7 @@ impl ID3D10Resource {
         (::windows::core::Vtable::vtable(self).GetEvictionPriority)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10Resource> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Resource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Resource> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Resource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Resource> for ID3D10DeviceChild {
-    fn from(value: ID3D10Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Resource> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Resource> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Resource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Resource, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10Resource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6263,36 +5399,7 @@ impl ID3D10SamplerState {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10SamplerState> for ::windows::core::IUnknown {
-    fn from(value: ID3D10SamplerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10SamplerState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10SamplerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10SamplerState> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10SamplerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10SamplerState> for ID3D10DeviceChild {
-    fn from(value: ID3D10SamplerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10SamplerState> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10SamplerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10SamplerState> for ID3D10DeviceChild {
-    fn from(value: &ID3D10SamplerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10SamplerState, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10SamplerState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6361,21 +5468,7 @@ impl ID3D10ShaderReflection {
         (::windows::core::Vtable::vtable(self).GetOutputParameterDesc)(::windows::core::Vtable::as_raw(self), parameterindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<D3D10_SIGNATURE_PARAMETER_DESC>(result__)
     }
 }
-impl ::core::convert::From<ID3D10ShaderReflection> for ::windows::core::IUnknown {
-    fn from(value: ID3D10ShaderReflection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderReflection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10ShaderReflection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderReflection> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10ShaderReflection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10ShaderReflection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10ShaderReflection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6510,21 +5603,7 @@ impl ID3D10ShaderReflection1 {
         (::windows::core::Vtable::vtable(self).IsSampleFrequencyShader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ID3D10ShaderReflection1> for ::windows::core::IUnknown {
-    fn from(value: ID3D10ShaderReflection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderReflection1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10ShaderReflection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderReflection1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10ShaderReflection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10ShaderReflection1, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10ShaderReflection1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6792,51 +5871,7 @@ impl ID3D10ShaderResourceView {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10ShaderResourceView> for ::windows::core::IUnknown {
-    fn from(value: ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10ShaderResourceView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10ShaderResourceView> for ID3D10DeviceChild {
-    fn from(value: ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView> for ID3D10DeviceChild {
-    fn from(value: &ID3D10ShaderResourceView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10ShaderResourceView> for ID3D10View {
-    fn from(value: ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView> for &'a ID3D10View {
-    fn from(value: &'a ID3D10ShaderResourceView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView> for ID3D10View {
-    fn from(value: &ID3D10ShaderResourceView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10ShaderResourceView, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View);
 impl ::core::clone::Clone for ID3D10ShaderResourceView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6903,66 +5938,7 @@ impl ID3D10ShaderResourceView1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10ShaderResourceView1> for ::windows::core::IUnknown {
-    fn from(value: ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView1> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10ShaderResourceView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10ShaderResourceView1> for ID3D10DeviceChild {
-    fn from(value: ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView1> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView1> for ID3D10DeviceChild {
-    fn from(value: &ID3D10ShaderResourceView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10ShaderResourceView1> for ID3D10View {
-    fn from(value: ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView1> for &'a ID3D10View {
-    fn from(value: &'a ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView1> for ID3D10View {
-    fn from(value: &ID3D10ShaderResourceView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10ShaderResourceView1> for ID3D10ShaderResourceView {
-    fn from(value: ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10ShaderResourceView1> for &'a ID3D10ShaderResourceView {
-    fn from(value: &'a ID3D10ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10ShaderResourceView1> for ID3D10ShaderResourceView {
-    fn from(value: &ID3D10ShaderResourceView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10ShaderResourceView1, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10View, ID3D10ShaderResourceView);
 impl ::core::clone::Clone for ID3D10ShaderResourceView1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7014,21 +5990,7 @@ impl ID3D10StateBlock {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ID3D10Device>(result__)
     }
 }
-impl ::core::convert::From<ID3D10StateBlock> for ::windows::core::IUnknown {
-    fn from(value: ID3D10StateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10StateBlock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10StateBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10StateBlock> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10StateBlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10StateBlock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10StateBlock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7080,21 +6042,7 @@ impl ID3D10SwitchToRef {
         (::windows::core::Vtable::vtable(self).GetUseRef)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3D10SwitchToRef> for ::windows::core::IUnknown {
-    fn from(value: ID3D10SwitchToRef) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10SwitchToRef> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10SwitchToRef) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10SwitchToRef> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10SwitchToRef) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10SwitchToRef, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3D10SwitchToRef {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7172,51 +6120,7 @@ impl ID3D10Texture1D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Texture1D> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture1D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture1D> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Texture1D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture1D> for ID3D10DeviceChild {
-    fn from(value: ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture1D> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture1D> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Texture1D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture1D> for ID3D10Resource {
-    fn from(value: ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture1D> for &'a ID3D10Resource {
-    fn from(value: &'a ID3D10Texture1D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture1D> for ID3D10Resource {
-    fn from(value: &ID3D10Texture1D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Texture1D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::clone::Clone for ID3D10Texture1D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7293,51 +6197,7 @@ impl ID3D10Texture2D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Texture2D> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture2D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture2D> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Texture2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture2D> for ID3D10DeviceChild {
-    fn from(value: ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture2D> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture2D> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Texture2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture2D> for ID3D10Resource {
-    fn from(value: ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture2D> for &'a ID3D10Resource {
-    fn from(value: &'a ID3D10Texture2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture2D> for ID3D10Resource {
-    fn from(value: &ID3D10Texture2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Texture2D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::clone::Clone for ID3D10Texture2D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7414,51 +6274,7 @@ impl ID3D10Texture3D {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc))
     }
 }
-impl ::core::convert::From<ID3D10Texture3D> for ::windows::core::IUnknown {
-    fn from(value: ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture3D> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10Texture3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture3D> for ID3D10DeviceChild {
-    fn from(value: ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture3D> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture3D> for ID3D10DeviceChild {
-    fn from(value: &ID3D10Texture3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10Texture3D> for ID3D10Resource {
-    fn from(value: ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10Texture3D> for &'a ID3D10Resource {
-    fn from(value: &'a ID3D10Texture3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10Texture3D> for ID3D10Resource {
-    fn from(value: &ID3D10Texture3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10Texture3D, ::windows::core::IUnknown, ID3D10DeviceChild, ID3D10Resource);
 impl ::core::clone::Clone for ID3D10Texture3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7514,36 +6330,7 @@ impl ID3D10VertexShader {
         (::windows::core::Vtable::vtable(self).base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guid), pdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D10VertexShader> for ::windows::core::IUnknown {
-    fn from(value: ID3D10VertexShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10VertexShader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10VertexShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10VertexShader> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10VertexShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10VertexShader> for ID3D10DeviceChild {
-    fn from(value: ID3D10VertexShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10VertexShader> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10VertexShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10VertexShader> for ID3D10DeviceChild {
-    fn from(value: &ID3D10VertexShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10VertexShader, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10VertexShader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7596,36 +6383,7 @@ impl ID3D10View {
         (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresource))
     }
 }
-impl ::core::convert::From<ID3D10View> for ::windows::core::IUnknown {
-    fn from(value: ID3D10View) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10View> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3D10View) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10View> for ::windows::core::IUnknown {
-    fn from(value: &ID3D10View) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ID3D10View> for ID3D10DeviceChild {
-    fn from(value: ID3D10View) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3D10View> for &'a ID3D10DeviceChild {
-    fn from(value: &'a ID3D10View) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D10View> for ID3D10DeviceChild {
-    fn from(value: &ID3D10View) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3D10View, ::windows::core::IUnknown, ID3D10DeviceChild);
 impl ::core::clone::Clone for ID3D10View {
     fn clone(&self) -> Self {
         Self(self.0.clone())

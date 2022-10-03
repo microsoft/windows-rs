@@ -207,36 +207,7 @@ unsafe impl ::windows::core::Interface for MdmAlert {
 impl ::windows::core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
 }
-impl ::core::convert::From<MdmAlert> for ::windows::core::IUnknown {
-    fn from(value: MdmAlert) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MdmAlert> for ::windows::core::IUnknown {
-    fn from(value: &MdmAlert) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MdmAlert> for &::windows::core::IUnknown {
-    fn from(value: &MdmAlert) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MdmAlert> for ::windows::core::IInspectable {
-    fn from(value: MdmAlert) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MdmAlert> for ::windows::core::IInspectable {
-    fn from(value: &MdmAlert) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MdmAlert> for &::windows::core::IInspectable {
-    fn from(value: &MdmAlert) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MdmAlert, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
@@ -339,36 +310,7 @@ unsafe impl ::windows::core::Interface for MdmSession {
 impl ::windows::core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
 }
-impl ::core::convert::From<MdmSession> for ::windows::core::IUnknown {
-    fn from(value: MdmSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MdmSession> for ::windows::core::IUnknown {
-    fn from(value: &MdmSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MdmSession> for &::windows::core::IUnknown {
-    fn from(value: &MdmSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MdmSession> for ::windows::core::IInspectable {
-    fn from(value: MdmSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MdmSession> for ::windows::core::IInspectable {
-    fn from(value: &MdmSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MdmSession> for &::windows::core::IInspectable {
-    fn from(value: &MdmSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MdmSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Management\"`*"]
 pub struct MdmSessionManager;
 impl MdmSessionManager {

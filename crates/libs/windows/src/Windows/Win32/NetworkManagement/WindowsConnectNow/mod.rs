@@ -9,21 +9,7 @@ impl IWCNConnectNotify {
         (::windows::core::Vtable::vtable(self).ConnectFailed)(::windows::core::Vtable::as_raw(self), hrfailure).ok()
     }
 }
-impl ::core::convert::From<IWCNConnectNotify> for ::windows::core::IUnknown {
-    fn from(value: IWCNConnectNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWCNConnectNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWCNConnectNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWCNConnectNotify> for ::windows::core::IUnknown {
-    fn from(value: &IWCNConnectNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWCNConnectNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWCNConnectNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -109,21 +95,7 @@ impl IWCNDevice {
         .ok()
     }
 }
-impl ::core::convert::From<IWCNDevice> for ::windows::core::IUnknown {
-    fn from(value: IWCNDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWCNDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWCNDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWCNDevice> for ::windows::core::IUnknown {
-    fn from(value: &IWCNDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWCNDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWCNDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())

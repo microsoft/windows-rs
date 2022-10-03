@@ -248,36 +248,7 @@ unsafe impl ::windows::core::Interface for Enterprise {
 impl ::windows::core::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
 }
-impl ::core::convert::From<Enterprise> for ::windows::core::IUnknown {
-    fn from(value: Enterprise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Enterprise> for ::windows::core::IUnknown {
-    fn from(value: &Enterprise) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Enterprise> for &::windows::core::IUnknown {
-    fn from(value: &Enterprise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Enterprise> for ::windows::core::IInspectable {
-    fn from(value: Enterprise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Enterprise> for ::windows::core::IInspectable {
-    fn from(value: &Enterprise) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Enterprise> for &::windows::core::IInspectable {
-    fn from(value: &Enterprise) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Enterprise, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Enterprise {}
 unsafe impl ::core::marker::Sync for Enterprise {}
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
@@ -381,36 +352,7 @@ unsafe impl ::windows::core::Interface for EnterpriseEnrollmentResult {
 impl ::windows::core::RuntimeName for EnterpriseEnrollmentResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult";
 }
-impl ::core::convert::From<EnterpriseEnrollmentResult> for ::windows::core::IUnknown {
-    fn from(value: EnterpriseEnrollmentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseEnrollmentResult> for ::windows::core::IUnknown {
-    fn from(value: &EnterpriseEnrollmentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseEnrollmentResult> for &::windows::core::IUnknown {
-    fn from(value: &EnterpriseEnrollmentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnterpriseEnrollmentResult> for ::windows::core::IInspectable {
-    fn from(value: EnterpriseEnrollmentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnterpriseEnrollmentResult> for ::windows::core::IInspectable {
-    fn from(value: &EnterpriseEnrollmentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnterpriseEnrollmentResult> for &::windows::core::IInspectable {
-    fn from(value: &EnterpriseEnrollmentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EnterpriseEnrollmentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 pub struct InstallationManager;
 impl InstallationManager {
@@ -556,36 +498,7 @@ unsafe impl ::windows::core::Interface for PackageInstallResult {
 impl ::windows::core::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";
 }
-impl ::core::convert::From<PackageInstallResult> for ::windows::core::IUnknown {
-    fn from(value: PackageInstallResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageInstallResult> for ::windows::core::IUnknown {
-    fn from(value: &PackageInstallResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageInstallResult> for &::windows::core::IUnknown {
-    fn from(value: &PackageInstallResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageInstallResult> for ::windows::core::IInspectable {
-    fn from(value: PackageInstallResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageInstallResult> for ::windows::core::IInspectable {
-    fn from(value: &PackageInstallResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageInstallResult> for &::windows::core::IInspectable {
-    fn from(value: &PackageInstallResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageInstallResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

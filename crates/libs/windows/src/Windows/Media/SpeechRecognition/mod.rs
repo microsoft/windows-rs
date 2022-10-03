@@ -147,36 +147,7 @@ impl ISpeechRecognitionConstraint {
         unsafe { (::windows::core::Vtable::vtable(this).SetProbability)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecognitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpeechRecognitionConstraint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecognitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecognitionConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: ISpeechRecognitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpeechRecognitionConstraint> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISpeechRecognitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: &ISpeechRecognitionConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecognitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISpeechRecognitionConstraint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -760,36 +731,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionCompletedE
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs";
 }
-impl ::core::convert::From<SpeechContinuousRecognitionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechContinuousRecognitionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -836,36 +778,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionResultGene
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs";
 }
-impl ::core::convert::From<SpeechContinuousRecognitionResultGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechContinuousRecognitionResultGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -999,36 +912,7 @@ unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionSession {
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionSession {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession";
 }
-impl ::core::convert::From<SpeechContinuousRecognitionSession> for ::windows::core::IUnknown {
-    fn from(value: SpeechContinuousRecognitionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionSession> for ::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionSession> for &::windows::core::IUnknown {
-    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechContinuousRecognitionSession> for ::windows::core::IInspectable {
-    fn from(value: SpeechContinuousRecognitionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionSession> for ::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechContinuousRecognitionSession> for &::windows::core::IInspectable {
-    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechContinuousRecognitionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1075,36 +959,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionCompilationResult {
 impl ::windows::core::RuntimeName for SpeechRecognitionCompilationResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult";
 }
-impl ::core::convert::From<SpeechRecognitionCompilationResult> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionCompilationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionCompilationResult> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionCompilationResult> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionCompilationResult> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionCompilationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionCompilationResult> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionCompilationResult> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionCompilationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1214,36 +1069,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionGrammarFileConstrain
 impl ::windows::core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint";
 }
-impl ::core::convert::From<SpeechRecognitionGrammarFileConstraint> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionGrammarFileConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionGrammarFileConstraint> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionGrammarFileConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionGrammarFileConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionGrammarFileConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionGrammarFileConstraint) -> ::windows::core::Result<Self> {
@@ -1309,36 +1135,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesis {
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesis {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis";
 }
-impl ::core::convert::From<SpeechRecognitionHypothesis> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionHypothesis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesis> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionHypothesis) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesis> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionHypothesis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionHypothesis> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionHypothesis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesis> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionHypothesis) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesis> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionHypothesis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionHypothesis, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesis {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesis {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1385,36 +1182,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesisGeneratedE
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs";
 }
-impl ::core::convert::From<SpeechRecognitionHypothesisGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionHypothesisGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1532,36 +1300,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionListConstraint {
 impl ::windows::core::RuntimeName for SpeechRecognitionListConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint";
 }
-impl ::core::convert::From<SpeechRecognitionListConstraint> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionListConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionListConstraint> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionListConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionListConstraint> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionListConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionListConstraint> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionListConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionListConstraint> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionListConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionListConstraint> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionListConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionListConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionListConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionListConstraint) -> ::windows::core::Result<Self> {
@@ -1627,36 +1366,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionQualityDegradingEven
 impl ::windows::core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs";
 }
-impl ::core::convert::From<SpeechRecognitionQualityDegradingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionQualityDegradingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionQualityDegradingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionQualityDegradingEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1774,36 +1484,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionResult {
 impl ::windows::core::RuntimeName for SpeechRecognitionResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionResult";
 }
-impl ::core::convert::From<SpeechRecognitionResult> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionResult> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionResult> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionResult> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionResult> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionResult> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1852,36 +1533,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionSemanticInterpretati
 impl ::windows::core::RuntimeName for SpeechRecognitionSemanticInterpretation {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation";
 }
-impl ::core::convert::From<SpeechRecognitionSemanticInterpretation> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionSemanticInterpretation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionSemanticInterpretation> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionSemanticInterpretation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionSemanticInterpretation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognitionSemanticInterpretation {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionSemanticInterpretation {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -1992,36 +1644,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionTopicConstraint {
 impl ::windows::core::RuntimeName for SpeechRecognitionTopicConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint";
 }
-impl ::core::convert::From<SpeechRecognitionTopicConstraint> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionTopicConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionTopicConstraint> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionTopicConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionTopicConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionTopicConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionTopicConstraint) -> ::windows::core::Result<Self> {
@@ -2120,36 +1743,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognitionVoiceCommandDefiniti
 impl ::windows::core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint";
 }
-impl ::core::convert::From<SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SpeechRecognitionVoiceCommandDefinitionConstraint> for ISpeechRecognitionConstraint {
     type Error = ::windows::core::Error;
     fn try_from(value: SpeechRecognitionVoiceCommandDefinitionConstraint) -> ::windows::core::Result<Self> {
@@ -2403,36 +1997,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizer {
 impl ::windows::core::RuntimeName for SpeechRecognizer {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizer";
 }
-impl ::core::convert::From<SpeechRecognizer> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizer> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizer> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognizer> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizer> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizer> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechRecognizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2501,36 +2066,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerStateChangedEventArgs
 impl ::windows::core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs";
 }
-impl ::core::convert::From<SpeechRecognizerStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognizerStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognizerStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognizerStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognizerStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2615,36 +2151,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerTimeouts {
 impl ::windows::core::RuntimeName for SpeechRecognizerTimeouts {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts";
 }
-impl ::core::convert::From<SpeechRecognizerTimeouts> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognizerTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerTimeouts> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerTimeouts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerTimeouts> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognizerTimeouts> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognizerTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerTimeouts> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerTimeouts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerTimeouts> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerTimeouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognizerTimeouts, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerTimeouts {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerTimeouts {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2728,36 +2235,7 @@ unsafe impl ::windows::core::Interface for SpeechRecognizerUIOptions {
 impl ::windows::core::RuntimeName for SpeechRecognizerUIOptions {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions";
 }
-impl ::core::convert::From<SpeechRecognizerUIOptions> for ::windows::core::IUnknown {
-    fn from(value: SpeechRecognizerUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerUIOptions> for ::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerUIOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerUIOptions> for &::windows::core::IUnknown {
-    fn from(value: &SpeechRecognizerUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechRecognizerUIOptions> for ::windows::core::IInspectable {
-    fn from(value: SpeechRecognizerUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerUIOptions> for ::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerUIOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechRecognizerUIOptions> for &::windows::core::IInspectable {
-    fn from(value: &SpeechRecognizerUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechRecognizerUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerUIOptions {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
@@ -2852,36 +2330,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandSet {
 impl ::windows::core::RuntimeName for VoiceCommandSet {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";
 }
-impl ::core::convert::From<VoiceCommandSet> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandSet> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandSet> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandSet> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandSet> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandSet> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandSet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandSet {}
 unsafe impl ::core::marker::Sync for VoiceCommandSet {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]

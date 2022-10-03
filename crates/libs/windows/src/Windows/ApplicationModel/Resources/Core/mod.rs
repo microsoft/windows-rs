@@ -392,36 +392,7 @@ unsafe impl ::windows::core::Interface for NamedResource {
 impl ::windows::core::RuntimeName for NamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.NamedResource";
 }
-impl ::core::convert::From<NamedResource> for ::windows::core::IUnknown {
-    fn from(value: NamedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NamedResource> for ::windows::core::IUnknown {
-    fn from(value: &NamedResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NamedResource> for &::windows::core::IUnknown {
-    fn from(value: &NamedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NamedResource> for ::windows::core::IInspectable {
-    fn from(value: NamedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NamedResource> for ::windows::core::IInspectable {
-    fn from(value: &NamedResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NamedResource> for &::windows::core::IInspectable {
-    fn from(value: &NamedResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NamedResource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NamedResource {}
 unsafe impl ::core::marker::Sync for NamedResource {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
@@ -530,36 +501,7 @@ unsafe impl ::windows::core::Interface for ResourceCandidate {
 impl ::windows::core::RuntimeName for ResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidate";
 }
-impl ::core::convert::From<ResourceCandidate> for ::windows::core::IUnknown {
-    fn from(value: ResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceCandidate> for ::windows::core::IUnknown {
-    fn from(value: &ResourceCandidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceCandidate> for &::windows::core::IUnknown {
-    fn from(value: &ResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceCandidate> for ::windows::core::IInspectable {
-    fn from(value: ResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceCandidate> for ::windows::core::IInspectable {
-    fn from(value: &ResourceCandidate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceCandidate> for &::windows::core::IInspectable {
-    fn from(value: &ResourceCandidate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceCandidate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceCandidate {}
 unsafe impl ::core::marker::Sync for ResourceCandidate {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"Foundation_Collections\"`*"]
@@ -671,41 +613,7 @@ impl ::core::iter::IntoIterator for &ResourceCandidateVectorView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceCandidateVectorView> for ::windows::core::IUnknown {
-    fn from(value: ResourceCandidateVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceCandidateVectorView> for ::windows::core::IUnknown {
-    fn from(value: &ResourceCandidateVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceCandidateVectorView> for &::windows::core::IUnknown {
-    fn from(value: &ResourceCandidateVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceCandidateVectorView> for ::windows::core::IInspectable {
-    fn from(value: ResourceCandidateVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceCandidateVectorView> for ::windows::core::IInspectable {
-    fn from(value: &ResourceCandidateVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceCandidateVectorView> for &::windows::core::IInspectable {
-    fn from(value: &ResourceCandidateVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceCandidateVectorView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceCandidateVectorView> for super::super::super::Foundation::Collections::IIterable<ResourceCandidate> {
     type Error = ::windows::core::Error;
@@ -927,36 +835,7 @@ unsafe impl ::windows::core::Interface for ResourceContext {
 impl ::windows::core::RuntimeName for ResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContext";
 }
-impl ::core::convert::From<ResourceContext> for ::windows::core::IUnknown {
-    fn from(value: ResourceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceContext> for ::windows::core::IUnknown {
-    fn from(value: &ResourceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceContext> for &::windows::core::IUnknown {
-    fn from(value: &ResourceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceContext> for ::windows::core::IInspectable {
-    fn from(value: ResourceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceContext> for ::windows::core::IInspectable {
-    fn from(value: &ResourceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceContext> for &::windows::core::IInspectable {
-    fn from(value: &ResourceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceContext {}
 unsafe impl ::core::marker::Sync for ResourceContext {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"Foundation_Collections\"`*"]
@@ -1068,41 +947,7 @@ impl ::core::iter::IntoIterator for &ResourceContextLanguagesVectorView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceContextLanguagesVectorView> for ::windows::core::IUnknown {
-    fn from(value: ResourceContextLanguagesVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceContextLanguagesVectorView> for ::windows::core::IUnknown {
-    fn from(value: &ResourceContextLanguagesVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceContextLanguagesVectorView> for &::windows::core::IUnknown {
-    fn from(value: &ResourceContextLanguagesVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceContextLanguagesVectorView> for ::windows::core::IInspectable {
-    fn from(value: ResourceContextLanguagesVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceContextLanguagesVectorView> for ::windows::core::IInspectable {
-    fn from(value: &ResourceContextLanguagesVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceContextLanguagesVectorView> for &::windows::core::IInspectable {
-    fn from(value: &ResourceContextLanguagesVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceContextLanguagesVectorView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceContextLanguagesVectorView> for super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -1266,36 +1111,7 @@ unsafe impl ::windows::core::Interface for ResourceManager {
 impl ::windows::core::RuntimeName for ResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceManager";
 }
-impl ::core::convert::From<ResourceManager> for ::windows::core::IUnknown {
-    fn from(value: ResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceManager> for ::windows::core::IUnknown {
-    fn from(value: &ResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceManager> for &::windows::core::IUnknown {
-    fn from(value: &ResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceManager> for ::windows::core::IInspectable {
-    fn from(value: ResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceManager> for ::windows::core::IInspectable {
-    fn from(value: &ResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceManager> for &::windows::core::IInspectable {
-    fn from(value: &ResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceManager {}
 unsafe impl ::core::marker::Sync for ResourceManager {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
@@ -1423,36 +1239,7 @@ impl ::core::iter::IntoIterator for &ResourceMap {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<ResourceMap> for ::windows::core::IUnknown {
-    fn from(value: ResourceMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceMap> for ::windows::core::IUnknown {
-    fn from(value: &ResourceMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceMap> for &::windows::core::IUnknown {
-    fn from(value: &ResourceMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceMap> for ::windows::core::IInspectable {
-    fn from(value: ResourceMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceMap> for ::windows::core::IInspectable {
-    fn from(value: &ResourceMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceMap> for &::windows::core::IInspectable {
-    fn from(value: &ResourceMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceMap> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> {
     type Error = ::windows::core::Error;
@@ -1583,41 +1370,7 @@ impl ::windows::core::RuntimeName for ResourceMapIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapIterator> for ::windows::core::IUnknown {
-    fn from(value: ResourceMapIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapIterator> for ::windows::core::IUnknown {
-    fn from(value: &ResourceMapIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapIterator> for &::windows::core::IUnknown {
-    fn from(value: &ResourceMapIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapIterator> for ::windows::core::IInspectable {
-    fn from(value: ResourceMapIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapIterator> for ::windows::core::IInspectable {
-    fn from(value: &ResourceMapIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapIterator> for &::windows::core::IInspectable {
-    fn from(value: &ResourceMapIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceMapIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceMapIterator> for super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> {
     type Error = ::windows::core::Error;
@@ -1750,41 +1503,7 @@ impl ::core::iter::IntoIterator for &ResourceMapMapView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapMapView> for ::windows::core::IUnknown {
-    fn from(value: ResourceMapMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapView> for ::windows::core::IUnknown {
-    fn from(value: &ResourceMapMapView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapView> for &::windows::core::IUnknown {
-    fn from(value: &ResourceMapMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapMapView> for ::windows::core::IInspectable {
-    fn from(value: ResourceMapMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapView> for ::windows::core::IInspectable {
-    fn from(value: &ResourceMapMapView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapView> for &::windows::core::IInspectable {
-    fn from(value: &ResourceMapMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceMapMapView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceMapMapView> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>> {
     type Error = ::windows::core::Error;
@@ -1917,41 +1636,7 @@ impl ::windows::core::RuntimeName for ResourceMapMapViewIterator {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapMapViewIterator> for ::windows::core::IUnknown {
-    fn from(value: ResourceMapMapViewIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapViewIterator> for ::windows::core::IUnknown {
-    fn from(value: &ResourceMapMapViewIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapViewIterator> for &::windows::core::IUnknown {
-    fn from(value: &ResourceMapMapViewIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceMapMapViewIterator> for ::windows::core::IInspectable {
-    fn from(value: ResourceMapMapViewIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapViewIterator> for ::windows::core::IInspectable {
-    fn from(value: &ResourceMapMapViewIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceMapMapViewIterator> for &::windows::core::IInspectable {
-    fn from(value: &ResourceMapMapViewIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceMapMapViewIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceMapMapViewIterator> for super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>> {
     type Error = ::windows::core::Error;
@@ -2050,36 +1735,7 @@ unsafe impl ::windows::core::Interface for ResourceQualifier {
 impl ::windows::core::RuntimeName for ResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifier";
 }
-impl ::core::convert::From<ResourceQualifier> for ::windows::core::IUnknown {
-    fn from(value: ResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceQualifier> for ::windows::core::IUnknown {
-    fn from(value: &ResourceQualifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceQualifier> for &::windows::core::IUnknown {
-    fn from(value: &ResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ResourceQualifier> for ::windows::core::IInspectable {
-    fn from(value: ResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ResourceQualifier> for ::windows::core::IInspectable {
-    fn from(value: &ResourceQualifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ResourceQualifier> for &::windows::core::IInspectable {
-    fn from(value: &ResourceQualifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceQualifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceQualifier {}
 unsafe impl ::core::marker::Sync for ResourceQualifier {}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"Foundation_Collections\"`*"]
@@ -2188,41 +1844,7 @@ impl ::core::iter::IntoIterator for &ResourceQualifierMapView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierMapView> for ::windows::core::IUnknown {
-    fn from(value: ResourceQualifierMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierMapView> for ::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierMapView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierMapView> for &::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierMapView> for ::windows::core::IInspectable {
-    fn from(value: ResourceQualifierMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierMapView> for ::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierMapView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierMapView> for &::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierMapView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceQualifierMapView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceQualifierMapView> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -2416,41 +2038,7 @@ impl ::core::iter::IntoIterator for &ResourceQualifierObservableMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierObservableMap> for ::windows::core::IUnknown {
-    fn from(value: ResourceQualifierObservableMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierObservableMap> for ::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierObservableMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierObservableMap> for &::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierObservableMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierObservableMap> for ::windows::core::IInspectable {
-    fn from(value: ResourceQualifierObservableMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierObservableMap> for ::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierObservableMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierObservableMap> for &::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierObservableMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceQualifierObservableMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceQualifierObservableMap> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -2630,41 +2218,7 @@ impl ::core::iter::IntoIterator for &ResourceQualifierVectorView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierVectorView> for ::windows::core::IUnknown {
-    fn from(value: ResourceQualifierVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierVectorView> for ::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierVectorView> for &::windows::core::IUnknown {
-    fn from(value: &ResourceQualifierVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ResourceQualifierVectorView> for ::windows::core::IInspectable {
-    fn from(value: ResourceQualifierVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierVectorView> for ::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierVectorView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ResourceQualifierVectorView> for &::windows::core::IInspectable {
-    fn from(value: &ResourceQualifierVectorView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ResourceQualifierVectorView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ResourceQualifierVectorView> for super::super::super::Foundation::Collections::IIterable<ResourceQualifier> {
     type Error = ::windows::core::Error;

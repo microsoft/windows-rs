@@ -117,21 +117,7 @@ impl IKsAggregateControl {
         (::windows::core::Vtable::vtable(self).KsRemoveAggregate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(aggregateclass)).ok()
     }
 }
-impl ::core::convert::From<IKsAggregateControl> for ::windows::core::IUnknown {
-    fn from(value: IKsAggregateControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsAggregateControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsAggregateControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsAggregateControl> for ::windows::core::IUnknown {
-    fn from(value: &IKsAggregateControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsAggregateControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsAggregateControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -175,21 +161,7 @@ impl IKsControl {
         (::windows::core::Vtable::vtable(self).KsEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(event), eventlength, ::core::mem::transmute(eventdata), datalength, ::core::mem::transmute(bytesreturned)).ok()
     }
 }
-impl ::core::convert::From<IKsControl> for ::windows::core::IUnknown {
-    fn from(value: IKsControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsControl> for ::windows::core::IUnknown {
-    fn from(value: &IKsControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -234,21 +206,7 @@ impl IKsFormatSupport {
         (::windows::core::Vtable::vtable(self).GetDevicePreferredFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut KSDATAFORMAT>(result__)
     }
 }
-impl ::core::convert::From<IKsFormatSupport> for ::windows::core::IUnknown {
-    fn from(value: IKsFormatSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsFormatSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsFormatSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsFormatSupport> for ::windows::core::IUnknown {
-    fn from(value: &IKsFormatSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsFormatSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsFormatSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -290,21 +248,7 @@ impl IKsJackContainerId {
         (::windows::core::Vtable::vtable(self).GetJackContainerId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IKsJackContainerId> for ::windows::core::IUnknown {
-    fn from(value: IKsJackContainerId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsJackContainerId> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsJackContainerId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsJackContainerId> for ::windows::core::IUnknown {
-    fn from(value: &IKsJackContainerId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsJackContainerId, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsJackContainerId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -348,21 +292,7 @@ impl IKsJackDescription {
         (::windows::core::Vtable::vtable(self).GetJackDescription)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION>(result__)
     }
 }
-impl ::core::convert::From<IKsJackDescription> for ::windows::core::IUnknown {
-    fn from(value: IKsJackDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsJackDescription> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsJackDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsJackDescription> for ::windows::core::IUnknown {
-    fn from(value: &IKsJackDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsJackDescription, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsJackDescription {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -408,21 +338,7 @@ impl IKsJackDescription2 {
         (::windows::core::Vtable::vtable(self).GetJackDescription2)(::windows::core::Vtable::as_raw(self), njack, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_DESCRIPTION2>(result__)
     }
 }
-impl ::core::convert::From<IKsJackDescription2> for ::windows::core::IUnknown {
-    fn from(value: IKsJackDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsJackDescription2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsJackDescription2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsJackDescription2> for ::windows::core::IUnknown {
-    fn from(value: &IKsJackDescription2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsJackDescription2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsJackDescription2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -463,21 +379,7 @@ impl IKsJackSinkInformation {
         (::windows::core::Vtable::vtable(self).GetJackSinkInformation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<KSJACK_SINK_INFORMATION>(result__)
     }
 }
-impl ::core::convert::From<IKsJackSinkInformation> for ::windows::core::IUnknown {
-    fn from(value: IKsJackSinkInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsJackSinkInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsJackSinkInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsJackSinkInformation> for ::windows::core::IUnknown {
-    fn from(value: &IKsJackSinkInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsJackSinkInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsJackSinkInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -524,21 +426,7 @@ impl IKsPropertySet {
         (::windows::core::Vtable::vtable(self).QuerySupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propset), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IKsPropertySet> for ::windows::core::IUnknown {
-    fn from(value: IKsPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsPropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &IKsPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsPropertySet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -580,21 +468,7 @@ impl IKsTopology {
         (::windows::core::Vtable::vtable(self).CreateNodeInstance)(::windows::core::Vtable::as_raw(self), nodeid, flags, desiredaccess, unkouter.into().abi(), ::core::mem::transmute(interfaceid), ::core::mem::transmute(interface)).ok()
     }
 }
-impl ::core::convert::From<IKsTopology> for ::windows::core::IUnknown {
-    fn from(value: IKsTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKsTopology> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKsTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKsTopology> for ::windows::core::IUnknown {
-    fn from(value: &IKsTopology) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKsTopology, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKsTopology {
     fn clone(&self) -> Self {
         Self(self.0.clone())

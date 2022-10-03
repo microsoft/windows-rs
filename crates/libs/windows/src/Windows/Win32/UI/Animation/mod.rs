@@ -28,21 +28,7 @@ impl IUIAnimationInterpolator {
         (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(initialvaluedependencies), ::core::mem::transmute(initialvelocitydependencies), ::core::mem::transmute(durationdependencies)).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationInterpolator> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationInterpolator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationInterpolator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationInterpolator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationInterpolator> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationInterpolator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationInterpolator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationInterpolator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -114,21 +100,7 @@ impl IUIAnimationInterpolator2 {
         (::windows::core::Vtable::vtable(self).GetDependencies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(initialvaluedependencies), ::core::mem::transmute(initialvelocitydependencies), ::core::mem::transmute(durationdependencies)).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationInterpolator2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationInterpolator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationInterpolator2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationInterpolator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationInterpolator2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationInterpolator2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationInterpolator2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationInterpolator2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -176,21 +148,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnLoopIterationChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), id, newiterationcount, olditerationcount).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationLoopIterationChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationLoopIterationChangeHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationLoopIterationChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationLoopIterationChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationLoopIterationChangeHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationLoopIterationChangeHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationLoopIterationChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -312,21 +270,7 @@ impl IUIAnimationManager {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationManager> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationManager> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -477,21 +421,7 @@ impl IUIAnimationManager2 {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationManager2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationManager2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationManager2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -551,21 +481,7 @@ impl IUIAnimationManagerEventHandler {
         (::windows::core::Vtable::vtable(self).OnManagerStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationManagerEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationManagerEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationManagerEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationManagerEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationManagerEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationManagerEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationManagerEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationManagerEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -602,21 +518,7 @@ impl IUIAnimationManagerEventHandler2 {
         (::windows::core::Vtable::vtable(self).OnManagerStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationManagerEventHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationManagerEventHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationManagerEventHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationManagerEventHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationManagerEventHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationManagerEventHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationManagerEventHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationManagerEventHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -656,21 +558,7 @@ impl IUIAnimationPrimitiveInterpolation {
         (::windows::core::Vtable::vtable(self).AddSinusoidal)(::windows::core::Vtable::as_raw(self), dimension, beginoffset, bias, amplitude, frequency, phase).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationPrimitiveInterpolation> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationPrimitiveInterpolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationPrimitiveInterpolation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationPrimitiveInterpolation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationPrimitiveInterpolation> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationPrimitiveInterpolation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationPrimitiveInterpolation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationPrimitiveInterpolation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -712,21 +600,7 @@ impl IUIAnimationPriorityComparison {
         (::windows::core::Vtable::vtable(self).HasPriority)(::windows::core::Vtable::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationPriorityComparison> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationPriorityComparison) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationPriorityComparison> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationPriorityComparison) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationPriorityComparison> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationPriorityComparison) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationPriorityComparison, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationPriorityComparison {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -767,21 +641,7 @@ impl IUIAnimationPriorityComparison2 {
         (::windows::core::Vtable::vtable(self).HasPriority)(::windows::core::Vtable::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationPriorityComparison2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationPriorityComparison2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationPriorityComparison2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationPriorityComparison2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationPriorityComparison2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationPriorityComparison2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationPriorityComparison2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationPriorityComparison2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -905,21 +765,7 @@ impl IUIAnimationStoryboard {
         (::windows::core::Vtable::vtable(self).SetStoryboardEventHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationStoryboard> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationStoryboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationStoryboard> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationStoryboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationStoryboard> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationStoryboard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationStoryboard, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationStoryboard {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1070,21 +916,7 @@ impl IUIAnimationStoryboard2 {
         (::windows::core::Vtable::vtable(self).SetStoryboardEventHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi(), fregisterstatuschangefornextanimationevent.into(), fregisterupdatefornextanimationevent.into()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationStoryboard2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationStoryboard2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationStoryboard2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationStoryboard2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationStoryboard2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationStoryboard2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationStoryboard2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationStoryboard2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1153,21 +985,7 @@ impl IUIAnimationStoryboardEventHandler {
         (::windows::core::Vtable::vtable(self).OnStoryboardUpdated)(::windows::core::Vtable::as_raw(self), storyboard.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationStoryboardEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationStoryboardEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationStoryboardEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationStoryboardEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationStoryboardEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationStoryboardEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationStoryboardEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1214,21 +1032,7 @@ impl IUIAnimationStoryboardEventHandler2 {
         (::windows::core::Vtable::vtable(self).OnStoryboardUpdated)(::windows::core::Vtable::as_raw(self), storyboard.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationStoryboardEventHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationStoryboardEventHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationStoryboardEventHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationStoryboardEventHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationStoryboardEventHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationStoryboardEventHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationStoryboardEventHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1291,21 +1095,7 @@ impl IUIAnimationTimer {
         (::windows::core::Vtable::vtable(self).SetFrameRateThreshold)(::windows::core::Vtable::as_raw(self), framespersecond).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationTimer> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTimer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTimer> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTimer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTimer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1348,21 +1138,7 @@ impl IUIAnimationTimerClientEventHandler {
         (::windows::core::Vtable::vtable(self).OnTimerClientStatusChanged)(::windows::core::Vtable::as_raw(self), newstatus, previousstatus).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTimerClientEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTimerClientEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTimerClientEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTimerClientEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTimerClientEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTimerClientEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTimerClientEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1405,21 +1181,7 @@ impl IUIAnimationTimerEventHandler {
         (::windows::core::Vtable::vtable(self).OnRenderingTooSlow)(::windows::core::Vtable::as_raw(self), framespersecond).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationTimerEventHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTimerEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTimerEventHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTimerEventHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTimerEventHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTimerEventHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTimerEventHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTimerEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1468,21 +1230,7 @@ impl IUIAnimationTimerUpdateHandler {
         (::windows::core::Vtable::vtable(self).ClearTimerClientEventHandler)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationTimerUpdateHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTimerUpdateHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTimerUpdateHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTimerUpdateHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTimerUpdateHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTimerUpdateHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTimerUpdateHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTimerUpdateHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1531,21 +1279,7 @@ impl IUIAnimationTransition {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransition> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransition> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransition, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1605,21 +1339,7 @@ impl IUIAnimationTransition2 {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransition2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransition2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransition2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransition2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransition2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransition2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransition2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransition2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1666,21 +1386,7 @@ impl IUIAnimationTransitionFactory {
         (::windows::core::Vtable::vtable(self).CreateTransition)(::windows::core::Vtable::as_raw(self), interpolator.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransitionFactory> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransitionFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransitionFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransitionFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransitionFactory> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransitionFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransitionFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransitionFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1721,21 +1427,7 @@ impl IUIAnimationTransitionFactory2 {
         (::windows::core::Vtable::vtable(self).CreateTransition)(::windows::core::Vtable::as_raw(self), interpolator.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransitionFactory2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransitionFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransitionFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransitionFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransitionFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransitionFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransitionFactory2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransitionFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1817,21 +1509,7 @@ impl IUIAnimationTransitionLibrary {
         (::windows::core::Vtable::vtable(self).CreateParabolicTransitionFromAcceleration)(::windows::core::Vtable::as_raw(self), finalvalue, finalvelocity, acceleration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransitionLibrary> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransitionLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransitionLibrary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransitionLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransitionLibrary> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransitionLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransitionLibrary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransitionLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1952,21 +1630,7 @@ impl IUIAnimationTransitionLibrary2 {
         (::windows::core::Vtable::vtable(self).CreateCubicBezierLinearVectorTransition)(::windows::core::Vtable::as_raw(self), duration, ::core::mem::transmute(finalvalue.as_ptr()), finalvalue.len() as _, x1, y1, x2, y2, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
 }
-impl ::core::convert::From<IUIAnimationTransitionLibrary2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationTransitionLibrary2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationTransitionLibrary2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationTransitionLibrary2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationTransitionLibrary2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationTransitionLibrary2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationTransitionLibrary2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationTransitionLibrary2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2076,21 +1740,7 @@ impl IUIAnimationVariable {
         (::windows::core::Vtable::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariable> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariable> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2248,21 +1898,7 @@ impl IUIAnimationVariable2 {
         (::windows::core::Vtable::vtable(self).SetVariableCurveChangeHandler)(::windows::core::Vtable::as_raw(self), handler.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariable2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariable2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariable2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariable2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariable2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariable2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariable2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2340,21 +1976,7 @@ impl IUIAnimationVariableChangeHandler {
         (::windows::core::Vtable::vtable(self).OnValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariableChangeHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariableChangeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariableChangeHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariableChangeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariableChangeHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariableChangeHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariableChangeHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariableChangeHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2395,21 +2017,7 @@ impl IUIAnimationVariableChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), cdimension).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariableChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariableChangeHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariableChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariableChangeHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariableChangeHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariableChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2449,21 +2057,7 @@ impl IUIAnimationVariableCurveChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnCurveChanged)(::windows::core::Vtable::as_raw(self), variable.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariableCurveChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariableCurveChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariableCurveChangeHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariableCurveChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariableCurveChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariableCurveChangeHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariableCurveChangeHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariableCurveChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2504,21 +2098,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
         (::windows::core::Vtable::vtable(self).OnIntegerValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), newvalue, previousvalue).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariableIntegerChangeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariableIntegerChangeHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariableIntegerChangeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariableIntegerChangeHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariableIntegerChangeHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2559,21 +2139,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
         (::windows::core::Vtable::vtable(self).OnIntegerValueChanged)(::windows::core::Vtable::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), cdimension).ok()
     }
 }
-impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: IUIAnimationVariableIntegerChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIAnimationVariableIntegerChangeHandler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIAnimationVariableIntegerChangeHandler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAnimationVariableIntegerChangeHandler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -1198,36 +1198,7 @@ impl ILauncherViewOptions {
         unsafe { (::windows::core::Vtable::vtable(this).SetDesiredRemainingView)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<ILauncherViewOptions> for ::windows::core::IUnknown {
-    fn from(value: ILauncherViewOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILauncherViewOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILauncherViewOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILauncherViewOptions> for ::windows::core::IUnknown {
-    fn from(value: &ILauncherViewOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILauncherViewOptions> for ::windows::core::IInspectable {
-    fn from(value: ILauncherViewOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILauncherViewOptions> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILauncherViewOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILauncherViewOptions> for ::windows::core::IInspectable {
-    fn from(value: &ILauncherViewOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILauncherViewOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILauncherViewOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1955,36 +1926,7 @@ unsafe impl ::windows::core::Interface for AppActivationResult {
 impl ::windows::core::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
 }
-impl ::core::convert::From<AppActivationResult> for ::windows::core::IUnknown {
-    fn from(value: AppActivationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppActivationResult> for ::windows::core::IUnknown {
-    fn from(value: &AppActivationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppActivationResult> for &::windows::core::IUnknown {
-    fn from(value: &AppActivationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppActivationResult> for ::windows::core::IInspectable {
-    fn from(value: AppActivationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppActivationResult> for ::windows::core::IInspectable {
-    fn from(value: &AppActivationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppActivationResult> for &::windows::core::IInspectable {
-    fn from(value: &AppActivationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppActivationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppActivationResult {}
 unsafe impl ::core::marker::Sync for AppActivationResult {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2114,36 +2056,7 @@ unsafe impl ::windows::core::Interface for AppDiagnosticInfo {
 impl ::windows::core::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
 }
-impl ::core::convert::From<AppDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: AppDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: AppDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppDiagnosticInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2258,36 +2171,7 @@ unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcher {
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
 }
-impl ::core::convert::From<AppDiagnosticInfoWatcher> for ::windows::core::IUnknown {
-    fn from(value: AppDiagnosticInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcher> for ::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfoWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcher> for &::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppDiagnosticInfoWatcher> for ::windows::core::IInspectable {
-    fn from(value: AppDiagnosticInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcher> for ::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfoWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcher> for &::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppDiagnosticInfoWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2334,36 +2218,7 @@ unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcherEventArgs {
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
 }
-impl ::core::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppDiagnosticInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppDiagnosticInfoWatcherEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppDiagnosticInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDiagnosticInfoWatcherEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppDiagnosticInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppDiagnosticInfoWatcherEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2410,36 +2265,7 @@ unsafe impl ::windows::core::Interface for AppExecutionStateChangeResult {
 impl ::windows::core::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
 }
-impl ::core::convert::From<AppExecutionStateChangeResult> for ::windows::core::IUnknown {
-    fn from(value: AppExecutionStateChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExecutionStateChangeResult> for ::windows::core::IUnknown {
-    fn from(value: &AppExecutionStateChangeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExecutionStateChangeResult> for &::windows::core::IUnknown {
-    fn from(value: &AppExecutionStateChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExecutionStateChangeResult> for ::windows::core::IInspectable {
-    fn from(value: AppExecutionStateChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExecutionStateChangeResult> for ::windows::core::IInspectable {
-    fn from(value: &AppExecutionStateChangeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExecutionStateChangeResult> for &::windows::core::IInspectable {
-    fn from(value: &AppExecutionStateChangeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExecutionStateChangeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
 unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2514,36 +2340,7 @@ unsafe impl ::windows::core::Interface for AppMemoryReport {
 impl ::windows::core::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
 }
-impl ::core::convert::From<AppMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: AppMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: &AppMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppMemoryReport> for &::windows::core::IUnknown {
-    fn from(value: &AppMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: AppMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: &AppMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppMemoryReport> for &::windows::core::IInspectable {
-    fn from(value: &AppMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppMemoryReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2597,36 +2394,7 @@ unsafe impl ::windows::core::Interface for AppMemoryUsageLimitChangingEventArgs 
 impl ::windows::core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
 }
-impl ::core::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppMemoryUsageLimitChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppMemoryUsageLimitChangingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppMemoryUsageLimitChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppMemoryUsageLimitChangingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppMemoryUsageLimitChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppMemoryUsageLimitChangingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
 unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2694,36 +2462,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupBackgroundTaskReport 
 impl ::windows::core::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
 }
-impl ::core::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupBackgroundTaskReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupBackgroundTaskReport> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupBackgroundTaskReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupBackgroundTaskReport> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupBackgroundTaskReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupBackgroundTaskReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2836,36 +2575,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupInfo {
 impl ::windows::core::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
 }
-impl ::core::convert::From<AppResourceGroupInfo> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupInfo> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -2995,36 +2705,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcher {
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
 }
-impl ::core::convert::From<AppResourceGroupInfoWatcher> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcher> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcher> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupInfoWatcher> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcher> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcher> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupInfoWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3080,36 +2761,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherEventArgs 
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
 }
-impl ::core::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupInfoWatcherEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcherEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupInfoWatcherEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3165,36 +2817,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherExecutionS
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
 }
-impl ::core::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupInfoWatcherExecutionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3262,36 +2885,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupMemoryReport {
 impl ::windows::core::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
 }
-impl ::core::convert::From<AppResourceGroupMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupMemoryReport> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupMemoryReport> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupMemoryReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3345,36 +2939,7 @@ unsafe impl ::windows::core::Interface for AppResourceGroupStateReport {
 impl ::windows::core::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
 }
-impl ::core::convert::From<AppResourceGroupStateReport> for ::windows::core::IUnknown {
-    fn from(value: AppResourceGroupStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupStateReport> for ::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupStateReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupStateReport> for &::windows::core::IUnknown {
-    fn from(value: &AppResourceGroupStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppResourceGroupStateReport> for ::windows::core::IInspectable {
-    fn from(value: AppResourceGroupStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppResourceGroupStateReport> for ::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupStateReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppResourceGroupStateReport> for &::windows::core::IInspectable {
-    fn from(value: &AppResourceGroupStateReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppResourceGroupStateReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3454,36 +3019,7 @@ unsafe impl ::windows::core::Interface for AppUriHandlerHost {
 impl ::windows::core::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
 }
-impl ::core::convert::From<AppUriHandlerHost> for ::windows::core::IUnknown {
-    fn from(value: AppUriHandlerHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerHost> for ::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerHost> for &::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppUriHandlerHost> for ::windows::core::IInspectable {
-    fn from(value: AppUriHandlerHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerHost> for ::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerHost> for &::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppUriHandlerHost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerHost {}
 unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3585,36 +3121,7 @@ unsafe impl ::windows::core::Interface for AppUriHandlerRegistration {
 impl ::windows::core::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
 }
-impl ::core::convert::From<AppUriHandlerRegistration> for ::windows::core::IUnknown {
-    fn from(value: AppUriHandlerRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistration> for ::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistration> for &::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppUriHandlerRegistration> for ::windows::core::IInspectable {
-    fn from(value: AppUriHandlerRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistration> for ::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistration> for &::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppUriHandlerRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3709,36 +3216,7 @@ unsafe impl ::windows::core::Interface for AppUriHandlerRegistrationManager {
 impl ::windows::core::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
 }
-impl ::core::convert::From<AppUriHandlerRegistrationManager> for ::windows::core::IUnknown {
-    fn from(value: AppUriHandlerRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistrationManager> for ::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerRegistrationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistrationManager> for &::windows::core::IUnknown {
-    fn from(value: &AppUriHandlerRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppUriHandlerRegistrationManager> for ::windows::core::IInspectable {
-    fn from(value: AppUriHandlerRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistrationManager> for ::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerRegistrationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUriHandlerRegistrationManager> for &::windows::core::IInspectable {
-    fn from(value: &AppUriHandlerRegistrationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppUriHandlerRegistrationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3864,36 +3342,7 @@ unsafe impl ::windows::core::Interface for DispatcherQueue {
 impl ::windows::core::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
 }
-impl ::core::convert::From<DispatcherQueue> for ::windows::core::IUnknown {
-    fn from(value: DispatcherQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueue> for ::windows::core::IUnknown {
-    fn from(value: &DispatcherQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueue> for &::windows::core::IUnknown {
-    fn from(value: &DispatcherQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DispatcherQueue> for ::windows::core::IInspectable {
-    fn from(value: DispatcherQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueue> for ::windows::core::IInspectable {
-    fn from(value: &DispatcherQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueue> for &::windows::core::IInspectable {
-    fn from(value: &DispatcherQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DispatcherQueue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueue {}
 unsafe impl ::core::marker::Sync for DispatcherQueue {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -3960,36 +3409,7 @@ unsafe impl ::windows::core::Interface for DispatcherQueueController {
 impl ::windows::core::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
 }
-impl ::core::convert::From<DispatcherQueueController> for ::windows::core::IUnknown {
-    fn from(value: DispatcherQueueController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueController> for ::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueController> for &::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DispatcherQueueController> for ::windows::core::IInspectable {
-    fn from(value: DispatcherQueueController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueController> for ::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueController> for &::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DispatcherQueueController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueController {}
 unsafe impl ::core::marker::Sync for DispatcherQueueController {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -4038,36 +3458,7 @@ unsafe impl ::windows::core::Interface for DispatcherQueueShutdownStartingEventA
 impl ::windows::core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
 }
-impl ::core::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DispatcherQueueShutdownStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DispatcherQueueShutdownStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DispatcherQueueShutdownStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueShutdownStartingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueShutdownStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DispatcherQueueShutdownStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
 unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -4163,36 +3554,7 @@ unsafe impl ::windows::core::Interface for DispatcherQueueTimer {
 impl ::windows::core::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
 }
-impl ::core::convert::From<DispatcherQueueTimer> for ::windows::core::IUnknown {
-    fn from(value: DispatcherQueueTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueTimer> for ::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueTimer> for &::windows::core::IUnknown {
-    fn from(value: &DispatcherQueueTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DispatcherQueueTimer> for ::windows::core::IInspectable {
-    fn from(value: DispatcherQueueTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DispatcherQueueTimer> for ::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DispatcherQueueTimer> for &::windows::core::IInspectable {
-    fn from(value: &DispatcherQueueTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DispatcherQueueTimer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
 unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -4263,36 +3625,7 @@ unsafe impl ::windows::core::Interface for FolderLauncherOptions {
 impl ::windows::core::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
 }
-impl ::core::convert::From<FolderLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: FolderLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FolderLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: &FolderLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FolderLauncherOptions> for &::windows::core::IUnknown {
-    fn from(value: &FolderLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FolderLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: FolderLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FolderLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: &FolderLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FolderLauncherOptions> for &::windows::core::IInspectable {
-    fn from(value: &FolderLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FolderLauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<FolderLauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderLauncherOptions) -> ::windows::core::Result<Self> {
@@ -4444,36 +3777,7 @@ unsafe impl ::windows::core::Interface for LaunchUriResult {
 impl ::windows::core::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
 }
-impl ::core::convert::From<LaunchUriResult> for ::windows::core::IUnknown {
-    fn from(value: LaunchUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LaunchUriResult> for ::windows::core::IUnknown {
-    fn from(value: &LaunchUriResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LaunchUriResult> for &::windows::core::IUnknown {
-    fn from(value: &LaunchUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LaunchUriResult> for ::windows::core::IInspectable {
-    fn from(value: LaunchUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LaunchUriResult> for ::windows::core::IInspectable {
-    fn from(value: &LaunchUriResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LaunchUriResult> for &::windows::core::IInspectable {
-    fn from(value: &LaunchUriResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LaunchUriResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LaunchUriResult {}
 unsafe impl ::core::marker::Sync for LaunchUriResult {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -4932,36 +4236,7 @@ unsafe impl ::windows::core::Interface for LauncherOptions {
 impl ::windows::core::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
 }
-impl ::core::convert::From<LauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: LauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: &LauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LauncherOptions> for &::windows::core::IUnknown {
-    fn from(value: &LauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: LauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: &LauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LauncherOptions> for &::windows::core::IInspectable {
-    fn from(value: &LauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LauncherOptions> for ILauncherViewOptions {
     type Error = ::windows::core::Error;
     fn try_from(value: LauncherOptions) -> ::windows::core::Result<Self> {
@@ -5073,36 +4348,7 @@ unsafe impl ::windows::core::Interface for LauncherUIOptions {
 impl ::windows::core::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
 }
-impl ::core::convert::From<LauncherUIOptions> for ::windows::core::IUnknown {
-    fn from(value: LauncherUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LauncherUIOptions> for ::windows::core::IUnknown {
-    fn from(value: &LauncherUIOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LauncherUIOptions> for &::windows::core::IUnknown {
-    fn from(value: &LauncherUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LauncherUIOptions> for ::windows::core::IInspectable {
-    fn from(value: LauncherUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LauncherUIOptions> for ::windows::core::IInspectable {
-    fn from(value: &LauncherUIOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LauncherUIOptions> for &::windows::core::IInspectable {
-    fn from(value: &LauncherUIOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LauncherUIOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LauncherUIOptions {}
 unsafe impl ::core::marker::Sync for LauncherUIOptions {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5353,36 +4599,7 @@ unsafe impl ::windows::core::Interface for ProcessLauncherOptions {
 impl ::windows::core::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
 }
-impl ::core::convert::From<ProcessLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: ProcessLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: &ProcessLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessLauncherOptions> for &::windows::core::IUnknown {
-    fn from(value: &ProcessLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: ProcessLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: &ProcessLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessLauncherOptions> for &::windows::core::IInspectable {
-    fn from(value: &ProcessLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessLauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
 unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5429,36 +4646,7 @@ unsafe impl ::windows::core::Interface for ProcessLauncherResult {
 impl ::windows::core::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
 }
-impl ::core::convert::From<ProcessLauncherResult> for ::windows::core::IUnknown {
-    fn from(value: ProcessLauncherResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessLauncherResult> for ::windows::core::IUnknown {
-    fn from(value: &ProcessLauncherResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessLauncherResult> for &::windows::core::IUnknown {
-    fn from(value: &ProcessLauncherResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessLauncherResult> for ::windows::core::IInspectable {
-    fn from(value: ProcessLauncherResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessLauncherResult> for ::windows::core::IInspectable {
-    fn from(value: &ProcessLauncherResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessLauncherResult> for &::windows::core::IInspectable {
-    fn from(value: &ProcessLauncherResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessLauncherResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessLauncherResult {}
 unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5512,36 +4700,7 @@ unsafe impl ::windows::core::Interface for ProcessMemoryReport {
 impl ::windows::core::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
 }
-impl ::core::convert::From<ProcessMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: ProcessMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryReport> for ::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryReport> for &::windows::core::IUnknown {
-    fn from(value: &ProcessMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProcessMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: ProcessMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProcessMemoryReport> for ::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProcessMemoryReport> for &::windows::core::IInspectable {
-    fn from(value: &ProcessMemoryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProcessMemoryReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5587,36 +4746,7 @@ unsafe impl ::windows::core::Interface for ProtocolForResultsOperation {
 impl ::windows::core::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
 }
-impl ::core::convert::From<ProtocolForResultsOperation> for ::windows::core::IUnknown {
-    fn from(value: ProtocolForResultsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsOperation> for ::windows::core::IUnknown {
-    fn from(value: &ProtocolForResultsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsOperation> for &::windows::core::IUnknown {
-    fn from(value: &ProtocolForResultsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProtocolForResultsOperation> for ::windows::core::IInspectable {
-    fn from(value: ProtocolForResultsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsOperation> for ::windows::core::IInspectable {
-    fn from(value: &ProtocolForResultsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProtocolForResultsOperation> for &::windows::core::IInspectable {
-    fn from(value: &ProtocolForResultsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProtocolForResultsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5723,36 +4853,7 @@ unsafe impl ::windows::core::Interface for RemoteLauncherOptions {
 impl ::windows::core::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
 }
-impl ::core::convert::From<RemoteLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: RemoteLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteLauncherOptions> for ::windows::core::IUnknown {
-    fn from(value: &RemoteLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteLauncherOptions> for &::windows::core::IUnknown {
-    fn from(value: &RemoteLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: RemoteLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteLauncherOptions> for ::windows::core::IInspectable {
-    fn from(value: &RemoteLauncherOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteLauncherOptions> for &::windows::core::IInspectable {
-    fn from(value: &RemoteLauncherOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteLauncherOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
 unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -5992,36 +5093,7 @@ unsafe impl ::windows::core::Interface for User {
 impl ::windows::core::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
 }
-impl ::core::convert::From<User> for ::windows::core::IUnknown {
-    fn from(value: User) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&User> for ::windows::core::IUnknown {
-    fn from(value: &User) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&User> for &::windows::core::IUnknown {
-    fn from(value: &User) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<User> for ::windows::core::IInspectable {
-    fn from(value: User) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&User> for ::windows::core::IInspectable {
-    fn from(value: &User) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&User> for &::windows::core::IInspectable {
-    fn from(value: &User) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(User, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6065,36 +5137,7 @@ unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangeDeferra
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
 }
-impl ::core::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::core::IUnknown {
-    fn from(value: UserAuthenticationStatusChangeDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for &::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserAuthenticationStatusChangeDeferral> for ::windows::core::IInspectable {
-    fn from(value: UserAuthenticationStatusChangeDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for ::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangeDeferral> for &::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationStatusChangeDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserAuthenticationStatusChangeDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6162,36 +5205,7 @@ unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangingEvent
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
 }
-impl ::core::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserAuthenticationStatusChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserAuthenticationStatusChangingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserAuthenticationStatusChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserAuthenticationStatusChangingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationStatusChangingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserAuthenticationStatusChangingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6247,36 +5261,7 @@ unsafe impl ::windows::core::Interface for UserChangedEventArgs {
 impl ::windows::core::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
 }
-impl ::core::convert::From<UserChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6368,36 +5353,7 @@ unsafe impl ::windows::core::Interface for UserDeviceAssociationChangedEventArgs
 impl ::windows::core::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
 }
-impl ::core::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDeviceAssociationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDeviceAssociationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDeviceAssociationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDeviceAssociationChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDeviceAssociationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDeviceAssociationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6486,36 +5442,7 @@ unsafe impl ::windows::core::Interface for UserPicker {
 impl ::windows::core::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
 }
-impl ::core::convert::From<UserPicker> for ::windows::core::IUnknown {
-    fn from(value: UserPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserPicker> for ::windows::core::IUnknown {
-    fn from(value: &UserPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserPicker> for &::windows::core::IUnknown {
-    fn from(value: &UserPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserPicker> for ::windows::core::IInspectable {
-    fn from(value: UserPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserPicker> for ::windows::core::IInspectable {
-    fn from(value: &UserPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserPicker> for &::windows::core::IInspectable {
-    fn from(value: &UserPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserPicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
 #[doc = "*Required features: `\"System\"`*"]
@@ -6675,36 +5602,7 @@ unsafe impl ::windows::core::Interface for UserWatcher {
 impl ::windows::core::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";
 }
-impl ::core::convert::From<UserWatcher> for ::windows::core::IUnknown {
-    fn from(value: UserWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserWatcher> for ::windows::core::IUnknown {
-    fn from(value: &UserWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserWatcher> for &::windows::core::IUnknown {
-    fn from(value: &UserWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserWatcher> for ::windows::core::IInspectable {
-    fn from(value: UserWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserWatcher> for ::windows::core::IInspectable {
-    fn from(value: &UserWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserWatcher> for &::windows::core::IInspectable {
-    fn from(value: &UserWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
 #[doc = "*Required features: `\"System\"`*"]

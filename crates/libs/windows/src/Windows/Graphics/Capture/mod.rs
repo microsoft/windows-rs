@@ -316,36 +316,7 @@ unsafe impl ::windows::core::Interface for Direct3D11CaptureFrame {
 impl ::windows::core::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
 }
-impl ::core::convert::From<Direct3D11CaptureFrame> for ::windows::core::IUnknown {
-    fn from(value: Direct3D11CaptureFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFrame> for ::windows::core::IUnknown {
-    fn from(value: &Direct3D11CaptureFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFrame> for &::windows::core::IUnknown {
-    fn from(value: &Direct3D11CaptureFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Direct3D11CaptureFrame> for ::windows::core::IInspectable {
-    fn from(value: Direct3D11CaptureFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFrame> for ::windows::core::IInspectable {
-    fn from(value: &Direct3D11CaptureFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFrame> for &::windows::core::IInspectable {
-    fn from(value: &Direct3D11CaptureFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Direct3D11CaptureFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Direct3D11CaptureFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -495,36 +466,7 @@ unsafe impl ::windows::core::Interface for Direct3D11CaptureFramePool {
 impl ::windows::core::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
 }
-impl ::core::convert::From<Direct3D11CaptureFramePool> for ::windows::core::IUnknown {
-    fn from(value: Direct3D11CaptureFramePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFramePool> for ::windows::core::IUnknown {
-    fn from(value: &Direct3D11CaptureFramePool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFramePool> for &::windows::core::IUnknown {
-    fn from(value: &Direct3D11CaptureFramePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Direct3D11CaptureFramePool> for ::windows::core::IInspectable {
-    fn from(value: Direct3D11CaptureFramePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFramePool> for ::windows::core::IInspectable {
-    fn from(value: &Direct3D11CaptureFramePool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Direct3D11CaptureFramePool> for &::windows::core::IInspectable {
-    fn from(value: &Direct3D11CaptureFramePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Direct3D11CaptureFramePool, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Direct3D11CaptureFramePool> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -670,36 +612,7 @@ unsafe impl ::windows::core::Interface for GraphicsCaptureItem {
 impl ::windows::core::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
 }
-impl ::core::convert::From<GraphicsCaptureItem> for ::windows::core::IUnknown {
-    fn from(value: GraphicsCaptureItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureItem> for ::windows::core::IUnknown {
-    fn from(value: &GraphicsCaptureItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureItem> for &::windows::core::IUnknown {
-    fn from(value: &GraphicsCaptureItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GraphicsCaptureItem> for ::windows::core::IInspectable {
-    fn from(value: GraphicsCaptureItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureItem> for ::windows::core::IInspectable {
-    fn from(value: &GraphicsCaptureItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureItem> for &::windows::core::IInspectable {
-    fn from(value: &GraphicsCaptureItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GraphicsCaptureItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
@@ -755,36 +668,7 @@ unsafe impl ::windows::core::Interface for GraphicsCapturePicker {
 impl ::windows::core::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
 }
-impl ::core::convert::From<GraphicsCapturePicker> for ::windows::core::IUnknown {
-    fn from(value: GraphicsCapturePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCapturePicker> for ::windows::core::IUnknown {
-    fn from(value: &GraphicsCapturePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCapturePicker> for &::windows::core::IUnknown {
-    fn from(value: &GraphicsCapturePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GraphicsCapturePicker> for ::windows::core::IInspectable {
-    fn from(value: GraphicsCapturePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCapturePicker> for ::windows::core::IInspectable {
-    fn from(value: &GraphicsCapturePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCapturePicker> for &::windows::core::IInspectable {
-    fn from(value: &GraphicsCapturePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GraphicsCapturePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
@@ -867,36 +751,7 @@ unsafe impl ::windows::core::Interface for GraphicsCaptureSession {
 impl ::windows::core::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";
 }
-impl ::core::convert::From<GraphicsCaptureSession> for ::windows::core::IUnknown {
-    fn from(value: GraphicsCaptureSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureSession> for ::windows::core::IUnknown {
-    fn from(value: &GraphicsCaptureSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureSession> for &::windows::core::IUnknown {
-    fn from(value: &GraphicsCaptureSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GraphicsCaptureSession> for ::windows::core::IInspectable {
-    fn from(value: GraphicsCaptureSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureSession> for ::windows::core::IInspectable {
-    fn from(value: &GraphicsCaptureSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GraphicsCaptureSession> for &::windows::core::IInspectable {
-    fn from(value: &GraphicsCaptureSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GraphicsCaptureSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<GraphicsCaptureSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

@@ -21,36 +21,7 @@ impl IAdaptiveNotificationContent {
         }
     }
 }
-impl ::core::convert::From<IAdaptiveNotificationContent> for ::windows::core::IUnknown {
-    fn from(value: IAdaptiveNotificationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveNotificationContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdaptiveNotificationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveNotificationContent> for ::windows::core::IUnknown {
-    fn from(value: &IAdaptiveNotificationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAdaptiveNotificationContent> for ::windows::core::IInspectable {
-    fn from(value: IAdaptiveNotificationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveNotificationContent> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAdaptiveNotificationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveNotificationContent> for ::windows::core::IInspectable {
-    fn from(value: &IAdaptiveNotificationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdaptiveNotificationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAdaptiveNotificationContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1548,36 +1519,7 @@ unsafe impl ::windows::core::Interface for AdaptiveNotificationText {
 impl ::windows::core::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
 }
-impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveNotificationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<AdaptiveNotificationText> for IAdaptiveNotificationContent {
     type Error = ::windows::core::Error;
     fn try_from(value: AdaptiveNotificationText) -> ::windows::core::Result<Self> {
@@ -1677,36 +1619,7 @@ unsafe impl ::windows::core::Interface for BadgeNotification {
 impl ::windows::core::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
 }
-impl ::core::convert::From<BadgeNotification> for ::windows::core::IUnknown {
-    fn from(value: BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for ::windows::core::IUnknown {
-    fn from(value: &BadgeNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for &::windows::core::IUnknown {
-    fn from(value: &BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeNotification> for ::windows::core::IInspectable {
-    fn from(value: BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for ::windows::core::IInspectable {
-    fn from(value: &BadgeNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for &::windows::core::IInspectable {
-    fn from(value: &BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BadgeNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeNotification {}
 unsafe impl ::core::marker::Sync for BadgeNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -1827,36 +1740,7 @@ unsafe impl ::windows::core::Interface for BadgeUpdateManagerForUser {
 impl ::windows::core::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
 }
-impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BadgeUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -1920,36 +1804,7 @@ unsafe impl ::windows::core::Interface for BadgeUpdater {
 impl ::windows::core::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
 }
-impl ::core::convert::From<BadgeUpdater> for ::windows::core::IUnknown {
-    fn from(value: BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IUnknown {
-    fn from(value: &BadgeUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IUnknown {
-    fn from(value: &BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeUpdater> for ::windows::core::IInspectable {
-    fn from(value: BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IInspectable {
-    fn from(value: &BadgeUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IInspectable {
-    fn from(value: &BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BadgeUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BadgeUpdater {}
 unsafe impl ::core::marker::Sync for BadgeUpdater {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2218,36 +2073,7 @@ unsafe impl ::windows::core::Interface for Notification {
 impl ::windows::core::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
 }
-impl ::core::convert::From<Notification> for ::windows::core::IUnknown {
-    fn from(value: Notification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Notification> for ::windows::core::IUnknown {
-    fn from(value: &Notification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Notification> for &::windows::core::IUnknown {
-    fn from(value: &Notification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Notification> for ::windows::core::IInspectable {
-    fn from(value: Notification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Notification> for ::windows::core::IInspectable {
-    fn from(value: &Notification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Notification> for &::windows::core::IInspectable {
-    fn from(value: &Notification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Notification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Notification {}
 unsafe impl ::core::marker::Sync for Notification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2327,36 +2153,7 @@ unsafe impl ::windows::core::Interface for NotificationBinding {
 impl ::windows::core::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
 }
-impl ::core::convert::From<NotificationBinding> for ::windows::core::IUnknown {
-    fn from(value: NotificationBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationBinding> for ::windows::core::IUnknown {
-    fn from(value: &NotificationBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationBinding> for &::windows::core::IUnknown {
-    fn from(value: &NotificationBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotificationBinding> for ::windows::core::IInspectable {
-    fn from(value: NotificationBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationBinding> for ::windows::core::IInspectable {
-    fn from(value: &NotificationBinding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationBinding> for &::windows::core::IInspectable {
-    fn from(value: &NotificationBinding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotificationBinding, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationBinding {}
 unsafe impl ::core::marker::Sync for NotificationBinding {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2452,36 +2249,7 @@ unsafe impl ::windows::core::Interface for NotificationData {
 impl ::windows::core::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
 }
-impl ::core::convert::From<NotificationData> for ::windows::core::IUnknown {
-    fn from(value: NotificationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationData> for ::windows::core::IUnknown {
-    fn from(value: &NotificationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationData> for &::windows::core::IUnknown {
-    fn from(value: &NotificationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotificationData> for ::windows::core::IInspectable {
-    fn from(value: NotificationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationData> for ::windows::core::IInspectable {
-    fn from(value: &NotificationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationData> for &::windows::core::IInspectable {
-    fn from(value: &NotificationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotificationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2548,36 +2316,7 @@ unsafe impl ::windows::core::Interface for NotificationVisual {
 impl ::windows::core::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
 }
-impl ::core::convert::From<NotificationVisual> for ::windows::core::IUnknown {
-    fn from(value: NotificationVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationVisual> for ::windows::core::IUnknown {
-    fn from(value: &NotificationVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationVisual> for &::windows::core::IUnknown {
-    fn from(value: &NotificationVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NotificationVisual> for ::windows::core::IInspectable {
-    fn from(value: NotificationVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NotificationVisual> for ::windows::core::IInspectable {
-    fn from(value: &NotificationVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NotificationVisual> for &::windows::core::IInspectable {
-    fn from(value: &NotificationVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NotificationVisual, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2689,36 +2428,7 @@ unsafe impl ::windows::core::Interface for ScheduledTileNotification {
 impl ::windows::core::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
 }
-impl ::core::convert::From<ScheduledTileNotification> for ::windows::core::IUnknown {
-    fn from(value: ScheduledTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledTileNotification> for ::windows::core::IUnknown {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledTileNotification> for &::windows::core::IUnknown {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScheduledTileNotification> for ::windows::core::IInspectable {
-    fn from(value: ScheduledTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledTileNotification> for ::windows::core::IInspectable {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledTileNotification> for &::windows::core::IInspectable {
-    fn from(value: &ScheduledTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScheduledTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledTileNotification {}
 unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2898,36 +2608,7 @@ unsafe impl ::windows::core::Interface for ScheduledToastNotification {
 impl ::windows::core::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
 }
-impl ::core::convert::From<ScheduledToastNotification> for ::windows::core::IUnknown {
-    fn from(value: ScheduledToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotification> for ::windows::core::IUnknown {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotification> for &::windows::core::IUnknown {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScheduledToastNotification> for ::windows::core::IInspectable {
-    fn from(value: ScheduledToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotification> for ::windows::core::IInspectable {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotification> for &::windows::core::IInspectable {
-    fn from(value: &ScheduledToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScheduledToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledToastNotification {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -2994,36 +2675,7 @@ unsafe impl ::windows::core::Interface for ScheduledToastNotificationShowingEven
 impl ::windows::core::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
 }
-impl ::core::convert::From<ScheduledToastNotificationShowingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ScheduledToastNotificationShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotificationShowingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotificationShowingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScheduledToastNotificationShowingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ScheduledToastNotificationShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotificationShowingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScheduledToastNotificationShowingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ScheduledToastNotificationShowingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScheduledToastNotificationShowingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScheduledToastNotificationShowingEventArgs {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3070,36 +2722,7 @@ unsafe impl ::windows::core::Interface for ShownTileNotification {
 impl ::windows::core::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
 }
-impl ::core::convert::From<ShownTileNotification> for ::windows::core::IUnknown {
-    fn from(value: ShownTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShownTileNotification> for ::windows::core::IUnknown {
-    fn from(value: &ShownTileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShownTileNotification> for &::windows::core::IUnknown {
-    fn from(value: &ShownTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShownTileNotification> for ::windows::core::IInspectable {
-    fn from(value: ShownTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShownTileNotification> for ::windows::core::IInspectable {
-    fn from(value: &ShownTileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShownTileNotification> for &::windows::core::IInspectable {
-    fn from(value: &ShownTileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShownTileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShownTileNotification {}
 unsafe impl ::core::marker::Sync for ShownTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3180,36 +2803,7 @@ unsafe impl ::windows::core::Interface for TileFlyoutNotification {
 impl ::windows::core::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
 }
-impl ::core::convert::From<TileFlyoutNotification> for ::windows::core::IUnknown {
-    fn from(value: TileFlyoutNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileFlyoutNotification> for ::windows::core::IUnknown {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileFlyoutNotification> for &::windows::core::IUnknown {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileFlyoutNotification> for ::windows::core::IInspectable {
-    fn from(value: TileFlyoutNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileFlyoutNotification> for ::windows::core::IInspectable {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileFlyoutNotification> for &::windows::core::IInspectable {
-    fn from(value: &TileFlyoutNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileFlyoutNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3318,36 +2912,7 @@ unsafe impl ::windows::core::Interface for TileFlyoutUpdater {
 impl ::windows::core::RuntimeName for TileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdater";
 }
-impl ::core::convert::From<TileFlyoutUpdater> for ::windows::core::IUnknown {
-    fn from(value: TileFlyoutUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileFlyoutUpdater> for ::windows::core::IUnknown {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileFlyoutUpdater> for &::windows::core::IUnknown {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileFlyoutUpdater> for ::windows::core::IInspectable {
-    fn from(value: TileFlyoutUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileFlyoutUpdater> for ::windows::core::IInspectable {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileFlyoutUpdater> for &::windows::core::IInspectable {
-    fn from(value: &TileFlyoutUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileFlyoutUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct TileNotification(::windows::core::IUnknown);
@@ -3437,36 +3002,7 @@ unsafe impl ::windows::core::Interface for TileNotification {
 impl ::windows::core::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
 }
-impl ::core::convert::From<TileNotification> for ::windows::core::IUnknown {
-    fn from(value: TileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileNotification> for ::windows::core::IUnknown {
-    fn from(value: &TileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileNotification> for &::windows::core::IUnknown {
-    fn from(value: &TileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileNotification> for ::windows::core::IInspectable {
-    fn from(value: TileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileNotification> for ::windows::core::IInspectable {
-    fn from(value: &TileNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileNotification> for &::windows::core::IInspectable {
-    fn from(value: &TileNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3587,36 +3123,7 @@ unsafe impl ::windows::core::Interface for TileUpdateManagerForUser {
 impl ::windows::core::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
 }
-impl ::core::convert::From<TileUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: TileUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileUpdateManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: TileUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileUpdateManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &TileUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileUpdateManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3740,36 +3247,7 @@ unsafe impl ::windows::core::Interface for TileUpdater {
 impl ::windows::core::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
 }
-impl ::core::convert::From<TileUpdater> for ::windows::core::IUnknown {
-    fn from(value: TileUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileUpdater> for ::windows::core::IUnknown {
-    fn from(value: &TileUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileUpdater> for &::windows::core::IUnknown {
-    fn from(value: &TileUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TileUpdater> for ::windows::core::IInspectable {
-    fn from(value: TileUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TileUpdater> for ::windows::core::IInspectable {
-    fn from(value: &TileUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TileUpdater> for &::windows::core::IInspectable {
-    fn from(value: &TileUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TileUpdater, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TileUpdater {}
 unsafe impl ::core::marker::Sync for TileUpdater {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -3825,36 +3303,7 @@ unsafe impl ::windows::core::Interface for ToastActivatedEventArgs {
 impl ::windows::core::RuntimeName for ToastActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastActivatedEventArgs";
 }
-impl ::core::convert::From<ToastActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ToastActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ToastActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ToastActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastCollection(::windows::core::IUnknown);
@@ -3949,36 +3398,7 @@ unsafe impl ::windows::core::Interface for ToastCollection {
 impl ::windows::core::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
 }
-impl ::core::convert::From<ToastCollection> for ::windows::core::IUnknown {
-    fn from(value: ToastCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastCollection> for ::windows::core::IUnknown {
-    fn from(value: &ToastCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastCollection> for &::windows::core::IUnknown {
-    fn from(value: &ToastCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastCollection> for ::windows::core::IInspectable {
-    fn from(value: ToastCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastCollection> for ::windows::core::IInspectable {
-    fn from(value: &ToastCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastCollection> for &::windows::core::IInspectable {
-    fn from(value: &ToastCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastCollection {}
 unsafe impl ::core::marker::Sync for ToastCollection {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4079,36 +3499,7 @@ unsafe impl ::windows::core::Interface for ToastCollectionManager {
 impl ::windows::core::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
 }
-impl ::core::convert::From<ToastCollectionManager> for ::windows::core::IUnknown {
-    fn from(value: ToastCollectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastCollectionManager> for ::windows::core::IUnknown {
-    fn from(value: &ToastCollectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastCollectionManager> for &::windows::core::IUnknown {
-    fn from(value: &ToastCollectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastCollectionManager> for ::windows::core::IInspectable {
-    fn from(value: ToastCollectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastCollectionManager> for ::windows::core::IInspectable {
-    fn from(value: &ToastCollectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastCollectionManager> for &::windows::core::IInspectable {
-    fn from(value: &ToastCollectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastCollectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4155,36 +3546,7 @@ unsafe impl ::windows::core::Interface for ToastDismissedEventArgs {
 impl ::windows::core::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
 }
-impl ::core::convert::From<ToastDismissedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ToastDismissedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastDismissedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastDismissedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastDismissedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ToastDismissedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastDismissedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastDismissedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ToastDismissedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastDismissedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastDismissedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4231,36 +3593,7 @@ unsafe impl ::windows::core::Interface for ToastFailedEventArgs {
 impl ::windows::core::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
 }
-impl ::core::convert::From<ToastFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ToastFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ToastFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ToastFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4474,36 +3807,7 @@ unsafe impl ::windows::core::Interface for ToastNotification {
 impl ::windows::core::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
 }
-impl ::core::convert::From<ToastNotification> for ::windows::core::IUnknown {
-    fn from(value: ToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotification> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotification> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotification> for ::windows::core::IInspectable {
-    fn from(value: ToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotification> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotification> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotification {}
 unsafe impl ::core::marker::Sync for ToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -4559,36 +3863,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationActionTriggerDetail 
 impl ::windows::core::RuntimeName for ToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationActionTriggerDetail";
 }
-impl ::core::convert::From<ToastNotificationActionTriggerDetail> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationActionTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationActionTriggerDetail> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationActionTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationActionTriggerDetail> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationActionTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationActionTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistory(::windows::core::IUnknown);
@@ -4672,36 +3947,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistory {
 impl ::windows::core::RuntimeName for ToastNotificationHistory {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistory";
 }
-impl ::core::convert::From<ToastNotificationHistory> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistory> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistory> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationHistory> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistory> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistory> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationHistory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows::core::IUnknown);
@@ -4753,36 +3999,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigge
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail";
 }
-impl ::core::convert::From<ToastNotificationHistoryChangedTriggerDetail> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationHistoryChangedTriggerDetail> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationHistoryChangedTriggerDetail> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationHistoryChangedTriggerDetail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationHistoryChangedTriggerDetail, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 pub struct ToastNotificationManager;
 impl ToastNotificationManager {
@@ -4952,36 +4169,7 @@ unsafe impl ::windows::core::Interface for ToastNotificationManagerForUser {
 impl ::windows::core::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
 }
-impl ::core::convert::From<ToastNotificationManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: ToastNotificationManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotificationManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: ToastNotificationManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotificationManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotificationManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotificationManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotificationManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -5082,36 +4270,7 @@ unsafe impl ::windows::core::Interface for ToastNotifier {
 impl ::windows::core::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
 }
-impl ::core::convert::From<ToastNotifier> for ::windows::core::IUnknown {
-    fn from(value: ToastNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotifier> for ::windows::core::IUnknown {
-    fn from(value: &ToastNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotifier> for &::windows::core::IUnknown {
-    fn from(value: &ToastNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ToastNotifier> for ::windows::core::IInspectable {
-    fn from(value: ToastNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ToastNotifier> for ::windows::core::IInspectable {
-    fn from(value: &ToastNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ToastNotifier> for &::windows::core::IInspectable {
-    fn from(value: &ToastNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ToastNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -5183,36 +4342,7 @@ unsafe impl ::windows::core::Interface for UserNotification {
 impl ::windows::core::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
 }
-impl ::core::convert::From<UserNotification> for ::windows::core::IUnknown {
-    fn from(value: UserNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotification> for ::windows::core::IUnknown {
-    fn from(value: &UserNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotification> for &::windows::core::IUnknown {
-    fn from(value: &UserNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserNotification> for ::windows::core::IInspectable {
-    fn from(value: UserNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotification> for ::windows::core::IInspectable {
-    fn from(value: &UserNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotification> for &::windows::core::IInspectable {
-    fn from(value: &UserNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserNotification, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotification {}
 unsafe impl ::core::marker::Sync for UserNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
@@ -5266,36 +4396,7 @@ unsafe impl ::windows::core::Interface for UserNotificationChangedEventArgs {
 impl ::windows::core::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";
 }
-impl ::core::convert::From<UserNotificationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserNotificationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserNotificationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserNotificationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserNotificationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserNotificationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]

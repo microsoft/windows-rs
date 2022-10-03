@@ -24,21 +24,7 @@ impl IEnhancedStorageACT {
         (::windows::core::Vtable::vtable(self).GetSilos)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppienhancedstoragesilos), ::core::mem::transmute(pcenhancedstoragesilos)).ok()
     }
 }
-impl ::core::convert::From<IEnhancedStorageACT> for ::windows::core::IUnknown {
-    fn from(value: IEnhancedStorageACT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnhancedStorageACT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT> for ::windows::core::IUnknown {
-    fn from(value: &IEnhancedStorageACT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnhancedStorageACT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnhancedStorageACT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -108,36 +94,7 @@ impl IEnhancedStorageACT2 {
         (::windows::core::Vtable::vtable(self).IsDeviceRemovable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IEnhancedStorageACT2> for ::windows::core::IUnknown {
-    fn from(value: IEnhancedStorageACT2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnhancedStorageACT2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT2> for ::windows::core::IUnknown {
-    fn from(value: &IEnhancedStorageACT2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEnhancedStorageACT2> for IEnhancedStorageACT {
-    fn from(value: IEnhancedStorageACT2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT2> for &'a IEnhancedStorageACT {
-    fn from(value: &'a IEnhancedStorageACT2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT2> for IEnhancedStorageACT {
-    fn from(value: &IEnhancedStorageACT2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnhancedStorageACT2, ::windows::core::IUnknown, IEnhancedStorageACT);
 impl ::core::clone::Clone for IEnhancedStorageACT2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -221,51 +178,7 @@ impl IEnhancedStorageACT3 {
         (::windows::core::Vtable::vtable(self).GetShellExtSupport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IEnhancedStorageACT3> for ::windows::core::IUnknown {
-    fn from(value: IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT3> for ::windows::core::IUnknown {
-    fn from(value: &IEnhancedStorageACT3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT {
-    fn from(value: IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT3> for &'a IEnhancedStorageACT {
-    fn from(value: &'a IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT3> for IEnhancedStorageACT {
-    fn from(value: &IEnhancedStorageACT3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT2 {
-    fn from(value: IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageACT3> for &'a IEnhancedStorageACT2 {
-    fn from(value: &'a IEnhancedStorageACT3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageACT3> for IEnhancedStorageACT2 {
-    fn from(value: &IEnhancedStorageACT3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnhancedStorageACT3, ::windows::core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
 impl ::core::clone::Clone for IEnhancedStorageACT3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -327,21 +240,7 @@ impl IEnhancedStorageSilo {
         (::windows::core::Vtable::vtable(self).GetDevicePath)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IEnhancedStorageSilo> for ::windows::core::IUnknown {
-    fn from(value: IEnhancedStorageSilo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageSilo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnhancedStorageSilo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageSilo> for ::windows::core::IUnknown {
-    fn from(value: &IEnhancedStorageSilo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnhancedStorageSilo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnhancedStorageSilo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -393,21 +292,7 @@ impl IEnhancedStorageSiloAction {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IEnhancedStorageSiloAction> for ::windows::core::IUnknown {
-    fn from(value: IEnhancedStorageSiloAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnhancedStorageSiloAction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnhancedStorageSiloAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnhancedStorageSiloAction> for ::windows::core::IUnknown {
-    fn from(value: &IEnhancedStorageSiloAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnhancedStorageSiloAction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -453,21 +338,7 @@ impl IEnumEnhancedStorageACT {
         (::windows::core::Vtable::vtable(self).GetMatchingACT)(::windows::core::Vtable::as_raw(self), szvolume.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnhancedStorageACT>(result__)
     }
 }
-impl ::core::convert::From<IEnumEnhancedStorageACT> for ::windows::core::IUnknown {
-    fn from(value: IEnumEnhancedStorageACT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumEnhancedStorageACT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumEnhancedStorageACT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumEnhancedStorageACT> for ::windows::core::IUnknown {
-    fn from(value: &IEnumEnhancedStorageACT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumEnhancedStorageACT {
     fn clone(&self) -> Self {
         Self(self.0.clone())

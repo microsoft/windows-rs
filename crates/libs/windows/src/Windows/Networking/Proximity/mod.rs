@@ -355,36 +355,7 @@ unsafe impl ::windows::core::Interface for ConnectionRequestedEventArgs {
 impl ::windows::core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
 }
-impl ::core::convert::From<ConnectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ConnectionRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectionRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -611,36 +582,7 @@ unsafe impl ::windows::core::Interface for PeerInformation {
 impl ::windows::core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
 }
-impl ::core::convert::From<PeerInformation> for ::windows::core::IUnknown {
-    fn from(value: PeerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeerInformation> for ::windows::core::IUnknown {
-    fn from(value: &PeerInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeerInformation> for &::windows::core::IUnknown {
-    fn from(value: &PeerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PeerInformation> for ::windows::core::IInspectable {
-    fn from(value: PeerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeerInformation> for ::windows::core::IInspectable {
-    fn from(value: &PeerInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeerInformation> for &::windows::core::IInspectable {
-    fn from(value: &PeerInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PeerInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -770,36 +712,7 @@ unsafe impl ::windows::core::Interface for PeerWatcher {
 impl ::windows::core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
 }
-impl ::core::convert::From<PeerWatcher> for ::windows::core::IUnknown {
-    fn from(value: PeerWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeerWatcher> for ::windows::core::IUnknown {
-    fn from(value: &PeerWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeerWatcher> for &::windows::core::IUnknown {
-    fn from(value: &PeerWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PeerWatcher> for ::windows::core::IInspectable {
-    fn from(value: PeerWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeerWatcher> for ::windows::core::IInspectable {
-    fn from(value: &PeerWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeerWatcher> for &::windows::core::IInspectable {
-    fn from(value: &PeerWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PeerWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -986,36 +899,7 @@ unsafe impl ::windows::core::Interface for ProximityDevice {
 impl ::windows::core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
 }
-impl ::core::convert::From<ProximityDevice> for ::windows::core::IUnknown {
-    fn from(value: ProximityDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximityDevice> for ::windows::core::IUnknown {
-    fn from(value: &ProximityDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximityDevice> for &::windows::core::IUnknown {
-    fn from(value: &ProximityDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximityDevice> for ::windows::core::IInspectable {
-    fn from(value: ProximityDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximityDevice> for ::windows::core::IInspectable {
-    fn from(value: &ProximityDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximityDevice> for &::windows::core::IInspectable {
-    fn from(value: &ProximityDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximityDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximityDevice {}
 unsafe impl ::core::marker::Sync for ProximityDevice {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1085,36 +969,7 @@ unsafe impl ::windows::core::Interface for ProximityMessage {
 impl ::windows::core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
 }
-impl ::core::convert::From<ProximityMessage> for ::windows::core::IUnknown {
-    fn from(value: ProximityMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximityMessage> for ::windows::core::IUnknown {
-    fn from(value: &ProximityMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximityMessage> for &::windows::core::IUnknown {
-    fn from(value: &ProximityMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximityMessage> for ::windows::core::IInspectable {
-    fn from(value: ProximityMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximityMessage> for ::windows::core::IInspectable {
-    fn from(value: &ProximityMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximityMessage> for &::windows::core::IInspectable {
-    fn from(value: &ProximityMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximityMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1177,36 +1032,7 @@ unsafe impl ::windows::core::Interface for TriggeredConnectionStateChangedEventA
 impl ::windows::core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
 }
-impl ::core::convert::From<TriggeredConnectionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TriggeredConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TriggeredConnectionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TriggeredConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TriggeredConnectionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TriggeredConnectionStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]

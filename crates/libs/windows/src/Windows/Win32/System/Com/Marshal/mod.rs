@@ -1225,21 +1225,7 @@ impl IMarshal {
         (::windows::core::Vtable::vtable(self).DisconnectObject)(::windows::core::Vtable::as_raw(self), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IMarshal> for ::windows::core::IUnknown {
-    fn from(value: IMarshal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMarshal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshal> for ::windows::core::IUnknown {
-    fn from(value: &IMarshal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMarshal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMarshal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1305,36 +1291,7 @@ impl IMarshal2 {
         (::windows::core::Vtable::vtable(self).base__.DisconnectObject)(::windows::core::Vtable::as_raw(self), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IMarshal2> for ::windows::core::IUnknown {
-    fn from(value: IMarshal2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshal2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMarshal2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshal2> for ::windows::core::IUnknown {
-    fn from(value: &IMarshal2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMarshal2> for IMarshal {
-    fn from(value: IMarshal2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshal2> for &'a IMarshal {
-    fn from(value: &'a IMarshal2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshal2> for IMarshal {
-    fn from(value: &IMarshal2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMarshal2, ::windows::core::IUnknown, IMarshal);
 impl ::core::clone::Clone for IMarshal2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1411,51 +1368,7 @@ impl IMarshalingStream {
         (::windows::core::Vtable::vtable(self).GetMarshalingContextAttribute)(::windows::core::Vtable::as_raw(self), attribute, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
 }
-impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {
-    fn from(value: IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshalingStream> for ::windows::core::IUnknown {
-    fn from(value: &IMarshalingStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMarshalingStream> for super::ISequentialStream {
-    fn from(value: IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a super::ISequentialStream {
-    fn from(value: &'a IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshalingStream> for super::ISequentialStream {
-    fn from(value: &IMarshalingStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMarshalingStream> for super::IStream {
-    fn from(value: IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMarshalingStream> for &'a super::IStream {
-    fn from(value: &'a IMarshalingStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshalingStream> for super::IStream {
-    fn from(value: &IMarshalingStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMarshalingStream, ::windows::core::IUnknown, super::ISequentialStream, super::IStream);
 impl ::core::clone::Clone for IMarshalingStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())

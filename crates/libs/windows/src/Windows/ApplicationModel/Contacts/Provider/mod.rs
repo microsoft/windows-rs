@@ -169,36 +169,7 @@ unsafe impl ::windows::core::Interface for ContactPickerUI {
 impl ::windows::core::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
 }
-impl ::core::convert::From<ContactPickerUI> for ::windows::core::IUnknown {
-    fn from(value: ContactPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerUI> for ::windows::core::IUnknown {
-    fn from(value: &ContactPickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerUI> for &::windows::core::IUnknown {
-    fn from(value: &ContactPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPickerUI> for ::windows::core::IInspectable {
-    fn from(value: ContactPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerUI> for ::windows::core::IInspectable {
-    fn from(value: &ContactPickerUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerUI> for &::windows::core::IInspectable {
-    fn from(value: &ContactPickerUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactPickerUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 pub struct ContactRemovedEventArgs(::windows::core::IUnknown);
@@ -243,36 +214,7 @@ unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
 impl ::windows::core::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";
 }
-impl ::core::convert::From<ContactRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

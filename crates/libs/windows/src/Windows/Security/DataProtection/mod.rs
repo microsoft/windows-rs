@@ -154,36 +154,7 @@ unsafe impl ::windows::core::Interface for UserDataAvailabilityStateChangedEvent
 impl ::windows::core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
 }
-impl ::core::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAvailabilityStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserDataAvailabilityStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAvailabilityStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAvailabilityStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -239,36 +210,7 @@ unsafe impl ::windows::core::Interface for UserDataBufferUnprotectResult {
 impl ::windows::core::RuntimeName for UserDataBufferUnprotectResult {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataBufferUnprotectResult";
 }
-impl ::core::convert::From<UserDataBufferUnprotectResult> for ::windows::core::IUnknown {
-    fn from(value: UserDataBufferUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataBufferUnprotectResult> for ::windows::core::IUnknown {
-    fn from(value: &UserDataBufferUnprotectResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataBufferUnprotectResult> for &::windows::core::IUnknown {
-    fn from(value: &UserDataBufferUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataBufferUnprotectResult> for ::windows::core::IInspectable {
-    fn from(value: UserDataBufferUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataBufferUnprotectResult> for ::windows::core::IInspectable {
-    fn from(value: &UserDataBufferUnprotectResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataBufferUnprotectResult> for &::windows::core::IInspectable {
-    fn from(value: &UserDataBufferUnprotectResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataBufferUnprotectResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -401,36 +343,7 @@ unsafe impl ::windows::core::Interface for UserDataProtectionManager {
 impl ::windows::core::RuntimeName for UserDataProtectionManager {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataProtectionManager";
 }
-impl ::core::convert::From<UserDataProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: UserDataProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataProtectionManager> for ::windows::core::IUnknown {
-    fn from(value: &UserDataProtectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataProtectionManager> for &::windows::core::IUnknown {
-    fn from(value: &UserDataProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataProtectionManager> for ::windows::core::IInspectable {
-    fn from(value: UserDataProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataProtectionManager> for ::windows::core::IInspectable {
-    fn from(value: &UserDataProtectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataProtectionManager> for &::windows::core::IInspectable {
-    fn from(value: &UserDataProtectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataProtectionManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataProtectionManager {}
 unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]
@@ -477,36 +390,7 @@ unsafe impl ::windows::core::Interface for UserDataStorageItemProtectionInfo {
 impl ::windows::core::RuntimeName for UserDataStorageItemProtectionInfo {
     const NAME: &'static str = "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
 }
-impl ::core::convert::From<UserDataStorageItemProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: UserDataStorageItemProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for &::windows::core::IUnknown {
-    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataStorageItemProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: UserDataStorageItemProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for ::windows::core::IInspectable {
-    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataStorageItemProtectionInfo> for &::windows::core::IInspectable {
-    fn from(value: &UserDataStorageItemProtectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataStorageItemProtectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[doc = "*Required features: `\"Security_DataProtection\"`*"]

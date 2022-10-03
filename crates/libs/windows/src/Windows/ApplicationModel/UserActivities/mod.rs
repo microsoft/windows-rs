@@ -237,36 +237,7 @@ impl IUserActivityContentInfo {
         }
     }
 }
-impl ::core::convert::From<IUserActivityContentInfo> for ::windows::core::IUnknown {
-    fn from(value: IUserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityContentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityContentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IUserActivityContentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserActivityContentInfo> for ::windows::core::IInspectable {
-    fn from(value: IUserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserActivityContentInfo> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserActivityContentInfo> for ::windows::core::IInspectable {
-    fn from(value: &IUserActivityContentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserActivityContentInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -721,36 +692,7 @@ unsafe impl ::windows::core::Interface for UserActivity {
 impl ::windows::core::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
 }
-impl ::core::convert::From<UserActivity> for ::windows::core::IUnknown {
-    fn from(value: UserActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivity> for ::windows::core::IUnknown {
-    fn from(value: &UserActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivity> for &::windows::core::IUnknown {
-    fn from(value: &UserActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivity> for ::windows::core::IInspectable {
-    fn from(value: UserActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivity> for ::windows::core::IInspectable {
-    fn from(value: &UserActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivity> for &::windows::core::IInspectable {
-    fn from(value: &UserActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -847,36 +789,7 @@ unsafe impl ::windows::core::Interface for UserActivityAttribution {
 impl ::windows::core::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
 }
-impl ::core::convert::From<UserActivityAttribution> for ::windows::core::IUnknown {
-    fn from(value: UserActivityAttribution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityAttribution> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityAttribution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityAttribution> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityAttribution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityAttribution> for ::windows::core::IInspectable {
-    fn from(value: UserActivityAttribution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityAttribution> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityAttribution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityAttribution> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityAttribution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityAttribution, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1001,36 +914,7 @@ unsafe impl ::windows::core::Interface for UserActivityChannel {
 impl ::windows::core::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
 }
-impl ::core::convert::From<UserActivityChannel> for ::windows::core::IUnknown {
-    fn from(value: UserActivityChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityChannel> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityChannel> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityChannel> for ::windows::core::IInspectable {
-    fn from(value: UserActivityChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityChannel> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityChannel> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1088,36 +972,7 @@ unsafe impl ::windows::core::Interface for UserActivityContentInfo {
 impl ::windows::core::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
 }
-impl ::core::convert::From<UserActivityContentInfo> for ::windows::core::IUnknown {
-    fn from(value: UserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityContentInfo> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityContentInfo> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityContentInfo> for ::windows::core::IInspectable {
-    fn from(value: UserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityContentInfo> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityContentInfo> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityContentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityContentInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserActivityContentInfo> for IUserActivityContentInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: UserActivityContentInfo) -> ::windows::core::Result<Self> {
@@ -1180,36 +1035,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequest {
 impl ::windows::core::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
 }
-impl ::core::convert::From<UserActivityRequest> for ::windows::core::IUnknown {
-    fn from(value: UserActivityRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequest> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequest> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityRequest> for ::windows::core::IInspectable {
-    fn from(value: UserActivityRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequest> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequest> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1275,36 +1101,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequestManager {
 impl ::windows::core::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
 }
-impl ::core::convert::From<UserActivityRequestManager> for ::windows::core::IUnknown {
-    fn from(value: UserActivityRequestManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequestManager> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequestManager> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityRequestManager> for ::windows::core::IInspectable {
-    fn from(value: UserActivityRequestManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequestManager> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequestManager> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityRequestManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityRequestManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestedEventArgs(::windows::core::IUnknown);
@@ -1358,36 +1155,7 @@ unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
 impl ::windows::core::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
 }
-impl ::core::convert::From<UserActivityRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UserActivityRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UserActivityRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1440,36 +1208,7 @@ unsafe impl ::windows::core::Interface for UserActivitySession {
 impl ::windows::core::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
 }
-impl ::core::convert::From<UserActivitySession> for ::windows::core::IUnknown {
-    fn from(value: UserActivitySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivitySession> for ::windows::core::IUnknown {
-    fn from(value: &UserActivitySession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivitySession> for &::windows::core::IUnknown {
-    fn from(value: &UserActivitySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivitySession> for ::windows::core::IInspectable {
-    fn from(value: UserActivitySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivitySession> for ::windows::core::IInspectable {
-    fn from(value: &UserActivitySession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivitySession> for &::windows::core::IInspectable {
-    fn from(value: &UserActivitySession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivitySession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserActivitySession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1556,36 +1295,7 @@ unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
 impl ::windows::core::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
 }
-impl ::core::convert::From<UserActivitySessionHistoryItem> for ::windows::core::IUnknown {
-    fn from(value: UserActivitySessionHistoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivitySessionHistoryItem> for ::windows::core::IUnknown {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivitySessionHistoryItem> for &::windows::core::IUnknown {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivitySessionHistoryItem> for ::windows::core::IInspectable {
-    fn from(value: UserActivitySessionHistoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivitySessionHistoryItem> for ::windows::core::IInspectable {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivitySessionHistoryItem> for &::windows::core::IInspectable {
-    fn from(value: &UserActivitySessionHistoryItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivitySessionHistoryItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1703,36 +1413,7 @@ unsafe impl ::windows::core::Interface for UserActivityVisualElements {
 impl ::windows::core::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";
 }
-impl ::core::convert::From<UserActivityVisualElements> for ::windows::core::IUnknown {
-    fn from(value: UserActivityVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityVisualElements> for ::windows::core::IUnknown {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityVisualElements> for &::windows::core::IUnknown {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserActivityVisualElements> for ::windows::core::IInspectable {
-    fn from(value: UserActivityVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserActivityVisualElements> for ::windows::core::IInspectable {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserActivityVisualElements> for &::windows::core::IInspectable {
-    fn from(value: &UserActivityVisualElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserActivityVisualElements, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}
 unsafe impl ::core::marker::Sync for UserActivityVisualElements {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]

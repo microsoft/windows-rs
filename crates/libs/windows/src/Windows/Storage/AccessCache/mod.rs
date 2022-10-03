@@ -190,36 +190,7 @@ impl IStorageItemAccessList {
         }
     }
 }
-impl ::core::convert::From<IStorageItemAccessList> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemAccessList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemAccessList> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemAccessList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItemAccessList> for ::windows::core::IInspectable {
-    fn from(value: IStorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemAccessList> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemAccessList> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItemAccessList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageItemAccessList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -441,41 +412,7 @@ impl ::core::iter::IntoIterator for &AccessListEntryView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<AccessListEntryView> for ::windows::core::IUnknown {
-    fn from(value: AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IUnknown {
-    fn from(value: &AccessListEntryView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IUnknown {
-    fn from(value: &AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<AccessListEntryView> for ::windows::core::IInspectable {
-    fn from(value: AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IInspectable {
-    fn from(value: &AccessListEntryView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IInspectable {
-    fn from(value: &AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccessListEntryView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
     type Error = ::windows::core::Error;
@@ -564,36 +501,7 @@ unsafe impl ::windows::core::Interface for ItemRemovedEventArgs {
 impl ::windows::core::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
 }
-impl ::core::convert::From<ItemRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ItemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ItemRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ItemRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ItemRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ItemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ItemRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ItemRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ItemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ItemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 pub struct StorageApplicationPermissions;
 impl StorageApplicationPermissions {
@@ -810,36 +718,7 @@ unsafe impl ::windows::core::Interface for StorageItemAccessList {
 impl ::windows::core::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
 }
-impl ::core::convert::From<StorageItemAccessList> for ::windows::core::IUnknown {
-    fn from(value: StorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageItemAccessList> for ::windows::core::IUnknown {
-    fn from(value: &StorageItemAccessList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageItemAccessList> for &::windows::core::IUnknown {
-    fn from(value: &StorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageItemAccessList> for ::windows::core::IInspectable {
-    fn from(value: StorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageItemAccessList> for ::windows::core::IInspectable {
-    fn from(value: &StorageItemAccessList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageItemAccessList> for &::windows::core::IInspectable {
-    fn from(value: &StorageItemAccessList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageItemAccessList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemAccessList> for IStorageItemAccessList {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemAccessList) -> ::windows::core::Result<Self> {
@@ -1064,36 +943,7 @@ unsafe impl ::windows::core::Interface for StorageItemMostRecentlyUsedList {
 impl ::windows::core::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";
 }
-impl ::core::convert::From<StorageItemMostRecentlyUsedList> for ::windows::core::IUnknown {
-    fn from(value: StorageItemMostRecentlyUsedList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageItemMostRecentlyUsedList> for ::windows::core::IUnknown {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageItemMostRecentlyUsedList> for &::windows::core::IUnknown {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageItemMostRecentlyUsedList> for ::windows::core::IInspectable {
-    fn from(value: StorageItemMostRecentlyUsedList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageItemMostRecentlyUsedList> for ::windows::core::IInspectable {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageItemMostRecentlyUsedList> for &::windows::core::IInspectable {
-    fn from(value: &StorageItemMostRecentlyUsedList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageItemMostRecentlyUsedList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageItemMostRecentlyUsedList> for IStorageItemAccessList {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemMostRecentlyUsedList) -> ::windows::core::Result<Self> {

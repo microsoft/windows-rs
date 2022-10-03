@@ -156,21 +156,7 @@ impl IDirect3D9 {
         (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), adapter, devicetype, hfocuswindow.into(), behaviorflags, ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
 }
-impl ::core::convert::From<IDirect3D9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3D9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3D9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3D9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3D9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3D9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3D9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3D9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -315,36 +301,7 @@ impl IDirect3D9Ex {
         (::windows::core::Vtable::vtable(self).GetAdapterLUID)(::windows::core::Vtable::as_raw(self), adapter, ::core::mem::transmute(pluid)).ok()
     }
 }
-impl ::core::convert::From<IDirect3D9Ex> for ::windows::core::IUnknown {
-    fn from(value: IDirect3D9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3D9Ex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3D9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3D9Ex> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3D9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3D9Ex> for IDirect3D9 {
-    fn from(value: IDirect3D9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3D9Ex> for &'a IDirect3D9 {
-    fn from(value: &'a IDirect3D9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3D9Ex> for IDirect3D9 {
-    fn from(value: &IDirect3D9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3D9Ex, ::windows::core::IUnknown, IDirect3D9);
 impl ::core::clone::Clone for IDirect3D9Ex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -431,36 +388,7 @@ impl IDirect3DBaseTexture9 {
         (::windows::core::Vtable::vtable(self).GenerateMipSubLevels)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDirect3DBaseTexture9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DBaseTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DBaseTexture9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DBaseTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DBaseTexture9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DBaseTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DBaseTexture9> for IDirect3DResource9 {
-    fn from(value: IDirect3DBaseTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DBaseTexture9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DBaseTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DBaseTexture9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DBaseTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DBaseTexture9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::clone::Clone for IDirect3DBaseTexture9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -562,51 +490,7 @@ impl IDirect3DCubeTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyRect)(::windows::core::Vtable::as_raw(self), facetype, ::core::mem::transmute(pdirtyrect)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DCubeTexture9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DCubeTexture9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DCubeTexture9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DCubeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DCubeTexture9> for IDirect3DResource9 {
-    fn from(value: IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DCubeTexture9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DCubeTexture9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DCubeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DCubeTexture9> for &'a IDirect3DBaseTexture9 {
-    fn from(value: &'a IDirect3DCubeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: &IDirect3DCubeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DCubeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::clone::Clone for IDirect3DCubeTexture9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1158,21 +1042,7 @@ impl IDirect3DDevice9 {
         (::windows::core::Vtable::vtable(self).CreateQuery)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDirect3DQuery9>(result__)
     }
 }
-impl ::core::convert::From<IDirect3DDevice9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDevice9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDevice9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDevice9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDevice9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DDevice9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2009,36 +1879,7 @@ impl IDirect3DDevice9Ex {
         (::windows::core::Vtable::vtable(self).GetDisplayModeEx)(::windows::core::Vtable::as_raw(self), iswapchain, ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DDevice9Ex> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDevice9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice9Ex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDevice9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9Ex> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDevice9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DDevice9Ex> for IDirect3DDevice9 {
-    fn from(value: IDirect3DDevice9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice9Ex> for &'a IDirect3DDevice9 {
-    fn from(value: &'a IDirect3DDevice9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9Ex> for IDirect3DDevice9 {
-    fn from(value: &IDirect3DDevice9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDevice9Ex, ::windows::core::IUnknown, IDirect3DDevice9);
 impl ::core::clone::Clone for IDirect3DDevice9Ex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2138,36 +1979,7 @@ impl IDirect3DIndexBuffer9 {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DIndexBuffer9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DIndexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DIndexBuffer9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DIndexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DIndexBuffer9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DIndexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DIndexBuffer9> for IDirect3DResource9 {
-    fn from(value: IDirect3DIndexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DIndexBuffer9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DIndexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DIndexBuffer9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DIndexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DIndexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::clone::Clone for IDirect3DIndexBuffer9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2210,21 +2022,7 @@ impl IDirect3DPixelShader9 {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(psizeofdata)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DPixelShader9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DPixelShader9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DPixelShader9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DPixelShader9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DPixelShader9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DPixelShader9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DPixelShader9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DPixelShader9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2275,21 +2073,7 @@ impl IDirect3DQuery9 {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), dwsize, dwgetdataflags).ok()
     }
 }
-impl ::core::convert::From<IDirect3DQuery9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DQuery9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DQuery9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DQuery9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DQuery9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DQuery9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DQuery9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DQuery9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2352,21 +2136,7 @@ impl IDirect3DResource9 {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDirect3DResource9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DResource9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DResource9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DResource9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DResource9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DResource9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DResource9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DResource9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2417,21 +2187,7 @@ impl IDirect3DStateBlock9 {
         (::windows::core::Vtable::vtable(self).Apply)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DStateBlock9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DStateBlock9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DStateBlock9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DStateBlock9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DStateBlock9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DStateBlock9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DStateBlock9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DStateBlock9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2519,36 +2275,7 @@ impl IDirect3DSurface9 {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), hdc.into()).ok()
     }
 }
-impl ::core::convert::From<IDirect3DSurface9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DSurface9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSurface9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DSurface9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSurface9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DSurface9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DSurface9> for IDirect3DResource9 {
-    fn from(value: IDirect3DSurface9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSurface9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DSurface9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSurface9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DSurface9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DSurface9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::clone::Clone for IDirect3DSurface9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2631,21 +2358,7 @@ impl IDirect3DSwapChain9 {
         (::windows::core::Vtable::vtable(self).GetPresentParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppresentationparameters)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DSwapChain9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DSwapChain9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSwapChain9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DSwapChain9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSwapChain9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DSwapChain9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DSwapChain9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DSwapChain9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2738,36 +2451,7 @@ impl IDirect3DSwapChain9Ex {
         (::windows::core::Vtable::vtable(self).GetDisplayModeEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DSwapChain9Ex> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DSwapChain9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSwapChain9Ex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DSwapChain9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSwapChain9Ex> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DSwapChain9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
-    fn from(value: IDirect3DSwapChain9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSwapChain9Ex> for &'a IDirect3DSwapChain9 {
-    fn from(value: &'a IDirect3DSwapChain9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
-    fn from(value: &IDirect3DSwapChain9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DSwapChain9Ex, ::windows::core::IUnknown, IDirect3DSwapChain9);
 impl ::core::clone::Clone for IDirect3DSwapChain9Ex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2866,51 +2550,7 @@ impl IDirect3DTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyRect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdirtyrect)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DTexture9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DTexture9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DTexture9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DTexture9> for IDirect3DResource9 {
-    fn from(value: IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DTexture9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DTexture9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DTexture9> for &'a IDirect3DBaseTexture9 {
-    fn from(value: &'a IDirect3DTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: &IDirect3DTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::clone::Clone for IDirect3DTexture9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2988,36 +2628,7 @@ impl IDirect3DVertexBuffer9 {
         (::windows::core::Vtable::vtable(self).GetDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DVertexBuffer9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DVertexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVertexBuffer9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DVertexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVertexBuffer9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DVertexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DVertexBuffer9> for IDirect3DResource9 {
-    fn from(value: IDirect3DVertexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVertexBuffer9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DVertexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVertexBuffer9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DVertexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DVertexBuffer9, ::windows::core::IUnknown, IDirect3DResource9);
 impl ::core::clone::Clone for IDirect3DVertexBuffer9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3060,21 +2671,7 @@ impl IDirect3DVertexDeclaration9 {
         (::windows::core::Vtable::vtable(self).GetDeclaration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pelement), ::core::mem::transmute(pnumelements)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DVertexDeclaration9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DVertexDeclaration9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVertexDeclaration9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DVertexDeclaration9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVertexDeclaration9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DVertexDeclaration9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DVertexDeclaration9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DVertexDeclaration9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3116,21 +2713,7 @@ impl IDirect3DVertexShader9 {
         (::windows::core::Vtable::vtable(self).GetFunction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(psizeofdata)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DVertexShader9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DVertexShader9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVertexShader9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DVertexShader9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVertexShader9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DVertexShader9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DVertexShader9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DVertexShader9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3190,21 +2773,7 @@ impl IDirect3DVolume9 {
         (::windows::core::Vtable::vtable(self).UnlockBox)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DVolume9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DVolume9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVolume9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DVolume9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVolume9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DVolume9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DVolume9, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DVolume9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3304,51 +2873,7 @@ impl IDirect3DVolumeTexture9 {
         (::windows::core::Vtable::vtable(self).AddDirtyBox)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdirtybox)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVolumeTexture9> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DVolumeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DVolumeTexture9> for IDirect3DResource9 {
-    fn from(value: IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVolumeTexture9> for &'a IDirect3DResource9 {
-    fn from(value: &'a IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVolumeTexture9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DVolumeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DVolumeTexture9> for &'a IDirect3DBaseTexture9 {
-    fn from(value: &'a IDirect3DVolumeTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
-    fn from(value: &IDirect3DVolumeTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DVolumeTexture9, ::windows::core::IUnknown, IDirect3DResource9, IDirect3DBaseTexture9);
 impl ::core::clone::Clone for IDirect3DVolumeTexture9 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

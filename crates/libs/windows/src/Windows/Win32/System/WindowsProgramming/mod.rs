@@ -2837,21 +2837,7 @@ impl ICameraUIControl {
         (::windows::core::Vtable::vtable(self).RemoveCapturedItem)(::windows::core::Vtable::as_raw(self), pszpath.into()).ok()
     }
 }
-impl ::core::convert::From<ICameraUIControl> for ::windows::core::IUnknown {
-    fn from(value: ICameraUIControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICameraUIControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICameraUIControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICameraUIControl> for ::windows::core::IUnknown {
-    fn from(value: &ICameraUIControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICameraUIControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICameraUIControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2922,21 +2908,7 @@ impl ICameraUIControlEventCallback {
         (::windows::core::Vtable::vtable(self).OnClosed)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ICameraUIControlEventCallback> for ::windows::core::IUnknown {
-    fn from(value: ICameraUIControlEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICameraUIControlEventCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICameraUIControlEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICameraUIControlEventCallback> for ::windows::core::IUnknown {
-    fn from(value: &ICameraUIControlEventCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICameraUIControlEventCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICameraUIControlEventCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2977,21 +2949,7 @@ impl IClipServiceNotificationHelper {
         (::windows::core::Vtable::vtable(self).ShowToast)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(titletext), ::core::mem::transmute_copy(bodytext), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(appid), ::core::mem::transmute_copy(launchcommand)).ok()
     }
 }
-impl ::core::convert::From<IClipServiceNotificationHelper> for ::windows::core::IUnknown {
-    fn from(value: IClipServiceNotificationHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IClipServiceNotificationHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IClipServiceNotificationHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IClipServiceNotificationHelper> for ::windows::core::IUnknown {
-    fn from(value: &IClipServiceNotificationHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IClipServiceNotificationHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IClipServiceNotificationHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3029,21 +2987,7 @@ impl IContainerActivationHelper {
         (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IContainerActivationHelper> for ::windows::core::IUnknown {
-    fn from(value: IContainerActivationHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContainerActivationHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContainerActivationHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContainerActivationHelper> for ::windows::core::IUnknown {
-    fn from(value: &IContainerActivationHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContainerActivationHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IContainerActivationHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3082,21 +3026,7 @@ impl IDefaultBrowserSyncSettings {
         (::windows::core::Vtable::vtable(self).IsEnabled)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDefaultBrowserSyncSettings> for ::windows::core::IUnknown {
-    fn from(value: IDefaultBrowserSyncSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDefaultBrowserSyncSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDefaultBrowserSyncSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDefaultBrowserSyncSettings> for ::windows::core::IUnknown {
-    fn from(value: &IDefaultBrowserSyncSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDefaultBrowserSyncSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3136,21 +3066,7 @@ impl IDeleteBrowsingHistory {
         (::windows::core::Vtable::vtable(self).DeleteBrowsingHistory)(::windows::core::Vtable::as_raw(self), dwflags).ok()
     }
 }
-impl ::core::convert::From<IDeleteBrowsingHistory> for ::windows::core::IUnknown {
-    fn from(value: IDeleteBrowsingHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeleteBrowsingHistory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeleteBrowsingHistory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeleteBrowsingHistory> for ::windows::core::IUnknown {
-    fn from(value: &IDeleteBrowsingHistory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeleteBrowsingHistory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeleteBrowsingHistory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3196,21 +3112,7 @@ impl IEditionUpgradeBroker {
         (::windows::core::Vtable::vtable(self).CanUpgrade)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IEditionUpgradeBroker> for ::windows::core::IUnknown {
-    fn from(value: IEditionUpgradeBroker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEditionUpgradeBroker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEditionUpgradeBroker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEditionUpgradeBroker> for ::windows::core::IUnknown {
-    fn from(value: &IEditionUpgradeBroker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEditionUpgradeBroker, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEditionUpgradeBroker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3272,21 +3174,7 @@ impl IEditionUpgradeHelper {
         (::windows::core::Vtable::vtable(self).GetGenuineLocalStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IEditionUpgradeHelper> for ::windows::core::IUnknown {
-    fn from(value: IEditionUpgradeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEditionUpgradeHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEditionUpgradeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEditionUpgradeHelper> for ::windows::core::IUnknown {
-    fn from(value: &IEditionUpgradeHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEditionUpgradeHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEditionUpgradeHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3336,21 +3224,7 @@ impl IWindowsLockModeHelper {
         (::windows::core::Vtable::vtable(self).GetSMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWindowsLockModeHelper> for ::windows::core::IUnknown {
-    fn from(value: IWindowsLockModeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsLockModeHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsLockModeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsLockModeHelper> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsLockModeHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsLockModeHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWindowsLockModeHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())

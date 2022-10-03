@@ -187,36 +187,7 @@ unsafe impl ::windows::core::Interface for QuickLink {
 impl ::windows::core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
 }
-impl ::core::convert::From<QuickLink> for ::windows::core::IUnknown {
-    fn from(value: QuickLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&QuickLink> for ::windows::core::IUnknown {
-    fn from(value: &QuickLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&QuickLink> for &::windows::core::IUnknown {
-    fn from(value: &QuickLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<QuickLink> for ::windows::core::IInspectable {
-    fn from(value: QuickLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&QuickLink> for ::windows::core::IInspectable {
-    fn from(value: &QuickLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&QuickLink> for &::windows::core::IInspectable {
-    fn from(value: &QuickLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(QuickLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct ShareOperation(::windows::core::IUnknown);
@@ -309,35 +280,6 @@ unsafe impl ::windows::core::Interface for ShareOperation {
 impl ::windows::core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
 }
-impl ::core::convert::From<ShareOperation> for ::windows::core::IUnknown {
-    fn from(value: ShareOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareOperation> for ::windows::core::IUnknown {
-    fn from(value: &ShareOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareOperation> for &::windows::core::IUnknown {
-    fn from(value: &ShareOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShareOperation> for ::windows::core::IInspectable {
-    fn from(value: ShareOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareOperation> for ::windows::core::IInspectable {
-    fn from(value: &ShareOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareOperation> for &::windows::core::IInspectable {
-    fn from(value: &ShareOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShareOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

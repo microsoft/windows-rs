@@ -350,36 +350,7 @@ unsafe impl ::windows::core::Interface for GazeDevicePreview {
 impl ::windows::core::RuntimeName for GazeDevicePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDevicePreview";
 }
-impl ::core::convert::From<GazeDevicePreview> for ::windows::core::IUnknown {
-    fn from(value: GazeDevicePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDevicePreview> for ::windows::core::IUnknown {
-    fn from(value: &GazeDevicePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDevicePreview> for &::windows::core::IUnknown {
-    fn from(value: &GazeDevicePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeDevicePreview> for ::windows::core::IInspectable {
-    fn from(value: GazeDevicePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDevicePreview> for ::windows::core::IInspectable {
-    fn from(value: &GazeDevicePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDevicePreview> for &::windows::core::IInspectable {
-    fn from(value: &GazeDevicePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeDevicePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDevicePreview {}
 unsafe impl ::core::marker::Sync for GazeDevicePreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -426,36 +397,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherAddedPreviewEventArg
 impl ::windows::core::RuntimeName for GazeDeviceWatcherAddedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherAddedPreviewEventArgs";
 }
-impl ::core::convert::From<GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherAddedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherAddedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherAddedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherAddedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -563,36 +505,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherPreview {
 impl ::windows::core::RuntimeName for GazeDeviceWatcherPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherPreview";
 }
-impl ::core::convert::From<GazeDeviceWatcherPreview> for ::windows::core::IUnknown {
-    fn from(value: GazeDeviceWatcherPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherPreview> for ::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherPreview> for &::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeDeviceWatcherPreview> for ::windows::core::IInspectable {
-    fn from(value: GazeDeviceWatcherPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherPreview> for ::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherPreview> for &::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeDeviceWatcherPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherPreview {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherPreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -639,36 +552,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherRemovedPreviewEventA
 impl ::windows::core::RuntimeName for GazeDeviceWatcherRemovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherRemovedPreviewEventArgs";
 }
-impl ::core::convert::From<GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherRemovedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherRemovedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherRemovedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherRemovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -715,36 +599,7 @@ unsafe impl ::windows::core::Interface for GazeDeviceWatcherUpdatedPreviewEventA
 impl ::windows::core::RuntimeName for GazeDeviceWatcherUpdatedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeDeviceWatcherUpdatedPreviewEventArgs";
 }
-impl ::core::convert::From<GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherUpdatedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherUpdatedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeDeviceWatcherUpdatedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeDeviceWatcherUpdatedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -802,36 +657,7 @@ unsafe impl ::windows::core::Interface for GazeEnteredPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeEnteredPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeEnteredPreviewEventArgs";
 }
-impl ::core::convert::From<GazeEnteredPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeEnteredPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeEnteredPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeEnteredPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeEnteredPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeEnteredPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeEnteredPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeEnteredPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeEnteredPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeEnteredPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeEnteredPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeEnteredPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeEnteredPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeEnteredPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeEnteredPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -889,36 +715,7 @@ unsafe impl ::windows::core::Interface for GazeExitedPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeExitedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeExitedPreviewEventArgs";
 }
-impl ::core::convert::From<GazeExitedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeExitedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeExitedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeExitedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeExitedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeExitedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeExitedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeExitedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeExitedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeExitedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeExitedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeExitedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeExitedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeExitedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeExitedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -1020,36 +817,7 @@ unsafe impl ::windows::core::Interface for GazeInputSourcePreview {
 impl ::windows::core::RuntimeName for GazeInputSourcePreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeInputSourcePreview";
 }
-impl ::core::convert::From<GazeInputSourcePreview> for ::windows::core::IUnknown {
-    fn from(value: GazeInputSourcePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeInputSourcePreview> for ::windows::core::IUnknown {
-    fn from(value: &GazeInputSourcePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeInputSourcePreview> for &::windows::core::IUnknown {
-    fn from(value: &GazeInputSourcePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeInputSourcePreview> for ::windows::core::IInspectable {
-    fn from(value: GazeInputSourcePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeInputSourcePreview> for ::windows::core::IInspectable {
-    fn from(value: &GazeInputSourcePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeInputSourcePreview> for &::windows::core::IInspectable {
-    fn from(value: &GazeInputSourcePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeInputSourcePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeInputSourcePreview {}
 unsafe impl ::core::marker::Sync for GazeInputSourcePreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -1116,36 +884,7 @@ unsafe impl ::windows::core::Interface for GazeMovedPreviewEventArgs {
 impl ::windows::core::RuntimeName for GazeMovedPreviewEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazeMovedPreviewEventArgs";
 }
-impl ::core::convert::From<GazeMovedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GazeMovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeMovedPreviewEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GazeMovedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeMovedPreviewEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GazeMovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazeMovedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GazeMovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazeMovedPreviewEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GazeMovedPreviewEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazeMovedPreviewEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GazeMovedPreviewEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazeMovedPreviewEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazeMovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeMovedPreviewEventArgs {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]
@@ -1226,36 +965,7 @@ unsafe impl ::windows::core::Interface for GazePointPreview {
 impl ::windows::core::RuntimeName for GazePointPreview {
     const NAME: &'static str = "Windows.Devices.Input.Preview.GazePointPreview";
 }
-impl ::core::convert::From<GazePointPreview> for ::windows::core::IUnknown {
-    fn from(value: GazePointPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazePointPreview> for ::windows::core::IUnknown {
-    fn from(value: &GazePointPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazePointPreview> for &::windows::core::IUnknown {
-    fn from(value: &GazePointPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GazePointPreview> for ::windows::core::IInspectable {
-    fn from(value: GazePointPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GazePointPreview> for ::windows::core::IInspectable {
-    fn from(value: &GazePointPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GazePointPreview> for &::windows::core::IInspectable {
-    fn from(value: &GazePointPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GazePointPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GazePointPreview {}
 unsafe impl ::core::marker::Sync for GazePointPreview {}
 #[doc = "*Required features: `\"Devices_Input_Preview\"`*"]

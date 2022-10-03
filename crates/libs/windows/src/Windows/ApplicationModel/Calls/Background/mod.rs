@@ -162,36 +162,7 @@ unsafe impl ::windows::core::Interface for PhoneCallBlockedTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
 }
-impl ::core::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneCallBlockedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneCallBlockedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneCallBlockedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -245,36 +216,7 @@ unsafe impl ::windows::core::Interface for PhoneCallOriginDataRequestTriggerDeta
 impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
 }
-impl ::core::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -358,36 +300,7 @@ unsafe impl ::windows::core::Interface for PhoneIncomingCallDismissedTriggerDeta
 impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
 }
-impl ::core::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -441,36 +354,7 @@ unsafe impl ::windows::core::Interface for PhoneIncomingCallNotificationTriggerD
 impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
 }
-impl ::core::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneIncomingCallNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -531,36 +415,7 @@ unsafe impl ::windows::core::Interface for PhoneLineChangedTriggerDetails {
 impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
 }
-impl ::core::convert::From<PhoneLineChangedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneLineChangedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneLineChangedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneLineChangedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneLineChangedTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
@@ -621,36 +476,7 @@ unsafe impl ::windows::core::Interface for PhoneNewVoicemailMessageTriggerDetail
 impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";
 }
-impl ::core::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneNewVoicemailMessageTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]

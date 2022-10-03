@@ -21,36 +21,7 @@ impl IBuffer {
         unsafe { (::windows::core::Vtable::vtable(this).SetLength)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<IBuffer> for ::windows::core::IUnknown {
-    fn from(value: IBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBuffer> for ::windows::core::IUnknown {
-    fn from(value: &IBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBuffer> for ::windows::core::IInspectable {
-    fn from(value: IBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBuffer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBuffer> for ::windows::core::IInspectable {
-    fn from(value: &IBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -137,36 +108,7 @@ impl IContentTypeProvider {
         }
     }
 }
-impl ::core::convert::From<IContentTypeProvider> for ::windows::core::IUnknown {
-    fn from(value: IContentTypeProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContentTypeProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IContentTypeProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContentTypeProvider> for ::windows::core::IUnknown {
-    fn from(value: &IContentTypeProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IContentTypeProvider> for ::windows::core::IInspectable {
-    fn from(value: IContentTypeProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IContentTypeProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IContentTypeProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContentTypeProvider> for ::windows::core::IInspectable {
-    fn from(value: &IContentTypeProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IContentTypeProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IContentTypeProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -383,36 +325,7 @@ impl IDataReader {
         }
     }
 }
-impl ::core::convert::From<IDataReader> for ::windows::core::IUnknown {
-    fn from(value: IDataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDataReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDataReader> for ::windows::core::IUnknown {
-    fn from(value: &IDataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDataReader> for ::windows::core::IInspectable {
-    fn from(value: IDataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDataReader> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDataReader> for ::windows::core::IInspectable {
-    fn from(value: &IDataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IDataReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -668,36 +581,7 @@ impl IDataWriter {
         }
     }
 }
-impl ::core::convert::From<IDataWriter> for ::windows::core::IUnknown {
-    fn from(value: IDataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDataWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDataWriter> for ::windows::core::IUnknown {
-    fn from(value: &IDataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDataWriter> for ::windows::core::IInspectable {
-    fn from(value: IDataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDataWriter> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDataWriter> for ::windows::core::IInspectable {
-    fn from(value: &IDataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IDataWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -856,36 +740,7 @@ impl IInputStream {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IInputStream> for ::windows::core::IUnknown {
-    fn from(value: IInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputStream> for ::windows::core::IUnknown {
-    fn from(value: &IInputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInputStream> for ::windows::core::IInspectable {
-    fn from(value: IInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputStream> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputStream> for ::windows::core::IInspectable {
-    fn from(value: &IInputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IInputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -960,36 +815,7 @@ impl IInputStreamReference {
         }
     }
 }
-impl ::core::convert::From<IInputStreamReference> for ::windows::core::IUnknown {
-    fn from(value: IInputStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputStreamReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInputStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputStreamReference> for ::windows::core::IUnknown {
-    fn from(value: &IInputStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IInputStreamReference> for ::windows::core::IInspectable {
-    fn from(value: IInputStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInputStreamReference> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IInputStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInputStreamReference> for ::windows::core::IInspectable {
-    fn from(value: &IInputStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInputStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IInputStreamReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1061,36 +887,7 @@ impl IOutputStream {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IOutputStream> for ::windows::core::IUnknown {
-    fn from(value: IOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOutputStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOutputStream> for ::windows::core::IUnknown {
-    fn from(value: &IOutputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IOutputStream> for ::windows::core::IInspectable {
-    fn from(value: IOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOutputStream> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOutputStream> for ::windows::core::IInspectable {
-    fn from(value: &IOutputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IOutputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1185,36 +982,7 @@ impl IPropertySetSerializer {
         unsafe { (::windows::core::Vtable::vtable(this).Deserialize)(::windows::core::Vtable::as_raw(this), propertyset.try_into().map_err(|e| e.into())?.abi(), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<IPropertySetSerializer> for ::windows::core::IUnknown {
-    fn from(value: IPropertySetSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySetSerializer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertySetSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySetSerializer> for ::windows::core::IUnknown {
-    fn from(value: &IPropertySetSerializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropertySetSerializer> for ::windows::core::IInspectable {
-    fn from(value: IPropertySetSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySetSerializer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPropertySetSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySetSerializer> for ::windows::core::IInspectable {
-    fn from(value: &IPropertySetSerializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertySetSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPropertySetSerializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1360,36 +1128,7 @@ impl IRandomAccessStream {
         }
     }
 }
-impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: IRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: &IRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: IRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStream> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: &IRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1507,36 +1246,7 @@ impl IRandomAccessStreamReference {
         }
     }
 }
-impl ::core::convert::From<IRandomAccessStreamReference> for ::windows::core::IUnknown {
-    fn from(value: IRandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStreamReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStreamReference> for ::windows::core::IUnknown {
-    fn from(value: &IRandomAccessStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRandomAccessStreamReference> for ::windows::core::IInspectable {
-    fn from(value: IRandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStreamReference> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStreamReference> for ::windows::core::IInspectable {
-    fn from(value: &IRandomAccessStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IRandomAccessStreamReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1731,36 +1441,7 @@ impl IRandomAccessStreamWithContentType {
         }
     }
 }
-impl ::core::convert::From<IRandomAccessStreamWithContentType> for ::windows::core::IUnknown {
-    fn from(value: IRandomAccessStreamWithContentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStreamWithContentType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRandomAccessStreamWithContentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStreamWithContentType> for ::windows::core::IUnknown {
-    fn from(value: &IRandomAccessStreamWithContentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRandomAccessStreamWithContentType> for ::windows::core::IInspectable {
-    fn from(value: IRandomAccessStreamWithContentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStreamWithContentType> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRandomAccessStreamWithContentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStreamWithContentType> for ::windows::core::IInspectable {
-    fn from(value: &IRandomAccessStreamWithContentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRandomAccessStreamWithContentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1988,36 +1669,7 @@ unsafe impl ::windows::core::Interface for Buffer {
 impl ::windows::core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
 }
-impl ::core::convert::From<Buffer> for ::windows::core::IUnknown {
-    fn from(value: Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Buffer> for ::windows::core::IUnknown {
-    fn from(value: &Buffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Buffer> for &::windows::core::IUnknown {
-    fn from(value: &Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Buffer> for ::windows::core::IInspectable {
-    fn from(value: Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Buffer> for ::windows::core::IInspectable {
-    fn from(value: &Buffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Buffer> for &::windows::core::IInspectable {
-    fn from(value: &Buffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Buffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<Buffer> for IBuffer {
     type Error = ::windows::core::Error;
     fn try_from(value: Buffer) -> ::windows::core::Result<Self> {
@@ -2288,36 +1940,7 @@ unsafe impl ::windows::core::Interface for DataReader {
 impl ::windows::core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
 }
-impl ::core::convert::From<DataReader> for ::windows::core::IUnknown {
-    fn from(value: DataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataReader> for ::windows::core::IUnknown {
-    fn from(value: &DataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataReader> for &::windows::core::IUnknown {
-    fn from(value: &DataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataReader> for ::windows::core::IInspectable {
-    fn from(value: DataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataReader> for ::windows::core::IInspectable {
-    fn from(value: &DataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataReader> for &::windows::core::IInspectable {
-    fn from(value: &DataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2503,41 +2126,7 @@ impl ::std::future::Future for DataReaderLoadOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<DataReaderLoadOperation> for ::windows::core::IUnknown {
-    fn from(value: DataReaderLoadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataReaderLoadOperation> for ::windows::core::IUnknown {
-    fn from(value: &DataReaderLoadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataReaderLoadOperation> for &::windows::core::IUnknown {
-    fn from(value: &DataReaderLoadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<DataReaderLoadOperation> for ::windows::core::IInspectable {
-    fn from(value: DataReaderLoadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataReaderLoadOperation> for ::windows::core::IInspectable {
-    fn from(value: &DataReaderLoadOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataReaderLoadOperation> for &::windows::core::IInspectable {
-    fn from(value: &DataReaderLoadOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataReaderLoadOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReaderLoadOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -2802,36 +2391,7 @@ unsafe impl ::windows::core::Interface for DataWriter {
 impl ::windows::core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
 }
-impl ::core::convert::From<DataWriter> for ::windows::core::IUnknown {
-    fn from(value: DataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataWriter> for ::windows::core::IUnknown {
-    fn from(value: &DataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataWriter> for &::windows::core::IUnknown {
-    fn from(value: &DataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataWriter> for ::windows::core::IInspectable {
-    fn from(value: DataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataWriter> for ::windows::core::IInspectable {
-    fn from(value: &DataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataWriter> for &::windows::core::IInspectable {
-    fn from(value: &DataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3017,41 +2577,7 @@ impl ::std::future::Future for DataWriterStoreOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<DataWriterStoreOperation> for ::windows::core::IUnknown {
-    fn from(value: DataWriterStoreOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataWriterStoreOperation> for ::windows::core::IUnknown {
-    fn from(value: &DataWriterStoreOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataWriterStoreOperation> for &::windows::core::IUnknown {
-    fn from(value: &DataWriterStoreOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<DataWriterStoreOperation> for ::windows::core::IInspectable {
-    fn from(value: DataWriterStoreOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataWriterStoreOperation> for ::windows::core::IInspectable {
-    fn from(value: &DataWriterStoreOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&DataWriterStoreOperation> for &::windows::core::IInspectable {
-    fn from(value: &DataWriterStoreOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataWriterStoreOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriterStoreOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -3156,36 +2682,7 @@ unsafe impl ::windows::core::Interface for FileInputStream {
 impl ::windows::core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
 }
-impl ::core::convert::From<FileInputStream> for ::windows::core::IUnknown {
-    fn from(value: FileInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileInputStream> for ::windows::core::IUnknown {
-    fn from(value: &FileInputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileInputStream> for &::windows::core::IUnknown {
-    fn from(value: &FileInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileInputStream> for ::windows::core::IInspectable {
-    fn from(value: FileInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileInputStream> for ::windows::core::IInspectable {
-    fn from(value: &FileInputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileInputStream> for &::windows::core::IInspectable {
-    fn from(value: &FileInputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileInputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileInputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3294,36 +2791,7 @@ unsafe impl ::windows::core::Interface for FileOutputStream {
 impl ::windows::core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
 }
-impl ::core::convert::From<FileOutputStream> for ::windows::core::IUnknown {
-    fn from(value: FileOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOutputStream> for ::windows::core::IUnknown {
-    fn from(value: &FileOutputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOutputStream> for &::windows::core::IUnknown {
-    fn from(value: &FileOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileOutputStream> for ::windows::core::IInspectable {
-    fn from(value: FileOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOutputStream> for ::windows::core::IInspectable {
-    fn from(value: &FileOutputStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOutputStream> for &::windows::core::IInspectable {
-    fn from(value: &FileOutputStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileOutputStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileOutputStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3571,36 +3039,7 @@ unsafe impl ::windows::core::Interface for FileRandomAccessStream {
 impl ::windows::core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
 }
-impl ::core::convert::From<FileRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: FileRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: &FileRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileRandomAccessStream> for &::windows::core::IUnknown {
-    fn from(value: &FileRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: FileRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: &FileRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileRandomAccessStream> for &::windows::core::IInspectable {
-    fn from(value: &FileRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FileRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<FileRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3824,36 +3263,7 @@ unsafe impl ::windows::core::Interface for InMemoryRandomAccessStream {
 impl ::windows::core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
 }
-impl ::core::convert::From<InMemoryRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: InMemoryRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InMemoryRandomAccessStream> for ::windows::core::IUnknown {
-    fn from(value: &InMemoryRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InMemoryRandomAccessStream> for &::windows::core::IUnknown {
-    fn from(value: &InMemoryRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InMemoryRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: InMemoryRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InMemoryRandomAccessStream> for ::windows::core::IInspectable {
-    fn from(value: &InMemoryRandomAccessStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InMemoryRandomAccessStream> for &::windows::core::IInspectable {
-    fn from(value: &InMemoryRandomAccessStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InMemoryRandomAccessStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InMemoryRandomAccessStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3991,36 +3401,7 @@ unsafe impl ::windows::core::Interface for InputStreamOverStream {
 impl ::windows::core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
 }
-impl ::core::convert::From<InputStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: InputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: &InputStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputStreamOverStream> for &::windows::core::IUnknown {
-    fn from(value: &InputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InputStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: InputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InputStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: &InputStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InputStreamOverStream> for &::windows::core::IInspectable {
-    fn from(value: &InputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InputStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4129,36 +3510,7 @@ unsafe impl ::windows::core::Interface for OutputStreamOverStream {
 impl ::windows::core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
 }
-impl ::core::convert::From<OutputStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: OutputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OutputStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: &OutputStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OutputStreamOverStream> for &::windows::core::IUnknown {
-    fn from(value: &OutputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OutputStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: OutputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OutputStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: &OutputStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OutputStreamOverStream> for &::windows::core::IInspectable {
-    fn from(value: &OutputStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OutputStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<OutputStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4391,36 +3743,7 @@ unsafe impl ::windows::core::Interface for RandomAccessStreamOverStream {
 impl ::windows::core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
 }
-impl ::core::convert::From<RandomAccessStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: RandomAccessStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamOverStream> for ::windows::core::IUnknown {
-    fn from(value: &RandomAccessStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamOverStream> for &::windows::core::IUnknown {
-    fn from(value: &RandomAccessStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RandomAccessStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: RandomAccessStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamOverStream> for ::windows::core::IInspectable {
-    fn from(value: &RandomAccessStreamOverStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamOverStream> for &::windows::core::IInspectable {
-    fn from(value: &RandomAccessStreamOverStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RandomAccessStreamOverStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RandomAccessStreamOverStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4581,36 +3904,7 @@ unsafe impl ::windows::core::Interface for RandomAccessStreamReference {
 impl ::windows::core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";
 }
-impl ::core::convert::From<RandomAccessStreamReference> for ::windows::core::IUnknown {
-    fn from(value: RandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamReference> for ::windows::core::IUnknown {
-    fn from(value: &RandomAccessStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamReference> for &::windows::core::IUnknown {
-    fn from(value: &RandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RandomAccessStreamReference> for ::windows::core::IInspectable {
-    fn from(value: RandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamReference> for ::windows::core::IInspectable {
-    fn from(value: &RandomAccessStreamReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RandomAccessStreamReference> for &::windows::core::IInspectable {
-    fn from(value: &RandomAccessStreamReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RandomAccessStreamReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RandomAccessStreamReference> for IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
     fn try_from(value: RandomAccessStreamReference) -> ::windows::core::Result<Self> {

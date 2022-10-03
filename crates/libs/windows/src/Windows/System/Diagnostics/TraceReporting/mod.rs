@@ -214,36 +214,7 @@ unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceInfo {
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
 }
-impl ::core::convert::From<PlatformDiagnosticTraceInfo> for ::windows::core::IUnknown {
-    fn from(value: PlatformDiagnosticTraceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceInfo> for ::windows::core::IUnknown {
-    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceInfo> for &::windows::core::IUnknown {
-    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlatformDiagnosticTraceInfo> for ::windows::core::IInspectable {
-    fn from(value: PlatformDiagnosticTraceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceInfo> for ::windows::core::IInspectable {
-    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceInfo> for &::windows::core::IInspectable {
-    fn from(value: &PlatformDiagnosticTraceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlatformDiagnosticTraceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
@@ -297,36 +268,7 @@ unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceRuntimeInfo {
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";
 }
-impl ::core::convert::From<PlatformDiagnosticTraceRuntimeInfo> for ::windows::core::IUnknown {
-    fn from(value: PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for ::windows::core::IUnknown {
-    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for &::windows::core::IUnknown {
-    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlatformDiagnosticTraceRuntimeInfo> for ::windows::core::IInspectable {
-    fn from(value: PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for ::windows::core::IInspectable {
-    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for &::windows::core::IInspectable {
-    fn from(value: &PlatformDiagnosticTraceRuntimeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]

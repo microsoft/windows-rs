@@ -18,36 +18,7 @@ pub mod Printing3D;
 #[repr(transparent)]
 pub struct IGeometrySource2D(::windows::core::IUnknown);
 impl IGeometrySource2D {}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IUnknown {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGeometrySource2D, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGeometrySource2D {
     fn clone(&self) -> Self {
         Self(self.0.clone())

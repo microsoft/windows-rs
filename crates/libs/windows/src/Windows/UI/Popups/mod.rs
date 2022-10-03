@@ -117,36 +117,7 @@ impl IUICommand {
         unsafe { (::windows::core::Vtable::vtable(this).SetId)(::windows::core::Vtable::as_raw(this), value.into().abi()).ok() }
     }
 }
-impl ::core::convert::From<IUICommand> for ::windows::core::IUnknown {
-    fn from(value: IUICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUICommand> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUICommand> for ::windows::core::IUnknown {
-    fn from(value: &IUICommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUICommand> for ::windows::core::IInspectable {
-    fn from(value: IUICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUICommand> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUICommand> for ::windows::core::IInspectable {
-    fn from(value: &IUICommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUICommand {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -331,36 +302,7 @@ unsafe impl ::windows::core::Interface for MessageDialog {
 impl ::windows::core::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
 }
-impl ::core::convert::From<MessageDialog> for ::windows::core::IUnknown {
-    fn from(value: MessageDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageDialog> for ::windows::core::IUnknown {
-    fn from(value: &MessageDialog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageDialog> for &::windows::core::IUnknown {
-    fn from(value: &MessageDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MessageDialog> for ::windows::core::IInspectable {
-    fn from(value: MessageDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MessageDialog> for ::windows::core::IInspectable {
-    fn from(value: &MessageDialog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MessageDialog> for &::windows::core::IInspectable {
-    fn from(value: &MessageDialog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MessageDialog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct PopupMenu(::windows::core::IUnknown);
@@ -441,36 +383,7 @@ unsafe impl ::windows::core::Interface for PopupMenu {
 impl ::windows::core::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
 }
-impl ::core::convert::From<PopupMenu> for ::windows::core::IUnknown {
-    fn from(value: PopupMenu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PopupMenu> for ::windows::core::IUnknown {
-    fn from(value: &PopupMenu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PopupMenu> for &::windows::core::IUnknown {
-    fn from(value: &PopupMenu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PopupMenu> for ::windows::core::IInspectable {
-    fn from(value: PopupMenu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PopupMenu> for ::windows::core::IInspectable {
-    fn from(value: &PopupMenu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PopupMenu> for &::windows::core::IInspectable {
-    fn from(value: &PopupMenu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PopupMenu, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommand(::windows::core::IUnknown);
@@ -577,36 +490,7 @@ unsafe impl ::windows::core::Interface for UICommand {
 impl ::windows::core::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
 }
-impl ::core::convert::From<UICommand> for ::windows::core::IUnknown {
-    fn from(value: UICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UICommand> for ::windows::core::IUnknown {
-    fn from(value: &UICommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UICommand> for &::windows::core::IUnknown {
-    fn from(value: &UICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UICommand> for ::windows::core::IInspectable {
-    fn from(value: UICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UICommand> for ::windows::core::IInspectable {
-    fn from(value: &UICommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UICommand> for &::windows::core::IInspectable {
-    fn from(value: &UICommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UICommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UICommand> for IUICommand {
     type Error = ::windows::core::Error;
     fn try_from(value: UICommand) -> ::windows::core::Result<Self> {
@@ -708,36 +592,7 @@ unsafe impl ::windows::core::Interface for UICommandSeparator {
 impl ::windows::core::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";
 }
-impl ::core::convert::From<UICommandSeparator> for ::windows::core::IUnknown {
-    fn from(value: UICommandSeparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UICommandSeparator> for ::windows::core::IUnknown {
-    fn from(value: &UICommandSeparator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UICommandSeparator> for &::windows::core::IUnknown {
-    fn from(value: &UICommandSeparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UICommandSeparator> for ::windows::core::IInspectable {
-    fn from(value: UICommandSeparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UICommandSeparator> for ::windows::core::IInspectable {
-    fn from(value: &UICommandSeparator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UICommandSeparator> for &::windows::core::IInspectable {
-    fn from(value: &UICommandSeparator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UICommandSeparator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UICommandSeparator> for IUICommand {
     type Error = ::windows::core::Error;
     fn try_from(value: UICommandSeparator) -> ::windows::core::Result<Self> {

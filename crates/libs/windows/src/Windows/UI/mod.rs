@@ -327,36 +327,7 @@ unsafe impl ::windows::core::Interface for ColorHelper {
 impl ::windows::core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
-impl ::core::convert::From<ColorHelper> for ::windows::core::IUnknown {
-    fn from(value: ColorHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorHelper> for ::windows::core::IUnknown {
-    fn from(value: &ColorHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorHelper> for &::windows::core::IUnknown {
-    fn from(value: &ColorHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ColorHelper> for ::windows::core::IInspectable {
-    fn from(value: ColorHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ColorHelper> for ::windows::core::IInspectable {
-    fn from(value: &ColorHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ColorHelper> for &::windows::core::IInspectable {
-    fn from(value: &ColorHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ColorHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1247,36 +1218,7 @@ unsafe impl ::windows::core::Interface for Colors {
 impl ::windows::core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
-impl ::core::convert::From<Colors> for ::windows::core::IUnknown {
-    fn from(value: Colors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Colors> for ::windows::core::IUnknown {
-    fn from(value: &Colors) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Colors> for &::windows::core::IUnknown {
-    fn from(value: &Colors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Colors> for ::windows::core::IInspectable {
-    fn from(value: Colors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Colors> for ::windows::core::IInspectable {
-    fn from(value: &Colors) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Colors> for &::windows::core::IInspectable {
-    fn from(value: &Colors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Colors, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Colors {}
 unsafe impl ::core::marker::Sync for Colors {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1323,36 +1265,7 @@ unsafe impl ::windows::core::Interface for UIContentRoot {
 impl ::windows::core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
-impl ::core::convert::From<UIContentRoot> for ::windows::core::IUnknown {
-    fn from(value: UIContentRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIContentRoot> for ::windows::core::IUnknown {
-    fn from(value: &UIContentRoot) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIContentRoot> for &::windows::core::IUnknown {
-    fn from(value: &UIContentRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UIContentRoot> for ::windows::core::IInspectable {
-    fn from(value: UIContentRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIContentRoot> for ::windows::core::IInspectable {
-    fn from(value: &UIContentRoot) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIContentRoot> for &::windows::core::IInspectable {
-    fn from(value: &UIContentRoot) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UIContentRoot, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
 #[doc = "*Required features: `\"UI\"`*"]
@@ -1391,36 +1304,7 @@ unsafe impl ::windows::core::Interface for UIContext {
 impl ::windows::core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
 }
-impl ::core::convert::From<UIContext> for ::windows::core::IUnknown {
-    fn from(value: UIContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIContext> for ::windows::core::IUnknown {
-    fn from(value: &UIContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIContext> for &::windows::core::IUnknown {
-    fn from(value: &UIContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UIContext> for ::windows::core::IInspectable {
-    fn from(value: UIContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UIContext> for ::windows::core::IInspectable {
-    fn from(value: &UIContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UIContext> for &::windows::core::IInspectable {
-    fn from(value: &UIContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UIContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]

@@ -932,36 +932,7 @@ unsafe impl ::windows::core::Interface for LicenseInformation {
 impl ::windows::core::RuntimeName for LicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseInformation";
 }
-impl ::core::convert::From<LicenseInformation> for ::windows::core::IUnknown {
-    fn from(value: LicenseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseInformation> for ::windows::core::IUnknown {
-    fn from(value: &LicenseInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseInformation> for &::windows::core::IUnknown {
-    fn from(value: &LicenseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LicenseInformation> for ::windows::core::IInspectable {
-    fn from(value: LicenseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseInformation> for ::windows::core::IInspectable {
-    fn from(value: &LicenseInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseInformation> for &::windows::core::IInspectable {
-    fn from(value: &LicenseInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LicenseInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseInformation {}
 unsafe impl ::core::marker::Sync for LicenseInformation {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1075,36 +1046,7 @@ unsafe impl ::windows::core::Interface for ListingInformation {
 impl ::windows::core::RuntimeName for ListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ListingInformation";
 }
-impl ::core::convert::From<ListingInformation> for ::windows::core::IUnknown {
-    fn from(value: ListingInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ListingInformation> for ::windows::core::IUnknown {
-    fn from(value: &ListingInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ListingInformation> for &::windows::core::IUnknown {
-    fn from(value: &ListingInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ListingInformation> for ::windows::core::IInspectable {
-    fn from(value: ListingInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ListingInformation> for ::windows::core::IInspectable {
-    fn from(value: &ListingInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ListingInformation> for &::windows::core::IInspectable {
-    fn from(value: &ListingInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ListingInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ListingInformation {}
 unsafe impl ::core::marker::Sync for ListingInformation {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1174,36 +1116,7 @@ unsafe impl ::windows::core::Interface for ProductLicense {
 impl ::windows::core::RuntimeName for ProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductLicense";
 }
-impl ::core::convert::From<ProductLicense> for ::windows::core::IUnknown {
-    fn from(value: ProductLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductLicense> for ::windows::core::IUnknown {
-    fn from(value: &ProductLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductLicense> for &::windows::core::IUnknown {
-    fn from(value: &ProductLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProductLicense> for ::windows::core::IInspectable {
-    fn from(value: ProductLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductLicense> for ::windows::core::IInspectable {
-    fn from(value: &ProductLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductLicense> for &::windows::core::IInspectable {
-    fn from(value: &ProductLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProductLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductLicense {}
 unsafe impl ::core::marker::Sync for ProductLicense {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1333,36 +1246,7 @@ unsafe impl ::windows::core::Interface for ProductListing {
 impl ::windows::core::RuntimeName for ProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductListing";
 }
-impl ::core::convert::From<ProductListing> for ::windows::core::IUnknown {
-    fn from(value: ProductListing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductListing> for ::windows::core::IUnknown {
-    fn from(value: &ProductListing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductListing> for &::windows::core::IUnknown {
-    fn from(value: &ProductListing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProductListing> for ::windows::core::IInspectable {
-    fn from(value: ProductListing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductListing> for ::windows::core::IInspectable {
-    fn from(value: &ProductListing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductListing> for &::windows::core::IInspectable {
-    fn from(value: &ProductListing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProductListing, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductListing {}
 unsafe impl ::core::marker::Sync for ProductListing {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1457,36 +1341,7 @@ unsafe impl ::windows::core::Interface for ProductPurchaseDisplayProperties {
 impl ::windows::core::RuntimeName for ProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
 }
-impl ::core::convert::From<ProductPurchaseDisplayProperties> for ::windows::core::IUnknown {
-    fn from(value: ProductPurchaseDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductPurchaseDisplayProperties> for ::windows::core::IUnknown {
-    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductPurchaseDisplayProperties> for &::windows::core::IUnknown {
-    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProductPurchaseDisplayProperties> for ::windows::core::IInspectable {
-    fn from(value: ProductPurchaseDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProductPurchaseDisplayProperties> for ::windows::core::IInspectable {
-    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProductPurchaseDisplayProperties> for &::windows::core::IInspectable {
-    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProductPurchaseDisplayProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1554,36 +1409,7 @@ unsafe impl ::windows::core::Interface for PurchaseResults {
 impl ::windows::core::RuntimeName for PurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.PurchaseResults";
 }
-impl ::core::convert::From<PurchaseResults> for ::windows::core::IUnknown {
-    fn from(value: PurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PurchaseResults> for ::windows::core::IUnknown {
-    fn from(value: &PurchaseResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PurchaseResults> for &::windows::core::IUnknown {
-    fn from(value: &PurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PurchaseResults> for ::windows::core::IInspectable {
-    fn from(value: PurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PurchaseResults> for ::windows::core::IInspectable {
-    fn from(value: &PurchaseResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PurchaseResults> for &::windows::core::IInspectable {
-    fn from(value: &PurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PurchaseResults {}
 unsafe impl ::core::marker::Sync for PurchaseResults {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
@@ -1644,36 +1470,7 @@ unsafe impl ::windows::core::Interface for UnfulfilledConsumable {
 impl ::windows::core::RuntimeName for UnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.UnfulfilledConsumable";
 }
-impl ::core::convert::From<UnfulfilledConsumable> for ::windows::core::IUnknown {
-    fn from(value: UnfulfilledConsumable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnfulfilledConsumable> for ::windows::core::IUnknown {
-    fn from(value: &UnfulfilledConsumable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnfulfilledConsumable> for &::windows::core::IUnknown {
-    fn from(value: &UnfulfilledConsumable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UnfulfilledConsumable> for ::windows::core::IInspectable {
-    fn from(value: UnfulfilledConsumable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnfulfilledConsumable> for ::windows::core::IInspectable {
-    fn from(value: &UnfulfilledConsumable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnfulfilledConsumable> for &::windows::core::IInspectable {
-    fn from(value: &UnfulfilledConsumable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnfulfilledConsumable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::core::marker::Sync for UnfulfilledConsumable {}
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]

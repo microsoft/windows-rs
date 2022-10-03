@@ -942,36 +942,7 @@ unsafe impl ::windows::core::Interface for DisplayAdapter {
 impl ::windows::core::RuntimeName for DisplayAdapter {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayAdapter";
 }
-impl ::core::convert::From<DisplayAdapter> for ::windows::core::IUnknown {
-    fn from(value: DisplayAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayAdapter> for ::windows::core::IUnknown {
-    fn from(value: &DisplayAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayAdapter> for &::windows::core::IUnknown {
-    fn from(value: &DisplayAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayAdapter> for ::windows::core::IInspectable {
-    fn from(value: DisplayAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayAdapter> for ::windows::core::IInspectable {
-    fn from(value: &DisplayAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayAdapter> for &::windows::core::IInspectable {
-    fn from(value: &DisplayAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1072,36 +1043,7 @@ unsafe impl ::windows::core::Interface for DisplayDevice {
 impl ::windows::core::RuntimeName for DisplayDevice {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayDevice";
 }
-impl ::core::convert::From<DisplayDevice> for ::windows::core::IUnknown {
-    fn from(value: DisplayDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayDevice> for ::windows::core::IUnknown {
-    fn from(value: &DisplayDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayDevice> for &::windows::core::IUnknown {
-    fn from(value: &DisplayDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayDevice> for ::windows::core::IInspectable {
-    fn from(value: DisplayDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayDevice> for ::windows::core::IInspectable {
-    fn from(value: &DisplayDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayDevice> for &::windows::core::IInspectable {
-    fn from(value: &DisplayDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1140,36 +1082,7 @@ unsafe impl ::windows::core::Interface for DisplayFence {
 impl ::windows::core::RuntimeName for DisplayFence {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayFence";
 }
-impl ::core::convert::From<DisplayFence> for ::windows::core::IUnknown {
-    fn from(value: DisplayFence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayFence> for ::windows::core::IUnknown {
-    fn from(value: &DisplayFence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayFence> for &::windows::core::IUnknown {
-    fn from(value: &DisplayFence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayFence> for ::windows::core::IInspectable {
-    fn from(value: DisplayFence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayFence> for ::windows::core::IInspectable {
-    fn from(value: &DisplayFence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayFence> for &::windows::core::IInspectable {
-    fn from(value: &DisplayFence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayFence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayFence {}
 unsafe impl ::core::marker::Sync for DisplayFence {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1376,36 +1289,7 @@ unsafe impl ::windows::core::Interface for DisplayManager {
 impl ::windows::core::RuntimeName for DisplayManager {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManager";
 }
-impl ::core::convert::From<DisplayManager> for ::windows::core::IUnknown {
-    fn from(value: DisplayManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManager> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManager> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManager> for ::windows::core::IInspectable {
-    fn from(value: DisplayManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManager> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManager> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DisplayManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1487,36 +1371,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerChangedEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs";
 }
-impl ::core::convert::From<DisplayManagerChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DisplayManagerChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManagerChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DisplayManagerChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManagerChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManagerChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1576,36 +1431,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerDisabledEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerDisabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs";
 }
-impl ::core::convert::From<DisplayManagerDisabledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DisplayManagerDisabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManagerDisabledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DisplayManagerDisabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManagerDisabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManagerDisabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1665,36 +1491,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerEnabledEventArgs {
 impl ::windows::core::RuntimeName for DisplayManagerEnabledEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs";
 }
-impl ::core::convert::From<DisplayManagerEnabledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DisplayManagerEnabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManagerEnabledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DisplayManagerEnabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManagerEnabledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManagerEnabledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1754,36 +1551,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerPathsFailedOrInvalidate
 impl ::windows::core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs";
 }
-impl ::core::convert::From<DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManagerPathsFailedOrInvalidatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1844,36 +1612,7 @@ unsafe impl ::windows::core::Interface for DisplayManagerResultWithState {
 impl ::windows::core::RuntimeName for DisplayManagerResultWithState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayManagerResultWithState";
 }
-impl ::core::convert::From<DisplayManagerResultWithState> for ::windows::core::IUnknown {
-    fn from(value: DisplayManagerResultWithState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerResultWithState> for ::windows::core::IUnknown {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerResultWithState> for &::windows::core::IUnknown {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayManagerResultWithState> for ::windows::core::IInspectable {
-    fn from(value: DisplayManagerResultWithState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayManagerResultWithState> for ::windows::core::IInspectable {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayManagerResultWithState> for &::windows::core::IInspectable {
-    fn from(value: &DisplayManagerResultWithState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayManagerResultWithState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -1995,36 +1734,7 @@ unsafe impl ::windows::core::Interface for DisplayModeInfo {
 impl ::windows::core::RuntimeName for DisplayModeInfo {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayModeInfo";
 }
-impl ::core::convert::From<DisplayModeInfo> for ::windows::core::IUnknown {
-    fn from(value: DisplayModeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayModeInfo> for ::windows::core::IUnknown {
-    fn from(value: &DisplayModeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayModeInfo> for &::windows::core::IUnknown {
-    fn from(value: &DisplayModeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayModeInfo> for ::windows::core::IInspectable {
-    fn from(value: DisplayModeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayModeInfo> for ::windows::core::IInspectable {
-    fn from(value: &DisplayModeInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayModeInfo> for &::windows::core::IInspectable {
-    fn from(value: &DisplayModeInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayModeInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2261,36 +1971,7 @@ unsafe impl ::windows::core::Interface for DisplayPath {
 impl ::windows::core::RuntimeName for DisplayPath {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPath";
 }
-impl ::core::convert::From<DisplayPath> for ::windows::core::IUnknown {
-    fn from(value: DisplayPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayPath> for ::windows::core::IUnknown {
-    fn from(value: &DisplayPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayPath> for &::windows::core::IUnknown {
-    fn from(value: &DisplayPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayPath> for ::windows::core::IInspectable {
-    fn from(value: DisplayPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayPath> for ::windows::core::IInspectable {
-    fn from(value: &DisplayPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayPath> for &::windows::core::IInspectable {
-    fn from(value: &DisplayPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayPath, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2417,36 +2098,7 @@ unsafe impl ::windows::core::Interface for DisplayPrimaryDescription {
 impl ::windows::core::RuntimeName for DisplayPrimaryDescription {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayPrimaryDescription";
 }
-impl ::core::convert::From<DisplayPrimaryDescription> for ::windows::core::IUnknown {
-    fn from(value: DisplayPrimaryDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayPrimaryDescription> for ::windows::core::IUnknown {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayPrimaryDescription> for &::windows::core::IUnknown {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayPrimaryDescription> for ::windows::core::IInspectable {
-    fn from(value: DisplayPrimaryDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayPrimaryDescription> for ::windows::core::IInspectable {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayPrimaryDescription> for &::windows::core::IInspectable {
-    fn from(value: &DisplayPrimaryDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayPrimaryDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2485,36 +2137,7 @@ unsafe impl ::windows::core::Interface for DisplayScanout {
 impl ::windows::core::RuntimeName for DisplayScanout {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayScanout";
 }
-impl ::core::convert::From<DisplayScanout> for ::windows::core::IUnknown {
-    fn from(value: DisplayScanout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayScanout> for ::windows::core::IUnknown {
-    fn from(value: &DisplayScanout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayScanout> for &::windows::core::IUnknown {
-    fn from(value: &DisplayScanout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayScanout> for ::windows::core::IInspectable {
-    fn from(value: DisplayScanout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayScanout> for ::windows::core::IInspectable {
-    fn from(value: &DisplayScanout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayScanout> for &::windows::core::IInspectable {
-    fn from(value: &DisplayScanout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayScanout, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2601,36 +2224,7 @@ unsafe impl ::windows::core::Interface for DisplaySource {
 impl ::windows::core::RuntimeName for DisplaySource {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySource";
 }
-impl ::core::convert::From<DisplaySource> for ::windows::core::IUnknown {
-    fn from(value: DisplaySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplaySource> for ::windows::core::IUnknown {
-    fn from(value: &DisplaySource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplaySource> for &::windows::core::IUnknown {
-    fn from(value: &DisplaySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplaySource> for ::windows::core::IInspectable {
-    fn from(value: DisplaySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplaySource> for ::windows::core::IInspectable {
-    fn from(value: &DisplaySource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplaySource> for &::windows::core::IInspectable {
-    fn from(value: &DisplaySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplaySource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2771,36 +2365,7 @@ unsafe impl ::windows::core::Interface for DisplayState {
 impl ::windows::core::RuntimeName for DisplayState {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayState";
 }
-impl ::core::convert::From<DisplayState> for ::windows::core::IUnknown {
-    fn from(value: DisplayState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayState> for ::windows::core::IUnknown {
-    fn from(value: &DisplayState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayState> for &::windows::core::IUnknown {
-    fn from(value: &DisplayState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayState> for ::windows::core::IInspectable {
-    fn from(value: DisplayState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayState> for ::windows::core::IInspectable {
-    fn from(value: &DisplayState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayState> for &::windows::core::IInspectable {
-    fn from(value: &DisplayState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2854,36 +2419,7 @@ unsafe impl ::windows::core::Interface for DisplayStateOperationResult {
 impl ::windows::core::RuntimeName for DisplayStateOperationResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayStateOperationResult";
 }
-impl ::core::convert::From<DisplayStateOperationResult> for ::windows::core::IUnknown {
-    fn from(value: DisplayStateOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayStateOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayStateOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayStateOperationResult> for ::windows::core::IInspectable {
-    fn from(value: DisplayStateOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayStateOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayStateOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &DisplayStateOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayStateOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -2922,36 +2458,7 @@ unsafe impl ::windows::core::Interface for DisplaySurface {
 impl ::windows::core::RuntimeName for DisplaySurface {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplaySurface";
 }
-impl ::core::convert::From<DisplaySurface> for ::windows::core::IUnknown {
-    fn from(value: DisplaySurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplaySurface> for ::windows::core::IUnknown {
-    fn from(value: &DisplaySurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplaySurface> for &::windows::core::IUnknown {
-    fn from(value: &DisplaySurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplaySurface> for ::windows::core::IInspectable {
-    fn from(value: DisplaySurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplaySurface> for ::windows::core::IInspectable {
-    fn from(value: &DisplaySurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplaySurface> for &::windows::core::IInspectable {
-    fn from(value: &DisplaySurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplaySurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplaySurface {}
 unsafe impl ::core::marker::Sync for DisplaySurface {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3091,36 +2598,7 @@ unsafe impl ::windows::core::Interface for DisplayTarget {
 impl ::windows::core::RuntimeName for DisplayTarget {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTarget";
 }
-impl ::core::convert::From<DisplayTarget> for ::windows::core::IUnknown {
-    fn from(value: DisplayTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTarget> for ::windows::core::IUnknown {
-    fn from(value: &DisplayTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTarget> for &::windows::core::IUnknown {
-    fn from(value: &DisplayTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayTarget> for ::windows::core::IInspectable {
-    fn from(value: DisplayTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTarget> for ::windows::core::IInspectable {
-    fn from(value: &DisplayTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTarget> for &::windows::core::IInspectable {
-    fn from(value: &DisplayTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3172,36 +2650,7 @@ unsafe impl ::windows::core::Interface for DisplayTask {
 impl ::windows::core::RuntimeName for DisplayTask {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTask";
 }
-impl ::core::convert::From<DisplayTask> for ::windows::core::IUnknown {
-    fn from(value: DisplayTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTask> for ::windows::core::IUnknown {
-    fn from(value: &DisplayTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTask> for &::windows::core::IUnknown {
-    fn from(value: &DisplayTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayTask> for ::windows::core::IInspectable {
-    fn from(value: DisplayTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTask> for ::windows::core::IInspectable {
-    fn from(value: &DisplayTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTask> for &::windows::core::IInspectable {
-    fn from(value: &DisplayTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTask {}
 unsafe impl ::core::marker::Sync for DisplayTask {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3261,36 +2710,7 @@ unsafe impl ::windows::core::Interface for DisplayTaskPool {
 impl ::windows::core::RuntimeName for DisplayTaskPool {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskPool";
 }
-impl ::core::convert::From<DisplayTaskPool> for ::windows::core::IUnknown {
-    fn from(value: DisplayTaskPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTaskPool> for ::windows::core::IUnknown {
-    fn from(value: &DisplayTaskPool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTaskPool> for &::windows::core::IUnknown {
-    fn from(value: &DisplayTaskPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayTaskPool> for ::windows::core::IInspectable {
-    fn from(value: DisplayTaskPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTaskPool> for ::windows::core::IInspectable {
-    fn from(value: &DisplayTaskPool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTaskPool> for &::windows::core::IInspectable {
-    fn from(value: &DisplayTaskPool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayTaskPool, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
 unsafe impl ::core::marker::Sync for DisplayTaskPool {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3351,36 +2771,7 @@ unsafe impl ::windows::core::Interface for DisplayTaskResult {
 impl ::windows::core::RuntimeName for DisplayTaskResult {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayTaskResult";
 }
-impl ::core::convert::From<DisplayTaskResult> for ::windows::core::IUnknown {
-    fn from(value: DisplayTaskResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTaskResult> for ::windows::core::IUnknown {
-    fn from(value: &DisplayTaskResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTaskResult> for &::windows::core::IUnknown {
-    fn from(value: &DisplayTaskResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayTaskResult> for ::windows::core::IInspectable {
-    fn from(value: DisplayTaskResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayTaskResult> for ::windows::core::IInspectable {
-    fn from(value: &DisplayTaskResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayTaskResult> for &::windows::core::IInspectable {
-    fn from(value: &DisplayTaskResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayTaskResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3461,36 +2852,7 @@ unsafe impl ::windows::core::Interface for DisplayView {
 impl ::windows::core::RuntimeName for DisplayView {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayView";
 }
-impl ::core::convert::From<DisplayView> for ::windows::core::IUnknown {
-    fn from(value: DisplayView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayView> for ::windows::core::IUnknown {
-    fn from(value: &DisplayView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayView> for &::windows::core::IUnknown {
-    fn from(value: &DisplayView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayView> for ::windows::core::IInspectable {
-    fn from(value: DisplayView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayView> for ::windows::core::IInspectable {
-    fn from(value: &DisplayView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayView> for &::windows::core::IInspectable {
-    fn from(value: &DisplayView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayView {}
 unsafe impl ::core::marker::Sync for DisplayView {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]
@@ -3602,36 +2964,7 @@ unsafe impl ::windows::core::Interface for DisplayWireFormat {
 impl ::windows::core::RuntimeName for DisplayWireFormat {
     const NAME: &'static str = "Windows.Devices.Display.Core.DisplayWireFormat";
 }
-impl ::core::convert::From<DisplayWireFormat> for ::windows::core::IUnknown {
-    fn from(value: DisplayWireFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayWireFormat> for ::windows::core::IUnknown {
-    fn from(value: &DisplayWireFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayWireFormat> for &::windows::core::IUnknown {
-    fn from(value: &DisplayWireFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayWireFormat> for ::windows::core::IInspectable {
-    fn from(value: DisplayWireFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayWireFormat> for ::windows::core::IInspectable {
-    fn from(value: &DisplayWireFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayWireFormat> for &::windows::core::IInspectable {
-    fn from(value: &DisplayWireFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayWireFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[doc = "*Required features: `\"Devices_Display_Core\"`*"]

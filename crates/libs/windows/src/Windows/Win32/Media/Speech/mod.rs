@@ -23,21 +23,7 @@ impl IEnumSpObjectTokens {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcount)).ok()
     }
 }
-impl ::core::convert::From<IEnumSpObjectTokens> for ::windows::core::IUnknown {
-    fn from(value: IEnumSpObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumSpObjectTokens> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumSpObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumSpObjectTokens> for ::windows::core::IUnknown {
-    fn from(value: &IEnumSpObjectTokens) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumSpObjectTokens, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumSpObjectTokens {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -184,77 +170,7 @@ impl ISpAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpAudio> for ::windows::core::IUnknown {
-    fn from(value: ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpAudio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpAudio> for ::windows::core::IUnknown {
-    fn from(value: &ISpAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpAudio> for super::super::System::Com::ISequentialStream {
-    fn from(value: ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpAudio> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpAudio> for super::super::System::Com::ISequentialStream {
-    fn from(value: &ISpAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpAudio> for super::super::System::Com::IStream {
-    fn from(value: ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpAudio> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpAudio> for super::super::System::Com::IStream {
-    fn from(value: &ISpAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpAudio> for ISpStreamFormat {
-    fn from(value: ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpAudio> for &'a ISpStreamFormat {
-    fn from(value: &'a ISpAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpAudio> for ISpStreamFormat {
-    fn from(value: &ISpAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpAudio {
     fn clone(&self) -> Self {
@@ -347,36 +263,7 @@ impl ISpContainerLexicon {
         (::windows::core::Vtable::vtable(self).AddLexicon)(::windows::core::Vtable::as_raw(self), paddlexicon.into().abi(), dwflags).ok()
     }
 }
-impl ::core::convert::From<ISpContainerLexicon> for ::windows::core::IUnknown {
-    fn from(value: ISpContainerLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpContainerLexicon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpContainerLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpContainerLexicon> for ::windows::core::IUnknown {
-    fn from(value: &ISpContainerLexicon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpContainerLexicon> for ISpLexicon {
-    fn from(value: ISpContainerLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpContainerLexicon> for &'a ISpLexicon {
-    fn from(value: &'a ISpContainerLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpContainerLexicon> for ISpLexicon {
-    fn from(value: &ISpContainerLexicon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpContainerLexicon, ::windows::core::IUnknown, ISpLexicon);
 impl ::core::clone::Clone for ISpContainerLexicon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -482,21 +369,7 @@ impl ISpDataKey {
         (::windows::core::Vtable::vtable(self).EnumValues)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<ISpDataKey> for ::windows::core::IUnknown {
-    fn from(value: ISpDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpDataKey> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpDataKey> for ::windows::core::IUnknown {
-    fn from(value: &ISpDataKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpDataKey, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpDataKey {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -547,21 +420,7 @@ impl ISpDisplayAlternates {
         (::windows::core::Vtable::vtable(self).SetFullStopTrailSpace)(::windows::core::Vtable::as_raw(self), ultrailspace).ok()
     }
 }
-impl ::core::convert::From<ISpDisplayAlternates> for ::windows::core::IUnknown {
-    fn from(value: ISpDisplayAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpDisplayAlternates> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpDisplayAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpDisplayAlternates> for ::windows::core::IUnknown {
-    fn from(value: &ISpDisplayAlternates) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpDisplayAlternates, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpDisplayAlternates {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -612,21 +471,7 @@ impl ISpEnginePronunciation {
         (::windows::core::Vtable::vtable(self).GetPronunciations)(::windows::core::Vtable::as_raw(self), pszword.into(), pszleftcontext.into(), pszrightcontext.into(), langid, ::core::mem::transmute(penginepronunciationlist)).ok()
     }
 }
-impl ::core::convert::From<ISpEnginePronunciation> for ::windows::core::IUnknown {
-    fn from(value: ISpEnginePronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEnginePronunciation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpEnginePronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEnginePronunciation> for ::windows::core::IUnknown {
-    fn from(value: &ISpEnginePronunciation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpEnginePronunciation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpEnginePronunciation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -669,21 +514,7 @@ impl ISpEventSink {
         (::windows::core::Vtable::vtable(self).GetEventInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pulleventinterest)).ok()
     }
 }
-impl ::core::convert::From<ISpEventSink> for ::windows::core::IUnknown {
-    fn from(value: ISpEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSink> for ::windows::core::IUnknown {
-    fn from(value: &ISpEventSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpEventSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -778,36 +609,7 @@ impl ISpEventSource {
         (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinfo)).ok()
     }
 }
-impl ::core::convert::From<ISpEventSource> for ::windows::core::IUnknown {
-    fn from(value: ISpEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSource> for ::windows::core::IUnknown {
-    fn from(value: &ISpEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpEventSource> for ISpNotifySource {
-    fn from(value: ISpEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSource> for &'a ISpNotifySource {
-    fn from(value: &'a ISpEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSource> for ISpNotifySource {
-    fn from(value: &ISpEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpEventSource, ::windows::core::IUnknown, ISpNotifySource);
 impl ::core::clone::Clone for ISpEventSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -908,51 +710,7 @@ impl ISpEventSource2 {
         (::windows::core::Vtable::vtable(self).GetEventsEx)(::windows::core::Vtable::as_raw(self), ulcount, ::core::mem::transmute(peventarray), ::core::mem::transmute(pulfetched)).ok()
     }
 }
-impl ::core::convert::From<ISpEventSource2> for ::windows::core::IUnknown {
-    fn from(value: ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSource2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSource2> for ::windows::core::IUnknown {
-    fn from(value: &ISpEventSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpEventSource2> for ISpNotifySource {
-    fn from(value: ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSource2> for &'a ISpNotifySource {
-    fn from(value: &'a ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSource2> for ISpNotifySource {
-    fn from(value: &ISpEventSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpEventSource2> for ISpEventSource {
-    fn from(value: ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpEventSource2> for &'a ISpEventSource {
-    fn from(value: &'a ISpEventSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpEventSource2> for ISpEventSource {
-    fn from(value: &ISpEventSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpEventSource2, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::clone::Clone for ISpEventSource2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1031,21 +789,7 @@ impl ISpGrammarBuilder {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self), dwreserved).ok()
     }
 }
-impl ::core::convert::From<ISpGrammarBuilder> for ::windows::core::IUnknown {
-    fn from(value: ISpGrammarBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpGrammarBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpGrammarBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpGrammarBuilder> for ::windows::core::IUnknown {
-    fn from(value: &ISpGrammarBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpGrammarBuilder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpGrammarBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1104,21 +848,7 @@ impl ISpGrammarBuilder2 {
         (::windows::core::Vtable::vtable(self).SetPhoneticAlphabet)(::windows::core::Vtable::as_raw(self), phoneticalphabet).ok()
     }
 }
-impl ::core::convert::From<ISpGrammarBuilder2> for ::windows::core::IUnknown {
-    fn from(value: ISpGrammarBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpGrammarBuilder2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpGrammarBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpGrammarBuilder2> for ::windows::core::IUnknown {
-    fn from(value: &ISpGrammarBuilder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpGrammarBuilder2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpGrammarBuilder2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1180,21 +910,7 @@ impl ISpLexicon {
         (::windows::core::Vtable::vtable(self).GetWords)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwordlist)).ok()
     }
 }
-impl ::core::convert::From<ISpLexicon> for ::windows::core::IUnknown {
-    fn from(value: ISpLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpLexicon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpLexicon> for ::windows::core::IUnknown {
-    fn from(value: &ISpLexicon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpLexicon, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpLexicon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1356,95 +1072,7 @@ impl ISpMMSysAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpMMSysAudio> for ::windows::core::IUnknown {
-    fn from(value: ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpMMSysAudio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpMMSysAudio> for ::windows::core::IUnknown {
-    fn from(value: &ISpMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpMMSysAudio> for super::super::System::Com::ISequentialStream {
-    fn from(value: ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpMMSysAudio> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpMMSysAudio> for super::super::System::Com::ISequentialStream {
-    fn from(value: &ISpMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpMMSysAudio> for super::super::System::Com::IStream {
-    fn from(value: ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpMMSysAudio> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpMMSysAudio> for super::super::System::Com::IStream {
-    fn from(value: &ISpMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpMMSysAudio> for ISpStreamFormat {
-    fn from(value: ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpMMSysAudio> for &'a ISpStreamFormat {
-    fn from(value: &'a ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpMMSysAudio> for ISpStreamFormat {
-    fn from(value: &ISpMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpMMSysAudio> for ISpAudio {
-    fn from(value: ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpMMSysAudio> for &'a ISpAudio {
-    fn from(value: &'a ISpMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpMMSysAudio> for ISpAudio {
-    fn from(value: &ISpMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat, ISpAudio);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpMMSysAudio {
     fn clone(&self) -> Self {
@@ -1542,21 +1170,7 @@ impl ISpNotifySink {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpNotifySink> for ::windows::core::IUnknown {
-    fn from(value: ISpNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &ISpNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpNotifySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1636,21 +1250,7 @@ impl ISpNotifySource {
         (::windows::core::Vtable::vtable(self).GetNotifyEventHandle)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ISpNotifySource> for ::windows::core::IUnknown {
-    fn from(value: ISpNotifySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpNotifySource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpNotifySource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpNotifySource> for ::windows::core::IUnknown {
-    fn from(value: &ISpNotifySource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpNotifySource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpNotifySource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1751,36 +1351,7 @@ impl ISpNotifyTranslator {
         (::windows::core::Vtable::vtable(self).GetEventHandle)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ISpNotifyTranslator> for ::windows::core::IUnknown {
-    fn from(value: ISpNotifyTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpNotifyTranslator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpNotifyTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpNotifyTranslator> for ::windows::core::IUnknown {
-    fn from(value: &ISpNotifyTranslator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpNotifyTranslator> for ISpNotifySink {
-    fn from(value: ISpNotifyTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpNotifyTranslator> for &'a ISpNotifySink {
-    fn from(value: &'a ISpNotifyTranslator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpNotifyTranslator> for ISpNotifySink {
-    fn from(value: &ISpNotifyTranslator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpNotifyTranslator, ::windows::core::IUnknown, ISpNotifySink);
 impl ::core::clone::Clone for ISpNotifyTranslator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1978,36 +1549,7 @@ impl ISpObjectToken {
         (::windows::core::Vtable::vtable(self).MatchesAttributes)(::windows::core::Vtable::as_raw(self), pszattributes.into(), ::core::mem::transmute(pfmatches)).ok()
     }
 }
-impl ::core::convert::From<ISpObjectToken> for ::windows::core::IUnknown {
-    fn from(value: ISpObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectToken> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectToken> for ::windows::core::IUnknown {
-    fn from(value: &ISpObjectToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpObjectToken> for ISpDataKey {
-    fn from(value: ISpObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectToken> for &'a ISpDataKey {
-    fn from(value: &'a ISpObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectToken> for ISpDataKey {
-    fn from(value: &ISpObjectToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpObjectToken, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::clone::Clone for ISpObjectToken {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2172,36 +1714,7 @@ impl ISpObjectTokenCategory {
         (::windows::core::Vtable::vtable(self).GetDefaultTokenId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<ISpObjectTokenCategory> for ::windows::core::IUnknown {
-    fn from(value: ISpObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectTokenCategory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectTokenCategory> for ::windows::core::IUnknown {
-    fn from(value: &ISpObjectTokenCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpObjectTokenCategory> for ISpDataKey {
-    fn from(value: ISpObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectTokenCategory> for &'a ISpDataKey {
-    fn from(value: &'a ISpObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectTokenCategory> for ISpDataKey {
-    fn from(value: &ISpObjectTokenCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpObjectTokenCategory, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::clone::Clone for ISpObjectTokenCategory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2395,51 +1908,7 @@ impl ISpObjectTokenInit {
         (::windows::core::Vtable::vtable(self).InitFromDataKey)(::windows::core::Vtable::as_raw(self), pszcategoryid.into(), psztokenid.into(), pdatakey.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISpObjectTokenInit> for ::windows::core::IUnknown {
-    fn from(value: ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectTokenInit> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectTokenInit> for ::windows::core::IUnknown {
-    fn from(value: &ISpObjectTokenInit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpObjectTokenInit> for ISpDataKey {
-    fn from(value: ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectTokenInit> for &'a ISpDataKey {
-    fn from(value: &'a ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectTokenInit> for ISpDataKey {
-    fn from(value: &ISpObjectTokenInit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpObjectTokenInit> for ISpObjectToken {
-    fn from(value: ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectTokenInit> for &'a ISpObjectToken {
-    fn from(value: &'a ISpObjectTokenInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectTokenInit> for ISpObjectToken {
-    fn from(value: &ISpObjectTokenInit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpObjectTokenInit, ::windows::core::IUnknown, ISpDataKey, ISpObjectToken);
 impl ::core::clone::Clone for ISpObjectTokenInit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2483,21 +1952,7 @@ impl ISpObjectWithToken {
         (::windows::core::Vtable::vtable(self).GetObjectToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpObjectToken>(result__)
     }
 }
-impl ::core::convert::From<ISpObjectWithToken> for ::windows::core::IUnknown {
-    fn from(value: ISpObjectWithToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpObjectWithToken> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpObjectWithToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpObjectWithToken> for ::windows::core::IUnknown {
-    fn from(value: &ISpObjectWithToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpObjectWithToken, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpObjectWithToken {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2552,36 +2007,7 @@ impl ISpPhoneConverter {
         (::windows::core::Vtable::vtable(self).IdToPhone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pid), ::core::mem::transmute(pszphone)).ok()
     }
 }
-impl ::core::convert::From<ISpPhoneConverter> for ::windows::core::IUnknown {
-    fn from(value: ISpPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhoneConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhoneConverter> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhoneConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpPhoneConverter> for ISpObjectWithToken {
-    fn from(value: ISpPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhoneConverter> for &'a ISpObjectWithToken {
-    fn from(value: &'a ISpPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhoneConverter> for ISpObjectWithToken {
-    fn from(value: &ISpPhoneConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhoneConverter, ::windows::core::IUnknown, ISpObjectWithToken);
 impl ::core::clone::Clone for ISpPhoneConverter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2638,21 +2064,7 @@ impl ISpPhoneticAlphabetConverter {
         (::windows::core::Vtable::vtable(self).GetMaxConvertLength)(::windows::core::Vtable::as_raw(self), csrclength, bsapi2ups.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ISpPhoneticAlphabetConverter> for ::windows::core::IUnknown {
-    fn from(value: ISpPhoneticAlphabetConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhoneticAlphabetConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhoneticAlphabetConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhoneticAlphabetConverter> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhoneticAlphabetConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhoneticAlphabetConverter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpPhoneticAlphabetConverter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2707,21 +2119,7 @@ impl ISpPhoneticAlphabetSelection {
         (::windows::core::Vtable::vtable(self).SetAlphabetToUPS)(::windows::core::Vtable::as_raw(self), fforceups.into()).ok()
     }
 }
-impl ::core::convert::From<ISpPhoneticAlphabetSelection> for ::windows::core::IUnknown {
-    fn from(value: ISpPhoneticAlphabetSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhoneticAlphabetSelection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhoneticAlphabetSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhoneticAlphabetSelection> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhoneticAlphabetSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhoneticAlphabetSelection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpPhoneticAlphabetSelection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2783,21 +2181,7 @@ impl ISpPhrase {
         (::windows::core::Vtable::vtable(self).Discard)(::windows::core::Vtable::as_raw(self), dwvaluetypes).ok()
     }
 }
-impl ::core::convert::From<ISpPhrase> for ::windows::core::IUnknown {
-    fn from(value: ISpPhrase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhrase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhrase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhrase> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhrase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhrase, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpPhrase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2873,36 +2257,7 @@ impl ISpPhrase2 {
         (::windows::core::Vtable::vtable(self).GetAudio)(::windows::core::Vtable::as_raw(self), ulstartelement, celements, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpStreamFormat>(result__)
     }
 }
-impl ::core::convert::From<ISpPhrase2> for ::windows::core::IUnknown {
-    fn from(value: ISpPhrase2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhrase2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhrase2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhrase2> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhrase2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpPhrase2> for ISpPhrase {
-    fn from(value: ISpPhrase2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhrase2> for &'a ISpPhrase {
-    fn from(value: &'a ISpPhrase2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhrase2> for ISpPhrase {
-    fn from(value: &ISpPhrase2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhrase2, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::clone::Clone for ISpPhrase2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2968,36 +2323,7 @@ impl ISpPhraseAlt {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpPhraseAlt> for ::windows::core::IUnknown {
-    fn from(value: ISpPhraseAlt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhraseAlt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpPhraseAlt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhraseAlt> for ::windows::core::IUnknown {
-    fn from(value: &ISpPhraseAlt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpPhraseAlt> for ISpPhrase {
-    fn from(value: ISpPhraseAlt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpPhraseAlt> for &'a ISpPhrase {
-    fn from(value: &'a ISpPhraseAlt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpPhraseAlt> for ISpPhrase {
-    fn from(value: &ISpPhraseAlt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpPhraseAlt, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::clone::Clone for ISpPhraseAlt {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3058,21 +2384,7 @@ impl ISpProperties {
         (::windows::core::Vtable::vtable(self).GetPropertyString)(::windows::core::Vtable::as_raw(self), pname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<ISpProperties> for ::windows::core::IUnknown {
-    fn from(value: ISpProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpProperties> for ::windows::core::IUnknown {
-    fn from(value: &ISpProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpProperties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3242,51 +2554,7 @@ impl ISpRecoContext {
         (::windows::core::Vtable::vtable(self).GetContextState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pecontextstate)).ok()
     }
 }
-impl ::core::convert::From<ISpRecoContext> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoContext> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoContext> for ISpNotifySource {
-    fn from(value: ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoContext> for &'a ISpNotifySource {
-    fn from(value: &'a ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoContext> for ISpNotifySource {
-    fn from(value: &ISpRecoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoContext> for ISpEventSource {
-    fn from(value: ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoContext> for &'a ISpEventSource {
-    fn from(value: &'a ISpRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoContext> for ISpEventSource {
-    fn from(value: &ISpRecoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoContext, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::clone::Clone for ISpRecoContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3362,21 +2630,7 @@ impl ISpRecoContext2 {
         (::windows::core::Vtable::vtable(self).SetAdaptationData2)(::windows::core::Vtable::as_raw(self), padaptationdata.into(), cch, ptopicname.into(), eadaptationsettings, erelevance).ok()
     }
 }
-impl ::core::convert::From<ISpRecoContext2> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoContext2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoContext2> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoContext2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpRecoContext2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3540,36 +2794,7 @@ impl ISpRecoGrammar {
         (::windows::core::Vtable::vtable(self).GetGrammarState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pegrammarstate)).ok()
     }
 }
-impl ::core::convert::From<ISpRecoGrammar> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoGrammar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoGrammar> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoGrammar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoGrammar> for ISpGrammarBuilder {
-    fn from(value: ISpRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoGrammar> for &'a ISpGrammarBuilder {
-    fn from(value: &'a ISpRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoGrammar> for ISpGrammarBuilder {
-    fn from(value: &ISpRecoGrammar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoGrammar, ::windows::core::IUnknown, ISpGrammarBuilder);
 impl ::core::clone::Clone for ISpRecoGrammar {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3675,21 +2900,7 @@ impl ISpRecoGrammar2 {
         (::windows::core::Vtable::vtable(self).SetSMLSecurityManager)(::windows::core::Vtable::as_raw(self), psmlsecuritymanager.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISpRecoGrammar2> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoGrammar2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoGrammar2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoGrammar2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoGrammar2> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoGrammar2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoGrammar2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpRecoGrammar2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3786,36 +2997,7 @@ impl ISpRecoResult {
         (::windows::core::Vtable::vtable(self).GetRecoContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpRecoContext>(result__)
     }
 }
-impl ::core::convert::From<ISpRecoResult> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoResult> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoResult> for ISpPhrase {
-    fn from(value: ISpRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoResult> for &'a ISpPhrase {
-    fn from(value: &'a ISpRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoResult> for ISpPhrase {
-    fn from(value: &ISpRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoResult, ::windows::core::IUnknown, ISpPhrase);
 impl ::core::clone::Clone for ISpRecoResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3936,51 +3118,7 @@ impl ISpRecoResult2 {
         (::windows::core::Vtable::vtable(self).SetTextFeedback)(::windows::core::Vtable::as_raw(self), pszfeedback.into(), fsuccessful.into()).ok()
     }
 }
-impl ::core::convert::From<ISpRecoResult2> for ::windows::core::IUnknown {
-    fn from(value: ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoResult2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoResult2> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoResult2> for ISpPhrase {
-    fn from(value: ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoResult2> for &'a ISpPhrase {
-    fn from(value: &'a ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoResult2> for ISpPhrase {
-    fn from(value: &ISpRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecoResult2> for ISpRecoResult {
-    fn from(value: ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecoResult2> for &'a ISpRecoResult {
-    fn from(value: &'a ISpRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecoResult2> for ISpRecoResult {
-    fn from(value: &ISpRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecoResult2, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ::core::clone::Clone for ISpRecoResult2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4129,36 +3267,7 @@ impl ISpRecognizer {
         (::windows::core::Vtable::vtable(self).EmulateRecognition)(::windows::core::Vtable::as_raw(self), pphrase.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISpRecognizer> for ::windows::core::IUnknown {
-    fn from(value: ISpRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecognizer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecognizer> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRecognizer> for ISpProperties {
-    fn from(value: ISpRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecognizer> for &'a ISpProperties {
-    fn from(value: &'a ISpRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecognizer> for ISpProperties {
-    fn from(value: &ISpRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecognizer, ::windows::core::IUnknown, ISpProperties);
 impl ::core::clone::Clone for ISpRecognizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4240,21 +3349,7 @@ impl ISpRecognizer2 {
         (::windows::core::Vtable::vtable(self).ResetAcousticModelAdaptation)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpRecognizer2> for ::windows::core::IUnknown {
-    fn from(value: ISpRecognizer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRecognizer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRecognizer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRecognizer2> for ::windows::core::IUnknown {
-    fn from(value: &ISpRecognizer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRecognizer2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpRecognizer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4374,36 +3469,7 @@ impl ISpRegDataKey {
         (::windows::core::Vtable::vtable(self).SetKey)(::windows::core::Vtable::as_raw(self), hkey.into(), freadonly.into()).ok()
     }
 }
-impl ::core::convert::From<ISpRegDataKey> for ::windows::core::IUnknown {
-    fn from(value: ISpRegDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRegDataKey> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpRegDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRegDataKey> for ::windows::core::IUnknown {
-    fn from(value: &ISpRegDataKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpRegDataKey> for ISpDataKey {
-    fn from(value: ISpRegDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpRegDataKey> for &'a ISpDataKey {
-    fn from(value: &'a ISpRegDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpRegDataKey> for ISpDataKey {
-    fn from(value: &ISpRegDataKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpRegDataKey, ::windows::core::IUnknown, ISpDataKey);
 impl ::core::clone::Clone for ISpRegDataKey {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4462,41 +3528,7 @@ impl ISpResourceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpResourceManager> for ::windows::core::IUnknown {
-    fn from(value: ISpResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpResourceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpResourceManager> for ::windows::core::IUnknown {
-    fn from(value: &ISpResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpResourceManager> for super::super::System::Com::IServiceProvider {
-    fn from(value: ISpResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpResourceManager> for &'a super::super::System::Com::IServiceProvider {
-    fn from(value: &'a ISpResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpResourceManager> for super::super::System::Com::IServiceProvider {
-    fn from(value: &ISpResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpResourceManager, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpResourceManager {
     fn clone(&self) -> Self {
@@ -4547,21 +3579,7 @@ impl ISpSerializeState {
         (::windows::core::Vtable::vtable(self).SetSerializedState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbdata), ulsize, dwreserved).ok()
     }
 }
-impl ::core::convert::From<ISpSerializeState> for ::windows::core::IUnknown {
-    fn from(value: ISpSerializeState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpSerializeState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpSerializeState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpSerializeState> for ::windows::core::IUnknown {
-    fn from(value: &ISpSerializeState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpSerializeState, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpSerializeState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4629,21 +3647,7 @@ impl ISpShortcut {
         (::windows::core::Vtable::vtable(self).GetGenerationChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwgeneration), ::core::mem::transmute(pshortcutpairlist)).ok()
     }
 }
-impl ::core::convert::From<ISpShortcut> for ::windows::core::IUnknown {
-    fn from(value: ISpShortcut) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpShortcut> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpShortcut) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpShortcut> for ::windows::core::IUnknown {
-    fn from(value: &ISpShortcut) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpShortcut, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpShortcut {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4778,77 +3782,7 @@ impl ISpStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStream> for ::windows::core::IUnknown {
-    fn from(value: ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStream> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: &ISpStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStream> for super::super::System::Com::IStream {
-    fn from(value: ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStream> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStream> for super::super::System::Com::IStream {
-    fn from(value: &ISpStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStream> for ISpStreamFormat {
-    fn from(value: ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStream> for &'a ISpStreamFormat {
-    fn from(value: &'a ISpStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStream> for ISpStreamFormat {
-    fn from(value: &ISpStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpStream {
     fn clone(&self) -> Self {
@@ -4970,59 +3904,7 @@ impl ISpStreamFormat {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormat> for ::windows::core::IUnknown {
-    fn from(value: ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormat> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormat> for ::windows::core::IUnknown {
-    fn from(value: &ISpStreamFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormat> for super::super::System::Com::ISequentialStream {
-    fn from(value: ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormat> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormat> for super::super::System::Com::ISequentialStream {
-    fn from(value: &ISpStreamFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormat> for super::super::System::Com::IStream {
-    fn from(value: ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormat> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a ISpStreamFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormat> for super::super::System::Com::IStream {
-    fn from(value: &ISpStreamFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpStreamFormat, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpStreamFormat {
     fn clone(&self) -> Self {
@@ -5167,77 +4049,7 @@ impl ISpStreamFormatConverter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormatConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: &ISpStreamFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormatConverter> for super::super::System::Com::ISequentialStream {
-    fn from(value: ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormatConverter> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormatConverter> for super::super::System::Com::ISequentialStream {
-    fn from(value: &ISpStreamFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormatConverter> for super::super::System::Com::IStream {
-    fn from(value: ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormatConverter> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormatConverter> for super::super::System::Com::IStream {
-    fn from(value: &ISpStreamFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpStreamFormatConverter> for ISpStreamFormat {
-    fn from(value: ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpStreamFormatConverter> for &'a ISpStreamFormat {
-    fn from(value: &'a ISpStreamFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpStreamFormatConverter> for ISpStreamFormat {
-    fn from(value: &ISpStreamFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpStreamFormatConverter, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpStreamFormatConverter {
     fn clone(&self) -> Self {
@@ -5302,21 +4114,7 @@ impl ISpTranscript {
         (::windows::core::Vtable::vtable(self).AppendTranscript)(::windows::core::Vtable::as_raw(self), psztranscript.into()).ok()
     }
 }
-impl ::core::convert::From<ISpTranscript> for ::windows::core::IUnknown {
-    fn from(value: ISpTranscript) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpTranscript> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpTranscript) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpTranscript> for ::windows::core::IUnknown {
-    fn from(value: &ISpTranscript) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpTranscript, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpTranscript {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5524,51 +4322,7 @@ impl ISpVoice {
         (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), hwndparent.into(), psztitle.into(), psztypeofui.into(), ::core::mem::transmute(pvextradata), cbextradata).ok()
     }
 }
-impl ::core::convert::From<ISpVoice> for ::windows::core::IUnknown {
-    fn from(value: ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpVoice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpVoice> for ::windows::core::IUnknown {
-    fn from(value: &ISpVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpVoice> for ISpNotifySource {
-    fn from(value: ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpVoice> for &'a ISpNotifySource {
-    fn from(value: &'a ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpVoice> for ISpNotifySource {
-    fn from(value: &ISpVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpVoice> for ISpEventSource {
-    fn from(value: ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpVoice> for &'a ISpEventSource {
-    fn from(value: &'a ISpVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpVoice> for ISpEventSource {
-    fn from(value: &ISpVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpVoice, ::windows::core::IUnknown, ISpNotifySource, ISpEventSource);
 impl ::core::clone::Clone for ISpVoice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5700,51 +4454,7 @@ impl ISpXMLRecoResult {
         (::windows::core::Vtable::vtable(self).GetXMLErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psemanticerrorinfo)).ok()
     }
 }
-impl ::core::convert::From<ISpXMLRecoResult> for ::windows::core::IUnknown {
-    fn from(value: ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpXMLRecoResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpXMLRecoResult> for ::windows::core::IUnknown {
-    fn from(value: &ISpXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpXMLRecoResult> for ISpPhrase {
-    fn from(value: ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpXMLRecoResult> for &'a ISpPhrase {
-    fn from(value: &'a ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpXMLRecoResult> for ISpPhrase {
-    fn from(value: &ISpXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpXMLRecoResult> for ISpRecoResult {
-    fn from(value: ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpXMLRecoResult> for &'a ISpRecoResult {
-    fn from(value: &'a ISpXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpXMLRecoResult> for ISpRecoResult {
-    fn from(value: &ISpXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpXMLRecoResult, ::windows::core::IUnknown, ISpPhrase, ISpRecoResult);
 impl ::core::clone::Clone for ISpXMLRecoResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5858,59 +4568,7 @@ impl ISpeechAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudio> for ::windows::core::IUnknown {
-    fn from(value: ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudio> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudio> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudio> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudio> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudio> for ISpeechBaseStream {
-    fn from(value: ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudio> for &'a ISpeechBaseStream {
-    fn from(value: &'a ISpeechAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudio> for ISpeechBaseStream {
-    fn from(value: &ISpeechAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechAudio {
     fn clone(&self) -> Self {
@@ -5992,41 +4650,7 @@ impl ISpeechAudioBufferInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioBufferInfo> for ::windows::core::IUnknown {
-    fn from(value: ISpeechAudioBufferInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioBufferInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechAudioBufferInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioBufferInfo> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechAudioBufferInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioBufferInfo> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechAudioBufferInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioBufferInfo> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechAudioBufferInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioBufferInfo> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechAudioBufferInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechAudioBufferInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechAudioBufferInfo {
     fn clone(&self) -> Self {
@@ -6103,41 +4727,7 @@ impl ISpeechAudioFormat {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioFormat> for ::windows::core::IUnknown {
-    fn from(value: ISpeechAudioFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioFormat> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechAudioFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioFormat> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechAudioFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioFormat> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechAudioFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioFormat> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechAudioFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioFormat> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechAudioFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechAudioFormat, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechAudioFormat {
     fn clone(&self) -> Self {
@@ -6216,41 +4806,7 @@ impl ISpeechAudioStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioStatus> for ::windows::core::IUnknown {
-    fn from(value: ISpeechAudioStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechAudioStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioStatus> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechAudioStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechAudioStatus> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechAudioStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechAudioStatus> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechAudioStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechAudioStatus> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechAudioStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechAudioStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechAudioStatus {
     fn clone(&self) -> Self {
@@ -6341,41 +4897,7 @@ impl ISpeechBaseStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechBaseStream> for ::windows::core::IUnknown {
-    fn from(value: ISpeechBaseStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechBaseStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechBaseStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechBaseStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechBaseStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechBaseStream> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechBaseStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechBaseStream> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechBaseStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechBaseStream> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechBaseStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechBaseStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechBaseStream {
     fn clone(&self) -> Self {
@@ -6485,59 +5007,7 @@ impl ISpeechCustomStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechCustomStream> for ::windows::core::IUnknown {
-    fn from(value: ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechCustomStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechCustomStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechCustomStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechCustomStream> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechCustomStream> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechCustomStream> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechCustomStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechCustomStream> for ISpeechBaseStream {
-    fn from(value: ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechCustomStream> for &'a ISpeechBaseStream {
-    fn from(value: &'a ISpeechCustomStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechCustomStream> for ISpeechBaseStream {
-    fn from(value: &ISpeechCustomStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechCustomStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechCustomStream {
     fn clone(&self) -> Self {
@@ -6636,41 +5106,7 @@ impl ISpeechDataKey {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechDataKey> for ::windows::core::IUnknown {
-    fn from(value: ISpeechDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechDataKey> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechDataKey> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechDataKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechDataKey> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechDataKey> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechDataKey) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechDataKey> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechDataKey) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechDataKey, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechDataKey {
     fn clone(&self) -> Self {
@@ -6780,59 +5216,7 @@ impl ISpeechFileStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechFileStream> for ::windows::core::IUnknown {
-    fn from(value: ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechFileStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechFileStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechFileStream> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechFileStream> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechFileStream> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechFileStream> for ISpeechBaseStream {
-    fn from(value: ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechFileStream> for &'a ISpeechBaseStream {
-    fn from(value: &'a ISpeechFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechFileStream> for ISpeechBaseStream {
-    fn from(value: &ISpeechFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechFileStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechFileStream {
     fn clone(&self) -> Self {
@@ -6907,41 +5291,7 @@ impl ISpeechGrammarRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRule> for ::windows::core::IUnknown {
-    fn from(value: ISpeechGrammarRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechGrammarRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRule> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechGrammarRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRule> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechGrammarRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRule> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechGrammarRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRule> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechGrammarRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechGrammarRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechGrammarRule {
     fn clone(&self) -> Self {
@@ -7034,41 +5384,7 @@ impl ISpeechGrammarRuleState {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleState> for ::windows::core::IUnknown {
-    fn from(value: ISpeechGrammarRuleState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechGrammarRuleState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleState> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechGrammarRuleState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleState> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechGrammarRuleState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleState> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechGrammarRuleState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleState> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechGrammarRuleState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechGrammarRuleState, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechGrammarRuleState {
     fn clone(&self) -> Self {
@@ -7171,41 +5487,7 @@ impl ISpeechGrammarRuleStateTransition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleStateTransition> for ::windows::core::IUnknown {
-    fn from(value: ISpeechGrammarRuleStateTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleStateTransition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechGrammarRuleStateTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleStateTransition> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechGrammarRuleStateTransition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleStateTransition> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechGrammarRuleStateTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleStateTransition> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechGrammarRuleStateTransition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleStateTransition> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechGrammarRuleStateTransition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechGrammarRuleStateTransition, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechGrammarRuleStateTransition {
     fn clone(&self) -> Self {
@@ -7282,41 +5564,7 @@ impl ISpeechGrammarRuleStateTransitions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleStateTransitions> for ::windows::core::IUnknown {
-    fn from(value: ISpeechGrammarRuleStateTransitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleStateTransitions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechGrammarRuleStateTransitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleStateTransitions> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechGrammarRuleStateTransitions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRuleStateTransitions> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechGrammarRuleStateTransitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRuleStateTransitions> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechGrammarRuleStateTransitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRuleStateTransitions> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechGrammarRuleStateTransitions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechGrammarRuleStateTransitions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechGrammarRuleStateTransitions {
     fn clone(&self) -> Self {
@@ -7406,41 +5654,7 @@ impl ISpeechGrammarRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRules> for ::windows::core::IUnknown {
-    fn from(value: ISpeechGrammarRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRules> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechGrammarRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRules> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechGrammarRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechGrammarRules> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechGrammarRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechGrammarRules> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechGrammarRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechGrammarRules> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechGrammarRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechGrammarRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechGrammarRules {
     fn clone(&self) -> Self {
@@ -7539,41 +5753,7 @@ impl ISpeechLexicon {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexicon> for ::windows::core::IUnknown {
-    fn from(value: ISpeechLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexicon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexicon> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechLexicon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexicon> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexicon> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechLexicon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexicon> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechLexicon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechLexicon, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechLexicon {
     fn clone(&self) -> Self {
@@ -7661,41 +5841,7 @@ impl ISpeechLexiconPronunciation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconPronunciation> for ::windows::core::IUnknown {
-    fn from(value: ISpeechLexiconPronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconPronunciation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechLexiconPronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconPronunciation> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechLexiconPronunciation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconPronunciation> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechLexiconPronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconPronunciation> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechLexiconPronunciation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconPronunciation> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechLexiconPronunciation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechLexiconPronunciation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechLexiconPronunciation {
     fn clone(&self) -> Self {
@@ -7760,41 +5906,7 @@ impl ISpeechLexiconPronunciations {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconPronunciations> for ::windows::core::IUnknown {
-    fn from(value: ISpeechLexiconPronunciations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconPronunciations> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechLexiconPronunciations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconPronunciations> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechLexiconPronunciations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconPronunciations> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechLexiconPronunciations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconPronunciations> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechLexiconPronunciations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconPronunciations> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechLexiconPronunciations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechLexiconPronunciations, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechLexiconPronunciations {
     fn clone(&self) -> Self {
@@ -7861,41 +5973,7 @@ impl ISpeechLexiconWord {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconWord> for ::windows::core::IUnknown {
-    fn from(value: ISpeechLexiconWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconWord> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechLexiconWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconWord> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechLexiconWord) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconWord> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechLexiconWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconWord> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechLexiconWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconWord> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechLexiconWord) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechLexiconWord, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechLexiconWord {
     fn clone(&self) -> Self {
@@ -7959,41 +6037,7 @@ impl ISpeechLexiconWords {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconWords> for ::windows::core::IUnknown {
-    fn from(value: ISpeechLexiconWords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconWords> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechLexiconWords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconWords> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechLexiconWords) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechLexiconWords> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechLexiconWords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechLexiconWords> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechLexiconWords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechLexiconWords> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechLexiconWords) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechLexiconWords, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechLexiconWords {
     fn clone(&self) -> Self {
@@ -8136,77 +6180,7 @@ impl ISpeechMMSysAudio {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMMSysAudio> for ::windows::core::IUnknown {
-    fn from(value: ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMMSysAudio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMMSysAudio> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMMSysAudio> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMMSysAudio> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMMSysAudio> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMMSysAudio> for ISpeechBaseStream {
-    fn from(value: ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMMSysAudio> for &'a ISpeechBaseStream {
-    fn from(value: &'a ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMMSysAudio> for ISpeechBaseStream {
-    fn from(value: &ISpeechMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMMSysAudio> for ISpeechAudio {
-    fn from(value: ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMMSysAudio> for &'a ISpeechAudio {
-    fn from(value: &'a ISpeechMMSysAudio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMMSysAudio> for ISpeechAudio {
-    fn from(value: &ISpeechMMSysAudio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechMMSysAudio, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream, ISpeechAudio);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechMMSysAudio {
     fn clone(&self) -> Self {
@@ -8305,59 +6279,7 @@ impl ISpeechMemoryStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMemoryStream> for ::windows::core::IUnknown {
-    fn from(value: ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMemoryStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMemoryStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechMemoryStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMemoryStream> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMemoryStream> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMemoryStream> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechMemoryStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechMemoryStream> for ISpeechBaseStream {
-    fn from(value: ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechMemoryStream> for &'a ISpeechBaseStream {
-    fn from(value: &'a ISpeechMemoryStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechMemoryStream> for ISpeechBaseStream {
-    fn from(value: &ISpeechMemoryStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechMemoryStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechMemoryStream {
     fn clone(&self) -> Self {
@@ -8473,41 +6395,7 @@ impl ISpeechObjectToken {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectToken> for ::windows::core::IUnknown {
-    fn from(value: ISpeechObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectToken> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectToken> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechObjectToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectToken> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectToken> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechObjectToken) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectToken> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechObjectToken) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechObjectToken, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechObjectToken {
     fn clone(&self) -> Self {
@@ -8601,41 +6489,7 @@ impl ISpeechObjectTokenCategory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectTokenCategory> for ::windows::core::IUnknown {
-    fn from(value: ISpeechObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectTokenCategory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectTokenCategory> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechObjectTokenCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectTokenCategory> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectTokenCategory> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechObjectTokenCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectTokenCategory> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechObjectTokenCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechObjectTokenCategory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechObjectTokenCategory {
     fn clone(&self) -> Self {
@@ -8704,41 +6558,7 @@ impl ISpeechObjectTokens {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectTokens> for ::windows::core::IUnknown {
-    fn from(value: ISpeechObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectTokens> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectTokens> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechObjectTokens) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechObjectTokens> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechObjectTokens> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechObjectTokens) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechObjectTokens> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechObjectTokens) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechObjectTokens, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechObjectTokens {
     fn clone(&self) -> Self {
@@ -8809,41 +6629,7 @@ impl ISpeechPhoneConverter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhoneConverter> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhoneConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhoneConverter> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhoneConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhoneConverter> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhoneConverter> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhoneConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhoneConverter> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhoneConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhoneConverter, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhoneConverter {
     fn clone(&self) -> Self {
@@ -8919,41 +6705,7 @@ impl ISpeechPhraseAlternate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseAlternate> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseAlternate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseAlternate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseAlternate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseAlternate> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseAlternate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseAlternate> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseAlternate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseAlternate> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseAlternate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseAlternate> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseAlternate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseAlternate, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseAlternate {
     fn clone(&self) -> Self {
@@ -9021,41 +6773,7 @@ impl ISpeechPhraseAlternates {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseAlternates> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseAlternates> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseAlternates> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseAlternates) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseAlternates> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseAlternates> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseAlternates) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseAlternates> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseAlternates) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseAlternates, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseAlternates {
     fn clone(&self) -> Self {
@@ -9158,41 +6876,7 @@ impl ISpeechPhraseElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseElement> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseElement> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseElement> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseElement> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseElement> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseElement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseElement {
     fn clone(&self) -> Self {
@@ -9265,41 +6949,7 @@ impl ISpeechPhraseElements {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseElements> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseElements> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseElements> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseElements> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseElements> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseElements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseElements> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseElements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseElements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseElements {
     fn clone(&self) -> Self {
@@ -9430,41 +7080,7 @@ impl ISpeechPhraseInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseInfo> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseInfo> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseInfo> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseInfo> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseInfo> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseInfo, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseInfo {
     fn clone(&self) -> Self {
@@ -9556,41 +7172,7 @@ impl ISpeechPhraseInfoBuilder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseInfoBuilder> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseInfoBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseInfoBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseInfoBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseInfoBuilder> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseInfoBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseInfoBuilder> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseInfoBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseInfoBuilder> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseInfoBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseInfoBuilder> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseInfoBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseInfoBuilder, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseInfoBuilder {
     fn clone(&self) -> Self {
@@ -9651,41 +7233,7 @@ impl ISpeechPhraseProperties {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseProperties> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseProperties> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseProperties> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseProperties> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseProperties> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseProperties, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseProperties {
     fn clone(&self) -> Self {
@@ -9776,41 +7324,7 @@ impl ISpeechPhraseProperty {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseProperty> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseProperty> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseProperty> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseProperty> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseProperty> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseProperty, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseProperty {
     fn clone(&self) -> Self {
@@ -9887,41 +7401,7 @@ impl ISpeechPhraseReplacement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseReplacement> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseReplacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseReplacement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseReplacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseReplacement> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseReplacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseReplacement> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseReplacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseReplacement> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseReplacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseReplacement> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseReplacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseReplacement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseReplacement {
     fn clone(&self) -> Self {
@@ -9982,41 +7462,7 @@ impl ISpeechPhraseReplacements {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseReplacements> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseReplacements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseReplacements> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseReplacements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseReplacements> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseReplacements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseReplacements> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseReplacements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseReplacements> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseReplacements) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseReplacements> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseReplacements) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseReplacements, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseReplacements {
     fn clone(&self) -> Self {
@@ -10101,41 +7547,7 @@ impl ISpeechPhraseRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseRule> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseRule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseRule> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseRule> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseRule> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseRule> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseRule {
     fn clone(&self) -> Self {
@@ -10206,41 +7618,7 @@ impl ISpeechPhraseRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseRules> for ::windows::core::IUnknown {
-    fn from(value: ISpeechPhraseRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseRules> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechPhraseRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseRules> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechPhraseRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechPhraseRules> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechPhraseRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechPhraseRules> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechPhraseRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechPhraseRules> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechPhraseRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechPhraseRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechPhraseRules {
     fn clone(&self) -> Self {
@@ -10406,41 +7784,7 @@ impl ISpeechRecoContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoContext> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoContext> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoContext> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoContext> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoContext> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoContext {
     fn clone(&self) -> Self {
@@ -10626,41 +7970,7 @@ impl ISpeechRecoGrammar {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoGrammar> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoGrammar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoGrammar> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoGrammar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoGrammar> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoGrammar> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoGrammar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoGrammar> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoGrammar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoGrammar, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoGrammar {
     fn clone(&self) -> Self {
@@ -10803,41 +8113,7 @@ impl ISpeechRecoResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResult> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResult> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResult> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResult> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResult> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoResult {
     fn clone(&self) -> Self {
@@ -10974,59 +8250,7 @@ impl ISpeechRecoResult2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResult2> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResult2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResult2> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResult2> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResult2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResult2> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResult2> for ISpeechRecoResult {
-    fn from(value: ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResult2> for &'a ISpeechRecoResult {
-    fn from(value: &'a ISpeechRecoResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResult2> for ISpeechRecoResult {
-    fn from(value: &ISpeechRecoResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoResult2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoResult2 {
     fn clone(&self) -> Self {
@@ -11137,41 +8361,7 @@ impl ISpeechRecoResultDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResultDispatch> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoResultDispatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResultDispatch> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoResultDispatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResultDispatch> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoResultDispatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResultDispatch> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoResultDispatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResultDispatch> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoResultDispatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResultDispatch> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoResultDispatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoResultDispatch, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoResultDispatch {
     fn clone(&self) -> Self {
@@ -11273,41 +8463,7 @@ impl ISpeechRecoResultTimes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResultTimes> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecoResultTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResultTimes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecoResultTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResultTimes> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecoResultTimes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecoResultTimes> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecoResultTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecoResultTimes> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecoResultTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecoResultTimes> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecoResultTimes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecoResultTimes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecoResultTimes {
     fn clone(&self) -> Self {
@@ -11506,41 +8662,7 @@ impl ISpeechRecognizer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecognizer> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecognizer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecognizer> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecognizer> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecognizer> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecognizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecognizer> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecognizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecognizer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecognizer {
     fn clone(&self) -> Self {
@@ -11690,41 +8812,7 @@ impl ISpeechRecognizerStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecognizerStatus> for ::windows::core::IUnknown {
-    fn from(value: ISpeechRecognizerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecognizerStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechRecognizerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecognizerStatus> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechRecognizerStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechRecognizerStatus> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechRecognizerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechRecognizerStatus> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechRecognizerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechRecognizerStatus> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechRecognizerStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechRecognizerStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechRecognizerStatus {
     fn clone(&self) -> Self {
@@ -11791,41 +8879,7 @@ impl ISpeechResourceLoader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechResourceLoader> for ::windows::core::IUnknown {
-    fn from(value: ISpeechResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechResourceLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechResourceLoader> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechResourceLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechResourceLoader> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechResourceLoader> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechResourceLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechResourceLoader> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechResourceLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechResourceLoader, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechResourceLoader {
     fn clone(&self) -> Self {
@@ -11899,41 +8953,7 @@ impl ISpeechTextSelectionInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechTextSelectionInformation> for ::windows::core::IUnknown {
-    fn from(value: ISpeechTextSelectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechTextSelectionInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechTextSelectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechTextSelectionInformation> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechTextSelectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechTextSelectionInformation> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechTextSelectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechTextSelectionInformation> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechTextSelectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechTextSelectionInformation> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechTextSelectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechTextSelectionInformation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechTextSelectionInformation {
     fn clone(&self) -> Self {
@@ -12135,41 +9155,7 @@ impl ISpeechVoice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechVoice> for ::windows::core::IUnknown {
-    fn from(value: ISpeechVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechVoice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechVoice> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechVoice> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechVoice> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechVoice> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechVoice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechVoice {
     fn clone(&self) -> Self {
@@ -12328,41 +9314,7 @@ impl ISpeechVoiceStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechVoiceStatus> for ::windows::core::IUnknown {
-    fn from(value: ISpeechVoiceStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechVoiceStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechVoiceStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechVoiceStatus> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechVoiceStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechVoiceStatus> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechVoiceStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechVoiceStatus> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechVoiceStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechVoiceStatus> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechVoiceStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechVoiceStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechVoiceStatus {
     fn clone(&self) -> Self {
@@ -12473,41 +9425,7 @@ impl ISpeechWaveFormatEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechWaveFormatEx> for ::windows::core::IUnknown {
-    fn from(value: ISpeechWaveFormatEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechWaveFormatEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechWaveFormatEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechWaveFormatEx> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechWaveFormatEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechWaveFormatEx> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechWaveFormatEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechWaveFormatEx> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechWaveFormatEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechWaveFormatEx> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechWaveFormatEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechWaveFormatEx, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechWaveFormatEx {
     fn clone(&self) -> Self {
@@ -12634,59 +9552,7 @@ impl ISpeechXMLRecoResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechXMLRecoResult> for ::windows::core::IUnknown {
-    fn from(value: ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechXMLRecoResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechXMLRecoResult> for ::windows::core::IUnknown {
-    fn from(value: &ISpeechXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechXMLRecoResult> for super::super::System::Com::IDispatch {
-    fn from(value: ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechXMLRecoResult> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechXMLRecoResult> for super::super::System::Com::IDispatch {
-    fn from(value: &ISpeechXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISpeechXMLRecoResult> for ISpeechRecoResult {
-    fn from(value: ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISpeechXMLRecoResult> for &'a ISpeechRecoResult {
-    fn from(value: &'a ISpeechXMLRecoResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISpeechXMLRecoResult> for ISpeechRecoResult {
-    fn from(value: &ISpeechXMLRecoResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpeechXMLRecoResult, ::windows::core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISpeechXMLRecoResult {
     fn clone(&self) -> Self {
@@ -12730,41 +9596,7 @@ pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechRecoContextEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
-    fn from(value: _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechRecoContextEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ISpeechRecoContextEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechRecoContextEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ISpeechRecoContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechRecoContextEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ISpeechRecoContextEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_ISpeechRecoContextEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ISpeechRecoContextEvents {
     fn clone(&self) -> Self {
@@ -12806,41 +9638,7 @@ pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechVoiceEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechVoiceEvents> for ::windows::core::IUnknown {
-    fn from(value: _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechVoiceEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ISpeechVoiceEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
-    fn from(value: _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ISpeechVoiceEvents> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _ISpeechVoiceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ISpeechVoiceEvents> for super::super::System::Com::IDispatch {
-    fn from(value: &_ISpeechVoiceEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_ISpeechVoiceEvents, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _ISpeechVoiceEvents {
     fn clone(&self) -> Self {

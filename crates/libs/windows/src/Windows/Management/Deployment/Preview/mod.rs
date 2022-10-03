@@ -98,36 +98,7 @@ unsafe impl ::windows::core::Interface for InstalledClassicAppInfo {
 impl ::windows::core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
 }
-impl ::core::convert::From<InstalledClassicAppInfo> for ::windows::core::IUnknown {
-    fn from(value: InstalledClassicAppInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InstalledClassicAppInfo> for ::windows::core::IUnknown {
-    fn from(value: &InstalledClassicAppInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InstalledClassicAppInfo> for &::windows::core::IUnknown {
-    fn from(value: &InstalledClassicAppInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InstalledClassicAppInfo> for ::windows::core::IInspectable {
-    fn from(value: InstalledClassicAppInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InstalledClassicAppInfo> for ::windows::core::IInspectable {
-    fn from(value: &InstalledClassicAppInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InstalledClassicAppInfo> for &::windows::core::IInspectable {
-    fn from(value: &InstalledClassicAppInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InstalledClassicAppInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InstalledClassicAppInfo {}
 unsafe impl ::core::marker::Sync for InstalledClassicAppInfo {}
 #[cfg(feature = "implement")]

@@ -521,36 +521,7 @@ unsafe impl ::windows::core::Interface for AccountsSettingsPane {
 impl ::windows::core::RuntimeName for AccountsSettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPane";
 }
-impl ::core::convert::From<AccountsSettingsPane> for ::windows::core::IUnknown {
-    fn from(value: AccountsSettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPane> for ::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPane> for &::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccountsSettingsPane> for ::windows::core::IInspectable {
-    fn from(value: AccountsSettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPane> for ::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPane> for &::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccountsSettingsPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
@@ -651,36 +622,7 @@ unsafe impl ::windows::core::Interface for AccountsSettingsPaneCommandsRequested
 impl ::windows::core::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs";
 }
-impl ::core::convert::From<AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneCommandsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccountsSettingsPaneCommandsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPaneEventDeferral(::windows::core::IUnknown);
@@ -722,36 +664,7 @@ unsafe impl ::windows::core::Interface for AccountsSettingsPaneEventDeferral {
 impl ::windows::core::RuntimeName for AccountsSettingsPaneEventDeferral {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral";
 }
-impl ::core::convert::From<AccountsSettingsPaneEventDeferral> for ::windows::core::IUnknown {
-    fn from(value: AccountsSettingsPaneEventDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneEventDeferral> for ::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneEventDeferral> for &::windows::core::IUnknown {
-    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccountsSettingsPaneEventDeferral> for ::windows::core::IInspectable {
-    fn from(value: AccountsSettingsPaneEventDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneEventDeferral> for ::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccountsSettingsPaneEventDeferral> for &::windows::core::IInspectable {
-    fn from(value: &AccountsSettingsPaneEventDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccountsSettingsPaneEventDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct CredentialCommand(::windows::core::IUnknown);
@@ -826,36 +739,7 @@ unsafe impl ::windows::core::Interface for CredentialCommand {
 impl ::windows::core::RuntimeName for CredentialCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.CredentialCommand";
 }
-impl ::core::convert::From<CredentialCommand> for ::windows::core::IUnknown {
-    fn from(value: CredentialCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialCommand> for ::windows::core::IUnknown {
-    fn from(value: &CredentialCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialCommand> for &::windows::core::IUnknown {
-    fn from(value: &CredentialCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CredentialCommand> for ::windows::core::IInspectable {
-    fn from(value: CredentialCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialCommand> for ::windows::core::IInspectable {
-    fn from(value: &CredentialCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialCommand> for &::windows::core::IInspectable {
-    fn from(value: &CredentialCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CredentialCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"UI_Popups\"`*"]
 #[cfg(feature = "UI_Popups")]
 #[repr(transparent)]
@@ -981,41 +865,7 @@ impl ::windows::core::RuntimeName for SettingsCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsCommand";
 }
 #[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<SettingsCommand> for ::windows::core::IUnknown {
-    fn from(value: SettingsCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<&SettingsCommand> for ::windows::core::IUnknown {
-    fn from(value: &SettingsCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<&SettingsCommand> for &::windows::core::IUnknown {
-    fn from(value: &SettingsCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<SettingsCommand> for ::windows::core::IInspectable {
-    fn from(value: SettingsCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<&SettingsCommand> for ::windows::core::IInspectable {
-    fn from(value: &SettingsCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::convert::From<&SettingsCommand> for &::windows::core::IInspectable {
-    fn from(value: &SettingsCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SettingsCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "UI_Popups")]
 impl ::core::convert::TryFrom<SettingsCommand> for super::Popups::IUICommand {
     type Error = ::windows::core::Error;
@@ -1128,41 +978,7 @@ impl ::windows::core::RuntimeName for SettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPane";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPane> for ::windows::core::IUnknown {
-    fn from(value: SettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPane> for ::windows::core::IUnknown {
-    fn from(value: &SettingsPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPane> for &::windows::core::IUnknown {
-    fn from(value: &SettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPane> for ::windows::core::IInspectable {
-    fn from(value: SettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPane> for ::windows::core::IInspectable {
-    fn from(value: &SettingsPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPane> for &::windows::core::IInspectable {
-    fn from(value: &SettingsPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SettingsPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1220,41 +1036,7 @@ impl ::windows::core::RuntimeName for SettingsPaneCommandsRequest {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPaneCommandsRequest> for ::windows::core::IUnknown {
-    fn from(value: SettingsPaneCommandsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequest> for ::windows::core::IUnknown {
-    fn from(value: &SettingsPaneCommandsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequest> for &::windows::core::IUnknown {
-    fn from(value: &SettingsPaneCommandsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPaneCommandsRequest> for ::windows::core::IInspectable {
-    fn from(value: SettingsPaneCommandsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequest> for ::windows::core::IInspectable {
-    fn from(value: &SettingsPaneCommandsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequest> for &::windows::core::IInspectable {
-    fn from(value: &SettingsPaneCommandsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SettingsPaneCommandsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1312,41 +1094,7 @@ impl ::windows::core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SettingsPaneCommandsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct WebAccountCommand(::windows::core::IUnknown);
@@ -1420,36 +1168,7 @@ unsafe impl ::windows::core::Interface for WebAccountCommand {
 impl ::windows::core::RuntimeName for WebAccountCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountCommand";
 }
-impl ::core::convert::From<WebAccountCommand> for ::windows::core::IUnknown {
-    fn from(value: WebAccountCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountCommand> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountCommand> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountCommand> for ::windows::core::IInspectable {
-    fn from(value: WebAccountCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountCommand> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountCommand> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct WebAccountInvokedArgs(::windows::core::IUnknown);
@@ -1494,36 +1213,7 @@ unsafe impl ::windows::core::Interface for WebAccountInvokedArgs {
 impl ::windows::core::RuntimeName for WebAccountInvokedArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountInvokedArgs";
 }
-impl ::core::convert::From<WebAccountInvokedArgs> for ::windows::core::IUnknown {
-    fn from(value: WebAccountInvokedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountInvokedArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountInvokedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountInvokedArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountInvokedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountInvokedArgs> for ::windows::core::IInspectable {
-    fn from(value: WebAccountInvokedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountInvokedArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountInvokedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountInvokedArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountInvokedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountInvokedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`*"]
 #[repr(transparent)]
 pub struct WebAccountProviderCommand(::windows::core::IUnknown);
@@ -1590,36 +1280,7 @@ unsafe impl ::windows::core::Interface for WebAccountProviderCommand {
 impl ::windows::core::RuntimeName for WebAccountProviderCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountProviderCommand";
 }
-impl ::core::convert::From<WebAccountProviderCommand> for ::windows::core::IUnknown {
-    fn from(value: WebAccountProviderCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderCommand> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderCommand> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountProviderCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountProviderCommand> for ::windows::core::IInspectable {
-    fn from(value: WebAccountProviderCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountProviderCommand> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountProviderCommand> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountProviderCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountProviderCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"UI_ApplicationSettings\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]

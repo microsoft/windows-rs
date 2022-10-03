@@ -1831,21 +1831,7 @@ impl IActivateAudioInterfaceAsyncOperation {
         (::windows::core::Vtable::vtable(self).GetActivateResult)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(activateresult), ::core::mem::transmute(activatedinterface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IActivateAudioInterfaceAsyncOperation> for ::windows::core::IUnknown {
-    fn from(value: IActivateAudioInterfaceAsyncOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivateAudioInterfaceAsyncOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActivateAudioInterfaceAsyncOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivateAudioInterfaceAsyncOperation> for ::windows::core::IUnknown {
-    fn from(value: &IActivateAudioInterfaceAsyncOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActivateAudioInterfaceAsyncOperation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActivateAudioInterfaceAsyncOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1885,21 +1871,7 @@ impl IActivateAudioInterfaceCompletionHandler {
         (::windows::core::Vtable::vtable(self).ActivateCompleted)(::windows::core::Vtable::as_raw(self), activateoperation.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IActivateAudioInterfaceCompletionHandler> for ::windows::core::IUnknown {
-    fn from(value: IActivateAudioInterfaceCompletionHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActivateAudioInterfaceCompletionHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActivateAudioInterfaceCompletionHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivateAudioInterfaceCompletionHandler> for ::windows::core::IUnknown {
-    fn from(value: &IActivateAudioInterfaceCompletionHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActivateAudioInterfaceCompletionHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActivateAudioInterfaceCompletionHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1953,21 +1925,7 @@ impl IAudioAmbisonicsControl {
         (::windows::core::Vtable::vtable(self).SetRotation)(::windows::core::Vtable::as_raw(self), x, y, z, w).ok()
     }
 }
-impl ::core::convert::From<IAudioAmbisonicsControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioAmbisonicsControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioAmbisonicsControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioAmbisonicsControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioAmbisonicsControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioAmbisonicsControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioAmbisonicsControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioAmbisonicsControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2024,21 +1982,7 @@ impl IAudioAutoGainControl {
         (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), benable.into(), ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioAutoGainControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioAutoGainControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioAutoGainControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioAutoGainControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioAutoGainControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioAutoGainControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioAutoGainControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioAutoGainControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2099,36 +2043,7 @@ impl IAudioBass {
         (::windows::core::Vtable::vtable(self).base__.SetLevelAllChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioBass> for ::windows::core::IUnknown {
-    fn from(value: IAudioBass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioBass> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioBass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioBass> for ::windows::core::IUnknown {
-    fn from(value: &IAudioBass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioBass> for IPerChannelDbLevel {
-    fn from(value: IAudioBass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioBass> for &'a IPerChannelDbLevel {
-    fn from(value: &'a IAudioBass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioBass> for IPerChannelDbLevel {
-    fn from(value: &IAudioBass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioBass, ::windows::core::IUnknown, IPerChannelDbLevel);
 impl ::core::clone::Clone for IAudioBass {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2171,21 +2086,7 @@ impl IAudioCaptureClient {
         (::windows::core::Vtable::vtable(self).GetNextPacketSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IAudioCaptureClient> for ::windows::core::IUnknown {
-    fn from(value: IAudioCaptureClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioCaptureClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioCaptureClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioCaptureClient> for ::windows::core::IUnknown {
-    fn from(value: &IAudioCaptureClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioCaptureClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioCaptureClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2228,21 +2129,7 @@ impl IAudioChannelConfig {
         (::windows::core::Vtable::vtable(self).GetChannelConfig)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IAudioChannelConfig> for ::windows::core::IUnknown {
-    fn from(value: IAudioChannelConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioChannelConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioChannelConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioChannelConfig> for ::windows::core::IUnknown {
-    fn from(value: &IAudioChannelConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioChannelConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioChannelConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2326,21 +2213,7 @@ impl IAudioClient {
         (::windows::core::Vtable::vtable(self).GetService)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAudioClient> for ::windows::core::IUnknown {
-    fn from(value: IAudioClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2456,36 +2329,7 @@ impl IAudioClient2 {
         (::windows::core::Vtable::vtable(self).GetBufferSizeLimits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pformat), beventdriven.into(), ::core::mem::transmute(phnsminbufferduration), ::core::mem::transmute(phnsmaxbufferduration)).ok()
     }
 }
-impl ::core::convert::From<IAudioClient2> for ::windows::core::IUnknown {
-    fn from(value: IAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient2> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioClient2> for IAudioClient {
-    fn from(value: IAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient2> for &'a IAudioClient {
-    fn from(value: &'a IAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient2> for IAudioClient {
-    fn from(value: &IAudioClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClient2, ::windows::core::IUnknown, IAudioClient);
 impl ::core::clone::Clone for IAudioClient2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2607,51 +2451,7 @@ impl IAudioClient3 {
         (::windows::core::Vtable::vtable(self).InitializeSharedAudioStream)(::windows::core::Vtable::as_raw(self), streamflags, periodinframes, ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioClient3> for ::windows::core::IUnknown {
-    fn from(value: IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient3> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClient3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioClient3> for IAudioClient {
-    fn from(value: IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a IAudioClient {
-    fn from(value: &'a IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient3> for IAudioClient {
-    fn from(value: &IAudioClient3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioClient3> for IAudioClient2 {
-    fn from(value: IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a IAudioClient2 {
-    fn from(value: &'a IAudioClient3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClient3> for IAudioClient2 {
-    fn from(value: &IAudioClient3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClient3, ::windows::core::IUnknown, IAudioClient, IAudioClient2);
 impl ::core::clone::Clone for IAudioClient3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2690,21 +2490,7 @@ impl IAudioClientDuckingControl {
         (::windows::core::Vtable::vtable(self).SetDuckingOptionsForCurrentStream)(::windows::core::Vtable::as_raw(self), options).ok()
     }
 }
-impl ::core::convert::From<IAudioClientDuckingControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioClientDuckingControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClientDuckingControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClientDuckingControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClientDuckingControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClientDuckingControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClientDuckingControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioClientDuckingControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2749,21 +2535,7 @@ impl IAudioClock {
         (::windows::core::Vtable::vtable(self).GetCharacteristics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IAudioClock> for ::windows::core::IUnknown {
-    fn from(value: IAudioClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClock> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioClock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2802,21 +2574,7 @@ impl IAudioClock2 {
         (::windows::core::Vtable::vtable(self).GetDevicePosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(deviceposition), ::core::mem::transmute(qpcposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IAudioClock2> for ::windows::core::IUnknown {
-    fn from(value: IAudioClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClock2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClock2> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClock2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClock2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioClock2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2853,21 +2611,7 @@ impl IAudioClockAdjustment {
         (::windows::core::Vtable::vtable(self).SetSampleRate)(::windows::core::Vtable::as_raw(self), flsamplerate).ok()
     }
 }
-impl ::core::convert::From<IAudioClockAdjustment> for ::windows::core::IUnknown {
-    fn from(value: IAudioClockAdjustment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioClockAdjustment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioClockAdjustment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioClockAdjustment> for ::windows::core::IUnknown {
-    fn from(value: &IAudioClockAdjustment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioClockAdjustment, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioClockAdjustment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2904,21 +2648,7 @@ impl IAudioEffectsChangedNotificationClient {
         (::windows::core::Vtable::vtable(self).OnAudioEffectsChanged)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IAudioEffectsChangedNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: IAudioEffectsChangedNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEffectsChangedNotificationClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEffectsChangedNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEffectsChangedNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEffectsChangedNotificationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEffectsChangedNotificationClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEffectsChangedNotificationClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2972,21 +2702,7 @@ impl IAudioEffectsManager {
         (::windows::core::Vtable::vtable(self).SetAudioEffectState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(effectid), state).ok()
     }
 }
-impl ::core::convert::From<IAudioEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: IAudioEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioEffectsManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioEffectsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEffectsManager> for ::windows::core::IUnknown {
-    fn from(value: &IAudioEffectsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioEffectsManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioEffectsManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3034,21 +2750,7 @@ impl IAudioFormatEnumerator {
         (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut WAVEFORMATEX>(result__)
     }
 }
-impl ::core::convert::From<IAudioFormatEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAudioFormatEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioFormatEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioFormatEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioFormatEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAudioFormatEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioFormatEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioFormatEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3090,21 +2792,7 @@ impl IAudioInputSelector {
         (::windows::core::Vtable::vtable(self).SetSelection)(::windows::core::Vtable::as_raw(self), nidselect, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioInputSelector> for ::windows::core::IUnknown {
-    fn from(value: IAudioInputSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioInputSelector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioInputSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioInputSelector> for ::windows::core::IUnknown {
-    fn from(value: &IAudioInputSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioInputSelector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioInputSelector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3153,21 +2841,7 @@ impl IAudioLoudness {
         (::windows::core::Vtable::vtable(self).SetEnabled)(::windows::core::Vtable::as_raw(self), benable.into(), ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioLoudness> for ::windows::core::IUnknown {
-    fn from(value: IAudioLoudness) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioLoudness> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioLoudness) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioLoudness> for ::windows::core::IUnknown {
-    fn from(value: &IAudioLoudness) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioLoudness, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioLoudness {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3228,36 +2902,7 @@ impl IAudioMidrange {
         (::windows::core::Vtable::vtable(self).base__.SetLevelAllChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioMidrange> for ::windows::core::IUnknown {
-    fn from(value: IAudioMidrange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioMidrange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioMidrange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioMidrange> for ::windows::core::IUnknown {
-    fn from(value: &IAudioMidrange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioMidrange> for IPerChannelDbLevel {
-    fn from(value: IAudioMidrange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioMidrange> for &'a IPerChannelDbLevel {
-    fn from(value: &'a IAudioMidrange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioMidrange> for IPerChannelDbLevel {
-    fn from(value: &IAudioMidrange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioMidrange, ::windows::core::IUnknown, IPerChannelDbLevel);
 impl ::core::clone::Clone for IAudioMidrange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3304,21 +2949,7 @@ impl IAudioMute {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IAudioMute> for ::windows::core::IUnknown {
-    fn from(value: IAudioMute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioMute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioMute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioMute> for ::windows::core::IUnknown {
-    fn from(value: &IAudioMute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioMute, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioMute {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3366,21 +2997,7 @@ impl IAudioOutputSelector {
         (::windows::core::Vtable::vtable(self).SetSelection)(::windows::core::Vtable::as_raw(self), nidselect, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioOutputSelector> for ::windows::core::IUnknown {
-    fn from(value: IAudioOutputSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioOutputSelector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioOutputSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioOutputSelector> for ::windows::core::IUnknown {
-    fn from(value: &IAudioOutputSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioOutputSelector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioOutputSelector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3423,21 +3040,7 @@ impl IAudioPeakMeter {
         (::windows::core::Vtable::vtable(self).GetLevel)(::windows::core::Vtable::as_raw(self), nchannel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
 }
-impl ::core::convert::From<IAudioPeakMeter> for ::windows::core::IUnknown {
-    fn from(value: IAudioPeakMeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioPeakMeter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioPeakMeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioPeakMeter> for ::windows::core::IUnknown {
-    fn from(value: &IAudioPeakMeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioPeakMeter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioPeakMeter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3479,21 +3082,7 @@ impl IAudioRenderClient {
         (::windows::core::Vtable::vtable(self).ReleaseBuffer)(::windows::core::Vtable::as_raw(self), numframeswritten, dwflags).ok()
     }
 }
-impl ::core::convert::From<IAudioRenderClient> for ::windows::core::IUnknown {
-    fn from(value: IAudioRenderClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioRenderClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioRenderClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioRenderClient> for ::windows::core::IUnknown {
-    fn from(value: &IAudioRenderClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioRenderClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioRenderClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3571,21 +3160,7 @@ impl IAudioSessionControl {
         (::windows::core::Vtable::vtable(self).UnregisterAudioSessionNotification)(::windows::core::Vtable::as_raw(self), newnotifications.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAudioSessionControl> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionControl> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSessionControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3693,36 +3268,7 @@ impl IAudioSessionControl2 {
         (::windows::core::Vtable::vtable(self).SetDuckingPreference)(::windows::core::Vtable::as_raw(self), optout.into()).ok()
     }
 }
-impl ::core::convert::From<IAudioSessionControl2> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionControl2> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioSessionControl2> for IAudioSessionControl {
-    fn from(value: IAudioSessionControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionControl2> for &'a IAudioSessionControl {
-    fn from(value: &'a IAudioSessionControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionControl2> for IAudioSessionControl {
-    fn from(value: &IAudioSessionControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionControl2, ::windows::core::IUnknown, IAudioSessionControl);
 impl ::core::clone::Clone for IAudioSessionControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3771,21 +3317,7 @@ impl IAudioSessionEnumerator {
         (::windows::core::Vtable::vtable(self).GetSession)(::windows::core::Vtable::as_raw(self), sessioncount, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionControl>(result__)
     }
 }
-impl ::core::convert::From<IAudioSessionEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSessionEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3852,21 +3384,7 @@ impl IAudioSessionEvents {
         (::windows::core::Vtable::vtable(self).OnSessionDisconnected)(::windows::core::Vtable::as_raw(self), disconnectreason).ok()
     }
 }
-impl ::core::convert::From<IAudioSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSessionEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3917,21 +3435,7 @@ impl IAudioSessionManager {
         (::windows::core::Vtable::vtable(self).GetSimpleAudioVolume)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(audiosessionguid.unwrap_or(::std::ptr::null())), streamflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimpleAudioVolume>(result__)
     }
 }
-impl ::core::convert::From<IAudioSessionManager> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionManager> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSessionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4003,36 +3507,7 @@ impl IAudioSessionManager2 {
         (::windows::core::Vtable::vtable(self).UnregisterDuckNotification)(::windows::core::Vtable::as_raw(self), ducknotification.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAudioSessionManager2> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionManager2> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioSessionManager2> for IAudioSessionManager {
-    fn from(value: IAudioSessionManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionManager2> for &'a IAudioSessionManager {
-    fn from(value: &'a IAudioSessionManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionManager2> for IAudioSessionManager {
-    fn from(value: &IAudioSessionManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionManager2, ::windows::core::IUnknown, IAudioSessionManager);
 impl ::core::clone::Clone for IAudioSessionManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4076,21 +3551,7 @@ impl IAudioSessionNotification {
         (::windows::core::Vtable::vtable(self).OnSessionCreated)(::windows::core::Vtable::as_raw(self), newsession.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAudioSessionNotification> for ::windows::core::IUnknown {
-    fn from(value: IAudioSessionNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSessionNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSessionNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSessionNotification> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSessionNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSessionNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSessionNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4134,21 +3595,7 @@ impl IAudioStateMonitor {
         (::windows::core::Vtable::vtable(self).GetSoundLevel)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IAudioStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: IAudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioStateMonitor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioStateMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioStateMonitor> for ::windows::core::IUnknown {
-    fn from(value: &IAudioStateMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioStateMonitor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioStateMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4201,21 +3648,7 @@ impl IAudioStreamVolume {
         (::windows::core::Vtable::vtable(self).GetAllVolumes)(::windows::core::Vtable::as_raw(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IAudioStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: IAudioStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioStreamVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioStreamVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioStreamVolume> for ::windows::core::IUnknown {
-    fn from(value: &IAudioStreamVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioStreamVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioStreamVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4258,21 +3691,7 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient {
         (::windows::core::Vtable::vtable(self).OnPropertyChanged)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(key)).ok()
     }
 }
-impl ::core::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSystemEffectsPropertyChangeNotificationClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotificationClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSystemEffectsPropertyChangeNotificationClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4345,21 +3764,7 @@ impl IAudioSystemEffectsPropertyStore {
         (::windows::core::Vtable::vtable(self).UnregisterPropertyChangeNotification)(::windows::core::Vtable::as_raw(self), callback.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IAudioSystemEffectsPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: IAudioSystemEffectsPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioSystemEffectsPropertyStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioSystemEffectsPropertyStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSystemEffectsPropertyStore> for ::windows::core::IUnknown {
-    fn from(value: &IAudioSystemEffectsPropertyStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioSystemEffectsPropertyStore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioSystemEffectsPropertyStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4428,36 +3833,7 @@ impl IAudioTreble {
         (::windows::core::Vtable::vtable(self).base__.SetLevelAllChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioTreble> for ::windows::core::IUnknown {
-    fn from(value: IAudioTreble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioTreble> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioTreble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioTreble> for ::windows::core::IUnknown {
-    fn from(value: &IAudioTreble) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioTreble> for IPerChannelDbLevel {
-    fn from(value: IAudioTreble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioTreble> for &'a IPerChannelDbLevel {
-    fn from(value: &'a IAudioTreble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioTreble> for IPerChannelDbLevel {
-    fn from(value: &IAudioTreble) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioTreble, ::windows::core::IUnknown, IPerChannelDbLevel);
 impl ::core::clone::Clone for IAudioTreble {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4502,21 +3878,7 @@ impl IAudioVolumeDuckNotification {
         (::windows::core::Vtable::vtable(self).OnVolumeUnduckNotification)(::windows::core::Vtable::as_raw(self), sessionid.into()).ok()
     }
 }
-impl ::core::convert::From<IAudioVolumeDuckNotification> for ::windows::core::IUnknown {
-    fn from(value: IAudioVolumeDuckNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioVolumeDuckNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioVolumeDuckNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioVolumeDuckNotification> for ::windows::core::IUnknown {
-    fn from(value: &IAudioVolumeDuckNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioVolumeDuckNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IAudioVolumeDuckNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4571,36 +3933,7 @@ impl IAudioVolumeLevel {
         (::windows::core::Vtable::vtable(self).base__.SetLevelAllChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IAudioVolumeLevel> for ::windows::core::IUnknown {
-    fn from(value: IAudioVolumeLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioVolumeLevel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioVolumeLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioVolumeLevel> for ::windows::core::IUnknown {
-    fn from(value: &IAudioVolumeLevel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioVolumeLevel> for IPerChannelDbLevel {
-    fn from(value: IAudioVolumeLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioVolumeLevel> for &'a IPerChannelDbLevel {
-    fn from(value: &'a IAudioVolumeLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioVolumeLevel> for IPerChannelDbLevel {
-    fn from(value: &IAudioVolumeLevel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioVolumeLevel, ::windows::core::IUnknown, IPerChannelDbLevel);
 impl ::core::clone::Clone for IAudioVolumeLevel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4650,21 +3983,7 @@ impl IChannelAudioVolume {
         (::windows::core::Vtable::vtable(self).GetAllVolumes)(::windows::core::Vtable::as_raw(self), pfvolumes.len() as _, ::core::mem::transmute(pfvolumes.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IChannelAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: IChannelAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IChannelAudioVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IChannelAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IChannelAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: &IChannelAudioVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IChannelAudioVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IChannelAudioVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4737,21 +4056,7 @@ impl IConnector {
         (::windows::core::Vtable::vtable(self).GetDeviceIdConnectedTo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IConnector> for ::windows::core::IUnknown {
-    fn from(value: IConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IConnector> for ::windows::core::IUnknown {
-    fn from(value: &IConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IConnector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4798,21 +4103,7 @@ impl IControlChangeNotify {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), dwsenderprocessid, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IControlChangeNotify> for ::windows::core::IUnknown {
-    fn from(value: IControlChangeNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlChangeNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IControlChangeNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlChangeNotify> for ::windows::core::IUnknown {
-    fn from(value: &IControlChangeNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IControlChangeNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IControlChangeNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4854,21 +4145,7 @@ impl IControlInterface {
         (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IControlInterface> for ::windows::core::IUnknown {
-    fn from(value: IControlInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IControlInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IControlInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IControlInterface> for ::windows::core::IUnknown {
-    fn from(value: &IControlInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IControlInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IControlInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4916,21 +4193,7 @@ impl IDeviceSpecificProperty {
         (::windows::core::Vtable::vtable(self).Get4BRange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plstepping)).ok()
     }
 }
-impl ::core::convert::From<IDeviceSpecificProperty> for ::windows::core::IUnknown {
-    fn from(value: IDeviceSpecificProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceSpecificProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceSpecificProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceSpecificProperty> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceSpecificProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceSpecificProperty, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeviceSpecificProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5002,21 +4265,7 @@ impl IDeviceTopology {
         (::windows::core::Vtable::vtable(self).GetSignalPath)(::windows::core::Vtable::as_raw(self), pipartfrom.into().abi(), pipartto.into().abi(), brejectmixedpaths.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPartsList>(result__)
     }
 }
-impl ::core::convert::From<IDeviceTopology> for ::windows::core::IUnknown {
-    fn from(value: IDeviceTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDeviceTopology> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDeviceTopology) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDeviceTopology> for ::windows::core::IUnknown {
-    fn from(value: &IDeviceTopology) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDeviceTopology, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDeviceTopology {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5082,21 +4331,7 @@ impl IMMDevice {
         (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMMDevice> for ::windows::core::IUnknown {
-    fn from(value: IMMDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMDevice> for ::windows::core::IUnknown {
-    fn from(value: &IMMDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5147,21 +4382,7 @@ impl IMMDeviceActivator {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), pdevice.into().abi(), ::core::mem::transmute(pactivationparams.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppinterface)).ok()
     }
 }
-impl ::core::convert::From<IMMDeviceActivator> for ::windows::core::IUnknown {
-    fn from(value: IMMDeviceActivator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMDeviceActivator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMDeviceActivator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMDeviceActivator> for ::windows::core::IUnknown {
-    fn from(value: &IMMDeviceActivator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMDeviceActivator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMDeviceActivator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5206,21 +4427,7 @@ impl IMMDeviceCollection {
         (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), ndevice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
     }
 }
-impl ::core::convert::From<IMMDeviceCollection> for ::windows::core::IUnknown {
-    fn from(value: IMMDeviceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMDeviceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMDeviceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMDeviceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IMMDeviceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMDeviceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMDeviceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5282,21 +4489,7 @@ impl IMMDeviceEnumerator {
         (::windows::core::Vtable::vtable(self).UnregisterEndpointNotificationCallback)(::windows::core::Vtable::as_raw(self), pclient.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMMDeviceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IMMDeviceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMDeviceEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMDeviceEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMDeviceEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IMMDeviceEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMDeviceEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMDeviceEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5338,21 +4531,7 @@ impl IMMEndpoint {
         (::windows::core::Vtable::vtable(self).GetDataFlow)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EDataFlow>(result__)
     }
 }
-impl ::core::convert::From<IMMEndpoint> for ::windows::core::IUnknown {
-    fn from(value: IMMEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMEndpoint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMEndpoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMEndpoint> for ::windows::core::IUnknown {
-    fn from(value: &IMMEndpoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMEndpoint, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMEndpoint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5418,21 +4597,7 @@ impl IMMNotificationClient {
         (::windows::core::Vtable::vtable(self).OnPropertyValueChanged)(::windows::core::Vtable::as_raw(self), pwstrdeviceid.into(), ::core::mem::transmute(key)).ok()
     }
 }
-impl ::core::convert::From<IMMNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: IMMNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMMNotificationClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMMNotificationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMMNotificationClient> for ::windows::core::IUnknown {
-    fn from(value: &IMMNotificationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMMNotificationClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMMNotificationClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5493,21 +4658,7 @@ impl IMessageFilter {
         (::windows::core::Vtable::vtable(self).MessagePending)(::windows::core::Vtable::as_raw(self), htaskcallee.into(), dwtickcount, dwpendingtype)
     }
 }
-impl ::core::convert::From<IMessageFilter> for ::windows::core::IUnknown {
-    fn from(value: IMessageFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMessageFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMessageFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMessageFilter> for ::windows::core::IUnknown {
-    fn from(value: &IMessageFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMessageFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMessageFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5601,21 +4752,7 @@ impl IPart {
         (::windows::core::Vtable::vtable(self).UnregisterControlChangeCallback)(::windows::core::Vtable::as_raw(self), pnotify.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPart> for ::windows::core::IUnknown {
-    fn from(value: IPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPart> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPart> for ::windows::core::IUnknown {
-    fn from(value: &IPart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPart, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5669,21 +4806,7 @@ impl IPartsList {
         (::windows::core::Vtable::vtable(self).GetPart)(::windows::core::Vtable::as_raw(self), nindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPart>(result__)
     }
 }
-impl ::core::convert::From<IPartsList> for ::windows::core::IUnknown {
-    fn from(value: IPartsList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPartsList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPartsList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPartsList> for ::windows::core::IUnknown {
-    fn from(value: &IPartsList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPartsList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPartsList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5738,21 +4861,7 @@ impl IPerChannelDbLevel {
         (::windows::core::Vtable::vtable(self).SetLevelAllChannels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(alevelsdb.as_ptr()), alevelsdb.len() as _, ::core::mem::transmute(pguideventcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IPerChannelDbLevel> for ::windows::core::IUnknown {
-    fn from(value: IPerChannelDbLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPerChannelDbLevel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPerChannelDbLevel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPerChannelDbLevel> for ::windows::core::IUnknown {
-    fn from(value: &IPerChannelDbLevel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPerChannelDbLevel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPerChannelDbLevel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5812,21 +4921,7 @@ impl ISimpleAudioVolume {
         (::windows::core::Vtable::vtable(self).GetMute)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ISimpleAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: ISimpleAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISimpleAudioVolume> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISimpleAudioVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISimpleAudioVolume> for ::windows::core::IUnknown {
-    fn from(value: &ISimpleAudioVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISimpleAudioVolume, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISimpleAudioVolume {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5905,21 +5000,7 @@ impl ISpatialAudioClient {
         (::windows::core::Vtable::vtable(self).ActivateSpatialAudioStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(activationparams), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioClient> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioClient> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6017,36 +5098,7 @@ impl ISpatialAudioClient2 {
         (::windows::core::Vtable::vtable(self).GetMaxFrameCountForCategory)(::windows::core::Vtable::as_raw(self), category, offloadenabled.into(), ::core::mem::transmute(objectformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioClient2> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioClient2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioClient2> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioClient2> for ISpatialAudioClient {
-    fn from(value: ISpatialAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioClient2> for &'a ISpatialAudioClient {
-    fn from(value: &'a ISpatialAudioClient2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioClient2> for ISpatialAudioClient {
-    fn from(value: &ISpatialAudioClient2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioClient2, ::windows::core::IUnknown, ISpatialAudioClient);
 impl ::core::clone::Clone for ISpatialAudioClient2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6106,21 +5158,7 @@ impl ISpatialAudioMetadataClient {
         (::windows::core::Vtable::vtable(self).ActivateSpatialAudioMetadataReader)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataReader>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataClient> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataClient> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataClient, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6174,21 +5212,7 @@ impl ISpatialAudioMetadataCopier {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataCopier> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataCopier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataCopier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataCopier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataCopier> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataCopier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataCopier, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataCopier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6244,21 +5268,7 @@ impl ISpatialAudioMetadataItems {
         (::windows::core::Vtable::vtable(self).GetInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SpatialAudioMetadataItemsInfo>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataItems> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataItems> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataItems> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataItems) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataItems, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataItems {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6305,21 +5315,7 @@ impl ISpatialAudioMetadataItemsBuffer {
         (::windows::core::Vtable::vtable(self).DetachBuffer)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataItemsBuffer> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataItemsBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataItemsBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataItemsBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataItemsBuffer> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataItemsBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataItemsBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6370,21 +5366,7 @@ impl ISpatialAudioMetadataReader {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataReader> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataReader> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6436,21 +5418,7 @@ impl ISpatialAudioMetadataWriter {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioMetadataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioMetadataWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioMetadataWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6509,36 +5477,7 @@ impl ISpatialAudioObject {
         (::windows::core::Vtable::vtable(self).SetVolume)(::windows::core::Vtable::as_raw(self), volume).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioObject> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObject> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObject> for ISpatialAudioObjectBase {
-    fn from(value: ISpatialAudioObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObject> for &'a ISpatialAudioObjectBase {
-    fn from(value: &'a ISpatialAudioObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObject> for ISpatialAudioObjectBase {
-    fn from(value: &ISpatialAudioObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObject, ::windows::core::IUnknown, ISpatialAudioObjectBase);
 impl ::core::clone::Clone for ISpatialAudioObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6589,21 +5528,7 @@ impl ISpatialAudioObjectBase {
         (::windows::core::Vtable::vtable(self).GetAudioObjectType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AudioObjectType>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectBase> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectBase> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectBase, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioObjectBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6677,36 +5602,7 @@ impl ISpatialAudioObjectForHrtf {
         (::windows::core::Vtable::vtable(self).SetDirectivity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(directivity)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForHrtf> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForHrtf> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectForHrtf) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBase {
-    fn from(value: ISpatialAudioObjectForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForHrtf> for &'a ISpatialAudioObjectBase {
-    fn from(value: &'a ISpatialAudioObjectForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBase {
-    fn from(value: &ISpatialAudioObjectForHrtf) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectForHrtf, ::windows::core::IUnknown, ISpatialAudioObjectBase);
 impl ::core::clone::Clone for ISpatialAudioObjectForHrtf {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6764,36 +5660,7 @@ impl ISpatialAudioObjectForMetadataCommands {
         (::windows::core::Vtable::vtable(self).WriteNextMetadataCommand)(::windows::core::Vtable::as_raw(self), commandid, ::core::mem::transmute(valuebuffer.unwrap_or(::std::ptr::null())), valuebufferlength).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectForMetadataCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataCommands> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectForMetadataCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForMetadataCommands> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectForMetadataCommands) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ISpatialAudioObjectBase {
-    fn from(value: ISpatialAudioObjectForMetadataCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataCommands> for &'a ISpatialAudioObjectBase {
-    fn from(value: &'a ISpatialAudioObjectForMetadataCommands) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForMetadataCommands> for ISpatialAudioObjectBase {
-    fn from(value: &ISpatialAudioObjectForMetadataCommands) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectForMetadataCommands, ::windows::core::IUnknown, ISpatialAudioObjectBase);
 impl ::core::clone::Clone for ISpatialAudioObjectForMetadataCommands {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6847,36 +5714,7 @@ impl ISpatialAudioObjectForMetadataItems {
         (::windows::core::Vtable::vtable(self).GetSpatialAudioMetadataItems)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataItems>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectForMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataItems> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectForMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForMetadataItems> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectForMetadataItems) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ISpatialAudioObjectBase {
-    fn from(value: ISpatialAudioObjectForMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataItems> for &'a ISpatialAudioObjectBase {
-    fn from(value: &'a ISpatialAudioObjectForMetadataItems) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectForMetadataItems> for ISpatialAudioObjectBase {
-    fn from(value: &ISpatialAudioObjectForMetadataItems) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectForMetadataItems, ::windows::core::IUnknown, ISpatialAudioObjectBase);
 impl ::core::clone::Clone for ISpatialAudioObjectForMetadataItems {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6940,36 +5778,7 @@ impl ISpatialAudioObjectRenderStream {
         (::windows::core::Vtable::vtable(self).ActivateSpatialAudioObject)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObject>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectRenderStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectRenderStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStream> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectRenderStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: ISpatialAudioObjectRenderStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStream> for &'a ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &'a ISpatialAudioObjectRenderStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStream> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &ISpatialAudioObjectRenderStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectRenderStream, ::windows::core::IUnknown, ISpatialAudioObjectRenderStreamBase);
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7029,21 +5838,7 @@ impl ISpatialAudioObjectRenderStreamBase {
         (::windows::core::Vtable::vtable(self).EndUpdatingAudioObjects)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamBase> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectRenderStreamBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamBase> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamBase> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectRenderStreamBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectRenderStreamBase, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7113,36 +5908,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
         (::windows::core::Vtable::vtable(self).ActivateSpatialAudioObjectForHrtf)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForHrtf>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForHrtf> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForHrtf> for &'a ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &ISpatialAudioObjectRenderStreamForHrtf) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectRenderStreamForHrtf, ::windows::core::IUnknown, ISpatialAudioObjectRenderStreamBase);
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForHrtf {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7210,36 +5976,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
         (::windows::core::Vtable::vtable(self).ActivateSpatialAudioObjectForMetadataItems)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataItems>(result__)
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForMetadata> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForMetadata> for &'a ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ISpatialAudioObjectRenderStreamBase {
-    fn from(value: &ISpatialAudioObjectRenderStreamForMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectRenderStreamForMetadata, ::windows::core::IUnknown, ISpatialAudioObjectRenderStreamBase);
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForMetadata {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7280,21 +6017,7 @@ impl ISpatialAudioObjectRenderStreamNotify {
         (::windows::core::Vtable::vtable(self).OnAvailableDynamicObjectCountChange)(::windows::core::Vtable::as_raw(self), sender.into().abi(), hnscompliancedeadlinetime, availabledynamicobjectcountchange).ok()
     }
 }
-impl ::core::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows::core::IUnknown {
-    fn from(value: ISpatialAudioObjectRenderStreamNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpatialAudioObjectRenderStreamNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpatialAudioObjectRenderStreamNotify> for ::windows::core::IUnknown {
-    fn from(value: &ISpatialAudioObjectRenderStreamNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpatialAudioObjectRenderStreamNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7327,21 +6050,7 @@ pub struct ISpatialAudioObjectRenderStreamNotify_Vtbl {
 #[repr(transparent)]
 pub struct ISubunit(::windows::core::IUnknown);
 impl ISubunit {}
-impl ::core::convert::From<ISubunit> for ::windows::core::IUnknown {
-    fn from(value: ISubunit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISubunit> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISubunit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISubunit> for ::windows::core::IUnknown {
-    fn from(value: &ISubunit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISubunit, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISubunit {
     fn clone(&self) -> Self {
         Self(self.0.clone())

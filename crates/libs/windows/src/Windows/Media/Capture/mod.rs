@@ -3064,36 +3064,7 @@ unsafe impl ::windows::core::Interface for AdvancedCapturedPhoto {
 impl ::windows::core::RuntimeName for AdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedCapturedPhoto";
 }
-impl ::core::convert::From<AdvancedCapturedPhoto> for ::windows::core::IUnknown {
-    fn from(value: AdvancedCapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedCapturedPhoto> for ::windows::core::IUnknown {
-    fn from(value: &AdvancedCapturedPhoto) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedCapturedPhoto> for &::windows::core::IUnknown {
-    fn from(value: &AdvancedCapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvancedCapturedPhoto> for ::windows::core::IInspectable {
-    fn from(value: AdvancedCapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedCapturedPhoto> for ::windows::core::IInspectable {
-    fn from(value: &AdvancedCapturedPhoto) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedCapturedPhoto> for &::windows::core::IInspectable {
-    fn from(value: &AdvancedCapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdvancedCapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedCapturedPhoto {}
 unsafe impl ::core::marker::Sync for AdvancedCapturedPhoto {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3193,36 +3164,7 @@ unsafe impl ::windows::core::Interface for AdvancedPhotoCapture {
 impl ::windows::core::RuntimeName for AdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedPhotoCapture";
 }
-impl ::core::convert::From<AdvancedPhotoCapture> for ::windows::core::IUnknown {
-    fn from(value: AdvancedPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCapture> for ::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCapture> for &::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvancedPhotoCapture> for ::windows::core::IInspectable {
-    fn from(value: AdvancedPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCapture> for ::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCapture> for &::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdvancedPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoCapture {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCapture {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -3417,36 +3359,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundService {
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundService";
 }
-impl ::core::convert::From<AppBroadcastBackgroundService> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastBackgroundService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundService> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundService> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastBackgroundService> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastBackgroundService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundService> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundService> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastBackgroundService, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceSignInInfo(::windows::core::IUnknown);
@@ -3571,36 +3484,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceSignInIn
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo";
 }
-impl ::core::convert::From<AppBroadcastBackgroundServiceSignInInfo> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceSignInInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceSignInInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastBackgroundServiceSignInInfo> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceSignInInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceSignInInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundServiceSignInInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastBackgroundServiceSignInInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceStreamInfo(::windows::core::IUnknown);
@@ -3734,36 +3618,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceStreamIn
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo";
 }
-impl ::core::convert::From<AppBroadcastBackgroundServiceStreamInfo> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceStreamInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceStreamInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastBackgroundServiceStreamInfo> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceStreamInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastBackgroundServiceStreamInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastBackgroundServiceStreamInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastBackgroundServiceStreamInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(::windows::core::IUnknown);
@@ -3815,36 +3670,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastCameraCaptureStateChanged
 impl ::windows::core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastCameraCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastCameraCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastCameraCaptureStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastCameraCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastCameraCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastCameraCaptureStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastCameraCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastCameraCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4022,36 +3848,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastGlobalSettings {
 impl ::windows::core::RuntimeName for AppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastGlobalSettings";
 }
-impl ::core::convert::From<AppBroadcastGlobalSettings> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastGlobalSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastGlobalSettings> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastGlobalSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastGlobalSettings> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastGlobalSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastGlobalSettings> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastGlobalSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastGlobalSettings> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastGlobalSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastGlobalSettings> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastGlobalSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastGlobalSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastHeartbeatRequestedEventArgs(::windows::core::IUnknown);
@@ -4100,36 +3897,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastHeartbeatRequestedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastHeartbeatRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastHeartbeatRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastHeartbeatRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastHeartbeatRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastHeartbeatRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastHeartbeatRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastHeartbeatRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastHeartbeatRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastHeartbeatRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 pub struct AppBroadcastManager;
 impl AppBroadcastManager {
@@ -4211,36 +3979,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastMicrophoneCaptureStateCha
 impl ::windows::core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastMicrophoneCaptureStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastMicrophoneCaptureStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4310,36 +4049,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugIn {
 impl ::windows::core::RuntimeName for AppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugIn";
 }
-impl ::core::convert::From<AppBroadcastPlugIn> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugIn> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugIn> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPlugIn> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugIn> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugIn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugIn> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugIn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPlugIn, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugIn {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugIn {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4425,36 +4135,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugInManager {
 impl ::windows::core::RuntimeName for AppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInManager";
 }
-impl ::core::convert::From<AppBroadcastPlugInManager> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPlugInManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInManager> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugInManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInManager> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugInManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPlugInManager> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPlugInManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInManager> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugInManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInManager> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugInManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPlugInManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4501,36 +4182,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPlugInStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastPlugInStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPlugInStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPlugInStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPlugInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPlugInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPlugInStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4612,36 +4264,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreview {
 impl ::windows::core::RuntimeName for AppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreview";
 }
-impl ::core::convert::From<AppBroadcastPreview> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreview> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreview> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPreview> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreview> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreview> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreview {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4695,36 +4318,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStateChangedEventA
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastPreviewStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPreviewStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPreviewStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4825,36 +4419,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamReader {
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamReader";
 }
-impl ::core::convert::From<AppBroadcastPreviewStreamReader> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPreviewStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamReader> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamReader> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPreviewStreamReader> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPreviewStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamReader> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamReader> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamReader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamReader {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -4910,36 +4475,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoFrame {
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame";
 }
-impl ::core::convert::From<AppBroadcastPreviewStreamVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPreviewStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoFrame> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPreviewStreamVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPreviewStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoFrame> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoFrame {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoFrame {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5013,36 +4549,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoHeader 
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader";
 }
-impl ::core::convert::From<AppBroadcastPreviewStreamVideoHeader> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastPreviewStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoHeader> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamVideoHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoHeader> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastPreviewStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastPreviewStreamVideoHeader> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastPreviewStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoHeader> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamVideoHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastPreviewStreamVideoHeader> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastPreviewStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastPreviewStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoHeader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoHeader {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5159,36 +4666,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastProviderSettings {
 impl ::windows::core::RuntimeName for AppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastProviderSettings";
 }
-impl ::core::convert::From<AppBroadcastProviderSettings> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastProviderSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastProviderSettings> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastProviderSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastProviderSettings> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastProviderSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastProviderSettings> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastProviderSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastProviderSettings> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastProviderSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastProviderSettings> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastProviderSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastProviderSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastServices(::windows::core::IUnknown);
@@ -5314,36 +4792,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastServices {
 impl ::windows::core::RuntimeName for AppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastServices";
 }
-impl ::core::convert::From<AppBroadcastServices> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastServices> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastServices> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastServices> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastServices> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastServices> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastServices {}
 unsafe impl ::core::marker::Sync for AppBroadcastServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5397,36 +4846,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastSignInStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastSignInStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastSignInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastSignInStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastSignInStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastSignInStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastSignInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastSignInStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastSignInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastSignInStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastSignInStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastSignInStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastSignInStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastSignInStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastState(::windows::core::IUnknown);
@@ -5707,36 +5127,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastState {
 impl ::windows::core::RuntimeName for AppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastState";
 }
-impl ::core::convert::From<AppBroadcastState> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastState> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastState> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastState> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastState> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastState> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastState {}
 unsafe impl ::core::marker::Sync for AppBroadcastState {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -5792,36 +5183,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioFrame {
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioFrame";
 }
-impl ::core::convert::From<AppBroadcastStreamAudioFrame> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamAudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioFrame> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamAudioFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioFrame> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamAudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamAudioFrame> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamAudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioFrame> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamAudioFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioFrame> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamAudioFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamAudioFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamAudioHeader(::windows::core::IUnknown);
@@ -5900,36 +5262,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioHeader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioHeader";
 }
-impl ::core::convert::From<AppBroadcastStreamAudioHeader> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamAudioHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioHeader> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamAudioHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioHeader> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamAudioHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamAudioHeader> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamAudioHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioHeader> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamAudioHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamAudioHeader> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamAudioHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamAudioHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamReader(::windows::core::IUnknown);
@@ -6062,36 +5395,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamReader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamReader";
 }
-impl ::core::convert::From<AppBroadcastStreamReader> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamReader> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamReader> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamReader> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamReader> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamReader> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamStateChangedEventArgs(::windows::core::IUnknown);
@@ -6136,36 +5440,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamStateChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastStreamStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoFrame(::windows::core::IUnknown);
@@ -6219,36 +5494,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoFrame {
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoFrame";
 }
-impl ::core::convert::From<AppBroadcastStreamVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoFrame> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoFrame> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoFrame> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamVideoFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoFrame> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamVideoFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamVideoFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoHeader(::windows::core::IUnknown);
@@ -6334,36 +5580,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoHeader {
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoHeader";
 }
-impl ::core::convert::From<AppBroadcastStreamVideoHeader> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoHeader> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamVideoHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoHeader> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastStreamVideoHeader> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoHeader> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamVideoHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastStreamVideoHeader> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastStreamVideoHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastStreamVideoHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastTriggerDetails(::windows::core::IUnknown);
@@ -6408,36 +5625,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastTriggerDetails {
 impl ::windows::core::RuntimeName for AppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastTriggerDetails";
 }
-impl ::core::convert::From<AppBroadcastTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastViewerCountChangedEventArgs(::windows::core::IUnknown);
@@ -6482,36 +5670,7 @@ unsafe impl ::windows::core::Interface for AppBroadcastViewerCountChangedEventAr
 impl ::windows::core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs";
 }
-impl ::core::convert::From<AppBroadcastViewerCountChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppBroadcastViewerCountChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastViewerCountChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppBroadcastViewerCountChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastViewerCountChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppBroadcastViewerCountChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppBroadcastViewerCountChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppBroadcastViewerCountChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppBroadcastViewerCountChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppBroadcastViewerCountChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppBroadcastViewerCountChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppBroadcastViewerCountChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppBroadcastViewerCountChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppBroadcastViewerCountChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastViewerCountChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -6604,36 +5763,7 @@ unsafe impl ::windows::core::Interface for AppCapture {
 impl ::windows::core::RuntimeName for AppCapture {
     const NAME: &'static str = "Windows.Media.Capture.AppCapture";
 }
-impl ::core::convert::From<AppCapture> for ::windows::core::IUnknown {
-    fn from(value: AppCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapture> for ::windows::core::IUnknown {
-    fn from(value: &AppCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapture> for &::windows::core::IUnknown {
-    fn from(value: &AppCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCapture> for ::windows::core::IInspectable {
-    fn from(value: AppCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCapture> for ::windows::core::IInspectable {
-    fn from(value: &AppCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCapture> for &::windows::core::IInspectable {
-    fn from(value: &AppCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureAlternateShortcutKeys(::windows::core::IUnknown);
@@ -6911,36 +6041,7 @@ unsafe impl ::windows::core::Interface for AppCaptureAlternateShortcutKeys {
 impl ::windows::core::RuntimeName for AppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureAlternateShortcutKeys";
 }
-impl ::core::convert::From<AppCaptureAlternateShortcutKeys> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureAlternateShortcutKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureAlternateShortcutKeys> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureAlternateShortcutKeys) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureAlternateShortcutKeys> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureAlternateShortcutKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureAlternateShortcutKeys> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureAlternateShortcutKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureAlternateShortcutKeys> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureAlternateShortcutKeys) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureAlternateShortcutKeys> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureAlternateShortcutKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureAlternateShortcutKeys, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureDurationGeneratedEventArgs(::windows::core::IUnknown);
@@ -6987,36 +6088,7 @@ unsafe impl ::windows::core::Interface for AppCaptureDurationGeneratedEventArgs 
 impl ::windows::core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs";
 }
-impl ::core::convert::From<AppCaptureDurationGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureDurationGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureDurationGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureDurationGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureDurationGeneratedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureDurationGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureDurationGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureDurationGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureDurationGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureDurationGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureDurationGeneratedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureDurationGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureDurationGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureDurationGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureDurationGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7065,36 +6137,7 @@ unsafe impl ::windows::core::Interface for AppCaptureFileGeneratedEventArgs {
 impl ::windows::core::RuntimeName for AppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureFileGeneratedEventArgs";
 }
-impl ::core::convert::From<AppCaptureFileGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureFileGeneratedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureFileGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureFileGeneratedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureFileGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureFileGeneratedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureFileGeneratedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureFileGeneratedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureFileGeneratedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureFileGeneratedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7222,36 +6265,7 @@ unsafe impl ::windows::core::Interface for AppCaptureMetadataWriter {
 impl ::windows::core::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
 }
-impl ::core::convert::From<AppCaptureMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureMetadataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureMetadataWriter> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureMetadataWriter> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureMetadataWriter> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureMetadataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureMetadataWriter> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureMetadataWriter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AppCaptureMetadataWriter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7327,36 +6341,7 @@ unsafe impl ::windows::core::Interface for AppCaptureMicrophoneCaptureStateChang
 impl ::windows::core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs";
 }
-impl ::core::convert::From<AppCaptureMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureMicrophoneCaptureStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureMicrophoneCaptureStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureMicrophoneCaptureStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureMicrophoneCaptureStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureMicrophoneCaptureStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7488,36 +6473,7 @@ unsafe impl ::windows::core::Interface for AppCaptureRecordOperation {
 impl ::windows::core::RuntimeName for AppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordOperation";
 }
-impl ::core::convert::From<AppCaptureRecordOperation> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureRecordOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordOperation> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureRecordOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordOperation> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureRecordOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureRecordOperation> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureRecordOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordOperation> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureRecordOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordOperation> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureRecordOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureRecordOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7571,36 +6527,7 @@ unsafe impl ::windows::core::Interface for AppCaptureRecordingStateChangedEventA
 impl ::windows::core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs";
 }
-impl ::core::convert::From<AppCaptureRecordingStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureRecordingStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordingStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureRecordingStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordingStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureRecordingStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureRecordingStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureRecordingStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordingStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureRecordingStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureRecordingStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureRecordingStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureRecordingStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureRecordingStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordingStateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -7670,36 +6597,7 @@ unsafe impl ::windows::core::Interface for AppCaptureServices {
 impl ::windows::core::RuntimeName for AppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureServices";
 }
-impl ::core::convert::From<AppCaptureServices> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureServices> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureServices> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureServices> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureServices> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureServices> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureServices {}
 unsafe impl ::core::marker::Sync for AppCaptureServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8046,36 +6944,7 @@ unsafe impl ::windows::core::Interface for AppCaptureSettings {
 impl ::windows::core::RuntimeName for AppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureSettings";
 }
-impl ::core::convert::From<AppCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureSettings> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureSettings> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct AppCaptureState(::windows::core::IUnknown);
@@ -8186,36 +7055,7 @@ unsafe impl ::windows::core::Interface for AppCaptureState {
 impl ::windows::core::RuntimeName for AppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureState";
 }
-impl ::core::convert::From<AppCaptureState> for ::windows::core::IUnknown {
-    fn from(value: AppCaptureState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureState> for ::windows::core::IUnknown {
-    fn from(value: &AppCaptureState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureState> for &::windows::core::IUnknown {
-    fn from(value: &AppCaptureState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppCaptureState> for ::windows::core::IInspectable {
-    fn from(value: AppCaptureState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppCaptureState> for ::windows::core::IInspectable {
-    fn from(value: &AppCaptureState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppCaptureState> for &::windows::core::IInspectable {
-    fn from(value: &AppCaptureState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppCaptureState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppCaptureState {}
 unsafe impl ::core::marker::Sync for AppCaptureState {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8285,36 +7125,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUI {
 impl ::windows::core::RuntimeName for CameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUI";
 }
-impl ::core::convert::From<CameraCaptureUI> for ::windows::core::IUnknown {
-    fn from(value: CameraCaptureUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUI> for ::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUI> for &::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraCaptureUI> for ::windows::core::IInspectable {
-    fn from(value: CameraCaptureUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUI> for ::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUI> for &::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraCaptureUI, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoCaptureSettings(::windows::core::IUnknown);
@@ -8415,36 +7226,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUIPhotoCaptureSettings {
 impl ::windows::core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings";
 }
-impl ::core::convert::From<CameraCaptureUIPhotoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: CameraCaptureUIPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIPhotoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUIPhotoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIPhotoCaptureSettings> for &::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUIPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraCaptureUIPhotoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: CameraCaptureUIPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIPhotoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUIPhotoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIPhotoCaptureSettings> for &::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUIPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraCaptureUIPhotoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8528,36 +7310,7 @@ unsafe impl ::windows::core::Interface for CameraCaptureUIVideoCaptureSettings {
 impl ::windows::core::RuntimeName for CameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings";
 }
-impl ::core::convert::From<CameraCaptureUIVideoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: CameraCaptureUIVideoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIVideoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUIVideoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIVideoCaptureSettings> for &::windows::core::IUnknown {
-    fn from(value: &CameraCaptureUIVideoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraCaptureUIVideoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: CameraCaptureUIVideoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIVideoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUIVideoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraCaptureUIVideoCaptureSettings> for &::windows::core::IInspectable {
-    fn from(value: &CameraCaptureUIVideoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraCaptureUIVideoCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -8776,36 +7529,7 @@ unsafe impl ::windows::core::Interface for CapturedFrame {
 impl ::windows::core::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
 }
-impl ::core::convert::From<CapturedFrame> for ::windows::core::IUnknown {
-    fn from(value: CapturedFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedFrame> for ::windows::core::IUnknown {
-    fn from(value: &CapturedFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedFrame> for &::windows::core::IUnknown {
-    fn from(value: &CapturedFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CapturedFrame> for ::windows::core::IInspectable {
-    fn from(value: CapturedFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedFrame> for ::windows::core::IInspectable {
-    fn from(value: &CapturedFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedFrame> for &::windows::core::IInspectable {
-    fn from(value: &CapturedFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CapturedFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CapturedFrame> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -9103,36 +7827,7 @@ unsafe impl ::windows::core::Interface for CapturedFrameControlValues {
 impl ::windows::core::RuntimeName for CapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrameControlValues";
 }
-impl ::core::convert::From<CapturedFrameControlValues> for ::windows::core::IUnknown {
-    fn from(value: CapturedFrameControlValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedFrameControlValues> for ::windows::core::IUnknown {
-    fn from(value: &CapturedFrameControlValues) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedFrameControlValues> for &::windows::core::IUnknown {
-    fn from(value: &CapturedFrameControlValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CapturedFrameControlValues> for ::windows::core::IInspectable {
-    fn from(value: CapturedFrameControlValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedFrameControlValues> for ::windows::core::IInspectable {
-    fn from(value: &CapturedFrameControlValues) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedFrameControlValues> for &::windows::core::IInspectable {
-    fn from(value: &CapturedFrameControlValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CapturedFrameControlValues, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CapturedFrameControlValues {}
 unsafe impl ::core::marker::Sync for CapturedFrameControlValues {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9186,36 +7881,7 @@ unsafe impl ::windows::core::Interface for CapturedPhoto {
 impl ::windows::core::RuntimeName for CapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.CapturedPhoto";
 }
-impl ::core::convert::From<CapturedPhoto> for ::windows::core::IUnknown {
-    fn from(value: CapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedPhoto> for ::windows::core::IUnknown {
-    fn from(value: &CapturedPhoto) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedPhoto> for &::windows::core::IUnknown {
-    fn from(value: &CapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CapturedPhoto> for ::windows::core::IInspectable {
-    fn from(value: CapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CapturedPhoto> for ::windows::core::IInspectable {
-    fn from(value: &CapturedPhoto) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CapturedPhoto> for &::windows::core::IInspectable {
-    fn from(value: &CapturedPhoto) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CapturedPhoto, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CapturedPhoto {}
 unsafe impl ::core::marker::Sync for CapturedPhoto {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9313,36 +7979,7 @@ unsafe impl ::windows::core::Interface for GameBarServices {
 impl ::windows::core::RuntimeName for GameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServices";
 }
-impl ::core::convert::From<GameBarServices> for ::windows::core::IUnknown {
-    fn from(value: GameBarServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServices> for ::windows::core::IUnknown {
-    fn from(value: &GameBarServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServices> for &::windows::core::IUnknown {
-    fn from(value: &GameBarServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameBarServices> for ::windows::core::IInspectable {
-    fn from(value: GameBarServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServices> for ::windows::core::IInspectable {
-    fn from(value: &GameBarServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServices> for &::windows::core::IInspectable {
-    fn from(value: &GameBarServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameBarServices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServices {}
 unsafe impl ::core::marker::Sync for GameBarServices {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9396,36 +8033,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesCommandEventArgs {
 impl ::windows::core::RuntimeName for GameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesCommandEventArgs";
 }
-impl ::core::convert::From<GameBarServicesCommandEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GameBarServicesCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesCommandEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GameBarServicesCommandEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesCommandEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GameBarServicesCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameBarServicesCommandEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GameBarServicesCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesCommandEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GameBarServicesCommandEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesCommandEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GameBarServicesCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameBarServicesCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9491,36 +8099,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesManager {
 impl ::windows::core::RuntimeName for GameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManager";
 }
-impl ::core::convert::From<GameBarServicesManager> for ::windows::core::IUnknown {
-    fn from(value: GameBarServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesManager> for ::windows::core::IUnknown {
-    fn from(value: &GameBarServicesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesManager> for &::windows::core::IUnknown {
-    fn from(value: &GameBarServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameBarServicesManager> for ::windows::core::IInspectable {
-    fn from(value: GameBarServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesManager> for ::windows::core::IInspectable {
-    fn from(value: &GameBarServicesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesManager> for &::windows::core::IInspectable {
-    fn from(value: &GameBarServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameBarServicesManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesManager {}
 unsafe impl ::core::marker::Sync for GameBarServicesManager {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9567,36 +8146,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesManagerGameBarServices
 impl ::windows::core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs";
 }
-impl ::core::convert::From<GameBarServicesManagerGameBarServicesCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesManagerGameBarServicesCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesManagerGameBarServicesCreatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameBarServicesManagerGameBarServicesCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesManagerGameBarServicesCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesManagerGameBarServicesCreatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GameBarServicesManagerGameBarServicesCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameBarServicesManagerGameBarServicesCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9664,36 +8214,7 @@ unsafe impl ::windows::core::Interface for GameBarServicesTargetInfo {
 impl ::windows::core::RuntimeName for GameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesTargetInfo";
 }
-impl ::core::convert::From<GameBarServicesTargetInfo> for ::windows::core::IUnknown {
-    fn from(value: GameBarServicesTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesTargetInfo> for ::windows::core::IUnknown {
-    fn from(value: &GameBarServicesTargetInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesTargetInfo> for &::windows::core::IUnknown {
-    fn from(value: &GameBarServicesTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameBarServicesTargetInfo> for ::windows::core::IInspectable {
-    fn from(value: GameBarServicesTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameBarServicesTargetInfo> for ::windows::core::IInspectable {
-    fn from(value: &GameBarServicesTargetInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameBarServicesTargetInfo> for &::windows::core::IInspectable {
-    fn from(value: &GameBarServicesTargetInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameBarServicesTargetInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
 unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -9796,36 +8317,7 @@ unsafe impl ::windows::core::Interface for LowLagMediaRecording {
 impl ::windows::core::RuntimeName for LowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.LowLagMediaRecording";
 }
-impl ::core::convert::From<LowLagMediaRecording> for ::windows::core::IUnknown {
-    fn from(value: LowLagMediaRecording) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagMediaRecording> for ::windows::core::IUnknown {
-    fn from(value: &LowLagMediaRecording) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagMediaRecording> for &::windows::core::IUnknown {
-    fn from(value: &LowLagMediaRecording) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LowLagMediaRecording> for ::windows::core::IInspectable {
-    fn from(value: LowLagMediaRecording) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagMediaRecording> for ::windows::core::IInspectable {
-    fn from(value: &LowLagMediaRecording) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagMediaRecording> for &::windows::core::IInspectable {
-    fn from(value: &LowLagMediaRecording) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LowLagMediaRecording, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct LowLagPhotoCapture(::windows::core::IUnknown);
@@ -9881,36 +8373,7 @@ unsafe impl ::windows::core::Interface for LowLagPhotoCapture {
 impl ::windows::core::RuntimeName for LowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoCapture";
 }
-impl ::core::convert::From<LowLagPhotoCapture> for ::windows::core::IUnknown {
-    fn from(value: LowLagPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagPhotoCapture> for ::windows::core::IUnknown {
-    fn from(value: &LowLagPhotoCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagPhotoCapture> for &::windows::core::IUnknown {
-    fn from(value: &LowLagPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LowLagPhotoCapture> for ::windows::core::IInspectable {
-    fn from(value: LowLagPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagPhotoCapture> for ::windows::core::IInspectable {
-    fn from(value: &LowLagPhotoCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagPhotoCapture> for &::windows::core::IInspectable {
-    fn from(value: &LowLagPhotoCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LowLagPhotoCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct LowLagPhotoSequenceCapture(::windows::core::IUnknown);
@@ -9990,36 +8453,7 @@ unsafe impl ::windows::core::Interface for LowLagPhotoSequenceCapture {
 impl ::windows::core::RuntimeName for LowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoSequenceCapture";
 }
-impl ::core::convert::From<LowLagPhotoSequenceCapture> for ::windows::core::IUnknown {
-    fn from(value: LowLagPhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagPhotoSequenceCapture> for ::windows::core::IUnknown {
-    fn from(value: &LowLagPhotoSequenceCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagPhotoSequenceCapture> for &::windows::core::IUnknown {
-    fn from(value: &LowLagPhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LowLagPhotoSequenceCapture> for ::windows::core::IInspectable {
-    fn from(value: LowLagPhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LowLagPhotoSequenceCapture> for ::windows::core::IInspectable {
-    fn from(value: &LowLagPhotoSequenceCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LowLagPhotoSequenceCapture> for &::windows::core::IInspectable {
-    fn from(value: &LowLagPhotoSequenceCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LowLagPhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCapture(::windows::core::IUnknown);
@@ -10721,36 +9155,7 @@ unsafe impl ::windows::core::Interface for MediaCapture {
 impl ::windows::core::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
 }
-impl ::core::convert::From<MediaCapture> for ::windows::core::IUnknown {
-    fn from(value: MediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCapture> for ::windows::core::IUnknown {
-    fn from(value: &MediaCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCapture> for &::windows::core::IUnknown {
-    fn from(value: &MediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCapture> for ::windows::core::IInspectable {
-    fn from(value: MediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCapture> for ::windows::core::IInspectable {
-    fn from(value: &MediaCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCapture> for &::windows::core::IInspectable {
-    fn from(value: &MediaCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCapture> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10824,36 +9229,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureDeviceExclusiveControlSta
 impl ::windows::core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
 }
-impl ::core::convert::From<MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureDeviceExclusiveControlStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureDeviceExclusiveControlStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureDeviceExclusiveControlStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -10907,36 +9283,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureFailedEventArgs {
 impl ::windows::core::RuntimeName for MediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFailedEventArgs";
 }
-impl ::core::convert::From<MediaCaptureFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureFocusChangedEventArgs(::windows::core::IUnknown);
@@ -10983,36 +9330,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureFocusChangedEventArgs {
 impl ::windows::core::RuntimeName for MediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs";
 }
-impl ::core::convert::From<MediaCaptureFocusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureFocusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureFocusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureFocusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureFocusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureFocusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureFocusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureFocusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureFocusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureFocusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureFocusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureFocusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureFocusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureFocusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureFocusChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -11285,36 +9603,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureInitializationSettings {
 impl ::windows::core::RuntimeName for MediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureInitializationSettings";
 }
-impl ::core::convert::From<MediaCaptureInitializationSettings> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureInitializationSettings> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureInitializationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureInitializationSettings> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureInitializationSettings> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureInitializationSettings> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureInitializationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureInitializationSettings> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureInitializationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureInitializationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
 unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -11376,36 +9665,7 @@ unsafe impl ::windows::core::Interface for MediaCapturePauseResult {
 impl ::windows::core::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
 }
-impl ::core::convert::From<MediaCapturePauseResult> for ::windows::core::IUnknown {
-    fn from(value: MediaCapturePauseResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCapturePauseResult> for ::windows::core::IUnknown {
-    fn from(value: &MediaCapturePauseResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCapturePauseResult> for &::windows::core::IUnknown {
-    fn from(value: &MediaCapturePauseResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCapturePauseResult> for ::windows::core::IInspectable {
-    fn from(value: MediaCapturePauseResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCapturePauseResult> for ::windows::core::IInspectable {
-    fn from(value: &MediaCapturePauseResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCapturePauseResult> for &::windows::core::IInspectable {
-    fn from(value: &MediaCapturePauseResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCapturePauseResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCapturePauseResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -11503,36 +9763,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureRelativePanelWatcher {
 impl ::windows::core::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
 }
-impl ::core::convert::From<MediaCaptureRelativePanelWatcher> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureRelativePanelWatcher> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureRelativePanelWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureRelativePanelWatcher> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureRelativePanelWatcher> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureRelativePanelWatcher> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureRelativePanelWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureRelativePanelWatcher> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureRelativePanelWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureRelativePanelWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCaptureRelativePanelWatcher> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -11700,36 +9931,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureSettings {
 impl ::windows::core::RuntimeName for MediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureSettings";
 }
-impl ::core::convert::From<MediaCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureSettings> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureSettings> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Capture\"`*"]
 #[repr(transparent)]
 pub struct MediaCaptureStopResult(::windows::core::IUnknown);
@@ -11789,36 +9991,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureStopResult {
 impl ::windows::core::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
 }
-impl ::core::convert::From<MediaCaptureStopResult> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureStopResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureStopResult> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureStopResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureStopResult> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureStopResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureStopResult> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureStopResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureStopResult> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureStopResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureStopResult> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureStopResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureStopResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MediaCaptureStopResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -11946,36 +10119,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureVideoProfile {
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfile";
 }
-impl ::core::convert::From<MediaCaptureVideoProfile> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfile> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureVideoProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfile> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureVideoProfile> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfile> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureVideoProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfile> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureVideoProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureVideoProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfile {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfile {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12070,36 +10214,7 @@ unsafe impl ::windows::core::Interface for MediaCaptureVideoProfileMediaDescript
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription";
 }
-impl ::core::convert::From<MediaCaptureVideoProfileMediaDescription> for ::windows::core::IUnknown {
-    fn from(value: MediaCaptureVideoProfileMediaDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfileMediaDescription> for ::windows::core::IUnknown {
-    fn from(value: &MediaCaptureVideoProfileMediaDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfileMediaDescription> for &::windows::core::IUnknown {
-    fn from(value: &MediaCaptureVideoProfileMediaDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaCaptureVideoProfileMediaDescription> for ::windows::core::IInspectable {
-    fn from(value: MediaCaptureVideoProfileMediaDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfileMediaDescription> for ::windows::core::IInspectable {
-    fn from(value: &MediaCaptureVideoProfileMediaDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaCaptureVideoProfileMediaDescription> for &::windows::core::IInspectable {
-    fn from(value: &MediaCaptureVideoProfileMediaDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaCaptureVideoProfileMediaDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12153,36 +10268,7 @@ unsafe impl ::windows::core::Interface for OptionalReferencePhotoCapturedEventAr
 impl ::windows::core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs";
 }
-impl ::core::convert::From<OptionalReferencePhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: OptionalReferencePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OptionalReferencePhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &OptionalReferencePhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OptionalReferencePhotoCapturedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &OptionalReferencePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OptionalReferencePhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: OptionalReferencePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OptionalReferencePhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &OptionalReferencePhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OptionalReferencePhotoCapturedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &OptionalReferencePhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OptionalReferencePhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12245,36 +10331,7 @@ unsafe impl ::windows::core::Interface for PhotoCapturedEventArgs {
 impl ::windows::core::RuntimeName for PhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoCapturedEventArgs";
 }
-impl ::core::convert::From<PhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoCapturedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PhotoCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoCapturedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PhotoCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12330,36 +10387,7 @@ unsafe impl ::windows::core::Interface for PhotoConfirmationCapturedEventArgs {
 impl ::windows::core::RuntimeName for PhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs";
 }
-impl ::core::convert::From<PhotoConfirmationCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PhotoConfirmationCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoConfirmationCapturedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PhotoConfirmationCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoConfirmationCapturedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PhotoConfirmationCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoConfirmationCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PhotoConfirmationCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoConfirmationCapturedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PhotoConfirmationCapturedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoConfirmationCapturedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PhotoConfirmationCapturedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoConfirmationCapturedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12457,36 +10485,7 @@ unsafe impl ::windows::core::Interface for ScreenCapture {
 impl ::windows::core::RuntimeName for ScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.ScreenCapture";
 }
-impl ::core::convert::From<ScreenCapture> for ::windows::core::IUnknown {
-    fn from(value: ScreenCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenCapture> for ::windows::core::IUnknown {
-    fn from(value: &ScreenCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenCapture> for &::windows::core::IUnknown {
-    fn from(value: &ScreenCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ScreenCapture> for ::windows::core::IInspectable {
-    fn from(value: ScreenCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ScreenCapture> for ::windows::core::IInspectable {
-    fn from(value: &ScreenCapture) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ScreenCapture> for &::windows::core::IInspectable {
-    fn from(value: &ScreenCapture) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ScreenCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ScreenCapture {}
 unsafe impl ::core::marker::Sync for ScreenCapture {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12540,36 +10539,7 @@ unsafe impl ::windows::core::Interface for SourceSuspensionChangedEventArgs {
 impl ::windows::core::RuntimeName for SourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.SourceSuspensionChangedEventArgs";
 }
-impl ::core::convert::From<SourceSuspensionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SourceSuspensionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SourceSuspensionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SourceSuspensionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SourceSuspensionChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SourceSuspensionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SourceSuspensionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SourceSuspensionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SourceSuspensionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SourceSuspensionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SourceSuspensionChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SourceSuspensionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SourceSuspensionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]
@@ -12627,36 +10597,7 @@ unsafe impl ::windows::core::Interface for VideoStreamConfiguration {
 impl ::windows::core::RuntimeName for VideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.VideoStreamConfiguration";
 }
-impl ::core::convert::From<VideoStreamConfiguration> for ::windows::core::IUnknown {
-    fn from(value: VideoStreamConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoStreamConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &VideoStreamConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoStreamConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &VideoStreamConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VideoStreamConfiguration> for ::windows::core::IInspectable {
-    fn from(value: VideoStreamConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VideoStreamConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &VideoStreamConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VideoStreamConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &VideoStreamConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VideoStreamConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VideoStreamConfiguration {}
 unsafe impl ::core::marker::Sync for VideoStreamConfiguration {}
 #[doc = "*Required features: `\"Media_Capture\"`*"]

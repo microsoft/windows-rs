@@ -182,21 +182,7 @@ impl IXpsDocumentPackageTarget {
         (::windows::core::Vtable::vtable(self).GetXpsType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IXpsDocumentPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: IXpsDocumentPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsDocumentPackageTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsDocumentPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsDocumentPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: &IXpsDocumentPackageTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsDocumentPackageTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsDocumentPackageTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -251,21 +237,7 @@ impl IXpsDocumentPackageTarget3D {
         (::windows::core::Vtable::vtable(self).GetXpsOMFactory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMObjectFactory>(result__)
     }
 }
-impl ::core::convert::From<IXpsDocumentPackageTarget3D> for ::windows::core::IUnknown {
-    fn from(value: IXpsDocumentPackageTarget3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsDocumentPackageTarget3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsDocumentPackageTarget3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsDocumentPackageTarget3D> for ::windows::core::IUnknown {
-    fn from(value: &IXpsDocumentPackageTarget3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsDocumentPackageTarget3D, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsDocumentPackageTarget3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -318,36 +290,7 @@ impl IXpsOMBrush {
         (::windows::core::Vtable::vtable(self).SetOpacity)(::windows::core::Vtable::as_raw(self), opacity).ok()
     }
 }
-impl ::core::convert::From<IXpsOMBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMBrush, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::clone::Clone for IXpsOMBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -583,51 +526,7 @@ impl IXpsOMCanvas {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMCanvas>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMCanvas> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMCanvas> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMCanvas> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMCanvas) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMCanvas> for IXpsOMShareable {
-    fn from(value: IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMCanvas> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMCanvas> for IXpsOMShareable {
-    fn from(value: &IXpsOMCanvas) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMCanvas> for IXpsOMVisual {
-    fn from(value: IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMCanvas> for &'a IXpsOMVisual {
-    fn from(value: &'a IXpsOMCanvas) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMCanvas> for IXpsOMVisual {
-    fn from(value: &IXpsOMCanvas) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMCanvas, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::clone::Clone for IXpsOMCanvas {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -708,51 +607,7 @@ impl IXpsOMColorProfileResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMColorProfileResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMColorProfileResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMColorProfileResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMColorProfileResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMColorProfileResource> for IXpsOMPart {
-    fn from(value: IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMColorProfileResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMColorProfileResource> for IXpsOMPart {
-    fn from(value: &IXpsOMColorProfileResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMColorProfileResource> for IXpsOMResource {
-    fn from(value: IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMColorProfileResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMColorProfileResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMColorProfileResource> for IXpsOMResource {
-    fn from(value: &IXpsOMColorProfileResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMColorProfileResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMColorProfileResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -831,21 +686,7 @@ impl IXpsOMColorProfileResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMColorProfileResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMColorProfileResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMColorProfileResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMColorProfileResourceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMColorProfileResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMColorProfileResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMColorProfileResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMColorProfileResourceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMColorProfileResourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1073,36 +914,7 @@ impl IXpsOMCoreProperties {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMCoreProperties>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMCoreProperties> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMCoreProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMCoreProperties> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMCoreProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMCoreProperties> for IXpsOMPart {
-    fn from(value: IXpsOMCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMCoreProperties> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMCoreProperties> for IXpsOMPart {
-    fn from(value: &IXpsOMCoreProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMCoreProperties, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::clone::Clone for IXpsOMCoreProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1207,21 +1019,7 @@ impl IXpsOMDashCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(dash)).ok()
     }
 }
-impl ::core::convert::From<IXpsOMDashCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDashCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDashCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDashCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDashCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDashCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDashCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMDashCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1314,21 +1112,7 @@ impl IXpsOMDictionary {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDictionary>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMDictionary> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDictionary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDictionary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDictionary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDictionary> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDictionary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDictionary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMDictionary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1421,36 +1205,7 @@ impl IXpsOMDocument {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocument>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMDocument> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocument> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMDocument> for IXpsOMPart {
-    fn from(value: IXpsOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocument> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocument> for IXpsOMPart {
-    fn from(value: &IXpsOMDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDocument, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::clone::Clone for IXpsOMDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1520,21 +1275,7 @@ impl IXpsOMDocumentCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), document.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMDocumentCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDocumentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDocumentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDocumentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDocumentCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMDocumentCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1605,36 +1346,7 @@ impl IXpsOMDocumentSequence {
         (::windows::core::Vtable::vtable(self).SetPrintTicketResource)(::windows::core::Vtable::as_raw(self), printticketresource.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMDocumentSequence> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDocumentSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentSequence> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDocumentSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentSequence> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDocumentSequence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMDocumentSequence> for IXpsOMPart {
-    fn from(value: IXpsOMDocumentSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentSequence> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMDocumentSequence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentSequence> for IXpsOMPart {
-    fn from(value: &IXpsOMDocumentSequence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDocumentSequence, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::clone::Clone for IXpsOMDocumentSequence {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1704,51 +1416,7 @@ impl IXpsOMDocumentStructureResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMDocumentStructureResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentStructureResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentStructureResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMDocumentStructureResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMDocumentStructureResource> for IXpsOMPart {
-    fn from(value: IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentStructureResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentStructureResource> for IXpsOMPart {
-    fn from(value: &IXpsOMDocumentStructureResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMDocumentStructureResource> for IXpsOMResource {
-    fn from(value: IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMDocumentStructureResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMDocumentStructureResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMDocumentStructureResource> for IXpsOMResource {
-    fn from(value: &IXpsOMDocumentStructureResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMDocumentStructureResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMDocumentStructureResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1823,51 +1491,7 @@ impl IXpsOMFontResource {
         (::windows::core::Vtable::vtable(self).GetEmbeddingOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_FONT_EMBEDDING>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMFontResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMFontResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMFontResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMFontResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMFontResource> for IXpsOMPart {
-    fn from(value: IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMFontResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMFontResource> for IXpsOMPart {
-    fn from(value: &IXpsOMFontResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMFontResource> for IXpsOMResource {
-    fn from(value: IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMFontResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMFontResource> for IXpsOMResource {
-    fn from(value: &IXpsOMFontResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMFontResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMFontResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1947,21 +1571,7 @@ impl IXpsOMFontResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMFontResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMFontResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMFontResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMFontResourceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMFontResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMFontResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMFontResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMFontResourceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMFontResourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2051,36 +1661,7 @@ impl IXpsOMGeometry {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMGeometry>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMGeometry> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGeometry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGeometry> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMGeometry> for IXpsOMShareable {
-    fn from(value: IXpsOMGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGeometry> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMGeometry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGeometry> for IXpsOMShareable {
-    fn from(value: &IXpsOMGeometry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGeometry, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::clone::Clone for IXpsOMGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2193,21 +1774,7 @@ impl IXpsOMGeometryFigure {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMGeometryFigure>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMGeometryFigure> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGeometryFigure) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGeometryFigure> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGeometryFigure) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGeometryFigure> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGeometryFigure) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGeometryFigure, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMGeometryFigure {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2302,21 +1869,7 @@ impl IXpsOMGeometryFigureCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), geometryfigure.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMGeometryFigureCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGeometryFigureCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGeometryFigureCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGeometryFigureCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGeometryFigureCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGeometryFigureCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGeometryFigureCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMGeometryFigureCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2599,51 +2152,7 @@ impl IXpsOMGlyphs {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMGlyphs>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMGlyphs> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGlyphs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGlyphs> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGlyphs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMGlyphs> for IXpsOMShareable {
-    fn from(value: IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGlyphs> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGlyphs> for IXpsOMShareable {
-    fn from(value: &IXpsOMGlyphs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMGlyphs> for IXpsOMVisual {
-    fn from(value: IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGlyphs> for &'a IXpsOMVisual {
-    fn from(value: &'a IXpsOMGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGlyphs> for IXpsOMVisual {
-    fn from(value: &IXpsOMGlyphs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGlyphs, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::clone::Clone for IXpsOMGlyphs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2780,21 +2289,7 @@ impl IXpsOMGlyphsEditor {
         (::windows::core::Vtable::vtable(self).SetDeviceFontName)(::windows::core::Vtable::as_raw(self), devicefontname.into()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMGlyphsEditor> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGlyphsEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGlyphsEditor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGlyphsEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGlyphsEditor> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGlyphsEditor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGlyphsEditor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMGlyphsEditor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2908,51 +2403,7 @@ impl IXpsOMGradientBrush {
         (::windows::core::Vtable::vtable(self).SetColorInterpolationMode)(::windows::core::Vtable::as_raw(self), colorinterpolationmode).ok()
     }
 }
-impl ::core::convert::From<IXpsOMGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGradientBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMGradientBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGradientBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGradientBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMGradientBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGradientBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGradientBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::clone::Clone for IXpsOMGradientBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3019,21 +2470,7 @@ impl IXpsOMGradientStop {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMGradientStop>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMGradientStop> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGradientStop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGradientStop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGradientStop> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGradientStop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGradientStop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMGradientStop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3101,21 +2538,7 @@ impl IXpsOMGradientStopCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), stop.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMGradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMGradientStopCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMGradientStopCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMGradientStopCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMGradientStopCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMGradientStopCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMGradientStopCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3238,66 +2661,7 @@ impl IXpsOMImageBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMImageBrush>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMImageBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMImageBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMImageBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMImageBrush> for IXpsOMTileBrush {
-    fn from(value: IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageBrush> for &'a IXpsOMTileBrush {
-    fn from(value: &'a IXpsOMImageBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageBrush> for IXpsOMTileBrush {
-    fn from(value: &IXpsOMImageBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMImageBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
 impl ::core::clone::Clone for IXpsOMImageBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3368,51 +2732,7 @@ impl IXpsOMImageResource {
         (::windows::core::Vtable::vtable(self).GetImageType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_IMAGE_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMImageResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMImageResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMImageResource> for IXpsOMPart {
-    fn from(value: IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageResource> for IXpsOMPart {
-    fn from(value: &IXpsOMImageResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMImageResource> for IXpsOMResource {
-    fn from(value: IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMImageResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageResource> for IXpsOMResource {
-    fn from(value: &IXpsOMImageResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMImageResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMImageResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3492,21 +2812,7 @@ impl IXpsOMImageResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMImageResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMImageResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMImageResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMImageResourceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMImageResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMImageResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMImageResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMImageResourceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMImageResourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3624,66 +2930,7 @@ impl IXpsOMLinearGradientBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMLinearGradientBrush>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMLinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMLinearGradientBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMLinearGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMLinearGradientBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMLinearGradientBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMLinearGradientBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMLinearGradientBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMLinearGradientBrush> for IXpsOMGradientBrush {
-    fn from(value: IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMLinearGradientBrush> for &'a IXpsOMGradientBrush {
-    fn from(value: &'a IXpsOMLinearGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMLinearGradientBrush> for IXpsOMGradientBrush {
-    fn from(value: &IXpsOMLinearGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMLinearGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl ::core::clone::Clone for IXpsOMLinearGradientBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3740,36 +2987,7 @@ impl IXpsOMMatrixTransform {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMMatrixTransform>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMMatrixTransform> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMMatrixTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMMatrixTransform> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMMatrixTransform> for IXpsOMShareable {
-    fn from(value: IXpsOMMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMMatrixTransform> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMMatrixTransform> for IXpsOMShareable {
-    fn from(value: &IXpsOMMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMMatrixTransform, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::clone::Clone for IXpsOMMatrixTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3813,21 +3031,7 @@ impl IXpsOMNameCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMNameCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMNameCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMNameCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMNameCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMNameCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMNameCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMNameCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMNameCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4159,21 +3363,7 @@ impl IXpsOMObjectFactory {
         (::windows::core::Vtable::vtable(self).CreateReadOnlyStreamOnFile)(::windows::core::Vtable::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMObjectFactory> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMObjectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMObjectFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMObjectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMObjectFactory> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMObjectFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMObjectFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMObjectFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4715,36 +3905,7 @@ impl IXpsOMObjectFactory1 {
         (::windows::core::Vtable::vtable(self).CreateRemoteDictionaryResourceFromStream1)(::windows::core::Vtable::as_raw(self), dictionarymarkupstream.into().abi(), parturi.into().abi(), resources.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMObjectFactory1> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMObjectFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMObjectFactory1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMObjectFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMObjectFactory1> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMObjectFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMObjectFactory1> for IXpsOMObjectFactory {
-    fn from(value: IXpsOMObjectFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMObjectFactory1> for &'a IXpsOMObjectFactory {
-    fn from(value: &'a IXpsOMObjectFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMObjectFactory1> for IXpsOMObjectFactory {
-    fn from(value: &IXpsOMObjectFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMObjectFactory1, ::windows::core::IUnknown, IXpsOMObjectFactory);
 impl ::core::clone::Clone for IXpsOMObjectFactory1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4875,21 +4036,7 @@ impl IXpsOMPackage {
         (::windows::core::Vtable::vtable(self).WriteToStream)(::windows::core::Vtable::as_raw(self), stream.into().abi(), optimizemarkupsize.into()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPackage> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackage> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPackage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPackage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5028,36 +4175,7 @@ impl IXpsOMPackage1 {
         (::windows::core::Vtable::vtable(self).WriteToStream1)(::windows::core::Vtable::as_raw(self), outputstream.into().abi(), optimizemarkupsize.into(), documenttype).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPackage1> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPackage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackage1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPackage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackage1> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPackage1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPackage1> for IXpsOMPackage {
-    fn from(value: IXpsOMPackage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackage1> for &'a IXpsOMPackage {
-    fn from(value: &'a IXpsOMPackage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackage1> for IXpsOMPackage {
-    fn from(value: &IXpsOMPackage1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPackage1, ::windows::core::IUnknown, IXpsOMPackage);
 impl ::core::clone::Clone for IXpsOMPackage1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5110,21 +4228,7 @@ impl IXpsOMPackageTarget {
         (::windows::core::Vtable::vtable(self).CreateXpsOMPackageWriter)(::windows::core::Vtable::as_raw(self), documentsequencepartname.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackageTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPackageTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackageTarget> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPackageTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPackageTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPackageTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5198,21 +4302,7 @@ impl IXpsOMPackageWriter {
         (::windows::core::Vtable::vtable(self).IsClosed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackageWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPackageWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackageWriter> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPackageWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPackageWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPackageWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5311,36 +4401,7 @@ impl IXpsOMPackageWriter3D {
         (::windows::core::Vtable::vtable(self).SetModelPrintTicket)(::windows::core::Vtable::as_raw(self), printticketpartname.into().abi(), printticketdata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPackageWriter3D> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPackageWriter3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackageWriter3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPackageWriter3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackageWriter3D> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPackageWriter3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPackageWriter3D> for IXpsOMPackageWriter {
-    fn from(value: IXpsOMPackageWriter3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPackageWriter3D> for &'a IXpsOMPackageWriter {
-    fn from(value: &'a IXpsOMPackageWriter3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPackageWriter3D> for IXpsOMPackageWriter {
-    fn from(value: &IXpsOMPackageWriter3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPackageWriter3D, ::windows::core::IUnknown, IXpsOMPackageWriter);
 impl ::core::clone::Clone for IXpsOMPackageWriter3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5499,36 +4560,7 @@ impl IXpsOMPage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPage>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPage> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPage> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPage> for IXpsOMPart {
-    fn from(value: IXpsOMPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPage> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPage> for IXpsOMPart {
-    fn from(value: &IXpsOMPage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPage, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::clone::Clone for IXpsOMPage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5723,51 +4755,7 @@ impl IXpsOMPage1 {
         (::windows::core::Vtable::vtable(self).Write1)(::windows::core::Vtable::as_raw(self), stream.into().abi(), optimizemarkupsize.into(), documenttype).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPage1> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPage1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPage1> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPage1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPage1> for IXpsOMPart {
-    fn from(value: IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPage1> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPage1> for IXpsOMPart {
-    fn from(value: &IXpsOMPage1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPage1> for IXpsOMPage {
-    fn from(value: IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPage1> for &'a IXpsOMPage {
-    fn from(value: &'a IXpsOMPage1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPage1> for IXpsOMPage {
-    fn from(value: &IXpsOMPage1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPage1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMPage);
 impl ::core::clone::Clone for IXpsOMPage1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5883,21 +4871,7 @@ impl IXpsOMPageReference {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPageReference>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPageReference> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPageReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPageReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPageReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPageReference> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPageReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPageReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPageReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5982,21 +4956,7 @@ impl IXpsOMPageReferenceCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), pagereference.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPageReferenceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPageReferenceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPageReferenceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPageReferenceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPageReferenceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPageReferenceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPageReferenceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPageReferenceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6049,21 +5009,7 @@ impl IXpsOMPart {
         (::windows::core::Vtable::vtable(self).SetPartName)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPart> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPart> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPart) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPart> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPart) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPart, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6120,21 +5066,7 @@ impl IXpsOMPartResources {
         (::windows::core::Vtable::vtable(self).GetRemoteDictionaryResources)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRemoteDictionaryResourceCollection>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPartResources> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPartResources) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPartResources> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPartResources) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPartResources> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPartResources) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPartResources, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPartResources {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6208,21 +5140,7 @@ impl IXpsOMPartUriCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPartUriCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPartUriCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPartUriCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPartUriCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPartUriCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPartUriCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPartUriCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMPartUriCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6571,51 +5489,7 @@ impl IXpsOMPath {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPath>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMPath> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPath> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPath> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPath> for IXpsOMShareable {
-    fn from(value: IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPath> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPath> for IXpsOMShareable {
-    fn from(value: &IXpsOMPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPath> for IXpsOMVisual {
-    fn from(value: IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPath> for &'a IXpsOMVisual {
-    fn from(value: &'a IXpsOMPath) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPath> for IXpsOMVisual {
-    fn from(value: &IXpsOMPath) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPath, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMVisual);
 impl ::core::clone::Clone for IXpsOMPath {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6720,51 +5594,7 @@ impl IXpsOMPrintTicketResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMPrintTicketResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPrintTicketResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPrintTicketResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMPrintTicketResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPrintTicketResource> for IXpsOMPart {
-    fn from(value: IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPrintTicketResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPrintTicketResource> for IXpsOMPart {
-    fn from(value: &IXpsOMPrintTicketResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMPrintTicketResource> for IXpsOMResource {
-    fn from(value: IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMPrintTicketResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMPrintTicketResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMPrintTicketResource> for IXpsOMResource {
-    fn from(value: &IXpsOMPrintTicketResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMPrintTicketResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMPrintTicketResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6887,66 +5717,7 @@ impl IXpsOMRadialGradientBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRadialGradientBrush>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMRadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRadialGradientBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRadialGradientBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRadialGradientBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRadialGradientBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRadialGradientBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRadialGradientBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRadialGradientBrush> for IXpsOMGradientBrush {
-    fn from(value: IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRadialGradientBrush> for &'a IXpsOMGradientBrush {
-    fn from(value: &'a IXpsOMRadialGradientBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRadialGradientBrush> for IXpsOMGradientBrush {
-    fn from(value: &IXpsOMRadialGradientBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMRadialGradientBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
 impl ::core::clone::Clone for IXpsOMRadialGradientBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7010,51 +5781,7 @@ impl IXpsOMRemoteDictionaryResource {
         (::windows::core::Vtable::vtable(self).SetDictionary)(::windows::core::Vtable::as_raw(self), dictionary.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMRemoteDictionaryResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource> for IXpsOMPart {
-    fn from(value: IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource> for IXpsOMPart {
-    fn from(value: &IXpsOMRemoteDictionaryResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource> for IXpsOMResource {
-    fn from(value: IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource> for IXpsOMResource {
-    fn from(value: &IXpsOMRemoteDictionaryResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7125,66 +5852,7 @@ impl IXpsOMRemoteDictionaryResource1 {
         (::windows::core::Vtable::vtable(self).Write1)(::windows::core::Vtable::as_raw(self), stream.into().abi(), documenttype).ok()
     }
 }
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource1> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMRemoteDictionaryResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMPart {
-    fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource1> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMPart {
-    fn from(value: &IXpsOMRemoteDictionaryResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMResource {
-    fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource1> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMResource {
-    fn from(value: &IXpsOMRemoteDictionaryResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMRemoteDictionaryResource {
-    fn from(value: IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResource1> for &'a IXpsOMRemoteDictionaryResource {
-    fn from(value: &'a IXpsOMRemoteDictionaryResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResource1> for IXpsOMRemoteDictionaryResource {
-    fn from(value: &IXpsOMRemoteDictionaryResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResource1, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource, IXpsOMRemoteDictionaryResource);
 impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7260,21 +5928,7 @@ impl IXpsOMRemoteDictionaryResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMRemoteDictionaryResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMRemoteDictionaryResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMRemoteDictionaryResourceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMRemoteDictionaryResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMRemoteDictionaryResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMRemoteDictionaryResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMRemoteDictionaryResourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7331,36 +5985,7 @@ impl IXpsOMResource {
         (::windows::core::Vtable::vtable(self).base__.SetPartName)(::windows::core::Vtable::as_raw(self), parturi.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMResource> for IXpsOMPart {
-    fn from(value: IXpsOMResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMResource> for IXpsOMPart {
-    fn from(value: &IXpsOMResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMResource, ::windows::core::IUnknown, IXpsOMPart);
 impl ::core::clone::Clone for IXpsOMResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7401,21 +6026,7 @@ impl IXpsOMShareable {
         (::windows::core::Vtable::vtable(self).GetType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMShareable> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMShareable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMShareable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMShareable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMShareable> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMShareable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMShareable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMShareable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7483,51 +6094,7 @@ impl IXpsOMSignatureBlockResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMSignatureBlockResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSignatureBlockResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSignatureBlockResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMSignatureBlockResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMSignatureBlockResource> for IXpsOMPart {
-    fn from(value: IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSignatureBlockResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSignatureBlockResource> for IXpsOMPart {
-    fn from(value: &IXpsOMSignatureBlockResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMSignatureBlockResource> for IXpsOMResource {
-    fn from(value: IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSignatureBlockResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMSignatureBlockResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSignatureBlockResource> for IXpsOMResource {
-    fn from(value: &IXpsOMSignatureBlockResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMSignatureBlockResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMSignatureBlockResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7607,21 +6174,7 @@ impl IXpsOMSignatureBlockResourceCollection {
         (::windows::core::Vtable::vtable(self).GetByPartName)(::windows::core::Vtable::as_raw(self), partname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSignatureBlockResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMSignatureBlockResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMSignatureBlockResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSignatureBlockResourceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMSignatureBlockResourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSignatureBlockResourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMSignatureBlockResourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMSignatureBlockResourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7692,51 +6245,7 @@ impl IXpsOMSolidColorBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSolidColorBrush>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMSolidColorBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSolidColorBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSolidColorBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMSolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMSolidColorBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSolidColorBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSolidColorBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMSolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMSolidColorBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMSolidColorBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMSolidColorBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMSolidColorBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMSolidColorBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMSolidColorBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::clone::Clone for IXpsOMSolidColorBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7805,51 +6314,7 @@ impl IXpsOMStoryFragmentsResource {
         (::windows::core::Vtable::vtable(self).SetContent)(::windows::core::Vtable::as_raw(self), sourcestream.into().abi(), partname.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMStoryFragmentsResource> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMStoryFragmentsResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMStoryFragmentsResource> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMStoryFragmentsResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMStoryFragmentsResource> for IXpsOMPart {
-    fn from(value: IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMStoryFragmentsResource> for &'a IXpsOMPart {
-    fn from(value: &'a IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMStoryFragmentsResource> for IXpsOMPart {
-    fn from(value: &IXpsOMStoryFragmentsResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMStoryFragmentsResource> for IXpsOMResource {
-    fn from(value: IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMStoryFragmentsResource> for &'a IXpsOMResource {
-    fn from(value: &'a IXpsOMStoryFragmentsResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMStoryFragmentsResource> for IXpsOMResource {
-    fn from(value: &IXpsOMStoryFragmentsResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMStoryFragmentsResource, ::windows::core::IUnknown, IXpsOMPart, IXpsOMResource);
 impl ::core::clone::Clone for IXpsOMStoryFragmentsResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7901,21 +6366,7 @@ impl IXpsOMThumbnailGenerator {
         (::windows::core::Vtable::vtable(self).GenerateThumbnail)(::windows::core::Vtable::as_raw(self), page.into().abi(), thumbnailtype, thumbnailsize, imageresourcepartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMImageResource>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMThumbnailGenerator> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMThumbnailGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMThumbnailGenerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMThumbnailGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMThumbnailGenerator> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMThumbnailGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMThumbnailGenerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMThumbnailGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8012,51 +6463,7 @@ impl IXpsOMTileBrush {
         (::windows::core::Vtable::vtable(self).SetTileMode)(::windows::core::Vtable::as_raw(self), tilemode).ok()
     }
 }
-impl ::core::convert::From<IXpsOMTileBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMTileBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMTileBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMTileBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMTileBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMTileBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMTileBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMTileBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMTileBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMTileBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMTileBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMTileBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMTileBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMTileBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush);
 impl ::core::clone::Clone for IXpsOMTileBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8235,36 +6642,7 @@ impl IXpsOMVisual {
         (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), language.into()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMVisual> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisual> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisual> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMVisual> for IXpsOMShareable {
-    fn from(value: IXpsOMVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisual> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisual> for IXpsOMShareable {
-    fn from(value: &IXpsOMVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMVisual, ::windows::core::IUnknown, IXpsOMShareable);
 impl ::core::clone::Clone for IXpsOMVisual {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8422,66 +6800,7 @@ impl IXpsOMVisualBrush {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMVisualBrush>(result__)
     }
 }
-impl ::core::convert::From<IXpsOMVisualBrush> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisualBrush> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisualBrush> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMVisualBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMVisualBrush> for IXpsOMShareable {
-    fn from(value: IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisualBrush> for &'a IXpsOMShareable {
-    fn from(value: &'a IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisualBrush> for IXpsOMShareable {
-    fn from(value: &IXpsOMVisualBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMVisualBrush> for IXpsOMBrush {
-    fn from(value: IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisualBrush> for &'a IXpsOMBrush {
-    fn from(value: &'a IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisualBrush> for IXpsOMBrush {
-    fn from(value: &IXpsOMVisualBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXpsOMVisualBrush> for IXpsOMTileBrush {
-    fn from(value: IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisualBrush> for &'a IXpsOMTileBrush {
-    fn from(value: &'a IXpsOMVisualBrush) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisualBrush> for IXpsOMTileBrush {
-    fn from(value: &IXpsOMVisualBrush) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMVisualBrush, ::windows::core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
 impl ::core::clone::Clone for IXpsOMVisualBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8549,21 +6868,7 @@ impl IXpsOMVisualCollection {
         (::windows::core::Vtable::vtable(self).Append)(::windows::core::Vtable::as_raw(self), object.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsOMVisualCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsOMVisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsOMVisualCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsOMVisualCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsOMVisualCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsOMVisualCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsOMVisualCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsOMVisualCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8659,21 +6964,7 @@ impl IXpsSignature {
         (::windows::core::Vtable::vtable(self).SetSignatureXml)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(signaturexml.as_ptr()), signaturexml.len() as _).ok()
     }
 }
-impl ::core::convert::From<IXpsSignature> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignature> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignature> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignature, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignature {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8763,21 +7054,7 @@ impl IXpsSignatureBlock {
         (::windows::core::Vtable::vtable(self).CreateRequest)(::windows::core::Vtable::as_raw(self), requestid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSignatureRequest>(result__)
     }
 }
-impl ::core::convert::From<IXpsSignatureBlock> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureBlock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureBlock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureBlock> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureBlock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureBlock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureBlock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8832,21 +7109,7 @@ impl IXpsSignatureBlockCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-impl ::core::convert::From<IXpsSignatureBlockCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureBlockCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureBlockCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureBlockCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureBlockCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureBlockCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureBlockCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureBlockCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8893,21 +7156,7 @@ impl IXpsSignatureCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-impl ::core::convert::From<IXpsSignatureCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9017,21 +7266,7 @@ impl IXpsSignatureManager {
         (::windows::core::Vtable::vtable(self).SavePackageToStream)(::windows::core::Vtable::as_raw(self), stream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXpsSignatureManager> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureManager> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9152,21 +7387,7 @@ impl IXpsSignatureRequest {
         (::windows::core::Vtable::vtable(self).GetSignature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSignature>(result__)
     }
 }
-impl ::core::convert::From<IXpsSignatureRequest> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureRequest> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureRequest, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9225,21 +7446,7 @@ impl IXpsSignatureRequestCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), index).ok()
     }
 }
-impl ::core::convert::From<IXpsSignatureRequestCollection> for ::windows::core::IUnknown {
-    fn from(value: IXpsSignatureRequestCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSignatureRequestCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSignatureRequestCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSignatureRequestCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSignatureRequestCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSignatureRequestCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSignatureRequestCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9362,21 +7569,7 @@ impl IXpsSigningOptions {
         (::windows::core::Vtable::vtable(self).SetFlags)(::windows::core::Vtable::as_raw(self), flags).ok()
     }
 }
-impl ::core::convert::From<IXpsSigningOptions> for ::windows::core::IUnknown {
-    fn from(value: IXpsSigningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXpsSigningOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXpsSigningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXpsSigningOptions> for ::windows::core::IUnknown {
-    fn from(value: &IXpsSigningOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXpsSigningOptions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXpsSigningOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())

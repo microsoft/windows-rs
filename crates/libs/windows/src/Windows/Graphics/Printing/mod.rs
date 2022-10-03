@@ -10,36 +10,7 @@ pub mod Workflow;
 #[repr(transparent)]
 pub struct IPrintDocumentSource(::windows::core::IUnknown);
 impl IPrintDocumentSource {}
-impl ::core::convert::From<IPrintDocumentSource> for ::windows::core::IUnknown {
-    fn from(value: IPrintDocumentSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDocumentSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDocumentSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDocumentSource> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDocumentSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintDocumentSource> for ::windows::core::IInspectable {
-    fn from(value: IPrintDocumentSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDocumentSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintDocumentSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDocumentSource> for ::windows::core::IInspectable {
-    fn from(value: &IPrintDocumentSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintDocumentSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintDocumentSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -348,36 +319,7 @@ impl IPrintTaskOptionsCore {
         }
     }
 }
-impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::core::IUnknown {
-    fn from(value: IPrintTaskOptionsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintTaskOptionsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::core::IUnknown {
-    fn from(value: &IPrintTaskOptionsCore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::core::IInspectable {
-    fn from(value: IPrintTaskOptionsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCore> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintTaskOptionsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTaskOptionsCore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintTaskOptionsCore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintTaskOptionsCore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -556,36 +498,7 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
 }
-impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::core::IUnknown {
-    fn from(value: IPrintTaskOptionsCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintTaskOptionsCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::core::IUnknown {
-    fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::core::IInspectable {
-    fn from(value: IPrintTaskOptionsCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreProperties> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintTaskOptionsCoreProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintTaskOptionsCoreProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintTaskOptionsCoreProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -658,36 +571,7 @@ impl IPrintTaskOptionsCoreUIConfiguration {
         }
     }
 }
-impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreUIConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IInspectable {
-    fn from(value: IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreUIConfiguration> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPrintTaskOptionsCoreUIConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -983,36 +867,7 @@ unsafe impl ::windows::core::Interface for PrintManager {
 impl ::windows::core::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
 }
-impl ::core::convert::From<PrintManager> for ::windows::core::IUnknown {
-    fn from(value: PrintManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintManager> for ::windows::core::IUnknown {
-    fn from(value: &PrintManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintManager> for &::windows::core::IUnknown {
-    fn from(value: &PrintManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintManager> for ::windows::core::IInspectable {
-    fn from(value: PrintManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintManager> for ::windows::core::IInspectable {
-    fn from(value: &PrintManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintManager> for &::windows::core::IInspectable {
-    fn from(value: &PrintManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1118,36 +973,7 @@ unsafe impl ::windows::core::Interface for PrintPageInfo {
 impl ::windows::core::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
 }
-impl ::core::convert::From<PrintPageInfo> for ::windows::core::IUnknown {
-    fn from(value: PrintPageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageInfo> for ::windows::core::IUnknown {
-    fn from(value: &PrintPageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageInfo> for &::windows::core::IUnknown {
-    fn from(value: &PrintPageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintPageInfo> for ::windows::core::IInspectable {
-    fn from(value: PrintPageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageInfo> for ::windows::core::IInspectable {
-    fn from(value: &PrintPageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageInfo> for &::windows::core::IInspectable {
-    fn from(value: &PrintPageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintPageInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageInfo {}
 unsafe impl ::core::marker::Sync for PrintPageInfo {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1218,36 +1044,7 @@ unsafe impl ::windows::core::Interface for PrintPageRange {
 impl ::windows::core::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
 }
-impl ::core::convert::From<PrintPageRange> for ::windows::core::IUnknown {
-    fn from(value: PrintPageRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRange> for ::windows::core::IUnknown {
-    fn from(value: &PrintPageRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRange> for &::windows::core::IUnknown {
-    fn from(value: &PrintPageRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintPageRange> for ::windows::core::IInspectable {
-    fn from(value: PrintPageRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRange> for ::windows::core::IInspectable {
-    fn from(value: &PrintPageRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRange> for &::windows::core::IInspectable {
-    fn from(value: &PrintPageRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintPageRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageRange {}
 unsafe impl ::core::marker::Sync for PrintPageRange {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1320,36 +1117,7 @@ unsafe impl ::windows::core::Interface for PrintPageRangeOptions {
 impl ::windows::core::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
 }
-impl ::core::convert::From<PrintPageRangeOptions> for ::windows::core::IUnknown {
-    fn from(value: PrintPageRangeOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::core::IUnknown {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptions> for &::windows::core::IUnknown {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintPageRangeOptions> for ::windows::core::IInspectable {
-    fn from(value: PrintPageRangeOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::core::IInspectable {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintPageRangeOptions> for &::windows::core::IInspectable {
-    fn from(value: &PrintPageRangeOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintPageRangeOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1505,36 +1273,7 @@ unsafe impl ::windows::core::Interface for PrintTask {
 impl ::windows::core::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
 }
-impl ::core::convert::From<PrintTask> for ::windows::core::IUnknown {
-    fn from(value: PrintTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTask> for ::windows::core::IUnknown {
-    fn from(value: &PrintTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTask> for &::windows::core::IUnknown {
-    fn from(value: &PrintTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTask> for ::windows::core::IInspectable {
-    fn from(value: PrintTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTask> for ::windows::core::IInspectable {
-    fn from(value: &PrintTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTask> for &::windows::core::IInspectable {
-    fn from(value: &PrintTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTask {}
 unsafe impl ::core::marker::Sync for PrintTask {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1581,36 +1320,7 @@ unsafe impl ::windows::core::Interface for PrintTaskCompletedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
 }
-impl ::core::convert::From<PrintTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -1839,36 +1549,7 @@ unsafe impl ::windows::core::Interface for PrintTaskOptions {
 impl ::windows::core::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
 }
-impl ::core::convert::From<PrintTaskOptions> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptions> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptions> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskOptions> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskOptions> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskOptions> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCore {
     type Error = ::windows::core::Error;
     fn try_from(value: PrintTaskOptions) -> ::windows::core::Result<Self> {
@@ -1972,36 +1653,7 @@ unsafe impl ::windows::core::Interface for PrintTaskProgressingEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
 }
-impl ::core::convert::From<PrintTaskProgressingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskProgressingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskProgressingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskProgressingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskProgressingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskProgressingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskProgressingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2064,36 +1716,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequest {
 impl ::windows::core::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
 }
-impl ::core::convert::From<PrintTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequest> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequest> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequest> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequest> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequest {}
 unsafe impl ::core::marker::Sync for PrintTaskRequest {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2137,36 +1760,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequestedDeferral {
 impl ::windows::core::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
 }
-impl ::core::convert::From<PrintTaskRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedDeferral> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedDeferral> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedDeferral {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2213,36 +1807,7 @@ unsafe impl ::windows::core::Interface for PrintTaskRequestedEventArgs {
 impl ::windows::core::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
 }
-impl ::core::convert::From<PrintTaskRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2306,36 +1871,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedArgs {
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
 }
-impl ::core::convert::From<PrintTaskSourceRequestedArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskSourceRequestedArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskSourceRequestedArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedArgs {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2379,36 +1915,7 @@ unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedDeferral {
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";
 }
-impl ::core::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for &::windows::core::IUnknown {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: PrintTaskSourceRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for &::windows::core::IInspectable {
-    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTaskSourceRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]

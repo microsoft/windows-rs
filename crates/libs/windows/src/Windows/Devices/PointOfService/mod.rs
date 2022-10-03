@@ -560,36 +560,7 @@ impl ICashDrawerEventSourceEventArgs {
         }
     }
 }
-impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICashDrawerEventSourceEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICashDrawerEventSourceEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICashDrawerEventSourceEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICashDrawerEventSourceEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1567,36 +1538,7 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
 }
-impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IUnknown {
-    fn from(value: ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonClaimedPosPrinterStation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IUnknown {
-    fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
-    fn from(value: ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonClaimedPosPrinterStation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
-    fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICommonClaimedPosPrinterStation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICommonClaimedPosPrinterStation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1748,36 +1690,7 @@ impl ICommonPosPrintStationCapabilities {
         }
     }
 }
-impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonPosPrintStationCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonPosPrintStationCapabilities> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICommonPosPrintStationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICommonPosPrintStationCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1993,36 +1906,7 @@ impl ICommonReceiptSlipCapabilities {
         }
     }
 }
-impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonReceiptSlipCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICommonReceiptSlipCapabilities> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICommonReceiptSlipCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ICommonReceiptSlipCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: ICommonReceiptSlipCapabilities) -> ::windows::core::Result<Self> {
@@ -3014,36 +2898,7 @@ impl IPosPrinterJob {
         }
     }
 }
-impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IUnknown {
-    fn from(value: IPosPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPosPrinterJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPosPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IUnknown {
-    fn from(value: &IPosPrinterJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: IPosPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPosPrinterJob> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPosPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: &IPosPrinterJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPosPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPosPrinterJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3312,36 +3167,7 @@ impl IReceiptOrSlipJob {
         }
     }
 }
-impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IUnknown {
-    fn from(value: IReceiptOrSlipJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReceiptOrSlipJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReceiptOrSlipJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IUnknown {
-    fn from(value: &IReceiptOrSlipJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IInspectable {
-    fn from(value: IReceiptOrSlipJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReceiptOrSlipJob> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IReceiptOrSlipJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IInspectable {
-    fn from(value: &IReceiptOrSlipJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReceiptOrSlipJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IReceiptOrSlipJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: IReceiptOrSlipJob) -> ::windows::core::Result<Self> {
@@ -3777,36 +3603,7 @@ unsafe impl ::windows::core::Interface for BarcodeScanner {
 impl ::windows::core::RuntimeName for BarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScanner";
 }
-impl ::core::convert::From<BarcodeScanner> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScanner> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScanner> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScanner> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScanner> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScanner> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BarcodeScanner> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3910,36 +3707,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerCapabilities {
 impl ::windows::core::RuntimeName for BarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerCapabilities";
 }
-impl ::core::convert::From<BarcodeScannerCapabilities> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerCapabilities> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -3986,36 +3754,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerDataReceivedEventArgs {
 impl ::windows::core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4076,36 +3815,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerErrorOccurredEventArgs 
 impl ::windows::core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4154,36 +3864,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerImagePreviewReceivedEve
 impl ::windows::core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4267,36 +3948,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerReport {
 impl ::windows::core::RuntimeName for BarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerReport";
 }
-impl ::core::convert::From<BarcodeScannerReport> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerReport> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerReport> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerReport> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerReport> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerReport> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4350,36 +4002,7 @@ unsafe impl ::windows::core::Interface for BarcodeScannerStatusUpdatedEventArgs 
 impl ::windows::core::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
 }
-impl ::core::convert::From<BarcodeScannerStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeScannerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5082,36 +4705,7 @@ unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributes {
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
 }
-impl ::core::convert::From<BarcodeSymbologyAttributes> for ::windows::core::IUnknown {
-    fn from(value: BarcodeSymbologyAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributes> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeSymbologyAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributes> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeSymbologyAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeSymbologyAttributes> for ::windows::core::IInspectable {
-    fn from(value: BarcodeSymbologyAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributes> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeSymbologyAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeSymbologyAttributes> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeSymbologyAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarcodeSymbologyAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5276,36 +4870,7 @@ unsafe impl ::windows::core::Interface for CashDrawer {
 impl ::windows::core::RuntimeName for CashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawer";
 }
-impl ::core::convert::From<CashDrawer> for ::windows::core::IUnknown {
-    fn from(value: CashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawer> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawer> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawer> for ::windows::core::IInspectable {
-    fn from(value: CashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawer> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawer> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CashDrawer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -5409,36 +4974,7 @@ unsafe impl ::windows::core::Interface for CashDrawerCapabilities {
 impl ::windows::core::RuntimeName for CashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCapabilities";
 }
-impl ::core::convert::From<CashDrawerCapabilities> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerCapabilities> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5558,36 +5094,7 @@ unsafe impl ::windows::core::Interface for CashDrawerCloseAlarm {
 impl ::windows::core::RuntimeName for CashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCloseAlarm";
 }
-impl ::core::convert::From<CashDrawerCloseAlarm> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerCloseAlarm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerCloseAlarm> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerCloseAlarm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerCloseAlarm> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerCloseAlarm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerCloseAlarm> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerCloseAlarm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerCloseAlarm> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerCloseAlarm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerCloseAlarm> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerCloseAlarm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerCloseAlarm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5634,36 +5141,7 @@ unsafe impl ::windows::core::Interface for CashDrawerClosedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
 }
-impl ::core::convert::From<CashDrawerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CashDrawerClosedEventArgs> for ICashDrawerEventSourceEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CashDrawerClosedEventArgs) -> ::windows::core::Result<Self> {
@@ -5752,36 +5230,7 @@ unsafe impl ::windows::core::Interface for CashDrawerEventSource {
 impl ::windows::core::RuntimeName for CashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerEventSource";
 }
-impl ::core::convert::From<CashDrawerEventSource> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerEventSource> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerEventSource> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerEventSource> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerEventSource> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerEventSource> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerEventSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -5828,36 +5277,7 @@ unsafe impl ::windows::core::Interface for CashDrawerOpenedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerOpenedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
 }
-impl ::core::convert::From<CashDrawerOpenedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerOpenedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerOpenedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerOpenedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerOpenedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerOpenedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerOpenedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<CashDrawerOpenedEventArgs> for ICashDrawerEventSourceEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: CashDrawerOpenedEventArgs) -> ::windows::core::Result<Self> {
@@ -5930,36 +5350,7 @@ unsafe impl ::windows::core::Interface for CashDrawerStatus {
 impl ::windows::core::RuntimeName for CashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatus";
 }
-impl ::core::convert::From<CashDrawerStatus> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerStatus> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerStatus> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerStatus> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerStatus> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerStatus> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6006,36 +5397,7 @@ unsafe impl ::windows::core::Interface for CashDrawerStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
 }
-impl ::core::convert::From<CashDrawerStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CashDrawerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CashDrawerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CashDrawerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CashDrawerStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6352,36 +5714,7 @@ unsafe impl ::windows::core::Interface for ClaimedBarcodeScanner {
 impl ::windows::core::RuntimeName for ClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScanner";
 }
-impl ::core::convert::From<ClaimedBarcodeScanner> for ::windows::core::IUnknown {
-    fn from(value: ClaimedBarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScanner> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedBarcodeScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScanner> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedBarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedBarcodeScanner> for ::windows::core::IInspectable {
-    fn from(value: ClaimedBarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScanner> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedBarcodeScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScanner> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedBarcodeScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedBarcodeScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedBarcodeScanner> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6442,36 +5775,7 @@ unsafe impl ::windows::core::Interface for ClaimedBarcodeScannerClosedEventArgs 
 impl ::windows::core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
 }
-impl ::core::convert::From<ClaimedBarcodeScannerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedBarcodeScannerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6637,36 +5941,7 @@ unsafe impl ::windows::core::Interface for ClaimedCashDrawer {
 impl ::windows::core::RuntimeName for ClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawer";
 }
-impl ::core::convert::From<ClaimedCashDrawer> for ::windows::core::IUnknown {
-    fn from(value: ClaimedCashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawer> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedCashDrawer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawer> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedCashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedCashDrawer> for ::windows::core::IInspectable {
-    fn from(value: ClaimedCashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawer> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedCashDrawer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawer> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedCashDrawer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedCashDrawer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedCashDrawer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -6727,36 +6002,7 @@ unsafe impl ::windows::core::Interface for ClaimedCashDrawerClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
 }
-impl ::core::convert::From<ClaimedCashDrawerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ClaimedCashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedCashDrawerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ClaimedCashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -6921,36 +6167,7 @@ unsafe impl ::windows::core::Interface for ClaimedJournalPrinter {
 impl ::windows::core::RuntimeName for ClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedJournalPrinter";
 }
-impl ::core::convert::From<ClaimedJournalPrinter> for ::windows::core::IUnknown {
-    fn from(value: ClaimedJournalPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedJournalPrinter> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedJournalPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedJournalPrinter> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedJournalPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedJournalPrinter> for ::windows::core::IInspectable {
-    fn from(value: ClaimedJournalPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedJournalPrinter> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedJournalPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedJournalPrinter> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedJournalPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedJournalPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedJournalPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedJournalPrinter) -> ::windows::core::Result<Self> {
@@ -7280,36 +6497,7 @@ unsafe impl ::windows::core::Interface for ClaimedLineDisplay {
 impl ::windows::core::RuntimeName for ClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplay";
 }
-impl ::core::convert::From<ClaimedLineDisplay> for ::windows::core::IUnknown {
-    fn from(value: ClaimedLineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplay> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedLineDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplay> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedLineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedLineDisplay> for ::windows::core::IInspectable {
-    fn from(value: ClaimedLineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplay> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedLineDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplay> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedLineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedLineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedLineDisplay> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7370,36 +6558,7 @@ unsafe impl ::windows::core::Interface for ClaimedLineDisplayClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
 }
-impl ::core::convert::From<ClaimedLineDisplayClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ClaimedLineDisplayClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedLineDisplayClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ClaimedLineDisplayClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -7699,36 +6858,7 @@ unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReader {
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
 }
-impl ::core::convert::From<ClaimedMagneticStripeReader> for ::windows::core::IUnknown {
-    fn from(value: ClaimedMagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReader> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedMagneticStripeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReader> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedMagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedMagneticStripeReader> for ::windows::core::IInspectable {
-    fn from(value: ClaimedMagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReader> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedMagneticStripeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReader> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedMagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedMagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedMagneticStripeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7789,36 +6919,7 @@ unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReaderClosedEven
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
 }
-impl ::core::convert::From<ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8022,36 +7123,7 @@ unsafe impl ::windows::core::Interface for ClaimedPosPrinter {
 impl ::windows::core::RuntimeName for ClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinter";
 }
-impl ::core::convert::From<ClaimedPosPrinter> for ::windows::core::IUnknown {
-    fn from(value: ClaimedPosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinter> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedPosPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinter> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedPosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedPosPrinter> for ::windows::core::IInspectable {
-    fn from(value: ClaimedPosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinter> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedPosPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinter> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedPosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedPosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ClaimedPosPrinter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8112,36 +7184,7 @@ unsafe impl ::windows::core::Interface for ClaimedPosPrinterClosedEventArgs {
 impl ::windows::core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
 }
-impl ::core::convert::From<ClaimedPosPrinterClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ClaimedPosPrinterClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedPosPrinterClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ClaimedPosPrinterClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -8345,36 +7388,7 @@ unsafe impl ::windows::core::Interface for ClaimedReceiptPrinter {
 impl ::windows::core::RuntimeName for ClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedReceiptPrinter";
 }
-impl ::core::convert::From<ClaimedReceiptPrinter> for ::windows::core::IUnknown {
-    fn from(value: ClaimedReceiptPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedReceiptPrinter> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedReceiptPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedReceiptPrinter> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedReceiptPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedReceiptPrinter> for ::windows::core::IInspectable {
-    fn from(value: ClaimedReceiptPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedReceiptPrinter> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedReceiptPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedReceiptPrinter> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedReceiptPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedReceiptPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedReceiptPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedReceiptPrinter) -> ::windows::core::Result<Self> {
@@ -8641,36 +7655,7 @@ unsafe impl ::windows::core::Interface for ClaimedSlipPrinter {
 impl ::windows::core::RuntimeName for ClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedSlipPrinter";
 }
-impl ::core::convert::From<ClaimedSlipPrinter> for ::windows::core::IUnknown {
-    fn from(value: ClaimedSlipPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedSlipPrinter> for ::windows::core::IUnknown {
-    fn from(value: &ClaimedSlipPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedSlipPrinter> for &::windows::core::IUnknown {
-    fn from(value: &ClaimedSlipPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ClaimedSlipPrinter> for ::windows::core::IInspectable {
-    fn from(value: ClaimedSlipPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ClaimedSlipPrinter> for ::windows::core::IInspectable {
-    fn from(value: &ClaimedSlipPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ClaimedSlipPrinter> for &::windows::core::IInspectable {
-    fn from(value: &ClaimedSlipPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ClaimedSlipPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ClaimedSlipPrinter> for ICommonClaimedPosPrinterStation {
     type Error = ::windows::core::Error;
     fn try_from(value: ClaimedSlipPrinter) -> ::windows::core::Result<Self> {
@@ -8762,36 +7747,7 @@ unsafe impl ::windows::core::Interface for JournalPrintJob {
 impl ::windows::core::RuntimeName for JournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrintJob";
 }
-impl ::core::convert::From<JournalPrintJob> for ::windows::core::IUnknown {
-    fn from(value: JournalPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JournalPrintJob> for ::windows::core::IUnknown {
-    fn from(value: &JournalPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JournalPrintJob> for &::windows::core::IUnknown {
-    fn from(value: &JournalPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JournalPrintJob> for ::windows::core::IInspectable {
-    fn from(value: JournalPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JournalPrintJob> for ::windows::core::IInspectable {
-    fn from(value: &JournalPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JournalPrintJob> for &::windows::core::IInspectable {
-    fn from(value: &JournalPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JournalPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JournalPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: JournalPrintJob) -> ::windows::core::Result<Self> {
@@ -8985,36 +7941,7 @@ unsafe impl ::windows::core::Interface for JournalPrinterCapabilities {
 impl ::windows::core::RuntimeName for JournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrinterCapabilities";
 }
-impl ::core::convert::From<JournalPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: JournalPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JournalPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &JournalPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JournalPrinterCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &JournalPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<JournalPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: JournalPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&JournalPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &JournalPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&JournalPrinterCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &JournalPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(JournalPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<JournalPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: JournalPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -9190,36 +8117,7 @@ unsafe impl ::windows::core::Interface for LineDisplay {
 impl ::windows::core::RuntimeName for LineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplay";
 }
-impl ::core::convert::From<LineDisplay> for ::windows::core::IUnknown {
-    fn from(value: LineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplay> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplay> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplay> for ::windows::core::IInspectable {
-    fn from(value: LineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplay> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplay> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LineDisplay> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -9366,36 +8264,7 @@ unsafe impl ::windows::core::Interface for LineDisplayAttributes {
 impl ::windows::core::RuntimeName for LineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayAttributes";
 }
-impl ::core::convert::From<LineDisplayAttributes> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayAttributes> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayAttributes> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayAttributes> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayAttributes> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayAttributes> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9561,36 +8430,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCapabilities {
 impl ::windows::core::RuntimeName for LineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCapabilities";
 }
-impl ::core::convert::From<LineDisplayCapabilities> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayCapabilities> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9695,36 +8535,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCursor {
 impl ::windows::core::RuntimeName for LineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursor";
 }
-impl ::core::convert::From<LineDisplayCursor> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayCursor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCursor> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayCursor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCursor> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayCursor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayCursor> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayCursor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCursor> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayCursor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCursor> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayCursor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayCursor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9812,36 +8623,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCursorAttributes {
 impl ::windows::core::RuntimeName for LineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursorAttributes";
 }
-impl ::core::convert::From<LineDisplayCursorAttributes> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayCursorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCursorAttributes> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayCursorAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCursorAttributes> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayCursorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayCursorAttributes> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayCursorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCursorAttributes> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayCursorAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCursorAttributes> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayCursorAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayCursorAttributes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9912,36 +8694,7 @@ unsafe impl ::windows::core::Interface for LineDisplayCustomGlyphs {
 impl ::windows::core::RuntimeName for LineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
 }
-impl ::core::convert::From<LineDisplayCustomGlyphs> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayCustomGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCustomGlyphs> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayCustomGlyphs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCustomGlyphs> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayCustomGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayCustomGlyphs> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayCustomGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayCustomGlyphs> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayCustomGlyphs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayCustomGlyphs> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayCustomGlyphs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayCustomGlyphs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10040,36 +8793,7 @@ unsafe impl ::windows::core::Interface for LineDisplayMarquee {
 impl ::windows::core::RuntimeName for LineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayMarquee";
 }
-impl ::core::convert::From<LineDisplayMarquee> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayMarquee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayMarquee> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayMarquee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayMarquee> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayMarquee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayMarquee> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayMarquee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayMarquee> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayMarquee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayMarquee> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayMarquee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayMarquee, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10130,36 +8854,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStatisticsCategorySelector
 impl ::windows::core::RuntimeName for LineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
 }
-impl ::core::convert::From<LineDisplayStatisticsCategorySelector> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayStatisticsCategorySelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayStatisticsCategorySelector> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayStatisticsCategorySelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayStatisticsCategorySelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10206,36 +8901,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
 }
-impl ::core::convert::From<LineDisplayStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10291,36 +8957,7 @@ unsafe impl ::windows::core::Interface for LineDisplayStoredBitmap {
 impl ::windows::core::RuntimeName for LineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStoredBitmap";
 }
-impl ::core::convert::From<LineDisplayStoredBitmap> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayStoredBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStoredBitmap> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayStoredBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStoredBitmap> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayStoredBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayStoredBitmap> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayStoredBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayStoredBitmap> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayStoredBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayStoredBitmap> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayStoredBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayStoredBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -10521,36 +9158,7 @@ unsafe impl ::windows::core::Interface for LineDisplayWindow {
 impl ::windows::core::RuntimeName for LineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayWindow";
 }
-impl ::core::convert::From<LineDisplayWindow> for ::windows::core::IUnknown {
-    fn from(value: LineDisplayWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayWindow> for ::windows::core::IUnknown {
-    fn from(value: &LineDisplayWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayWindow> for &::windows::core::IUnknown {
-    fn from(value: &LineDisplayWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LineDisplayWindow> for ::windows::core::IInspectable {
-    fn from(value: LineDisplayWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LineDisplayWindow> for ::windows::core::IInspectable {
-    fn from(value: &LineDisplayWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LineDisplayWindow> for &::windows::core::IInspectable {
-    fn from(value: &LineDisplayWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LineDisplayWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<LineDisplayWindow> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10737,36 +9345,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReader {
 impl ::windows::core::RuntimeName for MagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReader";
 }
-impl ::core::convert::From<MagneticStripeReader> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReader> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReader> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReader> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReader> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReader> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MagneticStripeReader> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -10961,36 +9540,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderAamvaCardDataRece
 impl ::windows::core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
 }
-impl ::core::convert::From<MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11093,36 +9643,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderBankCardDataRecei
 impl ::windows::core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
 }
-impl ::core::convert::From<MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11239,36 +9760,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderCapabilities {
 impl ::windows::core::RuntimeName for MagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
 }
-impl ::core::convert::From<MagneticStripeReaderCapabilities> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderCapabilities> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11416,36 +9908,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderErrorOccurredEven
 impl ::windows::core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
 }
-impl ::core::convert::From<MagneticStripeReaderErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11554,36 +10017,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderReport {
 impl ::windows::core::RuntimeName for MagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderReport";
 }
-impl ::core::convert::From<MagneticStripeReaderReport> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderReport> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderReport> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderReport> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderReport> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderReport> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11637,36 +10071,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderStatusUpdatedEven
 impl ::windows::core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
 }
-impl ::core::convert::From<MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11733,36 +10138,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderTrackData {
 impl ::windows::core::RuntimeName for MagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
 }
-impl ::core::convert::From<MagneticStripeReaderTrackData> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderTrackData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderTrackData> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderTrackData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderTrackData> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderTrackData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderTrackData> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderTrackData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderTrackData> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderTrackData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderTrackData> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderTrackData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderTrackData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11809,36 +10185,7 @@ unsafe impl ::windows::core::Interface for MagneticStripeReaderVendorSpecificCar
 impl ::windows::core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
 }
-impl ::core::convert::From<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12023,36 +10370,7 @@ unsafe impl ::windows::core::Interface for PosPrinter {
 impl ::windows::core::RuntimeName for PosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinter";
 }
-impl ::core::convert::From<PosPrinter> for ::windows::core::IUnknown {
-    fn from(value: PosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinter> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinter> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinter> for ::windows::core::IInspectable {
-    fn from(value: PosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinter> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinter> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PosPrinter> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -12184,36 +10502,7 @@ unsafe impl ::windows::core::Interface for PosPrinterCapabilities {
 impl ::windows::core::RuntimeName for PosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCapabilities";
 }
-impl ::core::convert::From<PosPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12306,36 +10595,7 @@ unsafe impl ::windows::core::Interface for PosPrinterFontProperty {
 impl ::windows::core::RuntimeName for PosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterFontProperty";
 }
-impl ::core::convert::From<PosPrinterFontProperty> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterFontProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterFontProperty> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterFontProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterFontProperty> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterFontProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterFontProperty> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterFontProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterFontProperty> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterFontProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterFontProperty> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterFontProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterFontProperty, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12525,36 +10785,7 @@ unsafe impl ::windows::core::Interface for PosPrinterPrintOptions {
 impl ::windows::core::RuntimeName for PosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterPrintOptions";
 }
-impl ::core::convert::From<PosPrinterPrintOptions> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterPrintOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterPrintOptions> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterPrintOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterPrintOptions> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterPrintOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterPrintOptions> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterPrintOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterPrintOptions> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterPrintOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterPrintOptions> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterPrintOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterPrintOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12593,36 +10824,7 @@ unsafe impl ::windows::core::Interface for PosPrinterReleaseDeviceRequestedEvent
 impl ::windows::core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
 }
-impl ::core::convert::From<PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12676,36 +10878,7 @@ unsafe impl ::windows::core::Interface for PosPrinterStatus {
 impl ::windows::core::RuntimeName for PosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatus";
 }
-impl ::core::convert::From<PosPrinterStatus> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterStatus> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterStatus> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterStatus> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterStatus> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterStatus> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12752,36 +10925,7 @@ unsafe impl ::windows::core::Interface for PosPrinterStatusUpdatedEventArgs {
 impl ::windows::core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
 }
-impl ::core::convert::From<PosPrinterStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PosPrinterStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PosPrinterStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PosPrinterStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PosPrinterStatusUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -12948,36 +11092,7 @@ unsafe impl ::windows::core::Interface for ReceiptPrintJob {
 impl ::windows::core::RuntimeName for ReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrintJob";
 }
-impl ::core::convert::From<ReceiptPrintJob> for ::windows::core::IUnknown {
-    fn from(value: ReceiptPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReceiptPrintJob> for ::windows::core::IUnknown {
-    fn from(value: &ReceiptPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReceiptPrintJob> for &::windows::core::IUnknown {
-    fn from(value: &ReceiptPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ReceiptPrintJob> for ::windows::core::IInspectable {
-    fn from(value: ReceiptPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReceiptPrintJob> for ::windows::core::IInspectable {
-    fn from(value: &ReceiptPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReceiptPrintJob> for &::windows::core::IInspectable {
-    fn from(value: &ReceiptPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ReceiptPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReceiptPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: ReceiptPrintJob) -> ::windows::core::Result<Self> {
@@ -13278,36 +11393,7 @@ unsafe impl ::windows::core::Interface for ReceiptPrinterCapabilities {
 impl ::windows::core::RuntimeName for ReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
 }
-impl ::core::convert::From<ReceiptPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ReceiptPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReceiptPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ReceiptPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReceiptPrinterCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &ReceiptPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ReceiptPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ReceiptPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ReceiptPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ReceiptPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ReceiptPrinterCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &ReceiptPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ReceiptPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ReceiptPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -13496,36 +11582,7 @@ unsafe impl ::windows::core::Interface for SlipPrintJob {
 impl ::windows::core::RuntimeName for SlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrintJob";
 }
-impl ::core::convert::From<SlipPrintJob> for ::windows::core::IUnknown {
-    fn from(value: SlipPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlipPrintJob> for ::windows::core::IUnknown {
-    fn from(value: &SlipPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlipPrintJob> for &::windows::core::IUnknown {
-    fn from(value: &SlipPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SlipPrintJob> for ::windows::core::IInspectable {
-    fn from(value: SlipPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlipPrintJob> for ::windows::core::IInspectable {
-    fn from(value: &SlipPrintJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlipPrintJob> for &::windows::core::IInspectable {
-    fn from(value: &SlipPrintJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SlipPrintJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlipPrintJob> for IPosPrinterJob {
     type Error = ::windows::core::Error;
     fn try_from(value: SlipPrintJob) -> ::windows::core::Result<Self> {
@@ -13819,36 +11876,7 @@ unsafe impl ::windows::core::Interface for SlipPrinterCapabilities {
 impl ::windows::core::RuntimeName for SlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrinterCapabilities";
 }
-impl ::core::convert::From<SlipPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: SlipPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlipPrinterCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &SlipPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlipPrinterCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &SlipPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SlipPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: SlipPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SlipPrinterCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &SlipPrinterCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SlipPrinterCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &SlipPrinterCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SlipPrinterCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SlipPrinterCapabilities> for ICommonPosPrintStationCapabilities {
     type Error = ::windows::core::Error;
     fn try_from(value: SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
@@ -13965,36 +11993,7 @@ unsafe impl ::windows::core::Interface for UnifiedPosErrorData {
 impl ::windows::core::RuntimeName for UnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.UnifiedPosErrorData";
 }
-impl ::core::convert::From<UnifiedPosErrorData> for ::windows::core::IUnknown {
-    fn from(value: UnifiedPosErrorData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnifiedPosErrorData> for ::windows::core::IUnknown {
-    fn from(value: &UnifiedPosErrorData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnifiedPosErrorData> for &::windows::core::IUnknown {
-    fn from(value: &UnifiedPosErrorData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UnifiedPosErrorData> for ::windows::core::IInspectable {
-    fn from(value: UnifiedPosErrorData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnifiedPosErrorData> for ::windows::core::IInspectable {
-    fn from(value: &UnifiedPosErrorData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnifiedPosErrorData> for &::windows::core::IInspectable {
-    fn from(value: &UnifiedPosErrorData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnifiedPosErrorData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]

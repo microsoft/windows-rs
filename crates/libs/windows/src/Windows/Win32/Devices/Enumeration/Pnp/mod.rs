@@ -129,21 +129,7 @@ impl IUPnPAddressFamilyControl {
         (::windows::core::Vtable::vtable(self).GetAddressFamily)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IUPnPAddressFamilyControl> for ::windows::core::IUnknown {
-    fn from(value: IUPnPAddressFamilyControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPAddressFamilyControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPAddressFamilyControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPAddressFamilyControl> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPAddressFamilyControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPAddressFamilyControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPAddressFamilyControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -181,21 +167,7 @@ impl IUPnPAsyncResult {
         (::windows::core::Vtable::vtable(self).AsyncOperationComplete)(::windows::core::Vtable::as_raw(self), ullrequestid).ok()
     }
 }
-impl ::core::convert::From<IUPnPAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: IUPnPAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPAsyncResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPAsyncResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPAsyncResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPAsyncResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -264,41 +236,7 @@ impl IUPnPDescriptionDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDescriptionDocument> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDescriptionDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDescriptionDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDescriptionDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDescriptionDocument> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDescriptionDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDescriptionDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPDescriptionDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDescriptionDocument> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPDescriptionDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDescriptionDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPDescriptionDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDescriptionDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPDescriptionDocument {
     fn clone(&self) -> Self {
@@ -354,21 +292,7 @@ impl IUPnPDescriptionDocumentCallback {
         (::windows::core::Vtable::vtable(self).LoadComplete)(::windows::core::Vtable::as_raw(self), hrloadresult).ok()
     }
 }
-impl ::core::convert::From<IUPnPDescriptionDocumentCallback> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDescriptionDocumentCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDescriptionDocumentCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDescriptionDocumentCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDescriptionDocumentCallback> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDescriptionDocumentCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDescriptionDocumentCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDescriptionDocumentCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -489,41 +413,7 @@ impl IUPnPDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDevice> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDevice> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDevice> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDevice> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDevice> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDevice, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPDevice {
     fn clone(&self) -> Self {
@@ -603,21 +493,7 @@ impl IUPnPDeviceControl {
         (::windows::core::Vtable::vtable(self).GetServiceObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrudn), ::core::mem::transmute_copy(bstrserviceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IDispatch>(result__)
     }
 }
-impl ::core::convert::From<IUPnPDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -659,21 +535,7 @@ impl IUPnPDeviceControlHttpHeaders {
         (::windows::core::Vtable::vtable(self).GetAdditionalResponseHeaders)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IUPnPDeviceControlHttpHeaders> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceControlHttpHeaders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceControlHttpHeaders> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceControlHttpHeaders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceControlHttpHeaders> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceControlHttpHeaders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceControlHttpHeaders, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceControlHttpHeaders {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -711,21 +573,7 @@ impl IUPnPDeviceDocumentAccess {
         (::windows::core::Vtable::vtable(self).GetDocumentURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IUPnPDeviceDocumentAccess> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceDocumentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceDocumentAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceDocumentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceDocumentAccess> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceDocumentAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceDocumentAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceDocumentAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -763,21 +611,7 @@ impl IUPnPDeviceDocumentAccessEx {
         (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IUPnPDeviceDocumentAccessEx> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceDocumentAccessEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceDocumentAccessEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceDocumentAccessEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceDocumentAccessEx> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceDocumentAccessEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceDocumentAccessEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -839,41 +673,7 @@ impl IUPnPDeviceFinder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDeviceFinder> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceFinder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDeviceFinder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceFinder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDeviceFinder> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceFinder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDeviceFinder> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPDeviceFinder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDeviceFinder> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPDeviceFinder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDeviceFinder> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPDeviceFinder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceFinder, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPDeviceFinder {
     fn clone(&self) -> Self {
@@ -932,21 +732,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
         (::windows::core::Vtable::vtable(self).DeviceAddedWithInterface)(::windows::core::Vtable::as_raw(self), lfinddata, pdevice.into().abi(), ::core::mem::transmute(pguidinterface)).ok()
     }
 }
-impl ::core::convert::From<IUPnPDeviceFinderAddCallbackWithInterface> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceFinderAddCallbackWithInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceFinderAddCallbackWithInterface> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceFinderAddCallbackWithInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceFinderAddCallbackWithInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceFinderAddCallbackWithInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -997,21 +783,7 @@ impl IUPnPDeviceFinderCallback {
         (::windows::core::Vtable::vtable(self).SearchComplete)(::windows::core::Vtable::as_raw(self), lfinddata).ok()
     }
 }
-impl ::core::convert::From<IUPnPDeviceFinderCallback> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceFinderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceFinderCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceFinderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceFinderCallback> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceFinderCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceFinderCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceFinderCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1056,21 +828,7 @@ impl IUPnPDeviceProvider {
         (::windows::core::Vtable::vtable(self).Stop)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUPnPDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPDeviceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDeviceProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPDeviceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1122,41 +880,7 @@ impl IUPnPDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDevices> for ::windows::core::IUnknown {
-    fn from(value: IUPnPDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDevices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDevices> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPDevices> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPDevices> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPDevices> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPDevices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPDevices {
     fn clone(&self) -> Self {
@@ -1213,21 +937,7 @@ impl IUPnPEventSink {
         (::windows::core::Vtable::vtable(self).OnStateChangedSafe)(::windows::core::Vtable::as_raw(self), varsadispidchanges.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUPnPEventSink> for ::windows::core::IUnknown {
-    fn from(value: IUPnPEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPEventSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPEventSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPEventSink> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPEventSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPEventSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1277,21 +987,7 @@ impl IUPnPEventSource {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), pessubscriber.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUPnPEventSource> for ::windows::core::IUnknown {
-    fn from(value: IUPnPEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPEventSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPEventSource> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPEventSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPEventSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1329,21 +1025,7 @@ impl IUPnPHttpHeaderControl {
         (::windows::core::Vtable::vtable(self).AddRequestHeaders)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrhttpheaders)).ok()
     }
 }
-impl ::core::convert::From<IUPnPHttpHeaderControl> for ::windows::core::IUnknown {
-    fn from(value: IUPnPHttpHeaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPHttpHeaderControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPHttpHeaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPHttpHeaderControl> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPHttpHeaderControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPHttpHeaderControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPHttpHeaderControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1406,21 +1088,7 @@ impl IUPnPRegistrar {
         (::windows::core::Vtable::vtable(self).UnregisterDeviceProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername)).ok()
     }
 }
-impl ::core::convert::From<IUPnPRegistrar> for ::windows::core::IUnknown {
-    fn from(value: IUPnPRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPRegistrar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPRegistrar> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPRegistrar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPRegistrar, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPRegistrar {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1474,21 +1142,7 @@ impl IUPnPRemoteEndpointInfo {
         (::windows::core::Vtable::vtable(self).GetGuidValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrvaluename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IUPnPRemoteEndpointInfo> for ::windows::core::IUnknown {
-    fn from(value: IUPnPRemoteEndpointInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPRemoteEndpointInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPRemoteEndpointInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPRemoteEndpointInfo> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPRemoteEndpointInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPRemoteEndpointInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPRemoteEndpointInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1533,21 +1187,7 @@ impl IUPnPReregistrar {
         (::windows::core::Vtable::vtable(self).ReregisterRunningDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceidentifier), ::core::mem::transmute_copy(bstrxmldesc), punkdevicecontrol.into().abi(), ::core::mem::transmute_copy(bstrinitstring), ::core::mem::transmute_copy(bstrresourcepath), nlifetime).ok()
     }
 }
-impl ::core::convert::From<IUPnPReregistrar> for ::windows::core::IUnknown {
-    fn from(value: IUPnPReregistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPReregistrar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPReregistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPReregistrar> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPReregistrar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPReregistrar, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPReregistrar {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1617,41 +1257,7 @@ impl IUPnPService {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPService> for ::windows::core::IUnknown {
-    fn from(value: IUPnPService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPService> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPService> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPService> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPService> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPService, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPService {
     fn clone(&self) -> Self {
@@ -1755,21 +1361,7 @@ impl IUPnPServiceAsync {
         (::windows::core::Vtable::vtable(self).CancelAsyncOperation)(::windows::core::Vtable::as_raw(self), ullrequestid).ok()
     }
 }
-impl ::core::convert::From<IUPnPServiceAsync> for ::windows::core::IUnknown {
-    fn from(value: IUPnPServiceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPServiceAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPServiceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPServiceAsync> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPServiceAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPServiceAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPServiceAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1838,21 +1430,7 @@ impl IUPnPServiceCallback {
         (::windows::core::Vtable::vtable(self).ServiceInstanceDied)(::windows::core::Vtable::as_raw(self), pus.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUPnPServiceCallback> for ::windows::core::IUnknown {
-    fn from(value: IUPnPServiceCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPServiceCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPServiceCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPServiceCallback> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPServiceCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPServiceCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPServiceCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1901,21 +1479,7 @@ impl IUPnPServiceDocumentAccess {
         (::windows::core::Vtable::vtable(self).GetDocument)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IUPnPServiceDocumentAccess> for ::windows::core::IUnknown {
-    fn from(value: IUPnPServiceDocumentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPServiceDocumentAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPServiceDocumentAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPServiceDocumentAccess> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPServiceDocumentAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPServiceDocumentAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPServiceDocumentAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1953,21 +1517,7 @@ impl IUPnPServiceEnumProperty {
         (::windows::core::Vtable::vtable(self).SetServiceEnumProperty)(::windows::core::Vtable::as_raw(self), dwmask).ok()
     }
 }
-impl ::core::convert::From<IUPnPServiceEnumProperty> for ::windows::core::IUnknown {
-    fn from(value: IUPnPServiceEnumProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUPnPServiceEnumProperty> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPServiceEnumProperty) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUPnPServiceEnumProperty> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPServiceEnumProperty) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPServiceEnumProperty, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUPnPServiceEnumProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2018,41 +1568,7 @@ impl IUPnPServices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPServices> for ::windows::core::IUnknown {
-    fn from(value: IUPnPServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUPnPServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPServices> for ::windows::core::IUnknown {
-    fn from(value: &IUPnPServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IUPnPServices> for super::super::super::System::Com::IDispatch {
-    fn from(value: IUPnPServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IUPnPServices> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IUPnPServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IUPnPServices> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IUPnPServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUPnPServices, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IUPnPServices {
     fn clone(&self) -> Self {

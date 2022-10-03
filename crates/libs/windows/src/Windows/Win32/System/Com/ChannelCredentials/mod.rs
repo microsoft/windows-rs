@@ -48,36 +48,7 @@ impl IChannelCredentials {
         (::windows::core::Vtable::vtable(self).SetIssuedToken)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(localissueraddres), ::core::mem::transmute_copy(localissuerbindingtype), ::core::mem::transmute_copy(localissuerbinding)).ok()
     }
 }
-impl ::core::convert::From<IChannelCredentials> for ::windows::core::IUnknown {
-    fn from(value: IChannelCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IChannelCredentials> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IChannelCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IChannelCredentials> for ::windows::core::IUnknown {
-    fn from(value: &IChannelCredentials) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IChannelCredentials> for super::IDispatch {
-    fn from(value: IChannelCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IChannelCredentials> for &'a super::IDispatch {
-    fn from(value: &'a IChannelCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IChannelCredentials> for super::IDispatch {
-    fn from(value: &IChannelCredentials) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IChannelCredentials, ::windows::core::IUnknown, super::IDispatch);
 impl ::core::clone::Clone for IChannelCredentials {
     fn clone(&self) -> Self {
         Self(self.0.clone())

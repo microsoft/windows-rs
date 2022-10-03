@@ -179,41 +179,7 @@ impl ISearchPaneQueryChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISearchPaneQueryChangedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ISearchPaneQueryChangedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISearchPaneQueryChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for ISearchPaneQueryChangedEventArgs {
     fn clone(&self) -> Self {
@@ -677,36 +643,7 @@ unsafe impl ::windows::core::Interface for LocalContentSuggestionSettings {
 impl ::windows::core::RuntimeName for LocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.LocalContentSuggestionSettings";
 }
-impl ::core::convert::From<LocalContentSuggestionSettings> for ::windows::core::IUnknown {
-    fn from(value: LocalContentSuggestionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalContentSuggestionSettings> for ::windows::core::IUnknown {
-    fn from(value: &LocalContentSuggestionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalContentSuggestionSettings> for &::windows::core::IUnknown {
-    fn from(value: &LocalContentSuggestionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LocalContentSuggestionSettings> for ::windows::core::IInspectable {
-    fn from(value: LocalContentSuggestionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LocalContentSuggestionSettings> for ::windows::core::IInspectable {
-    fn from(value: &LocalContentSuggestionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LocalContentSuggestionSettings> for &::windows::core::IInspectable {
-    fn from(value: &LocalContentSuggestionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LocalContentSuggestionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -969,41 +906,7 @@ impl ::windows::core::RuntimeName for SearchPane {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPane";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPane> for ::windows::core::IUnknown {
-    fn from(value: SearchPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPane> for ::windows::core::IUnknown {
-    fn from(value: &SearchPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPane> for &::windows::core::IUnknown {
-    fn from(value: &SearchPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPane> for ::windows::core::IInspectable {
-    fn from(value: SearchPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPane> for ::windows::core::IInspectable {
-    fn from(value: &SearchPane) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPane> for &::windows::core::IInspectable {
-    fn from(value: &SearchPane) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPane, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Search\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1079,41 +982,7 @@ impl ::windows::core::RuntimeName for SearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQueryChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQueryChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneQueryChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneQueryChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SearchPaneQueryChangedEventArgs> for ISearchPaneQueryChangedEventArgs {
     type Error = ::windows::core::Error;
@@ -1200,36 +1069,7 @@ unsafe impl ::windows::core::Interface for SearchPaneQueryLinguisticDetails {
 impl ::windows::core::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
 }
-impl ::core::convert::From<SearchPaneQueryLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchPaneQueryLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchPaneQueryLinguisticDetails> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchPaneQueryLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchPaneQueryLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchPaneQueryLinguisticDetails> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneQueryLinguisticDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchPaneQueryLinguisticDetails {}
 unsafe impl ::core::marker::Sync for SearchPaneQueryLinguisticDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Search\"`, `\"deprecated\"`*"]
@@ -1307,41 +1147,7 @@ impl ::windows::core::RuntimeName for SearchPaneQuerySubmittedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQuerySubmittedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneQuerySubmittedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneQuerySubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQuerySubmittedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQuerySubmittedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneQuerySubmittedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneQuerySubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQuerySubmittedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneQuerySubmittedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneQuerySubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneQuerySubmittedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SearchPaneQuerySubmittedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1403,41 +1209,7 @@ impl ::windows::core::RuntimeName for SearchPaneResultSuggestionChosenEventArgs 
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneResultSuggestionChosenEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneResultSuggestionChosenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneResultSuggestionChosenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneResultSuggestionChosenEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneResultSuggestionChosenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneResultSuggestionChosenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SearchPaneResultSuggestionChosenEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1517,41 +1289,7 @@ impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequest";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequest> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequest> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequest> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequest> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequest> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequest> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneSuggestionsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequest {}
 #[cfg(feature = "deprecated")]
@@ -1610,41 +1348,7 @@ impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestDeferral";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneSuggestionsRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequestDeferral {}
 #[cfg(feature = "deprecated")]
@@ -1733,41 +1437,7 @@ impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneSuggestionsRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneSuggestionsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneSuggestionsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneSuggestionsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneSuggestionsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SearchPaneSuggestionsRequestedEventArgs> for ISearchPaneQueryChangedEventArgs {
     type Error = ::windows::core::Error;
@@ -1851,41 +1521,7 @@ impl ::windows::core::RuntimeName for SearchPaneVisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneVisibilityChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneVisibilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SearchPaneVisibilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneVisibilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneVisibilityChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SearchPaneVisibilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SearchPaneVisibilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneVisibilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SearchPaneVisibilityChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SearchPaneVisibilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchPaneVisibilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for SearchPaneVisibilityChangedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -1967,36 +1603,7 @@ unsafe impl ::windows::core::Interface for SearchQueryLinguisticDetails {
 impl ::windows::core::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
 }
-impl ::core::convert::From<SearchQueryLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: SearchQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchQueryLinguisticDetails> for ::windows::core::IUnknown {
-    fn from(value: &SearchQueryLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchQueryLinguisticDetails> for &::windows::core::IUnknown {
-    fn from(value: &SearchQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchQueryLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: SearchQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchQueryLinguisticDetails> for ::windows::core::IInspectable {
-    fn from(value: &SearchQueryLinguisticDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchQueryLinguisticDetails> for &::windows::core::IInspectable {
-    fn from(value: &SearchQueryLinguisticDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchQueryLinguisticDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchQueryLinguisticDetails {}
 unsafe impl ::core::marker::Sync for SearchQueryLinguisticDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Search\"`*"]
@@ -2071,36 +1678,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionCollection {
 impl ::windows::core::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
 }
-impl ::core::convert::From<SearchSuggestionCollection> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionCollection> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionCollection> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestionCollection> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionCollection> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionCollection> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestionCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchSuggestionCollection {}
 unsafe impl ::core::marker::Sync for SearchSuggestionCollection {}
 #[doc = "*Required features: `\"ApplicationModel_Search\"`*"]
@@ -2161,36 +1739,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionsRequest {
 impl ::windows::core::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
 }
-impl ::core::convert::From<SearchSuggestionsRequest> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequest> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequest> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestionsRequest> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequest> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequest> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestionsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchSuggestionsRequest {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Search\"`*"]
@@ -2234,36 +1783,7 @@ unsafe impl ::windows::core::Interface for SearchSuggestionsRequestDeferral {
 impl ::windows::core::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";
 }
-impl ::core::convert::From<SearchSuggestionsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: SearchSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestDeferral> for ::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestDeferral> for &::windows::core::IUnknown {
-    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SearchSuggestionsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: SearchSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestDeferral> for ::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SearchSuggestionsRequestDeferral> for &::windows::core::IInspectable {
-    fn from(value: &SearchSuggestionsRequestDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SearchSuggestionsRequestDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SearchSuggestionsRequestDeferral {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequestDeferral {}
 #[cfg(feature = "implement")]

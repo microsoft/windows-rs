@@ -345,36 +345,7 @@ unsafe impl ::windows::core::Interface for VoiceCommand {
 impl ::windows::core::RuntimeName for VoiceCommand {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommand";
 }
-impl ::core::convert::From<VoiceCommand> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommand> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommand> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommand> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommand> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommand) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommand> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommand) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommand, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommand {}
 unsafe impl ::core::marker::Sync for VoiceCommand {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -421,36 +392,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandCompletedEventArgs {
 impl ::windows::core::RuntimeName for VoiceCommandCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs";
 }
-impl ::core::convert::From<VoiceCommandCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -497,36 +439,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandConfirmationResult {
 impl ::windows::core::RuntimeName for VoiceCommandConfirmationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult";
 }
-impl ::core::convert::From<VoiceCommandConfirmationResult> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandConfirmationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandConfirmationResult> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandConfirmationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandConfirmationResult> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandConfirmationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandConfirmationResult> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandConfirmationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandConfirmationResult> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandConfirmationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandConfirmationResult> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandConfirmationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandConfirmationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandConfirmationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -672,36 +585,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandContentTile {
 impl ::windows::core::RuntimeName for VoiceCommandContentTile {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile";
 }
-impl ::core::convert::From<VoiceCommandContentTile> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandContentTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandContentTile> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandContentTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandContentTile> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandContentTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandContentTile> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandContentTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandContentTile> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandContentTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandContentTile> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandContentTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandContentTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -768,36 +652,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandDefinition {
 impl ::windows::core::RuntimeName for VoiceCommandDefinition {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition";
 }
-impl ::core::convert::From<VoiceCommandDefinition> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandDefinition> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandDefinition> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandDefinition> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandDefinition> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandDefinition> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDefinition {}
 unsafe impl ::core::marker::Sync for VoiceCommandDefinition {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -872,36 +727,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandDisambiguationResult {
 impl ::windows::core::RuntimeName for VoiceCommandDisambiguationResult {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult";
 }
-impl ::core::convert::From<VoiceCommandDisambiguationResult> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandDisambiguationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandDisambiguationResult> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandDisambiguationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandDisambiguationResult> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandDisambiguationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandDisambiguationResult> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandDisambiguationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandDisambiguationResult> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandDisambiguationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandDisambiguationResult> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandDisambiguationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandDisambiguationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandDisambiguationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandDisambiguationResult {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -1030,36 +856,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandResponse {
 impl ::windows::core::RuntimeName for VoiceCommandResponse {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse";
 }
-impl ::core::convert::From<VoiceCommandResponse> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandResponse> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandResponse> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandResponse> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandResponse> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandResponse> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandResponse {}
 unsafe impl ::core::marker::Sync for VoiceCommandResponse {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -1199,36 +996,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandServiceConnection {
 impl ::windows::core::RuntimeName for VoiceCommandServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection";
 }
-impl ::core::convert::From<VoiceCommandServiceConnection> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandServiceConnection> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandServiceConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandServiceConnection> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandServiceConnection> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandServiceConnection> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandServiceConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandServiceConnection> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandServiceConnection {}
 unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
@@ -1297,36 +1065,7 @@ unsafe impl ::windows::core::Interface for VoiceCommandUserMessage {
 impl ::windows::core::RuntimeName for VoiceCommandUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage";
 }
-impl ::core::convert::From<VoiceCommandUserMessage> for ::windows::core::IUnknown {
-    fn from(value: VoiceCommandUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandUserMessage> for ::windows::core::IUnknown {
-    fn from(value: &VoiceCommandUserMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandUserMessage> for &::windows::core::IUnknown {
-    fn from(value: &VoiceCommandUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceCommandUserMessage> for ::windows::core::IInspectable {
-    fn from(value: VoiceCommandUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceCommandUserMessage> for ::windows::core::IInspectable {
-    fn from(value: &VoiceCommandUserMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceCommandUserMessage> for &::windows::core::IInspectable {
-    fn from(value: &VoiceCommandUserMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceCommandUserMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceCommandUserMessage {}
 unsafe impl ::core::marker::Sync for VoiceCommandUserMessage {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]

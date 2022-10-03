@@ -157,36 +157,7 @@ unsafe impl ::windows::core::Interface for PreallocatedWorkItem {
 impl ::windows::core::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
 }
-impl ::core::convert::From<PreallocatedWorkItem> for ::windows::core::IUnknown {
-    fn from(value: PreallocatedWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::core::IUnknown {
-    fn from(value: &PreallocatedWorkItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreallocatedWorkItem> for &::windows::core::IUnknown {
-    fn from(value: &PreallocatedWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PreallocatedWorkItem> for ::windows::core::IInspectable {
-    fn from(value: PreallocatedWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PreallocatedWorkItem> for ::windows::core::IInspectable {
-    fn from(value: &PreallocatedWorkItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PreallocatedWorkItem> for &::windows::core::IInspectable {
-    fn from(value: &PreallocatedWorkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PreallocatedWorkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
 unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
 #[doc = "*Required features: `\"System_Threading_Core\"`*"]
@@ -267,36 +238,7 @@ unsafe impl ::windows::core::Interface for SignalNotifier {
 impl ::windows::core::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";
 }
-impl ::core::convert::From<SignalNotifier> for ::windows::core::IUnknown {
-    fn from(value: SignalNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SignalNotifier> for ::windows::core::IUnknown {
-    fn from(value: &SignalNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SignalNotifier> for &::windows::core::IUnknown {
-    fn from(value: &SignalNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SignalNotifier> for ::windows::core::IInspectable {
-    fn from(value: SignalNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SignalNotifier> for ::windows::core::IInspectable {
-    fn from(value: &SignalNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SignalNotifier> for &::windows::core::IInspectable {
-    fn from(value: &SignalNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SignalNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SignalNotifier {}
 unsafe impl ::core::marker::Sync for SignalNotifier {}
 #[doc = "*Required features: `\"System_Threading_Core\"`*"]

@@ -222,41 +222,7 @@ impl IAllJoynAcceptSessionJoiner {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::core::IUnknown {
-    fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IAllJoynAcceptSessionJoiner> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynAcceptSessionJoiner> for ::windows::core::IUnknown {
-    fn from(value: &IAllJoynAcceptSessionJoiner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
-    fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IAllJoynAcceptSessionJoiner> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
-    fn from(value: &IAllJoynAcceptSessionJoiner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAllJoynAcceptSessionJoiner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IAllJoynAcceptSessionJoiner {
     fn clone(&self) -> Self {
@@ -903,41 +869,7 @@ impl IAllJoynProducer {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynProducer> for ::windows::core::IUnknown {
-    fn from(value: IAllJoynProducer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IAllJoynProducer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAllJoynProducer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynProducer> for ::windows::core::IUnknown {
-    fn from(value: &IAllJoynProducer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynProducer> for ::windows::core::IInspectable {
-    fn from(value: IAllJoynProducer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IAllJoynProducer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAllJoynProducer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynProducer> for ::windows::core::IInspectable {
-    fn from(value: &IAllJoynProducer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAllJoynProducer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IAllJoynProducer {
     fn clone(&self) -> Self {
@@ -1750,41 +1682,7 @@ impl ::windows::core::RuntimeName for AllJoynAboutData {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAboutData";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAboutData> for ::windows::core::IUnknown {
-    fn from(value: AllJoynAboutData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutData> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynAboutData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutData> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynAboutData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAboutData> for ::windows::core::IInspectable {
-    fn from(value: AllJoynAboutData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutData> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynAboutData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutData> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynAboutData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynAboutData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynAboutData {}
 #[cfg(feature = "deprecated")]
@@ -2003,41 +1901,7 @@ impl ::windows::core::RuntimeName for AllJoynAboutDataView {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAboutDataView";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAboutDataView> for ::windows::core::IUnknown {
-    fn from(value: AllJoynAboutDataView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutDataView> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynAboutDataView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutDataView> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynAboutDataView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAboutDataView> for ::windows::core::IInspectable {
-    fn from(value: AllJoynAboutDataView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutDataView> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynAboutDataView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAboutDataView> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynAboutDataView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynAboutDataView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynAboutDataView {}
 #[cfg(feature = "deprecated")]
@@ -2159,41 +2023,7 @@ impl ::windows::core::RuntimeName for AllJoynAcceptSessionJoinerEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAcceptSessionJoinerEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAcceptSessionJoinerEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAcceptSessionJoinerEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAcceptSessionJoinerEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAcceptSessionJoinerEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAcceptSessionJoinerEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAcceptSessionJoinerEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynAcceptSessionJoinerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynAcceptSessionJoinerEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynAcceptSessionJoinerEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2273,41 +2103,7 @@ impl ::windows::core::RuntimeName for AllJoynAuthenticationCompleteEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynAuthenticationCompleteEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAuthenticationCompleteEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynAuthenticationCompleteEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAuthenticationCompleteEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynAuthenticationCompleteEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAuthenticationCompleteEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynAuthenticationCompleteEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynAuthenticationCompleteEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynAuthenticationCompleteEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAuthenticationCompleteEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynAuthenticationCompleteEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynAuthenticationCompleteEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynAuthenticationCompleteEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynAuthenticationCompleteEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynAuthenticationCompleteEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2581,41 +2377,7 @@ impl ::windows::core::RuntimeName for AllJoynBusAttachment {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusAttachment";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusAttachment> for ::windows::core::IUnknown {
-    fn from(value: AllJoynBusAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachment> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynBusAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachment> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynBusAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusAttachment> for ::windows::core::IInspectable {
-    fn from(value: AllJoynBusAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachment> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynBusAttachment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachment> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynBusAttachment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynBusAttachment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynBusAttachment {}
 #[cfg(feature = "deprecated")]
@@ -2686,41 +2448,7 @@ impl ::windows::core::RuntimeName for AllJoynBusAttachmentStateChangedEventArgs 
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusAttachmentStateChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusAttachmentStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachmentStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachmentStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusAttachmentStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachmentStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusAttachmentStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynBusAttachmentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynBusAttachmentStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynBusAttachmentStateChangedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -2857,41 +2585,7 @@ impl ::windows::core::RuntimeName for AllJoynBusObject {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusObject";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusObject> for ::windows::core::IUnknown {
-    fn from(value: AllJoynBusObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObject> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynBusObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObject> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynBusObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusObject> for ::windows::core::IInspectable {
-    fn from(value: AllJoynBusObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObject> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynBusObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObject> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynBusObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynBusObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynBusObject {}
 #[cfg(feature = "deprecated")]
@@ -2967,41 +2661,7 @@ impl ::windows::core::RuntimeName for AllJoynBusObjectStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynBusObjectStoppedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusObjectStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynBusObjectStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObjectStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynBusObjectStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObjectStoppedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynBusObjectStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynBusObjectStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynBusObjectStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObjectStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynBusObjectStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynBusObjectStoppedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynBusObjectStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynBusObjectStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynBusObjectStoppedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3108,41 +2768,7 @@ impl ::windows::core::RuntimeName for AllJoynCredentials {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentials";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentials> for ::windows::core::IUnknown {
-    fn from(value: AllJoynCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentials> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentials) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentials> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentials> for ::windows::core::IInspectable {
-    fn from(value: AllJoynCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentials> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentials) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentials> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentials) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynCredentials, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynCredentials {}
 #[cfg(feature = "deprecated")]
@@ -3240,41 +2866,7 @@ impl ::windows::core::RuntimeName for AllJoynCredentialsRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentialsRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentialsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynCredentialsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentialsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentialsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentialsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynCredentialsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentialsRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentialsRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynCredentialsRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynCredentialsRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3396,41 +2988,7 @@ impl ::windows::core::RuntimeName for AllJoynCredentialsVerificationRequestedEve
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynCredentialsVerificationRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsVerificationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsVerificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynCredentialsVerificationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynCredentialsVerificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynCredentialsVerificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynCredentialsVerificationRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3506,41 +3064,7 @@ impl ::windows::core::RuntimeName for AllJoynMessageInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynMessageInfo";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynMessageInfo> for ::windows::core::IUnknown {
-    fn from(value: AllJoynMessageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynMessageInfo> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynMessageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynMessageInfo> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynMessageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynMessageInfo> for ::windows::core::IInspectable {
-    fn from(value: AllJoynMessageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynMessageInfo> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynMessageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynMessageInfo> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynMessageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynMessageInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynMessageInfo {}
 #[cfg(feature = "deprecated")]
@@ -3616,41 +3140,7 @@ impl ::windows::core::RuntimeName for AllJoynProducerStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynProducerStoppedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynProducerStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynProducerStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynProducerStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynProducerStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynProducerStoppedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynProducerStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynProducerStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynProducerStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynProducerStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynProducerStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynProducerStoppedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynProducerStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynProducerStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynProducerStoppedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -3758,41 +3248,7 @@ impl ::windows::core::RuntimeName for AllJoynServiceInfo {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynServiceInfo";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: AllJoynServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfo> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: AllJoynServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfo> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynServiceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynServiceInfo {}
 #[cfg(feature = "deprecated")]
@@ -3868,41 +3324,7 @@ impl ::windows::core::RuntimeName for AllJoynServiceInfoRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynServiceInfoRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynServiceInfoRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynServiceInfoRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfoRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynServiceInfoRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfoRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynServiceInfoRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynServiceInfoRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynServiceInfoRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfoRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynServiceInfoRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynServiceInfoRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynServiceInfoRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynServiceInfoRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynServiceInfoRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4049,41 +3471,7 @@ impl ::windows::core::RuntimeName for AllJoynSession {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSession";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSession> for ::windows::core::IUnknown {
-    fn from(value: AllJoynSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSession> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSession> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSession> for ::windows::core::IInspectable {
-    fn from(value: AllJoynSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSession> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSession> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynSession {}
 #[cfg(feature = "deprecated")]
@@ -4159,41 +3547,7 @@ impl ::windows::core::RuntimeName for AllJoynSessionJoinedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionJoinedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionJoinedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynSessionJoinedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionJoinedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionJoinedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionJoinedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionJoinedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionJoinedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynSessionJoinedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionJoinedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionJoinedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionJoinedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionJoinedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynSessionJoinedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynSessionJoinedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4269,41 +3623,7 @@ impl ::windows::core::RuntimeName for AllJoynSessionLostEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionLostEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionLostEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynSessionLostEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionLostEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionLostEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionLostEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionLostEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionLostEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynSessionLostEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionLostEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionLostEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionLostEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionLostEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynSessionLostEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynSessionLostEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4379,41 +3699,7 @@ impl ::windows::core::RuntimeName for AllJoynSessionMemberAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionMemberAddedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionMemberAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynSessionMemberAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionMemberAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionMemberAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionMemberAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynSessionMemberAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionMemberAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionMemberAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynSessionMemberAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynSessionMemberAddedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4489,41 +3775,7 @@ impl ::windows::core::RuntimeName for AllJoynSessionMemberRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynSessionMemberRemovedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionMemberRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynSessionMemberRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionMemberRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynSessionMemberRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynSessionMemberRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynSessionMemberRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionMemberRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynSessionMemberRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynSessionMemberRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynSessionMemberRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynSessionMemberRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
@@ -4759,41 +4011,7 @@ impl ::windows::core::RuntimeName for AllJoynWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynWatcherStoppedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynWatcherStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AllJoynWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynWatcherStoppedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AllJoynWatcherStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynWatcherStoppedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AllJoynWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<AllJoynWatcherStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AllJoynWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynWatcherStoppedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AllJoynWatcherStoppedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&AllJoynWatcherStoppedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AllJoynWatcherStoppedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AllJoynWatcherStoppedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for AllJoynWatcherStoppedEventArgs {}
 #[cfg(feature = "deprecated")]

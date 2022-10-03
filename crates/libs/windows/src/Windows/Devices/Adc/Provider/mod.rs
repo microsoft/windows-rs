@@ -64,36 +64,7 @@ impl IAdcControllerProvider {
         }
     }
 }
-impl ::core::convert::From<IAdcControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: IAdcControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdcControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdcControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdcControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &IAdcControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAdcControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IAdcControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdcControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAdcControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdcControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IAdcControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdcControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAdcControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -152,36 +123,7 @@ impl IAdcProvider {
         }
     }
 }
-impl ::core::convert::From<IAdcProvider> for ::windows::core::IUnknown {
-    fn from(value: IAdcProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdcProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdcProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdcProvider> for ::windows::core::IUnknown {
-    fn from(value: &IAdcProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAdcProvider> for ::windows::core::IInspectable {
-    fn from(value: IAdcProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdcProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAdcProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdcProvider> for ::windows::core::IInspectable {
-    fn from(value: &IAdcProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdcProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAdcProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())

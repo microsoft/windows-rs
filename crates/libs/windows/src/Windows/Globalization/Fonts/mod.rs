@@ -144,36 +144,7 @@ unsafe impl ::windows::core::Interface for LanguageFont {
 impl ::windows::core::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
 }
-impl ::core::convert::From<LanguageFont> for ::windows::core::IUnknown {
-    fn from(value: LanguageFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanguageFont> for ::windows::core::IUnknown {
-    fn from(value: &LanguageFont) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanguageFont> for &::windows::core::IUnknown {
-    fn from(value: &LanguageFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LanguageFont> for ::windows::core::IInspectable {
-    fn from(value: LanguageFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanguageFont> for ::windows::core::IInspectable {
-    fn from(value: &LanguageFont) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanguageFont> for &::windows::core::IInspectable {
-    fn from(value: &LanguageFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LanguageFont, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanguageFont {}
 unsafe impl ::core::marker::Sync for LanguageFont {}
 #[doc = "*Required features: `\"Globalization_Fonts\"`*"]
@@ -301,36 +272,7 @@ unsafe impl ::windows::core::Interface for LanguageFontGroup {
 impl ::windows::core::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";
 }
-impl ::core::convert::From<LanguageFontGroup> for ::windows::core::IUnknown {
-    fn from(value: LanguageFontGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanguageFontGroup> for ::windows::core::IUnknown {
-    fn from(value: &LanguageFontGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanguageFontGroup> for &::windows::core::IUnknown {
-    fn from(value: &LanguageFontGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LanguageFontGroup> for ::windows::core::IInspectable {
-    fn from(value: LanguageFontGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanguageFontGroup> for ::windows::core::IInspectable {
-    fn from(value: &LanguageFontGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanguageFontGroup> for &::windows::core::IInspectable {
-    fn from(value: &LanguageFontGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LanguageFontGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanguageFontGroup {}
 unsafe impl ::core::marker::Sync for LanguageFontGroup {}
 #[cfg(feature = "implement")]

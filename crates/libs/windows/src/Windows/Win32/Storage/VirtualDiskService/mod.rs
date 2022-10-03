@@ -16,21 +16,7 @@ impl IEnumVdsObject {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
 }
-impl ::core::convert::From<IEnumVdsObject> for ::windows::core::IUnknown {
-    fn from(value: IEnumVdsObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumVdsObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumVdsObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumVdsObject> for ::windows::core::IUnknown {
-    fn from(value: &IEnumVdsObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumVdsObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumVdsObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -78,21 +64,7 @@ impl IVdsAdmin {
         (::windows::core::Vtable::vtable(self).UnregisterProvider)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
 }
-impl ::core::convert::From<IVdsAdmin> for ::windows::core::IUnknown {
-    fn from(value: IVdsAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsAdmin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsAdmin> for ::windows::core::IUnknown {
-    fn from(value: &IVdsAdmin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsAdmin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsAdmin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -130,21 +102,7 @@ impl IVdsAdviseSink {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), pnotificationarray.len() as _, ::core::mem::transmute(pnotificationarray.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IVdsAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: IVdsAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsAdviseSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: &IVdsAdviseSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsAdviseSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsAdviseSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -187,21 +145,7 @@ impl IVdsAsync {
         (::windows::core::Vtable::vtable(self).QueryStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phrresult), ::core::mem::transmute(pulpercentcompleted)).ok()
     }
 }
-impl ::core::convert::From<IVdsAsync> for ::windows::core::IUnknown {
-    fn from(value: IVdsAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsAsync> for ::windows::core::IUnknown {
-    fn from(value: &IVdsAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -265,21 +209,7 @@ impl IVdsController {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-impl ::core::convert::From<IVdsController> for ::windows::core::IUnknown {
-    fn from(value: IVdsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsController> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsController> for ::windows::core::IUnknown {
-    fn from(value: &IVdsController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsController, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -324,21 +254,7 @@ impl IVdsControllerControllerPort {
         (::windows::core::Vtable::vtable(self).QueryControllerPorts)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
 }
-impl ::core::convert::From<IVdsControllerControllerPort> for ::windows::core::IUnknown {
-    fn from(value: IVdsControllerControllerPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsControllerControllerPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsControllerControllerPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsControllerControllerPort> for ::windows::core::IUnknown {
-    fn from(value: &IVdsControllerControllerPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsControllerControllerPort, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsControllerControllerPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -390,21 +306,7 @@ impl IVdsControllerPort {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-impl ::core::convert::From<IVdsControllerPort> for ::windows::core::IUnknown {
-    fn from(value: IVdsControllerPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsControllerPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsControllerPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsControllerPort> for ::windows::core::IUnknown {
-    fn from(value: &IVdsControllerPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsControllerPort, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsControllerPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -464,21 +366,7 @@ impl IVdsDrive {
         (::windows::core::Vtable::vtable(self).SetStatus)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-impl ::core::convert::From<IVdsDrive> for ::windows::core::IUnknown {
-    fn from(value: IVdsDrive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsDrive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsDrive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsDrive> for ::windows::core::IUnknown {
-    fn from(value: &IVdsDrive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsDrive, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsDrive {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -524,21 +412,7 @@ impl IVdsDrive2 {
         (::windows::core::Vtable::vtable(self).GetProperties2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_DRIVE_PROP2>(result__)
     }
 }
-impl ::core::convert::From<IVdsDrive2> for ::windows::core::IUnknown {
-    fn from(value: IVdsDrive2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsDrive2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsDrive2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsDrive2> for ::windows::core::IUnknown {
-    fn from(value: &IVdsDrive2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsDrive2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsDrive2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -582,21 +456,7 @@ impl IVdsHwProvider {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IVdsHwProvider> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProvider> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -641,21 +501,7 @@ impl IVdsHwProviderPrivate {
         (::windows::core::Vtable::vtable(self).QueryIfCreatedLun)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into(), ::core::mem::transmute(pvdsluninformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IVdsHwProviderPrivate> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProviderPrivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProviderPrivate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProviderPrivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProviderPrivate> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProviderPrivate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProviderPrivate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProviderPrivate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -695,21 +541,7 @@ impl IVdsHwProviderPrivateMpio {
         (::windows::core::Vtable::vtable(self).SetAllPathStatusesFromHbaPort)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hbaportprop), status).ok()
     }
 }
-impl ::core::convert::From<IVdsHwProviderPrivateMpio> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProviderPrivateMpio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProviderPrivateMpio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProviderPrivateMpio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProviderPrivateMpio> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProviderPrivateMpio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProviderPrivateMpio, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -764,21 +596,7 @@ impl IVdsHwProviderStoragePools {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IVdsHwProviderStoragePools> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProviderStoragePools) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProviderStoragePools> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProviderStoragePools) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProviderStoragePools> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProviderStoragePools) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProviderStoragePools {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -827,21 +645,7 @@ impl IVdsHwProviderType {
         (::windows::core::Vtable::vtable(self).GetProviderType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HWPROVIDER_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IVdsHwProviderType> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProviderType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProviderType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProviderType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProviderType> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProviderType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProviderType, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProviderType {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -879,21 +683,7 @@ impl IVdsHwProviderType2 {
         (::windows::core::Vtable::vtable(self).GetProviderType2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_HWPROVIDER_TYPE>(result__)
     }
 }
-impl ::core::convert::From<IVdsHwProviderType2> for ::windows::core::IUnknown {
-    fn from(value: IVdsHwProviderType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsHwProviderType2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsHwProviderType2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsHwProviderType2> for ::windows::core::IUnknown {
-    fn from(value: &IVdsHwProviderType2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsHwProviderType2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsHwProviderType2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -952,21 +742,7 @@ impl IVdsIscsiPortal {
         (::windows::core::Vtable::vtable(self).SetIpsecSecurity)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pinitiatorportaladdress), ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IVdsIscsiPortal> for ::windows::core::IUnknown {
-    fn from(value: IVdsIscsiPortal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsIscsiPortal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsIscsiPortal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsIscsiPortal> for ::windows::core::IUnknown {
-    fn from(value: &IVdsIscsiPortal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsIscsiPortal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsIscsiPortal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1030,21 +806,7 @@ impl IVdsIscsiPortalGroup {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
 }
-impl ::core::convert::From<IVdsIscsiPortalGroup> for ::windows::core::IUnknown {
-    fn from(value: IVdsIscsiPortalGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsIscsiPortalGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsIscsiPortalGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsIscsiPortalGroup> for ::windows::core::IUnknown {
-    fn from(value: &IVdsIscsiPortalGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsIscsiPortalGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsIscsiPortalGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1130,21 +892,7 @@ impl IVdsIscsiTarget {
         (::windows::core::Vtable::vtable(self).GetConnectedInitiators)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pppwszinitiatorlist), ::core::mem::transmute(plnumberofinitiators)).ok()
     }
 }
-impl ::core::convert::From<IVdsIscsiTarget> for ::windows::core::IUnknown {
-    fn from(value: IVdsIscsiTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsIscsiTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsIscsiTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsIscsiTarget> for ::windows::core::IUnknown {
-    fn from(value: &IVdsIscsiTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsIscsiTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsIscsiTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1262,21 +1010,7 @@ impl IVdsLun {
         (::windows::core::Vtable::vtable(self).QueryMaxLunExtendSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IVdsLun> for ::windows::core::IUnknown {
-    fn from(value: IVdsLun) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLun> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLun) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLun> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLun) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLun, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLun {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1346,21 +1080,7 @@ impl IVdsLun2 {
         (::windows::core::Vtable::vtable(self).ApplyHints2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phints2)).ok()
     }
 }
-impl ::core::convert::From<IVdsLun2> for ::windows::core::IUnknown {
-    fn from(value: IVdsLun2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLun2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLun2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLun2> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLun2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLun2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLun2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1408,21 +1128,7 @@ impl IVdsLunControllerPorts {
         (::windows::core::Vtable::vtable(self).QueryActiveControllerPorts)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
 }
-impl ::core::convert::From<IVdsLunControllerPorts> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunControllerPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunControllerPorts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunControllerPorts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunControllerPorts> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunControllerPorts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunControllerPorts, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunControllerPorts {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1464,21 +1170,7 @@ impl IVdsLunIscsi {
         (::windows::core::Vtable::vtable(self).QueryAssociatedTargets)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
 }
-impl ::core::convert::From<IVdsLunIscsi> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunIscsi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunIscsi> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunIscsi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunIscsi> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunIscsi) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunIscsi, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunIscsi {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1530,21 +1222,7 @@ impl IVdsLunMpio {
         (::windows::core::Vtable::vtable(self).GetSupportedLbPolicies)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IVdsLunMpio> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunMpio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunMpio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunMpio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunMpio> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunMpio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunMpio, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunMpio {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1593,21 +1271,7 @@ impl IVdsLunNaming {
         (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into()).ok()
     }
 }
-impl ::core::convert::From<IVdsLunNaming> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunNaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunNaming> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunNaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunNaming> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunNaming) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunNaming, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunNaming {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1645,21 +1309,7 @@ impl IVdsLunNumber {
         (::windows::core::Vtable::vtable(self).GetLunNumber)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IVdsLunNumber> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunNumber) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunNumber> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunNumber) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunNumber> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunNumber) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunNumber, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunNumber {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1717,21 +1367,7 @@ impl IVdsLunPlex {
         (::windows::core::Vtable::vtable(self).ApplyHints)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phints)).ok()
     }
 }
-impl ::core::convert::From<IVdsLunPlex> for ::windows::core::IUnknown {
-    fn from(value: IVdsLunPlex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsLunPlex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsLunPlex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsLunPlex> for ::windows::core::IUnknown {
-    fn from(value: &IVdsLunPlex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsLunPlex, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsLunPlex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1787,21 +1423,7 @@ impl IVdsMaintenance {
         (::windows::core::Vtable::vtable(self).PulseMaintenance)(::windows::core::Vtable::as_raw(self), operation, ulcount).ok()
     }
 }
-impl ::core::convert::From<IVdsMaintenance> for ::windows::core::IUnknown {
-    fn from(value: IVdsMaintenance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsMaintenance> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsMaintenance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsMaintenance> for ::windows::core::IUnknown {
-    fn from(value: &IVdsMaintenance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsMaintenance, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsMaintenance {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1841,21 +1463,7 @@ impl IVdsProvider {
         (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<VDS_PROVIDER_PROP>(result__)
     }
 }
-impl ::core::convert::From<IVdsProvider> for ::windows::core::IUnknown {
-    fn from(value: IVdsProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsProvider> for ::windows::core::IUnknown {
-    fn from(value: &IVdsProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1908,21 +1516,7 @@ impl IVdsProviderPrivate {
         (::windows::core::Vtable::vtable(self).OnUnload)(::windows::core::Vtable::as_raw(self), bforceunload.into()).ok()
     }
 }
-impl ::core::convert::From<IVdsProviderPrivate> for ::windows::core::IUnknown {
-    fn from(value: IVdsProviderPrivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsProviderPrivate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsProviderPrivate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsProviderPrivate> for ::windows::core::IUnknown {
-    fn from(value: &IVdsProviderPrivate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsProviderPrivate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsProviderPrivate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1965,21 +1559,7 @@ impl IVdsProviderSupport {
         (::windows::core::Vtable::vtable(self).GetVersionSupport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IVdsProviderSupport> for ::windows::core::IUnknown {
-    fn from(value: IVdsProviderSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsProviderSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsProviderSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsProviderSupport> for ::windows::core::IUnknown {
-    fn from(value: &IVdsProviderSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsProviderSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsProviderSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2040,21 +1620,7 @@ impl IVdsStoragePool {
         (::windows::core::Vtable::vtable(self).QueryAllocatedStoragePools)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
 }
-impl ::core::convert::From<IVdsStoragePool> for ::windows::core::IUnknown {
-    fn from(value: IVdsStoragePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsStoragePool> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsStoragePool) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsStoragePool> for ::windows::core::IUnknown {
-    fn from(value: &IVdsStoragePool) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsStoragePool, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsStoragePool {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2150,21 +1716,7 @@ impl IVdsSubSystem {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IVdsSubSystem> for ::windows::core::IUnknown {
-    fn from(value: IVdsSubSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsSubSystem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsSubSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsSubSystem> for ::windows::core::IUnknown {
-    fn from(value: &IVdsSubSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsSubSystem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsSubSystem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2238,21 +1790,7 @@ impl IVdsSubSystem2 {
         (::windows::core::Vtable::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IVdsSubSystem2> for ::windows::core::IUnknown {
-    fn from(value: IVdsSubSystem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsSubSystem2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsSubSystem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsSubSystem2> for ::windows::core::IUnknown {
-    fn from(value: &IVdsSubSystem2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsSubSystem2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsSubSystem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2299,21 +1837,7 @@ impl IVdsSubSystemInterconnect {
         (::windows::core::Vtable::vtable(self).GetSupportedInterconnects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IVdsSubSystemInterconnect> for ::windows::core::IUnknown {
-    fn from(value: IVdsSubSystemInterconnect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsSubSystemInterconnect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsSubSystemInterconnect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsSubSystemInterconnect> for ::windows::core::IUnknown {
-    fn from(value: &IVdsSubSystemInterconnect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsSubSystemInterconnect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsSubSystemInterconnect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2366,21 +1890,7 @@ impl IVdsSubSystemIscsi {
         (::windows::core::Vtable::vtable(self).SetIpsecGroupPresharedKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IVdsSubSystemIscsi> for ::windows::core::IUnknown {
-    fn from(value: IVdsSubSystemIscsi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsSubSystemIscsi> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsSubSystemIscsi) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsSubSystemIscsi> for ::windows::core::IUnknown {
-    fn from(value: &IVdsSubSystemIscsi) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsSubSystemIscsi, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsSubSystemIscsi {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2423,21 +1933,7 @@ impl IVdsSubSystemNaming {
         (::windows::core::Vtable::vtable(self).SetFriendlyName)(::windows::core::Vtable::as_raw(self), pwszfriendlyname.into()).ok()
     }
 }
-impl ::core::convert::From<IVdsSubSystemNaming> for ::windows::core::IUnknown {
-    fn from(value: IVdsSubSystemNaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVdsSubSystemNaming> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVdsSubSystemNaming) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVdsSubSystemNaming> for ::windows::core::IUnknown {
-    fn from(value: &IVdsSubSystemNaming) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVdsSubSystemNaming, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVdsSubSystemNaming {
     fn clone(&self) -> Self {
         Self(self.0.clone())

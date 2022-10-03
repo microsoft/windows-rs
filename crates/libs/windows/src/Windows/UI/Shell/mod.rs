@@ -10,36 +10,7 @@ impl IAdaptiveCard {
         }
     }
 }
-impl ::core::convert::From<IAdaptiveCard> for ::windows::core::IUnknown {
-    fn from(value: IAdaptiveCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveCard> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdaptiveCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveCard> for ::windows::core::IUnknown {
-    fn from(value: &IAdaptiveCard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAdaptiveCard> for ::windows::core::IInspectable {
-    fn from(value: IAdaptiveCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveCard> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAdaptiveCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveCard> for ::windows::core::IInspectable {
-    fn from(value: &IAdaptiveCard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdaptiveCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAdaptiveCard {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -87,36 +58,7 @@ impl IAdaptiveCardBuilderStatics {
         }
     }
 }
-impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::core::IUnknown {
-    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveCardBuilderStatics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAdaptiveCardBuilderStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::core::IUnknown {
-    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::core::IInspectable {
-    fn from(value: IAdaptiveCardBuilderStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAdaptiveCardBuilderStatics> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAdaptiveCardBuilderStatics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::core::IInspectable {
-    fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAdaptiveCardBuilderStatics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAdaptiveCardBuilderStatics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -394,36 +336,7 @@ unsafe impl ::windows::core::Interface for SecurityAppManager {
 impl ::windows::core::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
 }
-impl ::core::convert::From<SecurityAppManager> for ::windows::core::IUnknown {
-    fn from(value: SecurityAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecurityAppManager> for ::windows::core::IUnknown {
-    fn from(value: &SecurityAppManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecurityAppManager> for &::windows::core::IUnknown {
-    fn from(value: &SecurityAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SecurityAppManager> for ::windows::core::IInspectable {
-    fn from(value: SecurityAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SecurityAppManager> for ::windows::core::IInspectable {
-    fn from(value: &SecurityAppManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SecurityAppManager> for &::windows::core::IInspectable {
-    fn from(value: &SecurityAppManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SecurityAppManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -481,36 +394,7 @@ unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
 impl ::windows::core::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
 }
-impl ::core::convert::From<ShareWindowCommandEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ShareWindowCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ShareWindowCommandEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ShareWindowCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShareWindowCommandEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ShareWindowCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ShareWindowCommandEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ShareWindowCommandEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShareWindowCommandEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -603,36 +487,7 @@ unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
 impl ::windows::core::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
 }
-impl ::core::convert::From<ShareWindowCommandSource> for ::windows::core::IUnknown {
-    fn from(value: ShareWindowCommandSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::core::IUnknown {
-    fn from(value: &ShareWindowCommandSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandSource> for &::windows::core::IUnknown {
-    fn from(value: &ShareWindowCommandSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ShareWindowCommandSource> for ::windows::core::IInspectable {
-    fn from(value: ShareWindowCommandSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::core::IInspectable {
-    fn from(value: &ShareWindowCommandSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ShareWindowCommandSource> for &::windows::core::IInspectable {
-    fn from(value: &ShareWindowCommandSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ShareWindowCommandSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -760,36 +615,7 @@ unsafe impl ::windows::core::Interface for TaskbarManager {
 impl ::windows::core::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";
 }
-impl ::core::convert::From<TaskbarManager> for ::windows::core::IUnknown {
-    fn from(value: TaskbarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TaskbarManager> for ::windows::core::IUnknown {
-    fn from(value: &TaskbarManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TaskbarManager> for &::windows::core::IUnknown {
-    fn from(value: &TaskbarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TaskbarManager> for ::windows::core::IInspectable {
-    fn from(value: TaskbarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TaskbarManager> for ::windows::core::IInspectable {
-    fn from(value: &TaskbarManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TaskbarManager> for &::windows::core::IInspectable {
-    fn from(value: &TaskbarManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TaskbarManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TaskbarManager {}
 unsafe impl ::core::marker::Sync for TaskbarManager {}
 #[doc = "*Required features: `\"UI_Shell\"`*"]

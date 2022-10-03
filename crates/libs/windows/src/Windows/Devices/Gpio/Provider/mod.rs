@@ -17,36 +17,7 @@ impl IGpioControllerProvider {
         }
     }
 }
-impl ::core::convert::From<IGpioControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: IGpioControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGpioControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &IGpioControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGpioControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IGpioControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGpioControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IGpioControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGpioControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGpioControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -161,36 +132,7 @@ impl IGpioPinProvider {
         }
     }
 }
-impl ::core::convert::From<IGpioPinProvider> for ::windows::core::IUnknown {
-    fn from(value: IGpioPinProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioPinProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGpioPinProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioPinProvider> for ::windows::core::IUnknown {
-    fn from(value: &IGpioPinProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGpioPinProvider> for ::windows::core::IInspectable {
-    fn from(value: IGpioPinProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioPinProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGpioPinProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioPinProvider> for ::windows::core::IInspectable {
-    fn from(value: &IGpioPinProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGpioPinProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGpioPinProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -292,36 +234,7 @@ impl IGpioProvider {
         }
     }
 }
-impl ::core::convert::From<IGpioProvider> for ::windows::core::IUnknown {
-    fn from(value: IGpioProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGpioProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioProvider> for ::windows::core::IUnknown {
-    fn from(value: &IGpioProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGpioProvider> for ::windows::core::IInspectable {
-    fn from(value: IGpioProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGpioProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGpioProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGpioProvider> for ::windows::core::IInspectable {
-    fn from(value: &IGpioProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGpioProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGpioProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -415,36 +328,7 @@ unsafe impl ::windows::core::Interface for GpioPinProviderValueChangedEventArgs 
 impl ::windows::core::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
 }
-impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GpioPinProviderValueChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GpioPinProviderValueChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GpioPinProviderValueChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GpioPinProviderValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]

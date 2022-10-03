@@ -314,36 +314,7 @@ impl IBitmapFrame {
         }
     }
 }
-impl ::core::convert::From<IBitmapFrame> for ::windows::core::IUnknown {
-    fn from(value: IBitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapFrame> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrame> for ::windows::core::IUnknown {
-    fn from(value: &IBitmapFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: IBitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapFrame> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBitmapFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -521,36 +492,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
 }
-impl ::core::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::core::IUnknown {
-    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapFrameWithSoftwareBitmap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::IUnknown {
-    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapFrameWithSoftwareBitmap> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IBitmapFrameWithSoftwareBitmap> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: IBitmapFrameWithSoftwareBitmap) -> ::windows::core::Result<Self> {
@@ -652,36 +594,7 @@ impl IBitmapPropertiesView {
         }
     }
 }
-impl ::core::convert::From<IBitmapPropertiesView> for ::windows::core::IUnknown {
-    fn from(value: IBitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapPropertiesView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapPropertiesView> for ::windows::core::IUnknown {
-    fn from(value: &IBitmapPropertiesView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: IBitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitmapPropertiesView> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IBitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapPropertiesView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IBitmapPropertiesView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -947,36 +860,7 @@ unsafe impl ::windows::core::Interface for BitmapBuffer {
 impl ::windows::core::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
 }
-impl ::core::convert::From<BitmapBuffer> for ::windows::core::IUnknown {
-    fn from(value: BitmapBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapBuffer> for ::windows::core::IUnknown {
-    fn from(value: &BitmapBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapBuffer> for &::windows::core::IUnknown {
-    fn from(value: &BitmapBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapBuffer> for ::windows::core::IInspectable {
-    fn from(value: BitmapBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapBuffer> for ::windows::core::IInspectable {
-    fn from(value: &BitmapBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapBuffer> for &::windows::core::IInspectable {
-    fn from(value: &BitmapBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapBuffer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BitmapBuffer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1092,36 +976,7 @@ unsafe impl ::windows::core::Interface for BitmapCodecInformation {
 impl ::windows::core::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
 }
-impl ::core::convert::From<BitmapCodecInformation> for ::windows::core::IUnknown {
-    fn from(value: BitmapCodecInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapCodecInformation> for ::windows::core::IUnknown {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapCodecInformation> for &::windows::core::IUnknown {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapCodecInformation> for ::windows::core::IInspectable {
-    fn from(value: BitmapCodecInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapCodecInformation> for ::windows::core::IInspectable {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapCodecInformation> for &::windows::core::IInspectable {
-    fn from(value: &BitmapCodecInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapCodecInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapCodecInformation {}
 unsafe impl ::core::marker::Sync for BitmapCodecInformation {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1413,36 +1268,7 @@ unsafe impl ::windows::core::Interface for BitmapDecoder {
 impl ::windows::core::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
 }
-impl ::core::convert::From<BitmapDecoder> for ::windows::core::IUnknown {
-    fn from(value: BitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapDecoder> for ::windows::core::IUnknown {
-    fn from(value: &BitmapDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapDecoder> for &::windows::core::IUnknown {
-    fn from(value: &BitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapDecoder> for ::windows::core::IInspectable {
-    fn from(value: BitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapDecoder> for ::windows::core::IInspectable {
-    fn from(value: &BitmapDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapDecoder> for &::windows::core::IInspectable {
-    fn from(value: &BitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapDecoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapDecoder> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapDecoder) -> ::windows::core::Result<Self> {
@@ -1726,36 +1552,7 @@ unsafe impl ::windows::core::Interface for BitmapEncoder {
 impl ::windows::core::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
 }
-impl ::core::convert::From<BitmapEncoder> for ::windows::core::IUnknown {
-    fn from(value: BitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapEncoder> for ::windows::core::IUnknown {
-    fn from(value: &BitmapEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapEncoder> for &::windows::core::IUnknown {
-    fn from(value: &BitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapEncoder> for ::windows::core::IInspectable {
-    fn from(value: BitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapEncoder> for ::windows::core::IInspectable {
-    fn from(value: &BitmapEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapEncoder> for &::windows::core::IInspectable {
-    fn from(value: &BitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapEncoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapEncoder {}
 unsafe impl ::core::marker::Sync for BitmapEncoder {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1912,36 +1709,7 @@ unsafe impl ::windows::core::Interface for BitmapFrame {
 impl ::windows::core::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
 }
-impl ::core::convert::From<BitmapFrame> for ::windows::core::IUnknown {
-    fn from(value: BitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapFrame> for ::windows::core::IUnknown {
-    fn from(value: &BitmapFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapFrame> for &::windows::core::IUnknown {
-    fn from(value: &BitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: BitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: &BitmapFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapFrame> for &::windows::core::IInspectable {
-    fn from(value: &BitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapFrame> for IBitmapFrame {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapFrame) -> ::windows::core::Result<Self> {
@@ -2045,36 +1813,7 @@ unsafe impl ::windows::core::Interface for BitmapProperties {
 impl ::windows::core::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
 }
-impl ::core::convert::From<BitmapProperties> for ::windows::core::IUnknown {
-    fn from(value: BitmapProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapProperties> for ::windows::core::IUnknown {
-    fn from(value: &BitmapProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapProperties> for &::windows::core::IUnknown {
-    fn from(value: &BitmapProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapProperties> for ::windows::core::IInspectable {
-    fn from(value: BitmapProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapProperties> for ::windows::core::IInspectable {
-    fn from(value: &BitmapProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapProperties> for &::windows::core::IInspectable {
-    fn from(value: &BitmapProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapProperties> for IBitmapPropertiesView {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapProperties) -> ::windows::core::Result<Self> {
@@ -2146,36 +1885,7 @@ unsafe impl ::windows::core::Interface for BitmapPropertiesView {
 impl ::windows::core::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
 }
-impl ::core::convert::From<BitmapPropertiesView> for ::windows::core::IUnknown {
-    fn from(value: BitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapPropertiesView> for ::windows::core::IUnknown {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapPropertiesView> for &::windows::core::IUnknown {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: BitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapPropertiesView> for &::windows::core::IInspectable {
-    fn from(value: &BitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapPropertiesView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<BitmapPropertiesView> for IBitmapPropertiesView {
     type Error = ::windows::core::Error;
     fn try_from(value: BitmapPropertiesView) -> ::windows::core::Result<Self> {
@@ -2334,41 +2044,7 @@ impl ::core::iter::IntoIterator for &BitmapPropertySet {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<BitmapPropertySet> for ::windows::core::IUnknown {
-    fn from(value: BitmapPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&BitmapPropertySet> for ::windows::core::IUnknown {
-    fn from(value: &BitmapPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&BitmapPropertySet> for &::windows::core::IUnknown {
-    fn from(value: &BitmapPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<BitmapPropertySet> for ::windows::core::IInspectable {
-    fn from(value: BitmapPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&BitmapPropertySet> for ::windows::core::IInspectable {
-    fn from(value: &BitmapPropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&BitmapPropertySet> for &::windows::core::IInspectable {
-    fn from(value: &BitmapPropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapPropertySet, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<BitmapPropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, BitmapTypedValue>> {
     type Error = ::windows::core::Error;
@@ -2527,36 +2203,7 @@ unsafe impl ::windows::core::Interface for BitmapTransform {
 impl ::windows::core::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
 }
-impl ::core::convert::From<BitmapTransform> for ::windows::core::IUnknown {
-    fn from(value: BitmapTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapTransform> for ::windows::core::IUnknown {
-    fn from(value: &BitmapTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapTransform> for &::windows::core::IUnknown {
-    fn from(value: &BitmapTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapTransform> for ::windows::core::IInspectable {
-    fn from(value: BitmapTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapTransform> for ::windows::core::IInspectable {
-    fn from(value: &BitmapTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapTransform> for &::windows::core::IInspectable {
-    fn from(value: &BitmapTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapTransform, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapTransform {}
 unsafe impl ::core::marker::Sync for BitmapTransform {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -2628,36 +2275,7 @@ unsafe impl ::windows::core::Interface for BitmapTypedValue {
 impl ::windows::core::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
 }
-impl ::core::convert::From<BitmapTypedValue> for ::windows::core::IUnknown {
-    fn from(value: BitmapTypedValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapTypedValue> for ::windows::core::IUnknown {
-    fn from(value: &BitmapTypedValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapTypedValue> for &::windows::core::IUnknown {
-    fn from(value: &BitmapTypedValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BitmapTypedValue> for ::windows::core::IInspectable {
-    fn from(value: BitmapTypedValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BitmapTypedValue> for ::windows::core::IInspectable {
-    fn from(value: &BitmapTypedValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BitmapTypedValue> for &::windows::core::IInspectable {
-    fn from(value: &BitmapTypedValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BitmapTypedValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`*"]
@@ -2833,41 +2451,7 @@ impl ::windows::core::RuntimeName for ImageStream {
     const NAME: &'static str = "Windows.Graphics.Imaging.ImageStream";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<ImageStream> for ::windows::core::IUnknown {
-    fn from(value: ImageStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&ImageStream> for ::windows::core::IUnknown {
-    fn from(value: &ImageStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&ImageStream> for &::windows::core::IUnknown {
-    fn from(value: &ImageStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<ImageStream> for ::windows::core::IInspectable {
-    fn from(value: ImageStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&ImageStream> for ::windows::core::IInspectable {
-    fn from(value: &ImageStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&ImageStream> for &::windows::core::IInspectable {
-    fn from(value: &ImageStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<ImageStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3048,36 +2632,7 @@ unsafe impl ::windows::core::Interface for PixelDataProvider {
 impl ::windows::core::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
 }
-impl ::core::convert::From<PixelDataProvider> for ::windows::core::IUnknown {
-    fn from(value: PixelDataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PixelDataProvider> for ::windows::core::IUnknown {
-    fn from(value: &PixelDataProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PixelDataProvider> for &::windows::core::IUnknown {
-    fn from(value: &PixelDataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PixelDataProvider> for ::windows::core::IInspectable {
-    fn from(value: PixelDataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PixelDataProvider> for ::windows::core::IInspectable {
-    fn from(value: &PixelDataProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PixelDataProvider> for &::windows::core::IInspectable {
-    fn from(value: &PixelDataProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PixelDataProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PixelDataProvider {}
 unsafe impl ::core::marker::Sync for PixelDataProvider {}
 #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -3306,36 +2861,7 @@ unsafe impl ::windows::core::Interface for SoftwareBitmap {
 impl ::windows::core::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";
 }
-impl ::core::convert::From<SoftwareBitmap> for ::windows::core::IUnknown {
-    fn from(value: SoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SoftwareBitmap> for ::windows::core::IUnknown {
-    fn from(value: &SoftwareBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SoftwareBitmap> for &::windows::core::IUnknown {
-    fn from(value: &SoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: SoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: &SoftwareBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SoftwareBitmap> for &::windows::core::IInspectable {
-    fn from(value: &SoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SoftwareBitmap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SoftwareBitmap> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

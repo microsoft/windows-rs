@@ -31,21 +31,7 @@ impl AsyncIBackgroundCopyCallback {
         (::windows::core::Vtable::vtable(self).Finish_JobModification)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIBackgroundCopyCallback> for ::windows::core::IUnknown {
-    fn from(value: AsyncIBackgroundCopyCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIBackgroundCopyCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIBackgroundCopyCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIBackgroundCopyCallback> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIBackgroundCopyCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIBackgroundCopyCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIBackgroundCopyCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -101,41 +87,7 @@ impl IBITSExtensionSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IBITSExtensionSetup> for ::windows::core::IUnknown {
-    fn from(value: IBITSExtensionSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IBITSExtensionSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBITSExtensionSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IBITSExtensionSetup> for ::windows::core::IUnknown {
-    fn from(value: &IBITSExtensionSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IBITSExtensionSetup> for super::super::System::Com::IDispatch {
-    fn from(value: IBITSExtensionSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IBITSExtensionSetup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IBITSExtensionSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IBITSExtensionSetup> for super::super::System::Com::IDispatch {
-    fn from(value: &IBITSExtensionSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBITSExtensionSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IBITSExtensionSetup {
     fn clone(&self) -> Self {
@@ -188,41 +140,7 @@ impl IBITSExtensionSetupFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IBITSExtensionSetupFactory> for ::windows::core::IUnknown {
-    fn from(value: IBITSExtensionSetupFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IBITSExtensionSetupFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBITSExtensionSetupFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IBITSExtensionSetupFactory> for ::windows::core::IUnknown {
-    fn from(value: &IBITSExtensionSetupFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IBITSExtensionSetupFactory> for super::super::System::Com::IDispatch {
-    fn from(value: IBITSExtensionSetupFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IBITSExtensionSetupFactory> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IBITSExtensionSetupFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IBITSExtensionSetupFactory> for super::super::System::Com::IDispatch {
-    fn from(value: &IBITSExtensionSetupFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBITSExtensionSetupFactory, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IBITSExtensionSetupFactory {
     fn clone(&self) -> Self {
@@ -285,21 +203,7 @@ impl IBackgroundCopyCallback {
         (::windows::core::Vtable::vtable(self).JobModification)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), dwreserved).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyCallback> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -356,21 +260,7 @@ impl IBackgroundCopyCallback1 {
         (::windows::core::Vtable::vtable(self).OnProgressEx)(::windows::core::Vtable::as_raw(self), progresstype, pgroup.into().abi(), pjob.into().abi(), dwfileindex, dwprogressvalue, pbyte.len() as _, ::core::mem::transmute(pbyte.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyCallback1> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyCallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyCallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback1> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyCallback1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyCallback1, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyCallback1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -432,36 +322,7 @@ impl IBackgroundCopyCallback2 {
         (::windows::core::Vtable::vtable(self).FileTransferred)(::windows::core::Vtable::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyCallback2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyCallback2> for IBackgroundCopyCallback {
-    fn from(value: IBackgroundCopyCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback2> for &'a IBackgroundCopyCallback {
-    fn from(value: &'a IBackgroundCopyCallback2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback2> for IBackgroundCopyCallback {
-    fn from(value: &IBackgroundCopyCallback2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyCallback2, ::windows::core::IUnknown, IBackgroundCopyCallback);
 impl ::core::clone::Clone for IBackgroundCopyCallback2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -528,51 +389,7 @@ impl IBackgroundCopyCallback3 {
         (::windows::core::Vtable::vtable(self).FileRangesTransferred)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), ranges.len() as _, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyCallback3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyCallback3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback {
-    fn from(value: IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a IBackgroundCopyCallback {
-    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallback {
-    fn from(value: &IBackgroundCopyCallback3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback2 {
-    fn from(value: IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a IBackgroundCopyCallback2 {
-    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallback2 {
-    fn from(value: &IBackgroundCopyCallback3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyCallback3, ::windows::core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
 impl ::core::clone::Clone for IBackgroundCopyCallback3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -625,21 +442,7 @@ impl IBackgroundCopyError {
         (::windows::core::Vtable::vtable(self).GetProtocol)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyError> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyError> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -691,21 +494,7 @@ impl IBackgroundCopyFile {
         (::windows::core::Vtable::vtable(self).GetProgress)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_FILE_PROGRESS>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -767,36 +556,7 @@ impl IBackgroundCopyFile2 {
         (::windows::core::Vtable::vtable(self).SetRemoteName)(::windows::core::Vtable::as_raw(self), val.into()).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile2> for IBackgroundCopyFile {
-    fn from(value: IBackgroundCopyFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile2> for &'a IBackgroundCopyFile {
-    fn from(value: &'a IBackgroundCopyFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile2> for IBackgroundCopyFile {
-    fn from(value: &IBackgroundCopyFile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile2, ::windows::core::IUnknown, IBackgroundCopyFile);
 impl ::core::clone::Clone for IBackgroundCopyFile2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -878,51 +638,7 @@ impl IBackgroundCopyFile3 {
         (::windows::core::Vtable::vtable(self).IsDownloadedFromPeer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile {
-    fn from(value: IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a IBackgroundCopyFile {
-    fn from(value: &'a IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile {
-    fn from(value: &IBackgroundCopyFile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile2 {
-    fn from(value: IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a IBackgroundCopyFile2 {
-    fn from(value: &'a IBackgroundCopyFile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile2 {
-    fn from(value: &IBackgroundCopyFile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile3, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2);
 impl ::core::clone::Clone for IBackgroundCopyFile3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1018,66 +734,7 @@ impl IBackgroundCopyFile4 {
         (::windows::core::Vtable::vtable(self).GetPeerDownloadStats)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile4> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile4> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile {
-    fn from(value: IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile {
-    fn from(value: &'a IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile {
-    fn from(value: &IBackgroundCopyFile4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile2 {
-    fn from(value: IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile2 {
-    fn from(value: &'a IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile2 {
-    fn from(value: &IBackgroundCopyFile4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile3 {
-    fn from(value: IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile3 {
-    fn from(value: &'a IBackgroundCopyFile4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile3 {
-    fn from(value: &IBackgroundCopyFile4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile4, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
 impl ::core::clone::Clone for IBackgroundCopyFile4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1168,81 +825,7 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_FILE_PROPERTY_VALUE>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile5> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile5> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile {
-    fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile {
-    fn from(value: &'a IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile {
-    fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile2 {
-    fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile2 {
-    fn from(value: &'a IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile2 {
-    fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile3 {
-    fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile3 {
-    fn from(value: &'a IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile3 {
-    fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile4 {
-    fn from(value: IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile4 {
-    fn from(value: &'a IBackgroundCopyFile5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile4 {
-    fn from(value: &IBackgroundCopyFile5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile5, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
 impl ::core::clone::Clone for IBackgroundCopyFile5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1343,96 +926,7 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Vtable::vtable(self).GetFilledFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyFile6> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile2 {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile2 {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile2 {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile3 {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile3 {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile3 {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile4 {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile4 {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile4 {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile5 {
-    fn from(value: IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile5 {
-    fn from(value: &'a IBackgroundCopyFile6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile5 {
-    fn from(value: &IBackgroundCopyFile6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyFile6, ::windows::core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
 impl ::core::clone::Clone for IBackgroundCopyFile6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1528,21 +1022,7 @@ impl IBackgroundCopyGroup {
         (::windows::core::Vtable::vtable(self).SetNotificationPointer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), punk.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyGroup> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyGroup> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1727,21 +1207,7 @@ impl IBackgroundCopyJob {
         (::windows::core::Vtable::vtable(self).TakeOwnership)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1837,21 +1303,7 @@ impl IBackgroundCopyJob1 {
         (::windows::core::Vtable::vtable(self).JobID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob1> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob1> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob1, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyJob1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2055,36 +1507,7 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Vtable::vtable(self).RemoveCredentials)(::windows::core::Vtable::as_raw(self), target, scheme).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob2> for IBackgroundCopyJob {
-    fn from(value: IBackgroundCopyJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob2> for &'a IBackgroundCopyJob {
-    fn from(value: &'a IBackgroundCopyJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob2> for IBackgroundCopyJob {
-    fn from(value: &IBackgroundCopyJob2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob2, ::windows::core::IUnknown, IBackgroundCopyJob);
 impl ::core::clone::Clone for IBackgroundCopyJob2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2309,51 +1732,7 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Vtable::vtable(self).GetFileACLFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob {
-    fn from(value: IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a IBackgroundCopyJob {
-    fn from(value: &'a IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob {
-    fn from(value: &IBackgroundCopyJob3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob2 {
-    fn from(value: IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a IBackgroundCopyJob2 {
-    fn from(value: &'a IBackgroundCopyJob3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob2 {
-    fn from(value: &IBackgroundCopyJob3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob3, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2);
 impl ::core::clone::Clone for IBackgroundCopyJob3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2598,66 +1977,7 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Vtable::vtable(self).GetMaximumDownloadTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob4> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob4> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob {
-    fn from(value: IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob {
-    fn from(value: &'a IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob {
-    fn from(value: &IBackgroundCopyJob4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob2 {
-    fn from(value: IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob2 {
-    fn from(value: &'a IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob2 {
-    fn from(value: &IBackgroundCopyJob4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob3 {
-    fn from(value: IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob3 {
-    fn from(value: &'a IBackgroundCopyJob4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob3 {
-    fn from(value: &IBackgroundCopyJob4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob4, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
 impl ::core::clone::Clone for IBackgroundCopyJob4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2918,81 +2238,7 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_JOB_PROPERTY_VALUE>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJob5> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob5> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob {
-    fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob {
-    fn from(value: &'a IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob {
-    fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob2 {
-    fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob2 {
-    fn from(value: &'a IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob2 {
-    fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob3 {
-    fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob3 {
-    fn from(value: &'a IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob3 {
-    fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob4 {
-    fn from(value: IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob4 {
-    fn from(value: &'a IBackgroundCopyJob5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob4 {
-    fn from(value: &IBackgroundCopyJob5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJob5, ::windows::core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
 impl ::core::clone::Clone for IBackgroundCopyJob5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3069,21 +2315,7 @@ impl IBackgroundCopyJobHttpOptions {
         (::windows::core::Vtable::vtable(self).GetSecurityFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJobHttpOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJobHttpOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3170,36 +2402,7 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Vtable::vtable(self).GetHttpMethod)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJobHttpOptions2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions2> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJobHttpOptions2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions {
-    fn from(value: IBackgroundCopyJobHttpOptions2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions2> for &'a IBackgroundCopyJobHttpOptions {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions {
-    fn from(value: &IBackgroundCopyJobHttpOptions2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions);
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3289,51 +2492,7 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Vtable::vtable(self).MakeCustomHeadersWriteOnly)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions {
-    fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a IBackgroundCopyJobHttpOptions {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions {
-    fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions2 {
-    fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a IBackgroundCopyJobHttpOptions2 {
-    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions2 {
-    fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, ::windows::core::IUnknown, IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions2);
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3386,21 +2545,7 @@ impl IBackgroundCopyManager {
         (::windows::core::Vtable::vtable(self).GetErrorDescription)(::windows::core::Vtable::as_raw(self), hresult, languageid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyManager> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyManager> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3449,21 +2594,7 @@ impl IBackgroundCopyQMgr {
         (::windows::core::Vtable::vtable(self).EnumGroups)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumBackgroundCopyGroups>(result__)
     }
 }
-impl ::core::convert::From<IBackgroundCopyQMgr> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyQMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyQMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyQMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyQMgr> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyQMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyQMgr, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyQMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3506,21 +2637,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
         (::windows::core::Vtable::vtable(self).ValidateServerCertificate)(::windows::core::Vtable::as_raw(self), job.into().abi(), file.into().abi(), certdata.len() as _, ::core::mem::transmute(certdata.as_ptr()), certencodingtype, certstoredata.len() as _, ::core::mem::transmute(certstoredata.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IBackgroundCopyServerCertificateValidationCallback> for ::windows::core::IUnknown {
-    fn from(value: IBackgroundCopyServerCertificateValidationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBackgroundCopyServerCertificateValidationCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBackgroundCopyServerCertificateValidationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCopyServerCertificateValidationCallback> for ::windows::core::IUnknown {
-    fn from(value: &IBackgroundCopyServerCertificateValidationCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBackgroundCopyServerCertificateValidationCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3570,21 +2687,7 @@ impl IBitsPeer {
         (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IBitsPeer> for ::windows::core::IUnknown {
-    fn from(value: IBitsPeer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitsPeer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitsPeer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitsPeer> for ::windows::core::IUnknown {
-    fn from(value: &IBitsPeer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitsPeer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBitsPeer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3677,21 +2780,7 @@ impl IBitsPeerCacheAdministration {
         (::windows::core::Vtable::vtable(self).DiscoverPeers)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IBitsPeerCacheAdministration> for ::windows::core::IUnknown {
-    fn from(value: IBitsPeerCacheAdministration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitsPeerCacheAdministration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitsPeerCacheAdministration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitsPeerCacheAdministration> for ::windows::core::IUnknown {
-    fn from(value: &IBitsPeerCacheAdministration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitsPeerCacheAdministration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBitsPeerCacheAdministration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3768,21 +2857,7 @@ impl IBitsPeerCacheRecord {
         (::windows::core::Vtable::vtable(self).GetFileRanges)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prangecount), ::core::mem::transmute(ppranges)).ok()
     }
 }
-impl ::core::convert::From<IBitsPeerCacheRecord> for ::windows::core::IUnknown {
-    fn from(value: IBitsPeerCacheRecord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitsPeerCacheRecord> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitsPeerCacheRecord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitsPeerCacheRecord> for ::windows::core::IUnknown {
-    fn from(value: &IBitsPeerCacheRecord) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitsPeerCacheRecord, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBitsPeerCacheRecord {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3845,21 +2920,7 @@ impl IBitsTokenOptions {
         (::windows::core::Vtable::vtable(self).GetHelperTokenSid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IBitsTokenOptions> for ::windows::core::IUnknown {
-    fn from(value: IBitsTokenOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBitsTokenOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBitsTokenOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitsTokenOptions> for ::windows::core::IUnknown {
-    fn from(value: &IBitsTokenOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBitsTokenOptions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBitsTokenOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3914,21 +2975,7 @@ impl IEnumBackgroundCopyFiles {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBackgroundCopyFiles> for ::windows::core::IUnknown {
-    fn from(value: IEnumBackgroundCopyFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyFiles> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBackgroundCopyFiles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBackgroundCopyFiles> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBackgroundCopyFiles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBackgroundCopyFiles, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBackgroundCopyFiles {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3983,21 +3030,7 @@ impl IEnumBackgroundCopyGroups {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBackgroundCopyGroups> for ::windows::core::IUnknown {
-    fn from(value: IEnumBackgroundCopyGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyGroups> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBackgroundCopyGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBackgroundCopyGroups> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBackgroundCopyGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBackgroundCopyGroups, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBackgroundCopyGroups {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4052,21 +3085,7 @@ impl IEnumBackgroundCopyJobs {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBackgroundCopyJobs> for ::windows::core::IUnknown {
-    fn from(value: IEnumBackgroundCopyJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyJobs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBackgroundCopyJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBackgroundCopyJobs> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBackgroundCopyJobs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBackgroundCopyJobs, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBackgroundCopyJobs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4121,21 +3140,7 @@ impl IEnumBackgroundCopyJobs1 {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBackgroundCopyJobs1> for ::windows::core::IUnknown {
-    fn from(value: IEnumBackgroundCopyJobs1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyJobs1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBackgroundCopyJobs1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBackgroundCopyJobs1> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBackgroundCopyJobs1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBackgroundCopyJobs1, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBackgroundCopyJobs1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4190,21 +3195,7 @@ impl IEnumBitsPeerCacheRecords {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBitsPeerCacheRecords> for ::windows::core::IUnknown {
-    fn from(value: IEnumBitsPeerCacheRecords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBitsPeerCacheRecords> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBitsPeerCacheRecords) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBitsPeerCacheRecords> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBitsPeerCacheRecords) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBitsPeerCacheRecords, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBitsPeerCacheRecords {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4259,21 +3250,7 @@ impl IEnumBitsPeers {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumBitsPeers> for ::windows::core::IUnknown {
-    fn from(value: IEnumBitsPeers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumBitsPeers> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumBitsPeers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumBitsPeers> for ::windows::core::IUnknown {
-    fn from(value: &IEnumBitsPeers) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumBitsPeers, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumBitsPeers {
     fn clone(&self) -> Self {
         Self(self.0.clone())

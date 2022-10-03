@@ -150,36 +150,7 @@ impl ISyndicationClient {
         }
     }
 }
-impl ::core::convert::From<ISyndicationClient> for ::windows::core::IUnknown {
-    fn from(value: ISyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationClient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationClient> for ::windows::core::IUnknown {
-    fn from(value: &ISyndicationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationClient> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISyndicationClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -711,36 +682,7 @@ impl ISyndicationNode {
         }
     }
 }
-impl ::core::convert::From<ISyndicationNode> for ::windows::core::IUnknown {
-    fn from(value: ISyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationNode> for ::windows::core::IUnknown {
-    fn from(value: &ISyndicationNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationNode> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISyndicationNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -991,36 +933,7 @@ impl ISyndicationText {
         }
     }
 }
-impl ::core::convert::From<ISyndicationText> for ::windows::core::IUnknown {
-    fn from(value: ISyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationText> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationText> for ::windows::core::IUnknown {
-    fn from(value: &ISyndicationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISyndicationText> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISyndicationText> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationText> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ISyndicationText> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: ISyndicationText) -> ::windows::core::Result<Self> {
@@ -1190,36 +1103,7 @@ unsafe impl ::windows::core::Interface for SyndicationAttribute {
 impl ::windows::core::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
 }
-impl ::core::convert::From<SyndicationAttribute> for ::windows::core::IUnknown {
-    fn from(value: SyndicationAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationAttribute> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationAttribute> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationAttribute> for ::windows::core::IInspectable {
-    fn from(value: SyndicationAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationAttribute> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationAttribute> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SyndicationAttribute {}
 unsafe impl ::core::marker::Sync for SyndicationAttribute {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
@@ -1402,36 +1286,7 @@ unsafe impl ::windows::core::Interface for SyndicationCategory {
 impl ::windows::core::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
 }
-impl ::core::convert::From<SyndicationCategory> for ::windows::core::IUnknown {
-    fn from(value: SyndicationCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationCategory> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationCategory> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationCategory> for ::windows::core::IInspectable {
-    fn from(value: SyndicationCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationCategory> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationCategory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationCategory> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationCategory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationCategory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationCategory> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationCategory) -> ::windows::core::Result<Self> {
@@ -1586,36 +1441,7 @@ unsafe impl ::windows::core::Interface for SyndicationClient {
 impl ::windows::core::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
 }
-impl ::core::convert::From<SyndicationClient> for ::windows::core::IUnknown {
-    fn from(value: SyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationClient> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationClient> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: SyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationClient> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationClient> for ISyndicationClient {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationClient) -> ::windows::core::Result<Self> {
@@ -1838,36 +1664,7 @@ unsafe impl ::windows::core::Interface for SyndicationContent {
 impl ::windows::core::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
 }
-impl ::core::convert::From<SyndicationContent> for ::windows::core::IUnknown {
-    fn from(value: SyndicationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationContent> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationContent> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationContent> for ::windows::core::IInspectable {
-    fn from(value: SyndicationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationContent> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationContent> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationContent> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationContent) -> ::windows::core::Result<Self> {
@@ -2279,36 +2076,7 @@ unsafe impl ::windows::core::Interface for SyndicationFeed {
 impl ::windows::core::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
 }
-impl ::core::convert::From<SyndicationFeed> for ::windows::core::IUnknown {
-    fn from(value: SyndicationFeed) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationFeed> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationFeed) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationFeed> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationFeed) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationFeed> for ::windows::core::IInspectable {
-    fn from(value: SyndicationFeed) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationFeed> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationFeed) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationFeed> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationFeed) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationFeed, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationFeed> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationFeed) -> ::windows::core::Result<Self> {
@@ -2508,36 +2276,7 @@ unsafe impl ::windows::core::Interface for SyndicationGenerator {
 impl ::windows::core::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
 }
-impl ::core::convert::From<SyndicationGenerator> for ::windows::core::IUnknown {
-    fn from(value: SyndicationGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationGenerator> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationGenerator> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationGenerator> for ::windows::core::IInspectable {
-    fn from(value: SyndicationGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationGenerator> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationGenerator> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationGenerator> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationGenerator) -> ::windows::core::Result<Self> {
@@ -2905,36 +2644,7 @@ unsafe impl ::windows::core::Interface for SyndicationItem {
 impl ::windows::core::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
 }
-impl ::core::convert::From<SyndicationItem> for ::windows::core::IUnknown {
-    fn from(value: SyndicationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationItem> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationItem> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationItem> for ::windows::core::IInspectable {
-    fn from(value: SyndicationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationItem> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationItem> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationItem> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationItem) -> ::windows::core::Result<Self> {
@@ -3177,36 +2887,7 @@ unsafe impl ::windows::core::Interface for SyndicationLink {
 impl ::windows::core::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
 }
-impl ::core::convert::From<SyndicationLink> for ::windows::core::IUnknown {
-    fn from(value: SyndicationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationLink> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationLink> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationLink> for ::windows::core::IInspectable {
-    fn from(value: SyndicationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationLink> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationLink> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationLink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationLink> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationLink) -> ::windows::core::Result<Self> {
@@ -3369,36 +3050,7 @@ unsafe impl ::windows::core::Interface for SyndicationNode {
 impl ::windows::core::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
 }
-impl ::core::convert::From<SyndicationNode> for ::windows::core::IUnknown {
-    fn from(value: SyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationNode> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationNode> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: SyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationNode> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationNode> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationNode) -> ::windows::core::Result<Self> {
@@ -3606,36 +3258,7 @@ unsafe impl ::windows::core::Interface for SyndicationPerson {
 impl ::windows::core::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
 }
-impl ::core::convert::From<SyndicationPerson> for ::windows::core::IUnknown {
-    fn from(value: SyndicationPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationPerson> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationPerson) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationPerson> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationPerson> for ::windows::core::IInspectable {
-    fn from(value: SyndicationPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationPerson> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationPerson) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationPerson> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationPerson) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationPerson, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationPerson> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationPerson) -> ::windows::core::Result<Self> {
@@ -3841,36 +3464,7 @@ unsafe impl ::windows::core::Interface for SyndicationText {
 impl ::windows::core::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";
 }
-impl ::core::convert::From<SyndicationText> for ::windows::core::IUnknown {
-    fn from(value: SyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationText> for ::windows::core::IUnknown {
-    fn from(value: &SyndicationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationText> for &::windows::core::IUnknown {
-    fn from(value: &SyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SyndicationText> for ::windows::core::IInspectable {
-    fn from(value: SyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SyndicationText> for ::windows::core::IInspectable {
-    fn from(value: &SyndicationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SyndicationText> for &::windows::core::IInspectable {
-    fn from(value: &SyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SyndicationText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<SyndicationText> for ISyndicationNode {
     type Error = ::windows::core::Error;
     fn try_from(value: SyndicationText) -> ::windows::core::Result<Self> {

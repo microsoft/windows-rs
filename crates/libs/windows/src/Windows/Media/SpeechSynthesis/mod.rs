@@ -347,36 +347,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesisStream {
 impl ::windows::core::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
 }
-impl ::core::convert::From<SpeechSynthesisStream> for ::windows::core::IUnknown {
-    fn from(value: SpeechSynthesisStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesisStream> for &::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechSynthesisStream> for ::windows::core::IInspectable {
-    fn from(value: SpeechSynthesisStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesisStream> for &::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesisStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechSynthesisStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechSynthesisStream> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -651,36 +622,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesizer {
 impl ::windows::core::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
 }
-impl ::core::convert::From<SpeechSynthesizer> for ::windows::core::IUnknown {
-    fn from(value: SpeechSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizer> for ::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizer> for &::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechSynthesizer> for ::windows::core::IInspectable {
-    fn from(value: SpeechSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizer> for ::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizer> for &::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SpeechSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -819,36 +761,7 @@ unsafe impl ::windows::core::Interface for SpeechSynthesizerOptions {
 impl ::windows::core::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
 }
-impl ::core::convert::From<SpeechSynthesizerOptions> for ::windows::core::IUnknown {
-    fn from(value: SpeechSynthesizerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizerOptions> for &::windows::core::IUnknown {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpeechSynthesizerOptions> for ::windows::core::IInspectable {
-    fn from(value: SpeechSynthesizerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpeechSynthesizerOptions> for &::windows::core::IInspectable {
-    fn from(value: &SpeechSynthesizerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpeechSynthesizerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -923,36 +836,7 @@ unsafe impl ::windows::core::Interface for VoiceInformation {
 impl ::windows::core::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";
 }
-impl ::core::convert::From<VoiceInformation> for ::windows::core::IUnknown {
-    fn from(value: VoiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceInformation> for ::windows::core::IUnknown {
-    fn from(value: &VoiceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceInformation> for &::windows::core::IUnknown {
-    fn from(value: &VoiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VoiceInformation> for ::windows::core::IInspectable {
-    fn from(value: VoiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VoiceInformation> for ::windows::core::IInspectable {
-    fn from(value: &VoiceInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VoiceInformation> for &::windows::core::IInspectable {
-    fn from(value: &VoiceInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VoiceInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VoiceInformation {}
 unsafe impl ::core::marker::Sync for VoiceInformation {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]

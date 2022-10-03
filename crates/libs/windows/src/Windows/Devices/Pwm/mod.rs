@@ -232,36 +232,7 @@ unsafe impl ::windows::core::Interface for PwmController {
 impl ::windows::core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
-impl ::core::convert::From<PwmController> for ::windows::core::IUnknown {
-    fn from(value: PwmController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PwmController> for ::windows::core::IUnknown {
-    fn from(value: &PwmController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PwmController> for &::windows::core::IUnknown {
-    fn from(value: &PwmController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PwmController> for ::windows::core::IInspectable {
-    fn from(value: PwmController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PwmController> for ::windows::core::IInspectable {
-    fn from(value: &PwmController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PwmController> for &::windows::core::IInspectable {
-    fn from(value: &PwmController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PwmController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PwmController {}
 unsafe impl ::core::marker::Sync for PwmController {}
 #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -351,36 +322,7 @@ unsafe impl ::windows::core::Interface for PwmPin {
 impl ::windows::core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
-impl ::core::convert::From<PwmPin> for ::windows::core::IUnknown {
-    fn from(value: PwmPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PwmPin> for ::windows::core::IUnknown {
-    fn from(value: &PwmPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PwmPin> for &::windows::core::IUnknown {
-    fn from(value: &PwmPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PwmPin> for ::windows::core::IInspectable {
-    fn from(value: PwmPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PwmPin> for ::windows::core::IInspectable {
-    fn from(value: &PwmPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PwmPin> for &::windows::core::IInspectable {
-    fn from(value: &PwmPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PwmPin, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PwmPin> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

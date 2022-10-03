@@ -275,36 +275,7 @@ unsafe impl ::windows::core::Interface for MediaTranscoder {
 impl ::windows::core::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
 }
-impl ::core::convert::From<MediaTranscoder> for ::windows::core::IUnknown {
-    fn from(value: MediaTranscoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaTranscoder> for ::windows::core::IUnknown {
-    fn from(value: &MediaTranscoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaTranscoder> for &::windows::core::IUnknown {
-    fn from(value: &MediaTranscoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MediaTranscoder> for ::windows::core::IInspectable {
-    fn from(value: MediaTranscoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MediaTranscoder> for ::windows::core::IInspectable {
-    fn from(value: &MediaTranscoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MediaTranscoder> for &::windows::core::IInspectable {
-    fn from(value: &MediaTranscoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MediaTranscoder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
 #[doc = "*Required features: `\"Media_Transcoding\"`*"]
@@ -367,36 +338,7 @@ unsafe impl ::windows::core::Interface for PrepareTranscodeResult {
 impl ::windows::core::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";
 }
-impl ::core::convert::From<PrepareTranscodeResult> for ::windows::core::IUnknown {
-    fn from(value: PrepareTranscodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrepareTranscodeResult> for ::windows::core::IUnknown {
-    fn from(value: &PrepareTranscodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrepareTranscodeResult> for &::windows::core::IUnknown {
-    fn from(value: &PrepareTranscodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrepareTranscodeResult> for ::windows::core::IInspectable {
-    fn from(value: PrepareTranscodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrepareTranscodeResult> for ::windows::core::IInspectable {
-    fn from(value: &PrepareTranscodeResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrepareTranscodeResult> for &::windows::core::IInspectable {
-    fn from(value: &PrepareTranscodeResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrepareTranscodeResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[doc = "*Required features: `\"Media_Transcoding\"`*"]

@@ -136,36 +136,7 @@ unsafe impl ::windows::core::Interface for BackPressedEventArgs {
 impl ::windows::core::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
-impl ::core::convert::From<BackPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackPressedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackPressedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BackPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BackPressedEventArgs {}
 unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
 #[doc = "*Required features: `\"Phone_UI_Input\"`*"]
@@ -204,36 +175,7 @@ unsafe impl ::windows::core::Interface for CameraEventArgs {
 impl ::windows::core::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
 }
-impl ::core::convert::From<CameraEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CameraEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CameraEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CameraEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CameraEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CameraEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CameraEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraEventArgs {}
 unsafe impl ::core::marker::Sync for CameraEventArgs {}
 #[doc = "*Required features: `\"Phone_UI_Input\"`*"]

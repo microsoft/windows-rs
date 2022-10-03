@@ -370,41 +370,7 @@ impl ::windows::core::RuntimeName for CortanaActionableInsights {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsights";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaActionableInsights> for ::windows::core::IUnknown {
-    fn from(value: CortanaActionableInsights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsights> for ::windows::core::IUnknown {
-    fn from(value: &CortanaActionableInsights) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsights> for &::windows::core::IUnknown {
-    fn from(value: &CortanaActionableInsights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaActionableInsights> for ::windows::core::IInspectable {
-    fn from(value: CortanaActionableInsights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsights> for ::windows::core::IInspectable {
-    fn from(value: &CortanaActionableInsights) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsights> for &::windows::core::IInspectable {
-    fn from(value: &CortanaActionableInsights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CortanaActionableInsights, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for CortanaActionableInsights {}
 #[cfg(feature = "deprecated")]
@@ -494,41 +460,7 @@ impl ::windows::core::RuntimeName for CortanaActionableInsightsOptions {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaActionableInsightsOptions";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaActionableInsightsOptions> for ::windows::core::IUnknown {
-    fn from(value: CortanaActionableInsightsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsightsOptions> for ::windows::core::IUnknown {
-    fn from(value: &CortanaActionableInsightsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsightsOptions> for &::windows::core::IUnknown {
-    fn from(value: &CortanaActionableInsightsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaActionableInsightsOptions> for ::windows::core::IInspectable {
-    fn from(value: CortanaActionableInsightsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsightsOptions> for ::windows::core::IInspectable {
-    fn from(value: &CortanaActionableInsightsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaActionableInsightsOptions> for &::windows::core::IInspectable {
-    fn from(value: &CortanaActionableInsightsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CortanaActionableInsightsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for CortanaActionableInsightsOptions {}
 #[cfg(feature = "deprecated")]
@@ -643,41 +575,7 @@ impl ::windows::core::RuntimeName for CortanaPermissionsManager {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaPermissionsManager";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaPermissionsManager> for ::windows::core::IUnknown {
-    fn from(value: CortanaPermissionsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaPermissionsManager> for ::windows::core::IUnknown {
-    fn from(value: &CortanaPermissionsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaPermissionsManager> for &::windows::core::IUnknown {
-    fn from(value: &CortanaPermissionsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaPermissionsManager> for ::windows::core::IInspectable {
-    fn from(value: CortanaPermissionsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaPermissionsManager> for ::windows::core::IInspectable {
-    fn from(value: &CortanaPermissionsManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaPermissionsManager> for &::windows::core::IInspectable {
-    fn from(value: &CortanaPermissionsManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CortanaPermissionsManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for CortanaPermissionsManager {}
 #[cfg(feature = "deprecated")]
@@ -776,41 +674,7 @@ impl ::windows::core::RuntimeName for CortanaSettings {
     const NAME: &'static str = "Windows.Services.Cortana.CortanaSettings";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaSettings> for ::windows::core::IUnknown {
-    fn from(value: CortanaSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaSettings> for ::windows::core::IUnknown {
-    fn from(value: &CortanaSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaSettings> for &::windows::core::IUnknown {
-    fn from(value: &CortanaSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<CortanaSettings> for ::windows::core::IInspectable {
-    fn from(value: CortanaSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaSettings> for ::windows::core::IInspectable {
-    fn from(value: &CortanaSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&CortanaSettings> for &::windows::core::IInspectable {
-    fn from(value: &CortanaSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CortanaSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for CortanaSettings {}
 #[cfg(feature = "deprecated")]

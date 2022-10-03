@@ -402,36 +402,7 @@ unsafe impl ::windows::core::Interface for PrintTicketCapabilities {
 impl ::windows::core::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
 }
-impl ::core::convert::From<PrintTicketCapabilities> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketCapabilities> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -535,36 +506,7 @@ unsafe impl ::windows::core::Interface for PrintTicketFeature {
 impl ::windows::core::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
 }
-impl ::core::convert::From<PrintTicketFeature> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketFeature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketFeature> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketFeature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketFeature> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketFeature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketFeature> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketFeature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketFeature> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketFeature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketFeature> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketFeature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketFeature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -666,36 +608,7 @@ unsafe impl ::windows::core::Interface for PrintTicketOption {
 impl ::windows::core::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
 }
-impl ::core::convert::From<PrintTicketOption> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketOption> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketOption> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketOption> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketOption> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketOption> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketOption, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -786,36 +699,7 @@ unsafe impl ::windows::core::Interface for PrintTicketParameterDefinition {
 impl ::windows::core::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
 }
-impl ::core::convert::From<PrintTicketParameterDefinition> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketParameterDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterDefinition> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterDefinition> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketParameterDefinition> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketParameterDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterDefinition> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterDefinition> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketParameterDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketParameterDefinition, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -889,36 +773,7 @@ unsafe impl ::windows::core::Interface for PrintTicketParameterInitializer {
 impl ::windows::core::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
 }
-impl ::core::convert::From<PrintTicketParameterInitializer> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketParameterInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterInitializer> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterInitializer> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketParameterInitializer> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketParameterInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterInitializer> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketParameterInitializer> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketParameterInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketParameterInitializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -979,36 +834,7 @@ unsafe impl ::windows::core::Interface for PrintTicketValue {
 impl ::windows::core::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
 }
-impl ::core::convert::From<PrintTicketValue> for ::windows::core::IUnknown {
-    fn from(value: PrintTicketValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketValue> for ::windows::core::IUnknown {
-    fn from(value: &PrintTicketValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketValue> for &::windows::core::IUnknown {
-    fn from(value: &PrintTicketValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintTicketValue> for ::windows::core::IInspectable {
-    fn from(value: PrintTicketValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintTicketValue> for ::windows::core::IInspectable {
-    fn from(value: &PrintTicketValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintTicketValue> for &::windows::core::IInspectable {
-    fn from(value: &PrintTicketValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintTicketValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -1236,36 +1062,7 @@ unsafe impl ::windows::core::Interface for WorkflowPrintTicket {
 impl ::windows::core::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
 }
-impl ::core::convert::From<WorkflowPrintTicket> for ::windows::core::IUnknown {
-    fn from(value: WorkflowPrintTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicket> for ::windows::core::IUnknown {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicket> for &::windows::core::IUnknown {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WorkflowPrintTicket> for ::windows::core::IInspectable {
-    fn from(value: WorkflowPrintTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicket> for ::windows::core::IInspectable {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicket> for &::windows::core::IInspectable {
-    fn from(value: &WorkflowPrintTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WorkflowPrintTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
@@ -1319,36 +1116,7 @@ unsafe impl ::windows::core::Interface for WorkflowPrintTicketValidationResult {
 impl ::windows::core::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";
 }
-impl ::core::convert::From<WorkflowPrintTicketValidationResult> for ::windows::core::IUnknown {
-    fn from(value: WorkflowPrintTicketValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::core::IUnknown {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for &::windows::core::IUnknown {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WorkflowPrintTicketValidationResult> for ::windows::core::IInspectable {
-    fn from(value: WorkflowPrintTicketValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::core::IInspectable {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for &::windows::core::IInspectable {
-    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
 #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]

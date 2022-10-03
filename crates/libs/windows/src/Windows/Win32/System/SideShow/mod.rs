@@ -14,36 +14,7 @@ impl ISideShowBulkCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), in_keycollection.into().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
-impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ISideShowBulkCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowBulkCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowBulkCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowBulkCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowBulkCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
-    fn from(value: ISideShowBulkCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowBulkCapabilities> for &'a ISideShowCapabilities {
-    fn from(value: &'a ISideShowBulkCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities {
-    fn from(value: &ISideShowBulkCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowBulkCapabilities, ::windows::core::IUnknown, ISideShowCapabilities);
 impl ::core::clone::Clone for ISideShowBulkCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -82,21 +53,7 @@ impl ISideShowCapabilities {
         (::windows::core::Vtable::vtable(self).GetCapability)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
 }
-impl ::core::convert::From<ISideShowCapabilities> for ::windows::core::IUnknown {
-    fn from(value: ISideShowCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowCapabilities, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -141,21 +98,7 @@ impl ISideShowCapabilitiesCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), in_dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowCapabilities>(result__)
     }
 }
-impl ::core::convert::From<ISideShowCapabilitiesCollection> for ::windows::core::IUnknown {
-    fn from(value: ISideShowCapabilitiesCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowCapabilitiesCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowCapabilitiesCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowCapabilitiesCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowCapabilitiesCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowCapabilitiesCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -206,21 +149,7 @@ impl ISideShowContent {
         (::windows::core::Vtable::vtable(self).DifferentiateContent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ISideShowContent> for ::windows::core::IUnknown {
-    fn from(value: ISideShowContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowContent> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -281,21 +210,7 @@ impl ISideShowContentManager {
         (::windows::core::Vtable::vtable(self).GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowCapabilitiesCollection>(result__)
     }
 }
-impl ::core::convert::From<ISideShowContentManager> for ::windows::core::IUnknown {
-    fn from(value: ISideShowContentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowContentManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowContentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowContentManager> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowContentManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowContentManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowContentManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -355,21 +270,7 @@ impl ISideShowEvents {
         (::windows::core::Vtable::vtable(self).DeviceRemoved)(::windows::core::Vtable::as_raw(self), in_pidevice.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISideShowEvents> for ::windows::core::IUnknown {
-    fn from(value: ISideShowEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowEvents> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -425,21 +326,7 @@ impl ISideShowKeyCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-impl ::core::convert::From<ISideShowKeyCollection> for ::windows::core::IUnknown {
-    fn from(value: ISideShowKeyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowKeyCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowKeyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowKeyCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowKeyCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowKeyCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowKeyCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -535,21 +422,7 @@ impl ISideShowNotification {
         (::windows::core::Vtable::vtable(self).SetExpirationTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(in_ptime.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ISideShowNotification> for ::windows::core::IUnknown {
-    fn from(value: ISideShowNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowNotification> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -616,21 +489,7 @@ impl ISideShowNotificationManager {
         (::windows::core::Vtable::vtable(self).RevokeAll)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISideShowNotificationManager> for ::windows::core::IUnknown {
-    fn from(value: ISideShowNotificationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowNotificationManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowNotificationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowNotificationManager> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowNotificationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowNotificationManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowNotificationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -685,21 +544,7 @@ impl ISideShowPropVariantCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-impl ::core::convert::From<ISideShowPropVariantCollection> for ::windows::core::IUnknown {
-    fn from(value: ISideShowPropVariantCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowPropVariantCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowPropVariantCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowPropVariantCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowPropVariantCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowPropVariantCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowPropVariantCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -751,21 +596,7 @@ impl ISideShowSession {
         (::windows::core::Vtable::vtable(self).RegisterNotifications)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(in_applicationid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISideShowNotificationManager>(result__)
     }
 }
-impl ::core::convert::From<ISideShowSession> for ::windows::core::IUnknown {
-    fn from(value: ISideShowSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISideShowSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISideShowSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowSession> for ::windows::core::IUnknown {
-    fn from(value: &ISideShowSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISideShowSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISideShowSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())

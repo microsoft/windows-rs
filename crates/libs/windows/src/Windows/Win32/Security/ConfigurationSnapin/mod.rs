@@ -18,21 +18,7 @@ impl ISceSvcAttachmentData {
         (::windows::core::Vtable::vtable(self).CloseHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scesvchandle)).ok()
     }
 }
-impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::core::IUnknown {
-    fn from(value: ISceSvcAttachmentData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISceSvcAttachmentData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISceSvcAttachmentData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISceSvcAttachmentData> for ::windows::core::IUnknown {
-    fn from(value: &ISceSvcAttachmentData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISceSvcAttachmentData, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISceSvcAttachmentData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -80,21 +66,7 @@ impl ISceSvcAttachmentPersistInfo {
         (::windows::core::Vtable::vtable(self).FreeBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvdata)).ok()
     }
 }
-impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {
-    fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISceSvcAttachmentPersistInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISceSvcAttachmentPersistInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {
-    fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())

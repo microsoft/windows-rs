@@ -18,21 +18,7 @@ impl IDDEInitializer {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fileextensionorprotocol.into(), method, currentdirectory.into(), exectarget.into().abi(), site.into().abi(), application.into(), targetfile.into(), arguments.into(), verb.into()).ok()
     }
 }
-impl ::core::convert::From<IDDEInitializer> for ::windows::core::IUnknown {
-    fn from(value: IDDEInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDDEInitializer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDDEInitializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDDEInitializer> for ::windows::core::IUnknown {
-    fn from(value: &IDDEInitializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDDEInitializer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDDEInitializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())

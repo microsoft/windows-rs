@@ -85,36 +85,7 @@ impl IForceFeedbackEffect {
         unsafe { (::windows::core::Vtable::vtable(this).Stop)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IUnknown {
-    fn from(value: IForceFeedbackEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IForceFeedbackEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IForceFeedbackEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::core::IUnknown {
-    fn from(value: &IForceFeedbackEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IInspectable {
-    fn from(value: IForceFeedbackEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IForceFeedbackEffect> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IForceFeedbackEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IForceFeedbackEffect> for ::windows::core::IInspectable {
-    fn from(value: &IForceFeedbackEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IForceFeedbackEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IForceFeedbackEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -343,36 +314,7 @@ unsafe impl ::windows::core::Interface for ConditionForceEffect {
 impl ::windows::core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
 }
-impl ::core::convert::From<ConditionForceEffect> for ::windows::core::IUnknown {
-    fn from(value: ConditionForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConditionForceEffect> for ::windows::core::IUnknown {
-    fn from(value: &ConditionForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConditionForceEffect> for &::windows::core::IUnknown {
-    fn from(value: &ConditionForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConditionForceEffect> for ::windows::core::IInspectable {
-    fn from(value: ConditionForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConditionForceEffect> for ::windows::core::IInspectable {
-    fn from(value: &ConditionForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConditionForceEffect> for &::windows::core::IInspectable {
-    fn from(value: &ConditionForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConditionForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ConditionForceEffect> for IForceFeedbackEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: ConditionForceEffect) -> ::windows::core::Result<Self> {
@@ -476,36 +418,7 @@ unsafe impl ::windows::core::Interface for ConstantForceEffect {
 impl ::windows::core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
 }
-impl ::core::convert::From<ConstantForceEffect> for ::windows::core::IUnknown {
-    fn from(value: ConstantForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConstantForceEffect> for ::windows::core::IUnknown {
-    fn from(value: &ConstantForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConstantForceEffect> for &::windows::core::IUnknown {
-    fn from(value: &ConstantForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConstantForceEffect> for ::windows::core::IInspectable {
-    fn from(value: ConstantForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConstantForceEffect> for ::windows::core::IInspectable {
-    fn from(value: &ConstantForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConstantForceEffect> for &::windows::core::IInspectable {
-    fn from(value: &ConstantForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConstantForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ConstantForceEffect> for IForceFeedbackEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: ConstantForceEffect) -> ::windows::core::Result<Self> {
@@ -661,36 +574,7 @@ unsafe impl ::windows::core::Interface for ForceFeedbackMotor {
 impl ::windows::core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
 }
-impl ::core::convert::From<ForceFeedbackMotor> for ::windows::core::IUnknown {
-    fn from(value: ForceFeedbackMotor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::core::IUnknown {
-    fn from(value: &ForceFeedbackMotor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ForceFeedbackMotor> for &::windows::core::IUnknown {
-    fn from(value: &ForceFeedbackMotor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ForceFeedbackMotor> for ::windows::core::IInspectable {
-    fn from(value: ForceFeedbackMotor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ForceFeedbackMotor> for ::windows::core::IInspectable {
-    fn from(value: &ForceFeedbackMotor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ForceFeedbackMotor> for &::windows::core::IInspectable {
-    fn from(value: &ForceFeedbackMotor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ForceFeedbackMotor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ForceFeedbackMotor {}
 unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -786,36 +670,7 @@ unsafe impl ::windows::core::Interface for PeriodicForceEffect {
 impl ::windows::core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
 }
-impl ::core::convert::From<PeriodicForceEffect> for ::windows::core::IUnknown {
-    fn from(value: PeriodicForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeriodicForceEffect> for ::windows::core::IUnknown {
-    fn from(value: &PeriodicForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeriodicForceEffect> for &::windows::core::IUnknown {
-    fn from(value: &PeriodicForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PeriodicForceEffect> for ::windows::core::IInspectable {
-    fn from(value: PeriodicForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PeriodicForceEffect> for ::windows::core::IInspectable {
-    fn from(value: &PeriodicForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PeriodicForceEffect> for &::windows::core::IInspectable {
-    fn from(value: &PeriodicForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PeriodicForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PeriodicForceEffect> for IForceFeedbackEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: PeriodicForceEffect) -> ::windows::core::Result<Self> {
@@ -919,36 +774,7 @@ unsafe impl ::windows::core::Interface for RampForceEffect {
 impl ::windows::core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";
 }
-impl ::core::convert::From<RampForceEffect> for ::windows::core::IUnknown {
-    fn from(value: RampForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RampForceEffect> for ::windows::core::IUnknown {
-    fn from(value: &RampForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RampForceEffect> for &::windows::core::IUnknown {
-    fn from(value: &RampForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RampForceEffect> for ::windows::core::IInspectable {
-    fn from(value: RampForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RampForceEffect> for ::windows::core::IInspectable {
-    fn from(value: &RampForceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RampForceEffect> for &::windows::core::IInspectable {
-    fn from(value: &RampForceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RampForceEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RampForceEffect> for IForceFeedbackEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: RampForceEffect) -> ::windows::core::Result<Self> {

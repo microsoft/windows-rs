@@ -176,36 +176,7 @@ impl IProtectionPolicyManagerInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: IProtectionPolicyManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtectionPolicyManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtectionPolicyManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtectionPolicyManagerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -300,36 +271,7 @@ impl IProtectionPolicyManagerInterop2 {
         (::windows::core::Vtable::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), ::core::mem::transmute_copy(sourceidentity), ::core::mem::transmute_copy(apppackagefamilyname), auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::core::IUnknown {
-    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtectionPolicyManagerInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::core::IUnknown {
-    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtectionPolicyManagerInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtectionPolicyManagerInterop2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -452,36 +394,7 @@ impl IProtectionPolicyManagerInterop3 {
         (::windows::core::Vtable::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(::windows::core::Vtable::as_raw(self), appwindow.into(), sourceitemlistunk.into().abi(), processid, auditinfounk.into().abi(), ::core::mem::transmute_copy(messagefromapp), behavior, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::core::IUnknown {
-    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProtectionPolicyManagerInterop3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::core::IUnknown {
-    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProtectionPolicyManagerInterop3> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IProtectionPolicyManagerInterop3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProtectionPolicyManagerInterop3, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

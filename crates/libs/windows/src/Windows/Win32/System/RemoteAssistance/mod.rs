@@ -5,41 +5,7 @@ pub struct DRendezvousSessionEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<DRendezvousSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: DRendezvousSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a DRendezvousSessionEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a DRendezvousSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&DRendezvousSessionEvents> for ::windows::core::IUnknown {
-    fn from(value: &DRendezvousSessionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<DRendezvousSessionEvents> for super::Com::IDispatch {
-    fn from(value: DRendezvousSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a DRendezvousSessionEvents> for &'a super::Com::IDispatch {
-    fn from(value: &'a DRendezvousSessionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&DRendezvousSessionEvents> for super::Com::IDispatch {
-    fn from(value: &DRendezvousSessionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(DRendezvousSessionEvents, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for DRendezvousSessionEvents {
     fn clone(&self) -> Self {
@@ -85,21 +51,7 @@ impl IRendezvousApplication {
         (::windows::core::Vtable::vtable(self).SetRendezvousSession)(::windows::core::Vtable::as_raw(self), prendezvoussession.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IRendezvousApplication> for ::windows::core::IUnknown {
-    fn from(value: IRendezvousApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRendezvousApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRendezvousApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRendezvousApplication> for ::windows::core::IUnknown {
-    fn from(value: &IRendezvousApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRendezvousApplication, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRendezvousApplication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -151,21 +103,7 @@ impl IRendezvousSession {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute_copy(bstrappdata)).ok()
     }
 }
-impl ::core::convert::From<IRendezvousSession> for ::windows::core::IUnknown {
-    fn from(value: IRendezvousSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRendezvousSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRendezvousSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRendezvousSession> for ::windows::core::IUnknown {
-    fn from(value: &IRendezvousSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRendezvousSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRendezvousSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -150,36 +150,7 @@ unsafe impl ::windows::core::Interface for UserNotificationListener {
 impl ::windows::core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";
 }
-impl ::core::convert::From<UserNotificationListener> for ::windows::core::IUnknown {
-    fn from(value: UserNotificationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationListener> for ::windows::core::IUnknown {
-    fn from(value: &UserNotificationListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationListener> for &::windows::core::IUnknown {
-    fn from(value: &UserNotificationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserNotificationListener> for ::windows::core::IInspectable {
-    fn from(value: UserNotificationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserNotificationListener> for ::windows::core::IInspectable {
-    fn from(value: &UserNotificationListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserNotificationListener> for &::windows::core::IInspectable {
-    fn from(value: &UserNotificationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserNotificationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]

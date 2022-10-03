@@ -6,21 +6,7 @@ impl IOplockBreakingHandler {
         (::windows::core::Vtable::vtable(self).OplockBreaking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IOplockBreakingHandler> for ::windows::core::IUnknown {
-    fn from(value: IOplockBreakingHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IOplockBreakingHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IOplockBreakingHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOplockBreakingHandler> for ::windows::core::IUnknown {
-    fn from(value: &IOplockBreakingHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IOplockBreakingHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IOplockBreakingHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -58,21 +44,7 @@ impl IRandomAccessStreamFileAccessMode {
         (::windows::core::Vtable::vtable(self).GetMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IRandomAccessStreamFileAccessMode> for ::windows::core::IUnknown {
-    fn from(value: IRandomAccessStreamFileAccessMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRandomAccessStreamFileAccessMode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRandomAccessStreamFileAccessMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRandomAccessStreamFileAccessMode> for ::windows::core::IUnknown {
-    fn from(value: &IRandomAccessStreamFileAccessMode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -116,21 +88,7 @@ impl IStorageFolderHandleAccess {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), filename.into(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnknown {
-    fn from(value: IStorageFolderHandleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFolderHandleAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFolderHandleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolderHandleAccess> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFolderHandleAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFolderHandleAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStorageFolderHandleAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -176,21 +134,7 @@ impl IStorageItemHandleAccess {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemHandleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemHandleAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemHandleAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemHandleAccess> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemHandleAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItemHandleAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStorageItemHandleAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -230,21 +174,7 @@ impl IUnbufferedFileHandleOplockCallback {
         (::windows::core::Vtable::vtable(self).OnBrokenCallback)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUnbufferedFileHandleOplockCallback> for ::windows::core::IUnknown {
-    fn from(value: IUnbufferedFileHandleOplockCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUnbufferedFileHandleOplockCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUnbufferedFileHandleOplockCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUnbufferedFileHandleOplockCallback> for ::windows::core::IUnknown {
-    fn from(value: &IUnbufferedFileHandleOplockCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -288,21 +218,7 @@ impl IUnbufferedFileHandleProvider {
         (::windows::core::Vtable::vtable(self).CloseUnbufferedFileHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUnbufferedFileHandleProvider> for ::windows::core::IUnknown {
-    fn from(value: IUnbufferedFileHandleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUnbufferedFileHandleProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUnbufferedFileHandleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUnbufferedFileHandleProvider> for ::windows::core::IUnknown {
-    fn from(value: &IUnbufferedFileHandleProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUnbufferedFileHandleProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())

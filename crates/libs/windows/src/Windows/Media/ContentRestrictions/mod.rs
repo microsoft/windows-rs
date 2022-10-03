@@ -183,36 +183,7 @@ unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
 impl ::windows::core::RuntimeName for ContentRestrictionsBrowsePolicy {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
 }
-impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IUnknown {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IInspectable {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContentRestrictionsBrowsePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
@@ -334,36 +305,7 @@ unsafe impl ::windows::core::Interface for RatedContentDescription {
 impl ::windows::core::RuntimeName for RatedContentDescription {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentDescription";
 }
-impl ::core::convert::From<RatedContentDescription> for ::windows::core::IUnknown {
-    fn from(value: RatedContentDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RatedContentDescription> for ::windows::core::IUnknown {
-    fn from(value: &RatedContentDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RatedContentDescription> for &::windows::core::IUnknown {
-    fn from(value: &RatedContentDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RatedContentDescription> for ::windows::core::IInspectable {
-    fn from(value: RatedContentDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RatedContentDescription> for ::windows::core::IInspectable {
-    fn from(value: &RatedContentDescription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RatedContentDescription> for &::windows::core::IInspectable {
-    fn from(value: &RatedContentDescription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RatedContentDescription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentDescription {}
 unsafe impl ::core::marker::Sync for RatedContentDescription {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
@@ -463,36 +405,7 @@ unsafe impl ::windows::core::Interface for RatedContentRestrictions {
 impl ::windows::core::RuntimeName for RatedContentRestrictions {
     const NAME: &'static str = "Windows.Media.ContentRestrictions.RatedContentRestrictions";
 }
-impl ::core::convert::From<RatedContentRestrictions> for ::windows::core::IUnknown {
-    fn from(value: RatedContentRestrictions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RatedContentRestrictions> for ::windows::core::IUnknown {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RatedContentRestrictions> for &::windows::core::IUnknown {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RatedContentRestrictions> for ::windows::core::IInspectable {
-    fn from(value: RatedContentRestrictions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RatedContentRestrictions> for ::windows::core::IInspectable {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RatedContentRestrictions> for &::windows::core::IInspectable {
-    fn from(value: &RatedContentRestrictions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RatedContentRestrictions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]

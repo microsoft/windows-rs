@@ -1200,21 +1200,7 @@ impl IActiveIME {
         (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
 }
-impl ::core::convert::From<IActiveIME> for ::windows::core::IUnknown {
-    fn from(value: IActiveIME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIME> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIME> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIME) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIME, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveIME {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1417,36 +1403,7 @@ impl IActiveIME2 {
         (::windows::core::Vtable::vtable(self).Unsleep)(::windows::core::Vtable::as_raw(self), fdead.into()).ok()
     }
 }
-impl ::core::convert::From<IActiveIME2> for ::windows::core::IUnknown {
-    fn from(value: IActiveIME2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIME2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIME2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIME2> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIME2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IActiveIME2> for IActiveIME {
-    fn from(value: IActiveIME2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIME2> for &'a IActiveIME {
-    fn from(value: &'a IActiveIME2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIME2> for IActiveIME {
-    fn from(value: &IActiveIME2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIME2, ::windows::core::IUnknown, IActiveIME);
 impl ::core::clone::Clone for IActiveIME2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2056,21 +2013,7 @@ impl IActiveIMMApp {
         (::windows::core::Vtable::vtable(self).EnumInputContext)(::windows::core::Vtable::as_raw(self), idthread, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumInputContext>(result__)
     }
 }
-impl ::core::convert::From<IActiveIMMApp> for ::windows::core::IUnknown {
-    fn from(value: IActiveIMMApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIMMApp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIMMApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIMMApp> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIMMApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIMMApp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveIMMApp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3095,21 +3038,7 @@ impl IActiveIMMIME {
         (::windows::core::Vtable::vtable(self).IsSleeping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IActiveIMMIME> for ::windows::core::IUnknown {
-    fn from(value: IActiveIMMIME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIMMIME> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIMMIME) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIMMIME> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIMMIME) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIMMIME, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveIMMIME {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3494,21 +3423,7 @@ impl IActiveIMMMessagePumpOwner {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-impl ::core::convert::From<IActiveIMMMessagePumpOwner> for ::windows::core::IUnknown {
-    fn from(value: IActiveIMMMessagePumpOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIMMMessagePumpOwner> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIMMMessagePumpOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIMMMessagePumpOwner> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIMMMessagePumpOwner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIMMMessagePumpOwner, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3559,21 +3474,7 @@ impl IActiveIMMRegistrar {
         (::windows::core::Vtable::vtable(self).UnregisterIME)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rclsid)).ok()
     }
 }
-impl ::core::convert::From<IActiveIMMRegistrar> for ::windows::core::IUnknown {
-    fn from(value: IActiveIMMRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveIMMRegistrar> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveIMMRegistrar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveIMMRegistrar> for ::windows::core::IUnknown {
-    fn from(value: &IActiveIMMRegistrar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveIMMRegistrar, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveIMMRegistrar {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3623,21 +3524,7 @@ impl IEnumInputContext {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-impl ::core::convert::From<IEnumInputContext> for ::windows::core::IUnknown {
-    fn from(value: IEnumInputContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumInputContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumInputContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumInputContext> for ::windows::core::IUnknown {
-    fn from(value: &IEnumInputContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumInputContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumInputContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3690,21 +3577,7 @@ impl IEnumRegisterWordA {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-impl ::core::convert::From<IEnumRegisterWordA> for ::windows::core::IUnknown {
-    fn from(value: IEnumRegisterWordA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumRegisterWordA> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumRegisterWordA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumRegisterWordA> for ::windows::core::IUnknown {
-    fn from(value: &IEnumRegisterWordA) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumRegisterWordA, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumRegisterWordA {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3754,21 +3627,7 @@ impl IEnumRegisterWordW {
         (::windows::core::Vtable::vtable(self).Skip)(::windows::core::Vtable::as_raw(self), ulcount).ok()
     }
 }
-impl ::core::convert::From<IEnumRegisterWordW> for ::windows::core::IUnknown {
-    fn from(value: IEnumRegisterWordW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumRegisterWordW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumRegisterWordW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumRegisterWordW> for ::windows::core::IUnknown {
-    fn from(value: &IEnumRegisterWordW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumRegisterWordW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumRegisterWordW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3826,41 +3685,7 @@ impl IFEClassFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFEClassFactory> for ::windows::core::IUnknown {
-    fn from(value: IFEClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFEClassFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFEClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFEClassFactory> for ::windows::core::IUnknown {
-    fn from(value: &IFEClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFEClassFactory> for super::super::super::System::Com::IClassFactory {
-    fn from(value: IFEClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFEClassFactory> for &'a super::super::super::System::Com::IClassFactory {
-    fn from(value: &'a IFEClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFEClassFactory> for super::super::super::System::Com::IClassFactory {
-    fn from(value: &IFEClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFEClassFactory, ::windows::core::IUnknown, super::super::super::System::Com::IClassFactory);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFEClassFactory {
     fn clone(&self) -> Self {
@@ -3916,21 +3741,7 @@ impl IFECommon {
         (::windows::core::Vtable::vtable(self).InvokeDictToolDialog)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimedlg)).ok()
     }
 }
-impl ::core::convert::From<IFECommon> for ::windows::core::IUnknown {
-    fn from(value: IFECommon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFECommon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFECommon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFECommon> for ::windows::core::IUnknown {
-    fn from(value: &IFECommon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFECommon, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFECommon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4056,21 +3867,7 @@ impl IFEDictionary {
         (::windows::core::Vtable::vtable(self).ConvertFromUserToSys)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IFEDictionary> for ::windows::core::IUnknown {
-    fn from(value: IFEDictionary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFEDictionary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFEDictionary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFEDictionary> for ::windows::core::IUnknown {
-    fn from(value: &IFEDictionary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFEDictionary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFEDictionary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4159,21 +3956,7 @@ impl IFELanguage {
         (::windows::core::Vtable::vtable(self).GetConversion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(string), start, length, ::core::mem::transmute(result)).ok()
     }
 }
-impl ::core::convert::From<IFELanguage> for ::windows::core::IUnknown {
-    fn from(value: IFELanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFELanguage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFELanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFELanguage> for ::windows::core::IUnknown {
-    fn from(value: &IFELanguage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFELanguage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFELanguage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4222,21 +4005,7 @@ impl IImePad {
         (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), piimepadapplet.into().abi(), reqid, wparam.into(), lparam.into()).ok()
     }
 }
-impl ::core::convert::From<IImePad> for ::windows::core::IUnknown {
-    fn from(value: IImePad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImePad> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImePad) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImePad> for ::windows::core::IUnknown {
-    fn from(value: &IImePad) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImePad, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IImePad {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4305,21 +4074,7 @@ impl IImePadApplet {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), lpimepad.into().abi(), notify, wparam.into(), lparam.into()).ok()
     }
 }
-impl ::core::convert::From<IImePadApplet> for ::windows::core::IUnknown {
-    fn from(value: IImePadApplet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImePadApplet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImePadApplet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImePadApplet> for ::windows::core::IUnknown {
-    fn from(value: &IImePadApplet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImePadApplet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IImePadApplet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4374,21 +4129,7 @@ impl IImePlugInDictDictionaryList {
         (::windows::core::Vtable::vtable(self).DeleteDictionary)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdictionaryguid)).ok()
     }
 }
-impl ::core::convert::From<IImePlugInDictDictionaryList> for ::windows::core::IUnknown {
-    fn from(value: IImePlugInDictDictionaryList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImePlugInDictDictionaryList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImePlugInDictDictionaryList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImePlugInDictDictionaryList> for ::windows::core::IUnknown {
-    fn from(value: &IImePlugInDictDictionaryList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImePlugInDictDictionaryList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IImePlugInDictDictionaryList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4429,21 +4170,7 @@ impl IImeSpecifyApplets {
         (::windows::core::Vtable::vtable(self).GetAppletIIDList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(refiid), ::core::mem::transmute(lpiidlist)).ok()
     }
 }
-impl ::core::convert::From<IImeSpecifyApplets> for ::windows::core::IUnknown {
-    fn from(value: IImeSpecifyApplets) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImeSpecifyApplets> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImeSpecifyApplets) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImeSpecifyApplets> for ::windows::core::IUnknown {
-    fn from(value: &IImeSpecifyApplets) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImeSpecifyApplets, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IImeSpecifyApplets {
     fn clone(&self) -> Self {
         Self(self.0.clone())

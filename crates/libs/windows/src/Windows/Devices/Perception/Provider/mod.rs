@@ -305,41 +305,7 @@ impl IPerceptionFrameProvider {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IPerceptionFrameProvider> for ::windows::core::IUnknown {
-    fn from(value: IPerceptionFrameProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IPerceptionFrameProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPerceptionFrameProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IPerceptionFrameProvider> for ::windows::core::IUnknown {
-    fn from(value: &IPerceptionFrameProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IPerceptionFrameProvider> for ::windows::core::IInspectable {
-    fn from(value: IPerceptionFrameProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IPerceptionFrameProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPerceptionFrameProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IPerceptionFrameProvider> for ::windows::core::IInspectable {
-    fn from(value: &IPerceptionFrameProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPerceptionFrameProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<IPerceptionFrameProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -509,41 +475,7 @@ impl IPerceptionFrameProviderManager {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IPerceptionFrameProviderManager> for ::windows::core::IUnknown {
-    fn from(value: IPerceptionFrameProviderManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IPerceptionFrameProviderManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPerceptionFrameProviderManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IPerceptionFrameProviderManager> for ::windows::core::IUnknown {
-    fn from(value: &IPerceptionFrameProviderManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<IPerceptionFrameProviderManager> for ::windows::core::IInspectable {
-    fn from(value: IPerceptionFrameProviderManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a IPerceptionFrameProviderManager> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPerceptionFrameProviderManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IPerceptionFrameProviderManager> for ::windows::core::IInspectable {
-    fn from(value: &IPerceptionFrameProviderManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPerceptionFrameProviderManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<IPerceptionFrameProviderManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -871,41 +803,7 @@ impl ::windows::core::RuntimeName for PerceptionControlGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionControlGroup";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionControlGroup> for ::windows::core::IUnknown {
-    fn from(value: PerceptionControlGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlGroup> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionControlGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlGroup> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionControlGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionControlGroup> for ::windows::core::IInspectable {
-    fn from(value: PerceptionControlGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlGroup> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionControlGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionControlGroup> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionControlGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionControlGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionControlGroup {}
 #[cfg(feature = "deprecated")]
@@ -999,41 +897,7 @@ impl ::windows::core::RuntimeName for PerceptionCorrelation {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionCorrelation";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionCorrelation> for ::windows::core::IUnknown {
-    fn from(value: PerceptionCorrelation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelation> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionCorrelation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelation> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionCorrelation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionCorrelation> for ::windows::core::IInspectable {
-    fn from(value: PerceptionCorrelation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelation> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionCorrelation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelation> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionCorrelation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionCorrelation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionCorrelation {}
 #[cfg(feature = "deprecated")]
@@ -1113,41 +977,7 @@ impl ::windows::core::RuntimeName for PerceptionCorrelationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionCorrelationGroup";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionCorrelationGroup> for ::windows::core::IUnknown {
-    fn from(value: PerceptionCorrelationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelationGroup> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionCorrelationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelationGroup> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionCorrelationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionCorrelationGroup> for ::windows::core::IInspectable {
-    fn from(value: PerceptionCorrelationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelationGroup> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionCorrelationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionCorrelationGroup> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionCorrelationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionCorrelationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionCorrelationGroup {}
 #[cfg(feature = "deprecated")]
@@ -1227,41 +1057,7 @@ impl ::windows::core::RuntimeName for PerceptionFaceAuthenticationGroup {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFaceAuthenticationGroup> for ::windows::core::IUnknown {
-    fn from(value: PerceptionFaceAuthenticationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFaceAuthenticationGroup> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionFaceAuthenticationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFaceAuthenticationGroup> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionFaceAuthenticationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFaceAuthenticationGroup> for ::windows::core::IInspectable {
-    fn from(value: PerceptionFaceAuthenticationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFaceAuthenticationGroup> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionFaceAuthenticationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFaceAuthenticationGroup> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionFaceAuthenticationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionFaceAuthenticationGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionFaceAuthenticationGroup {}
 #[cfg(feature = "deprecated")]
@@ -1347,41 +1143,7 @@ impl ::windows::core::RuntimeName for PerceptionFrame {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrame";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrame> for ::windows::core::IUnknown {
-    fn from(value: PerceptionFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrame> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrame> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrame> for ::windows::core::IInspectable {
-    fn from(value: PerceptionFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrame> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrame> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionFrame {}
 #[cfg(feature = "deprecated")]
@@ -1516,41 +1278,7 @@ impl ::windows::core::RuntimeName for PerceptionFrameProviderInfo {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameProviderInfo> for ::windows::core::IUnknown {
-    fn from(value: PerceptionFrameProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameProviderInfo> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameProviderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameProviderInfo> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionFrameProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionFrameProviderInfo> for ::windows::core::IInspectable {
-    fn from(value: PerceptionFrameProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameProviderInfo> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameProviderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionFrameProviderInfo> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionFrameProviderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionFrameProviderInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionFrameProviderInfo {}
 #[cfg(feature = "deprecated")]
@@ -1751,41 +1479,7 @@ impl ::windows::core::RuntimeName for PerceptionPropertyChangeRequest {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionPropertyChangeRequest";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionPropertyChangeRequest> for ::windows::core::IUnknown {
-    fn from(value: PerceptionPropertyChangeRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionPropertyChangeRequest> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionPropertyChangeRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionPropertyChangeRequest> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionPropertyChangeRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionPropertyChangeRequest> for ::windows::core::IInspectable {
-    fn from(value: PerceptionPropertyChangeRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionPropertyChangeRequest> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionPropertyChangeRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionPropertyChangeRequest> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionPropertyChangeRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionPropertyChangeRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for PerceptionPropertyChangeRequest {}
 #[cfg(feature = "deprecated")]
@@ -1876,41 +1570,7 @@ impl ::windows::core::RuntimeName for PerceptionVideoFrameAllocator {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
-    fn from(value: PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
-    fn from(value: PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&PerceptionVideoFrameAllocator> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionVideoFrameAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionVideoFrameAllocator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<PerceptionVideoFrameAllocator> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

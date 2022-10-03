@@ -24,21 +24,7 @@ impl ID2D1SimplifiedGeometrySink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SimplifiedGeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SimplifiedGeometrySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SimplifiedGeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SimplifiedGeometrySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())

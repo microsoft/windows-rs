@@ -87,36 +87,7 @@ impl IIOControlCode {
         }
     }
 }
-impl ::core::convert::From<IIOControlCode> for ::windows::core::IUnknown {
-    fn from(value: IIOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIOControlCode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IIOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIOControlCode> for ::windows::core::IUnknown {
-    fn from(value: &IIOControlCode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IIOControlCode> for ::windows::core::IInspectable {
-    fn from(value: IIOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IIOControlCode> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IIOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIOControlCode> for ::windows::core::IInspectable {
-    fn from(value: &IIOControlCode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IIOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IIOControlCode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -294,36 +265,7 @@ unsafe impl ::windows::core::Interface for CustomDevice {
 impl ::windows::core::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
-impl ::core::convert::From<CustomDevice> for ::windows::core::IUnknown {
-    fn from(value: CustomDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CustomDevice> for ::windows::core::IUnknown {
-    fn from(value: &CustomDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CustomDevice> for &::windows::core::IUnknown {
-    fn from(value: &CustomDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CustomDevice> for ::windows::core::IInspectable {
-    fn from(value: CustomDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CustomDevice> for ::windows::core::IInspectable {
-    fn from(value: &CustomDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CustomDevice> for &::windows::core::IInspectable {
-    fn from(value: &CustomDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CustomDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
@@ -409,36 +351,7 @@ unsafe impl ::windows::core::Interface for IOControlCode {
 impl ::windows::core::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
 }
-impl ::core::convert::From<IOControlCode> for ::windows::core::IUnknown {
-    fn from(value: IOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOControlCode> for ::windows::core::IUnknown {
-    fn from(value: &IOControlCode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IOControlCode> for &::windows::core::IUnknown {
-    fn from(value: &IOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IOControlCode> for ::windows::core::IInspectable {
-    fn from(value: IOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IOControlCode> for ::windows::core::IInspectable {
-    fn from(value: &IOControlCode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IOControlCode> for &::windows::core::IInspectable {
-    fn from(value: &IOControlCode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IOControlCode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IOControlCode> for IIOControlCode {
     type Error = ::windows::core::Error;
     fn try_from(value: IOControlCode) -> ::windows::core::Result<Self> {

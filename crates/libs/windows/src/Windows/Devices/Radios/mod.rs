@@ -171,36 +171,7 @@ unsafe impl ::windows::core::Interface for Radio {
 impl ::windows::core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
 }
-impl ::core::convert::From<Radio> for ::windows::core::IUnknown {
-    fn from(value: Radio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Radio> for ::windows::core::IUnknown {
-    fn from(value: &Radio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Radio> for &::windows::core::IUnknown {
-    fn from(value: &Radio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Radio> for ::windows::core::IInspectable {
-    fn from(value: Radio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Radio> for ::windows::core::IInspectable {
-    fn from(value: &Radio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Radio> for &::windows::core::IInspectable {
-    fn from(value: &Radio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Radio, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[doc = "*Required features: `\"Devices_Radios\"`*"]

@@ -2337,36 +2337,7 @@ pub struct IProximitySensorStatics2_Vtbl {
 #[repr(transparent)]
 pub struct ISensorDataThreshold(::windows::core::IUnknown);
 impl ISensorDataThreshold {}
-impl ::core::convert::From<ISensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: ISensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorDataThreshold> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &ISensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: ISensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorDataThreshold> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &ISensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISensorDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2758,36 +2729,7 @@ unsafe impl ::windows::core::Interface for Accelerometer {
 impl ::windows::core::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
 }
-impl ::core::convert::From<Accelerometer> for ::windows::core::IUnknown {
-    fn from(value: Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Accelerometer> for ::windows::core::IUnknown {
-    fn from(value: &Accelerometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Accelerometer> for &::windows::core::IUnknown {
-    fn from(value: &Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Accelerometer> for ::windows::core::IInspectable {
-    fn from(value: Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Accelerometer> for ::windows::core::IInspectable {
-    fn from(value: &Accelerometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Accelerometer> for &::windows::core::IInspectable {
-    fn from(value: &Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Accelerometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Accelerometer {}
 unsafe impl ::core::marker::Sync for Accelerometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -2860,36 +2802,7 @@ unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
 impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
 }
-impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccelerometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
 unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -2977,36 +2890,7 @@ unsafe impl ::windows::core::Interface for AccelerometerReading {
 impl ::windows::core::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
 }
-impl ::core::convert::From<AccelerometerReading> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerReading> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccelerometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerReading {}
 unsafe impl ::core::marker::Sync for AccelerometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3053,36 +2937,7 @@ unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs 
 impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccelerometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3131,36 +2986,7 @@ unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
 impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
 }
-impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AccelerometerShakenEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3306,36 +3132,7 @@ unsafe impl ::windows::core::Interface for ActivitySensor {
 impl ::windows::core::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
 }
-impl ::core::convert::From<ActivitySensor> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensor> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensor {}
 unsafe impl ::core::marker::Sync for ActivitySensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3398,36 +3195,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReading {
 impl ::windows::core::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
 }
-impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReading {}
 unsafe impl ::core::marker::Sync for ActivitySensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3474,36 +3242,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
 }
-impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensorReadingChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3550,36 +3289,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
 }
-impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3628,36 +3338,7 @@ unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
 impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
 }
-impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ActivitySensorTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3773,36 +3454,7 @@ unsafe impl ::windows::core::Interface for Altimeter {
 impl ::windows::core::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
 }
-impl ::core::convert::From<Altimeter> for ::windows::core::IUnknown {
-    fn from(value: Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Altimeter> for ::windows::core::IUnknown {
-    fn from(value: &Altimeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Altimeter> for &::windows::core::IUnknown {
-    fn from(value: &Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Altimeter> for ::windows::core::IInspectable {
-    fn from(value: Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Altimeter> for ::windows::core::IInspectable {
-    fn from(value: &Altimeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Altimeter> for &::windows::core::IInspectable {
-    fn from(value: &Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Altimeter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Altimeter {}
 unsafe impl ::core::marker::Sync for Altimeter {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3876,36 +3528,7 @@ unsafe impl ::windows::core::Interface for AltimeterReading {
 impl ::windows::core::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
 }
-impl ::core::convert::From<AltimeterReading> for ::windows::core::IUnknown {
-    fn from(value: AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for ::windows::core::IUnknown {
-    fn from(value: &AltimeterReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for &::windows::core::IUnknown {
-    fn from(value: &AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AltimeterReading> for ::windows::core::IInspectable {
-    fn from(value: AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for ::windows::core::IInspectable {
-    fn from(value: &AltimeterReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for &::windows::core::IInspectable {
-    fn from(value: &AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AltimeterReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AltimeterReading {}
 unsafe impl ::core::marker::Sync for AltimeterReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -3952,36 +3575,7 @@ unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
 }
-impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AltimeterReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4123,36 +3717,7 @@ unsafe impl ::windows::core::Interface for Barometer {
 impl ::windows::core::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
 }
-impl ::core::convert::From<Barometer> for ::windows::core::IUnknown {
-    fn from(value: Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Barometer> for ::windows::core::IUnknown {
-    fn from(value: &Barometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Barometer> for &::windows::core::IUnknown {
-    fn from(value: &Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Barometer> for ::windows::core::IInspectable {
-    fn from(value: Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Barometer> for ::windows::core::IInspectable {
-    fn from(value: &Barometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Barometer> for &::windows::core::IInspectable {
-    fn from(value: &Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Barometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Barometer {}
 unsafe impl ::core::marker::Sync for Barometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4203,36 +3768,7 @@ unsafe impl ::windows::core::Interface for BarometerDataThreshold {
 impl ::windows::core::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
 }
-impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerDataThreshold {}
 unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4306,36 +3842,7 @@ unsafe impl ::windows::core::Interface for BarometerReading {
 impl ::windows::core::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
 }
-impl ::core::convert::From<BarometerReading> for ::windows::core::IUnknown {
-    fn from(value: BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReading> for ::windows::core::IUnknown {
-    fn from(value: &BarometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReading> for &::windows::core::IUnknown {
-    fn from(value: &BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerReading> for ::windows::core::IInspectable {
-    fn from(value: BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReading> for ::windows::core::IInspectable {
-    fn from(value: &BarometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReading> for &::windows::core::IInspectable {
-    fn from(value: &BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerReading {}
 unsafe impl ::core::marker::Sync for BarometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4382,36 +3889,7 @@ unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BarometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4568,36 +4046,7 @@ unsafe impl ::windows::core::Interface for Compass {
 impl ::windows::core::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
 }
-impl ::core::convert::From<Compass> for ::windows::core::IUnknown {
-    fn from(value: Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compass> for ::windows::core::IUnknown {
-    fn from(value: &Compass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compass> for &::windows::core::IUnknown {
-    fn from(value: &Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Compass> for ::windows::core::IInspectable {
-    fn from(value: Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compass> for ::windows::core::IInspectable {
-    fn from(value: &Compass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compass> for &::windows::core::IInspectable {
-    fn from(value: &Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Compass, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Compass {}
 unsafe impl ::core::marker::Sync for Compass {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4648,36 +4097,7 @@ unsafe impl ::windows::core::Interface for CompassDataThreshold {
 impl ::windows::core::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
 }
-impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &CompassDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &CompassDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompassDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassDataThreshold {}
 unsafe impl ::core::marker::Sync for CompassDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4767,36 +4187,7 @@ unsafe impl ::windows::core::Interface for CompassReading {
 impl ::windows::core::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
 }
-impl ::core::convert::From<CompassReading> for ::windows::core::IUnknown {
-    fn from(value: CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReading> for ::windows::core::IUnknown {
-    fn from(value: &CompassReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReading> for &::windows::core::IUnknown {
-    fn from(value: &CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassReading> for ::windows::core::IInspectable {
-    fn from(value: CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReading> for ::windows::core::IInspectable {
-    fn from(value: &CompassReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReading> for &::windows::core::IInspectable {
-    fn from(value: &CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompassReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassReading {}
 unsafe impl ::core::marker::Sync for CompassReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -4843,36 +4234,7 @@ unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
 }
-impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompassReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5029,36 +4391,7 @@ unsafe impl ::windows::core::Interface for Gyrometer {
 impl ::windows::core::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
 }
-impl ::core::convert::From<Gyrometer> for ::windows::core::IUnknown {
-    fn from(value: Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gyrometer> for ::windows::core::IUnknown {
-    fn from(value: &Gyrometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gyrometer> for &::windows::core::IUnknown {
-    fn from(value: &Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Gyrometer> for ::windows::core::IInspectable {
-    fn from(value: Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gyrometer> for ::windows::core::IInspectable {
-    fn from(value: &Gyrometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gyrometer> for &::windows::core::IInspectable {
-    fn from(value: &Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Gyrometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Gyrometer {}
 unsafe impl ::core::marker::Sync for Gyrometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5131,36 +4464,7 @@ unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
 impl ::windows::core::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
 }
-impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GyrometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
 unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5248,36 +4552,7 @@ unsafe impl ::windows::core::Interface for GyrometerReading {
 impl ::windows::core::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
 }
-impl ::core::convert::From<GyrometerReading> for ::windows::core::IUnknown {
-    fn from(value: GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerReading> for ::windows::core::IInspectable {
-    fn from(value: GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GyrometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerReading {}
 unsafe impl ::core::marker::Sync for GyrometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5324,36 +4599,7 @@ unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GyrometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5418,36 +4664,7 @@ unsafe impl ::windows::core::Interface for HingeAngleReading {
 impl ::windows::core::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
 }
-impl ::core::convert::From<HingeAngleReading> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleReading> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HingeAngleReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleReading {}
 unsafe impl ::core::marker::Sync for HingeAngleReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5571,36 +4788,7 @@ unsafe impl ::windows::core::Interface for HingeAngleSensor {
 impl ::windows::core::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
 }
-impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HingeAngleSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleSensor {}
 unsafe impl ::core::marker::Sync for HingeAngleSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5647,36 +4835,7 @@ unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventAr
 impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
 }
-impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HingeAngleSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5862,36 +5021,7 @@ unsafe impl ::windows::core::Interface for Inclinometer {
 impl ::windows::core::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
 }
-impl ::core::convert::From<Inclinometer> for ::windows::core::IUnknown {
-    fn from(value: Inclinometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Inclinometer> for ::windows::core::IUnknown {
-    fn from(value: &Inclinometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Inclinometer> for &::windows::core::IUnknown {
-    fn from(value: &Inclinometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Inclinometer> for ::windows::core::IInspectable {
-    fn from(value: Inclinometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Inclinometer> for ::windows::core::IInspectable {
-    fn from(value: &Inclinometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Inclinometer> for &::windows::core::IInspectable {
-    fn from(value: &Inclinometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Inclinometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Inclinometer {}
 unsafe impl ::core::marker::Sync for Inclinometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -5964,36 +5094,7 @@ unsafe impl ::windows::core::Interface for InclinometerDataThreshold {
 impl ::windows::core::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
 }
-impl ::core::convert::From<InclinometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: InclinometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InclinometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: InclinometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &InclinometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InclinometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerDataThreshold {}
 unsafe impl ::core::marker::Sync for InclinometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6088,36 +5189,7 @@ unsafe impl ::windows::core::Interface for InclinometerReading {
 impl ::windows::core::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
 }
-impl ::core::convert::From<InclinometerReading> for ::windows::core::IUnknown {
-    fn from(value: InclinometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerReading> for ::windows::core::IUnknown {
-    fn from(value: &InclinometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerReading> for &::windows::core::IUnknown {
-    fn from(value: &InclinometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InclinometerReading> for ::windows::core::IInspectable {
-    fn from(value: InclinometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerReading> for ::windows::core::IInspectable {
-    fn from(value: &InclinometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerReading> for &::windows::core::IInspectable {
-    fn from(value: &InclinometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InclinometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerReading {}
 unsafe impl ::core::marker::Sync for InclinometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6164,36 +5236,7 @@ unsafe impl ::windows::core::Interface for InclinometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<InclinometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InclinometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InclinometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InclinometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &InclinometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InclinometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for InclinometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InclinometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6335,36 +5378,7 @@ unsafe impl ::windows::core::Interface for LightSensor {
 impl ::windows::core::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
 }
-impl ::core::convert::From<LightSensor> for ::windows::core::IUnknown {
-    fn from(value: LightSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensor> for ::windows::core::IUnknown {
-    fn from(value: &LightSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensor> for &::windows::core::IUnknown {
-    fn from(value: &LightSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LightSensor> for ::windows::core::IInspectable {
-    fn from(value: LightSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensor> for ::windows::core::IInspectable {
-    fn from(value: &LightSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensor> for &::windows::core::IInspectable {
-    fn from(value: &LightSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LightSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensor {}
 unsafe impl ::core::marker::Sync for LightSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6426,36 +5440,7 @@ unsafe impl ::windows::core::Interface for LightSensorDataThreshold {
 impl ::windows::core::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
 }
-impl ::core::convert::From<LightSensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: LightSensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LightSensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: LightSensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &LightSensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LightSensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorDataThreshold {}
 unsafe impl ::core::marker::Sync for LightSensorDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6529,36 +5514,7 @@ unsafe impl ::windows::core::Interface for LightSensorReading {
 impl ::windows::core::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
 }
-impl ::core::convert::From<LightSensorReading> for ::windows::core::IUnknown {
-    fn from(value: LightSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorReading> for ::windows::core::IUnknown {
-    fn from(value: &LightSensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorReading> for &::windows::core::IUnknown {
-    fn from(value: &LightSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LightSensorReading> for ::windows::core::IInspectable {
-    fn from(value: LightSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorReading> for ::windows::core::IInspectable {
-    fn from(value: &LightSensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorReading> for &::windows::core::IInspectable {
-    fn from(value: &LightSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LightSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorReading {}
 unsafe impl ::core::marker::Sync for LightSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6605,36 +5561,7 @@ unsafe impl ::windows::core::Interface for LightSensorReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
 }
-impl ::core::convert::From<LightSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LightSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LightSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LightSensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LightSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LightSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6791,36 +5718,7 @@ unsafe impl ::windows::core::Interface for Magnetometer {
 impl ::windows::core::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
 }
-impl ::core::convert::From<Magnetometer> for ::windows::core::IUnknown {
-    fn from(value: Magnetometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Magnetometer> for ::windows::core::IUnknown {
-    fn from(value: &Magnetometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Magnetometer> for &::windows::core::IUnknown {
-    fn from(value: &Magnetometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Magnetometer> for ::windows::core::IInspectable {
-    fn from(value: Magnetometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Magnetometer> for ::windows::core::IInspectable {
-    fn from(value: &Magnetometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Magnetometer> for &::windows::core::IInspectable {
-    fn from(value: &Magnetometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Magnetometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -6893,36 +5791,7 @@ unsafe impl ::windows::core::Interface for MagnetometerDataThreshold {
 impl ::windows::core::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
 }
-impl ::core::convert::From<MagnetometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: MagnetometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagnetometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: MagnetometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &MagnetometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagnetometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerDataThreshold {}
 unsafe impl ::core::marker::Sync for MagnetometerDataThreshold {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7017,36 +5886,7 @@ unsafe impl ::windows::core::Interface for MagnetometerReading {
 impl ::windows::core::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
 }
-impl ::core::convert::From<MagnetometerReading> for ::windows::core::IUnknown {
-    fn from(value: MagnetometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerReading> for ::windows::core::IUnknown {
-    fn from(value: &MagnetometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerReading> for &::windows::core::IUnknown {
-    fn from(value: &MagnetometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagnetometerReading> for ::windows::core::IInspectable {
-    fn from(value: MagnetometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerReading> for ::windows::core::IInspectable {
-    fn from(value: &MagnetometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerReading> for &::windows::core::IInspectable {
-    fn from(value: &MagnetometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagnetometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerReading {}
 unsafe impl ::core::marker::Sync for MagnetometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7093,36 +5933,7 @@ unsafe impl ::windows::core::Interface for MagnetometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MagnetometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MagnetometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MagnetometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MagnetometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MagnetometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MagnetometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7313,36 +6124,7 @@ unsafe impl ::windows::core::Interface for OrientationSensor {
 impl ::windows::core::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
 }
-impl ::core::convert::From<OrientationSensor> for ::windows::core::IUnknown {
-    fn from(value: OrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensor> for ::windows::core::IUnknown {
-    fn from(value: &OrientationSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensor> for &::windows::core::IUnknown {
-    fn from(value: &OrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OrientationSensor> for ::windows::core::IInspectable {
-    fn from(value: OrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensor> for ::windows::core::IInspectable {
-    fn from(value: &OrientationSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensor> for &::windows::core::IInspectable {
-    fn from(value: &OrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensor {}
 unsafe impl ::core::marker::Sync for OrientationSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7430,36 +6212,7 @@ unsafe impl ::windows::core::Interface for OrientationSensorReading {
 impl ::windows::core::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
 }
-impl ::core::convert::From<OrientationSensorReading> for ::windows::core::IUnknown {
-    fn from(value: OrientationSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensorReading> for ::windows::core::IUnknown {
-    fn from(value: &OrientationSensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensorReading> for &::windows::core::IUnknown {
-    fn from(value: &OrientationSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OrientationSensorReading> for ::windows::core::IInspectable {
-    fn from(value: OrientationSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensorReading> for ::windows::core::IInspectable {
-    fn from(value: &OrientationSensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensorReading> for &::windows::core::IInspectable {
-    fn from(value: &OrientationSensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OrientationSensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensorReading {}
 unsafe impl ::core::marker::Sync for OrientationSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7506,36 +6259,7 @@ unsafe impl ::windows::core::Interface for OrientationSensorReadingChangedEventA
 impl ::windows::core::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
 }
-impl ::core::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OrientationSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OrientationSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OrientationSensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &OrientationSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OrientationSensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OrientationSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for OrientationSensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7687,36 +6411,7 @@ unsafe impl ::windows::core::Interface for Pedometer {
 impl ::windows::core::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
 }
-impl ::core::convert::From<Pedometer> for ::windows::core::IUnknown {
-    fn from(value: Pedometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Pedometer> for ::windows::core::IUnknown {
-    fn from(value: &Pedometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Pedometer> for &::windows::core::IUnknown {
-    fn from(value: &Pedometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Pedometer> for ::windows::core::IInspectable {
-    fn from(value: Pedometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Pedometer> for ::windows::core::IInspectable {
-    fn from(value: &Pedometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Pedometer> for &::windows::core::IInspectable {
-    fn from(value: &Pedometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Pedometer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Pedometer {}
 unsafe impl ::core::marker::Sync for Pedometer {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7767,36 +6462,7 @@ unsafe impl ::windows::core::Interface for PedometerDataThreshold {
 impl ::windows::core::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
 }
-impl ::core::convert::From<PedometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: PedometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PedometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: PedometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &PedometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PedometerDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PedometerDataThreshold> for ISensorDataThreshold {
     type Error = ::windows::core::Error;
     fn try_from(value: PedometerDataThreshold) -> ::windows::core::Result<Self> {
@@ -7887,36 +6553,7 @@ unsafe impl ::windows::core::Interface for PedometerReading {
 impl ::windows::core::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
 }
-impl ::core::convert::From<PedometerReading> for ::windows::core::IUnknown {
-    fn from(value: PedometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerReading> for ::windows::core::IUnknown {
-    fn from(value: &PedometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerReading> for &::windows::core::IUnknown {
-    fn from(value: &PedometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PedometerReading> for ::windows::core::IInspectable {
-    fn from(value: PedometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerReading> for ::windows::core::IInspectable {
-    fn from(value: &PedometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerReading> for &::windows::core::IInspectable {
-    fn from(value: &PedometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PedometerReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PedometerReading {}
 unsafe impl ::core::marker::Sync for PedometerReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -7963,36 +6600,7 @@ unsafe impl ::windows::core::Interface for PedometerReadingChangedEventArgs {
 impl ::windows::core::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
 }
-impl ::core::convert::From<PedometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PedometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PedometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PedometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PedometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PedometerReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8118,36 +6726,7 @@ unsafe impl ::windows::core::Interface for ProximitySensor {
 impl ::windows::core::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
 }
-impl ::core::convert::From<ProximitySensor> for ::windows::core::IUnknown {
-    fn from(value: ProximitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensor> for ::windows::core::IUnknown {
-    fn from(value: &ProximitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensor> for &::windows::core::IUnknown {
-    fn from(value: &ProximitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximitySensor> for ::windows::core::IInspectable {
-    fn from(value: ProximitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensor> for ::windows::core::IInspectable {
-    fn from(value: &ProximitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensor> for &::windows::core::IInspectable {
-    fn from(value: &ProximitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximitySensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensor {}
 unsafe impl ::core::marker::Sync for ProximitySensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8198,36 +6777,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorDataThreshold {
 impl ::windows::core::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
 }
-impl ::core::convert::From<ProximitySensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: ProximitySensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximitySensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: ProximitySensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &ProximitySensorDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximitySensorDataThreshold, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ProximitySensorDataThreshold> for ISensorDataThreshold {
     type Error = ::windows::core::Error;
     fn try_from(value: ProximitySensorDataThreshold) -> ::windows::core::Result<Self> {
@@ -8303,41 +6853,7 @@ impl ::windows::core::RuntimeName for ProximitySensorDisplayOnOffController {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDisplayOnOffController";
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<ProximitySensorDisplayOnOffController> for ::windows::core::IUnknown {
-    fn from(value: ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&ProximitySensorDisplayOnOffController> for ::windows::core::IUnknown {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&ProximitySensorDisplayOnOffController> for &::windows::core::IUnknown {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<ProximitySensorDisplayOnOffController> for ::windows::core::IInspectable {
-    fn from(value: ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&ProximitySensorDisplayOnOffController> for ::windows::core::IInspectable {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&ProximitySensorDisplayOnOffController> for &::windows::core::IInspectable {
-    fn from(value: &ProximitySensorDisplayOnOffController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximitySensorDisplayOnOffController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ProximitySensorDisplayOnOffController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8426,36 +6942,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorReading {
 impl ::windows::core::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
 }
-impl ::core::convert::From<ProximitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: ProximitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: &ProximitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorReading> for &::windows::core::IUnknown {
-    fn from(value: &ProximitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: ProximitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: &ProximitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorReading> for &::windows::core::IInspectable {
-    fn from(value: &ProximitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximitySensorReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensorReading {}
 unsafe impl ::core::marker::Sync for ProximitySensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8502,36 +6989,7 @@ unsafe impl ::windows::core::Interface for ProximitySensorReadingChangedEventArg
 impl ::windows::core::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
 }
-impl ::core::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProximitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProximitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProximitySensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ProximitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProximitySensorReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProximitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ProximitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8585,36 +7043,7 @@ unsafe impl ::windows::core::Interface for SensorDataThresholdTriggerDetails {
 impl ::windows::core::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
 }
-impl ::core::convert::From<SensorDataThresholdTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SensorDataThresholdTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorDataThresholdTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &SensorDataThresholdTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SensorDataThresholdTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8682,36 +7111,7 @@ unsafe impl ::windows::core::Interface for SensorQuaternion {
 impl ::windows::core::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
 }
-impl ::core::convert::From<SensorQuaternion> for ::windows::core::IUnknown {
-    fn from(value: SensorQuaternion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorQuaternion> for ::windows::core::IUnknown {
-    fn from(value: &SensorQuaternion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorQuaternion> for &::windows::core::IUnknown {
-    fn from(value: &SensorQuaternion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SensorQuaternion> for ::windows::core::IInspectable {
-    fn from(value: SensorQuaternion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorQuaternion> for ::windows::core::IInspectable {
-    fn from(value: &SensorQuaternion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorQuaternion> for &::windows::core::IInspectable {
-    fn from(value: &SensorQuaternion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SensorQuaternion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8814,36 +7214,7 @@ unsafe impl ::windows::core::Interface for SensorRotationMatrix {
 impl ::windows::core::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
 }
-impl ::core::convert::From<SensorRotationMatrix> for ::windows::core::IUnknown {
-    fn from(value: SensorRotationMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorRotationMatrix> for ::windows::core::IUnknown {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorRotationMatrix> for &::windows::core::IUnknown {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SensorRotationMatrix> for ::windows::core::IInspectable {
-    fn from(value: SensorRotationMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SensorRotationMatrix> for ::windows::core::IInspectable {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SensorRotationMatrix> for &::windows::core::IInspectable {
-    fn from(value: &SensorRotationMatrix) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SensorRotationMatrix, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -8957,36 +7328,7 @@ unsafe impl ::windows::core::Interface for SimpleOrientationSensor {
 impl ::windows::core::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
 }
-impl ::core::convert::From<SimpleOrientationSensor> for ::windows::core::IUnknown {
-    fn from(value: SimpleOrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensor> for ::windows::core::IUnknown {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensor> for &::windows::core::IUnknown {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SimpleOrientationSensor> for ::windows::core::IInspectable {
-    fn from(value: SimpleOrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensor> for ::windows::core::IInspectable {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensor> for &::windows::core::IInspectable {
-    fn from(value: &SimpleOrientationSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SimpleOrientationSensor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleOrientationSensor {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensor {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
@@ -9042,36 +7384,7 @@ unsafe impl ::windows::core::Interface for SimpleOrientationSensorOrientationCha
 impl ::windows::core::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";
 }
-impl ::core::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SimpleOrientationSensorOrientationChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]

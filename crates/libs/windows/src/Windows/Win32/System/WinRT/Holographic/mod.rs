@@ -48,36 +48,7 @@ impl IHolographicCameraInterop {
         (::windows::core::Vtable::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Vtable::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IHolographicCameraInterop> for ::windows::core::IUnknown {
-    fn from(value: IHolographicCameraInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicCameraInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHolographicCameraInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicCameraInterop> for ::windows::core::IUnknown {
-    fn from(value: &IHolographicCameraInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHolographicCameraInterop> for ::windows::core::IInspectable {
-    fn from(value: IHolographicCameraInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicCameraInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHolographicCameraInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicCameraInterop> for ::windows::core::IInspectable {
-    fn from(value: &IHolographicCameraInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHolographicCameraInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IHolographicCameraInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -150,36 +121,7 @@ impl IHolographicCameraRenderingParametersInterop {
         (::windows::core::Vtable::vtable(self).CommitDirect3D12ResourceWithDepthData)(::windows::core::Vtable::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue, pdepthresourcetocommit.into().abi(), pdepthresourcefence.into().abi(), depthresourcefencesignalvalue).ok()
     }
 }
-impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::core::IUnknown {
-    fn from(value: IHolographicCameraRenderingParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicCameraRenderingParametersInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHolographicCameraRenderingParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicCameraRenderingParametersInterop> for ::windows::core::IUnknown {
-    fn from(value: &IHolographicCameraRenderingParametersInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHolographicCameraRenderingParametersInterop> for ::windows::core::IInspectable {
-    fn from(value: IHolographicCameraRenderingParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicCameraRenderingParametersInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHolographicCameraRenderingParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicCameraRenderingParametersInterop> for ::windows::core::IInspectable {
-    fn from(value: &IHolographicCameraRenderingParametersInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHolographicCameraRenderingParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IHolographicCameraRenderingParametersInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -265,36 +207,7 @@ impl IHolographicQuadLayerInterop {
         (::windows::core::Vtable::vtable(self).UnacquireDirect3D12BufferResource)(::windows::core::Vtable::as_raw(self), presourcetounacquire.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IHolographicQuadLayerInterop> for ::windows::core::IUnknown {
-    fn from(value: IHolographicQuadLayerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicQuadLayerInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHolographicQuadLayerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicQuadLayerInterop> for ::windows::core::IUnknown {
-    fn from(value: &IHolographicQuadLayerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHolographicQuadLayerInterop> for ::windows::core::IInspectable {
-    fn from(value: IHolographicQuadLayerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicQuadLayerInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHolographicQuadLayerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicQuadLayerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IHolographicQuadLayerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHolographicQuadLayerInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IHolographicQuadLayerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -356,36 +269,7 @@ impl IHolographicQuadLayerUpdateParametersInterop {
         (::windows::core::Vtable::vtable(self).CommitDirect3D12Resource)(::windows::core::Vtable::as_raw(self), pcolorresourcetocommit.into().abi(), pcolorresourcefence.into().abi(), colorresourcefencesignalvalue).ok()
     }
 }
-impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IUnknown {
-    fn from(value: IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicQuadLayerUpdateParametersInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IUnknown {
-    fn from(value: &IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IInspectable {
-    fn from(value: IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHolographicQuadLayerUpdateParametersInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHolographicQuadLayerUpdateParametersInterop> for ::windows::core::IInspectable {
-    fn from(value: &IHolographicQuadLayerUpdateParametersInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHolographicQuadLayerUpdateParametersInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IHolographicQuadLayerUpdateParametersInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

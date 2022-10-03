@@ -819,36 +819,7 @@ impl IStorageFile {
         }
     }
 }
-impl ::core::convert::From<IStorageFile> for ::windows::core::IUnknown {
-    fn from(value: IStorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFile> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageFile> for ::windows::core::IInspectable {
-    fn from(value: IStorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFile> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFile> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<IStorageFile> for Streams::IInputStreamReference {
     type Error = ::windows::core::Error;
@@ -1011,36 +982,7 @@ impl IStorageFile2 {
         }
     }
 }
-impl ::core::convert::From<IStorageFile2> for ::windows::core::IUnknown {
-    fn from(value: IStorageFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFile2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFile2> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageFile2> for ::windows::core::IInspectable {
-    fn from(value: IStorageFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFile2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageFile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFile2> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFile2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageFile2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1095,36 +1037,7 @@ impl IStorageFilePropertiesWithAvailability {
         }
     }
 }
-impl ::core::convert::From<IStorageFilePropertiesWithAvailability> for ::windows::core::IUnknown {
-    fn from(value: IStorageFilePropertiesWithAvailability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFilePropertiesWithAvailability> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFilePropertiesWithAvailability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFilePropertiesWithAvailability> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFilePropertiesWithAvailability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageFilePropertiesWithAvailability> for ::windows::core::IInspectable {
-    fn from(value: IStorageFilePropertiesWithAvailability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFilePropertiesWithAvailability> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageFilePropertiesWithAvailability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFilePropertiesWithAvailability> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFilePropertiesWithAvailability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFilePropertiesWithAvailability, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageFilePropertiesWithAvailability {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1393,36 +1306,7 @@ impl IStorageFolder {
         }
     }
 }
-impl ::core::convert::From<IStorageFolder> for ::windows::core::IUnknown {
-    fn from(value: IStorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFolder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolder> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageFolder> for ::windows::core::IInspectable {
-    fn from(value: IStorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFolder> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolder> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageFolder> for IStorageItem {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageFolder) -> ::windows::core::Result<Self> {
@@ -1530,36 +1414,7 @@ impl IStorageFolder2 {
         }
     }
 }
-impl ::core::convert::From<IStorageFolder2> for ::windows::core::IUnknown {
-    fn from(value: IStorageFolder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFolder2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageFolder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolder2> for ::windows::core::IUnknown {
-    fn from(value: &IStorageFolder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageFolder2> for ::windows::core::IInspectable {
-    fn from(value: IStorageFolder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageFolder2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageFolder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolder2> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFolder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageFolder2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageFolder2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1736,36 +1591,7 @@ impl IStorageItem {
         }
     }
 }
-impl ::core::convert::From<IStorageItem> for ::windows::core::IUnknown {
-    fn from(value: IStorageItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItem> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItem> for ::windows::core::IInspectable {
-    fn from(value: IStorageItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItem> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItem> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1935,36 +1761,7 @@ impl IStorageItem2 {
         }
     }
 }
-impl ::core::convert::From<IStorageItem2> for ::windows::core::IUnknown {
-    fn from(value: IStorageItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItem2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItem2> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItem2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItem2> for ::windows::core::IInspectable {
-    fn from(value: IStorageItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItem2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItem2> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItem2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItem2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItem2> for IStorageItem {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItem2) -> ::windows::core::Result<Self> {
@@ -2085,36 +1882,7 @@ impl IStorageItemProperties {
         }
     }
 }
-impl ::core::convert::From<IStorageItemProperties> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemProperties> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItemProperties> for ::windows::core::IInspectable {
-    fn from(value: IStorageItemProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemProperties> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItemProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemProperties> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItemProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItemProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStorageItemProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2257,36 +2025,7 @@ impl IStorageItemProperties2 {
         }
     }
 }
-impl ::core::convert::From<IStorageItemProperties2> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemProperties2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemProperties2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemProperties2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemProperties2> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemProperties2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItemProperties2> for ::windows::core::IInspectable {
-    fn from(value: IStorageItemProperties2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemProperties2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItemProperties2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemProperties2> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItemProperties2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItemProperties2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItemProperties2> for IStorageItemProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItemProperties2) -> ::windows::core::Result<Self> {
@@ -2421,36 +2160,7 @@ impl IStorageItemPropertiesWithProvider {
         }
     }
 }
-impl ::core::convert::From<IStorageItemPropertiesWithProvider> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemPropertiesWithProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemPropertiesWithProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemPropertiesWithProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemPropertiesWithProvider> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemPropertiesWithProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItemPropertiesWithProvider> for ::windows::core::IInspectable {
-    fn from(value: IStorageItemPropertiesWithProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemPropertiesWithProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItemPropertiesWithProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemPropertiesWithProvider> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItemPropertiesWithProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorageItemPropertiesWithProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IStorageItemPropertiesWithProvider> for IStorageItemProperties {
     type Error = ::windows::core::Error;
     fn try_from(value: IStorageItemPropertiesWithProvider) -> ::windows::core::Result<Self> {
@@ -2811,36 +2521,7 @@ impl IStreamedFileDataRequest {
         unsafe { (::windows::core::Vtable::vtable(this).FailAndClose)(::windows::core::Vtable::as_raw(this), failuremode).ok() }
     }
 }
-impl ::core::convert::From<IStreamedFileDataRequest> for ::windows::core::IUnknown {
-    fn from(value: IStreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStreamedFileDataRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStreamedFileDataRequest> for ::windows::core::IUnknown {
-    fn from(value: &IStreamedFileDataRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStreamedFileDataRequest> for ::windows::core::IInspectable {
-    fn from(value: IStreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStreamedFileDataRequest> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStreamedFileDataRequest> for ::windows::core::IInspectable {
-    fn from(value: &IStreamedFileDataRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IStreamedFileDataRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3246,36 +2927,7 @@ unsafe impl ::windows::core::Interface for AppDataPaths {
 impl ::windows::core::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
 }
-impl ::core::convert::From<AppDataPaths> for ::windows::core::IUnknown {
-    fn from(value: AppDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDataPaths> for ::windows::core::IUnknown {
-    fn from(value: &AppDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDataPaths> for &::windows::core::IUnknown {
-    fn from(value: &AppDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppDataPaths> for ::windows::core::IInspectable {
-    fn from(value: AppDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppDataPaths> for ::windows::core::IInspectable {
-    fn from(value: &AppDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppDataPaths> for &::windows::core::IInspectable {
-    fn from(value: &AppDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppDataPaths {}
 unsafe impl ::core::marker::Sync for AppDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -3470,36 +3122,7 @@ unsafe impl ::windows::core::Interface for ApplicationData {
 impl ::windows::core::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
 }
-impl ::core::convert::From<ApplicationData> for ::windows::core::IUnknown {
-    fn from(value: ApplicationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationData> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationData> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationData> for ::windows::core::IInspectable {
-    fn from(value: ApplicationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationData> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationData> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ApplicationData> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3679,41 +3302,7 @@ impl ::core::iter::IntoIterator for &ApplicationDataCompositeValue {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ApplicationDataCompositeValue> for ::windows::core::IUnknown {
-    fn from(value: ApplicationDataCompositeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataCompositeValue> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataCompositeValue> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ApplicationDataCompositeValue> for ::windows::core::IInspectable {
-    fn from(value: ApplicationDataCompositeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataCompositeValue> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataCompositeValue> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationDataCompositeValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationDataCompositeValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ApplicationDataCompositeValue> for super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -3892,36 +3481,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataContainer {
 impl ::windows::core::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
 }
-impl ::core::convert::From<ApplicationDataContainer> for ::windows::core::IUnknown {
-    fn from(value: ApplicationDataContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationDataContainer> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationDataContainer> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationDataContainer> for ::windows::core::IInspectable {
-    fn from(value: ApplicationDataContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationDataContainer> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationDataContainer> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationDataContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationDataContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ApplicationDataContainer> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4094,41 +3654,7 @@ impl ::core::iter::IntoIterator for &ApplicationDataContainerSettings {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ApplicationDataContainerSettings> for ::windows::core::IUnknown {
-    fn from(value: ApplicationDataContainerSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataContainerSettings> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataContainerSettings> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<ApplicationDataContainerSettings> for ::windows::core::IInspectable {
-    fn from(value: ApplicationDataContainerSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataContainerSettings> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&ApplicationDataContainerSettings> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationDataContainerSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationDataContainerSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ApplicationDataContainerSettings> for super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -4880,36 +4406,7 @@ unsafe impl ::windows::core::Interface for SetVersionDeferral {
 impl ::windows::core::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
 }
-impl ::core::convert::From<SetVersionDeferral> for ::windows::core::IUnknown {
-    fn from(value: SetVersionDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetVersionDeferral> for ::windows::core::IUnknown {
-    fn from(value: &SetVersionDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetVersionDeferral> for &::windows::core::IUnknown {
-    fn from(value: &SetVersionDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SetVersionDeferral> for ::windows::core::IInspectable {
-    fn from(value: SetVersionDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetVersionDeferral> for ::windows::core::IInspectable {
-    fn from(value: &SetVersionDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetVersionDeferral> for &::windows::core::IInspectable {
-    fn from(value: &SetVersionDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SetVersionDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetVersionDeferral {}
 unsafe impl ::core::marker::Sync for SetVersionDeferral {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -4970,36 +4467,7 @@ unsafe impl ::windows::core::Interface for SetVersionRequest {
 impl ::windows::core::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
 }
-impl ::core::convert::From<SetVersionRequest> for ::windows::core::IUnknown {
-    fn from(value: SetVersionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetVersionRequest> for ::windows::core::IUnknown {
-    fn from(value: &SetVersionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetVersionRequest> for &::windows::core::IUnknown {
-    fn from(value: &SetVersionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SetVersionRequest> for ::windows::core::IInspectable {
-    fn from(value: SetVersionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SetVersionRequest> for ::windows::core::IInspectable {
-    fn from(value: &SetVersionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SetVersionRequest> for &::windows::core::IInspectable {
-    fn from(value: &SetVersionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SetVersionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SetVersionRequest {}
 unsafe impl ::core::marker::Sync for SetVersionRequest {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -5497,36 +4965,7 @@ unsafe impl ::windows::core::Interface for StorageFile {
 impl ::windows::core::RuntimeName for StorageFile {
     const NAME: &'static str = "Windows.Storage.StorageFile";
 }
-impl ::core::convert::From<StorageFile> for ::windows::core::IUnknown {
-    fn from(value: StorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageFile> for ::windows::core::IUnknown {
-    fn from(value: &StorageFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageFile> for &::windows::core::IUnknown {
-    fn from(value: &StorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageFile> for ::windows::core::IInspectable {
-    fn from(value: StorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageFile> for ::windows::core::IInspectable {
-    fn from(value: &StorageFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageFile> for &::windows::core::IInspectable {
-    fn from(value: &StorageFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageFile> for Streams::IInputStreamReference {
     type Error = ::windows::core::Error;
@@ -6238,36 +5677,7 @@ unsafe impl ::windows::core::Interface for StorageFolder {
 impl ::windows::core::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
 }
-impl ::core::convert::From<StorageFolder> for ::windows::core::IUnknown {
-    fn from(value: StorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageFolder> for ::windows::core::IUnknown {
-    fn from(value: &StorageFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageFolder> for &::windows::core::IUnknown {
-    fn from(value: &StorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageFolder> for ::windows::core::IInspectable {
-    fn from(value: StorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageFolder> for ::windows::core::IInspectable {
-    fn from(value: &StorageFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageFolder> for &::windows::core::IInspectable {
-    fn from(value: &StorageFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageFolder, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<StorageFolder> for IStorageFolder {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageFolder) -> ::windows::core::Result<Self> {
@@ -6551,36 +5961,7 @@ unsafe impl ::windows::core::Interface for StorageLibrary {
 impl ::windows::core::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
 }
-impl ::core::convert::From<StorageLibrary> for ::windows::core::IUnknown {
-    fn from(value: StorageLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibrary> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibrary> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibrary> for ::windows::core::IInspectable {
-    fn from(value: StorageLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibrary> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibrary> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibrary, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
 pub struct StorageLibraryChange(::windows::core::IUnknown);
@@ -6655,36 +6036,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChange {
 impl ::windows::core::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
 }
-impl ::core::convert::From<StorageLibraryChange> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChange> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChange> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryChange> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChange> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChange> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryChange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChange {}
 unsafe impl ::core::marker::Sync for StorageLibraryChange {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6749,36 +6101,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeReader {
 impl ::windows::core::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
 }
-impl ::core::convert::From<StorageLibraryChangeReader> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeReader> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeReader> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryChangeReader> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeReader> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeReader> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryChangeReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeReader {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeReader {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6841,36 +6164,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTracker {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
 }
-impl ::core::convert::From<StorageLibraryChangeTracker> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTracker> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTracker> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryChangeTracker> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTracker> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTracker> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTracker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryChangeTracker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeTracker {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTracker {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -6928,36 +6222,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerOptions {
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
 }
-impl ::core::convert::From<StorageLibraryChangeTrackerOptions> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryChangeTrackerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerOptions> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerOptions> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryChangeTrackerOptions> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryChangeTrackerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerOptions> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryChangeTrackerOptions> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryChangeTrackerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryChangeTrackerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7008,36 +6273,7 @@ unsafe impl ::windows::core::Interface for StorageLibraryLastChangeId {
 impl ::windows::core::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
 }
-impl ::core::convert::From<StorageLibraryLastChangeId> for ::windows::core::IUnknown {
-    fn from(value: StorageLibraryLastChangeId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryLastChangeId> for ::windows::core::IUnknown {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryLastChangeId> for &::windows::core::IUnknown {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageLibraryLastChangeId> for ::windows::core::IInspectable {
-    fn from(value: StorageLibraryLastChangeId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageLibraryLastChangeId> for ::windows::core::IInspectable {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageLibraryLastChangeId> for &::windows::core::IInspectable {
-    fn from(value: &StorageLibraryLastChangeId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageLibraryLastChangeId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7100,36 +6336,7 @@ unsafe impl ::windows::core::Interface for StorageProvider {
 impl ::windows::core::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
 }
-impl ::core::convert::From<StorageProvider> for ::windows::core::IUnknown {
-    fn from(value: StorageProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProvider> for ::windows::core::IUnknown {
-    fn from(value: &StorageProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProvider> for &::windows::core::IUnknown {
-    fn from(value: &StorageProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageProvider> for ::windows::core::IInspectable {
-    fn from(value: StorageProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageProvider> for ::windows::core::IInspectable {
-    fn from(value: &StorageProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageProvider> for &::windows::core::IInspectable {
-    fn from(value: &StorageProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Storage\"`*"]
 #[repr(transparent)]
 pub struct StorageStreamTransaction(::windows::core::IUnknown);
@@ -7191,36 +6398,7 @@ unsafe impl ::windows::core::Interface for StorageStreamTransaction {
 impl ::windows::core::RuntimeName for StorageStreamTransaction {
     const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
 }
-impl ::core::convert::From<StorageStreamTransaction> for ::windows::core::IUnknown {
-    fn from(value: StorageStreamTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageStreamTransaction> for ::windows::core::IUnknown {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageStreamTransaction> for &::windows::core::IUnknown {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorageStreamTransaction> for ::windows::core::IInspectable {
-    fn from(value: StorageStreamTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorageStreamTransaction> for ::windows::core::IInspectable {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorageStreamTransaction> for &::windows::core::IInspectable {
-    fn from(value: &StorageStreamTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorageStreamTransaction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<StorageStreamTransaction> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7323,41 +6501,7 @@ impl ::windows::core::RuntimeName for StreamedFileDataRequest {
     const NAME: &'static str = "Windows.Storage.StreamedFileDataRequest";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<StreamedFileDataRequest> for ::windows::core::IUnknown {
-    fn from(value: StreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&StreamedFileDataRequest> for ::windows::core::IUnknown {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&StreamedFileDataRequest> for &::windows::core::IUnknown {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<StreamedFileDataRequest> for ::windows::core::IInspectable {
-    fn from(value: StreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&StreamedFileDataRequest> for ::windows::core::IInspectable {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&StreamedFileDataRequest> for &::windows::core::IInspectable {
-    fn from(value: &StreamedFileDataRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StreamedFileDataRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<StreamedFileDataRequest> for super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -7468,36 +6612,7 @@ unsafe impl ::windows::core::Interface for SystemAudioProperties {
 impl ::windows::core::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
 }
-impl ::core::convert::From<SystemAudioProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemAudioProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemAudioProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemAudioProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemAudioProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemAudioProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemAudioProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemAudioProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemAudioProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemAudioProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemAudioProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemAudioProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemAudioProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemAudioProperties {}
 unsafe impl ::core::marker::Sync for SystemAudioProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7660,36 +6775,7 @@ unsafe impl ::windows::core::Interface for SystemDataPaths {
 impl ::windows::core::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
 }
-impl ::core::convert::From<SystemDataPaths> for ::windows::core::IUnknown {
-    fn from(value: SystemDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemDataPaths> for ::windows::core::IUnknown {
-    fn from(value: &SystemDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemDataPaths> for &::windows::core::IUnknown {
-    fn from(value: &SystemDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemDataPaths> for ::windows::core::IInspectable {
-    fn from(value: SystemDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemDataPaths> for ::windows::core::IInspectable {
-    fn from(value: &SystemDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemDataPaths> for &::windows::core::IInspectable {
-    fn from(value: &SystemDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemDataPaths {}
 unsafe impl ::core::marker::Sync for SystemDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7743,36 +6829,7 @@ unsafe impl ::windows::core::Interface for SystemGPSProperties {
 impl ::windows::core::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
 }
-impl ::core::convert::From<SystemGPSProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemGPSProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemGPSProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemGPSProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemGPSProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemGPSProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemGPSProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemGPSProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemGPSProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemGPSProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemGPSProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemGPSProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemGPSProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemGPSProperties {}
 unsafe impl ::core::marker::Sync for SystemGPSProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7826,36 +6883,7 @@ unsafe impl ::windows::core::Interface for SystemImageProperties {
 impl ::windows::core::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
 }
-impl ::core::convert::From<SystemImageProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemImageProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemImageProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemImageProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemImageProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemImageProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemImageProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemImageProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemImageProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemImageProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemImageProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemImageProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemImageProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemImageProperties {}
 unsafe impl ::core::marker::Sync for SystemImageProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -7937,36 +6965,7 @@ unsafe impl ::windows::core::Interface for SystemMediaProperties {
 impl ::windows::core::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
 }
-impl ::core::convert::From<SystemMediaProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemMediaProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMediaProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemMediaProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMediaProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemMediaProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemMediaProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemMediaProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMediaProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemMediaProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMediaProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemMediaProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemMediaProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMediaProperties {}
 unsafe impl ::core::marker::Sync for SystemMediaProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -8062,36 +7061,7 @@ unsafe impl ::windows::core::Interface for SystemMusicProperties {
 impl ::windows::core::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
 }
-impl ::core::convert::From<SystemMusicProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemMusicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMusicProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemMusicProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMusicProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemMusicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemMusicProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemMusicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemMusicProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemMusicProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemMusicProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemMusicProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemMusicProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemMusicProperties {}
 unsafe impl ::core::marker::Sync for SystemMusicProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -8166,36 +7136,7 @@ unsafe impl ::windows::core::Interface for SystemPhotoProperties {
 impl ::windows::core::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
 }
-impl ::core::convert::From<SystemPhotoProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemPhotoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemPhotoProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemPhotoProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemPhotoProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemPhotoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemPhotoProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemPhotoProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemPhotoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemPhotoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemPhotoProperties {}
 unsafe impl ::core::marker::Sync for SystemPhotoProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -8360,36 +7301,7 @@ unsafe impl ::windows::core::Interface for SystemVideoProperties {
 impl ::windows::core::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
 }
-impl ::core::convert::From<SystemVideoProperties> for ::windows::core::IUnknown {
-    fn from(value: SystemVideoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemVideoProperties> for ::windows::core::IUnknown {
-    fn from(value: &SystemVideoProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemVideoProperties> for &::windows::core::IUnknown {
-    fn from(value: &SystemVideoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemVideoProperties> for ::windows::core::IInspectable {
-    fn from(value: SystemVideoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemVideoProperties> for ::windows::core::IInspectable {
-    fn from(value: &SystemVideoProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemVideoProperties> for &::windows::core::IInspectable {
-    fn from(value: &SystemVideoProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemVideoProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemVideoProperties {}
 unsafe impl ::core::marker::Sync for SystemVideoProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
@@ -8581,36 +7493,7 @@ unsafe impl ::windows::core::Interface for UserDataPaths {
 impl ::windows::core::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";
 }
-impl ::core::convert::From<UserDataPaths> for ::windows::core::IUnknown {
-    fn from(value: UserDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataPaths> for ::windows::core::IUnknown {
-    fn from(value: &UserDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataPaths> for &::windows::core::IUnknown {
-    fn from(value: &UserDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataPaths> for ::windows::core::IInspectable {
-    fn from(value: UserDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataPaths> for ::windows::core::IInspectable {
-    fn from(value: &UserDataPaths) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataPaths> for &::windows::core::IInspectable {
-    fn from(value: &UserDataPaths) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataPaths, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataPaths {}
 unsafe impl ::core::marker::Sync for UserDataPaths {}
 #[doc = "*Required features: `\"Storage\"`*"]

@@ -43,21 +43,7 @@ impl IDirect3DDevice9On12 {
         (::windows::core::Vtable::vtable(self).ReturnUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), numsync, ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
-impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDevice9On12) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice9On12> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDevice9On12) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice9On12> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDevice9On12) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDevice9On12, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DDevice9On12 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

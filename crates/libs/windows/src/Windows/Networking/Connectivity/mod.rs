@@ -869,36 +869,7 @@ unsafe impl ::windows::core::Interface for AttributedNetworkUsage {
 impl ::windows::core::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
 }
-impl ::core::convert::From<AttributedNetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: AttributedNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: &AttributedNetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AttributedNetworkUsage> for &::windows::core::IUnknown {
-    fn from(value: &AttributedNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AttributedNetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: AttributedNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: &AttributedNetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AttributedNetworkUsage> for &::windows::core::IInspectable {
-    fn from(value: &AttributedNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AttributedNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1022,36 +993,7 @@ unsafe impl ::windows::core::Interface for CellularApnContext {
 impl ::windows::core::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
 }
-impl ::core::convert::From<CellularApnContext> for ::windows::core::IUnknown {
-    fn from(value: CellularApnContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CellularApnContext> for ::windows::core::IUnknown {
-    fn from(value: &CellularApnContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CellularApnContext> for &::windows::core::IUnknown {
-    fn from(value: &CellularApnContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CellularApnContext> for ::windows::core::IInspectable {
-    fn from(value: CellularApnContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CellularApnContext> for ::windows::core::IInspectable {
-    fn from(value: &CellularApnContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CellularApnContext> for &::windows::core::IInspectable {
-    fn from(value: &CellularApnContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CellularApnContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CellularApnContext {}
 unsafe impl ::core::marker::Sync for CellularApnContext {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1126,36 +1068,7 @@ unsafe impl ::windows::core::Interface for ConnectionCost {
 impl ::windows::core::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
 }
-impl ::core::convert::From<ConnectionCost> for ::windows::core::IUnknown {
-    fn from(value: ConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionCost> for ::windows::core::IUnknown {
-    fn from(value: &ConnectionCost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionCost> for &::windows::core::IUnknown {
-    fn from(value: &ConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectionCost> for ::windows::core::IInspectable {
-    fn from(value: ConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionCost> for ::windows::core::IInspectable {
-    fn from(value: &ConnectionCost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionCost> for &::windows::core::IInspectable {
-    fn from(value: &ConnectionCost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectionCost, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionCost {}
 unsafe impl ::core::marker::Sync for ConnectionCost {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1369,36 +1282,7 @@ unsafe impl ::windows::core::Interface for ConnectionProfile {
 impl ::windows::core::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
 }
-impl ::core::convert::From<ConnectionProfile> for ::windows::core::IUnknown {
-    fn from(value: ConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IUnknown {
-    fn from(value: &ConnectionProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionProfile> for &::windows::core::IUnknown {
-    fn from(value: &ConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectionProfile> for ::windows::core::IInspectable {
-    fn from(value: ConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IInspectable {
-    fn from(value: &ConnectionProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionProfile> for &::windows::core::IInspectable {
-    fn from(value: &ConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectionProfile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1593,36 +1477,7 @@ unsafe impl ::windows::core::Interface for ConnectionProfileFilter {
 impl ::windows::core::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
 }
-impl ::core::convert::From<ConnectionProfileFilter> for ::windows::core::IUnknown {
-    fn from(value: ConnectionProfileFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IUnknown {
-    fn from(value: &ConnectionProfileFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionProfileFilter> for &::windows::core::IUnknown {
-    fn from(value: &ConnectionProfileFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectionProfileFilter> for ::windows::core::IInspectable {
-    fn from(value: ConnectionProfileFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IInspectable {
-    fn from(value: &ConnectionProfileFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionProfileFilter> for &::windows::core::IInspectable {
-    fn from(value: &ConnectionProfileFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectionProfileFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
 unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1675,36 +1530,7 @@ unsafe impl ::windows::core::Interface for ConnectionSession {
 impl ::windows::core::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
 }
-impl ::core::convert::From<ConnectionSession> for ::windows::core::IUnknown {
-    fn from(value: ConnectionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionSession> for ::windows::core::IUnknown {
-    fn from(value: &ConnectionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionSession> for &::windows::core::IUnknown {
-    fn from(value: &ConnectionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectionSession> for ::windows::core::IInspectable {
-    fn from(value: ConnectionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectionSession> for ::windows::core::IInspectable {
-    fn from(value: &ConnectionSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectionSession> for &::windows::core::IInspectable {
-    fn from(value: &ConnectionSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectionSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ConnectionSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1784,36 +1610,7 @@ unsafe impl ::windows::core::Interface for ConnectivityInterval {
 impl ::windows::core::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
 }
-impl ::core::convert::From<ConnectivityInterval> for ::windows::core::IUnknown {
-    fn from(value: ConnectivityInterval) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IUnknown {
-    fn from(value: &ConnectivityInterval) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectivityInterval> for &::windows::core::IUnknown {
-    fn from(value: &ConnectivityInterval) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ConnectivityInterval> for ::windows::core::IInspectable {
-    fn from(value: ConnectivityInterval) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IInspectable {
-    fn from(value: &ConnectivityInterval) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ConnectivityInterval> for &::windows::core::IInspectable {
-    fn from(value: &ConnectivityInterval) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ConnectivityInterval, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ConnectivityInterval {}
 unsafe impl ::core::marker::Sync for ConnectivityInterval {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -1931,36 +1728,7 @@ unsafe impl ::windows::core::Interface for DataPlanStatus {
 impl ::windows::core::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
 }
-impl ::core::convert::From<DataPlanStatus> for ::windows::core::IUnknown {
-    fn from(value: DataPlanStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IUnknown {
-    fn from(value: &DataPlanStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataPlanStatus> for &::windows::core::IUnknown {
-    fn from(value: &DataPlanStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataPlanStatus> for ::windows::core::IInspectable {
-    fn from(value: DataPlanStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IInspectable {
-    fn from(value: &DataPlanStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataPlanStatus> for &::windows::core::IInspectable {
-    fn from(value: &DataPlanStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataPlanStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPlanStatus {}
 unsafe impl ::core::marker::Sync for DataPlanStatus {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2016,36 +1784,7 @@ unsafe impl ::windows::core::Interface for DataPlanUsage {
 impl ::windows::core::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
 }
-impl ::core::convert::From<DataPlanUsage> for ::windows::core::IUnknown {
-    fn from(value: DataPlanUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IUnknown {
-    fn from(value: &DataPlanUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataPlanUsage> for &::windows::core::IUnknown {
-    fn from(value: &DataPlanUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataPlanUsage> for ::windows::core::IInspectable {
-    fn from(value: DataPlanUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IInspectable {
-    fn from(value: &DataPlanUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataPlanUsage> for &::windows::core::IInspectable {
-    fn from(value: &DataPlanUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataPlanUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataPlanUsage {}
 unsafe impl ::core::marker::Sync for DataPlanUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"deprecated\"`*"]
@@ -2114,41 +1853,7 @@ impl ::windows::core::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<DataUsage> for ::windows::core::IUnknown {
-    fn from(value: DataUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DataUsage> for ::windows::core::IUnknown {
-    fn from(value: &DataUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DataUsage> for &::windows::core::IUnknown {
-    fn from(value: &DataUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<DataUsage> for ::windows::core::IInspectable {
-    fn from(value: DataUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DataUsage> for ::windows::core::IInspectable {
-    fn from(value: &DataUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&DataUsage> for &::windows::core::IInspectable {
-    fn from(value: &DataUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for DataUsage {}
 #[cfg(feature = "deprecated")]
@@ -2206,36 +1911,7 @@ unsafe impl ::windows::core::Interface for IPInformation {
 impl ::windows::core::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
 }
-impl ::core::convert::From<IPInformation> for ::windows::core::IUnknown {
-    fn from(value: IPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPInformation> for ::windows::core::IUnknown {
-    fn from(value: &IPInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IPInformation> for &::windows::core::IUnknown {
-    fn from(value: &IPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<IPInformation> for ::windows::core::IInspectable {
-    fn from(value: IPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPInformation> for ::windows::core::IInspectable {
-    fn from(value: &IPInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&IPInformation> for &::windows::core::IInspectable {
-    fn from(value: &IPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(IPInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for IPInformation {}
 unsafe impl ::core::marker::Sync for IPInformation {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2296,36 +1972,7 @@ unsafe impl ::windows::core::Interface for LanIdentifier {
 impl ::windows::core::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
 }
-impl ::core::convert::From<LanIdentifier> for ::windows::core::IUnknown {
-    fn from(value: LanIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanIdentifier> for ::windows::core::IUnknown {
-    fn from(value: &LanIdentifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanIdentifier> for &::windows::core::IUnknown {
-    fn from(value: &LanIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LanIdentifier> for ::windows::core::IInspectable {
-    fn from(value: LanIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanIdentifier> for ::windows::core::IInspectable {
-    fn from(value: &LanIdentifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanIdentifier> for &::windows::core::IInspectable {
-    fn from(value: &LanIdentifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LanIdentifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanIdentifier {}
 unsafe impl ::core::marker::Sync for LanIdentifier {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2381,36 +2028,7 @@ unsafe impl ::windows::core::Interface for LanIdentifierData {
 impl ::windows::core::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
 }
-impl ::core::convert::From<LanIdentifierData> for ::windows::core::IUnknown {
-    fn from(value: LanIdentifierData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IUnknown {
-    fn from(value: &LanIdentifierData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanIdentifierData> for &::windows::core::IUnknown {
-    fn from(value: &LanIdentifierData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LanIdentifierData> for ::windows::core::IInspectable {
-    fn from(value: LanIdentifierData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IInspectable {
-    fn from(value: &LanIdentifierData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LanIdentifierData> for &::windows::core::IInspectable {
-    fn from(value: &LanIdentifierData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LanIdentifierData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LanIdentifierData {}
 unsafe impl ::core::marker::Sync for LanIdentifierData {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2494,36 +2112,7 @@ unsafe impl ::windows::core::Interface for NetworkAdapter {
 impl ::windows::core::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
 }
-impl ::core::convert::From<NetworkAdapter> for ::windows::core::IUnknown {
-    fn from(value: NetworkAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IUnknown {
-    fn from(value: &NetworkAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkAdapter> for &::windows::core::IUnknown {
-    fn from(value: &NetworkAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkAdapter> for ::windows::core::IInspectable {
-    fn from(value: NetworkAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IInspectable {
-    fn from(value: &NetworkAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkAdapter> for &::windows::core::IInspectable {
-    fn from(value: &NetworkAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2665,36 +2254,7 @@ unsafe impl ::windows::core::Interface for NetworkItem {
 impl ::windows::core::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
 }
-impl ::core::convert::From<NetworkItem> for ::windows::core::IUnknown {
-    fn from(value: NetworkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkItem> for ::windows::core::IUnknown {
-    fn from(value: &NetworkItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkItem> for &::windows::core::IUnknown {
-    fn from(value: &NetworkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkItem> for ::windows::core::IInspectable {
-    fn from(value: NetworkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkItem> for ::windows::core::IInspectable {
-    fn from(value: &NetworkItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkItem> for &::windows::core::IInspectable {
-    fn from(value: &NetworkItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkItem {}
 unsafe impl ::core::marker::Sync for NetworkItem {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2748,36 +2308,7 @@ unsafe impl ::windows::core::Interface for NetworkSecuritySettings {
 impl ::windows::core::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
 }
-impl ::core::convert::From<NetworkSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: NetworkSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IUnknown {
-    fn from(value: &NetworkSecuritySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkSecuritySettings> for &::windows::core::IUnknown {
-    fn from(value: &NetworkSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkSecuritySettings> for ::windows::core::IInspectable {
-    fn from(value: NetworkSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IInspectable {
-    fn from(value: &NetworkSecuritySettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkSecuritySettings> for &::windows::core::IInspectable {
-    fn from(value: &NetworkSecuritySettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkSecuritySettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
 unsafe impl ::core::marker::Sync for NetworkSecuritySettings {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2873,36 +2404,7 @@ unsafe impl ::windows::core::Interface for NetworkStateChangeEventDetails {
 impl ::windows::core::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
 }
-impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::core::IUnknown {
-    fn from(value: NetworkStateChangeEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &NetworkStateChangeEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for &::windows::core::IUnknown {
-    fn from(value: &NetworkStateChangeEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::core::IInspectable {
-    fn from(value: NetworkStateChangeEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &NetworkStateChangeEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkStateChangeEventDetails> for &::windows::core::IInspectable {
-    fn from(value: &NetworkStateChangeEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkStateChangeEventDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -2965,36 +2467,7 @@ unsafe impl ::windows::core::Interface for NetworkUsage {
 impl ::windows::core::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
 }
-impl ::core::convert::From<NetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: NetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: &NetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkUsage> for &::windows::core::IUnknown {
-    fn from(value: &NetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: NetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: &NetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NetworkUsage> for &::windows::core::IInspectable {
-    fn from(value: &NetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NetworkUsage {}
 unsafe impl ::core::marker::Sync for NetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3055,36 +2528,7 @@ unsafe impl ::windows::core::Interface for ProviderNetworkUsage {
 impl ::windows::core::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
 }
-impl ::core::convert::From<ProviderNetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: ProviderNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IUnknown {
-    fn from(value: &ProviderNetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderNetworkUsage> for &::windows::core::IUnknown {
-    fn from(value: &ProviderNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProviderNetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: ProviderNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IInspectable {
-    fn from(value: &ProviderNetworkUsage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderNetworkUsage> for &::windows::core::IInspectable {
-    fn from(value: &ProviderNetworkUsage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProviderNetworkUsage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
 unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3140,36 +2584,7 @@ unsafe impl ::windows::core::Interface for ProxyConfiguration {
 impl ::windows::core::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
 }
-impl ::core::convert::From<ProxyConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ProxyConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ProxyConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProxyConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ProxyConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProxyConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ProxyConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ProxyConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProxyConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ProxyConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProxyConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3241,36 +2656,7 @@ unsafe impl ::windows::core::Interface for RoutePolicy {
 impl ::windows::core::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
 }
-impl ::core::convert::From<RoutePolicy> for ::windows::core::IUnknown {
-    fn from(value: RoutePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RoutePolicy> for ::windows::core::IUnknown {
-    fn from(value: &RoutePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RoutePolicy> for &::windows::core::IUnknown {
-    fn from(value: &RoutePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RoutePolicy> for ::windows::core::IInspectable {
-    fn from(value: RoutePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RoutePolicy> for ::windows::core::IInspectable {
-    fn from(value: &RoutePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RoutePolicy> for &::windows::core::IInspectable {
-    fn from(value: &RoutePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RoutePolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3317,36 +2703,7 @@ unsafe impl ::windows::core::Interface for WlanConnectionProfileDetails {
 impl ::windows::core::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
 }
-impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::core::IUnknown {
-    fn from(value: WlanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::IUnknown {
-    fn from(value: &WlanConnectionProfileDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WlanConnectionProfileDetails> for &::windows::core::IUnknown {
-    fn from(value: &WlanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::core::IInspectable {
-    fn from(value: WlanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::IInspectable {
-    fn from(value: &WlanConnectionProfileDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WlanConnectionProfileDetails> for &::windows::core::IInspectable {
-    fn from(value: &WlanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WlanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WlanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3430,36 +2787,7 @@ unsafe impl ::windows::core::Interface for WwanConnectionProfileDetails {
 impl ::windows::core::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";
 }
-impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::core::IUnknown {
-    fn from(value: WwanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::IUnknown {
-    fn from(value: &WwanConnectionProfileDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwanConnectionProfileDetails> for &::windows::core::IUnknown {
-    fn from(value: &WwanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::core::IInspectable {
-    fn from(value: WwanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::IInspectable {
-    fn from(value: &WwanConnectionProfileDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WwanConnectionProfileDetails> for &::windows::core::IInspectable {
-    fn from(value: &WwanConnectionProfileDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WwanConnectionProfileDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]

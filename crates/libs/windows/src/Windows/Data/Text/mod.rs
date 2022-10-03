@@ -433,36 +433,7 @@ unsafe impl ::windows::core::Interface for AlternateWordForm {
 impl ::windows::core::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
 }
-impl ::core::convert::From<AlternateWordForm> for ::windows::core::IUnknown {
-    fn from(value: AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IUnknown {
-    fn from(value: &AlternateWordForm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IUnknown {
-    fn from(value: &AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AlternateWordForm> for ::windows::core::IInspectable {
-    fn from(value: AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IInspectable {
-    fn from(value: &AlternateWordForm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IInspectable {
-    fn from(value: &AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AlternateWordForm, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AlternateWordForm {}
 unsafe impl ::core::marker::Sync for AlternateWordForm {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -516,36 +487,7 @@ unsafe impl ::windows::core::Interface for SelectableWordSegment {
 impl ::windows::core::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
 }
-impl ::core::convert::From<SelectableWordSegment> for ::windows::core::IUnknown {
-    fn from(value: SelectableWordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SelectableWordSegment> for ::windows::core::IUnknown {
-    fn from(value: &SelectableWordSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SelectableWordSegment> for &::windows::core::IUnknown {
-    fn from(value: &SelectableWordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SelectableWordSegment> for ::windows::core::IInspectable {
-    fn from(value: SelectableWordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SelectableWordSegment> for ::windows::core::IInspectable {
-    fn from(value: &SelectableWordSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SelectableWordSegment> for &::windows::core::IInspectable {
-    fn from(value: &SelectableWordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SelectableWordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -625,36 +567,7 @@ unsafe impl ::windows::core::Interface for SelectableWordsSegmenter {
 impl ::windows::core::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
 }
-impl ::core::convert::From<SelectableWordsSegmenter> for ::windows::core::IUnknown {
-    fn from(value: SelectableWordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SelectableWordsSegmenter> for ::windows::core::IUnknown {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SelectableWordsSegmenter> for &::windows::core::IUnknown {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SelectableWordsSegmenter> for ::windows::core::IInspectable {
-    fn from(value: SelectableWordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SelectableWordsSegmenter> for ::windows::core::IInspectable {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SelectableWordsSegmenter> for &::windows::core::IInspectable {
-    fn from(value: &SelectableWordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SelectableWordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -729,36 +642,7 @@ unsafe impl ::windows::core::Interface for SemanticTextQuery {
 impl ::windows::core::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
 }
-impl ::core::convert::From<SemanticTextQuery> for ::windows::core::IUnknown {
-    fn from(value: SemanticTextQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SemanticTextQuery> for ::windows::core::IUnknown {
-    fn from(value: &SemanticTextQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SemanticTextQuery> for &::windows::core::IUnknown {
-    fn from(value: &SemanticTextQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SemanticTextQuery> for ::windows::core::IInspectable {
-    fn from(value: SemanticTextQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SemanticTextQuery> for ::windows::core::IInspectable {
-    fn from(value: &SemanticTextQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SemanticTextQuery> for &::windows::core::IInspectable {
-    fn from(value: &SemanticTextQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SemanticTextQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SemanticTextQuery {}
 unsafe impl ::core::marker::Sync for SemanticTextQuery {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -841,36 +725,7 @@ unsafe impl ::windows::core::Interface for TextConversionGenerator {
 impl ::windows::core::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
 }
-impl ::core::convert::From<TextConversionGenerator> for ::windows::core::IUnknown {
-    fn from(value: TextConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextConversionGenerator> for ::windows::core::IUnknown {
-    fn from(value: &TextConversionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextConversionGenerator> for &::windows::core::IUnknown {
-    fn from(value: &TextConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TextConversionGenerator> for ::windows::core::IInspectable {
-    fn from(value: TextConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextConversionGenerator> for ::windows::core::IInspectable {
-    fn from(value: &TextConversionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextConversionGenerator> for &::windows::core::IInspectable {
-    fn from(value: &TextConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TextConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextConversionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -924,36 +779,7 @@ unsafe impl ::windows::core::Interface for TextPhoneme {
 impl ::windows::core::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
 }
-impl ::core::convert::From<TextPhoneme> for ::windows::core::IUnknown {
-    fn from(value: TextPhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextPhoneme> for ::windows::core::IUnknown {
-    fn from(value: &TextPhoneme) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextPhoneme> for &::windows::core::IUnknown {
-    fn from(value: &TextPhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TextPhoneme> for ::windows::core::IInspectable {
-    fn from(value: TextPhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextPhoneme> for ::windows::core::IInspectable {
-    fn from(value: &TextPhoneme) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextPhoneme> for &::windows::core::IInspectable {
-    fn from(value: &TextPhoneme) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TextPhoneme, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextPhoneme {}
 unsafe impl ::core::marker::Sync for TextPhoneme {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1077,36 +903,7 @@ unsafe impl ::windows::core::Interface for TextPredictionGenerator {
 impl ::windows::core::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
 }
-impl ::core::convert::From<TextPredictionGenerator> for ::windows::core::IUnknown {
-    fn from(value: TextPredictionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextPredictionGenerator> for ::windows::core::IUnknown {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextPredictionGenerator> for &::windows::core::IUnknown {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TextPredictionGenerator> for ::windows::core::IInspectable {
-    fn from(value: TextPredictionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextPredictionGenerator> for ::windows::core::IInspectable {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextPredictionGenerator> for &::windows::core::IInspectable {
-    fn from(value: &TextPredictionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TextPredictionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1189,36 +986,7 @@ unsafe impl ::windows::core::Interface for TextReverseConversionGenerator {
 impl ::windows::core::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
 }
-impl ::core::convert::From<TextReverseConversionGenerator> for ::windows::core::IUnknown {
-    fn from(value: TextReverseConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextReverseConversionGenerator> for ::windows::core::IUnknown {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextReverseConversionGenerator> for &::windows::core::IUnknown {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TextReverseConversionGenerator> for ::windows::core::IInspectable {
-    fn from(value: TextReverseConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TextReverseConversionGenerator> for ::windows::core::IInspectable {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TextReverseConversionGenerator> for &::windows::core::IInspectable {
-    fn from(value: &TextReverseConversionGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TextReverseConversionGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1392,36 +1160,7 @@ unsafe impl ::windows::core::Interface for WordSegment {
 impl ::windows::core::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
 }
-impl ::core::convert::From<WordSegment> for ::windows::core::IUnknown {
-    fn from(value: WordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WordSegment> for ::windows::core::IUnknown {
-    fn from(value: &WordSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WordSegment> for &::windows::core::IUnknown {
-    fn from(value: &WordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WordSegment> for ::windows::core::IInspectable {
-    fn from(value: WordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WordSegment> for ::windows::core::IInspectable {
-    fn from(value: &WordSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WordSegment> for &::windows::core::IInspectable {
-    fn from(value: &WordSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WordSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
@@ -1501,36 +1240,7 @@ unsafe impl ::windows::core::Interface for WordsSegmenter {
 impl ::windows::core::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";
 }
-impl ::core::convert::From<WordsSegmenter> for ::windows::core::IUnknown {
-    fn from(value: WordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WordsSegmenter> for ::windows::core::IUnknown {
-    fn from(value: &WordsSegmenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WordsSegmenter> for &::windows::core::IUnknown {
-    fn from(value: &WordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WordsSegmenter> for ::windows::core::IInspectable {
-    fn from(value: WordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WordsSegmenter> for ::windows::core::IInspectable {
-    fn from(value: &WordsSegmenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WordsSegmenter> for &::windows::core::IInspectable {
-    fn from(value: &WordsSegmenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WordsSegmenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WordsSegmenter {}
 unsafe impl ::core::marker::Sync for WordsSegmenter {}
 #[doc = "*Required features: `\"Data_Text\"`*"]

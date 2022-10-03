@@ -262,36 +262,7 @@ unsafe impl ::windows::core::Interface for PdfDocument {
 impl ::windows::core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
 }
-impl ::core::convert::From<PdfDocument> for ::windows::core::IUnknown {
-    fn from(value: PdfDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfDocument> for ::windows::core::IUnknown {
-    fn from(value: &PdfDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfDocument> for &::windows::core::IUnknown {
-    fn from(value: &PdfDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PdfDocument> for ::windows::core::IInspectable {
-    fn from(value: PdfDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfDocument> for ::windows::core::IInspectable {
-    fn from(value: &PdfDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfDocument> for &::windows::core::IInspectable {
-    fn from(value: &PdfDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PdfDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -409,36 +380,7 @@ unsafe impl ::windows::core::Interface for PdfPage {
 impl ::windows::core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
 }
-impl ::core::convert::From<PdfPage> for ::windows::core::IUnknown {
-    fn from(value: PdfPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPage> for ::windows::core::IUnknown {
-    fn from(value: &PdfPage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPage> for &::windows::core::IUnknown {
-    fn from(value: &PdfPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PdfPage> for ::windows::core::IInspectable {
-    fn from(value: PdfPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPage> for ::windows::core::IInspectable {
-    fn from(value: &PdfPage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPage> for &::windows::core::IInspectable {
-    fn from(value: &PdfPage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PdfPage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PdfPage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -545,36 +487,7 @@ unsafe impl ::windows::core::Interface for PdfPageDimensions {
 impl ::windows::core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
 }
-impl ::core::convert::From<PdfPageDimensions> for ::windows::core::IUnknown {
-    fn from(value: PdfPageDimensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPageDimensions> for ::windows::core::IUnknown {
-    fn from(value: &PdfPageDimensions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPageDimensions> for &::windows::core::IUnknown {
-    fn from(value: &PdfPageDimensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PdfPageDimensions> for ::windows::core::IInspectable {
-    fn from(value: PdfPageDimensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPageDimensions> for ::windows::core::IInspectable {
-    fn from(value: &PdfPageDimensions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPageDimensions> for &::windows::core::IInspectable {
-    fn from(value: &PdfPageDimensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PdfPageDimensions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
@@ -695,36 +608,7 @@ unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
 impl ::windows::core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";
 }
-impl ::core::convert::From<PdfPageRenderOptions> for ::windows::core::IUnknown {
-    fn from(value: PdfPageRenderOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPageRenderOptions> for ::windows::core::IUnknown {
-    fn from(value: &PdfPageRenderOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPageRenderOptions> for &::windows::core::IUnknown {
-    fn from(value: &PdfPageRenderOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PdfPageRenderOptions> for ::windows::core::IInspectable {
-    fn from(value: PdfPageRenderOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PdfPageRenderOptions> for ::windows::core::IInspectable {
-    fn from(value: &PdfPageRenderOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PdfPageRenderOptions> for &::windows::core::IInspectable {
-    fn from(value: &PdfPageRenderOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PdfPageRenderOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]

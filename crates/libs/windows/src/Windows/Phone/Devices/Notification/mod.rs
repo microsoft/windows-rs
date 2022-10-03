@@ -90,36 +90,7 @@ unsafe impl ::windows::core::Interface for VibrationDevice {
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
-impl ::core::convert::From<VibrationDevice> for ::windows::core::IUnknown {
-    fn from(value: VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for ::windows::core::IUnknown {
-    fn from(value: &VibrationDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for &::windows::core::IUnknown {
-    fn from(value: &VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VibrationDevice> for ::windows::core::IInspectable {
-    fn from(value: VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for ::windows::core::IInspectable {
-    fn from(value: &VibrationDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VibrationDevice> for &::windows::core::IInspectable {
-    fn from(value: &VibrationDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VibrationDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[cfg(feature = "implement")]

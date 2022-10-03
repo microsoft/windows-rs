@@ -197,21 +197,7 @@ impl INetDiagExtensibleHelper {
         (::windows::core::Vtable::vtable(self).ResolveAttributes)(::windows::core::Vtable::as_raw(self), rgkeyattributes.len() as _, ::core::mem::transmute(rgkeyattributes.as_ptr()), ::core::mem::transmute(pcelt), ::core::mem::transmute(prgmatchvalues)).ok()
     }
 }
-impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::core::IUnknown {
-    fn from(value: INetDiagExtensibleHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetDiagExtensibleHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetDiagExtensibleHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetDiagExtensibleHelper> for ::windows::core::IUnknown {
-    fn from(value: &INetDiagExtensibleHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetDiagExtensibleHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetDiagExtensibleHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -331,21 +317,7 @@ impl INetDiagHelper {
         (::windows::core::Vtable::vtable(self).Cleanup)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INetDiagHelper> for ::windows::core::IUnknown {
-    fn from(value: INetDiagHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetDiagHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetDiagHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetDiagHelper> for ::windows::core::IUnknown {
-    fn from(value: &INetDiagHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetDiagHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetDiagHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -440,21 +412,7 @@ impl INetDiagHelperEx {
         (::windows::core::Vtable::vtable(self).ReproduceFailure)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INetDiagHelperEx> for ::windows::core::IUnknown {
-    fn from(value: INetDiagHelperEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetDiagHelperEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetDiagHelperEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetDiagHelperEx> for ::windows::core::IUnknown {
-    fn from(value: &INetDiagHelperEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetDiagHelperEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetDiagHelperEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -496,21 +454,7 @@ impl INetDiagHelperInfo {
         (::windows::core::Vtable::vtable(self).GetAttributeInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributeinfos)).ok()
     }
 }
-impl ::core::convert::From<INetDiagHelperInfo> for ::windows::core::IUnknown {
-    fn from(value: INetDiagHelperInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetDiagHelperInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetDiagHelperInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetDiagHelperInfo> for ::windows::core::IUnknown {
-    fn from(value: &INetDiagHelperInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetDiagHelperInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetDiagHelperInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -551,21 +495,7 @@ impl INetDiagHelperUtilFactory {
         (::windows::core::Vtable::vtable(self).CreateUtilityInstance)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<INetDiagHelperUtilFactory> for ::windows::core::IUnknown {
-    fn from(value: INetDiagHelperUtilFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INetDiagHelperUtilFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INetDiagHelperUtilFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INetDiagHelperUtilFactory> for ::windows::core::IUnknown {
-    fn from(value: &INetDiagHelperUtilFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INetDiagHelperUtilFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INetDiagHelperUtilFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -164,21 +164,7 @@ impl IFhConfigMgr {
         (::windows::core::Vtable::vtable(self).QueryProtectionStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(protectionstate), ::core::mem::transmute(protecteduntiltime)).ok()
     }
 }
-impl ::core::convert::From<IFhConfigMgr> for ::windows::core::IUnknown {
-    fn from(value: IFhConfigMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFhConfigMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFhConfigMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFhConfigMgr> for ::windows::core::IUnknown {
-    fn from(value: &IFhConfigMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFhConfigMgr, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFhConfigMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -260,21 +246,7 @@ impl IFhReassociation {
         (::windows::core::Vtable::vtable(self).PerformReassociation)(::windows::core::Vtable::as_raw(self), overwriteifexists.into()).ok()
     }
 }
-impl ::core::convert::From<IFhReassociation> for ::windows::core::IUnknown {
-    fn from(value: IFhReassociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFhReassociation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFhReassociation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFhReassociation> for ::windows::core::IUnknown {
-    fn from(value: &IFhReassociation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFhReassociation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFhReassociation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -325,21 +297,7 @@ impl IFhScopeIterator {
         (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IFhScopeIterator> for ::windows::core::IUnknown {
-    fn from(value: IFhScopeIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFhScopeIterator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFhScopeIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFhScopeIterator> for ::windows::core::IUnknown {
-    fn from(value: &IFhScopeIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFhScopeIterator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFhScopeIterator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -382,21 +340,7 @@ impl IFhTarget {
         (::windows::core::Vtable::vtable(self).GetNumericalProperty)(::windows::core::Vtable::as_raw(self), propertytype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IFhTarget> for ::windows::core::IUnknown {
-    fn from(value: IFhTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFhTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFhTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFhTarget> for ::windows::core::IUnknown {
-    fn from(value: &IFhTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFhTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFhTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())

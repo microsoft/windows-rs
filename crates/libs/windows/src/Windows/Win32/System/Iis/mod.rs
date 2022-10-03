@@ -57,21 +57,7 @@ impl AsyncIFtpAuthenticationProvider {
         (::windows::core::Vtable::vtable(self).Finish_AuthenticateUser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
 }
-impl ::core::convert::From<AsyncIFtpAuthenticationProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpAuthenticationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpAuthenticationProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpAuthenticationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpAuthenticationProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpAuthenticationProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpAuthenticationProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpAuthenticationProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -122,21 +108,7 @@ impl AsyncIFtpAuthorizationProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_ACCESS>(result__)
     }
 }
-impl ::core::convert::From<AsyncIFtpAuthorizationProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpAuthorizationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpAuthorizationProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpAuthorizationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpAuthorizationProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpAuthorizationProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpAuthorizationProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -183,21 +155,7 @@ impl AsyncIFtpHomeDirectoryProvider {
         (::windows::core::Vtable::vtable(self).Finish_GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<AsyncIFtpHomeDirectoryProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpHomeDirectoryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpHomeDirectoryProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpHomeDirectoryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpHomeDirectoryProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpHomeDirectoryProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpHomeDirectoryProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -238,21 +196,7 @@ impl AsyncIFtpLogProvider {
         (::windows::core::Vtable::vtable(self).Finish_Log)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIFtpLogProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpLogProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpLogProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpLogProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpLogProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpLogProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpLogProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpLogProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -296,21 +240,7 @@ impl AsyncIFtpPostprocessProvider {
         (::windows::core::Vtable::vtable(self).Finish_HandlePostprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
-impl ::core::convert::From<AsyncIFtpPostprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpPostprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpPostprocessProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpPostprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpPostprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpPostprocessProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpPostprocessProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -357,21 +287,7 @@ impl AsyncIFtpPreprocessProvider {
         (::windows::core::Vtable::vtable(self).Finish_HandlePreprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
-impl ::core::convert::From<AsyncIFtpPreprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpPreprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpPreprocessProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpPreprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpPreprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpPreprocessProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpPreprocessProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -424,21 +340,7 @@ impl AsyncIFtpRoleProvider {
         (::windows::core::Vtable::vtable(self).Finish_IsUserInRole)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<AsyncIFtpRoleProvider> for ::windows::core::IUnknown {
-    fn from(value: AsyncIFtpRoleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIFtpRoleProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIFtpRoleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIFtpRoleProvider> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIFtpRoleProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIFtpRoleProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -488,21 +390,7 @@ impl AsyncIMSAdminBaseSinkW {
         (::windows::core::Vtable::vtable(self).Finish_ShutdownNotify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<AsyncIMSAdminBaseSinkW> for ::windows::core::IUnknown {
-    fn from(value: AsyncIMSAdminBaseSinkW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIMSAdminBaseSinkW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIMSAdminBaseSinkW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIMSAdminBaseSinkW> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIMSAdminBaseSinkW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(AsyncIMSAdminBaseSinkW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for AsyncIMSAdminBaseSinkW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -548,21 +436,7 @@ impl IADMEXT {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IADMEXT> for ::windows::core::IUnknown {
-    fn from(value: IADMEXT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IADMEXT> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IADMEXT) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IADMEXT> for ::windows::core::IUnknown {
-    fn from(value: &IADMEXT) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IADMEXT, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IADMEXT {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -609,21 +483,7 @@ impl IFtpAuthenticationProvider {
         (::windows::core::Vtable::vtable(self).AuthenticateUser)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), pszpassword.into(), ::core::mem::transmute(ppszcanonicalusername), ::core::mem::transmute(pfauthenticated)).ok()
     }
 }
-impl ::core::convert::From<IFtpAuthenticationProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpAuthenticationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpAuthenticationProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpAuthenticationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpAuthenticationProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpAuthenticationProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpAuthenticationProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpAuthenticationProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -670,21 +530,7 @@ impl IFtpAuthorizationProvider {
         (::windows::core::Vtable::vtable(self).GetUserAccessPermission)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszvirtualpath.into(), pszusername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_ACCESS>(result__)
     }
 }
-impl ::core::convert::From<IFtpAuthorizationProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpAuthorizationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpAuthorizationProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpAuthorizationProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpAuthorizationProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpAuthorizationProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpAuthorizationProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpAuthorizationProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -727,21 +573,7 @@ impl IFtpHomeDirectoryProvider {
         (::windows::core::Vtable::vtable(self).GetUserHomeDirectoryData)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IFtpHomeDirectoryProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpHomeDirectoryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpHomeDirectoryProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpHomeDirectoryProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpHomeDirectoryProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpHomeDirectoryProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpHomeDirectoryProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -778,21 +610,7 @@ impl IFtpLogProvider {
         (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ploggingparameters)).ok()
     }
 }
-impl ::core::convert::From<IFtpLogProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpLogProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpLogProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpLogProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpLogProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpLogProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpLogProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpLogProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -832,21 +650,7 @@ impl IFtpPostprocessProvider {
         (::windows::core::Vtable::vtable(self).HandlePostprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppostprocessparameters), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
-impl ::core::convert::From<IFtpPostprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpPostprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpPostprocessProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpPostprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpPostprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpPostprocessProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpPostprocessProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpPostprocessProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -889,21 +693,7 @@ impl IFtpPreprocessProvider {
         (::windows::core::Vtable::vtable(self).HandlePreprocess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppreprocessparameters), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FTP_PROCESS_STATUS>(result__)
     }
 }
-impl ::core::convert::From<IFtpPreprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpPreprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpPreprocessProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpPreprocessProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpPreprocessProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpPreprocessProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpPreprocessProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpPreprocessProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -945,21 +735,7 @@ impl IFtpProviderConstruct {
         (::windows::core::Vtable::vtable(self).Construct)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(configurationentries)).ok()
     }
 }
-impl ::core::convert::From<IFtpProviderConstruct> for ::windows::core::IUnknown {
-    fn from(value: IFtpProviderConstruct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpProviderConstruct> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpProviderConstruct) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpProviderConstruct> for ::windows::core::IUnknown {
-    fn from(value: &IFtpProviderConstruct) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpProviderConstruct, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpProviderConstruct {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1008,21 +784,7 @@ impl IFtpRoleProvider {
         (::windows::core::Vtable::vtable(self).IsUserInRole)(::windows::core::Vtable::as_raw(self), pszsessionid.into(), pszsitename.into(), pszusername.into(), pszrole.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IFtpRoleProvider> for ::windows::core::IUnknown {
-    fn from(value: IFtpRoleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFtpRoleProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFtpRoleProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFtpRoleProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFtpRoleProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFtpRoleProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFtpRoleProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1280,36 +1042,7 @@ impl IMSAdminBase2W {
         (::windows::core::Vtable::vtable(self).EnumHistory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszmdhistorylocation.as_ptr()), ::core::mem::transmute(pdwmdmajorversion), ::core::mem::transmute(pdwmdminorversion), ::core::mem::transmute(pftmdhistorytime), dwmdenumindex).ok()
     }
 }
-impl ::core::convert::From<IMSAdminBase2W> for ::windows::core::IUnknown {
-    fn from(value: IMSAdminBase2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBase2W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSAdminBase2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBase2W> for ::windows::core::IUnknown {
-    fn from(value: &IMSAdminBase2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMSAdminBase2W> for IMSAdminBaseW {
-    fn from(value: IMSAdminBase2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBase2W> for &'a IMSAdminBaseW {
-    fn from(value: &'a IMSAdminBase2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBase2W> for IMSAdminBaseW {
-    fn from(value: &IMSAdminBase2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSAdminBase2W, ::windows::core::IUnknown, IMSAdminBaseW);
 impl ::core::clone::Clone for IMSAdminBase2W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1578,51 +1311,7 @@ impl IMSAdminBase3W {
         (::windows::core::Vtable::vtable(self).GetChildPaths)(::windows::core::Vtable::as_raw(self), hmdhandle, pszmdpath.into(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchmdrequiredbuffersize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMSAdminBase3W> for ::windows::core::IUnknown {
-    fn from(value: IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBase3W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBase3W> for ::windows::core::IUnknown {
-    fn from(value: &IMSAdminBase3W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMSAdminBase3W> for IMSAdminBaseW {
-    fn from(value: IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBase3W> for &'a IMSAdminBaseW {
-    fn from(value: &'a IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBase3W> for IMSAdminBaseW {
-    fn from(value: &IMSAdminBase3W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMSAdminBase3W> for IMSAdminBase2W {
-    fn from(value: IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBase3W> for &'a IMSAdminBase2W {
-    fn from(value: &'a IMSAdminBase3W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBase3W> for IMSAdminBase2W {
-    fn from(value: &IMSAdminBase3W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSAdminBase3W, ::windows::core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
 impl ::core::clone::Clone for IMSAdminBase3W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1662,21 +1351,7 @@ impl IMSAdminBaseSinkW {
         (::windows::core::Vtable::vtable(self).ShutdownNotify)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMSAdminBaseSinkW> for ::windows::core::IUnknown {
-    fn from(value: IMSAdminBaseSinkW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBaseSinkW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSAdminBaseSinkW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBaseSinkW> for ::windows::core::IUnknown {
-    fn from(value: &IMSAdminBaseSinkW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSAdminBaseSinkW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMSAdminBaseSinkW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1890,21 +1565,7 @@ impl IMSAdminBaseW {
         (::windows::core::Vtable::vtable(self).GetServerGuid)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMSAdminBaseW> for ::windows::core::IUnknown {
-    fn from(value: IMSAdminBaseW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSAdminBaseW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSAdminBaseW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSAdminBaseW> for ::windows::core::IUnknown {
-    fn from(value: &IMSAdminBaseW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSAdminBaseW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMSAdminBaseW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1990,21 +1651,7 @@ impl IMSImpExpHelpW {
         (::windows::core::Vtable::vtable(self).EnumeratePathsInFile)(::windows::core::Vtable::as_raw(self), pszfilename.into(), pszkeytype.into(), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwmdrequiredbuffersize)).ok()
     }
 }
-impl ::core::convert::From<IMSImpExpHelpW> for ::windows::core::IUnknown {
-    fn from(value: IMSImpExpHelpW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMSImpExpHelpW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSImpExpHelpW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMSImpExpHelpW> for ::windows::core::IUnknown {
-    fn from(value: &IMSImpExpHelpW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSImpExpHelpW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMSImpExpHelpW {
     fn clone(&self) -> Self {
         Self(self.0.clone())

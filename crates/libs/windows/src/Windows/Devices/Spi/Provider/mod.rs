@@ -49,36 +49,7 @@ impl ISpiControllerProvider {
         }
     }
 }
-impl ::core::convert::From<ISpiControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: ISpiControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpiControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &ISpiControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpiControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: ISpiControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISpiControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &ISpiControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpiControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISpiControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -155,36 +126,7 @@ impl ISpiDeviceProvider {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<ISpiDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: ISpiDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiDeviceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpiDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: &ISpiDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpiDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: ISpiDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiDeviceProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISpiDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: &ISpiDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpiDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ISpiDeviceProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -261,36 +203,7 @@ impl ISpiProvider {
         }
     }
 }
-impl ::core::convert::From<ISpiProvider> for ::windows::core::IUnknown {
-    fn from(value: ISpiProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISpiProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiProvider> for ::windows::core::IUnknown {
-    fn from(value: &ISpiProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISpiProvider> for ::windows::core::IInspectable {
-    fn from(value: ISpiProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISpiProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ISpiProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpiProvider> for ::windows::core::IInspectable {
-    fn from(value: &ISpiProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISpiProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ISpiProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -432,36 +345,7 @@ unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
 impl ::windows::core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
 }
-impl ::core::convert::From<ProviderSpiConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: ProviderSpiConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderSpiConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderSpiConnectionSettings> for &::windows::core::IUnknown {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProviderSpiConnectionSettings> for ::windows::core::IInspectable {
-    fn from(value: ProviderSpiConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderSpiConnectionSettings> for ::windows::core::IInspectable {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderSpiConnectionSettings> for &::windows::core::IInspectable {
-    fn from(value: &ProviderSpiConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProviderSpiConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]

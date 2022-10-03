@@ -463,36 +463,7 @@ unsafe impl ::windows::core::Interface for FindAllAccountsResult {
 impl ::windows::core::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
 }
-impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IUnknown {
-    fn from(value: FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IUnknown {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IUnknown {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IInspectable {
-    fn from(value: FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IInspectable {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IInspectable {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FindAllAccountsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -541,36 +512,7 @@ unsafe impl ::windows::core::Interface for WebAccountEventArgs {
 impl ::windows::core::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
 }
-impl ::core::convert::From<WebAccountEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountEventArgs {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -670,36 +612,7 @@ unsafe impl ::windows::core::Interface for WebAccountMonitor {
 impl ::windows::core::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
 }
-impl ::core::convert::From<WebAccountMonitor> for ::windows::core::IUnknown {
-    fn from(value: WebAccountMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountMonitor> for ::windows::core::IUnknown {
-    fn from(value: &WebAccountMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountMonitor> for &::windows::core::IUnknown {
-    fn from(value: &WebAccountMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebAccountMonitor> for ::windows::core::IInspectable {
-    fn from(value: WebAccountMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebAccountMonitor> for ::windows::core::IInspectable {
-    fn from(value: &WebAccountMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebAccountMonitor> for &::windows::core::IInspectable {
-    fn from(value: &WebAccountMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebAccountMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebAccountMonitor {}
 unsafe impl ::core::marker::Sync for WebAccountMonitor {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -916,36 +829,7 @@ unsafe impl ::windows::core::Interface for WebProviderError {
 impl ::windows::core::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
 }
-impl ::core::convert::From<WebProviderError> for ::windows::core::IUnknown {
-    fn from(value: WebProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderError> for ::windows::core::IUnknown {
-    fn from(value: &WebProviderError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderError> for &::windows::core::IUnknown {
-    fn from(value: &WebProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebProviderError> for ::windows::core::IInspectable {
-    fn from(value: WebProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebProviderError> for ::windows::core::IInspectable {
-    fn from(value: &WebProviderError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebProviderError> for &::windows::core::IInspectable {
-    fn from(value: &WebProviderError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebProviderError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebProviderError {}
 unsafe impl ::core::marker::Sync for WebProviderError {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1081,36 +965,7 @@ unsafe impl ::windows::core::Interface for WebTokenRequest {
 impl ::windows::core::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
 }
-impl ::core::convert::From<WebTokenRequest> for ::windows::core::IUnknown {
-    fn from(value: WebTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenRequest> for ::windows::core::IUnknown {
-    fn from(value: &WebTokenRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenRequest> for &::windows::core::IUnknown {
-    fn from(value: &WebTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebTokenRequest> for ::windows::core::IInspectable {
-    fn from(value: WebTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenRequest> for ::windows::core::IInspectable {
-    fn from(value: &WebTokenRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenRequest> for &::windows::core::IInspectable {
-    fn from(value: &WebTokenRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebTokenRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1182,36 +1037,7 @@ unsafe impl ::windows::core::Interface for WebTokenRequestResult {
 impl ::windows::core::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
 }
-impl ::core::convert::From<WebTokenRequestResult> for ::windows::core::IUnknown {
-    fn from(value: WebTokenRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenRequestResult> for ::windows::core::IUnknown {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IUnknown {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebTokenRequestResult> for ::windows::core::IInspectable {
-    fn from(value: WebTokenRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenRequestResult> for ::windows::core::IInspectable {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IInspectable {
-    fn from(value: &WebTokenRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebTokenRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -1317,36 +1143,7 @@ unsafe impl ::windows::core::Interface for WebTokenResponse {
 impl ::windows::core::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";
 }
-impl ::core::convert::From<WebTokenResponse> for ::windows::core::IUnknown {
-    fn from(value: WebTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenResponse> for ::windows::core::IUnknown {
-    fn from(value: &WebTokenResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenResponse> for &::windows::core::IUnknown {
-    fn from(value: &WebTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebTokenResponse> for ::windows::core::IInspectable {
-    fn from(value: WebTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebTokenResponse> for ::windows::core::IInspectable {
-    fn from(value: &WebTokenResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebTokenResponse> for &::windows::core::IInspectable {
-    fn from(value: &WebTokenResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebTokenResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebTokenResponse {}
 unsafe impl ::core::marker::Sync for WebTokenResponse {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]

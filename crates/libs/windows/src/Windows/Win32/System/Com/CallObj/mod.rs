@@ -122,21 +122,7 @@ impl ICallFrame {
         (::windows::core::Vtable::vtable(self).Invoke)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvreceiver)).ok()
     }
 }
-impl ::core::convert::From<ICallFrame> for ::windows::core::IUnknown {
-    fn from(value: ICallFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallFrame> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallFrame> for ::windows::core::IUnknown {
-    fn from(value: &ICallFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallFrame, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICallFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -218,21 +204,7 @@ impl ICallFrameEvents {
         (::windows::core::Vtable::vtable(self).OnCall)(::windows::core::Vtable::as_raw(self), pframe.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ICallFrameEvents> for ::windows::core::IUnknown {
-    fn from(value: ICallFrameEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallFrameEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallFrameEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallFrameEvents> for ::windows::core::IUnknown {
-    fn from(value: &ICallFrameEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallFrameEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICallFrameEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -275,21 +247,7 @@ impl ICallFrameWalker {
         (::windows::core::Vtable::vtable(self).OnWalkInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvinterface), fin.into(), fout.into()).ok()
     }
 }
-impl ::core::convert::From<ICallFrameWalker> for ::windows::core::IUnknown {
-    fn from(value: ICallFrameWalker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallFrameWalker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallFrameWalker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallFrameWalker> for ::windows::core::IUnknown {
-    fn from(value: &ICallFrameWalker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallFrameWalker, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICallFrameWalker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -343,21 +301,7 @@ impl ICallIndirect {
         (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(piid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfderivesfromidispatch.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcmethod.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pwszinterface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<ICallIndirect> for ::windows::core::IUnknown {
-    fn from(value: ICallIndirect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallIndirect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallIndirect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallIndirect> for ::windows::core::IUnknown {
-    fn from(value: &ICallIndirect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallIndirect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICallIndirect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -427,36 +371,7 @@ impl ICallInterceptor {
         (::windows::core::Vtable::vtable(self).GetRegisteredSink)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICallFrameEvents>(result__)
     }
 }
-impl ::core::convert::From<ICallInterceptor> for ::windows::core::IUnknown {
-    fn from(value: ICallInterceptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallInterceptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallInterceptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallInterceptor> for ::windows::core::IUnknown {
-    fn from(value: &ICallInterceptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICallInterceptor> for ICallIndirect {
-    fn from(value: ICallInterceptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallInterceptor> for &'a ICallIndirect {
-    fn from(value: &'a ICallInterceptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallInterceptor> for ICallIndirect {
-    fn from(value: &ICallInterceptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallInterceptor, ::windows::core::IUnknown, ICallIndirect);
 impl ::core::clone::Clone for ICallInterceptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -504,21 +419,7 @@ impl ICallUnmarshal {
         (::windows::core::Vtable::vtable(self).ReleaseMarshalData)(::windows::core::Vtable::as_raw(self), imethod, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, ibfirstrelease, datarep, ::core::mem::transmute(pcontext)).ok()
     }
 }
-impl ::core::convert::From<ICallUnmarshal> for ::windows::core::IUnknown {
-    fn from(value: ICallUnmarshal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICallUnmarshal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICallUnmarshal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICallUnmarshal> for ::windows::core::IUnknown {
-    fn from(value: &ICallUnmarshal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICallUnmarshal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICallUnmarshal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -566,21 +467,7 @@ impl IInterfaceRelated {
         (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IInterfaceRelated> for ::windows::core::IUnknown {
-    fn from(value: IInterfaceRelated) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInterfaceRelated> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInterfaceRelated) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInterfaceRelated> for ::windows::core::IUnknown {
-    fn from(value: &IInterfaceRelated) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInterfaceRelated, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInterfaceRelated {
     fn clone(&self) -> Self {
         Self(self.0.clone())

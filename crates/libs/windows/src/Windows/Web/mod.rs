@@ -20,36 +20,7 @@ impl IUriToStreamResolver {
         }
     }
 }
-impl ::core::convert::From<IUriToStreamResolver> for ::windows::core::IUnknown {
-    fn from(value: IUriToStreamResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUriToStreamResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUriToStreamResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUriToStreamResolver> for ::windows::core::IUnknown {
-    fn from(value: &IUriToStreamResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUriToStreamResolver> for ::windows::core::IInspectable {
-    fn from(value: IUriToStreamResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUriToStreamResolver> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUriToStreamResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUriToStreamResolver> for ::windows::core::IInspectable {
-    fn from(value: &IUriToStreamResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUriToStreamResolver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUriToStreamResolver {
     fn clone(&self) -> Self {
         Self(self.0.clone())

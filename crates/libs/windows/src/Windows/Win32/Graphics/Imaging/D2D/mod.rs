@@ -30,21 +30,7 @@ impl IWICImageEncoder {
         (::windows::core::Vtable::vtable(self).WriteThumbnail)(::windows::core::Vtable::as_raw(self), pimage.into().abi(), pencoder.into().abi(), ::core::mem::transmute(pimageparameters)).ok()
     }
 }
-impl ::core::convert::From<IWICImageEncoder> for ::windows::core::IUnknown {
-    fn from(value: IWICImageEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICImageEncoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICImageEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICImageEncoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICImageEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICImageEncoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICImageEncoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -236,36 +222,7 @@ impl IWICImagingFactory2 {
         (::windows::core::Vtable::vtable(self).CreateImageEncoder)(::windows::core::Vtable::as_raw(self), pd2ddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICImageEncoder>(result__)
     }
 }
-impl ::core::convert::From<IWICImagingFactory2> for ::windows::core::IUnknown {
-    fn from(value: IWICImagingFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICImagingFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICImagingFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICImagingFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IWICImagingFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICImagingFactory2> for super::IWICImagingFactory {
-    fn from(value: IWICImagingFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICImagingFactory2> for &'a super::IWICImagingFactory {
-    fn from(value: &'a IWICImagingFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICImagingFactory2> for super::IWICImagingFactory {
-    fn from(value: &IWICImagingFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICImagingFactory2, ::windows::core::IUnknown, super::IWICImagingFactory);
 impl ::core::clone::Clone for IWICImagingFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

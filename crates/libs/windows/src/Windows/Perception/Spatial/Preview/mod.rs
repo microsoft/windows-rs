@@ -125,36 +125,7 @@ unsafe impl ::windows::core::Interface for SpatialGraphInteropFrameOfReferencePr
 impl ::windows::core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";
 }
-impl ::core::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::core::IUnknown {
-    fn from(value: SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for ::windows::core::IUnknown {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for &::windows::core::IUnknown {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SpatialGraphInteropFrameOfReferencePreview> for ::windows::core::IInspectable {
-    fn from(value: SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for ::windows::core::IInspectable {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SpatialGraphInteropFrameOfReferencePreview> for &::windows::core::IInspectable {
-    fn from(value: &SpatialGraphInteropFrameOfReferencePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
 #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]

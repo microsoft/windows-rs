@@ -408,36 +408,7 @@ unsafe impl ::windows::core::Interface for TargetedContentAction {
 impl ::windows::core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
 }
-impl ::core::convert::From<TargetedContentAction> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentAction> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentAction> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentAction> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentAction> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentAction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentAction> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentAction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentAction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -486,36 +457,7 @@ unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEve
 impl ::windows::core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
 }
-impl ::core::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -571,36 +513,7 @@ unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
 impl ::windows::core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
 }
-impl ::core::convert::From<TargetedContentChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -689,36 +602,7 @@ unsafe impl ::windows::core::Interface for TargetedContentCollection {
 impl ::windows::core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
 }
-impl ::core::convert::From<TargetedContentCollection> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentCollection> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentCollection> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentCollection> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentCollection> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentCollection> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentCollection {}
 unsafe impl ::core::marker::Sync for TargetedContentCollection {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -808,36 +692,7 @@ unsafe impl ::windows::core::Interface for TargetedContentContainer {
 impl ::windows::core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
 }
-impl ::core::convert::From<TargetedContentContainer> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentContainer> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentContainer> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentContainer> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentContainer> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentContainer> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
 unsafe impl ::core::marker::Sync for TargetedContentContainer {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
@@ -897,41 +752,7 @@ impl ::windows::core::RuntimeName for TargetedContentFile {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentFile";
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<TargetedContentFile> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&TargetedContentFile> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&TargetedContentFile> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<TargetedContentFile> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&TargetedContentFile> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::convert::From<&TargetedContentFile> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentFile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
@@ -1018,36 +839,7 @@ unsafe impl ::windows::core::Interface for TargetedContentImage {
 impl ::windows::core::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
 }
-impl ::core::convert::From<TargetedContentImage> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentImage> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentImage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentImage> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentImage> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentImage> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentImage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentImage> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentImage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<TargetedContentImage> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
@@ -1149,36 +941,7 @@ unsafe impl ::windows::core::Interface for TargetedContentItem {
 impl ::windows::core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
 }
-impl ::core::convert::From<TargetedContentItem> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentItem> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentItem> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentItem> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentItem> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentItem> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentItem {}
 unsafe impl ::core::marker::Sync for TargetedContentItem {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1232,36 +995,7 @@ unsafe impl ::windows::core::Interface for TargetedContentItemState {
 impl ::windows::core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
 }
-impl ::core::convert::From<TargetedContentItemState> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentItemState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentItemState> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentItemState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentItemState> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentItemState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentItemState> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentItemState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentItemState> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentItemState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentItemState> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentItemState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentItemState, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentItemState {}
 unsafe impl ::core::marker::Sync for TargetedContentItemState {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1329,36 +1063,7 @@ unsafe impl ::windows::core::Interface for TargetedContentObject {
 impl ::windows::core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
 }
-impl ::core::convert::From<TargetedContentObject> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentObject> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentObject> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentObject> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentObject> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentObject> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentObject, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1407,36 +1112,7 @@ unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs 
 impl ::windows::core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
 }
-impl ::core::convert::From<TargetedContentStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1556,36 +1232,7 @@ unsafe impl ::windows::core::Interface for TargetedContentSubscription {
 impl ::windows::core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
 }
-impl ::core::convert::From<TargetedContentSubscription> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscription> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentSubscription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscription> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentSubscription> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscription> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentSubscription) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscription> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentSubscription) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentSubscription, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentSubscription {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1665,36 +1312,7 @@ unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
 impl ::windows::core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
 }
-impl ::core::convert::From<TargetedContentSubscriptionOptions> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentSubscriptionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscriptionOptions> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentSubscriptionOptions> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentSubscriptionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentSubscriptionOptions> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentSubscriptionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1864,36 +1482,7 @@ unsafe impl ::windows::core::Interface for TargetedContentValue {
 impl ::windows::core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";
 }
-impl ::core::convert::From<TargetedContentValue> for ::windows::core::IUnknown {
-    fn from(value: TargetedContentValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentValue> for ::windows::core::IUnknown {
-    fn from(value: &TargetedContentValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentValue> for &::windows::core::IUnknown {
-    fn from(value: &TargetedContentValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TargetedContentValue> for ::windows::core::IInspectable {
-    fn from(value: TargetedContentValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TargetedContentValue> for ::windows::core::IInspectable {
-    fn from(value: &TargetedContentValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TargetedContentValue> for &::windows::core::IInspectable {
-    fn from(value: &TargetedContentValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TargetedContentValue, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[doc = "*Required features: `\"Services_TargetedContent\"`*"]

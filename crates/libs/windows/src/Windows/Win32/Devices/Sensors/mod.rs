@@ -417,21 +417,7 @@ impl ILocationPermissions {
         (::windows::core::Vtable::vtable(self).CheckLocationCapability)(::windows::core::Vtable::as_raw(self), dwclientthreadid).ok()
     }
 }
-impl ::core::convert::From<ILocationPermissions> for ::windows::core::IUnknown {
-    fn from(value: ILocationPermissions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILocationPermissions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILocationPermissions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILocationPermissions> for ::windows::core::IUnknown {
-    fn from(value: &ILocationPermissions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILocationPermissions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILocationPermissions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -545,21 +531,7 @@ impl ISensor {
         (::windows::core::Vtable::vtable(self).SetEventSink)(::windows::core::Vtable::as_raw(self), pevents.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISensor> for ::windows::core::IUnknown {
-    fn from(value: ISensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensor> for ::windows::core::IUnknown {
-    fn from(value: &ISensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -648,21 +620,7 @@ impl ISensorCollection {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISensorCollection> for ::windows::core::IUnknown {
-    fn from(value: ISensorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISensorCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensorCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -722,21 +680,7 @@ impl ISensorDataReport {
         (::windows::core::Vtable::vtable(self).GetSensorValues)(::windows::core::Vtable::as_raw(self), pkeys.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::PortableDevices::IPortableDeviceValues>(result__)
     }
 }
-impl ::core::convert::From<ISensorDataReport> for ::windows::core::IUnknown {
-    fn from(value: ISensorDataReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorDataReport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorDataReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorDataReport> for ::windows::core::IUnknown {
-    fn from(value: &ISensorDataReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorDataReport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensorDataReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -806,21 +750,7 @@ impl ISensorEvents {
         (::windows::core::Vtable::vtable(self).OnLeave)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(id)).ok()
     }
 }
-impl ::core::convert::From<ISensorEvents> for ::windows::core::IUnknown {
-    fn from(value: ISensorEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorEvents> for ::windows::core::IUnknown {
-    fn from(value: &ISensorEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensorEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -888,21 +818,7 @@ impl ISensorManager {
         (::windows::core::Vtable::vtable(self).RequestPermissions)(::windows::core::Vtable::as_raw(self), hparent.into(), psensors.into().abi(), fmodal.into()).ok()
     }
 }
-impl ::core::convert::From<ISensorManager> for ::windows::core::IUnknown {
-    fn from(value: ISensorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorManager> for ::windows::core::IUnknown {
-    fn from(value: &ISensorManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensorManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -949,21 +865,7 @@ impl ISensorManagerEvents {
         (::windows::core::Vtable::vtable(self).OnSensorEnter)(::windows::core::Vtable::as_raw(self), psensor.into().abi(), state).ok()
     }
 }
-impl ::core::convert::From<ISensorManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: ISensorManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISensorManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISensorManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISensorManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &ISensorManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISensorManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISensorManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())

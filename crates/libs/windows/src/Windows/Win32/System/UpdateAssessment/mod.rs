@@ -9,21 +9,7 @@ impl IWaaSAssessor {
         (::windows::core::Vtable::vtable(self).GetOSUpdateAssessment)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OSUpdateAssessment>(result__)
     }
 }
-impl ::core::convert::From<IWaaSAssessor> for ::windows::core::IUnknown {
-    fn from(value: IWaaSAssessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWaaSAssessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWaaSAssessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWaaSAssessor> for ::windows::core::IUnknown {
-    fn from(value: &IWaaSAssessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWaaSAssessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWaaSAssessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())

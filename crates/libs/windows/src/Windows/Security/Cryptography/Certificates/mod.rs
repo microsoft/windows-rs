@@ -1215,36 +1215,7 @@ unsafe impl ::windows::core::Interface for Certificate {
 impl ::windows::core::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
 }
-impl ::core::convert::From<Certificate> for ::windows::core::IUnknown {
-    fn from(value: Certificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Certificate> for ::windows::core::IUnknown {
-    fn from(value: &Certificate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Certificate> for &::windows::core::IUnknown {
-    fn from(value: &Certificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Certificate> for ::windows::core::IInspectable {
-    fn from(value: Certificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Certificate> for ::windows::core::IInspectable {
-    fn from(value: &Certificate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Certificate> for &::windows::core::IInspectable {
-    fn from(value: &Certificate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Certificate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Certificate {}
 unsafe impl ::core::marker::Sync for Certificate {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1307,36 +1278,7 @@ unsafe impl ::windows::core::Interface for CertificateChain {
 impl ::windows::core::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
 }
-impl ::core::convert::From<CertificateChain> for ::windows::core::IUnknown {
-    fn from(value: CertificateChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateChain> for ::windows::core::IUnknown {
-    fn from(value: &CertificateChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateChain> for &::windows::core::IUnknown {
-    fn from(value: &CertificateChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateChain> for ::windows::core::IInspectable {
-    fn from(value: CertificateChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateChain> for ::windows::core::IInspectable {
-    fn from(value: &CertificateChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateChain> for &::windows::core::IInspectable {
-    fn from(value: &CertificateChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateChain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1488,36 +1430,7 @@ unsafe impl ::windows::core::Interface for CertificateExtension {
 impl ::windows::core::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
 }
-impl ::core::convert::From<CertificateExtension> for ::windows::core::IUnknown {
-    fn from(value: CertificateExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateExtension> for ::windows::core::IUnknown {
-    fn from(value: &CertificateExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateExtension> for &::windows::core::IUnknown {
-    fn from(value: &CertificateExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateExtension> for ::windows::core::IInspectable {
-    fn from(value: CertificateExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateExtension> for ::windows::core::IInspectable {
-    fn from(value: &CertificateExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateExtension> for &::windows::core::IInspectable {
-    fn from(value: &CertificateExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateExtension {}
 unsafe impl ::core::marker::Sync for CertificateExtension {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1652,36 +1565,7 @@ unsafe impl ::windows::core::Interface for CertificateKeyUsages {
 impl ::windows::core::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
 }
-impl ::core::convert::From<CertificateKeyUsages> for ::windows::core::IUnknown {
-    fn from(value: CertificateKeyUsages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateKeyUsages> for ::windows::core::IUnknown {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateKeyUsages> for &::windows::core::IUnknown {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateKeyUsages> for ::windows::core::IInspectable {
-    fn from(value: CertificateKeyUsages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateKeyUsages> for ::windows::core::IInspectable {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateKeyUsages> for &::windows::core::IInspectable {
-    fn from(value: &CertificateKeyUsages) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateKeyUsages, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateKeyUsages {}
 unsafe impl ::core::marker::Sync for CertificateKeyUsages {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -1814,36 +1698,7 @@ unsafe impl ::windows::core::Interface for CertificateQuery {
 impl ::windows::core::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
 }
-impl ::core::convert::From<CertificateQuery> for ::windows::core::IUnknown {
-    fn from(value: CertificateQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateQuery> for ::windows::core::IUnknown {
-    fn from(value: &CertificateQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateQuery> for &::windows::core::IUnknown {
-    fn from(value: &CertificateQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateQuery> for ::windows::core::IInspectable {
-    fn from(value: CertificateQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateQuery> for ::windows::core::IInspectable {
-    fn from(value: &CertificateQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateQuery> for &::windows::core::IInspectable {
-    fn from(value: &CertificateQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateQuery {}
 unsafe impl ::core::marker::Sync for CertificateQuery {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2102,36 +1957,7 @@ unsafe impl ::windows::core::Interface for CertificateRequestProperties {
 impl ::windows::core::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
 }
-impl ::core::convert::From<CertificateRequestProperties> for ::windows::core::IUnknown {
-    fn from(value: CertificateRequestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateRequestProperties> for ::windows::core::IUnknown {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateRequestProperties> for &::windows::core::IUnknown {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateRequestProperties> for ::windows::core::IInspectable {
-    fn from(value: CertificateRequestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateRequestProperties> for ::windows::core::IInspectable {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateRequestProperties> for &::windows::core::IInspectable {
-    fn from(value: &CertificateRequestProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateRequestProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateRequestProperties {}
 unsafe impl ::core::marker::Sync for CertificateRequestProperties {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2186,36 +2012,7 @@ unsafe impl ::windows::core::Interface for CertificateStore {
 impl ::windows::core::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
 }
-impl ::core::convert::From<CertificateStore> for ::windows::core::IUnknown {
-    fn from(value: CertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateStore> for ::windows::core::IUnknown {
-    fn from(value: &CertificateStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateStore> for &::windows::core::IUnknown {
-    fn from(value: &CertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CertificateStore> for ::windows::core::IInspectable {
-    fn from(value: CertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CertificateStore> for ::windows::core::IInspectable {
-    fn from(value: &CertificateStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CertificateStore> for &::windows::core::IInspectable {
-    fn from(value: &CertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CertificateStore {}
 unsafe impl ::core::marker::Sync for CertificateStore {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2396,36 +2193,7 @@ unsafe impl ::windows::core::Interface for ChainBuildingParameters {
 impl ::windows::core::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
 }
-impl ::core::convert::From<ChainBuildingParameters> for ::windows::core::IUnknown {
-    fn from(value: ChainBuildingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChainBuildingParameters> for ::windows::core::IUnknown {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChainBuildingParameters> for &::windows::core::IUnknown {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChainBuildingParameters> for ::windows::core::IInspectable {
-    fn from(value: ChainBuildingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChainBuildingParameters> for ::windows::core::IInspectable {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChainBuildingParameters> for &::windows::core::IInspectable {
-    fn from(value: &ChainBuildingParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChainBuildingParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChainBuildingParameters {}
 unsafe impl ::core::marker::Sync for ChainBuildingParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2498,36 +2266,7 @@ unsafe impl ::windows::core::Interface for ChainValidationParameters {
 impl ::windows::core::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
 }
-impl ::core::convert::From<ChainValidationParameters> for ::windows::core::IUnknown {
-    fn from(value: ChainValidationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChainValidationParameters> for ::windows::core::IUnknown {
-    fn from(value: &ChainValidationParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChainValidationParameters> for &::windows::core::IUnknown {
-    fn from(value: &ChainValidationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ChainValidationParameters> for ::windows::core::IInspectable {
-    fn from(value: ChainValidationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ChainValidationParameters> for ::windows::core::IInspectable {
-    fn from(value: &ChainValidationParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ChainValidationParameters> for &::windows::core::IInspectable {
-    fn from(value: &ChainValidationParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ChainValidationParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ChainValidationParameters {}
 unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2637,36 +2376,7 @@ unsafe impl ::windows::core::Interface for CmsAttachedSignature {
 impl ::windows::core::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
 }
-impl ::core::convert::From<CmsAttachedSignature> for ::windows::core::IUnknown {
-    fn from(value: CmsAttachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsAttachedSignature> for ::windows::core::IUnknown {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsAttachedSignature> for &::windows::core::IUnknown {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CmsAttachedSignature> for ::windows::core::IInspectable {
-    fn from(value: CmsAttachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsAttachedSignature> for ::windows::core::IInspectable {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsAttachedSignature> for &::windows::core::IInspectable {
-    fn from(value: &CmsAttachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CmsAttachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsAttachedSignature {}
 unsafe impl ::core::marker::Sync for CmsAttachedSignature {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2775,36 +2485,7 @@ unsafe impl ::windows::core::Interface for CmsDetachedSignature {
 impl ::windows::core::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
 }
-impl ::core::convert::From<CmsDetachedSignature> for ::windows::core::IUnknown {
-    fn from(value: CmsDetachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsDetachedSignature> for ::windows::core::IUnknown {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsDetachedSignature> for &::windows::core::IUnknown {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CmsDetachedSignature> for ::windows::core::IInspectable {
-    fn from(value: CmsDetachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsDetachedSignature> for ::windows::core::IInspectable {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsDetachedSignature> for &::windows::core::IInspectable {
-    fn from(value: &CmsDetachedSignature) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CmsDetachedSignature, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsDetachedSignature {}
 unsafe impl ::core::marker::Sync for CmsDetachedSignature {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2880,36 +2561,7 @@ unsafe impl ::windows::core::Interface for CmsSignerInfo {
 impl ::windows::core::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
 }
-impl ::core::convert::From<CmsSignerInfo> for ::windows::core::IUnknown {
-    fn from(value: CmsSignerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsSignerInfo> for ::windows::core::IUnknown {
-    fn from(value: &CmsSignerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsSignerInfo> for &::windows::core::IUnknown {
-    fn from(value: &CmsSignerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CmsSignerInfo> for ::windows::core::IInspectable {
-    fn from(value: CmsSignerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsSignerInfo> for ::windows::core::IInspectable {
-    fn from(value: &CmsSignerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsSignerInfo> for &::windows::core::IInspectable {
-    fn from(value: &CmsSignerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CmsSignerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsSignerInfo {}
 unsafe impl ::core::marker::Sync for CmsSignerInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -2974,36 +2626,7 @@ unsafe impl ::windows::core::Interface for CmsTimestampInfo {
 impl ::windows::core::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
 }
-impl ::core::convert::From<CmsTimestampInfo> for ::windows::core::IUnknown {
-    fn from(value: CmsTimestampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsTimestampInfo> for ::windows::core::IUnknown {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsTimestampInfo> for &::windows::core::IUnknown {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CmsTimestampInfo> for ::windows::core::IInspectable {
-    fn from(value: CmsTimestampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CmsTimestampInfo> for ::windows::core::IInspectable {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CmsTimestampInfo> for &::windows::core::IInspectable {
-    fn from(value: &CmsTimestampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CmsTimestampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CmsTimestampInfo {}
 unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3284,36 +2907,7 @@ unsafe impl ::windows::core::Interface for PfxImportParameters {
 impl ::windows::core::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
 }
-impl ::core::convert::From<PfxImportParameters> for ::windows::core::IUnknown {
-    fn from(value: PfxImportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PfxImportParameters> for ::windows::core::IUnknown {
-    fn from(value: &PfxImportParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PfxImportParameters> for &::windows::core::IUnknown {
-    fn from(value: &PfxImportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PfxImportParameters> for ::windows::core::IInspectable {
-    fn from(value: PfxImportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PfxImportParameters> for ::windows::core::IInspectable {
-    fn from(value: &PfxImportParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PfxImportParameters> for &::windows::core::IInspectable {
-    fn from(value: &PfxImportParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PfxImportParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PfxImportParameters {}
 unsafe impl ::core::marker::Sync for PfxImportParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3505,36 +3099,7 @@ unsafe impl ::windows::core::Interface for SubjectAlternativeNameInfo {
 impl ::windows::core::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
 }
-impl ::core::convert::From<SubjectAlternativeNameInfo> for ::windows::core::IUnknown {
-    fn from(value: SubjectAlternativeNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SubjectAlternativeNameInfo> for ::windows::core::IUnknown {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SubjectAlternativeNameInfo> for &::windows::core::IUnknown {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SubjectAlternativeNameInfo> for ::windows::core::IInspectable {
-    fn from(value: SubjectAlternativeNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SubjectAlternativeNameInfo> for ::windows::core::IInspectable {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SubjectAlternativeNameInfo> for &::windows::core::IInspectable {
-    fn from(value: &SubjectAlternativeNameInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SubjectAlternativeNameInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SubjectAlternativeNameInfo {}
 unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3619,36 +3184,7 @@ unsafe impl ::windows::core::Interface for UserCertificateEnrollmentManager {
 impl ::windows::core::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
 }
-impl ::core::convert::From<UserCertificateEnrollmentManager> for ::windows::core::IUnknown {
-    fn from(value: UserCertificateEnrollmentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserCertificateEnrollmentManager> for ::windows::core::IUnknown {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserCertificateEnrollmentManager> for &::windows::core::IUnknown {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserCertificateEnrollmentManager> for ::windows::core::IInspectable {
-    fn from(value: UserCertificateEnrollmentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserCertificateEnrollmentManager> for ::windows::core::IInspectable {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserCertificateEnrollmentManager> for &::windows::core::IInspectable {
-    fn from(value: &UserCertificateEnrollmentManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserCertificateEnrollmentManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserCertificateEnrollmentManager {}
 unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
@@ -3713,36 +3249,7 @@ unsafe impl ::windows::core::Interface for UserCertificateStore {
 impl ::windows::core::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";
 }
-impl ::core::convert::From<UserCertificateStore> for ::windows::core::IUnknown {
-    fn from(value: UserCertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserCertificateStore> for ::windows::core::IUnknown {
-    fn from(value: &UserCertificateStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserCertificateStore> for &::windows::core::IUnknown {
-    fn from(value: &UserCertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserCertificateStore> for ::windows::core::IInspectable {
-    fn from(value: UserCertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserCertificateStore> for ::windows::core::IInspectable {
-    fn from(value: &UserCertificateStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserCertificateStore> for &::windows::core::IInspectable {
-    fn from(value: &UserCertificateStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserCertificateStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserCertificateStore {}
 unsafe impl ::core::marker::Sync for UserCertificateStore {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]

@@ -205,36 +205,7 @@ unsafe impl ::windows::core::Interface for OcrEngine {
 impl ::windows::core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
 }
-impl ::core::convert::From<OcrEngine> for ::windows::core::IUnknown {
-    fn from(value: OcrEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrEngine> for ::windows::core::IUnknown {
-    fn from(value: &OcrEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrEngine> for &::windows::core::IUnknown {
-    fn from(value: &OcrEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OcrEngine> for ::windows::core::IInspectable {
-    fn from(value: OcrEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrEngine> for ::windows::core::IInspectable {
-    fn from(value: &OcrEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrEngine> for &::windows::core::IInspectable {
-    fn from(value: &OcrEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OcrEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrEngine {}
 unsafe impl ::core::marker::Sync for OcrEngine {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -290,36 +261,7 @@ unsafe impl ::windows::core::Interface for OcrLine {
 impl ::windows::core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
 }
-impl ::core::convert::From<OcrLine> for ::windows::core::IUnknown {
-    fn from(value: OcrLine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrLine> for ::windows::core::IUnknown {
-    fn from(value: &OcrLine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrLine> for &::windows::core::IUnknown {
-    fn from(value: &OcrLine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OcrLine> for ::windows::core::IInspectable {
-    fn from(value: OcrLine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrLine> for ::windows::core::IInspectable {
-    fn from(value: &OcrLine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrLine> for &::windows::core::IInspectable {
-    fn from(value: &OcrLine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OcrLine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrLine {}
 unsafe impl ::core::marker::Sync for OcrLine {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -384,36 +326,7 @@ unsafe impl ::windows::core::Interface for OcrResult {
 impl ::windows::core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
 }
-impl ::core::convert::From<OcrResult> for ::windows::core::IUnknown {
-    fn from(value: OcrResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrResult> for ::windows::core::IUnknown {
-    fn from(value: &OcrResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrResult> for &::windows::core::IUnknown {
-    fn from(value: &OcrResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OcrResult> for ::windows::core::IInspectable {
-    fn from(value: OcrResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrResult> for ::windows::core::IInspectable {
-    fn from(value: &OcrResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrResult> for &::windows::core::IInspectable {
-    fn from(value: &OcrResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OcrResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrResult {}
 unsafe impl ::core::marker::Sync for OcrResult {}
 #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -469,36 +382,7 @@ unsafe impl ::windows::core::Interface for OcrWord {
 impl ::windows::core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";
 }
-impl ::core::convert::From<OcrWord> for ::windows::core::IUnknown {
-    fn from(value: OcrWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrWord> for ::windows::core::IUnknown {
-    fn from(value: &OcrWord) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrWord> for &::windows::core::IUnknown {
-    fn from(value: &OcrWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OcrWord> for ::windows::core::IInspectable {
-    fn from(value: OcrWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OcrWord> for ::windows::core::IInspectable {
-    fn from(value: &OcrWord) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OcrWord> for &::windows::core::IInspectable {
-    fn from(value: &OcrWord) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OcrWord, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OcrWord {}
 unsafe impl ::core::marker::Sync for OcrWord {}
 #[cfg(feature = "implement")]

@@ -286,36 +286,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrig
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementPublisherTriggerDetails";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementPublisherTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementPublisherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -378,36 +349,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigge
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.BluetoothLEAdvertisementWatcherTriggerDetails";
 }
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAdvertisementWatcherTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAdvertisementWatcherTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -488,36 +430,7 @@ unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattCharacteristicNotificationTriggerDetails";
 }
-impl ::core::convert::From<GattCharacteristicNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: GattCharacteristicNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattCharacteristicNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: GattCharacteristicNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattCharacteristicNotificationTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &GattCharacteristicNotificationTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -590,36 +503,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderConnection {
 impl ::windows::core::RuntimeName for GattServiceProviderConnection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderConnection";
 }
-impl ::core::convert::From<GattServiceProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::core::marker::Sync for GattServiceProviderConnection {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -666,36 +550,7 @@ unsafe impl ::windows::core::Interface for GattServiceProviderTriggerDetails {
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.GattServiceProviderTriggerDetails";
 }
-impl ::core::convert::From<GattServiceProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: GattServiceProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GattServiceProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: GattServiceProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GattServiceProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &GattServiceProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GattServiceProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GattServiceProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattServiceProviderTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -758,36 +613,7 @@ unsafe impl ::windows::core::Interface for RfcommConnectionTriggerDetails {
 impl ::windows::core::RuntimeName for RfcommConnectionTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommConnectionTriggerDetails";
 }
-impl ::core::convert::From<RfcommConnectionTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: RfcommConnectionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommConnectionTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: RfcommConnectionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommConnectionTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &RfcommConnectionTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommConnectionTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -872,36 +698,7 @@ unsafe impl ::windows::core::Interface for RfcommInboundConnectionInformation {
 impl ::windows::core::RuntimeName for RfcommInboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommInboundConnectionInformation";
 }
-impl ::core::convert::From<RfcommInboundConnectionInformation> for ::windows::core::IUnknown {
-    fn from(value: RfcommInboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommInboundConnectionInformation> for ::windows::core::IUnknown {
-    fn from(value: &RfcommInboundConnectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommInboundConnectionInformation> for &::windows::core::IUnknown {
-    fn from(value: &RfcommInboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommInboundConnectionInformation> for ::windows::core::IInspectable {
-    fn from(value: RfcommInboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommInboundConnectionInformation> for ::windows::core::IInspectable {
-    fn from(value: &RfcommInboundConnectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommInboundConnectionInformation> for &::windows::core::IInspectable {
-    fn from(value: &RfcommInboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommInboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommInboundConnectionInformation {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]
@@ -956,36 +753,7 @@ unsafe impl ::windows::core::Interface for RfcommOutboundConnectionInformation {
 impl ::windows::core::RuntimeName for RfcommOutboundConnectionInformation {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Background.RfcommOutboundConnectionInformation";
 }
-impl ::core::convert::From<RfcommOutboundConnectionInformation> for ::windows::core::IUnknown {
-    fn from(value: RfcommOutboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommOutboundConnectionInformation> for ::windows::core::IUnknown {
-    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommOutboundConnectionInformation> for &::windows::core::IUnknown {
-    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RfcommOutboundConnectionInformation> for ::windows::core::IInspectable {
-    fn from(value: RfcommOutboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RfcommOutboundConnectionInformation> for ::windows::core::IInspectable {
-    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RfcommOutboundConnectionInformation> for &::windows::core::IInspectable {
-    fn from(value: &RfcommOutboundConnectionInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RfcommOutboundConnectionInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommOutboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommOutboundConnectionInformation {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Background\"`*"]

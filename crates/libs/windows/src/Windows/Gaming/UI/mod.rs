@@ -251,36 +251,7 @@ unsafe impl ::windows::core::Interface for GameChatMessageReceivedEventArgs {
 impl ::windows::core::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
 }
-impl ::core::convert::From<GameChatMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GameChatMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameChatMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GameChatMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GameChatMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameChatMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -346,36 +317,7 @@ unsafe impl ::windows::core::Interface for GameChatOverlay {
 impl ::windows::core::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
 }
-impl ::core::convert::From<GameChatOverlay> for ::windows::core::IUnknown {
-    fn from(value: GameChatOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatOverlay> for ::windows::core::IUnknown {
-    fn from(value: &GameChatOverlay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatOverlay> for &::windows::core::IUnknown {
-    fn from(value: &GameChatOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameChatOverlay> for ::windows::core::IInspectable {
-    fn from(value: GameChatOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatOverlay> for ::windows::core::IInspectable {
-    fn from(value: &GameChatOverlay) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatOverlay> for &::windows::core::IInspectable {
-    fn from(value: &GameChatOverlay) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameChatOverlay, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatOverlay {}
 unsafe impl ::core::marker::Sync for GameChatOverlay {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -443,36 +385,7 @@ unsafe impl ::windows::core::Interface for GameChatOverlayMessageSource {
 impl ::windows::core::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
 }
-impl ::core::convert::From<GameChatOverlayMessageSource> for ::windows::core::IUnknown {
-    fn from(value: GameChatOverlayMessageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatOverlayMessageSource> for ::windows::core::IUnknown {
-    fn from(value: &GameChatOverlayMessageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatOverlayMessageSource> for &::windows::core::IUnknown {
-    fn from(value: &GameChatOverlayMessageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameChatOverlayMessageSource> for ::windows::core::IInspectable {
-    fn from(value: GameChatOverlayMessageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameChatOverlayMessageSource> for ::windows::core::IInspectable {
-    fn from(value: &GameChatOverlayMessageSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameChatOverlayMessageSource> for &::windows::core::IInspectable {
-    fn from(value: &GameChatOverlayMessageSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameChatOverlayMessageSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
@@ -554,36 +467,7 @@ unsafe impl ::windows::core::Interface for GameUIProviderActivatedEventArgs {
 impl ::windows::core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";
 }
-impl ::core::convert::From<GameUIProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GameUIProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameUIProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GameUIProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameUIProviderActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GameUIProviderActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameUIProviderActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<GameUIProviderActivatedEventArgs> for super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;

@@ -358,36 +358,7 @@ unsafe impl ::windows::core::Interface for DeliveryOptimizationSettings {
 impl ::windows::core::RuntimeName for DeliveryOptimizationSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings";
 }
-impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IUnknown {
-    fn from(value: DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IUnknown {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IUnknown {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IInspectable {
-    fn from(value: DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IInspectable {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IInspectable {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeliveryOptimizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
 unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -667,36 +638,7 @@ unsafe impl ::windows::core::Interface for StoreHardwareManufacturerInfo {
 impl ::windows::core::RuntimeName for StoreHardwareManufacturerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo";
 }
-impl ::core::convert::From<StoreHardwareManufacturerInfo> for ::windows::core::IUnknown {
-    fn from(value: StoreHardwareManufacturerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StoreHardwareManufacturerInfo> for ::windows::core::IUnknown {
-    fn from(value: &StoreHardwareManufacturerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StoreHardwareManufacturerInfo> for &::windows::core::IUnknown {
-    fn from(value: &StoreHardwareManufacturerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StoreHardwareManufacturerInfo> for ::windows::core::IInspectable {
-    fn from(value: StoreHardwareManufacturerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StoreHardwareManufacturerInfo> for ::windows::core::IInspectable {
-    fn from(value: &StoreHardwareManufacturerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StoreHardwareManufacturerInfo> for &::windows::core::IInspectable {
-    fn from(value: &StoreHardwareManufacturerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StoreHardwareManufacturerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -801,36 +743,7 @@ unsafe impl ::windows::core::Interface for StorePreviewProductInfo {
 impl ::windows::core::RuntimeName for StorePreviewProductInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo";
 }
-impl ::core::convert::From<StorePreviewProductInfo> for ::windows::core::IUnknown {
-    fn from(value: StorePreviewProductInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewProductInfo> for ::windows::core::IUnknown {
-    fn from(value: &StorePreviewProductInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewProductInfo> for &::windows::core::IUnknown {
-    fn from(value: &StorePreviewProductInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorePreviewProductInfo> for ::windows::core::IInspectable {
-    fn from(value: StorePreviewProductInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewProductInfo> for ::windows::core::IInspectable {
-    fn from(value: &StorePreviewProductInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewProductInfo> for &::windows::core::IInspectable {
-    fn from(value: &StorePreviewProductInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorePreviewProductInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -877,36 +790,7 @@ unsafe impl ::windows::core::Interface for StorePreviewPurchaseResults {
 impl ::windows::core::RuntimeName for StorePreviewPurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults";
 }
-impl ::core::convert::From<StorePreviewPurchaseResults> for ::windows::core::IUnknown {
-    fn from(value: StorePreviewPurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewPurchaseResults> for ::windows::core::IUnknown {
-    fn from(value: &StorePreviewPurchaseResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewPurchaseResults> for &::windows::core::IUnknown {
-    fn from(value: &StorePreviewPurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorePreviewPurchaseResults> for ::windows::core::IInspectable {
-    fn from(value: StorePreviewPurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewPurchaseResults> for ::windows::core::IInspectable {
-    fn from(value: &StorePreviewPurchaseResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewPurchaseResults> for &::windows::core::IInspectable {
-    fn from(value: &StorePreviewPurchaseResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorePreviewPurchaseResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewPurchaseResults {}
 unsafe impl ::core::marker::Sync for StorePreviewPurchaseResults {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
@@ -1009,36 +893,7 @@ unsafe impl ::windows::core::Interface for StorePreviewSkuInfo {
 impl ::windows::core::RuntimeName for StorePreviewSkuInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo";
 }
-impl ::core::convert::From<StorePreviewSkuInfo> for ::windows::core::IUnknown {
-    fn from(value: StorePreviewSkuInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewSkuInfo> for ::windows::core::IUnknown {
-    fn from(value: &StorePreviewSkuInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewSkuInfo> for &::windows::core::IUnknown {
-    fn from(value: &StorePreviewSkuInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StorePreviewSkuInfo> for ::windows::core::IInspectable {
-    fn from(value: StorePreviewSkuInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StorePreviewSkuInfo> for ::windows::core::IInspectable {
-    fn from(value: &StorePreviewSkuInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StorePreviewSkuInfo> for &::windows::core::IInspectable {
-    fn from(value: &StorePreviewSkuInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StorePreviewSkuInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]

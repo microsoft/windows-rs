@@ -450,36 +450,7 @@ unsafe impl ::windows::core::Interface for KeyboardCapabilities {
 impl ::windows::core::RuntimeName for KeyboardCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.KeyboardCapabilities";
 }
-impl ::core::convert::From<KeyboardCapabilities> for ::windows::core::IUnknown {
-    fn from(value: KeyboardCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyboardCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &KeyboardCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyboardCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &KeyboardCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<KeyboardCapabilities> for ::windows::core::IInspectable {
-    fn from(value: KeyboardCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&KeyboardCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &KeyboardCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&KeyboardCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &KeyboardCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(KeyboardCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for KeyboardCapabilities {}
 unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -561,36 +532,7 @@ unsafe impl ::windows::core::Interface for MouseCapabilities {
 impl ::windows::core::RuntimeName for MouseCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.MouseCapabilities";
 }
-impl ::core::convert::From<MouseCapabilities> for ::windows::core::IUnknown {
-    fn from(value: MouseCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &MouseCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &MouseCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MouseCapabilities> for ::windows::core::IInspectable {
-    fn from(value: MouseCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &MouseCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &MouseCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MouseCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -656,36 +598,7 @@ unsafe impl ::windows::core::Interface for MouseDevice {
 impl ::windows::core::RuntimeName for MouseDevice {
     const NAME: &'static str = "Windows.Devices.Input.MouseDevice";
 }
-impl ::core::convert::From<MouseDevice> for ::windows::core::IUnknown {
-    fn from(value: MouseDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseDevice> for ::windows::core::IUnknown {
-    fn from(value: &MouseDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseDevice> for &::windows::core::IUnknown {
-    fn from(value: &MouseDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MouseDevice> for ::windows::core::IInspectable {
-    fn from(value: MouseDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseDevice> for ::windows::core::IInspectable {
-    fn from(value: &MouseDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseDevice> for &::windows::core::IInspectable {
-    fn from(value: &MouseDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MouseDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseEventArgs(::windows::core::IUnknown);
@@ -730,36 +643,7 @@ unsafe impl ::windows::core::Interface for MouseEventArgs {
 impl ::windows::core::RuntimeName for MouseEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.MouseEventArgs";
 }
-impl ::core::convert::From<MouseEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MouseEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MouseEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MouseEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MouseEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MouseEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MouseEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MouseEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MouseEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MouseEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MouseEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenButtonListener(::windows::core::IUnknown);
@@ -875,36 +759,7 @@ unsafe impl ::windows::core::Interface for PenButtonListener {
 impl ::windows::core::RuntimeName for PenButtonListener {
     const NAME: &'static str = "Windows.Devices.Input.PenButtonListener";
 }
-impl ::core::convert::From<PenButtonListener> for ::windows::core::IUnknown {
-    fn from(value: PenButtonListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenButtonListener> for ::windows::core::IUnknown {
-    fn from(value: &PenButtonListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenButtonListener> for &::windows::core::IUnknown {
-    fn from(value: &PenButtonListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenButtonListener> for ::windows::core::IInspectable {
-    fn from(value: PenButtonListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenButtonListener> for ::windows::core::IInspectable {
-    fn from(value: &PenButtonListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenButtonListener> for &::windows::core::IInspectable {
-    fn from(value: &PenButtonListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenButtonListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenButtonListener {}
 unsafe impl ::core::marker::Sync for PenButtonListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -971,36 +826,7 @@ unsafe impl ::windows::core::Interface for PenDevice {
 impl ::windows::core::RuntimeName for PenDevice {
     const NAME: &'static str = "Windows.Devices.Input.PenDevice";
 }
-impl ::core::convert::From<PenDevice> for ::windows::core::IUnknown {
-    fn from(value: PenDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDevice> for ::windows::core::IUnknown {
-    fn from(value: &PenDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDevice> for &::windows::core::IUnknown {
-    fn from(value: &PenDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenDevice> for ::windows::core::IInspectable {
-    fn from(value: PenDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDevice> for ::windows::core::IInspectable {
-    fn from(value: &PenDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDevice> for &::windows::core::IInspectable {
-    fn from(value: &PenDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDevice {}
 unsafe impl ::core::marker::Sync for PenDevice {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1103,36 +929,7 @@ unsafe impl ::windows::core::Interface for PenDockListener {
 impl ::windows::core::RuntimeName for PenDockListener {
     const NAME: &'static str = "Windows.Devices.Input.PenDockListener";
 }
-impl ::core::convert::From<PenDockListener> for ::windows::core::IUnknown {
-    fn from(value: PenDockListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDockListener> for ::windows::core::IUnknown {
-    fn from(value: &PenDockListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDockListener> for &::windows::core::IUnknown {
-    fn from(value: &PenDockListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenDockListener> for ::windows::core::IInspectable {
-    fn from(value: PenDockListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDockListener> for ::windows::core::IInspectable {
-    fn from(value: &PenDockListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDockListener> for &::windows::core::IInspectable {
-    fn from(value: &PenDockListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenDockListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDockListener {}
 unsafe impl ::core::marker::Sync for PenDockListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1171,36 +968,7 @@ unsafe impl ::windows::core::Interface for PenDockedEventArgs {
 impl ::windows::core::RuntimeName for PenDockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenDockedEventArgs";
 }
-impl ::core::convert::From<PenDockedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PenDockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDockedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PenDockedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDockedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PenDockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenDockedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PenDockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenDockedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PenDockedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenDockedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PenDockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenDockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenDockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1239,36 +1007,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonClickedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonClickedEventArgs";
 }
-impl ::core::convert::From<PenTailButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PenTailButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PenTailButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonClickedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PenTailButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenTailButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PenTailButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PenTailButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonClickedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PenTailButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenTailButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1307,36 +1046,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonDoubleClickedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonDoubleClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs";
 }
-impl ::core::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PenTailButtonDoubleClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenTailButtonDoubleClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PenTailButtonDoubleClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PenTailButtonDoubleClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenTailButtonDoubleClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1375,36 +1085,7 @@ unsafe impl ::windows::core::Interface for PenTailButtonLongPressedEventArgs {
 impl ::windows::core::RuntimeName for PenTailButtonLongPressedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenTailButtonLongPressedEventArgs";
 }
-impl ::core::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PenTailButtonLongPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenTailButtonLongPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PenTailButtonLongPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PenTailButtonLongPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenTailButtonLongPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1443,36 +1124,7 @@ unsafe impl ::windows::core::Interface for PenUndockedEventArgs {
 impl ::windows::core::RuntimeName for PenUndockedEventArgs {
     const NAME: &'static str = "Windows.Devices.Input.PenUndockedEventArgs";
 }
-impl ::core::convert::From<PenUndockedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PenUndockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenUndockedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PenUndockedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenUndockedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PenUndockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PenUndockedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PenUndockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PenUndockedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PenUndockedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PenUndockedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PenUndockedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PenUndockedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
@@ -1586,36 +1238,7 @@ unsafe impl ::windows::core::Interface for PointerDevice {
 impl ::windows::core::RuntimeName for PointerDevice {
     const NAME: &'static str = "Windows.Devices.Input.PointerDevice";
 }
-impl ::core::convert::From<PointerDevice> for ::windows::core::IUnknown {
-    fn from(value: PointerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PointerDevice> for ::windows::core::IUnknown {
-    fn from(value: &PointerDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PointerDevice> for &::windows::core::IUnknown {
-    fn from(value: &PointerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PointerDevice> for ::windows::core::IInspectable {
-    fn from(value: PointerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PointerDevice> for ::windows::core::IInspectable {
-    fn from(value: &PointerDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PointerDevice> for &::windows::core::IInspectable {
-    fn from(value: &PointerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PointerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct TouchCapabilities(::windows::core::IUnknown);
@@ -1674,36 +1297,7 @@ unsafe impl ::windows::core::Interface for TouchCapabilities {
 impl ::windows::core::RuntimeName for TouchCapabilities {
     const NAME: &'static str = "Windows.Devices.Input.TouchCapabilities";
 }
-impl ::core::convert::From<TouchCapabilities> for ::windows::core::IUnknown {
-    fn from(value: TouchCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TouchCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &TouchCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TouchCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &TouchCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<TouchCapabilities> for ::windows::core::IInspectable {
-    fn from(value: TouchCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&TouchCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &TouchCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&TouchCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &TouchCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TouchCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for TouchCapabilities {}
 unsafe impl ::core::marker::Sync for TouchCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]

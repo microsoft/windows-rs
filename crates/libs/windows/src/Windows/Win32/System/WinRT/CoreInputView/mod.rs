@@ -13,36 +13,7 @@ impl ICoreFrameworkInputViewInterop {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IUnknown {
-    fn from(value: ICoreFrameworkInputViewInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreFrameworkInputViewInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreFrameworkInputViewInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreFrameworkInputViewInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICoreFrameworkInputViewInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
-    fn from(value: ICoreFrameworkInputViewInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreFrameworkInputViewInterop> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreFrameworkInputViewInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
-    fn from(value: &ICoreFrameworkInputViewInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreFrameworkInputViewInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

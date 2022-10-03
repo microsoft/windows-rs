@@ -211,36 +211,7 @@ unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
 impl ::windows::core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
-impl ::core::convert::From<HdmiDisplayInformation> for ::windows::core::IUnknown {
-    fn from(value: HdmiDisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdmiDisplayInformation> for ::windows::core::IUnknown {
-    fn from(value: &HdmiDisplayInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdmiDisplayInformation> for &::windows::core::IUnknown {
-    fn from(value: &HdmiDisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HdmiDisplayInformation> for ::windows::core::IInspectable {
-    fn from(value: HdmiDisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdmiDisplayInformation> for ::windows::core::IInspectable {
-    fn from(value: &HdmiDisplayInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdmiDisplayInformation> for &::windows::core::IInspectable {
-    fn from(value: &HdmiDisplayInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HdmiDisplayInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HdmiDisplayInformation {}
 unsafe impl ::core::marker::Sync for HdmiDisplayInformation {}
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]
@@ -364,36 +335,7 @@ unsafe impl ::windows::core::Interface for HdmiDisplayMode {
 impl ::windows::core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
-impl ::core::convert::From<HdmiDisplayMode> for ::windows::core::IUnknown {
-    fn from(value: HdmiDisplayMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdmiDisplayMode> for ::windows::core::IUnknown {
-    fn from(value: &HdmiDisplayMode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdmiDisplayMode> for &::windows::core::IUnknown {
-    fn from(value: &HdmiDisplayMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HdmiDisplayMode> for ::windows::core::IInspectable {
-    fn from(value: HdmiDisplayMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdmiDisplayMode> for ::windows::core::IInspectable {
-    fn from(value: &HdmiDisplayMode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdmiDisplayMode> for &::windows::core::IInspectable {
-    fn from(value: &HdmiDisplayMode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HdmiDisplayMode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: `\"Graphics_Display_Core\"`*"]

@@ -201,36 +201,7 @@ unsafe impl ::windows::core::Interface for SystemUpdateItem {
 impl ::windows::core::RuntimeName for SystemUpdateItem {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateItem";
 }
-impl ::core::convert::From<SystemUpdateItem> for ::windows::core::IUnknown {
-    fn from(value: SystemUpdateItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemUpdateItem> for ::windows::core::IUnknown {
-    fn from(value: &SystemUpdateItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemUpdateItem> for &::windows::core::IUnknown {
-    fn from(value: &SystemUpdateItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemUpdateItem> for ::windows::core::IInspectable {
-    fn from(value: SystemUpdateItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemUpdateItem> for ::windows::core::IInspectable {
-    fn from(value: &SystemUpdateItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemUpdateItem> for &::windows::core::IInspectable {
-    fn from(value: &SystemUpdateItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemUpdateItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[doc = "*Required features: `\"System_Update\"`*"]
@@ -291,36 +262,7 @@ unsafe impl ::windows::core::Interface for SystemUpdateLastErrorInfo {
 impl ::windows::core::RuntimeName for SystemUpdateLastErrorInfo {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateLastErrorInfo";
 }
-impl ::core::convert::From<SystemUpdateLastErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: SystemUpdateLastErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemUpdateLastErrorInfo> for ::windows::core::IUnknown {
-    fn from(value: &SystemUpdateLastErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemUpdateLastErrorInfo> for &::windows::core::IUnknown {
-    fn from(value: &SystemUpdateLastErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemUpdateLastErrorInfo> for ::windows::core::IInspectable {
-    fn from(value: SystemUpdateLastErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemUpdateLastErrorInfo> for ::windows::core::IInspectable {
-    fn from(value: &SystemUpdateLastErrorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemUpdateLastErrorInfo> for &::windows::core::IInspectable {
-    fn from(value: &SystemUpdateLastErrorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemUpdateLastErrorInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
 #[doc = "*Required features: `\"System_Update\"`*"]

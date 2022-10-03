@@ -290,36 +290,7 @@ impl ILampArrayEffect {
         unsafe { (::windows::core::Vtable::vtable(this).SetZIndex)(::windows::core::Vtable::as_raw(this), value).ok() }
     }
 }
-impl ::core::convert::From<ILampArrayEffect> for ::windows::core::IUnknown {
-    fn from(value: ILampArrayEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILampArrayEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILampArrayEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILampArrayEffect> for ::windows::core::IUnknown {
-    fn from(value: &ILampArrayEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ILampArrayEffect> for ::windows::core::IInspectable {
-    fn from(value: ILampArrayEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILampArrayEffect> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILampArrayEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILampArrayEffect> for ::windows::core::IInspectable {
-    fn from(value: &ILampArrayEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILampArrayEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ILampArrayEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -624,36 +595,7 @@ unsafe impl ::windows::core::Interface for LampArrayBitmapEffect {
 impl ::windows::core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
 }
-impl ::core::convert::From<LampArrayBitmapEffect> for ::windows::core::IUnknown {
-    fn from(value: LampArrayBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapEffect> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapEffect> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayBitmapEffect> for ::windows::core::IInspectable {
-    fn from(value: LampArrayBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapEffect> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapEffect> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayBitmapEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayBitmapEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayBitmapEffect) -> ::windows::core::Result<Self> {
@@ -727,36 +669,7 @@ unsafe impl ::windows::core::Interface for LampArrayBitmapRequestedEventArgs {
 impl ::windows::core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
 }
-impl ::core::convert::From<LampArrayBitmapRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LampArrayBitmapRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayBitmapRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LampArrayBitmapRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBitmapRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayBitmapRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
@@ -930,36 +843,7 @@ unsafe impl ::windows::core::Interface for LampArrayBlinkEffect {
 impl ::windows::core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
 }
-impl ::core::convert::From<LampArrayBlinkEffect> for ::windows::core::IUnknown {
-    fn from(value: LampArrayBlinkEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBlinkEffect> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBlinkEffect> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayBlinkEffect> for ::windows::core::IInspectable {
-    fn from(value: LampArrayBlinkEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayBlinkEffect> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayBlinkEffect> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayBlinkEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayBlinkEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayBlinkEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayBlinkEffect) -> ::windows::core::Result<Self> {
@@ -1096,36 +980,7 @@ unsafe impl ::windows::core::Interface for LampArrayColorRampEffect {
 impl ::windows::core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
 }
-impl ::core::convert::From<LampArrayColorRampEffect> for ::windows::core::IUnknown {
-    fn from(value: LampArrayColorRampEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayColorRampEffect> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayColorRampEffect> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayColorRampEffect> for ::windows::core::IInspectable {
-    fn from(value: LampArrayColorRampEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayColorRampEffect> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayColorRampEffect> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayColorRampEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayColorRampEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayColorRampEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayColorRampEffect) -> ::windows::core::Result<Self> {
@@ -1251,36 +1106,7 @@ unsafe impl ::windows::core::Interface for LampArrayCustomEffect {
 impl ::windows::core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
 }
-impl ::core::convert::From<LampArrayCustomEffect> for ::windows::core::IUnknown {
-    fn from(value: LampArrayCustomEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayCustomEffect> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayCustomEffect> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayCustomEffect> for ::windows::core::IInspectable {
-    fn from(value: LampArrayCustomEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayCustomEffect> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayCustomEffect> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayCustomEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayCustomEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArrayCustomEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArrayCustomEffect) -> ::windows::core::Result<Self> {
@@ -1500,36 +1326,7 @@ impl ::core::iter::IntoIterator for &LampArrayEffectPlaylist {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<LampArrayEffectPlaylist> for ::windows::core::IUnknown {
-    fn from(value: LampArrayEffectPlaylist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayEffectPlaylist> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayEffectPlaylist> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayEffectPlaylist> for ::windows::core::IInspectable {
-    fn from(value: LampArrayEffectPlaylist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayEffectPlaylist> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayEffectPlaylist> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayEffectPlaylist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayEffectPlaylist, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<LampArrayEffectPlaylist> for super::super::super::Foundation::Collections::IIterable<ILampArrayEffect> {
     type Error = ::windows::core::Error;
@@ -1691,36 +1488,7 @@ unsafe impl ::windows::core::Interface for LampArraySolidEffect {
 impl ::windows::core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
 }
-impl ::core::convert::From<LampArraySolidEffect> for ::windows::core::IUnknown {
-    fn from(value: LampArraySolidEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArraySolidEffect> for ::windows::core::IUnknown {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArraySolidEffect> for &::windows::core::IUnknown {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArraySolidEffect> for ::windows::core::IInspectable {
-    fn from(value: LampArraySolidEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArraySolidEffect> for ::windows::core::IInspectable {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArraySolidEffect> for &::windows::core::IInspectable {
-    fn from(value: &LampArraySolidEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArraySolidEffect, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<LampArraySolidEffect> for ILampArrayEffect {
     type Error = ::windows::core::Error;
     fn try_from(value: LampArraySolidEffect) -> ::windows::core::Result<Self> {
@@ -1812,36 +1580,7 @@ unsafe impl ::windows::core::Interface for LampArrayUpdateRequestedEventArgs {
 impl ::windows::core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
 }
-impl ::core::convert::From<LampArrayUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LampArrayUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayUpdateRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayUpdateRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArrayUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LampArrayUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArrayUpdateRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArrayUpdateRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LampArrayUpdateRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]

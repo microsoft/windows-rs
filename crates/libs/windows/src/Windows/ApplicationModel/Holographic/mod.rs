@@ -100,36 +100,7 @@ unsafe impl ::windows::core::Interface for HolographicKeyboard {
 impl ::windows::core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
-impl ::core::convert::From<HolographicKeyboard> for ::windows::core::IUnknown {
-    fn from(value: HolographicKeyboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicKeyboard> for ::windows::core::IUnknown {
-    fn from(value: &HolographicKeyboard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicKeyboard> for &::windows::core::IUnknown {
-    fn from(value: &HolographicKeyboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HolographicKeyboard> for ::windows::core::IInspectable {
-    fn from(value: HolographicKeyboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HolographicKeyboard> for ::windows::core::IInspectable {
-    fn from(value: &HolographicKeyboard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HolographicKeyboard> for &::windows::core::IInspectable {
-    fn from(value: &HolographicKeyboard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HolographicKeyboard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicKeyboard {}
 unsafe impl ::core::marker::Sync for HolographicKeyboard {}
 #[cfg(feature = "implement")]

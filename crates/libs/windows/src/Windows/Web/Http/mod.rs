@@ -232,36 +232,7 @@ impl IHttpContent {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IHttpContent> for ::windows::core::IUnknown {
-    fn from(value: IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpContent> for ::windows::core::IUnknown {
-    fn from(value: &IHttpContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHttpContent> for ::windows::core::IInspectable {
-    fn from(value: IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHttpContent> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHttpContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHttpContent> for ::windows::core::IInspectable {
-    fn from(value: &IHttpContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHttpContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IHttpContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -940,36 +911,7 @@ unsafe impl ::windows::core::Interface for HttpBufferContent {
 impl ::windows::core::RuntimeName for HttpBufferContent {
     const NAME: &'static str = "Windows.Web.Http.HttpBufferContent";
 }
-impl ::core::convert::From<HttpBufferContent> for ::windows::core::IUnknown {
-    fn from(value: HttpBufferContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpBufferContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpBufferContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpBufferContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpBufferContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpBufferContent> for ::windows::core::IInspectable {
-    fn from(value: HttpBufferContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpBufferContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpBufferContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpBufferContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpBufferContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpBufferContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpBufferContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1316,36 +1258,7 @@ unsafe impl ::windows::core::Interface for HttpClient {
 impl ::windows::core::RuntimeName for HttpClient {
     const NAME: &'static str = "Windows.Web.Http.HttpClient";
 }
-impl ::core::convert::From<HttpClient> for ::windows::core::IUnknown {
-    fn from(value: HttpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpClient> for ::windows::core::IUnknown {
-    fn from(value: &HttpClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpClient> for &::windows::core::IUnknown {
-    fn from(value: &HttpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpClient> for ::windows::core::IInspectable {
-    fn from(value: HttpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpClient> for ::windows::core::IInspectable {
-    fn from(value: &HttpClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpClient> for &::windows::core::IInspectable {
-    fn from(value: &HttpClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpClient> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1522,36 +1435,7 @@ unsafe impl ::windows::core::Interface for HttpCookie {
 impl ::windows::core::RuntimeName for HttpCookie {
     const NAME: &'static str = "Windows.Web.Http.HttpCookie";
 }
-impl ::core::convert::From<HttpCookie> for ::windows::core::IUnknown {
-    fn from(value: HttpCookie) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookie> for ::windows::core::IUnknown {
-    fn from(value: &HttpCookie) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookie> for &::windows::core::IUnknown {
-    fn from(value: &HttpCookie) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCookie> for ::windows::core::IInspectable {
-    fn from(value: HttpCookie) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookie> for ::windows::core::IInspectable {
-    fn from(value: &HttpCookie) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookie> for &::windows::core::IInspectable {
-    fn from(value: &HttpCookie) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCookie, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpCookie> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -1685,41 +1569,7 @@ impl ::core::iter::IntoIterator for &HttpCookieCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<HttpCookieCollection> for ::windows::core::IUnknown {
-    fn from(value: HttpCookieCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&HttpCookieCollection> for ::windows::core::IUnknown {
-    fn from(value: &HttpCookieCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&HttpCookieCollection> for &::windows::core::IUnknown {
-    fn from(value: &HttpCookieCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<HttpCookieCollection> for ::windows::core::IInspectable {
-    fn from(value: HttpCookieCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&HttpCookieCollection> for ::windows::core::IInspectable {
-    fn from(value: &HttpCookieCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&HttpCookieCollection> for &::windows::core::IInspectable {
-    fn from(value: &HttpCookieCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCookieCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<HttpCookieCollection> for super::super::Foundation::Collections::IIterable<HttpCookie> {
     type Error = ::windows::core::Error;
@@ -1832,36 +1682,7 @@ unsafe impl ::windows::core::Interface for HttpCookieManager {
 impl ::windows::core::RuntimeName for HttpCookieManager {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieManager";
 }
-impl ::core::convert::From<HttpCookieManager> for ::windows::core::IUnknown {
-    fn from(value: HttpCookieManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookieManager> for ::windows::core::IUnknown {
-    fn from(value: &HttpCookieManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookieManager> for &::windows::core::IUnknown {
-    fn from(value: &HttpCookieManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpCookieManager> for ::windows::core::IInspectable {
-    fn from(value: HttpCookieManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpCookieManager> for ::windows::core::IInspectable {
-    fn from(value: &HttpCookieManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpCookieManager> for &::windows::core::IInspectable {
-    fn from(value: &HttpCookieManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpCookieManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HttpCookieManager {}
 unsafe impl ::core::marker::Sync for HttpCookieManager {}
 #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1998,36 +1819,7 @@ unsafe impl ::windows::core::Interface for HttpFormUrlEncodedContent {
 impl ::windows::core::RuntimeName for HttpFormUrlEncodedContent {
     const NAME: &'static str = "Windows.Web.Http.HttpFormUrlEncodedContent";
 }
-impl ::core::convert::From<HttpFormUrlEncodedContent> for ::windows::core::IUnknown {
-    fn from(value: HttpFormUrlEncodedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpFormUrlEncodedContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpFormUrlEncodedContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpFormUrlEncodedContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpFormUrlEncodedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpFormUrlEncodedContent> for ::windows::core::IInspectable {
-    fn from(value: HttpFormUrlEncodedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpFormUrlEncodedContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpFormUrlEncodedContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpFormUrlEncodedContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpFormUrlEncodedContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpFormUrlEncodedContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpFormUrlEncodedContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2182,36 +1974,7 @@ unsafe impl ::windows::core::Interface for HttpGetBufferResult {
 impl ::windows::core::RuntimeName for HttpGetBufferResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetBufferResult";
 }
-impl ::core::convert::From<HttpGetBufferResult> for ::windows::core::IUnknown {
-    fn from(value: HttpGetBufferResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetBufferResult> for ::windows::core::IUnknown {
-    fn from(value: &HttpGetBufferResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetBufferResult> for &::windows::core::IUnknown {
-    fn from(value: &HttpGetBufferResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpGetBufferResult> for ::windows::core::IInspectable {
-    fn from(value: HttpGetBufferResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetBufferResult> for ::windows::core::IInspectable {
-    fn from(value: &HttpGetBufferResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetBufferResult> for &::windows::core::IInspectable {
-    fn from(value: &HttpGetBufferResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpGetBufferResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetBufferResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2347,36 +2110,7 @@ unsafe impl ::windows::core::Interface for HttpGetInputStreamResult {
 impl ::windows::core::RuntimeName for HttpGetInputStreamResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetInputStreamResult";
 }
-impl ::core::convert::From<HttpGetInputStreamResult> for ::windows::core::IUnknown {
-    fn from(value: HttpGetInputStreamResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetInputStreamResult> for ::windows::core::IUnknown {
-    fn from(value: &HttpGetInputStreamResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetInputStreamResult> for &::windows::core::IUnknown {
-    fn from(value: &HttpGetInputStreamResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpGetInputStreamResult> for ::windows::core::IInspectable {
-    fn from(value: HttpGetInputStreamResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetInputStreamResult> for ::windows::core::IInspectable {
-    fn from(value: &HttpGetInputStreamResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetInputStreamResult> for &::windows::core::IInspectable {
-    fn from(value: &HttpGetInputStreamResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpGetInputStreamResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetInputStreamResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2510,36 +2244,7 @@ unsafe impl ::windows::core::Interface for HttpGetStringResult {
 impl ::windows::core::RuntimeName for HttpGetStringResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetStringResult";
 }
-impl ::core::convert::From<HttpGetStringResult> for ::windows::core::IUnknown {
-    fn from(value: HttpGetStringResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetStringResult> for ::windows::core::IUnknown {
-    fn from(value: &HttpGetStringResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetStringResult> for &::windows::core::IUnknown {
-    fn from(value: &HttpGetStringResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpGetStringResult> for ::windows::core::IInspectable {
-    fn from(value: HttpGetStringResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpGetStringResult> for ::windows::core::IInspectable {
-    fn from(value: &HttpGetStringResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpGetStringResult> for &::windows::core::IInspectable {
-    fn from(value: &HttpGetStringResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpGetStringResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpGetStringResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2697,36 +2402,7 @@ unsafe impl ::windows::core::Interface for HttpMethod {
 impl ::windows::core::RuntimeName for HttpMethod {
     const NAME: &'static str = "Windows.Web.Http.HttpMethod";
 }
-impl ::core::convert::From<HttpMethod> for ::windows::core::IUnknown {
-    fn from(value: HttpMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMethod> for ::windows::core::IUnknown {
-    fn from(value: &HttpMethod) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMethod> for &::windows::core::IUnknown {
-    fn from(value: &HttpMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMethod> for ::windows::core::IInspectable {
-    fn from(value: HttpMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMethod> for ::windows::core::IInspectable {
-    fn from(value: &HttpMethod) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMethod> for &::windows::core::IInspectable {
-    fn from(value: &HttpMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMethod, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMethod> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;
@@ -2925,36 +2601,7 @@ impl ::core::iter::IntoIterator for &HttpMultipartContent {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<HttpMultipartContent> for ::windows::core::IUnknown {
-    fn from(value: HttpMultipartContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMultipartContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpMultipartContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMultipartContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpMultipartContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMultipartContent> for ::windows::core::IInspectable {
-    fn from(value: HttpMultipartContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMultipartContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpMultipartContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMultipartContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpMultipartContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMultipartContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMultipartContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3226,36 +2873,7 @@ impl ::core::iter::IntoIterator for &HttpMultipartFormDataContent {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<HttpMultipartFormDataContent> for ::windows::core::IUnknown {
-    fn from(value: HttpMultipartFormDataContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMultipartFormDataContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpMultipartFormDataContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMultipartFormDataContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpMultipartFormDataContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpMultipartFormDataContent> for ::windows::core::IInspectable {
-    fn from(value: HttpMultipartFormDataContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpMultipartFormDataContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpMultipartFormDataContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpMultipartFormDataContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpMultipartFormDataContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpMultipartFormDataContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpMultipartFormDataContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3481,36 +3099,7 @@ unsafe impl ::windows::core::Interface for HttpRequestMessage {
 impl ::windows::core::RuntimeName for HttpRequestMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestMessage";
 }
-impl ::core::convert::From<HttpRequestMessage> for ::windows::core::IUnknown {
-    fn from(value: HttpRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestMessage> for ::windows::core::IUnknown {
-    fn from(value: &HttpRequestMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestMessage> for &::windows::core::IUnknown {
-    fn from(value: &HttpRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpRequestMessage> for ::windows::core::IInspectable {
-    fn from(value: HttpRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestMessage> for ::windows::core::IInspectable {
-    fn from(value: &HttpRequestMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestMessage> for &::windows::core::IInspectable {
-    fn from(value: &HttpRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpRequestMessage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3637,36 +3226,7 @@ unsafe impl ::windows::core::Interface for HttpRequestResult {
 impl ::windows::core::RuntimeName for HttpRequestResult {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestResult";
 }
-impl ::core::convert::From<HttpRequestResult> for ::windows::core::IUnknown {
-    fn from(value: HttpRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestResult> for ::windows::core::IUnknown {
-    fn from(value: &HttpRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestResult> for &::windows::core::IUnknown {
-    fn from(value: &HttpRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpRequestResult> for ::windows::core::IInspectable {
-    fn from(value: HttpRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpRequestResult> for ::windows::core::IInspectable {
-    fn from(value: &HttpRequestResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpRequestResult> for &::windows::core::IInspectable {
-    fn from(value: &HttpRequestResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpRequestResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpRequestResult> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3876,36 +3436,7 @@ unsafe impl ::windows::core::Interface for HttpResponseMessage {
 impl ::windows::core::RuntimeName for HttpResponseMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpResponseMessage";
 }
-impl ::core::convert::From<HttpResponseMessage> for ::windows::core::IUnknown {
-    fn from(value: HttpResponseMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpResponseMessage> for ::windows::core::IUnknown {
-    fn from(value: &HttpResponseMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpResponseMessage> for &::windows::core::IUnknown {
-    fn from(value: &HttpResponseMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpResponseMessage> for ::windows::core::IInspectable {
-    fn from(value: HttpResponseMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpResponseMessage> for ::windows::core::IInspectable {
-    fn from(value: &HttpResponseMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpResponseMessage> for &::windows::core::IInspectable {
-    fn from(value: &HttpResponseMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpResponseMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpResponseMessage> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4086,36 +3617,7 @@ unsafe impl ::windows::core::Interface for HttpStreamContent {
 impl ::windows::core::RuntimeName for HttpStreamContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStreamContent";
 }
-impl ::core::convert::From<HttpStreamContent> for ::windows::core::IUnknown {
-    fn from(value: HttpStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpStreamContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpStreamContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpStreamContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpStreamContent> for ::windows::core::IInspectable {
-    fn from(value: HttpStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpStreamContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpStreamContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpStreamContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpStreamContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4325,36 +3827,7 @@ unsafe impl ::windows::core::Interface for HttpStringContent {
 impl ::windows::core::RuntimeName for HttpStringContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStringContent";
 }
-impl ::core::convert::From<HttpStringContent> for ::windows::core::IUnknown {
-    fn from(value: HttpStringContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpStringContent> for ::windows::core::IUnknown {
-    fn from(value: &HttpStringContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpStringContent> for &::windows::core::IUnknown {
-    fn from(value: &HttpStringContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpStringContent> for ::windows::core::IInspectable {
-    fn from(value: HttpStringContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpStringContent> for ::windows::core::IInspectable {
-    fn from(value: &HttpStringContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpStringContent> for &::windows::core::IInspectable {
-    fn from(value: &HttpStringContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpStringContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpStringContent> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -4502,36 +3975,7 @@ unsafe impl ::windows::core::Interface for HttpTransportInformation {
 impl ::windows::core::RuntimeName for HttpTransportInformation {
     const NAME: &'static str = "Windows.Web.Http.HttpTransportInformation";
 }
-impl ::core::convert::From<HttpTransportInformation> for ::windows::core::IUnknown {
-    fn from(value: HttpTransportInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransportInformation> for ::windows::core::IUnknown {
-    fn from(value: &HttpTransportInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransportInformation> for &::windows::core::IUnknown {
-    fn from(value: &HttpTransportInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HttpTransportInformation> for ::windows::core::IInspectable {
-    fn from(value: HttpTransportInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HttpTransportInformation> for ::windows::core::IInspectable {
-    fn from(value: &HttpTransportInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HttpTransportInformation> for &::windows::core::IInspectable {
-    fn from(value: &HttpTransportInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HttpTransportInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<HttpTransportInformation> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;

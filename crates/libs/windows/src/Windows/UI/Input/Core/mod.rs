@@ -128,36 +128,7 @@ unsafe impl ::windows::core::Interface for RadialControllerIndependentInputSourc
 impl ::windows::core::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";
 }
-impl ::core::convert::From<RadialControllerIndependentInputSource> for ::windows::core::IUnknown {
-    fn from(value: RadialControllerIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RadialControllerIndependentInputSource> for ::windows::core::IUnknown {
-    fn from(value: &RadialControllerIndependentInputSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RadialControllerIndependentInputSource> for &::windows::core::IUnknown {
-    fn from(value: &RadialControllerIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RadialControllerIndependentInputSource> for ::windows::core::IInspectable {
-    fn from(value: RadialControllerIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RadialControllerIndependentInputSource> for ::windows::core::IInspectable {
-    fn from(value: &RadialControllerIndependentInputSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RadialControllerIndependentInputSource> for &::windows::core::IInspectable {
-    fn from(value: &RadialControllerIndependentInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RadialControllerIndependentInputSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerIndependentInputSource {}
 unsafe impl ::core::marker::Sync for RadialControllerIndependentInputSource {}
 #[cfg(feature = "implement")]

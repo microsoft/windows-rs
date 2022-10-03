@@ -215,36 +215,7 @@ unsafe impl ::windows::core::Interface for NamedPolicyData {
 impl ::windows::core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
 }
-impl ::core::convert::From<NamedPolicyData> for ::windows::core::IUnknown {
-    fn from(value: NamedPolicyData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NamedPolicyData> for ::windows::core::IUnknown {
-    fn from(value: &NamedPolicyData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NamedPolicyData> for &::windows::core::IUnknown {
-    fn from(value: &NamedPolicyData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<NamedPolicyData> for ::windows::core::IInspectable {
-    fn from(value: NamedPolicyData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&NamedPolicyData> for ::windows::core::IInspectable {
-    fn from(value: &NamedPolicyData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&NamedPolicyData> for &::windows::core::IInspectable {
-    fn from(value: &NamedPolicyData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NamedPolicyData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[doc = "*Required features: `\"Management_Policies\"`*"]

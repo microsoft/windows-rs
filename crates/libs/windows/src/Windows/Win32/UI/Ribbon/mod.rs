@@ -19,21 +19,7 @@ impl IUIApplication {
         (::windows::core::Vtable::vtable(self).OnDestroyUICommand)(::windows::core::Vtable::as_raw(self), commandid, typeid, commandhandler.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIApplication> for ::windows::core::IUnknown {
-    fn from(value: IUIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIApplication> for ::windows::core::IUnknown {
-    fn from(value: &IUIApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIApplication, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIApplication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -101,21 +87,7 @@ impl IUICollection {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IUICollection> for ::windows::core::IUnknown {
-    fn from(value: IUICollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUICollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUICollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUICollection> for ::windows::core::IUnknown {
-    fn from(value: &IUICollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUICollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUICollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -162,21 +134,7 @@ impl IUICollectionChangedEvent {
         (::windows::core::Vtable::vtable(self).OnChanged)(::windows::core::Vtable::as_raw(self), action, oldindex, olditem.into().abi(), newindex, newitem.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUICollectionChangedEvent> for ::windows::core::IUnknown {
-    fn from(value: IUICollectionChangedEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUICollectionChangedEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUICollectionChangedEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUICollectionChangedEvent> for ::windows::core::IUnknown {
-    fn from(value: &IUICollectionChangedEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUICollectionChangedEvent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUICollectionChangedEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -224,21 +182,7 @@ impl IUICommandHandler {
         (::windows::core::Vtable::vtable(self).UpdateProperty)(::windows::core::Vtable::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(currentvalue.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IUICommandHandler> for ::windows::core::IUnknown {
-    fn from(value: IUICommandHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUICommandHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUICommandHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUICommandHandler> for ::windows::core::IUnknown {
-    fn from(value: &IUICommandHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUICommandHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUICommandHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -282,21 +226,7 @@ impl IUIContextualUI {
         (::windows::core::Vtable::vtable(self).ShowAtLocation)(::windows::core::Vtable::as_raw(self), x, y).ok()
     }
 }
-impl ::core::convert::From<IUIContextualUI> for ::windows::core::IUnknown {
-    fn from(value: IUIContextualUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIContextualUI> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIContextualUI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIContextualUI> for ::windows::core::IUnknown {
-    fn from(value: &IUIContextualUI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIContextualUI, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIContextualUI {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -333,21 +263,7 @@ impl IUIEventLogger {
         (::windows::core::Vtable::vtable(self).OnUIEvent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(peventparams))
     }
 }
-impl ::core::convert::From<IUIEventLogger> for ::windows::core::IUnknown {
-    fn from(value: IUIEventLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIEventLogger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIEventLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIEventLogger> for ::windows::core::IUnknown {
-    fn from(value: &IUIEventLogger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIEventLogger, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIEventLogger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -387,21 +303,7 @@ impl IUIEventingManager {
         (::windows::core::Vtable::vtable(self).SetEventLogger)(::windows::core::Vtable::as_raw(self), eventlogger.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIEventingManager> for ::windows::core::IUnknown {
-    fn from(value: IUIEventingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIEventingManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIEventingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIEventingManager> for ::windows::core::IUnknown {
-    fn from(value: &IUIEventingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIEventingManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIEventingManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -481,21 +383,7 @@ impl IUIFramework {
         (::windows::core::Vtable::vtable(self).SetModes)(::windows::core::Vtable::as_raw(self), imodes).ok()
     }
 }
-impl ::core::convert::From<IUIFramework> for ::windows::core::IUnknown {
-    fn from(value: IUIFramework) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIFramework> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIFramework) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIFramework> for ::windows::core::IUnknown {
-    fn from(value: &IUIFramework) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIFramework, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIFramework {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -558,21 +446,7 @@ impl IUIImage {
         (::windows::core::Vtable::vtable(self).GetBitmap)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
-impl ::core::convert::From<IUIImage> for ::windows::core::IUnknown {
-    fn from(value: IUIImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIImage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIImage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIImage> for ::windows::core::IUnknown {
-    fn from(value: &IUIImage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIImage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIImage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -618,21 +492,7 @@ impl IUIImageFromBitmap {
         (::windows::core::Vtable::vtable(self).CreateImage)(::windows::core::Vtable::as_raw(self), bitmap.into(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIImage>(result__)
     }
 }
-impl ::core::convert::From<IUIImageFromBitmap> for ::windows::core::IUnknown {
-    fn from(value: IUIImageFromBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIImageFromBitmap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIImageFromBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIImageFromBitmap> for ::windows::core::IUnknown {
-    fn from(value: &IUIImageFromBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIImageFromBitmap, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIImageFromBitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -689,21 +549,7 @@ impl IUIRibbon {
         (::windows::core::Vtable::vtable(self).SaveSettingsToStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IUIRibbon> for ::windows::core::IUnknown {
-    fn from(value: IUIRibbon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUIRibbon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUIRibbon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIRibbon> for ::windows::core::IUnknown {
-    fn from(value: &IUIRibbon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUIRibbon, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUIRibbon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -751,21 +597,7 @@ impl IUISimplePropertySet {
         (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
 }
-impl ::core::convert::From<IUISimplePropertySet> for ::windows::core::IUnknown {
-    fn from(value: IUISimplePropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUISimplePropertySet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUISimplePropertySet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUISimplePropertySet> for ::windows::core::IUnknown {
-    fn from(value: &IUISimplePropertySet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUISimplePropertySet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IUISimplePropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())

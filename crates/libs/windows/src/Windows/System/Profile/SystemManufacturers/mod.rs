@@ -150,36 +150,7 @@ unsafe impl ::windows::core::Interface for OemSupportInfo {
 impl ::windows::core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
-impl ::core::convert::From<OemSupportInfo> for ::windows::core::IUnknown {
-    fn from(value: OemSupportInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OemSupportInfo> for ::windows::core::IUnknown {
-    fn from(value: &OemSupportInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OemSupportInfo> for &::windows::core::IUnknown {
-    fn from(value: &OemSupportInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OemSupportInfo> for ::windows::core::IInspectable {
-    fn from(value: OemSupportInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OemSupportInfo> for ::windows::core::IInspectable {
-    fn from(value: &OemSupportInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OemSupportInfo> for &::windows::core::IInspectable {
-    fn from(value: &OemSupportInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OemSupportInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
@@ -286,36 +257,7 @@ unsafe impl ::windows::core::Interface for SystemSupportDeviceInfo {
 impl ::windows::core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
 }
-impl ::core::convert::From<SystemSupportDeviceInfo> for ::windows::core::IUnknown {
-    fn from(value: SystemSupportDeviceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemSupportDeviceInfo> for ::windows::core::IUnknown {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemSupportDeviceInfo> for &::windows::core::IUnknown {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SystemSupportDeviceInfo> for ::windows::core::IInspectable {
-    fn from(value: SystemSupportDeviceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SystemSupportDeviceInfo> for ::windows::core::IInspectable {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SystemSupportDeviceInfo> for &::windows::core::IInspectable {
-    fn from(value: &SystemSupportDeviceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SystemSupportDeviceInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]

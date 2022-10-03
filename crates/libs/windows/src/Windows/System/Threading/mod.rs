@@ -211,36 +211,7 @@ unsafe impl ::windows::core::Interface for ThreadPoolTimer {
 impl ::windows::core::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";
 }
-impl ::core::convert::From<ThreadPoolTimer> for ::windows::core::IUnknown {
-    fn from(value: ThreadPoolTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ThreadPoolTimer> for ::windows::core::IUnknown {
-    fn from(value: &ThreadPoolTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ThreadPoolTimer> for &::windows::core::IUnknown {
-    fn from(value: &ThreadPoolTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ThreadPoolTimer> for ::windows::core::IInspectable {
-    fn from(value: ThreadPoolTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ThreadPoolTimer> for ::windows::core::IInspectable {
-    fn from(value: &ThreadPoolTimer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ThreadPoolTimer> for &::windows::core::IInspectable {
-    fn from(value: &ThreadPoolTimer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ThreadPoolTimer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ThreadPoolTimer {}
 unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
 #[doc = "*Required features: `\"System_Threading\"`*"]

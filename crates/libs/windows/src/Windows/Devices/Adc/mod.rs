@@ -139,36 +139,7 @@ unsafe impl ::windows::core::Interface for AdcChannel {
 impl ::windows::core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
 }
-impl ::core::convert::From<AdcChannel> for ::windows::core::IUnknown {
-    fn from(value: AdcChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdcChannel> for ::windows::core::IUnknown {
-    fn from(value: &AdcChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdcChannel> for &::windows::core::IUnknown {
-    fn from(value: &AdcChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdcChannel> for ::windows::core::IInspectable {
-    fn from(value: AdcChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdcChannel> for ::windows::core::IInspectable {
-    fn from(value: &AdcChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdcChannel> for &::windows::core::IInspectable {
-    fn from(value: &AdcChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdcChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AdcChannel> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -313,36 +284,7 @@ unsafe impl ::windows::core::Interface for AdcController {
 impl ::windows::core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";
 }
-impl ::core::convert::From<AdcController> for ::windows::core::IUnknown {
-    fn from(value: AdcController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdcController> for ::windows::core::IUnknown {
-    fn from(value: &AdcController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdcController> for &::windows::core::IUnknown {
-    fn from(value: &AdcController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdcController> for ::windows::core::IInspectable {
-    fn from(value: AdcController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdcController> for ::windows::core::IInspectable {
-    fn from(value: &AdcController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdcController> for &::windows::core::IInspectable {
-    fn from(value: &AdcController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdcController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdcController {}
 unsafe impl ::core::marker::Sync for AdcController {}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]

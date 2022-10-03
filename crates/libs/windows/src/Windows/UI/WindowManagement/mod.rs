@@ -857,36 +857,7 @@ unsafe impl ::windows::core::Interface for AppWindow {
 impl ::windows::core::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
 }
-impl ::core::convert::From<AppWindow> for ::windows::core::IUnknown {
-    fn from(value: AppWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindow> for ::windows::core::IUnknown {
-    fn from(value: &AppWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindow> for &::windows::core::IUnknown {
-    fn from(value: &AppWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindow> for ::windows::core::IInspectable {
-    fn from(value: AppWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindow> for ::windows::core::IInspectable {
-    fn from(value: &AppWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindow> for &::windows::core::IInspectable {
-    fn from(value: &AppWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindow, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -982,36 +953,7 @@ unsafe impl ::windows::core::Interface for AppWindowChangedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
 }
-impl ::core::convert::From<AppWindowChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppWindowChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppWindowChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1071,36 +1013,7 @@ unsafe impl ::windows::core::Interface for AppWindowCloseRequestedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
 }
-impl ::core::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppWindowCloseRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowCloseRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppWindowCloseRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowCloseRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowCloseRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowCloseRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1147,36 +1060,7 @@ unsafe impl ::windows::core::Interface for AppWindowClosedEventArgs {
 impl ::windows::core::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
 }
-impl ::core::convert::From<AppWindowClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppWindowClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppWindowClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1236,36 +1120,7 @@ unsafe impl ::windows::core::Interface for AppWindowFrame {
 impl ::windows::core::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
 }
-impl ::core::convert::From<AppWindowFrame> for ::windows::core::IUnknown {
-    fn from(value: AppWindowFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowFrame> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowFrame> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowFrame> for ::windows::core::IInspectable {
-    fn from(value: AppWindowFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowFrame> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowFrame> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowFrame, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1330,36 +1185,7 @@ unsafe impl ::windows::core::Interface for AppWindowPlacement {
 impl ::windows::core::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
 }
-impl ::core::convert::From<AppWindowPlacement> for ::windows::core::IUnknown {
-    fn from(value: AppWindowPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPlacement> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowPlacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPlacement> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowPlacement> for ::windows::core::IInspectable {
-    fn from(value: AppWindowPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPlacement> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowPlacement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPlacement> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowPlacement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowPlacement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1406,36 +1232,7 @@ unsafe impl ::windows::core::Interface for AppWindowPresentationConfiguration {
 impl ::windows::core::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
 }
-impl ::core::convert::From<AppWindowPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: AppWindowPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPresentationConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: AppWindowPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPresentationConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1506,36 +1303,7 @@ unsafe impl ::windows::core::Interface for AppWindowPresenter {
 impl ::windows::core::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
 }
-impl ::core::convert::From<AppWindowPresenter> for ::windows::core::IUnknown {
-    fn from(value: AppWindowPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPresenter> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPresenter> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowPresenter> for ::windows::core::IInspectable {
-    fn from(value: AppWindowPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowPresenter> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowPresenter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowPresenter> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowPresenter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowPresenter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1841,36 +1609,7 @@ unsafe impl ::windows::core::Interface for AppWindowTitleBar {
 impl ::windows::core::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
 }
-impl ::core::convert::From<AppWindowTitleBar> for ::windows::core::IUnknown {
-    fn from(value: AppWindowTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBar> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBar> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowTitleBar> for ::windows::core::IInspectable {
-    fn from(value: AppWindowTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBar> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBar> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -1919,36 +1658,7 @@ unsafe impl ::windows::core::Interface for AppWindowTitleBarOcclusion {
 impl ::windows::core::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
 }
-impl ::core::convert::From<AppWindowTitleBarOcclusion> for ::windows::core::IUnknown {
-    fn from(value: AppWindowTitleBarOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::core::IUnknown {
-    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBarOcclusion> for &::windows::core::IUnknown {
-    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppWindowTitleBarOcclusion> for ::windows::core::IInspectable {
-    fn from(value: AppWindowTitleBarOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBarOcclusion> for ::windows::core::IInspectable {
-    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppWindowTitleBarOcclusion> for &::windows::core::IInspectable {
-    fn from(value: &AppWindowTitleBarOcclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppWindowTitleBarOcclusion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2002,36 +1712,7 @@ unsafe impl ::windows::core::Interface for CompactOverlayPresentationConfigurati
 impl ::windows::core::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
 }
-impl ::core::convert::From<CompactOverlayPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: CompactOverlayPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompactOverlayPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: CompactOverlayPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompactOverlayPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<CompactOverlayPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: CompactOverlayPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -2100,36 +1781,7 @@ unsafe impl ::windows::core::Interface for DefaultPresentationConfiguration {
 impl ::windows::core::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
 }
-impl ::core::convert::From<DefaultPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: DefaultPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &DefaultPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultPresentationConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &DefaultPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DefaultPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: DefaultPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &DefaultPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultPresentationConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &DefaultPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DefaultPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<DefaultPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: DefaultPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -2238,36 +1890,7 @@ unsafe impl ::windows::core::Interface for DisplayRegion {
 impl ::windows::core::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
 }
-impl ::core::convert::From<DisplayRegion> for ::windows::core::IUnknown {
-    fn from(value: DisplayRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayRegion> for ::windows::core::IUnknown {
-    fn from(value: &DisplayRegion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayRegion> for &::windows::core::IUnknown {
-    fn from(value: &DisplayRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayRegion> for ::windows::core::IInspectable {
-    fn from(value: DisplayRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayRegion> for ::windows::core::IInspectable {
-    fn from(value: &DisplayRegion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayRegion> for &::windows::core::IInspectable {
-    fn from(value: &DisplayRegion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DisplayRegion, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2332,36 +1955,7 @@ unsafe impl ::windows::core::Interface for FullScreenPresentationConfiguration {
 impl ::windows::core::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
 }
-impl ::core::convert::From<FullScreenPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: FullScreenPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FullScreenPresentationConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FullScreenPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: FullScreenPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FullScreenPresentationConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FullScreenPresentationConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::From<FullScreenPresentationConfiguration> for AppWindowPresentationConfiguration {
     fn from(value: FullScreenPresentationConfiguration) -> Self {
         ::core::convert::From::from(&value)
@@ -2495,36 +2089,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironment {
 impl ::windows::core::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
 }
-impl ::core::convert::From<WindowingEnvironment> for ::windows::core::IUnknown {
-    fn from(value: WindowingEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironment> for ::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironment> for &::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WindowingEnvironment> for ::windows::core::IInspectable {
-    fn from(value: WindowingEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironment> for ::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironment> for &::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WindowingEnvironment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2571,36 +2136,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentAddedEventArgs {
 impl ::windows::core::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
 }
-impl ::core::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WindowingEnvironmentAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WindowingEnvironmentAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WindowingEnvironmentAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2639,36 +2175,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentChangedEventArgs 
 impl ::windows::core::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
 }
-impl ::core::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WindowingEnvironmentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WindowingEnvironmentChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WindowingEnvironmentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
@@ -2715,36 +2222,7 @@ unsafe impl ::windows::core::Interface for WindowingEnvironmentRemovedEventArgs 
 impl ::windows::core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";
 }
-impl ::core::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WindowingEnvironmentRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WindowingEnvironmentRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WindowingEnvironmentRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowingEnvironmentRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WindowingEnvironmentRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowingEnvironmentRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentRemovedEventArgs {}
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]

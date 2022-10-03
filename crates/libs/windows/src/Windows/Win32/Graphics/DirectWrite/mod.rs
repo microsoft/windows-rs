@@ -24,21 +24,7 @@ impl IDWriteAsyncResult {
         (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDWriteAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: IDWriteAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteAsyncResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteAsyncResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteAsyncResult> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteAsyncResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteAsyncResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteAsyncResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -113,21 +99,7 @@ impl IDWriteBitmapRenderTarget {
         (::windows::core::Vtable::vtable(self).Resize)(::windows::core::Vtable::as_raw(self), width, height).ok()
     }
 }
-impl ::core::convert::From<IDWriteBitmapRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: IDWriteBitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteBitmapRenderTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteBitmapRenderTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteBitmapRenderTarget> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteBitmapRenderTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteBitmapRenderTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteBitmapRenderTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -220,36 +192,7 @@ impl IDWriteBitmapRenderTarget1 {
         (::windows::core::Vtable::vtable(self).SetTextAntialiasMode)(::windows::core::Vtable::as_raw(self), antialiasmode).ok()
     }
 }
-impl ::core::convert::From<IDWriteBitmapRenderTarget1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteBitmapRenderTarget1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteBitmapRenderTarget1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteBitmapRenderTarget1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteBitmapRenderTarget1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteBitmapRenderTarget1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteBitmapRenderTarget1> for IDWriteBitmapRenderTarget {
-    fn from(value: IDWriteBitmapRenderTarget1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteBitmapRenderTarget1> for &'a IDWriteBitmapRenderTarget {
-    fn from(value: &'a IDWriteBitmapRenderTarget1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteBitmapRenderTarget1> for IDWriteBitmapRenderTarget {
-    fn from(value: &IDWriteBitmapRenderTarget1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteBitmapRenderTarget1, ::windows::core::IUnknown, IDWriteBitmapRenderTarget);
 impl ::core::clone::Clone for IDWriteBitmapRenderTarget1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -296,21 +239,7 @@ impl IDWriteColorGlyphRunEnumerator {
         (::windows::core::Vtable::vtable(self).GetCurrentRun)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DWRITE_COLOR_GLYPH_RUN>(result__)
     }
 }
-impl ::core::convert::From<IDWriteColorGlyphRunEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IDWriteColorGlyphRunEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteColorGlyphRunEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteColorGlyphRunEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteColorGlyphRunEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteColorGlyphRunEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -369,36 +298,7 @@ impl IDWriteColorGlyphRunEnumerator1 {
         (::windows::core::Vtable::vtable(self).GetCurrentRun2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut DWRITE_COLOR_GLYPH_RUN1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteColorGlyphRunEnumerator1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteColorGlyphRunEnumerator1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteColorGlyphRunEnumerator1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteColorGlyphRunEnumerator1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteColorGlyphRunEnumerator1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteColorGlyphRunEnumerator1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteColorGlyphRunEnumerator1> for IDWriteColorGlyphRunEnumerator {
-    fn from(value: IDWriteColorGlyphRunEnumerator1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteColorGlyphRunEnumerator1> for &'a IDWriteColorGlyphRunEnumerator {
-    fn from(value: &'a IDWriteColorGlyphRunEnumerator1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteColorGlyphRunEnumerator1> for IDWriteColorGlyphRunEnumerator {
-    fn from(value: &IDWriteColorGlyphRunEnumerator1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, ::windows::core::IUnknown, IDWriteColorGlyphRunEnumerator);
 impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -572,21 +472,7 @@ impl IDWriteFactory {
         (::windows::core::Vtable::vtable(self).CreateGlyphRunAnalysis)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphrun), pixelsperdip, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), renderingmode, measuringmode, baselineoriginx, baselineoriginy, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -807,36 +693,7 @@ impl IDWriteFactory1 {
         (::windows::core::Vtable::vtable(self).CreateCustomRenderingParams2)(::windows::core::Vtable::as_raw(self), gamma, enhancedcontrast, enhancedcontrastgrayscale, cleartypelevel, pixelgeometry, renderingmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteRenderingParams1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory1> for IDWriteFactory {
-    fn from(value: IDWriteFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory1> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory1> for IDWriteFactory {
-    fn from(value: &IDWriteFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory1, ::windows::core::IUnknown, IDWriteFactory);
 impl ::core::clone::Clone for IDWriteFactory1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1047,51 +904,7 @@ impl IDWriteFactory2 {
         (::windows::core::Vtable::vtable(self).CreateGlyphRunAnalysis2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphrun), ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), renderingmode, measuringmode, gridfitmode, antialiasmode, baselineoriginx, baselineoriginy, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteGlyphRunAnalysis>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory2> for IDWriteFactory {
-    fn from(value: IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory2> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory2> for IDWriteFactory {
-    fn from(value: &IDWriteFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory2> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory2> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory2> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory2, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1);
 impl ::core::clone::Clone for IDWriteFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1362,66 +1175,7 @@ impl IDWriteFactory3 {
         (::windows::core::Vtable::vtable(self).GetFontDownloadQueue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontDownloadQueue>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory3> for IDWriteFactory {
-    fn from(value: IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory3> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory3> for IDWriteFactory {
-    fn from(value: &IDWriteFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory3> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory3> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory3> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory3> for IDWriteFactory2 {
-    fn from(value: IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory3> for &'a IDWriteFactory2 {
-    fn from(value: &'a IDWriteFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory3> for IDWriteFactory2 {
-    fn from(value: &IDWriteFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory3, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
 impl ::core::clone::Clone for IDWriteFactory3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1717,81 +1471,7 @@ impl IDWriteFactory4 {
         (::windows::core::Vtable::vtable(self).ComputeGlyphOrigins2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphrun), measuringmode, ::core::mem::transmute(baselineorigin), ::core::mem::transmute(worldanddpitransform.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Direct2D::Common::D2D_POINT_2F>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory4> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory4> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory4> for IDWriteFactory {
-    fn from(value: IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory4> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory4> for IDWriteFactory {
-    fn from(value: &IDWriteFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory4> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory4> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory4> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory4> for IDWriteFactory2 {
-    fn from(value: IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory4> for &'a IDWriteFactory2 {
-    fn from(value: &'a IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory4> for IDWriteFactory2 {
-    fn from(value: &IDWriteFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory4> for IDWriteFactory3 {
-    fn from(value: IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory4> for &'a IDWriteFactory3 {
-    fn from(value: &'a IDWriteFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory4> for IDWriteFactory3 {
-    fn from(value: &IDWriteFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory4, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
 impl ::core::clone::Clone for IDWriteFactory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2104,96 +1784,7 @@ impl IDWriteFactory5 {
         (::windows::core::Vtable::vtable(self).UnpackFontFile)(::windows::core::Vtable::as_raw(self), containertype, ::core::mem::transmute(filedata), filedatasize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory5> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory5> for IDWriteFactory {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for IDWriteFactory {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory5> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory5> for IDWriteFactory2 {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a IDWriteFactory2 {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for IDWriteFactory2 {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory5> for IDWriteFactory3 {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a IDWriteFactory3 {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for IDWriteFactory3 {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory5> for IDWriteFactory4 {
-    fn from(value: IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory5> for &'a IDWriteFactory4 {
-    fn from(value: &'a IDWriteFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory5> for IDWriteFactory4 {
-    fn from(value: &IDWriteFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory5, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4);
 impl ::core::clone::Clone for IDWriteFactory5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2551,111 +2142,7 @@ impl IDWriteFactory6 {
         (::windows::core::Vtable::vtable(self).CreateTextFormat2)(::windows::core::Vtable::as_raw(self), fontfamilyname.into(), fontcollection.into().abi(), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, fontsize, localename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteTextFormat3>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory6> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory2 {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory2 {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory2 {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory3 {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory3 {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory3 {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory4 {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory4 {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory4 {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory6> for IDWriteFactory5 {
-    fn from(value: IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory6> for &'a IDWriteFactory5 {
-    fn from(value: &'a IDWriteFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory6> for IDWriteFactory5 {
-    fn from(value: &IDWriteFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory6, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
 impl ::core::clone::Clone for IDWriteFactory6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3039,126 +2526,7 @@ impl IDWriteFactory7 {
         (::windows::core::Vtable::vtable(self).GetSystemFontCollection4)(::windows::core::Vtable::as_raw(self), includedownloadablefonts.into(), fontfamilymodel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontCollection3>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFactory7> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory1 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory1 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory1 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory2 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory2 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory2 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory3 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory3 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory3 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory4 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory4 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory4 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory5 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory5 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory5 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFactory7> for IDWriteFactory6 {
-    fn from(value: IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFactory7> for &'a IDWriteFactory6 {
-    fn from(value: &'a IDWriteFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFactory7> for IDWriteFactory6 {
-    fn from(value: &IDWriteFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFactory7, ::windows::core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6);
 impl ::core::clone::Clone for IDWriteFactory7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3242,21 +2610,7 @@ impl IDWriteFont {
         (::windows::core::Vtable::vtable(self).CreateFontFace)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFace>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFont> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFont) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFont, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFont {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3368,36 +2722,7 @@ impl IDWriteFont1 {
         (::windows::core::Vtable::vtable(self).IsMonospacedFont)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFont1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFont1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFont1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFont1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont1> for IDWriteFont {
-    fn from(value: IDWriteFont1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont1> for &'a IDWriteFont {
-    fn from(value: &'a IDWriteFont1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont1> for IDWriteFont {
-    fn from(value: &IDWriteFont1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFont1, ::windows::core::IUnknown, IDWriteFont);
 impl ::core::clone::Clone for IDWriteFont1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3504,51 +2829,7 @@ impl IDWriteFont2 {
         (::windows::core::Vtable::vtable(self).IsColorFont)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFont2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont2> for IDWriteFont {
-    fn from(value: IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont2> for &'a IDWriteFont {
-    fn from(value: &'a IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont2> for IDWriteFont {
-    fn from(value: &IDWriteFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont2> for IDWriteFont1 {
-    fn from(value: IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont2> for &'a IDWriteFont1 {
-    fn from(value: &'a IDWriteFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont2> for IDWriteFont1 {
-    fn from(value: &IDWriteFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFont2, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1);
 impl ::core::clone::Clone for IDWriteFont2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3673,66 +2954,7 @@ impl IDWriteFont3 {
         (::windows::core::Vtable::vtable(self).GetLocality)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFont3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFont3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont3> for IDWriteFont {
-    fn from(value: IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont3> for &'a IDWriteFont {
-    fn from(value: &'a IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont3> for IDWriteFont {
-    fn from(value: &IDWriteFont3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont3> for IDWriteFont1 {
-    fn from(value: IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont3> for &'a IDWriteFont1 {
-    fn from(value: &'a IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont3> for IDWriteFont1 {
-    fn from(value: &IDWriteFont3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFont3> for IDWriteFont2 {
-    fn from(value: IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFont3> for &'a IDWriteFont2 {
-    fn from(value: &'a IDWriteFont3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFont3> for IDWriteFont2 {
-    fn from(value: &IDWriteFont3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFont3, ::windows::core::IUnknown, IDWriteFont, IDWriteFont1, IDWriteFont2);
 impl ::core::clone::Clone for IDWriteFont3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3798,21 +3020,7 @@ impl IDWriteFontCollection {
         (::windows::core::Vtable::vtable(self).GetFontFromFontFace)(::windows::core::Vtable::as_raw(self), fontface.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFont>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontCollection> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3882,36 +3090,7 @@ impl IDWriteFontCollection1 {
         (::windows::core::Vtable::vtable(self).GetFontFamily2)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFamily1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontCollection1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontCollection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection1> for IDWriteFontCollection {
-    fn from(value: IDWriteFontCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection1> for &'a IDWriteFontCollection {
-    fn from(value: &'a IDWriteFontCollection1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection1> for IDWriteFontCollection {
-    fn from(value: &IDWriteFontCollection1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontCollection1, ::windows::core::IUnknown, IDWriteFontCollection);
 impl ::core::clone::Clone for IDWriteFontCollection1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3994,51 +3173,7 @@ impl IDWriteFontCollection2 {
         (::windows::core::Vtable::vtable(self).GetFontSet2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontCollection2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection2> for IDWriteFontCollection {
-    fn from(value: IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection2> for &'a IDWriteFontCollection {
-    fn from(value: &'a IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection {
-    fn from(value: &IDWriteFontCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection2> for IDWriteFontCollection1 {
-    fn from(value: IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection2> for &'a IDWriteFontCollection1 {
-    fn from(value: &'a IDWriteFontCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection2> for IDWriteFontCollection1 {
-    fn from(value: &IDWriteFontCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontCollection2, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1);
 impl ::core::clone::Clone for IDWriteFontCollection2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4128,66 +3263,7 @@ impl IDWriteFontCollection3 {
         (::windows::core::Vtable::vtable(self).GetExpirationEvent)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFontCollection3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontCollection3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection3> for IDWriteFontCollection {
-    fn from(value: IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection3> for &'a IDWriteFontCollection {
-    fn from(value: &'a IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection {
-    fn from(value: &IDWriteFontCollection3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection3> for IDWriteFontCollection1 {
-    fn from(value: IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection3> for &'a IDWriteFontCollection1 {
-    fn from(value: &'a IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection1 {
-    fn from(value: &IDWriteFontCollection3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontCollection3> for IDWriteFontCollection2 {
-    fn from(value: IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollection3> for &'a IDWriteFontCollection2 {
-    fn from(value: &'a IDWriteFontCollection3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollection3> for IDWriteFontCollection2 {
-    fn from(value: &IDWriteFontCollection3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontCollection3, ::windows::core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
 impl ::core::clone::Clone for IDWriteFontCollection3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4231,21 +3307,7 @@ impl IDWriteFontCollectionLoader {
         (::windows::core::Vtable::vtable(self).CreateEnumeratorFromKey)(::windows::core::Vtable::as_raw(self), factory.into().abi(), ::core::mem::transmute(collectionkey), collectionkeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileEnumerator>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontCollectionLoader> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontCollectionLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontCollectionLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontCollectionLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontCollectionLoader> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontCollectionLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontCollectionLoader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontCollectionLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4286,21 +3348,7 @@ impl IDWriteFontDownloadListener {
         (::windows::core::Vtable::vtable(self).DownloadCompleted)(::windows::core::Vtable::as_raw(self), downloadqueue.into().abi(), context.into().abi(), downloadresult)
     }
 }
-impl ::core::convert::From<IDWriteFontDownloadListener> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontDownloadListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontDownloadListener> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontDownloadListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontDownloadListener> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontDownloadListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontDownloadListener, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontDownloadListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4361,21 +3409,7 @@ impl IDWriteFontDownloadQueue {
         (::windows::core::Vtable::vtable(self).GetGenerationCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFontDownloadQueue> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontDownloadQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontDownloadQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontDownloadQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontDownloadQueue> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontDownloadQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontDownloadQueue, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontDownloadQueue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4490,21 +3524,7 @@ impl IDWriteFontFace {
         (::windows::core::Vtable::vtable(self).GetGdiCompatibleGlyphMetrics)(::windows::core::Vtable::as_raw(self), emsize, pixelsperdip, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), usegdinatural.into(), ::core::mem::transmute(glyphindices), glyphcount, ::core::mem::transmute(glyphmetrics), issideways.into()).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFace> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFace {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4707,36 +3727,7 @@ impl IDWriteFontFace1 {
         (::windows::core::Vtable::vtable(self).HasVerticalGlyphVariants)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFontFace1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace1> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace1> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace1> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace1, ::windows::core::IUnknown, IDWriteFontFace);
 impl ::core::clone::Clone for IDWriteFontFace1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4968,51 +3959,7 @@ impl IDWriteFontFace2 {
         (::windows::core::Vtable::vtable(self).GetRecommendedRenderingMode3)(::windows::core::Vtable::as_raw(self), fontemsize, dpix, dpiy, ::core::mem::transmute(transform.unwrap_or(::std::ptr::null())), issideways.into(), outlinethreshold, measuringmode, renderingparams.into().abi(), ::core::mem::transmute(renderingmode), ::core::mem::transmute(gridfitmode)).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFace2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace2> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace2> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace2> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace2> for IDWriteFontFace1 {
-    fn from(value: IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace2> for &'a IDWriteFontFace1 {
-    fn from(value: &'a IDWriteFontFace2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace2> for IDWriteFontFace1 {
-    fn from(value: &IDWriteFontFace2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace2, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1);
 impl ::core::clone::Clone for IDWriteFontFace2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5290,66 +4237,7 @@ impl IDWriteFontFace3 {
         (::windows::core::Vtable::vtable(self).AreGlyphsLocal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphindices.as_ptr()), glyphindices.len() as _, enqueueifnotlocal.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFace3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace3> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace3> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace3> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace3> for IDWriteFontFace1 {
-    fn from(value: IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace3> for &'a IDWriteFontFace1 {
-    fn from(value: &'a IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace3> for IDWriteFontFace1 {
-    fn from(value: &IDWriteFontFace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace3> for IDWriteFontFace2 {
-    fn from(value: IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace3> for &'a IDWriteFontFace2 {
-    fn from(value: &'a IDWriteFontFace3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace3> for IDWriteFontFace2 {
-    fn from(value: &IDWriteFontFace3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace3, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2);
 impl ::core::clone::Clone for IDWriteFontFace3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5666,81 +4554,7 @@ impl IDWriteFontFace4 {
         (::windows::core::Vtable::vtable(self).ReleaseGlyphImageData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(glyphdatacontext))
     }
 }
-impl ::core::convert::From<IDWriteFontFace4> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace4> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace4> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace4> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace4> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace4> for IDWriteFontFace1 {
-    fn from(value: IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace4> for &'a IDWriteFontFace1 {
-    fn from(value: &'a IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace4> for IDWriteFontFace1 {
-    fn from(value: &IDWriteFontFace4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace4> for IDWriteFontFace2 {
-    fn from(value: IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace4> for &'a IDWriteFontFace2 {
-    fn from(value: &'a IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace4> for IDWriteFontFace2 {
-    fn from(value: &IDWriteFontFace4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace4> for IDWriteFontFace3 {
-    fn from(value: IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace4> for &'a IDWriteFontFace3 {
-    fn from(value: &'a IDWriteFontFace4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace4> for IDWriteFontFace3 {
-    fn from(value: &IDWriteFontFace4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace4, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
 impl ::core::clone::Clone for IDWriteFontFace4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6052,96 +4866,7 @@ impl IDWriteFontFace5 {
         (::windows::core::Vtable::vtable(self).Equals)(::windows::core::Vtable::as_raw(self), fontface.into().abi())
     }
 }
-impl ::core::convert::From<IDWriteFontFace5> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace5> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace5> for IDWriteFontFace1 {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a IDWriteFontFace1 {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for IDWriteFontFace1 {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace5> for IDWriteFontFace2 {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a IDWriteFontFace2 {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for IDWriteFontFace2 {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace5> for IDWriteFontFace3 {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a IDWriteFontFace3 {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for IDWriteFontFace3 {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace5> for IDWriteFontFace4 {
-    fn from(value: IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace5> for &'a IDWriteFontFace4 {
-    fn from(value: &'a IDWriteFontFace5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace5> for IDWriteFontFace4 {
-    fn from(value: &IDWriteFontFace5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace5, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4);
 impl ::core::clone::Clone for IDWriteFontFace5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6465,111 +5190,7 @@ impl IDWriteFontFace6 {
         (::windows::core::Vtable::vtable(self).GetFaceNames2)(::windows::core::Vtable::as_raw(self), fontfamilymodel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteLocalizedStrings>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFace6> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace1 {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace1 {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace1 {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace2 {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace2 {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace2 {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace3 {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace3 {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace3 {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace4 {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace4 {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace4 {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFace6> for IDWriteFontFace5 {
-    fn from(value: IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFace6> for &'a IDWriteFontFace5 {
-    fn from(value: &'a IDWriteFontFace6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFace6> for IDWriteFontFace5 {
-    fn from(value: &IDWriteFontFace6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFace6, ::windows::core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5);
 impl ::core::clone::Clone for IDWriteFontFace6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6657,21 +5278,7 @@ impl IDWriteFontFaceReference {
         (::windows::core::Vtable::vtable(self).EnqueueFileFragmentDownloadRequest)(::windows::core::Vtable::as_raw(self), fileoffset, fragmentsize).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFaceReference> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFaceReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFaceReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFaceReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFaceReference> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFaceReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFaceReference, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFaceReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6787,36 +5394,7 @@ impl IDWriteFontFaceReference1 {
         (::windows::core::Vtable::vtable(self).GetFontAxisValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFaceReference1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFaceReference1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFaceReference1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFaceReference1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFaceReference1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFaceReference1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFaceReference1> for IDWriteFontFaceReference {
-    fn from(value: IDWriteFontFaceReference1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFaceReference1> for &'a IDWriteFontFaceReference {
-    fn from(value: &'a IDWriteFontFaceReference1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFaceReference1> for IDWriteFontFaceReference {
-    fn from(value: &IDWriteFontFaceReference1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFaceReference1, ::windows::core::IUnknown, IDWriteFontFaceReference);
 impl ::core::clone::Clone for IDWriteFontFaceReference1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6860,21 +5438,7 @@ impl IDWriteFontFallback {
         (::windows::core::Vtable::vtable(self).MapCharacters)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into(), baseweight, basestyle, basestretch, ::core::mem::transmute(mappedlength), ::core::mem::transmute(mappedfont.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(scale)).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFallback> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFallback> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6924,36 +5488,7 @@ impl IDWriteFontFallback1 {
         (::windows::core::Vtable::vtable(self).MapCharacters2)(::windows::core::Vtable::as_raw(self), analysissource.into().abi(), textposition, textlength, basefontcollection.into().abi(), basefamilyname.into(), ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, ::core::mem::transmute(mappedlength), ::core::mem::transmute(scale), ::core::mem::transmute(mappedfontface)).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFallback1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFallback1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFallback1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFallback1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFallback1> for IDWriteFontFallback {
-    fn from(value: IDWriteFontFallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFallback1> for &'a IDWriteFontFallback {
-    fn from(value: &'a IDWriteFontFallback1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFallback1> for IDWriteFontFallback {
-    fn from(value: &IDWriteFontFallback1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFallback1, ::windows::core::IUnknown, IDWriteFontFallback);
 impl ::core::clone::Clone for IDWriteFontFallback1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7005,21 +5540,7 @@ impl IDWriteFontFallbackBuilder {
         (::windows::core::Vtable::vtable(self).CreateFontFallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFallback>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFallbackBuilder> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFallbackBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFallbackBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFallbackBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFallbackBuilder> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFallbackBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFallbackBuilder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFallbackBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7078,36 +5599,7 @@ impl IDWriteFontFamily {
         (::windows::core::Vtable::vtable(self).GetMatchingFonts)(::windows::core::Vtable::as_raw(self), weight, stretch, style, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontList>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFamily> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFamily) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily> for IDWriteFontList {
-    fn from(value: IDWriteFontFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily> for &'a IDWriteFontList {
-    fn from(value: &'a IDWriteFontFamily) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily> for IDWriteFontList {
-    fn from(value: &IDWriteFontFamily) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFamily, ::windows::core::IUnknown, IDWriteFontList);
 impl ::core::clone::Clone for IDWriteFontFamily {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7177,51 +5669,7 @@ impl IDWriteFontFamily1 {
         (::windows::core::Vtable::vtable(self).GetFontFaceReference)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFaceReference>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFamily1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFamily1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily1> for IDWriteFontList {
-    fn from(value: IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily1> for &'a IDWriteFontList {
-    fn from(value: &'a IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily1> for IDWriteFontList {
-    fn from(value: &IDWriteFontFamily1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily1> for IDWriteFontFamily {
-    fn from(value: IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily1> for &'a IDWriteFontFamily {
-    fn from(value: &'a IDWriteFontFamily1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily1> for IDWriteFontFamily {
-    fn from(value: &IDWriteFontFamily1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFamily1, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily);
 impl ::core::clone::Clone for IDWriteFontFamily1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7299,66 +5747,7 @@ impl IDWriteFontFamily2 {
         (::windows::core::Vtable::vtable(self).GetFontSet)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFamily2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFamily2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily2> for IDWriteFontList {
-    fn from(value: IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily2> for &'a IDWriteFontList {
-    fn from(value: &'a IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily2> for IDWriteFontList {
-    fn from(value: &IDWriteFontFamily2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily2> for IDWriteFontFamily {
-    fn from(value: IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily2> for &'a IDWriteFontFamily {
-    fn from(value: &'a IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily {
-    fn from(value: &IDWriteFontFamily2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontFamily2> for IDWriteFontFamily1 {
-    fn from(value: IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFamily2> for &'a IDWriteFontFamily1 {
-    fn from(value: &'a IDWriteFontFamily2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFamily2> for IDWriteFontFamily1 {
-    fn from(value: &IDWriteFontFamily2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFamily2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
 impl ::core::clone::Clone for IDWriteFontFamily2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7405,21 +5794,7 @@ impl IDWriteFontFile {
         (::windows::core::Vtable::vtable(self).Analyze)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(issupportedfonttype), ::core::mem::transmute(fontfiletype), ::core::mem::transmute(fontfacetype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(numberoffaces)).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontFile> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFile> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7468,21 +5843,7 @@ impl IDWriteFontFileEnumerator {
         (::windows::core::Vtable::vtable(self).GetCurrentFontFile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFileEnumerator> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFileEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFileEnumerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFileEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFileEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFileEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFileEnumerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFileEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7524,21 +5885,7 @@ impl IDWriteFontFileLoader {
         (::windows::core::Vtable::vtable(self).CreateStreamFromKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFileStream>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFileLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFileLoader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFileLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7586,21 +5933,7 @@ impl IDWriteFontFileStream {
         (::windows::core::Vtable::vtable(self).GetLastWriteTime)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontFileStream> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontFileStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontFileStream> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontFileStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontFileStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7648,21 +5981,7 @@ impl IDWriteFontList {
         (::windows::core::Vtable::vtable(self).GetFont)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFont>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontList> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7720,36 +6039,7 @@ impl IDWriteFontList1 {
         (::windows::core::Vtable::vtable(self).GetFontFaceReference)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFaceReference>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontList1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontList1> for IDWriteFontList {
-    fn from(value: IDWriteFontList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList1> for &'a IDWriteFontList {
-    fn from(value: &'a IDWriteFontList1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList1> for IDWriteFontList {
-    fn from(value: &IDWriteFontList1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontList1, ::windows::core::IUnknown, IDWriteFontList);
 impl ::core::clone::Clone for IDWriteFontList1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7811,51 +6101,7 @@ impl IDWriteFontList2 {
         (::windows::core::Vtable::vtable(self).GetFontSet)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontList2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontList2> for IDWriteFontList {
-    fn from(value: IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList2> for &'a IDWriteFontList {
-    fn from(value: &'a IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList2> for IDWriteFontList {
-    fn from(value: &IDWriteFontList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontList2> for IDWriteFontList1 {
-    fn from(value: IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontList2> for &'a IDWriteFontList1 {
-    fn from(value: &'a IDWriteFontList2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontList2> for IDWriteFontList1 {
-    fn from(value: &IDWriteFontList2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontList2, ::windows::core::IUnknown, IDWriteFontList, IDWriteFontList1);
 impl ::core::clone::Clone for IDWriteFontList2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7931,21 +6177,7 @@ impl IDWriteFontResource {
         (::windows::core::Vtable::vtable(self).CreateFontFaceReference)(::windows::core::Vtable::as_raw(self), fontsimulations, ::core::mem::transmute(fontaxisvalues.as_ptr()), fontaxisvalues.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFaceReference1>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontResource> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontResource> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontResource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8047,21 +6279,7 @@ impl IDWriteFontSet {
         (::windows::core::Vtable::vtable(self).GetMatchingFonts2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(properties.as_ptr()), properties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontSet> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSet, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontSet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8234,36 +6452,7 @@ impl IDWriteFontSet1 {
         (::windows::core::Vtable::vtable(self).GetFontLocality)(::windows::core::Vtable::as_raw(self), listindex)
     }
 }
-impl ::core::convert::From<IDWriteFontSet1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSet1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSet1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSet1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet1> for IDWriteFontSet {
-    fn from(value: IDWriteFontSet1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet1> for &'a IDWriteFontSet {
-    fn from(value: &'a IDWriteFontSet1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet1> for IDWriteFontSet {
-    fn from(value: &IDWriteFontSet1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSet1, ::windows::core::IUnknown, IDWriteFontSet);
 impl ::core::clone::Clone for IDWriteFontSet1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8447,51 +6636,7 @@ impl IDWriteFontSet2 {
         (::windows::core::Vtable::vtable(self).GetExpirationEvent)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteFontSet2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSet2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet2> for IDWriteFontSet {
-    fn from(value: IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet2> for &'a IDWriteFontSet {
-    fn from(value: &'a IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet2> for IDWriteFontSet {
-    fn from(value: &IDWriteFontSet2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet2> for IDWriteFontSet1 {
-    fn from(value: IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet2> for &'a IDWriteFontSet1 {
-    fn from(value: &'a IDWriteFontSet2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet2> for IDWriteFontSet1 {
-    fn from(value: &IDWriteFontSet2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSet2, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
 impl ::core::clone::Clone for IDWriteFontSet2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8663,66 +6808,7 @@ impl IDWriteFontSet3 {
         (::windows::core::Vtable::vtable(self).GetFontSourceName)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontSet3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSet3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet3> for IDWriteFontSet {
-    fn from(value: IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet3> for &'a IDWriteFontSet {
-    fn from(value: &'a IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet3> for IDWriteFontSet {
-    fn from(value: &IDWriteFontSet3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet3> for IDWriteFontSet1 {
-    fn from(value: IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet3> for &'a IDWriteFontSet1 {
-    fn from(value: &'a IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet3> for IDWriteFontSet1 {
-    fn from(value: &IDWriteFontSet3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSet3> for IDWriteFontSet2 {
-    fn from(value: IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSet3> for &'a IDWriteFontSet2 {
-    fn from(value: &'a IDWriteFontSet3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSet3> for IDWriteFontSet2 {
-    fn from(value: &IDWriteFontSet3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSet3, ::windows::core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2);
 impl ::core::clone::Clone for IDWriteFontSet3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8780,21 +6866,7 @@ impl IDWriteFontSetBuilder {
         (::windows::core::Vtable::vtable(self).CreateFontSet)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet>(result__)
     }
 }
-impl ::core::convert::From<IDWriteFontSetBuilder> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSetBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSetBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSetBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSetBuilder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteFontSetBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8859,36 +6931,7 @@ impl IDWriteFontSetBuilder1 {
         (::windows::core::Vtable::vtable(self).AddFontFile)(::windows::core::Vtable::as_raw(self), fontfile.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontSetBuilder1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSetBuilder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSetBuilder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSetBuilder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSetBuilder1> for IDWriteFontSetBuilder {
-    fn from(value: IDWriteFontSetBuilder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder1> for &'a IDWriteFontSetBuilder {
-    fn from(value: &'a IDWriteFontSetBuilder1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder1> for IDWriteFontSetBuilder {
-    fn from(value: &IDWriteFontSetBuilder1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSetBuilder1, ::windows::core::IUnknown, IDWriteFontSetBuilder);
 impl ::core::clone::Clone for IDWriteFontSetBuilder1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8962,51 +7005,7 @@ impl IDWriteFontSetBuilder2 {
         (::windows::core::Vtable::vtable(self).AddFontFile2)(::windows::core::Vtable::as_raw(self), filepath.into()).ok()
     }
 }
-impl ::core::convert::From<IDWriteFontSetBuilder2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteFontSetBuilder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
-    fn from(value: IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder2> for &'a IDWriteFontSetBuilder {
-    fn from(value: &'a IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder {
-    fn from(value: &IDWriteFontSetBuilder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteFontSetBuilder2> for IDWriteFontSetBuilder1 {
-    fn from(value: IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteFontSetBuilder2> for &'a IDWriteFontSetBuilder1 {
-    fn from(value: &'a IDWriteFontSetBuilder2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteFontSetBuilder2> for IDWriteFontSetBuilder1 {
-    fn from(value: &IDWriteFontSetBuilder2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteFontSetBuilder2, ::windows::core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
 impl ::core::clone::Clone for IDWriteFontSetBuilder2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9082,21 +7081,7 @@ impl IDWriteGdiInterop {
         (::windows::core::Vtable::vtable(self).CreateBitmapRenderTarget)(::windows::core::Vtable::as_raw(self), hdc.into(), width, height, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteBitmapRenderTarget>(result__)
     }
 }
-impl ::core::convert::From<IDWriteGdiInterop> for ::windows::core::IUnknown {
-    fn from(value: IDWriteGdiInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteGdiInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteGdiInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteGdiInterop> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteGdiInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteGdiInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteGdiInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9226,36 +7211,7 @@ impl IDWriteGdiInterop1 {
         (::windows::core::Vtable::vtable(self).GetMatchingFontsByLOGFONT)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(logfont), fontset.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontSet>(result__)
     }
 }
-impl ::core::convert::From<IDWriteGdiInterop1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteGdiInterop1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteGdiInterop1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteGdiInterop1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteGdiInterop1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteGdiInterop1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteGdiInterop1> for IDWriteGdiInterop {
-    fn from(value: IDWriteGdiInterop1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteGdiInterop1> for &'a IDWriteGdiInterop {
-    fn from(value: &'a IDWriteGdiInterop1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteGdiInterop1> for IDWriteGdiInterop {
-    fn from(value: &IDWriteGdiInterop1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteGdiInterop1, ::windows::core::IUnknown, IDWriteGdiInterop);
 impl ::core::clone::Clone for IDWriteGdiInterop1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9321,21 +7277,7 @@ impl IDWriteGlyphRunAnalysis {
         (::windows::core::Vtable::vtable(self).GetAlphaBlendParams)(::windows::core::Vtable::as_raw(self), renderingparams.into().abi(), ::core::mem::transmute(blendgamma), ::core::mem::transmute(blendenhancedcontrast), ::core::mem::transmute(blendcleartypelevel)).ok()
     }
 }
-impl ::core::convert::From<IDWriteGlyphRunAnalysis> for ::windows::core::IUnknown {
-    fn from(value: IDWriteGlyphRunAnalysis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteGlyphRunAnalysis> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteGlyphRunAnalysis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteGlyphRunAnalysis> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteGlyphRunAnalysis) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteGlyphRunAnalysis, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteGlyphRunAnalysis {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9392,36 +7334,7 @@ impl IDWriteInMemoryFontFileLoader {
         (::windows::core::Vtable::vtable(self).GetFileCount)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteInMemoryFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: IDWriteInMemoryFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteInMemoryFontFileLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteInMemoryFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteInMemoryFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteInMemoryFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteInMemoryFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: IDWriteInMemoryFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteInMemoryFontFileLoader> for &'a IDWriteFontFileLoader {
-    fn from(value: &'a IDWriteInMemoryFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteInMemoryFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: &IDWriteInMemoryFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteInMemoryFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::clone::Clone for IDWriteInMemoryFontFileLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9480,21 +7393,7 @@ impl IDWriteInlineObject {
         (::windows::core::Vtable::vtable(self).GetBreakConditions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(breakconditionbefore), ::core::mem::transmute(breakconditionafter)).ok()
     }
 }
-impl ::core::convert::From<IDWriteInlineObject> for ::windows::core::IUnknown {
-    fn from(value: IDWriteInlineObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteInlineObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteInlineObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteInlineObject> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteInlineObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteInlineObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteInlineObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9554,36 +7453,7 @@ impl IDWriteLocalFontFileLoader {
         (::windows::core::Vtable::vtable(self).GetLastWriteTimeFromKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(fontfilereferencekey), fontfilereferencekeysize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
 }
-impl ::core::convert::From<IDWriteLocalFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: IDWriteLocalFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteLocalFontFileLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteLocalFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteLocalFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteLocalFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteLocalFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: IDWriteLocalFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteLocalFontFileLoader> for &'a IDWriteFontFileLoader {
-    fn from(value: &'a IDWriteLocalFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteLocalFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: &IDWriteLocalFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteLocalFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::clone::Clone for IDWriteLocalFontFileLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9647,21 +7517,7 @@ impl IDWriteLocalizedStrings {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDWriteLocalizedStrings> for ::windows::core::IUnknown {
-    fn from(value: IDWriteLocalizedStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteLocalizedStrings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteLocalizedStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteLocalizedStrings> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteLocalizedStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteLocalizedStrings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteLocalizedStrings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9702,21 +7558,7 @@ pub struct IDWriteLocalizedStrings_Vtbl {
 #[repr(transparent)]
 pub struct IDWriteNumberSubstitution(::windows::core::IUnknown);
 impl IDWriteNumberSubstitution {}
-impl ::core::convert::From<IDWriteNumberSubstitution> for ::windows::core::IUnknown {
-    fn from(value: IDWriteNumberSubstitution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteNumberSubstitution> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteNumberSubstitution) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteNumberSubstitution> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteNumberSubstitution) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteNumberSubstitution, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteNumberSubstitution {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9763,21 +7605,7 @@ impl IDWritePixelSnapping {
         (::windows::core::Vtable::vtable(self).GetPixelsPerDip)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
 }
-impl ::core::convert::From<IDWritePixelSnapping> for ::windows::core::IUnknown {
-    fn from(value: IDWritePixelSnapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWritePixelSnapping> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWritePixelSnapping) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWritePixelSnapping> for ::windows::core::IUnknown {
-    fn from(value: &IDWritePixelSnapping) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWritePixelSnapping, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWritePixelSnapping {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9837,36 +7665,7 @@ impl IDWriteRemoteFontFileLoader {
         (::windows::core::Vtable::vtable(self).CreateFontFileReferenceFromUrl)(::windows::core::Vtable::as_raw(self), factory.into().abi(), baseurl.into(), fontfileurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFile>(result__)
     }
 }
-impl ::core::convert::From<IDWriteRemoteFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRemoteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRemoteFontFileLoader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRemoteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRemoteFontFileLoader> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRemoteFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRemoteFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: IDWriteRemoteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRemoteFontFileLoader> for &'a IDWriteFontFileLoader {
-    fn from(value: &'a IDWriteRemoteFontFileLoader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRemoteFontFileLoader> for IDWriteFontFileLoader {
-    fn from(value: &IDWriteRemoteFontFileLoader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRemoteFontFileLoader, ::windows::core::IUnknown, IDWriteFontFileLoader);
 impl ::core::clone::Clone for IDWriteRemoteFontFileLoader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9932,36 +7731,7 @@ impl IDWriteRemoteFontFileStream {
         (::windows::core::Vtable::vtable(self).BeginDownload)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(downloadoperationid), ::core::mem::transmute(filefragments.as_ptr()), filefragments.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteAsyncResult>(result__)
     }
 }
-impl ::core::convert::From<IDWriteRemoteFontFileStream> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRemoteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRemoteFontFileStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRemoteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRemoteFontFileStream> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRemoteFontFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRemoteFontFileStream> for IDWriteFontFileStream {
-    fn from(value: IDWriteRemoteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRemoteFontFileStream> for &'a IDWriteFontFileStream {
-    fn from(value: &'a IDWriteRemoteFontFileStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRemoteFontFileStream> for IDWriteFontFileStream {
-    fn from(value: &IDWriteRemoteFontFileStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows::core::IUnknown, IDWriteFontFileStream);
 impl ::core::clone::Clone for IDWriteRemoteFontFileStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10016,21 +7786,7 @@ impl IDWriteRenderingParams {
         (::windows::core::Vtable::vtable(self).GetRenderingMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteRenderingParams> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRenderingParams) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRenderingParams) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRenderingParams) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRenderingParams, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteRenderingParams {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10086,36 +7842,7 @@ impl IDWriteRenderingParams1 {
         (::windows::core::Vtable::vtable(self).GetGrayscaleEnhancedContrast)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteRenderingParams1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRenderingParams1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRenderingParams1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRenderingParams1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams1> for IDWriteRenderingParams {
-    fn from(value: IDWriteRenderingParams1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams1> for &'a IDWriteRenderingParams {
-    fn from(value: &'a IDWriteRenderingParams1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams1> for IDWriteRenderingParams {
-    fn from(value: &IDWriteRenderingParams1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRenderingParams1, ::windows::core::IUnknown, IDWriteRenderingParams);
 impl ::core::clone::Clone for IDWriteRenderingParams1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10170,51 +7897,7 @@ impl IDWriteRenderingParams2 {
         (::windows::core::Vtable::vtable(self).GetGridFitMode)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteRenderingParams2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRenderingParams2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams2> for IDWriteRenderingParams {
-    fn from(value: IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams2> for &'a IDWriteRenderingParams {
-    fn from(value: &'a IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams {
-    fn from(value: &IDWriteRenderingParams2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams2> for IDWriteRenderingParams1 {
-    fn from(value: IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams2> for &'a IDWriteRenderingParams1 {
-    fn from(value: &'a IDWriteRenderingParams2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams2> for IDWriteRenderingParams1 {
-    fn from(value: &IDWriteRenderingParams2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRenderingParams2, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1);
 impl ::core::clone::Clone for IDWriteRenderingParams2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10272,66 +7955,7 @@ impl IDWriteRenderingParams3 {
         (::windows::core::Vtable::vtable(self).GetRenderingMode1)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDWriteRenderingParams3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteRenderingParams3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams {
-    fn from(value: IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams3> for &'a IDWriteRenderingParams {
-    fn from(value: &'a IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams {
-    fn from(value: &IDWriteRenderingParams3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams1 {
-    fn from(value: IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams3> for &'a IDWriteRenderingParams1 {
-    fn from(value: &'a IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams1 {
-    fn from(value: &IDWriteRenderingParams3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteRenderingParams3> for IDWriteRenderingParams2 {
-    fn from(value: IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteRenderingParams3> for &'a IDWriteRenderingParams2 {
-    fn from(value: &'a IDWriteRenderingParams3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteRenderingParams3> for IDWriteRenderingParams2 {
-    fn from(value: &IDWriteRenderingParams3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteRenderingParams3, ::windows::core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1, IDWriteRenderingParams2);
 impl ::core::clone::Clone for IDWriteRenderingParams3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10382,21 +8006,7 @@ impl IDWriteStringList {
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), listindex, ::core::mem::transmute(stringbuffer.as_ptr()), stringbuffer.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDWriteStringList> for ::windows::core::IUnknown {
-    fn from(value: IDWriteStringList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteStringList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteStringList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteStringList> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteStringList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteStringList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteStringList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10449,21 +8059,7 @@ impl IDWriteTextAnalysisSink {
         (::windows::core::Vtable::vtable(self).SetNumberSubstitution)(::windows::core::Vtable::as_raw(self), textposition, textlength, numbersubstitution.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalysisSink> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalysisSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalysisSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSink> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalysisSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalysisSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteTextAnalysisSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10524,36 +8120,7 @@ impl IDWriteTextAnalysisSink1 {
         (::windows::core::Vtable::vtable(self).SetGlyphOrientation)(::windows::core::Vtable::as_raw(self), textposition, textlength, glyphorientationangle, adjustedbidilevel, issideways.into(), isrighttoleft.into()).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalysisSink1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalysisSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSink1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalysisSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSink1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalysisSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextAnalysisSink1> for IDWriteTextAnalysisSink {
-    fn from(value: IDWriteTextAnalysisSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSink1> for &'a IDWriteTextAnalysisSink {
-    fn from(value: &'a IDWriteTextAnalysisSink1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSink1> for IDWriteTextAnalysisSink {
-    fn from(value: &IDWriteTextAnalysisSink1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalysisSink1, ::windows::core::IUnknown, IDWriteTextAnalysisSink);
 impl ::core::clone::Clone for IDWriteTextAnalysisSink1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10605,21 +8172,7 @@ impl IDWriteTextAnalysisSource {
         (::windows::core::Vtable::vtable(self).GetNumberSubstitution)(::windows::core::Vtable::as_raw(self), textposition, ::core::mem::transmute(textlength), ::core::mem::transmute(numbersubstitution)).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalysisSource> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalysisSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalysisSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSource> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalysisSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalysisSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteTextAnalysisSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10675,36 +8228,7 @@ impl IDWriteTextAnalysisSource1 {
         (::windows::core::Vtable::vtable(self).GetVerticalGlyphOrientation)(::windows::core::Vtable::as_raw(self), textposition, ::core::mem::transmute(textlength), ::core::mem::transmute(glyphorientation), ::core::mem::transmute(bidilevel)).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalysisSource1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalysisSource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSource1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalysisSource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSource1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalysisSource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextAnalysisSource1> for IDWriteTextAnalysisSource {
-    fn from(value: IDWriteTextAnalysisSource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalysisSource1> for &'a IDWriteTextAnalysisSource {
-    fn from(value: &'a IDWriteTextAnalysisSource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalysisSource1> for IDWriteTextAnalysisSource {
-    fn from(value: &IDWriteTextAnalysisSource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalysisSource1, ::windows::core::IUnknown, IDWriteTextAnalysisSource);
 impl ::core::clone::Clone for IDWriteTextAnalysisSource1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10869,21 +8393,7 @@ impl IDWriteTextAnalyzer {
         .ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalyzer> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalyzer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalyzer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalyzer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalyzer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteTextAnalyzer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11166,36 +8676,7 @@ impl IDWriteTextAnalyzer1 {
         .ok()
     }
 }
-impl ::core::convert::From<IDWriteTextAnalyzer1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalyzer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalyzer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalyzer1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextAnalyzer1> for IDWriteTextAnalyzer {
-    fn from(value: IDWriteTextAnalyzer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer1> for &'a IDWriteTextAnalyzer {
-    fn from(value: &'a IDWriteTextAnalyzer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer1> for IDWriteTextAnalyzer {
-    fn from(value: &IDWriteTextAnalyzer1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalyzer1, ::windows::core::IUnknown, IDWriteTextAnalyzer);
 impl ::core::clone::Clone for IDWriteTextAnalyzer1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11481,51 +8962,7 @@ impl IDWriteTextAnalyzer2 {
         (::windows::core::Vtable::vtable(self).CheckTypographicFeature)(::windows::core::Vtable::as_raw(self), fontface.into().abi(), ::core::mem::transmute(scriptanalysis), localename.into(), featuretag, glyphcount, ::core::mem::transmute(glyphindices), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IDWriteTextAnalyzer2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextAnalyzer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
-    fn from(value: IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer2> for &'a IDWriteTextAnalyzer {
-    fn from(value: &'a IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer {
-    fn from(value: &IDWriteTextAnalyzer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextAnalyzer2> for IDWriteTextAnalyzer1 {
-    fn from(value: IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextAnalyzer2> for &'a IDWriteTextAnalyzer1 {
-    fn from(value: &'a IDWriteTextAnalyzer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextAnalyzer2> for IDWriteTextAnalyzer1 {
-    fn from(value: &IDWriteTextAnalyzer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextAnalyzer2, ::windows::core::IUnknown, IDWriteTextAnalyzer, IDWriteTextAnalyzer1);
 impl ::core::clone::Clone for IDWriteTextAnalyzer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11643,21 +9080,7 @@ impl IDWriteTextFormat {
         (::windows::core::Vtable::vtable(self).GetLocaleName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(localename.as_ptr()), localename.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextFormat> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextFormat, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteTextFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11829,36 +9252,7 @@ impl IDWriteTextFormat1 {
         (::windows::core::Vtable::vtable(self).GetFontFallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFallback>(result__)
     }
 }
-impl ::core::convert::From<IDWriteTextFormat1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextFormat1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextFormat1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextFormat1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat1> for IDWriteTextFormat {
-    fn from(value: IDWriteTextFormat1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat1> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextFormat1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat1> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextFormat1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextFormat1, ::windows::core::IUnknown, IDWriteTextFormat);
 impl ::core::clone::Clone for IDWriteTextFormat1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12026,51 +9420,7 @@ impl IDWriteTextFormat2 {
         (::windows::core::Vtable::vtable(self).GetLineSpacing2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWRITE_LINE_SPACING>(result__)
     }
 }
-impl ::core::convert::From<IDWriteTextFormat2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextFormat2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat2> for IDWriteTextFormat {
-    fn from(value: IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat2> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextFormat2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat2> for IDWriteTextFormat1 {
-    fn from(value: IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat2> for &'a IDWriteTextFormat1 {
-    fn from(value: &'a IDWriteTextFormat2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat2> for IDWriteTextFormat1 {
-    fn from(value: &IDWriteTextFormat2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextFormat2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1);
 impl ::core::clone::Clone for IDWriteTextFormat2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12241,66 +9591,7 @@ impl IDWriteTextFormat3 {
         (::windows::core::Vtable::vtable(self).SetAutomaticFontAxes)(::windows::core::Vtable::as_raw(self), automaticfontaxes).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextFormat3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextFormat3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat3> for IDWriteTextFormat {
-    fn from(value: IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat3> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextFormat3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat3> for IDWriteTextFormat1 {
-    fn from(value: IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat3> for &'a IDWriteTextFormat1 {
-    fn from(value: &'a IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat1 {
-    fn from(value: &IDWriteTextFormat3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextFormat3> for IDWriteTextFormat2 {
-    fn from(value: IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextFormat3> for &'a IDWriteTextFormat2 {
-    fn from(value: &'a IDWriteTextFormat3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextFormat3> for IDWriteTextFormat2 {
-    fn from(value: &IDWriteTextFormat3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextFormat3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
 impl ::core::clone::Clone for IDWriteTextFormat3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12583,36 +9874,7 @@ impl IDWriteTextLayout {
         (::windows::core::Vtable::vtable(self).HitTestTextRange)(::windows::core::Vtable::as_raw(self), textposition, textlength, originx, originy, ::core::mem::transmute(hittestmetrics.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), hittestmetrics.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(actualhittestmetricscount)).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextLayout> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextLayout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout> for IDWriteTextFormat {
-    fn from(value: IDWriteTextLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextLayout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextLayout, ::windows::core::IUnknown, IDWriteTextFormat);
 impl ::core::clone::Clone for IDWriteTextLayout {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -12972,51 +10234,7 @@ impl IDWriteTextLayout1 {
         (::windows::core::Vtable::vtable(self).GetCharacterSpacing)(::windows::core::Vtable::as_raw(self), currentposition, ::core::mem::transmute(leadingspacing), ::core::mem::transmute(trailingspacing), ::core::mem::transmute(minimumadvancewidth), ::core::mem::transmute(textrange.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextLayout1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextLayout1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout1> for IDWriteTextFormat {
-    fn from(value: IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout1> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout1> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextLayout1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout1> for IDWriteTextLayout {
-    fn from(value: IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout1> for &'a IDWriteTextLayout {
-    fn from(value: &'a IDWriteTextLayout1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout1> for IDWriteTextLayout {
-    fn from(value: &IDWriteTextLayout1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextLayout1, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout);
 impl ::core::clone::Clone for IDWriteTextLayout1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13362,66 +10580,7 @@ impl IDWriteTextLayout2 {
         (::windows::core::Vtable::vtable(self).GetFontFallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDWriteFontFallback>(result__)
     }
 }
-impl ::core::convert::From<IDWriteTextLayout2> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout2> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextLayout2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout2> for IDWriteTextFormat {
-    fn from(value: IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout2> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout2> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextLayout2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout2> for IDWriteTextLayout {
-    fn from(value: IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout2> for &'a IDWriteTextLayout {
-    fn from(value: &'a IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout {
-    fn from(value: &IDWriteTextLayout2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout2> for IDWriteTextLayout1 {
-    fn from(value: IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout2> for &'a IDWriteTextLayout1 {
-    fn from(value: &'a IDWriteTextLayout2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout2> for IDWriteTextLayout1 {
-    fn from(value: &IDWriteTextLayout2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextLayout2, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1);
 impl ::core::clone::Clone for IDWriteTextLayout2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -13787,81 +10946,7 @@ impl IDWriteTextLayout3 {
         (::windows::core::Vtable::vtable(self).GetLineMetrics2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(linemetrics.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), linemetrics.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(actuallinecount)).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextLayout3> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout3> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextLayout3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout3> for IDWriteTextFormat {
-    fn from(value: IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout3> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout3> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextLayout3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout3> for IDWriteTextLayout {
-    fn from(value: IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout3> for &'a IDWriteTextLayout {
-    fn from(value: &'a IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout {
-    fn from(value: &IDWriteTextLayout3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout3> for IDWriteTextLayout1 {
-    fn from(value: IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout3> for &'a IDWriteTextLayout1 {
-    fn from(value: &'a IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout1 {
-    fn from(value: &IDWriteTextLayout3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout3> for IDWriteTextLayout2 {
-    fn from(value: IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout3> for &'a IDWriteTextLayout2 {
-    fn from(value: &'a IDWriteTextLayout3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout3> for IDWriteTextLayout2 {
-    fn from(value: &IDWriteTextLayout3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextLayout3, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2);
 impl ::core::clone::Clone for IDWriteTextLayout3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14234,96 +11319,7 @@ impl IDWriteTextLayout4 {
         (::windows::core::Vtable::vtable(self).SetAutomaticFontAxes)(::windows::core::Vtable::as_raw(self), automaticfontaxes).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextLayout4> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout4> for IDWriteTextFormat {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a IDWriteTextFormat {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for IDWriteTextFormat {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout4> for IDWriteTextLayout {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a IDWriteTextLayout {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout4> for IDWriteTextLayout1 {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a IDWriteTextLayout1 {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout1 {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout4> for IDWriteTextLayout2 {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a IDWriteTextLayout2 {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout2 {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextLayout4> for IDWriteTextLayout3 {
-    fn from(value: IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextLayout4> for &'a IDWriteTextLayout3 {
-    fn from(value: &'a IDWriteTextLayout4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextLayout4> for IDWriteTextLayout3 {
-    fn from(value: &IDWriteTextLayout4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextLayout4, ::windows::core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
 impl ::core::clone::Clone for IDWriteTextLayout4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14406,36 +11402,7 @@ impl IDWriteTextRenderer {
         (::windows::core::Vtable::vtable(self).DrawInlineObject)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), originx, originy, inlineobject.into().abi(), issideways.into(), isrighttoleft.into(), clientdrawingeffect.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextRenderer> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextRenderer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextRenderer> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextRenderer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextRenderer> for IDWritePixelSnapping {
-    fn from(value: IDWriteTextRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextRenderer> for &'a IDWritePixelSnapping {
-    fn from(value: &'a IDWriteTextRenderer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextRenderer> for IDWritePixelSnapping {
-    fn from(value: &IDWriteTextRenderer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextRenderer, ::windows::core::IUnknown, IDWritePixelSnapping);
 impl ::core::clone::Clone for IDWriteTextRenderer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14554,51 +11521,7 @@ impl IDWriteTextRenderer1 {
         (::windows::core::Vtable::vtable(self).DrawInlineObject2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(clientdrawingcontext.unwrap_or(::std::ptr::null())), originx, originy, orientationangle, inlineobject.into().abi(), issideways.into(), isrighttoleft.into(), clientdrawingeffect.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDWriteTextRenderer1> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextRenderer1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextRenderer1> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTextRenderer1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextRenderer1> for IDWritePixelSnapping {
-    fn from(value: IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextRenderer1> for &'a IDWritePixelSnapping {
-    fn from(value: &'a IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextRenderer1> for IDWritePixelSnapping {
-    fn from(value: &IDWriteTextRenderer1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDWriteTextRenderer1> for IDWriteTextRenderer {
-    fn from(value: IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTextRenderer1> for &'a IDWriteTextRenderer {
-    fn from(value: &'a IDWriteTextRenderer1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTextRenderer1> for IDWriteTextRenderer {
-    fn from(value: &IDWriteTextRenderer1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTextRenderer1, ::windows::core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
 impl ::core::clone::Clone for IDWriteTextRenderer1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14651,21 +11574,7 @@ impl IDWriteTypography {
         (::windows::core::Vtable::vtable(self).GetFontFeature)(::windows::core::Vtable::as_raw(self), fontfeatureindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWRITE_FONT_FEATURE>(result__)
     }
 }
-impl ::core::convert::From<IDWriteTypography> for ::windows::core::IUnknown {
-    fn from(value: IDWriteTypography) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDWriteTypography> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDWriteTypography) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDWriteTypography> for ::windows::core::IUnknown {
-    fn from(value: &IDWriteTypography) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDWriteTypography, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDWriteTypography {
     fn clone(&self) -> Self {
         Self(self.0.clone())

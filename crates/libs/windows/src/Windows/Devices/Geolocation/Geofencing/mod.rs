@@ -266,36 +266,7 @@ unsafe impl ::windows::core::Interface for Geofence {
 impl ::windows::core::RuntimeName for Geofence {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.Geofence";
 }
-impl ::core::convert::From<Geofence> for ::windows::core::IUnknown {
-    fn from(value: Geofence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geofence> for ::windows::core::IUnknown {
-    fn from(value: &Geofence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geofence> for &::windows::core::IUnknown {
-    fn from(value: &Geofence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Geofence> for ::windows::core::IInspectable {
-    fn from(value: Geofence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Geofence> for ::windows::core::IInspectable {
-    fn from(value: &Geofence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Geofence> for &::windows::core::IInspectable {
-    fn from(value: &Geofence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Geofence, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Geofence {}
 unsafe impl ::core::marker::Sync for Geofence {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
@@ -408,36 +379,7 @@ unsafe impl ::windows::core::Interface for GeofenceMonitor {
 impl ::windows::core::RuntimeName for GeofenceMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor";
 }
-impl ::core::convert::From<GeofenceMonitor> for ::windows::core::IUnknown {
-    fn from(value: GeofenceMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceMonitor> for ::windows::core::IUnknown {
-    fn from(value: &GeofenceMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceMonitor> for &::windows::core::IUnknown {
-    fn from(value: &GeofenceMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeofenceMonitor> for ::windows::core::IInspectable {
-    fn from(value: GeofenceMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceMonitor> for ::windows::core::IInspectable {
-    fn from(value: &GeofenceMonitor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceMonitor> for &::windows::core::IInspectable {
-    fn from(value: &GeofenceMonitor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeofenceMonitor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
@@ -505,36 +447,7 @@ unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
 impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
 }
-impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IUnknown {
-    fn from(value: GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IUnknown {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IUnknown {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IInspectable {
-    fn from(value: GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IInspectable {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IInspectable {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GeofenceStateChangeReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}
 unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]

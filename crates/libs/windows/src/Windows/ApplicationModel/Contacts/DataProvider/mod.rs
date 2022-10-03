@@ -352,36 +352,7 @@ unsafe impl ::windows::core::Interface for ContactDataProviderConnection {
 impl ::windows::core::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
 }
-impl ::core::convert::From<ContactDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: ContactDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactDataProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: ContactDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactDataProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &ContactDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
 unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -428,36 +399,7 @@ unsafe impl ::windows::core::Interface for ContactDataProviderTriggerDetails {
 impl ::windows::core::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
 }
-impl ::core::convert::From<ContactDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ContactDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactDataProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ContactDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactDataProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ContactDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -529,36 +471,7 @@ unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactReque
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
 }
-impl ::core::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::core::IUnknown {
-    fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::core::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for &::windows::core::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListCreateOrUpdateContactRequest> for ::windows::core::IInspectable {
-    fn from(value: ContactListCreateOrUpdateContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for ::windows::core::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequest> for &::windows::core::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -614,36 +527,7 @@ unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactReque
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
 }
-impl ::core::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListCreateOrUpdateContactRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactListCreateOrUpdateContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -715,36 +599,7 @@ unsafe impl ::windows::core::Interface for ContactListDeleteContactRequest {
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
 }
-impl ::core::convert::From<ContactListDeleteContactRequest> for ::windows::core::IUnknown {
-    fn from(value: ContactListDeleteContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequest> for ::windows::core::IUnknown {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequest> for &::windows::core::IUnknown {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListDeleteContactRequest> for ::windows::core::IInspectable {
-    fn from(value: ContactListDeleteContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequest> for ::windows::core::IInspectable {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequest> for &::windows::core::IInspectable {
-    fn from(value: &ContactListDeleteContactRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListDeleteContactRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -800,36 +655,7 @@ unsafe impl ::windows::core::Interface for ContactListDeleteContactRequestEventA
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
 }
-impl ::core::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListDeleteContactRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactListDeleteContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListDeleteContactRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactListDeleteContactRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -924,36 +750,7 @@ unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchReque
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
 }
-impl ::core::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::core::IUnknown {
-    fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::core::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for &::windows::core::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListServerSearchReadBatchRequest> for ::windows::core::IInspectable {
-    fn from(value: ContactListServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for ::windows::core::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequest> for &::windows::core::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListServerSearchReadBatchRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -1009,36 +806,7 @@ unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchReque
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
 }
-impl ::core::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListServerSearchReadBatchRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListServerSearchReadBatchRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactListServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -1103,36 +871,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequest {
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
 }
-impl ::core::convert::From<ContactListSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: ContactListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for &::windows::core::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: ContactListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequest> for &::windows::core::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
@@ -1188,36 +927,7 @@ unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequestEven
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";
 }
-impl ::core::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactListSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactListSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]

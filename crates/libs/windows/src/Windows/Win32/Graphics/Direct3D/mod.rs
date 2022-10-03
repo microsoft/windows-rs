@@ -13,21 +13,7 @@ impl ID3DBlob {
         (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<ID3DBlob> for ::windows::core::IUnknown {
-    fn from(value: ID3DBlob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3DBlob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3DBlob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3DBlob> for ::windows::core::IUnknown {
-    fn from(value: &ID3DBlob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3DBlob, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3DBlob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -71,21 +57,7 @@ impl ID3DDestructionNotifier {
         (::windows::core::Vtable::vtable(self).UnregisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackid).ok()
     }
 }
-impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::core::IUnknown {
-    fn from(value: ID3DDestructionNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID3DDestructionNotifier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID3DDestructionNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3DDestructionNotifier> for ::windows::core::IUnknown {
-    fn from(value: &ID3DDestructionNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ID3DDestructionNotifier, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ID3DDestructionNotifier {
     fn clone(&self) -> Self {
         Self(self.0.clone())

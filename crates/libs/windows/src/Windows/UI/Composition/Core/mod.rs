@@ -111,36 +111,7 @@ unsafe impl ::windows::core::Interface for CompositorController {
 impl ::windows::core::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";
 }
-impl ::core::convert::From<CompositorController> for ::windows::core::IUnknown {
-    fn from(value: CompositorController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositorController> for ::windows::core::IUnknown {
-    fn from(value: &CompositorController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositorController> for &::windows::core::IUnknown {
-    fn from(value: &CompositorController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositorController> for ::windows::core::IInspectable {
-    fn from(value: CompositorController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositorController> for ::windows::core::IInspectable {
-    fn from(value: &CompositorController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositorController> for &::windows::core::IInspectable {
-    fn from(value: &CompositorController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CompositorController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<CompositorController> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

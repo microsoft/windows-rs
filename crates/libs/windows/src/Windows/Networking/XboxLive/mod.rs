@@ -480,36 +480,7 @@ unsafe impl ::windows::core::Interface for XboxLiveDeviceAddress {
 impl ::windows::core::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
 }
-impl ::core::convert::From<XboxLiveDeviceAddress> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveDeviceAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveDeviceAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveDeviceAddress> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveDeviceAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveDeviceAddress> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveDeviceAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveDeviceAddress> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveDeviceAddress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveDeviceAddress> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveDeviceAddress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveDeviceAddress, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
 unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -647,36 +618,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPair {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
 }
-impl ::core::convert::From<XboxLiveEndpointPair> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveEndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPair) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPair> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveEndpointPair> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveEndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPair> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPair) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPair> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPair) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveEndpointPair, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -744,36 +686,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairCreationResult {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
 }
-impl ::core::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveEndpointPairCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveEndpointPairCreationResult> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveEndpointPairCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairCreationResult> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveEndpointPairCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -827,36 +740,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairStateChangedEvent
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
 }
-impl ::core::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveEndpointPairStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1017,36 +901,7 @@ unsafe impl ::windows::core::Interface for XboxLiveEndpointPairTemplate {
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
 }
-impl ::core::convert::From<XboxLiveEndpointPairTemplate> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveEndpointPairTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveEndpointPairTemplate> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveEndpointPairTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveEndpointPairTemplate> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveEndpointPairTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveEndpointPairTemplate, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1093,36 +948,7 @@ unsafe impl ::windows::core::Interface for XboxLiveInboundEndpointPairCreatedEve
 impl ::windows::core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
 }
-impl ::core::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveInboundEndpointPairCreatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveInboundEndpointPairCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1347,36 +1173,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMeasurement {
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
 }
-impl ::core::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveQualityOfServiceMeasurement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveQualityOfServiceMeasurement> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveQualityOfServiceMeasurement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMeasurement> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServiceMeasurement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveQualityOfServiceMeasurement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1444,36 +1241,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMetricResult 
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
 }
-impl ::core::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveQualityOfServiceMetricResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveQualityOfServiceMetricResult> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveQualityOfServiceMetricResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServiceMetricResult> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServiceMetricResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveQualityOfServiceMetricResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
@@ -1536,36 +1304,7 @@ unsafe impl ::windows::core::Interface for XboxLiveQualityOfServicePrivatePayloa
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";
 }
-impl ::core::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::core::IUnknown {
-    fn from(value: XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for &::windows::core::IUnknown {
-    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::core::IInspectable {
-    fn from(value: XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for ::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XboxLiveQualityOfServicePrivatePayloadResult> for &::windows::core::IInspectable {
-    fn from(value: &XboxLiveQualityOfServicePrivatePayloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]

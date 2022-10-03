@@ -144,36 +144,7 @@ unsafe impl ::windows::core::Interface for PerceptionTimestamp {
 impl ::windows::core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";
 }
-impl ::core::convert::From<PerceptionTimestamp> for ::windows::core::IUnknown {
-    fn from(value: PerceptionTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PerceptionTimestamp> for ::windows::core::IUnknown {
-    fn from(value: &PerceptionTimestamp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PerceptionTimestamp> for &::windows::core::IUnknown {
-    fn from(value: &PerceptionTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PerceptionTimestamp> for ::windows::core::IInspectable {
-    fn from(value: PerceptionTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PerceptionTimestamp> for ::windows::core::IInspectable {
-    fn from(value: &PerceptionTimestamp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PerceptionTimestamp> for &::windows::core::IInspectable {
-    fn from(value: &PerceptionTimestamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PerceptionTimestamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 #[doc = "*Required features: `\"Perception\"`*"]

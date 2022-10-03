@@ -23,21 +23,7 @@ impl ITpmVirtualSmartCardManager {
         (::windows::core::Vtable::vtable(self).DestroyVirtualSmartCard)(::windows::core::Vtable::as_raw(self), pszinstanceid.into(), pstatuscallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ITpmVirtualSmartCardManager> for ::windows::core::IUnknown {
-    fn from(value: ITpmVirtualSmartCardManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITpmVirtualSmartCardManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager> for ::windows::core::IUnknown {
-    fn from(value: &ITpmVirtualSmartCardManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -127,36 +113,7 @@ impl ITpmVirtualSmartCardManager2 {
         .ok()
     }
 }
-impl ::core::convert::From<ITpmVirtualSmartCardManager2> for ::windows::core::IUnknown {
-    fn from(value: ITpmVirtualSmartCardManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITpmVirtualSmartCardManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager2> for ::windows::core::IUnknown {
-    fn from(value: &ITpmVirtualSmartCardManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCardManager {
-    fn from(value: ITpmVirtualSmartCardManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager2> for &'a ITpmVirtualSmartCardManager {
-    fn from(value: &'a ITpmVirtualSmartCardManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager2> for ITpmVirtualSmartCardManager {
-    fn from(value: &ITpmVirtualSmartCardManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager2, ::windows::core::IUnknown, ITpmVirtualSmartCardManager);
 impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -272,51 +229,7 @@ impl ITpmVirtualSmartCardManager3 {
         .from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<ITpmVirtualSmartCardManager3> for ::windows::core::IUnknown {
-    fn from(value: ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager3> for ::windows::core::IUnknown {
-    fn from(value: &ITpmVirtualSmartCardManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager {
-    fn from(value: ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager3> for &'a ITpmVirtualSmartCardManager {
-    fn from(value: &'a ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager {
-    fn from(value: &ITpmVirtualSmartCardManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager2 {
-    fn from(value: ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManager3> for &'a ITpmVirtualSmartCardManager2 {
-    fn from(value: &'a ITpmVirtualSmartCardManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManager3> for ITpmVirtualSmartCardManager2 {
-    fn from(value: &ITpmVirtualSmartCardManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows::core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
 impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -359,21 +272,7 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
         (::windows::core::Vtable::vtable(self).ReportError)(::windows::core::Vtable::as_raw(self), error).ok()
     }
 }
-impl ::core::convert::From<ITpmVirtualSmartCardManagerStatusCallback> for ::windows::core::IUnknown {
-    fn from(value: ITpmVirtualSmartCardManagerStatusCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITpmVirtualSmartCardManagerStatusCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITpmVirtualSmartCardManagerStatusCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITpmVirtualSmartCardManagerStatusCallback> for ::windows::core::IUnknown {
-    fn from(value: &ITpmVirtualSmartCardManagerStatusCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())

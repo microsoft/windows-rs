@@ -23,36 +23,7 @@ impl IWPCGamesSettings {
         (::windows::core::Vtable::vtable(self).IsBlocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidappid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWPCGamesSettings> for ::windows::core::IUnknown {
-    fn from(value: IWPCGamesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCGamesSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCGamesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCGamesSettings> for ::windows::core::IUnknown {
-    fn from(value: &IWPCGamesSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWPCGamesSettings> for IWPCSettings {
-    fn from(value: IWPCGamesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCGamesSettings> for &'a IWPCSettings {
-    fn from(value: &'a IWPCGamesSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCGamesSettings> for IWPCSettings {
-    fn from(value: &IWPCGamesSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCGamesSettings, ::windows::core::IUnknown, IWPCSettings);
 impl ::core::clone::Clone for IWPCGamesSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -106,21 +77,7 @@ impl IWPCProviderConfig {
         (::windows::core::Vtable::vtable(self).RequestOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute_copy(bstrpath), dwflags).ok()
     }
 }
-impl ::core::convert::From<IWPCProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: IWPCProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCProviderConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCProviderConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCProviderConfig> for ::windows::core::IUnknown {
-    fn from(value: &IWPCProviderConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCProviderConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWPCProviderConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -168,21 +125,7 @@ impl IWPCProviderState {
         (::windows::core::Vtable::vtable(self).Disable)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWPCProviderState> for ::windows::core::IUnknown {
-    fn from(value: IWPCProviderState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCProviderState> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCProviderState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCProviderState> for ::windows::core::IUnknown {
-    fn from(value: &IWPCProviderState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCProviderState, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWPCProviderState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -221,21 +164,7 @@ impl IWPCProviderSupport {
         (::windows::core::Vtable::vtable(self).GetCurrent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IWPCProviderSupport> for ::windows::core::IUnknown {
-    fn from(value: IWPCProviderSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCProviderSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCProviderSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCProviderSupport> for ::windows::core::IUnknown {
-    fn from(value: &IWPCProviderSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCProviderSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWPCProviderSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -285,21 +214,7 @@ impl IWPCSettings {
         (::windows::core::Vtable::vtable(self).GetRestrictions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
 }
-impl ::core::convert::From<IWPCSettings> for ::windows::core::IUnknown {
-    fn from(value: IWPCSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCSettings> for ::windows::core::IUnknown {
-    fn from(value: &IWPCSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCSettings, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWPCSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -371,36 +286,7 @@ impl IWPCWebSettings {
         (::windows::core::Vtable::vtable(self).RequestURLOverride)(::windows::core::Vtable::as_raw(self), hwnd.into(), pcszurl.into(), ppcszsuburls.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppcszsuburls.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWPCWebSettings> for ::windows::core::IUnknown {
-    fn from(value: IWPCWebSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCWebSettings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWPCWebSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCWebSettings> for ::windows::core::IUnknown {
-    fn from(value: &IWPCWebSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWPCWebSettings> for IWPCSettings {
-    fn from(value: IWPCWebSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWPCWebSettings> for &'a IWPCSettings {
-    fn from(value: &'a IWPCWebSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWPCWebSettings> for IWPCSettings {
-    fn from(value: &IWPCWebSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWPCWebSettings, ::windows::core::IUnknown, IWPCSettings);
 impl ::core::clone::Clone for IWPCWebSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -466,36 +352,7 @@ impl IWindowsParentalControls {
         (::windows::core::Vtable::vtable(self).GetGamesSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWPCGamesSettings>(result__)
     }
 }
-impl ::core::convert::From<IWindowsParentalControls> for ::windows::core::IUnknown {
-    fn from(value: IWindowsParentalControls) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsParentalControls> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsParentalControls) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsParentalControls> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsParentalControls) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWindowsParentalControls> for IWindowsParentalControlsCore {
-    fn from(value: IWindowsParentalControls) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsParentalControls> for &'a IWindowsParentalControlsCore {
-    fn from(value: &'a IWindowsParentalControls) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsParentalControls> for IWindowsParentalControlsCore {
-    fn from(value: &IWindowsParentalControls) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsParentalControls, ::windows::core::IUnknown, IWindowsParentalControlsCore);
 impl ::core::clone::Clone for IWindowsParentalControls {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -550,21 +407,7 @@ impl IWindowsParentalControlsCore {
         (::windows::core::Vtable::vtable(self).GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidid), ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWindowsParentalControlsCore> for ::windows::core::IUnknown {
-    fn from(value: IWindowsParentalControlsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsParentalControlsCore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsParentalControlsCore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsParentalControlsCore> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsParentalControlsCore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWindowsParentalControlsCore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWindowsParentalControlsCore {
     fn clone(&self) -> Self {
         Self(self.0.clone())

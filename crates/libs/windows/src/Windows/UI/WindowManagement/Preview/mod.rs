@@ -77,36 +77,7 @@ unsafe impl ::windows::core::Interface for WindowManagementPreview {
 impl ::windows::core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";
 }
-impl ::core::convert::From<WindowManagementPreview> for ::windows::core::IUnknown {
-    fn from(value: WindowManagementPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowManagementPreview> for ::windows::core::IUnknown {
-    fn from(value: &WindowManagementPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowManagementPreview> for &::windows::core::IUnknown {
-    fn from(value: &WindowManagementPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WindowManagementPreview> for ::windows::core::IInspectable {
-    fn from(value: WindowManagementPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WindowManagementPreview> for ::windows::core::IInspectable {
-    fn from(value: &WindowManagementPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WindowManagementPreview> for &::windows::core::IInspectable {
-    fn from(value: &WindowManagementPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WindowManagementPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WindowManagementPreview {}
 unsafe impl ::core::marker::Sync for WindowManagementPreview {}
 #[cfg(feature = "implement")]

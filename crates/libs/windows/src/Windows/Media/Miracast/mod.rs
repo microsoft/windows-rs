@@ -614,36 +614,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiver {
 impl ::windows::core::RuntimeName for MiracastReceiver {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiver";
 }
-impl ::core::convert::From<MiracastReceiver> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiver> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiver> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiver> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiver> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiver> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiver, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiver {}
 unsafe impl ::core::marker::Sync for MiracastReceiver {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -697,36 +668,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverApplySettingsResult {
 impl ::windows::core::RuntimeName for MiracastReceiverApplySettingsResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverApplySettingsResult";
 }
-impl ::core::convert::From<MiracastReceiverApplySettingsResult> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverApplySettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverApplySettingsResult> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverApplySettingsResult> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverApplySettingsResult> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverApplySettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverApplySettingsResult> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverApplySettingsResult> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverApplySettingsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverApplySettingsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -834,36 +776,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverConnection {
 impl ::windows::core::RuntimeName for MiracastReceiverConnection {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnection";
 }
-impl ::core::convert::From<MiracastReceiverConnection> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnection> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnection> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverConnection> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnection> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnection> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MiracastReceiverConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -948,36 +861,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverConnectionCreatedEven
 impl ::windows::core::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs";
 }
-impl ::core::convert::From<MiracastReceiverConnectionCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverConnectionCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverConnectionCreatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverConnectionCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverConnectionCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1081,36 +965,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannel {
 impl ::windows::core::RuntimeName for MiracastReceiverCursorImageChannel {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannel";
 }
-impl ::core::convert::From<MiracastReceiverCursorImageChannel> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverCursorImageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannel> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannel> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverCursorImageChannel> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverCursorImageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannel> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannel> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverCursorImageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannel {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1176,36 +1031,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverCursorImageChannelSet
 impl ::windows::core::RuntimeName for MiracastReceiverCursorImageChannelSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings";
 }
-impl ::core::convert::From<MiracastReceiverCursorImageChannelSettings> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverCursorImageChannelSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannelSettings> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannelSettings> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverCursorImageChannelSettings> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverCursorImageChannelSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannelSettings> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverCursorImageChannelSettings> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverCursorImageChannelSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverCursorImageChannelSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1252,36 +1078,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverDisconnectedEventArgs
 impl ::windows::core::RuntimeName for MiracastReceiverDisconnectedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs";
 }
-impl ::core::convert::From<MiracastReceiverDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverDisconnectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverDisconnectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1372,36 +1169,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverGameControllerDevice 
 impl ::windows::core::RuntimeName for MiracastReceiverGameControllerDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverGameControllerDevice";
 }
-impl ::core::convert::From<MiracastReceiverGameControllerDevice> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverGameControllerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverGameControllerDevice> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverGameControllerDevice> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverGameControllerDevice> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverGameControllerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverGameControllerDevice> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverGameControllerDevice> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverGameControllerDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverGameControllerDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1455,36 +1223,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverInputDevices {
 impl ::windows::core::RuntimeName for MiracastReceiverInputDevices {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverInputDevices";
 }
-impl ::core::convert::From<MiracastReceiverInputDevices> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverInputDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverInputDevices> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverInputDevices> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverInputDevices> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverInputDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverInputDevices> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverInputDevices> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverInputDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverInputDevices, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::core::marker::Sync for MiracastReceiverInputDevices {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1564,36 +1303,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverKeyboardDevice {
 impl ::windows::core::RuntimeName for MiracastReceiverKeyboardDevice {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverKeyboardDevice";
 }
-impl ::core::convert::From<MiracastReceiverKeyboardDevice> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverKeyboardDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverKeyboardDevice> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverKeyboardDevice> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverKeyboardDevice> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverKeyboardDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverKeyboardDevice> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverKeyboardDevice> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverKeyboardDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverKeyboardDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1665,36 +1375,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverMediaSourceCreatedEve
 impl ::windows::core::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs";
 }
-impl ::core::convert::From<MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverMediaSourceCreatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverMediaSourceCreatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -1823,36 +1504,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSession {
 impl ::windows::core::RuntimeName for MiracastReceiverSession {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSession";
 }
-impl ::core::convert::From<MiracastReceiverSession> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSession> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSession> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverSession> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSession> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSession> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MiracastReceiverSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1928,36 +1580,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSessionStartResult {
 impl ::windows::core::RuntimeName for MiracastReceiverSessionStartResult {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSessionStartResult";
 }
-impl ::core::convert::From<MiracastReceiverSessionStartResult> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverSessionStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSessionStartResult> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSessionStartResult> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverSessionStartResult> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverSessionStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSessionStartResult> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSessionStartResult> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSessionStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverSessionStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2052,36 +1675,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverSettings {
 impl ::windows::core::RuntimeName for MiracastReceiverSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverSettings";
 }
-impl ::core::convert::From<MiracastReceiverSettings> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSettings> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSettings> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverSettings> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSettings> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverSettings> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2158,36 +1752,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverStatus {
 impl ::windows::core::RuntimeName for MiracastReceiverStatus {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStatus";
 }
-impl ::core::convert::From<MiracastReceiverStatus> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStatus> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStatus> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverStatus> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStatus> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStatus> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStatus {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2267,36 +1832,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverStreamControl {
 impl ::windows::core::RuntimeName for MiracastReceiverStreamControl {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverStreamControl";
 }
-impl ::core::convert::From<MiracastReceiverStreamControl> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStreamControl> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStreamControl> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverStreamControl> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStreamControl> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverStreamControl> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverStreamControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverStreamControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2362,36 +1898,7 @@ unsafe impl ::windows::core::Interface for MiracastReceiverVideoStreamSettings {
 impl ::windows::core::RuntimeName for MiracastReceiverVideoStreamSettings {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings";
 }
-impl ::core::convert::From<MiracastReceiverVideoStreamSettings> for ::windows::core::IUnknown {
-    fn from(value: MiracastReceiverVideoStreamSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverVideoStreamSettings> for ::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverVideoStreamSettings> for &::windows::core::IUnknown {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastReceiverVideoStreamSettings> for ::windows::core::IInspectable {
-    fn from(value: MiracastReceiverVideoStreamSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastReceiverVideoStreamSettings> for ::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastReceiverVideoStreamSettings> for &::windows::core::IInspectable {
-    fn from(value: &MiracastReceiverVideoStreamSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastReceiverVideoStreamSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]
@@ -2478,36 +1985,7 @@ unsafe impl ::windows::core::Interface for MiracastTransmitter {
 impl ::windows::core::RuntimeName for MiracastTransmitter {
     const NAME: &'static str = "Windows.Media.Miracast.MiracastTransmitter";
 }
-impl ::core::convert::From<MiracastTransmitter> for ::windows::core::IUnknown {
-    fn from(value: MiracastTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastTransmitter> for ::windows::core::IUnknown {
-    fn from(value: &MiracastTransmitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastTransmitter> for &::windows::core::IUnknown {
-    fn from(value: &MiracastTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MiracastTransmitter> for ::windows::core::IInspectable {
-    fn from(value: MiracastTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MiracastTransmitter> for ::windows::core::IInspectable {
-    fn from(value: &MiracastTransmitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MiracastTransmitter> for &::windows::core::IInspectable {
-    fn from(value: &MiracastTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MiracastTransmitter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
 #[doc = "*Required features: `\"Media_Miracast\"`*"]

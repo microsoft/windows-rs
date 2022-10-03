@@ -755,36 +755,7 @@ unsafe impl ::windows::core::Interface for AppInstallItem {
 impl ::windows::core::RuntimeName for AppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
 }
-impl ::core::convert::From<AppInstallItem> for ::windows::core::IUnknown {
-    fn from(value: AppInstallItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallItem> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallItem> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallItem> for ::windows::core::IInspectable {
-    fn from(value: AppInstallItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallItem> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallItem> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallItem {}
 unsafe impl ::core::marker::Sync for AppInstallItem {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1206,36 +1177,7 @@ unsafe impl ::windows::core::Interface for AppInstallManager {
 impl ::windows::core::RuntimeName for AppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
 }
-impl ::core::convert::From<AppInstallManager> for ::windows::core::IUnknown {
-    fn from(value: AppInstallManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallManager> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallManager> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallManager> for ::windows::core::IInspectable {
-    fn from(value: AppInstallManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallManager> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallManager> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallManager {}
 unsafe impl ::core::marker::Sync for AppInstallManager {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1282,36 +1224,7 @@ unsafe impl ::windows::core::Interface for AppInstallManagerItemEventArgs {
 impl ::windows::core::RuntimeName for AppInstallManagerItemEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
 }
-impl ::core::convert::From<AppInstallManagerItemEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppInstallManagerItemEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallManagerItemEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallManagerItemEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallManagerItemEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppInstallManagerItemEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallManagerItemEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallManagerItemEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallManagerItemEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallManagerItemEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallManagerItemEventArgs {}
 unsafe impl ::core::marker::Sync for AppInstallManagerItemEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1527,36 +1440,7 @@ unsafe impl ::windows::core::Interface for AppInstallOptions {
 impl ::windows::core::RuntimeName for AppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
 }
-impl ::core::convert::From<AppInstallOptions> for ::windows::core::IUnknown {
-    fn from(value: AppInstallOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallOptions> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallOptions> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallOptions> for ::windows::core::IInspectable {
-    fn from(value: AppInstallOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallOptions> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallOptions> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallOptions {}
 unsafe impl ::core::marker::Sync for AppInstallOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1654,36 +1538,7 @@ unsafe impl ::windows::core::Interface for AppInstallStatus {
 impl ::windows::core::RuntimeName for AppInstallStatus {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
 }
-impl ::core::convert::From<AppInstallStatus> for ::windows::core::IUnknown {
-    fn from(value: AppInstallStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallStatus> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallStatus> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallStatus> for ::windows::core::IInspectable {
-    fn from(value: AppInstallStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallStatus> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallStatus> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallStatus {}
 unsafe impl ::core::marker::Sync for AppInstallStatus {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1763,36 +1618,7 @@ unsafe impl ::windows::core::Interface for AppUpdateOptions {
 impl ::windows::core::RuntimeName for AppUpdateOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
 }
-impl ::core::convert::From<AppUpdateOptions> for ::windows::core::IUnknown {
-    fn from(value: AppUpdateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUpdateOptions> for ::windows::core::IUnknown {
-    fn from(value: &AppUpdateOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUpdateOptions> for &::windows::core::IUnknown {
-    fn from(value: &AppUpdateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppUpdateOptions> for ::windows::core::IInspectable {
-    fn from(value: AppUpdateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppUpdateOptions> for ::windows::core::IInspectable {
-    fn from(value: &AppUpdateOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppUpdateOptions> for &::windows::core::IInspectable {
-    fn from(value: &AppUpdateOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppUpdateOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppUpdateOptions {}
 unsafe impl ::core::marker::Sync for AppUpdateOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]
@@ -1839,36 +1665,7 @@ unsafe impl ::windows::core::Interface for GetEntitlementResult {
 impl ::windows::core::RuntimeName for GetEntitlementResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";
 }
-impl ::core::convert::From<GetEntitlementResult> for ::windows::core::IUnknown {
-    fn from(value: GetEntitlementResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GetEntitlementResult> for ::windows::core::IUnknown {
-    fn from(value: &GetEntitlementResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GetEntitlementResult> for &::windows::core::IUnknown {
-    fn from(value: &GetEntitlementResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GetEntitlementResult> for ::windows::core::IInspectable {
-    fn from(value: GetEntitlementResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GetEntitlementResult> for ::windows::core::IInspectable {
-    fn from(value: &GetEntitlementResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GetEntitlementResult> for &::windows::core::IInspectable {
-    fn from(value: &GetEntitlementResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GetEntitlementResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GetEntitlementResult {}
 unsafe impl ::core::marker::Sync for GetEntitlementResult {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`*"]

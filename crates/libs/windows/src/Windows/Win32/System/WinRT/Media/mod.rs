@@ -10,36 +10,7 @@ impl IAudioFrameNative {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAudioFrameNative> for ::windows::core::IUnknown {
-    fn from(value: IAudioFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioFrameNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioFrameNative> for ::windows::core::IUnknown {
-    fn from(value: &IAudioFrameNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioFrameNative> for ::windows::core::IInspectable {
-    fn from(value: IAudioFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioFrameNative> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioFrameNative> for ::windows::core::IInspectable {
-    fn from(value: &IAudioFrameNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAudioFrameNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -84,36 +55,7 @@ impl IAudioFrameNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IAudioFrameNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: IAudioFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioFrameNativeFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAudioFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioFrameNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: &IAudioFrameNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAudioFrameNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: IAudioFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAudioFrameNativeFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IAudioFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioFrameNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: &IAudioFrameNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAudioFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IAudioFrameNativeFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -164,36 +106,7 @@ impl IVideoFrameNative {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IVideoFrameNative> for ::windows::core::IUnknown {
-    fn from(value: IVideoFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoFrameNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVideoFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoFrameNative> for ::windows::core::IUnknown {
-    fn from(value: &IVideoFrameNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVideoFrameNative> for ::windows::core::IInspectable {
-    fn from(value: IVideoFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoFrameNative> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVideoFrameNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoFrameNative> for ::windows::core::IInspectable {
-    fn from(value: &IVideoFrameNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVideoFrameNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVideoFrameNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -240,36 +153,7 @@ impl IVideoFrameNativeFactory {
         (::windows::core::Vtable::vtable(self).CreateFromMFSample)(::windows::core::Vtable::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: IVideoFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoFrameNativeFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVideoFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoFrameNativeFactory> for ::windows::core::IUnknown {
-    fn from(value: &IVideoFrameNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: IVideoFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVideoFrameNativeFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IVideoFrameNativeFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVideoFrameNativeFactory> for ::windows::core::IInspectable {
-    fn from(value: &IVideoFrameNativeFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVideoFrameNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IVideoFrameNativeFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())

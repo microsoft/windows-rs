@@ -243,36 +243,7 @@ unsafe impl ::windows::core::Interface for AppRecordingManager {
 impl ::windows::core::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
 }
-impl ::core::convert::From<AppRecordingManager> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingManager> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingManager> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingManager> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingManager> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingManager> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingManager {}
 unsafe impl ::core::marker::Sync for AppRecordingManager {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -342,36 +313,7 @@ unsafe impl ::windows::core::Interface for AppRecordingResult {
 impl ::windows::core::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
 }
-impl ::core::convert::From<AppRecordingResult> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingResult> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingResult> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingResult> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingResult {}
 unsafe impl ::core::marker::Sync for AppRecordingResult {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -434,36 +376,7 @@ unsafe impl ::windows::core::Interface for AppRecordingSaveScreenshotResult {
 impl ::windows::core::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
 }
-impl ::core::convert::From<AppRecordingSaveScreenshotResult> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingSaveScreenshotResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingSaveScreenshotResult> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingSaveScreenshotResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingSaveScreenshotResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingSaveScreenshotResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingSaveScreenshotResult {}
 unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -519,36 +432,7 @@ unsafe impl ::windows::core::Interface for AppRecordingSavedScreenshotInfo {
 impl ::windows::core::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
 }
-impl ::core::convert::From<AppRecordingSavedScreenshotInfo> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingSavedScreenshotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingSavedScreenshotInfo> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingSavedScreenshotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingSavedScreenshotInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingSavedScreenshotInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingSavedScreenshotInfo {}
 unsafe impl ::core::marker::Sync for AppRecordingSavedScreenshotInfo {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -618,36 +502,7 @@ unsafe impl ::windows::core::Interface for AppRecordingStatus {
 impl ::windows::core::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
 }
-impl ::core::convert::From<AppRecordingStatus> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingStatus> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingStatus> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingStatus> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingStatus> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingStatus> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingStatus, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingStatus {}
 unsafe impl ::core::marker::Sync for AppRecordingStatus {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
@@ -750,36 +605,7 @@ unsafe impl ::windows::core::Interface for AppRecordingStatusDetails {
 impl ::windows::core::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";
 }
-impl ::core::convert::From<AppRecordingStatusDetails> for ::windows::core::IUnknown {
-    fn from(value: AppRecordingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingStatusDetails> for ::windows::core::IUnknown {
-    fn from(value: &AppRecordingStatusDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingStatusDetails> for &::windows::core::IUnknown {
-    fn from(value: &AppRecordingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppRecordingStatusDetails> for ::windows::core::IInspectable {
-    fn from(value: AppRecordingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppRecordingStatusDetails> for ::windows::core::IInspectable {
-    fn from(value: &AppRecordingStatusDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppRecordingStatusDetails> for &::windows::core::IInspectable {
-    fn from(value: &AppRecordingStatusDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppRecordingStatusDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppRecordingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppRecordingStatusDetails {}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]

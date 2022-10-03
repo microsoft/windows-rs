@@ -308,21 +308,7 @@ impl IInertiaProcessor {
         (::windows::core::Vtable::vtable(self).CompleteTime)(::windows::core::Vtable::as_raw(self), timestamp).ok()
     }
 }
-impl ::core::convert::From<IInertiaProcessor> for ::windows::core::IUnknown {
-    fn from(value: IInertiaProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IInertiaProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IInertiaProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInertiaProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IInertiaProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IInertiaProcessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IInertiaProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -482,21 +468,7 @@ impl IManipulationProcessor {
         (::windows::core::Vtable::vtable(self).SetMinimumScaleRotateRadius)(::windows::core::Vtable::as_raw(self), minradius).ok()
     }
 }
-impl ::core::convert::From<IManipulationProcessor> for ::windows::core::IUnknown {
-    fn from(value: IManipulationProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IManipulationProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IManipulationProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IManipulationProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IManipulationProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IManipulationProcessor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IManipulationProcessor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -559,21 +531,7 @@ impl _IManipulationEvents {
         (::windows::core::Vtable::vtable(self).ManipulationCompleted)(::windows::core::Vtable::as_raw(self), x, y, cumulativetranslationx, cumulativetranslationy, cumulativescale, cumulativeexpansion, cumulativerotation).ok()
     }
 }
-impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {
-    fn from(value: _IManipulationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a _IManipulationEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _IManipulationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&_IManipulationEvents> for ::windows::core::IUnknown {
-    fn from(value: &_IManipulationEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_IManipulationEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for _IManipulationEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())

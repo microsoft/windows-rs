@@ -105,36 +105,7 @@ unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
 impl ::windows::core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
 }
-impl ::core::convert::From<PalmRejectionDelayZonePreview> for ::windows::core::IUnknown {
-    fn from(value: PalmRejectionDelayZonePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PalmRejectionDelayZonePreview> for ::windows::core::IUnknown {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PalmRejectionDelayZonePreview> for &::windows::core::IUnknown {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PalmRejectionDelayZonePreview> for ::windows::core::IInspectable {
-    fn from(value: PalmRejectionDelayZonePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PalmRejectionDelayZonePreview> for ::windows::core::IInspectable {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PalmRejectionDelayZonePreview> for &::windows::core::IInspectable {
-    fn from(value: &PalmRejectionDelayZonePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PalmRejectionDelayZonePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PalmRejectionDelayZonePreview> for super::super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

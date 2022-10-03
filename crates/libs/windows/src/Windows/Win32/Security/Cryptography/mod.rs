@@ -4769,41 +4769,7 @@ impl ICertSrvSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetup> for ::windows::core::IUnknown {
-    fn from(value: ICertSrvSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICertSrvSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetup> for ::windows::core::IUnknown {
-    fn from(value: &ICertSrvSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetup> for super::super::System::Com::IDispatch {
-    fn from(value: ICertSrvSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICertSrvSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetup> for super::super::System::Com::IDispatch {
-    fn from(value: &ICertSrvSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICertSrvSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICertSrvSetup {
     fn clone(&self) -> Self {
@@ -4942,41 +4908,7 @@ impl ICertSrvSetupKeyInformation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetupKeyInformation> for ::windows::core::IUnknown {
-    fn from(value: ICertSrvSetupKeyInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetupKeyInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICertSrvSetupKeyInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetupKeyInformation> for ::windows::core::IUnknown {
-    fn from(value: &ICertSrvSetupKeyInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetupKeyInformation> for super::super::System::Com::IDispatch {
-    fn from(value: ICertSrvSetupKeyInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetupKeyInformation> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICertSrvSetupKeyInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetupKeyInformation> for super::super::System::Com::IDispatch {
-    fn from(value: &ICertSrvSetupKeyInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICertSrvSetupKeyInformation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICertSrvSetupKeyInformation {
     fn clone(&self) -> Self {
@@ -5059,41 +4991,7 @@ impl ICertSrvSetupKeyInformationCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetupKeyInformationCollection> for ::windows::core::IUnknown {
-    fn from(value: ICertSrvSetupKeyInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetupKeyInformationCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICertSrvSetupKeyInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetupKeyInformationCollection> for ::windows::core::IUnknown {
-    fn from(value: &ICertSrvSetupKeyInformationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertSrvSetupKeyInformationCollection> for super::super::System::Com::IDispatch {
-    fn from(value: ICertSrvSetupKeyInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertSrvSetupKeyInformationCollection> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICertSrvSetupKeyInformationCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertSrvSetupKeyInformationCollection> for super::super::System::Com::IDispatch {
-    fn from(value: &ICertSrvSetupKeyInformationCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICertSrvSetupKeyInformationCollection {
     fn clone(&self) -> Self {
@@ -5172,41 +5070,7 @@ impl ICertificateEnrollmentPolicyServerSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertificateEnrollmentPolicyServerSetup> for ::windows::core::IUnknown {
-    fn from(value: ICertificateEnrollmentPolicyServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertificateEnrollmentPolicyServerSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICertificateEnrollmentPolicyServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertificateEnrollmentPolicyServerSetup> for ::windows::core::IUnknown {
-    fn from(value: &ICertificateEnrollmentPolicyServerSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertificateEnrollmentPolicyServerSetup> for super::super::System::Com::IDispatch {
-    fn from(value: ICertificateEnrollmentPolicyServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertificateEnrollmentPolicyServerSetup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICertificateEnrollmentPolicyServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertificateEnrollmentPolicyServerSetup> for super::super::System::Com::IDispatch {
-    fn from(value: &ICertificateEnrollmentPolicyServerSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICertificateEnrollmentPolicyServerSetup {
     fn clone(&self) -> Self {
@@ -5293,41 +5157,7 @@ impl ICertificateEnrollmentServerSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertificateEnrollmentServerSetup> for ::windows::core::IUnknown {
-    fn from(value: ICertificateEnrollmentServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertificateEnrollmentServerSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICertificateEnrollmentServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertificateEnrollmentServerSetup> for ::windows::core::IUnknown {
-    fn from(value: &ICertificateEnrollmentServerSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ICertificateEnrollmentServerSetup> for super::super::System::Com::IDispatch {
-    fn from(value: ICertificateEnrollmentServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ICertificateEnrollmentServerSetup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a ICertificateEnrollmentServerSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ICertificateEnrollmentServerSetup> for super::super::System::Com::IDispatch {
-    fn from(value: &ICertificateEnrollmentServerSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICertificateEnrollmentServerSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ICertificateEnrollmentServerSetup {
     fn clone(&self) -> Self {
@@ -5436,41 +5266,7 @@ impl IMSCEPSetup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMSCEPSetup> for ::windows::core::IUnknown {
-    fn from(value: IMSCEPSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMSCEPSetup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMSCEPSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMSCEPSetup> for ::windows::core::IUnknown {
-    fn from(value: &IMSCEPSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMSCEPSetup> for super::super::System::Com::IDispatch {
-    fn from(value: IMSCEPSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMSCEPSetup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IMSCEPSetup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMSCEPSetup> for super::super::System::Com::IDispatch {
-    fn from(value: &IMSCEPSetup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMSCEPSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMSCEPSetup {
     fn clone(&self) -> Self {

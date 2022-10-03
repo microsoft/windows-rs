@@ -306,36 +306,7 @@ unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorAuthentica
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
 }
-impl ::core::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::core::IUnknown {
-    fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for &::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::core::IInspectable {
-    fn from(value: MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for ::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorAuthenticationManager> for &::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorAuthenticationManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -391,36 +362,7 @@ unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorGetSession
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
 }
-impl ::core::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::core::IUnknown {
-    fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for &::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::core::IInspectable {
-    fn from(value: MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for ::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorGetSessionsResult> for &::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorGetSessionsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -492,36 +434,7 @@ unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorOneTimeCod
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
 }
-impl ::core::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::core::IUnknown {
-    fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for &::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::core::IInspectable {
-    fn from(value: MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for ::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorOneTimeCodedInfo> for &::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorOneTimeCodedInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MicrosoftAccountMultiFactorOneTimeCodedInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -614,36 +527,7 @@ unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorSessionInf
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
 }
-impl ::core::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for &::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MicrosoftAccountMultiFactorSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorSessionInfo> for &::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MicrosoftAccountMultiFactorSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]
@@ -708,36 +592,7 @@ unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorUnregister
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
 }
-impl ::core::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for &::windows::core::IUnknown {
-    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> for &::windows::core::IInspectable {
-    fn from(value: &MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
 #[doc = "*Required features: `\"Security_Authentication_Identity_Core\"`*"]

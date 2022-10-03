@@ -170,36 +170,7 @@ unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
 impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
 }
-impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ErrorReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ErrorReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ErrorReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ErrorReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for ErrorReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
@@ -246,36 +217,7 @@ unsafe impl ::windows::core::Interface for PinChangedEventArgs {
 impl ::windows::core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
 }
-impl ::core::convert::From<PinChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PinChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PinChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PinChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PinChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PinChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PinChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PinChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PinChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PinChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PinChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PinChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PinChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PinChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_SerialCommunication\"`*"]
@@ -567,36 +509,7 @@ unsafe impl ::windows::core::Interface for SerialDevice {
 impl ::windows::core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";
 }
-impl ::core::convert::From<SerialDevice> for ::windows::core::IUnknown {
-    fn from(value: SerialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SerialDevice> for ::windows::core::IUnknown {
-    fn from(value: &SerialDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SerialDevice> for &::windows::core::IUnknown {
-    fn from(value: &SerialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SerialDevice> for ::windows::core::IInspectable {
-    fn from(value: SerialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SerialDevice> for ::windows::core::IInspectable {
-    fn from(value: &SerialDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SerialDevice> for &::windows::core::IInspectable {
-    fn from(value: &SerialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SerialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SerialDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

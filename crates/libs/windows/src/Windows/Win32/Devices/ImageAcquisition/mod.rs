@@ -20,21 +20,7 @@ impl IEnumWIA_DEV_CAPS {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumWIA_DEV_CAPS> for ::windows::core::IUnknown {
-    fn from(value: IEnumWIA_DEV_CAPS) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumWIA_DEV_CAPS> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumWIA_DEV_CAPS) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumWIA_DEV_CAPS> for ::windows::core::IUnknown {
-    fn from(value: &IEnumWIA_DEV_CAPS) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -89,21 +75,7 @@ impl IEnumWIA_DEV_INFO {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumWIA_DEV_INFO> for ::windows::core::IUnknown {
-    fn from(value: IEnumWIA_DEV_INFO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumWIA_DEV_INFO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumWIA_DEV_INFO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumWIA_DEV_INFO> for ::windows::core::IUnknown {
-    fn from(value: &IEnumWIA_DEV_INFO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -158,21 +130,7 @@ impl IEnumWIA_FORMAT_INFO {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumWIA_FORMAT_INFO> for ::windows::core::IUnknown {
-    fn from(value: IEnumWIA_FORMAT_INFO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumWIA_FORMAT_INFO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumWIA_FORMAT_INFO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumWIA_FORMAT_INFO> for ::windows::core::IUnknown {
-    fn from(value: &IEnumWIA_FORMAT_INFO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -227,21 +185,7 @@ impl IEnumWiaItem {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumWiaItem> for ::windows::core::IUnknown {
-    fn from(value: IEnumWiaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumWiaItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumWiaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumWiaItem> for ::windows::core::IUnknown {
-    fn from(value: &IEnumWiaItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumWiaItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumWiaItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -296,21 +240,7 @@ impl IEnumWiaItem2 {
         (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IEnumWiaItem2> for ::windows::core::IUnknown {
-    fn from(value: IEnumWiaItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumWiaItem2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumWiaItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumWiaItem2> for ::windows::core::IUnknown {
-    fn from(value: &IEnumWiaItem2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumWiaItem2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumWiaItem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -360,21 +290,7 @@ impl IWiaAppErrorHandler {
         (::windows::core::Vtable::vtable(self).ReportStatus)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, lpercentcomplete).ok()
     }
 }
-impl ::core::convert::From<IWiaAppErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: IWiaAppErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaAppErrorHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaAppErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaAppErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: &IWiaAppErrorHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaAppErrorHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaAppErrorHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -415,21 +331,7 @@ impl IWiaDataCallback {
         (::windows::core::Vtable::vtable(self).BandedDataCallback)(::windows::core::Vtable::as_raw(self), lmessage, lstatus, lpercentcomplete, loffset, llength, lreserved, lreslength, ::core::mem::transmute(pbbuffer)).ok()
     }
 }
-impl ::core::convert::From<IWiaDataCallback> for ::windows::core::IUnknown {
-    fn from(value: IWiaDataCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaDataCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaDataCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaDataCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWiaDataCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaDataCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaDataCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -490,21 +392,7 @@ impl IWiaDataTransfer {
         (::windows::core::Vtable::vtable(self).idtGetExtendedTransferInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WIA_EXTENDED_TRANSFER_INFO>(result__)
     }
 }
-impl ::core::convert::From<IWiaDataTransfer> for ::windows::core::IUnknown {
-    fn from(value: IWiaDataTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaDataTransfer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaDataTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaDataTransfer> for ::windows::core::IUnknown {
-    fn from(value: &IWiaDataTransfer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaDataTransfer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaDataTransfer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -602,21 +490,7 @@ impl IWiaDevMgr {
         (::windows::core::Vtable::vtable(self).AddDeviceDlg)(::windows::core::Vtable::as_raw(self), hwndparent.into(), lflags).ok()
     }
 }
-impl ::core::convert::From<IWiaDevMgr> for ::windows::core::IUnknown {
-    fn from(value: IWiaDevMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaDevMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaDevMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaDevMgr> for ::windows::core::IUnknown {
-    fn from(value: &IWiaDevMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaDevMgr, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaDevMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -715,21 +589,7 @@ impl IWiaDevMgr2 {
         (::windows::core::Vtable::vtable(self).GetImageDlg)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstrdeviceid), hwndparent.into(), ::core::mem::transmute_copy(bstrfoldername), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute(plnumfiles), ::core::mem::transmute(ppbstrfilepaths), ::core::mem::transmute(ppitem)).ok()
     }
 }
-impl ::core::convert::From<IWiaDevMgr2> for ::windows::core::IUnknown {
-    fn from(value: IWiaDevMgr2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaDevMgr2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaDevMgr2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaDevMgr2> for ::windows::core::IUnknown {
-    fn from(value: &IWiaDevMgr2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaDevMgr2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaDevMgr2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -831,21 +691,7 @@ impl IWiaDrvItem {
         (::windows::core::Vtable::vtable(self).DumpItemData)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IWiaDrvItem> for ::windows::core::IUnknown {
-    fn from(value: IWiaDrvItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaDrvItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaDrvItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaDrvItem> for ::windows::core::IUnknown {
-    fn from(value: &IWiaDrvItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaDrvItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaDrvItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -907,21 +753,7 @@ impl IWiaErrorHandler {
         (::windows::core::Vtable::vtable(self).GetStatusDescription)(::windows::core::Vtable::as_raw(self), lflags, pwiaitem2.into().abi(), hrstatus, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
 }
-impl ::core::convert::From<IWiaErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: IWiaErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaErrorHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: &IWiaErrorHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaErrorHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaErrorHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -962,21 +794,7 @@ impl IWiaEventCallback {
         (::windows::core::Vtable::vtable(self).ImageEventCallback)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(peventguid), ::core::mem::transmute_copy(bstreventdescription), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute_copy(bstrdevicedescription), dwdevicetype, ::core::mem::transmute_copy(bstrfullitemname), ::core::mem::transmute(puleventtype), ulreserved).ok()
     }
 }
-impl ::core::convert::From<IWiaEventCallback> for ::windows::core::IUnknown {
-    fn from(value: IWiaEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaEventCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaEventCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWiaEventCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaEventCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaEventCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1038,21 +856,7 @@ impl IWiaImageFilter {
         (::windows::core::Vtable::vtable(self).ApplyProperties)(::windows::core::Vtable::as_raw(self), pwiapropertystorage.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWiaImageFilter> for ::windows::core::IUnknown {
-    fn from(value: IWiaImageFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaImageFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaImageFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaImageFilter> for ::windows::core::IUnknown {
-    fn from(value: &IWiaImageFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaImageFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaImageFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1152,21 +956,7 @@ impl IWiaItem {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWiaItem> for ::windows::core::IUnknown {
-    fn from(value: IWiaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaItem> for ::windows::core::IUnknown {
-    fn from(value: &IWiaItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1282,21 +1072,7 @@ impl IWiaItem2 {
         (::windows::core::Vtable::vtable(self).Diagnostic)(::windows::core::Vtable::as_raw(self), pbuffer.len() as _, ::core::mem::transmute(pbuffer.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWiaItem2> for ::windows::core::IUnknown {
-    fn from(value: IWiaItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaItem2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaItem2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaItem2> for ::windows::core::IUnknown {
-    fn from(value: &IWiaItem2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaItem2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaItem2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1361,21 +1137,7 @@ impl IWiaItemExtras {
         (::windows::core::Vtable::vtable(self).CancelPendingIO)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWiaItemExtras> for ::windows::core::IUnknown {
-    fn from(value: IWiaItemExtras) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaItemExtras> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaItemExtras) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaItemExtras> for ::windows::core::IUnknown {
-    fn from(value: &IWiaItemExtras) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaItemExtras, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaItemExtras {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1420,21 +1182,7 @@ impl IWiaLog {
         (::windows::core::Vtable::vtable(self).Log)(::windows::core::Vtable::as_raw(self), lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
-impl ::core::convert::From<IWiaLog> for ::windows::core::IUnknown {
-    fn from(value: IWiaLog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaLog> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaLog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaLog> for ::windows::core::IUnknown {
-    fn from(value: &IWiaLog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaLog, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaLog {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1485,21 +1233,7 @@ impl IWiaLogEx {
         (::windows::core::Vtable::vtable(self).LogEx)(::windows::core::Vtable::as_raw(self), lmethodid, lflags, lresid, ldetail, ::core::mem::transmute_copy(bstrtext)).ok()
     }
 }
-impl ::core::convert::From<IWiaLogEx> for ::windows::core::IUnknown {
-    fn from(value: IWiaLogEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaLogEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaLogEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaLogEx> for ::windows::core::IUnknown {
-    fn from(value: &IWiaLogEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaLogEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaLogEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1608,21 +1342,7 @@ impl IWiaMiniDrv {
         (::windows::core::Vtable::vtable(self).drvUnInitializeWia)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(__midl__iwiaminidrv0064)).ok()
     }
 }
-impl ::core::convert::From<IWiaMiniDrv> for ::windows::core::IUnknown {
-    fn from(value: IWiaMiniDrv) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaMiniDrv> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaMiniDrv) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaMiniDrv> for ::windows::core::IUnknown {
-    fn from(value: &IWiaMiniDrv) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaMiniDrv, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaMiniDrv {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1689,21 +1409,7 @@ impl IWiaMiniDrvCallBack {
         (::windows::core::Vtable::vtable(self).MiniDrvCallback)(::windows::core::Vtable::as_raw(self), lreason, lstatus, lpercentcomplete, loffset, llength, ::core::mem::transmute(ptranctx), lreserved).ok()
     }
 }
-impl ::core::convert::From<IWiaMiniDrvCallBack> for ::windows::core::IUnknown {
-    fn from(value: IWiaMiniDrvCallBack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaMiniDrvCallBack> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaMiniDrvCallBack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaMiniDrvCallBack> for ::windows::core::IUnknown {
-    fn from(value: &IWiaMiniDrvCallBack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaMiniDrvCallBack {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1749,21 +1455,7 @@ impl IWiaMiniDrvTransferCallback {
         (::windows::core::Vtable::vtable(self).SendMessage)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute(pwiatransferparams)).ok()
     }
 }
-impl ::core::convert::From<IWiaMiniDrvTransferCallback> for ::windows::core::IUnknown {
-    fn from(value: IWiaMiniDrvTransferCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaMiniDrvTransferCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaMiniDrvTransferCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaMiniDrvTransferCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWiaMiniDrvTransferCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1804,21 +1496,7 @@ impl IWiaNotifyDevMgr {
         (::windows::core::Vtable::vtable(self).NewDeviceArrival)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWiaNotifyDevMgr> for ::windows::core::IUnknown {
-    fn from(value: IWiaNotifyDevMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaNotifyDevMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaNotifyDevMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaNotifyDevMgr> for ::windows::core::IUnknown {
-    fn from(value: &IWiaNotifyDevMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaNotifyDevMgr, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaNotifyDevMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1872,21 +1550,7 @@ impl IWiaPreview {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWiaPreview> for ::windows::core::IUnknown {
-    fn from(value: IWiaPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaPreview> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaPreview> for ::windows::core::IUnknown {
-    fn from(value: &IWiaPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaPreview, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaPreview {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1997,21 +1661,7 @@ impl IWiaPropertyStorage {
         (::windows::core::Vtable::vtable(self).SetPropertyStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcompatibilityid), pistream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWiaPropertyStorage> for ::windows::core::IUnknown {
-    fn from(value: IWiaPropertyStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaPropertyStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaPropertyStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaPropertyStorage> for ::windows::core::IUnknown {
-    fn from(value: &IWiaPropertyStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaPropertyStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaPropertyStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2096,21 +1746,7 @@ impl IWiaSegmentationFilter {
         (::windows::core::Vtable::vtable(self).DetectRegions)(::windows::core::Vtable::as_raw(self), lflags, pinputstream.into().abi(), pwiaitem2.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWiaSegmentationFilter> for ::windows::core::IUnknown {
-    fn from(value: IWiaSegmentationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaSegmentationFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaSegmentationFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaSegmentationFilter> for ::windows::core::IUnknown {
-    fn from(value: &IWiaSegmentationFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaSegmentationFilter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaSegmentationFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2169,21 +1805,7 @@ impl IWiaTransfer {
         (::windows::core::Vtable::vtable(self).EnumWIA_FORMAT_INFO)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumWIA_FORMAT_INFO>(result__)
     }
 }
-impl ::core::convert::From<IWiaTransfer> for ::windows::core::IUnknown {
-    fn from(value: IWiaTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaTransfer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaTransfer> for ::windows::core::IUnknown {
-    fn from(value: &IWiaTransfer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaTransfer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaTransfer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2232,21 +1854,7 @@ impl IWiaTransferCallback {
         (::windows::core::Vtable::vtable(self).GetNextStream)(::windows::core::Vtable::as_raw(self), lflags, ::core::mem::transmute_copy(bstritemname), ::core::mem::transmute_copy(bstrfullitemname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
-impl ::core::convert::From<IWiaTransferCallback> for ::windows::core::IUnknown {
-    fn from(value: IWiaTransferCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaTransferCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaTransferCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaTransferCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWiaTransferCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaTransferCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaTransferCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2299,21 +1907,7 @@ impl IWiaUIExtension {
         (::windows::core::Vtable::vtable(self).GetDeviceBitmapLogo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute(phbitmap), nmaxwidth, nmaxheight).ok()
     }
 }
-impl ::core::convert::From<IWiaUIExtension> for ::windows::core::IUnknown {
-    fn from(value: IWiaUIExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaUIExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaUIExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaUIExtension> for ::windows::core::IUnknown {
-    fn from(value: &IWiaUIExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaUIExtension, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaUIExtension {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2368,21 +1962,7 @@ impl IWiaUIExtension2 {
         (::windows::core::Vtable::vtable(self).GetDeviceIcon)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrdeviceid), ::core::mem::transmute(phicon), nsize).ok()
     }
 }
-impl ::core::convert::From<IWiaUIExtension2> for ::windows::core::IUnknown {
-    fn from(value: IWiaUIExtension2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaUIExtension2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaUIExtension2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaUIExtension2> for ::windows::core::IUnknown {
-    fn from(value: &IWiaUIExtension2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaUIExtension2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaUIExtension2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2499,21 +2079,7 @@ impl IWiaVideo {
         (::windows::core::Vtable::vtable(self).GetCurrentState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WIAVIDEO_STATE>(result__)
     }
 }
-impl ::core::convert::From<IWiaVideo> for ::windows::core::IUnknown {
-    fn from(value: IWiaVideo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWiaVideo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWiaVideo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWiaVideo> for ::windows::core::IUnknown {
-    fn from(value: &IWiaVideo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWiaVideo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWiaVideo {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -376,36 +376,7 @@ impl ITextCharacterFormat {
         }
     }
 }
-impl ::core::convert::From<ITextCharacterFormat> for ::windows::core::IUnknown {
-    fn from(value: ITextCharacterFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextCharacterFormat> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextCharacterFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextCharacterFormat> for ::windows::core::IUnknown {
-    fn from(value: &ITextCharacterFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextCharacterFormat> for ::windows::core::IInspectable {
-    fn from(value: ITextCharacterFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextCharacterFormat> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITextCharacterFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextCharacterFormat> for ::windows::core::IInspectable {
-    fn from(value: &ITextCharacterFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextCharacterFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ITextCharacterFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -689,36 +660,7 @@ impl ITextDocument {
         unsafe { (::windows::core::Vtable::vtable(this).Undo)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<ITextDocument> for ::windows::core::IUnknown {
-    fn from(value: ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextDocument> for ::windows::core::IUnknown {
-    fn from(value: &ITextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextDocument> for ::windows::core::IInspectable {
-    fn from(value: ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextDocument> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextDocument> for ::windows::core::IInspectable {
-    fn from(value: &ITextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ITextDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1116,36 +1058,7 @@ impl ITextParagraphFormat {
         unsafe { (::windows::core::Vtable::vtable(this).SetLineSpacing)(::windows::core::Vtable::as_raw(this), rule, spacing).ok() }
     }
 }
-impl ::core::convert::From<ITextParagraphFormat> for ::windows::core::IUnknown {
-    fn from(value: ITextParagraphFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextParagraphFormat> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextParagraphFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextParagraphFormat> for ::windows::core::IUnknown {
-    fn from(value: &ITextParagraphFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextParagraphFormat> for ::windows::core::IInspectable {
-    fn from(value: ITextParagraphFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextParagraphFormat> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITextParagraphFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextParagraphFormat> for ::windows::core::IInspectable {
-    fn from(value: &ITextParagraphFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextParagraphFormat, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ITextParagraphFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1564,36 +1477,7 @@ impl ITextRange {
         }
     }
 }
-impl ::core::convert::From<ITextRange> for ::windows::core::IUnknown {
-    fn from(value: ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextRange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextRange> for ::windows::core::IUnknown {
-    fn from(value: &ITextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextRange> for ::windows::core::IInspectable {
-    fn from(value: ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextRange> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextRange> for ::windows::core::IInspectable {
-    fn from(value: &ITextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ITextRange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2098,36 +1982,7 @@ impl ITextSelection {
         }
     }
 }
-impl ::core::convert::From<ITextSelection> for ::windows::core::IUnknown {
-    fn from(value: ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextSelection> for ::windows::core::IUnknown {
-    fn from(value: &ITextSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextSelection> for ::windows::core::IInspectable {
-    fn from(value: ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextSelection> for ::windows::core::IInspectable {
-    fn from(value: &ITextSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextSelection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ITextSelection> for ITextRange {
     type Error = ::windows::core::Error;
     fn try_from(value: ITextSelection) -> ::windows::core::Result<Self> {
@@ -2294,36 +2149,7 @@ unsafe impl ::windows::core::Interface for ContentLinkInfo {
 impl ::windows::core::RuntimeName for ContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.ContentLinkInfo";
 }
-impl ::core::convert::From<ContentLinkInfo> for ::windows::core::IUnknown {
-    fn from(value: ContentLinkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentLinkInfo> for ::windows::core::IUnknown {
-    fn from(value: &ContentLinkInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentLinkInfo> for &::windows::core::IUnknown {
-    fn from(value: &ContentLinkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentLinkInfo> for ::windows::core::IInspectable {
-    fn from(value: ContentLinkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentLinkInfo> for ::windows::core::IInspectable {
-    fn from(value: &ContentLinkInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentLinkInfo> for &::windows::core::IInspectable {
-    fn from(value: &ContentLinkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ContentLinkInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
 #[doc = "*Required features: `\"UI_Text\"`*"]
@@ -2434,36 +2260,7 @@ unsafe impl ::windows::core::Interface for FontWeights {
 impl ::windows::core::RuntimeName for FontWeights {
     const NAME: &'static str = "Windows.UI.Text.FontWeights";
 }
-impl ::core::convert::From<FontWeights> for ::windows::core::IUnknown {
-    fn from(value: FontWeights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FontWeights> for ::windows::core::IUnknown {
-    fn from(value: &FontWeights) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FontWeights> for &::windows::core::IUnknown {
-    fn from(value: &FontWeights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FontWeights> for ::windows::core::IInspectable {
-    fn from(value: FontWeights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FontWeights> for ::windows::core::IInspectable {
-    fn from(value: &FontWeights) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FontWeights> for &::windows::core::IInspectable {
-    fn from(value: &FontWeights) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FontWeights, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
 #[doc = "*Required features: `\"UI_Text\"`*"]
@@ -2713,36 +2510,7 @@ unsafe impl ::windows::core::Interface for RichEditTextDocument {
 impl ::windows::core::RuntimeName for RichEditTextDocument {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextDocument";
 }
-impl ::core::convert::From<RichEditTextDocument> for ::windows::core::IUnknown {
-    fn from(value: RichEditTextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RichEditTextDocument> for ::windows::core::IUnknown {
-    fn from(value: &RichEditTextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RichEditTextDocument> for &::windows::core::IUnknown {
-    fn from(value: &RichEditTextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RichEditTextDocument> for ::windows::core::IInspectable {
-    fn from(value: RichEditTextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RichEditTextDocument> for ::windows::core::IInspectable {
-    fn from(value: &RichEditTextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RichEditTextDocument> for &::windows::core::IInspectable {
-    fn from(value: &RichEditTextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RichEditTextDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RichEditTextDocument> for ITextDocument {
     type Error = ::windows::core::Error;
     fn try_from(value: RichEditTextDocument) -> ::windows::core::Result<Self> {
@@ -3143,36 +2911,7 @@ unsafe impl ::windows::core::Interface for RichEditTextRange {
 impl ::windows::core::RuntimeName for RichEditTextRange {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextRange";
 }
-impl ::core::convert::From<RichEditTextRange> for ::windows::core::IUnknown {
-    fn from(value: RichEditTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RichEditTextRange> for ::windows::core::IUnknown {
-    fn from(value: &RichEditTextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RichEditTextRange> for &::windows::core::IUnknown {
-    fn from(value: &RichEditTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RichEditTextRange> for ::windows::core::IInspectable {
-    fn from(value: RichEditTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RichEditTextRange> for ::windows::core::IInspectable {
-    fn from(value: &RichEditTextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RichEditTextRange> for &::windows::core::IInspectable {
-    fn from(value: &RichEditTextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RichEditTextRange, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RichEditTextRange> for ITextRange {
     type Error = ::windows::core::Error;
     fn try_from(value: RichEditTextRange) -> ::windows::core::Result<Self> {

@@ -756,36 +756,7 @@ unsafe impl ::windows::core::Interface for WebViewControl {
 impl ::windows::core::RuntimeName for WebViewControl {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControl";
 }
-impl ::core::convert::From<WebViewControl> for ::windows::core::IUnknown {
-    fn from(value: WebViewControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControl> for ::windows::core::IUnknown {
-    fn from(value: &WebViewControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControl> for &::windows::core::IUnknown {
-    fn from(value: &WebViewControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebViewControl> for ::windows::core::IInspectable {
-    fn from(value: WebViewControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControl> for ::windows::core::IInspectable {
-    fn from(value: &WebViewControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControl> for &::windows::core::IInspectable {
-    fn from(value: &WebViewControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebViewControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebViewControl> for super::IWebViewControl {
     type Error = ::windows::core::Error;
     fn try_from(value: WebViewControl) -> ::windows::core::Result<Self> {
@@ -906,36 +877,7 @@ unsafe impl ::windows::core::Interface for WebViewControlAcceleratorKeyPressedEv
 impl ::windows::core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs";
 }
-impl ::core::convert::From<WebViewControlAcceleratorKeyPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlAcceleratorKeyPressedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlAcceleratorKeyPressedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebViewControlAcceleratorKeyPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlAcceleratorKeyPressedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlAcceleratorKeyPressedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebViewControlAcceleratorKeyPressedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebViewControlAcceleratorKeyPressedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(::windows::core::IUnknown);
@@ -980,36 +922,7 @@ unsafe impl ::windows::core::Interface for WebViewControlMoveFocusRequestedEvent
 impl ::windows::core::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs";
 }
-impl ::core::convert::From<WebViewControlMoveFocusRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlMoveFocusRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlMoveFocusRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebViewControlMoveFocusRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlMoveFocusRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlMoveFocusRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebViewControlMoveFocusRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebViewControlMoveFocusRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlProcess(::windows::core::IUnknown);
@@ -1123,36 +1036,7 @@ unsafe impl ::windows::core::Interface for WebViewControlProcess {
 impl ::windows::core::RuntimeName for WebViewControlProcess {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcess";
 }
-impl ::core::convert::From<WebViewControlProcess> for ::windows::core::IUnknown {
-    fn from(value: WebViewControlProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlProcess> for ::windows::core::IUnknown {
-    fn from(value: &WebViewControlProcess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlProcess> for &::windows::core::IUnknown {
-    fn from(value: &WebViewControlProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebViewControlProcess> for ::windows::core::IInspectable {
-    fn from(value: WebViewControlProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlProcess> for ::windows::core::IInspectable {
-    fn from(value: &WebViewControlProcess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlProcess> for &::windows::core::IInspectable {
-    fn from(value: &WebViewControlProcess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebViewControlProcess, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(::windows::core::IUnknown);
@@ -1219,36 +1103,7 @@ unsafe impl ::windows::core::Interface for WebViewControlProcessOptions {
 impl ::windows::core::RuntimeName for WebViewControlProcessOptions {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcessOptions";
 }
-impl ::core::convert::From<WebViewControlProcessOptions> for ::windows::core::IUnknown {
-    fn from(value: WebViewControlProcessOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlProcessOptions> for ::windows::core::IUnknown {
-    fn from(value: &WebViewControlProcessOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlProcessOptions> for &::windows::core::IUnknown {
-    fn from(value: &WebViewControlProcessOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebViewControlProcessOptions> for ::windows::core::IInspectable {
-    fn from(value: WebViewControlProcessOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebViewControlProcessOptions> for ::windows::core::IInspectable {
-    fn from(value: &WebViewControlProcessOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebViewControlProcessOptions> for &::windows::core::IInspectable {
-    fn from(value: &WebViewControlProcessOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebViewControlProcessOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

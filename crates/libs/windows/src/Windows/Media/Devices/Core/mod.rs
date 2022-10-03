@@ -615,36 +615,7 @@ unsafe impl ::windows::core::Interface for CameraIntrinsics {
 impl ::windows::core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
 }
-impl ::core::convert::From<CameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: CameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraIntrinsics> for ::windows::core::IUnknown {
-    fn from(value: &CameraIntrinsics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraIntrinsics> for &::windows::core::IUnknown {
-    fn from(value: &CameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraIntrinsics> for ::windows::core::IInspectable {
-    fn from(value: CameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraIntrinsics> for ::windows::core::IInspectable {
-    fn from(value: &CameraIntrinsics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraIntrinsics> for &::windows::core::IInspectable {
-    fn from(value: &CameraIntrinsics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CameraIntrinsics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CameraIntrinsics {}
 unsafe impl ::core::marker::Sync for CameraIntrinsics {}
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -720,36 +691,7 @@ unsafe impl ::windows::core::Interface for DepthCorrelatedCoordinateMapper {
 impl ::windows::core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
 }
-impl ::core::convert::From<DepthCorrelatedCoordinateMapper> for ::windows::core::IUnknown {
-    fn from(value: DepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for ::windows::core::IUnknown {
-    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for &::windows::core::IUnknown {
-    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DepthCorrelatedCoordinateMapper> for ::windows::core::IInspectable {
-    fn from(value: DepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for ::windows::core::IInspectable {
-    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthCorrelatedCoordinateMapper> for &::windows::core::IInspectable {
-    fn from(value: &DepthCorrelatedCoordinateMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DepthCorrelatedCoordinateMapper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DepthCorrelatedCoordinateMapper> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -853,36 +795,7 @@ unsafe impl ::windows::core::Interface for FrameControlCapabilities {
 impl ::windows::core::RuntimeName for FrameControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameControlCapabilities";
 }
-impl ::core::convert::From<FrameControlCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameControlCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameControlCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameControlCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameControlCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameControlCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameControlCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameControlCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameControlCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameControlCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameControlCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameControlCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameControlCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameController(::windows::core::IUnknown);
@@ -981,36 +894,7 @@ unsafe impl ::windows::core::Interface for FrameController {
 impl ::windows::core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
 }
-impl ::core::convert::From<FrameController> for ::windows::core::IUnknown {
-    fn from(value: FrameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameController> for ::windows::core::IUnknown {
-    fn from(value: &FrameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameController> for &::windows::core::IUnknown {
-    fn from(value: &FrameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameController> for ::windows::core::IInspectable {
-    fn from(value: FrameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameController> for ::windows::core::IInspectable {
-    fn from(value: &FrameController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameController> for &::windows::core::IInspectable {
-    fn from(value: &FrameController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FrameController {}
 unsafe impl ::core::marker::Sync for FrameController {}
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
@@ -1084,36 +968,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCapabilities {
 impl ::windows::core::RuntimeName for FrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCapabilities";
 }
-impl ::core::convert::From<FrameExposureCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameExposureCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameExposureCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameExposureCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameExposureCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameExposureCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameExposureCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameExposureCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameExposureCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationCapabilities(::windows::core::IUnknown);
@@ -1179,36 +1034,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCompensationCapabilities
 impl ::windows::core::RuntimeName for FrameExposureCompensationCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
 }
-impl ::core::convert::From<FrameExposureCompensationCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameExposureCompensationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameExposureCompensationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameExposureCompensationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameExposureCompensationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameExposureCompensationCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationControl(::windows::core::IUnknown);
@@ -1265,36 +1091,7 @@ unsafe impl ::windows::core::Interface for FrameExposureCompensationControl {
 impl ::windows::core::RuntimeName for FrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationControl";
 }
-impl ::core::convert::From<FrameExposureCompensationControl> for ::windows::core::IUnknown {
-    fn from(value: FrameExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationControl> for ::windows::core::IUnknown {
-    fn from(value: &FrameExposureCompensationControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationControl> for &::windows::core::IUnknown {
-    fn from(value: &FrameExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameExposureCompensationControl> for ::windows::core::IInspectable {
-    fn from(value: FrameExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationControl> for ::windows::core::IInspectable {
-    fn from(value: &FrameExposureCompensationControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureCompensationControl> for &::windows::core::IInspectable {
-    fn from(value: &FrameExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameExposureCompensationControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameExposureControl(::windows::core::IUnknown);
@@ -1362,36 +1159,7 @@ unsafe impl ::windows::core::Interface for FrameExposureControl {
 impl ::windows::core::RuntimeName for FrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureControl";
 }
-impl ::core::convert::From<FrameExposureControl> for ::windows::core::IUnknown {
-    fn from(value: FrameExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureControl> for ::windows::core::IUnknown {
-    fn from(value: &FrameExposureControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureControl> for &::windows::core::IUnknown {
-    fn from(value: &FrameExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameExposureControl> for ::windows::core::IInspectable {
-    fn from(value: FrameExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameExposureControl> for ::windows::core::IInspectable {
-    fn from(value: &FrameExposureControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameExposureControl> for &::windows::core::IInspectable {
-    fn from(value: &FrameExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameExposureControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFlashCapabilities(::windows::core::IUnknown);
@@ -1450,36 +1218,7 @@ unsafe impl ::windows::core::Interface for FrameFlashCapabilities {
 impl ::windows::core::RuntimeName for FrameFlashCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashCapabilities";
 }
-impl ::core::convert::From<FrameFlashCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameFlashCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFlashCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameFlashCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFlashCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameFlashCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameFlashCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameFlashCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFlashCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameFlashCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFlashCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameFlashCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameFlashCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFlashControl(::windows::core::IUnknown);
@@ -1561,36 +1300,7 @@ unsafe impl ::windows::core::Interface for FrameFlashControl {
 impl ::windows::core::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
 }
-impl ::core::convert::From<FrameFlashControl> for ::windows::core::IUnknown {
-    fn from(value: FrameFlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFlashControl> for ::windows::core::IUnknown {
-    fn from(value: &FrameFlashControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFlashControl> for &::windows::core::IUnknown {
-    fn from(value: &FrameFlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameFlashControl> for ::windows::core::IInspectable {
-    fn from(value: FrameFlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFlashControl> for ::windows::core::IInspectable {
-    fn from(value: &FrameFlashControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFlashControl> for &::windows::core::IInspectable {
-    fn from(value: &FrameFlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameFlashControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(::windows::core::IUnknown);
@@ -1656,36 +1366,7 @@ unsafe impl ::windows::core::Interface for FrameFocusCapabilities {
 impl ::windows::core::RuntimeName for FrameFocusCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusCapabilities";
 }
-impl ::core::convert::From<FrameFocusCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameFocusCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFocusCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameFocusCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFocusCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameFocusCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameFocusCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameFocusCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFocusCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameFocusCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFocusCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameFocusCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameFocusCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameFocusControl(::windows::core::IUnknown);
@@ -1742,36 +1423,7 @@ unsafe impl ::windows::core::Interface for FrameFocusControl {
 impl ::windows::core::RuntimeName for FrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusControl";
 }
-impl ::core::convert::From<FrameFocusControl> for ::windows::core::IUnknown {
-    fn from(value: FrameFocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFocusControl> for ::windows::core::IUnknown {
-    fn from(value: &FrameFocusControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFocusControl> for &::windows::core::IUnknown {
-    fn from(value: &FrameFocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameFocusControl> for ::windows::core::IInspectable {
-    fn from(value: FrameFocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameFocusControl> for ::windows::core::IInspectable {
-    fn from(value: &FrameFocusControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameFocusControl> for &::windows::core::IInspectable {
-    fn from(value: &FrameFocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameFocusControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedCapabilities(::windows::core::IUnknown);
@@ -1837,36 +1489,7 @@ unsafe impl ::windows::core::Interface for FrameIsoSpeedCapabilities {
 impl ::windows::core::RuntimeName for FrameIsoSpeedCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
 }
-impl ::core::convert::From<FrameIsoSpeedCapabilities> for ::windows::core::IUnknown {
-    fn from(value: FrameIsoSpeedCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedCapabilities> for &::windows::core::IUnknown {
-    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameIsoSpeedCapabilities> for ::windows::core::IInspectable {
-    fn from(value: FrameIsoSpeedCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedCapabilities> for &::windows::core::IInspectable {
-    fn from(value: &FrameIsoSpeedCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameIsoSpeedCapabilities, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedControl(::windows::core::IUnknown);
@@ -1934,36 +1557,7 @@ unsafe impl ::windows::core::Interface for FrameIsoSpeedControl {
 impl ::windows::core::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
 }
-impl ::core::convert::From<FrameIsoSpeedControl> for ::windows::core::IUnknown {
-    fn from(value: FrameIsoSpeedControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedControl> for ::windows::core::IUnknown {
-    fn from(value: &FrameIsoSpeedControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedControl> for &::windows::core::IUnknown {
-    fn from(value: &FrameIsoSpeedControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FrameIsoSpeedControl> for ::windows::core::IInspectable {
-    fn from(value: FrameIsoSpeedControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedControl> for ::windows::core::IInspectable {
-    fn from(value: &FrameIsoSpeedControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FrameIsoSpeedControl> for &::windows::core::IInspectable {
-    fn from(value: &FrameIsoSpeedControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FrameIsoSpeedControl, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 pub struct VariablePhotoSequenceController(::windows::core::IUnknown);
@@ -2064,36 +1658,7 @@ unsafe impl ::windows::core::Interface for VariablePhotoSequenceController {
 impl ::windows::core::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";
 }
-impl ::core::convert::From<VariablePhotoSequenceController> for ::windows::core::IUnknown {
-    fn from(value: VariablePhotoSequenceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceController> for ::windows::core::IUnknown {
-    fn from(value: &VariablePhotoSequenceController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceController> for &::windows::core::IUnknown {
-    fn from(value: &VariablePhotoSequenceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<VariablePhotoSequenceController> for ::windows::core::IInspectable {
-    fn from(value: VariablePhotoSequenceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceController> for ::windows::core::IInspectable {
-    fn from(value: &VariablePhotoSequenceController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&VariablePhotoSequenceController> for &::windows::core::IInspectable {
-    fn from(value: &VariablePhotoSequenceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(VariablePhotoSequenceController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

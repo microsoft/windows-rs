@@ -89,21 +89,7 @@ impl IXAPO {
         (::windows::core::Vtable::vtable(self).CalcOutputFrames)(::windows::core::Vtable::as_raw(self), inputframecount)
     }
 }
-impl ::core::convert::From<IXAPO> for ::windows::core::IUnknown {
-    fn from(value: IXAPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAPO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAPO> for ::windows::core::IUnknown {
-    fn from(value: &IXAPO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAPO, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAPO {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -161,21 +147,7 @@ impl IXAPOHrtfParameters {
         (::windows::core::Vtable::vtable(self).SetEnvironment)(::windows::core::Vtable::as_raw(self), environment).ok()
     }
 }
-impl ::core::convert::From<IXAPOHrtfParameters> for ::windows::core::IUnknown {
-    fn from(value: IXAPOHrtfParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAPOHrtfParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAPOHrtfParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAPOHrtfParameters> for ::windows::core::IUnknown {
-    fn from(value: &IXAPOHrtfParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAPOHrtfParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAPOHrtfParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -218,21 +190,7 @@ impl IXAPOParameters {
         (::windows::core::Vtable::vtable(self).GetParameters)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pparameters), parameterbytesize)
     }
 }
-impl ::core::convert::From<IXAPOParameters> for ::windows::core::IUnknown {
-    fn from(value: IXAPOParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAPOParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAPOParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAPOParameters> for ::windows::core::IUnknown {
-    fn from(value: &IXAPOParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAPOParameters, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAPOParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -317,21 +275,7 @@ impl IXAudio2 {
         (::windows::core::Vtable::vtable(self).SetDebugConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
     }
 }
-impl ::core::convert::From<IXAudio2> for ::windows::core::IUnknown {
-    fn from(value: IXAudio2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAudio2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAudio2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAudio2> for ::windows::core::IUnknown {
-    fn from(value: &IXAudio2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAudio2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAudio2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -441,21 +385,7 @@ impl IXAudio2Extension {
         (::windows::core::Vtable::vtable(self).GetProcessor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(processor))
     }
 }
-impl ::core::convert::From<IXAudio2Extension> for ::windows::core::IUnknown {
-    fn from(value: IXAudio2Extension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAudio2Extension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAudio2Extension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAudio2Extension> for ::windows::core::IUnknown {
-    fn from(value: &IXAudio2Extension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAudio2Extension, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAudio2Extension {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -576,21 +506,7 @@ impl IXAudio2MasteringVoice {
         (::windows::core::Vtable::vtable(self).GetChannelMask)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IXAudio2MasteringVoice> for IXAudio2Voice {
-    fn from(value: IXAudio2MasteringVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAudio2MasteringVoice> for &'a IXAudio2Voice {
-    fn from(value: &'a IXAudio2MasteringVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAudio2MasteringVoice> for IXAudio2Voice {
-    fn from(value: &IXAudio2MasteringVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
 impl ::core::clone::Clone for IXAudio2MasteringVoice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -733,21 +649,7 @@ impl IXAudio2SourceVoice {
         (::windows::core::Vtable::vtable(self).SetSourceSampleRate)(::windows::core::Vtable::as_raw(self), newsourcesamplerate).ok()
     }
 }
-impl ::core::convert::From<IXAudio2SourceVoice> for IXAudio2Voice {
-    fn from(value: IXAudio2SourceVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAudio2SourceVoice> for &'a IXAudio2Voice {
-    fn from(value: &'a IXAudio2SourceVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAudio2SourceVoice> for IXAudio2Voice {
-    fn from(value: &IXAudio2SourceVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
 impl ::core::clone::Clone for IXAudio2SourceVoice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -869,21 +771,7 @@ impl IXAudio2SubmixVoice {
         (::windows::core::Vtable::vtable(self).base__.DestroyVoice)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IXAudio2SubmixVoice> for IXAudio2Voice {
-    fn from(value: IXAudio2SubmixVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAudio2SubmixVoice> for &'a IXAudio2Voice {
-    fn from(value: &'a IXAudio2SubmixVoice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAudio2SubmixVoice> for IXAudio2Voice {
-    fn from(value: &IXAudio2SubmixVoice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
 impl ::core::clone::Clone for IXAudio2SubmixVoice {
     fn clone(&self) -> Self {
         Self(self.0.clone())

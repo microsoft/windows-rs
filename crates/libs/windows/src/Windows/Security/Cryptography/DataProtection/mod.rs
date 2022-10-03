@@ -154,36 +154,7 @@ unsafe impl ::windows::core::Interface for DataProtectionProvider {
 impl ::windows::core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
 }
-impl ::core::convert::From<DataProtectionProvider> for ::windows::core::IUnknown {
-    fn from(value: DataProtectionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataProtectionProvider> for ::windows::core::IUnknown {
-    fn from(value: &DataProtectionProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataProtectionProvider> for &::windows::core::IUnknown {
-    fn from(value: &DataProtectionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DataProtectionProvider> for ::windows::core::IInspectable {
-    fn from(value: DataProtectionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DataProtectionProvider> for ::windows::core::IInspectable {
-    fn from(value: &DataProtectionProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DataProtectionProvider> for &::windows::core::IInspectable {
-    fn from(value: &DataProtectionProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DataProtectionProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DataProtectionProvider {}
 unsafe impl ::core::marker::Sync for DataProtectionProvider {}
 #[cfg(feature = "implement")]

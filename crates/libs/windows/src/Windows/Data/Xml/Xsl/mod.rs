@@ -128,36 +128,7 @@ unsafe impl ::windows::core::Interface for XsltProcessor {
 impl ::windows::core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
-impl ::core::convert::From<XsltProcessor> for ::windows::core::IUnknown {
-    fn from(value: XsltProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XsltProcessor> for ::windows::core::IUnknown {
-    fn from(value: &XsltProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XsltProcessor> for &::windows::core::IUnknown {
-    fn from(value: &XsltProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XsltProcessor> for ::windows::core::IInspectable {
-    fn from(value: XsltProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XsltProcessor> for ::windows::core::IInspectable {
-    fn from(value: &XsltProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XsltProcessor> for &::windows::core::IInspectable {
-    fn from(value: &XsltProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XsltProcessor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XsltProcessor {}
 unsafe impl ::core::marker::Sync for XsltProcessor {}
 #[cfg(feature = "implement")]

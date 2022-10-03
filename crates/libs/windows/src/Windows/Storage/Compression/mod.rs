@@ -190,36 +190,7 @@ unsafe impl ::windows::core::Interface for Compressor {
 impl ::windows::core::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
 }
-impl ::core::convert::From<Compressor> for ::windows::core::IUnknown {
-    fn from(value: Compressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compressor> for ::windows::core::IUnknown {
-    fn from(value: &Compressor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compressor> for &::windows::core::IUnknown {
-    fn from(value: &Compressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Compressor> for ::windows::core::IInspectable {
-    fn from(value: Compressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compressor> for ::windows::core::IInspectable {
-    fn from(value: &Compressor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compressor> for &::windows::core::IInspectable {
-    fn from(value: &Compressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Compressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Compressor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -348,36 +319,7 @@ unsafe impl ::windows::core::Interface for Decompressor {
 impl ::windows::core::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
 }
-impl ::core::convert::From<Decompressor> for ::windows::core::IUnknown {
-    fn from(value: Decompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Decompressor> for ::windows::core::IUnknown {
-    fn from(value: &Decompressor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Decompressor> for &::windows::core::IUnknown {
-    fn from(value: &Decompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Decompressor> for ::windows::core::IInspectable {
-    fn from(value: Decompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Decompressor> for ::windows::core::IInspectable {
-    fn from(value: &Decompressor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Decompressor> for &::windows::core::IInspectable {
-    fn from(value: &Decompressor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Decompressor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Decompressor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

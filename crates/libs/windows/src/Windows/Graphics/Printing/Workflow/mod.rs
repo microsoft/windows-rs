@@ -736,36 +736,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
 }
-impl ::core::convert::From<PrintWorkflowBackgroundSession> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSession> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSession> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowBackgroundSession> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSession> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSession> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -834,36 +805,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowBackgroundSetupRequested
 impl ::windows::core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowBackgroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -928,36 +870,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowConfiguration {
 impl ::windows::core::RuntimeName for PrintWorkflowConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
 }
-impl ::core::convert::From<PrintWorkflowConfiguration> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowConfiguration> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1038,36 +951,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
 }
-impl ::core::convert::From<PrintWorkflowForegroundSession> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSession> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSession> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowForegroundSession> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSession> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSession> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowForegroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1132,36 +1016,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowForegroundSetupRequested
 impl ::windows::core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowForegroundSetupRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1244,36 +1099,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowJobActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintWorkflowJobActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -1398,36 +1224,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobBackgroundSession {
 impl ::windows::core::RuntimeName for PrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession";
 }
-impl ::core::convert::From<PrintWorkflowJobBackgroundSession> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobBackgroundSession> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobBackgroundSession> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobBackgroundSession> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobBackgroundSession> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobBackgroundSession> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobBackgroundSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobBackgroundSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1490,36 +1287,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobNotificationEventArgs
 impl ::windows::core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowJobNotificationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobNotificationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobNotificationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobNotificationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobNotificationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobNotificationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1588,36 +1356,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobStartingEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowJobStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobStartingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobStartingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobStartingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobStartingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobStartingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1664,36 +1403,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobTriggerDetails {
 impl ::windows::core::RuntimeName for PrintWorkflowJobTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails";
 }
-impl ::core::convert::From<PrintWorkflowJobTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1774,36 +1484,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowJobUISession {
 impl ::windows::core::RuntimeName for PrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession";
 }
-impl ::core::convert::From<PrintWorkflowJobUISession> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowJobUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobUISession> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobUISession> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowJobUISession> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowJobUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobUISession> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowJobUISession> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowJobUISession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowJobUISession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1860,36 +1541,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelSourceFileCon
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
 }
-impl ::core::convert::From<PrintWorkflowObjectModelSourceFileContent> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowObjectModelSourceFileContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelSourceFileContent> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelSourceFileContent> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowObjectModelSourceFileContent> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowObjectModelSourceFileContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelSourceFileContent> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelSourceFileContent> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelSourceFileContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -1928,36 +1580,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowObjectModelTargetPackage
 impl ::windows::core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
 }
-impl ::core::convert::From<PrintWorkflowObjectModelTargetPackage> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowObjectModelTargetPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelTargetPackage> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelTargetPackage> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowObjectModelTargetPackage> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowObjectModelTargetPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelTargetPackage> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowObjectModelTargetPackage> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowObjectModelTargetPackage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2012,36 +1635,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlConverter {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter";
 }
-impl ::core::convert::From<PrintWorkflowPdlConverter> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPdlConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlConverter> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlConverter> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPdlConverter> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPdlConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlConverter> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlConverter> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPdlConverter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2111,36 +1705,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlDataAvailableEventArg
 impl ::windows::core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowPdlDataAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPdlDataAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2257,36 +1822,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlModificationRequested
 impl ::windows::core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlModificationRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2351,36 +1887,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlSourceContent {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent";
 }
-impl ::core::convert::From<PrintWorkflowPdlSourceContent> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPdlSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlSourceContent> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlSourceContent> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPdlSourceContent> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPdlSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlSourceContent> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlSourceContent> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPdlSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2433,36 +1940,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPdlTargetStream {
 impl ::windows::core::RuntimeName for PrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream";
 }
-impl ::core::convert::From<PrintWorkflowPdlTargetStream> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPdlTargetStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlTargetStream> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlTargetStream> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPdlTargetStream> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPdlTargetStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlTargetStream> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPdlTargetStream> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPdlTargetStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPdlTargetStream, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2586,36 +2064,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowPrinterJob {
 impl ::windows::core::RuntimeName for PrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob";
 }
-impl ::core::convert::From<PrintWorkflowPrinterJob> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPrinterJob> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPrinterJob> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowPrinterJob> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowPrinterJob, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2678,36 +2127,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSourceContent {
 impl ::windows::core::RuntimeName for PrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
 }
-impl ::core::convert::From<PrintWorkflowSourceContent> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSourceContent> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSourceContent> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowSourceContent> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSourceContent> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSourceContent> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSourceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowSourceContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2756,36 +2176,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSpoolStreamContent {
 impl ::windows::core::RuntimeName for PrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
 }
-impl ::core::convert::From<PrintWorkflowSpoolStreamContent> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowSpoolStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSpoolStreamContent> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSpoolStreamContent> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowSpoolStreamContent> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowSpoolStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSpoolStreamContent> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSpoolStreamContent> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSpoolStreamContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowSpoolStreamContent, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2834,36 +2225,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowStreamTarget {
 impl ::windows::core::RuntimeName for PrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
 }
-impl ::core::convert::From<PrintWorkflowStreamTarget> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowStreamTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowStreamTarget> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowStreamTarget> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowStreamTarget> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowStreamTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowStreamTarget> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowStreamTarget> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowStreamTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowStreamTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -2928,36 +2290,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowSubmittedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowSubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowSubmittedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowSubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -3015,36 +2348,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowSubmittedOperation {
 impl ::windows::core::RuntimeName for PrintWorkflowSubmittedOperation {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
 }
-impl ::core::convert::From<PrintWorkflowSubmittedOperation> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowSubmittedOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedOperation> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedOperation> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowSubmittedOperation> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowSubmittedOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedOperation> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowSubmittedOperation> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowSubmittedOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowSubmittedOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -3098,36 +2402,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowTarget {
 impl ::windows::core::RuntimeName for PrintWorkflowTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
 }
-impl ::core::convert::From<PrintWorkflowTarget> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTarget> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTarget> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowTarget> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTarget> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTarget> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowTarget, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -3174,36 +2449,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowTriggerDetails {
 impl ::windows::core::RuntimeName for PrintWorkflowTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
 }
-impl ::core::convert::From<PrintWorkflowTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -3286,36 +2532,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowUIActivatedEventArgs {
 impl ::windows::core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowUIActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowUIActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUIActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowUIActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowUIActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUIActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUIActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowUIActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::convert::TryFrom<PrintWorkflowUIActivatedEventArgs> for super::super::super::ApplicationModel::Activation::IActivatedEventArgs {
     type Error = ::windows::core::Error;
@@ -3415,36 +2632,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowUILauncher {
 impl ::windows::core::RuntimeName for PrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher";
 }
-impl ::core::convert::From<PrintWorkflowUILauncher> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowUILauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUILauncher> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUILauncher> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowUILauncher> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowUILauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUILauncher> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowUILauncher> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowUILauncher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowUILauncher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
@@ -3500,36 +2688,7 @@ unsafe impl ::windows::core::Interface for PrintWorkflowXpsDataAvailableEventArg
 impl ::windows::core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
 }
-impl ::core::convert::From<PrintWorkflowXpsDataAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PrintWorkflowXpsDataAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PrintWorkflowXpsDataAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]

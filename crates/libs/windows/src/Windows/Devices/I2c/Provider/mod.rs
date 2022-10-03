@@ -10,36 +10,7 @@ impl II2cControllerProvider {
         }
     }
 }
-impl ::core::convert::From<II2cControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: II2cControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a II2cControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &II2cControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<II2cControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a II2cControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(II2cControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for II2cControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -126,36 +97,7 @@ impl II2cDeviceProvider {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<II2cDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: II2cDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cDeviceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a II2cDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: &II2cDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<II2cDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cDeviceProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a II2cDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(II2cDeviceProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<II2cDeviceProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -233,36 +175,7 @@ impl II2cProvider {
         }
     }
 }
-impl ::core::convert::From<II2cProvider> for ::windows::core::IUnknown {
-    fn from(value: II2cProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a II2cProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cProvider> for ::windows::core::IUnknown {
-    fn from(value: &II2cProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<II2cProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a II2cProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a II2cProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(II2cProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for II2cProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -391,36 +304,7 @@ unsafe impl ::windows::core::Interface for ProviderI2cConnectionSettings {
 impl ::windows::core::RuntimeName for ProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";
 }
-impl ::core::convert::From<ProviderI2cConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderI2cConnectionSettings> for ::windows::core::IUnknown {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderI2cConnectionSettings> for &::windows::core::IUnknown {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ProviderI2cConnectionSettings> for ::windows::core::IInspectable {
-    fn from(value: ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ProviderI2cConnectionSettings> for ::windows::core::IInspectable {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ProviderI2cConnectionSettings> for &::windows::core::IInspectable {
-    fn from(value: &ProviderI2cConnectionSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ProviderI2cConnectionSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
 #[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]

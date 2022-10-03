@@ -9,21 +9,7 @@ impl IComponentAuthenticate {
         (::windows::core::Vtable::vtable(self).SACGetProtocols)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppdwprotocols), ::core::mem::transmute(pdwprotocolcount)).ok()
     }
 }
-impl ::core::convert::From<IComponentAuthenticate> for ::windows::core::IUnknown {
-    fn from(value: IComponentAuthenticate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IComponentAuthenticate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IComponentAuthenticate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IComponentAuthenticate> for ::windows::core::IUnknown {
-    fn from(value: &IComponentAuthenticate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IComponentAuthenticate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IComponentAuthenticate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -98,21 +84,7 @@ impl IMDSPDevice {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
 }
-impl ::core::convert::From<IMDSPDevice> for ::windows::core::IUnknown {
-    fn from(value: IMDSPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -219,36 +191,7 @@ impl IMDSPDevice2 {
         (::windows::core::Vtable::vtable(self).GetCanonicalName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
 }
-impl ::core::convert::From<IMDSPDevice2> for ::windows::core::IUnknown {
-    fn from(value: IMDSPDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice2> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPDevice2> for IMDSPDevice {
-    fn from(value: IMDSPDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice2> for &'a IMDSPDevice {
-    fn from(value: &'a IMDSPDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice2> for IMDSPDevice {
-    fn from(value: &IMDSPDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPDevice2, ::windows::core::IUnknown, IMDSPDevice);
 impl ::core::clone::Clone for IMDSPDevice2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -384,51 +327,7 @@ impl IMDSPDevice3 {
         (::windows::core::Vtable::vtable(self).FindStorage)(::windows::core::Vtable::as_raw(self), findscope, pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
-impl ::core::convert::From<IMDSPDevice3> for ::windows::core::IUnknown {
-    fn from(value: IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice3> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPDevice3> for IMDSPDevice {
-    fn from(value: IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a IMDSPDevice {
-    fn from(value: &'a IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice3> for IMDSPDevice {
-    fn from(value: &IMDSPDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPDevice3> for IMDSPDevice2 {
-    fn from(value: IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDevice3> for &'a IMDSPDevice2 {
-    fn from(value: &'a IMDSPDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDevice3> for IMDSPDevice2 {
-    fn from(value: &IMDSPDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPDevice3, ::windows::core::IUnknown, IMDSPDevice, IMDSPDevice2);
 impl ::core::clone::Clone for IMDSPDevice3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -503,21 +402,7 @@ impl IMDSPDeviceControl {
         (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), fumode, noffset).ok()
     }
 }
-impl ::core::convert::From<IMDSPDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: IMDSPDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDeviceControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPDeviceControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPDeviceControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPDeviceControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -572,21 +457,7 @@ impl IMDSPDirectTransfer {
         (::windows::core::Vtable::vtable(self).TransferToDevice)(::windows::core::Vtable::as_raw(self), pwszsourcefilepath.into(), psourceoperation.into().abi(), fuflags, pwszdestinationname.into(), psourcemetadata.into().abi(), ptransferprogress.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
-impl ::core::convert::From<IMDSPDirectTransfer> for ::windows::core::IUnknown {
-    fn from(value: IMDSPDirectTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPDirectTransfer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPDirectTransfer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPDirectTransfer> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPDirectTransfer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPDirectTransfer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPDirectTransfer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -634,21 +505,7 @@ impl IMDSPEnumDevice {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumDevice>(result__)
     }
 }
-impl ::core::convert::From<IMDSPEnumDevice> for ::windows::core::IUnknown {
-    fn from(value: IMDSPEnumDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPEnumDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPEnumDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPEnumDevice> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPEnumDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPEnumDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPEnumDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -699,21 +556,7 @@ impl IMDSPEnumStorage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumStorage>(result__)
     }
 }
-impl ::core::convert::From<IMDSPEnumStorage> for ::windows::core::IUnknown {
-    fn from(value: IMDSPEnumStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPEnumStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPEnumStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPEnumStorage> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPEnumStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPEnumStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPEnumStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -785,21 +628,7 @@ impl IMDSPObject {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMDSPObject> for ::windows::core::IUnknown {
-    fn from(value: IMDSPObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPObject> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -881,36 +710,7 @@ impl IMDSPObject2 {
         (::windows::core::Vtable::vtable(self).WriteOnClearChannel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IMDSPObject2> for ::windows::core::IUnknown {
-    fn from(value: IMDSPObject2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPObject2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPObject2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPObject2> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPObject2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPObject2> for IMDSPObject {
-    fn from(value: IMDSPObject2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPObject2> for &'a IMDSPObject {
-    fn from(value: &'a IMDSPObject2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPObject2> for IMDSPObject {
-    fn from(value: &IMDSPObject2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPObject2, ::windows::core::IUnknown, IMDSPObject);
 impl ::core::clone::Clone for IMDSPObject2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -971,21 +771,7 @@ impl IMDSPObjectInfo {
         (::windows::core::Vtable::vtable(self).GetLongestPlayPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMDSPObjectInfo> for ::windows::core::IUnknown {
-    fn from(value: IMDSPObjectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPObjectInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPObjectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPObjectInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPObjectInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPObjectInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPObjectInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1028,21 +814,7 @@ impl IMDSPRevoked {
         (::windows::core::Vtable::vtable(self).GetRevocationURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszrevocationurl), ::core::mem::transmute(pdwbufferlen)).ok()
     }
 }
-impl ::core::convert::From<IMDSPRevoked> for ::windows::core::IUnknown {
-    fn from(value: IMDSPRevoked) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPRevoked> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPRevoked) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPRevoked> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPRevoked) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPRevoked, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPRevoked {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1119,21 +891,7 @@ impl IMDSPStorage {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
 }
-impl ::core::convert::From<IMDSPStorage> for ::windows::core::IUnknown {
-    fn from(value: IMDSPStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1254,36 +1012,7 @@ impl IMDSPStorage2 {
         (::windows::core::Vtable::vtable(self).GetAttributes2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMDSPStorage2> for ::windows::core::IUnknown {
-    fn from(value: IMDSPStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage2> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage2> for IMDSPStorage {
-    fn from(value: IMDSPStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage2> for &'a IMDSPStorage {
-    fn from(value: &'a IMDSPStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage2> for IMDSPStorage {
-    fn from(value: &IMDSPStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPStorage2, ::windows::core::IUnknown, IMDSPStorage);
 impl ::core::clone::Clone for IMDSPStorage2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1410,51 +1139,7 @@ impl IMDSPStorage3 {
         (::windows::core::Vtable::vtable(self).SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMDSPStorage3> for ::windows::core::IUnknown {
-    fn from(value: IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage3> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage3> for IMDSPStorage {
-    fn from(value: IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a IMDSPStorage {
-    fn from(value: &'a IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage3> for IMDSPStorage {
-    fn from(value: &IMDSPStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage3> for IMDSPStorage2 {
-    fn from(value: IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage3> for &'a IMDSPStorage2 {
-    fn from(value: &'a IMDSPStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage3> for IMDSPStorage2 {
-    fn from(value: &IMDSPStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPStorage3, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2);
 impl ::core::clone::Clone for IMDSPStorage3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1601,66 +1286,7 @@ impl IMDSPStorage4 {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
-impl ::core::convert::From<IMDSPStorage4> for ::windows::core::IUnknown {
-    fn from(value: IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage4> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage {
-    fn from(value: IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage {
-    fn from(value: &'a IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage {
-    fn from(value: &IMDSPStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage2 {
-    fn from(value: IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage2 {
-    fn from(value: &'a IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage2 {
-    fn from(value: &IMDSPStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDSPStorage4> for IMDSPStorage3 {
-    fn from(value: IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorage4> for &'a IMDSPStorage3 {
-    fn from(value: &'a IMDSPStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorage4> for IMDSPStorage3 {
-    fn from(value: &IMDSPStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPStorage4, ::windows::core::IUnknown, IMDSPStorage, IMDSPStorage2, IMDSPStorage3);
 impl ::core::clone::Clone for IMDSPStorage4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1733,21 +1359,7 @@ impl IMDSPStorageGlobals {
         (::windows::core::Vtable::vtable(self).GetRootStorage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPStorage>(result__)
     }
 }
-impl ::core::convert::From<IMDSPStorageGlobals> for ::windows::core::IUnknown {
-    fn from(value: IMDSPStorageGlobals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDSPStorageGlobals> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDSPStorageGlobals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDSPStorageGlobals> for ::windows::core::IUnknown {
-    fn from(value: &IMDSPStorageGlobals) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDSPStorageGlobals, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDSPStorageGlobals {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1797,21 +1409,7 @@ impl IMDServiceProvider {
         (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMDSPEnumDevice>(result__)
     }
 }
-impl ::core::convert::From<IMDServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: IMDServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDServiceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IMDServiceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDServiceProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMDServiceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1860,36 +1458,7 @@ impl IMDServiceProvider2 {
         (::windows::core::Vtable::vtable(self).CreateDevice)(::windows::core::Vtable::as_raw(self), pwszdevicepath.into(), ::core::mem::transmute(pdwcount), ::core::mem::transmute(pppdevicearray)).ok()
     }
 }
-impl ::core::convert::From<IMDServiceProvider2> for ::windows::core::IUnknown {
-    fn from(value: IMDServiceProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDServiceProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider2> for ::windows::core::IUnknown {
-    fn from(value: &IMDServiceProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDServiceProvider2> for IMDServiceProvider {
-    fn from(value: IMDServiceProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider2> for &'a IMDServiceProvider {
-    fn from(value: &'a IMDServiceProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider2> for IMDServiceProvider {
-    fn from(value: &IMDServiceProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDServiceProvider2, ::windows::core::IUnknown, IMDServiceProvider);
 impl ::core::clone::Clone for IMDServiceProvider2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1940,51 +1509,7 @@ impl IMDServiceProvider3 {
         (::windows::core::Vtable::vtable(self).SetDeviceEnumPreference)(::windows::core::Vtable::as_raw(self), dwenumpref).ok()
     }
 }
-impl ::core::convert::From<IMDServiceProvider3> for ::windows::core::IUnknown {
-    fn from(value: IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider3> for ::windows::core::IUnknown {
-    fn from(value: &IMDServiceProvider3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDServiceProvider3> for IMDServiceProvider {
-    fn from(value: IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a IMDServiceProvider {
-    fn from(value: &'a IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider3> for IMDServiceProvider {
-    fn from(value: &IMDServiceProvider3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMDServiceProvider3> for IMDServiceProvider2 {
-    fn from(value: IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMDServiceProvider3> for &'a IMDServiceProvider2 {
-    fn from(value: &'a IMDServiceProvider3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMDServiceProvider3> for IMDServiceProvider2 {
-    fn from(value: &IMDServiceProvider3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMDServiceProvider3, ::windows::core::IUnknown, IMDServiceProvider, IMDServiceProvider2);
 impl ::core::clone::Clone for IMDServiceProvider3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2022,21 +1547,7 @@ impl ISCPSecureAuthenticate {
         (::windows::core::Vtable::vtable(self).GetSecureQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISCPSecureQuery>(result__)
     }
 }
-impl ::core::convert::From<ISCPSecureAuthenticate> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureAuthenticate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureAuthenticate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureAuthenticate> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureAuthenticate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureAuthenticate, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISCPSecureAuthenticate {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2078,36 +1589,7 @@ impl ISCPSecureAuthenticate2 {
         (::windows::core::Vtable::vtable(self).GetSCPSession)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISCPSession>(result__)
     }
 }
-impl ::core::convert::From<ISCPSecureAuthenticate2> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureAuthenticate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureAuthenticate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureAuthenticate2> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureAuthenticate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
-    fn from(value: ISCPSecureAuthenticate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureAuthenticate2> for &'a ISCPSecureAuthenticate {
-    fn from(value: &'a ISCPSecureAuthenticate2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
-    fn from(value: &ISCPSecureAuthenticate2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureAuthenticate2, ::windows::core::IUnknown, ISCPSecureAuthenticate);
 impl ::core::clone::Clone for ISCPSecureAuthenticate2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2150,21 +1632,7 @@ impl ISCPSecureExchange {
         (::windows::core::Vtable::vtable(self).TransferComplete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ISCPSecureExchange> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureExchange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureExchange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureExchange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureExchange, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISCPSecureExchange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2215,36 +1683,7 @@ impl ISCPSecureExchange2 {
         (::windows::core::Vtable::vtable(self).TransferContainerData2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, pprogresscallback.into().abi(), ::core::mem::transmute(pfureadyflags), ::core::mem::transmute(abmac)).ok()
     }
 }
-impl ::core::convert::From<ISCPSecureExchange2> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureExchange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureExchange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange2> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureExchange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureExchange2> for ISCPSecureExchange {
-    fn from(value: ISCPSecureExchange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange2> for &'a ISCPSecureExchange {
-    fn from(value: &'a ISCPSecureExchange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange2> for ISCPSecureExchange {
-    fn from(value: &ISCPSecureExchange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureExchange2, ::windows::core::IUnknown, ISCPSecureExchange);
 impl ::core::clone::Clone for ISCPSecureExchange2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2313,51 +1752,7 @@ impl ISCPSecureExchange3 {
         (::windows::core::Vtable::vtable(self).TransferCompleteForDevice)(::windows::core::Vtable::as_raw(self), pdevice.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISCPSecureExchange3> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange3> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureExchange3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureExchange3> for ISCPSecureExchange {
-    fn from(value: ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ISCPSecureExchange {
-    fn from(value: &'a ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange {
-    fn from(value: &ISCPSecureExchange3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureExchange3> for ISCPSecureExchange2 {
-    fn from(value: ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureExchange3> for &'a ISCPSecureExchange2 {
-    fn from(value: &'a ISCPSecureExchange3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureExchange3> for ISCPSecureExchange2 {
-    fn from(value: &ISCPSecureExchange3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureExchange3, ::windows::core::IUnknown, ISCPSecureExchange, ISCPSecureExchange2);
 impl ::core::clone::Clone for ISCPSecureExchange3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2414,21 +1809,7 @@ impl ISCPSecureQuery {
         (::windows::core::Vtable::vtable(self).GetRights)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata.as_ptr()), pdata.len() as _, ::core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len() as _, pstgglobals.into().abi(), ::core::mem::transmute(pprights), ::core::mem::transmute(pnrightscount), ::core::mem::transmute(abmac)).ok()
     }
 }
-impl ::core::convert::From<ISCPSecureQuery> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureQuery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISCPSecureQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2514,36 +1895,7 @@ impl ISCPSecureQuery2 {
         .ok()
     }
 }
-impl ::core::convert::From<ISCPSecureQuery2> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureQuery2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureQuery2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery2> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureQuery2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureQuery2> for ISCPSecureQuery {
-    fn from(value: ISCPSecureQuery2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery2> for &'a ISCPSecureQuery {
-    fn from(value: &'a ISCPSecureQuery2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery2> for ISCPSecureQuery {
-    fn from(value: &ISCPSecureQuery2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureQuery2, ::windows::core::IUnknown, ISCPSecureQuery);
 impl ::core::clone::Clone for ISCPSecureQuery2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2662,51 +2014,7 @@ impl ISCPSecureQuery3 {
         .ok()
     }
 }
-impl ::core::convert::From<ISCPSecureQuery3> for ::windows::core::IUnknown {
-    fn from(value: ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery3> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSecureQuery3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureQuery3> for ISCPSecureQuery {
-    fn from(value: ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ISCPSecureQuery {
-    fn from(value: &'a ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery {
-    fn from(value: &ISCPSecureQuery3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISCPSecureQuery3> for ISCPSecureQuery2 {
-    fn from(value: ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSecureQuery3> for &'a ISCPSecureQuery2 {
-    fn from(value: &'a ISCPSecureQuery3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSecureQuery3> for ISCPSecureQuery2 {
-    fn from(value: &ISCPSecureQuery3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSecureQuery3, ::windows::core::IUnknown, ISCPSecureQuery, ISCPSecureQuery2);
 impl ::core::clone::Clone for ISCPSecureQuery3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2754,21 +2062,7 @@ impl ISCPSession {
         (::windows::core::Vtable::vtable(self).GetSecureQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISCPSecureQuery>(result__)
     }
 }
-impl ::core::convert::From<ISCPSession> for ::windows::core::IUnknown {
-    fn from(value: ISCPSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISCPSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISCPSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISCPSession> for ::windows::core::IUnknown {
-    fn from(value: &ISCPSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISCPSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISCPSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2844,21 +2138,7 @@ impl IWMDMDevice {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
 }
-impl ::core::convert::From<IWMDMDevice> for ::windows::core::IUnknown {
-    fn from(value: IWMDMDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2965,36 +2245,7 @@ impl IWMDMDevice2 {
         (::windows::core::Vtable::vtable(self).GetCanonicalName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len() as _).ok()
     }
 }
-impl ::core::convert::From<IWMDMDevice2> for ::windows::core::IUnknown {
-    fn from(value: IWMDMDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMDevice2> for IWMDMDevice {
-    fn from(value: IWMDMDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice2> for &'a IWMDMDevice {
-    fn from(value: &'a IWMDMDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice2> for IWMDMDevice {
-    fn from(value: &IWMDMDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMDevice2, ::windows::core::IUnknown, IWMDMDevice);
 impl ::core::clone::Clone for IWMDMDevice2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3130,51 +2381,7 @@ impl IWMDMDevice3 {
         (::windows::core::Vtable::vtable(self).FindStorage)(::windows::core::Vtable::as_raw(self), findscope, pwszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
 }
-impl ::core::convert::From<IWMDMDevice3> for ::windows::core::IUnknown {
-    fn from(value: IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMDevice3> for IWMDMDevice {
-    fn from(value: IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a IWMDMDevice {
-    fn from(value: &'a IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice3> for IWMDMDevice {
-    fn from(value: &IWMDMDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMDevice3> for IWMDMDevice2 {
-    fn from(value: IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDevice3> for &'a IWMDMDevice2 {
-    fn from(value: &'a IWMDMDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDevice3> for IWMDMDevice2 {
-    fn from(value: &IWMDMDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMDevice3, ::windows::core::IUnknown, IWMDMDevice, IWMDMDevice2);
 impl ::core::clone::Clone for IWMDMDevice3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3249,21 +2456,7 @@ impl IWMDMDeviceControl {
         (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), fumode, noffset).ok()
     }
 }
-impl ::core::convert::From<IWMDMDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: IWMDMDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDeviceControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMDeviceControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMDeviceControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMDeviceControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3313,21 +2506,7 @@ impl IWMDMDeviceSession {
         (::windows::core::Vtable::vtable(self).EndSession)(::windows::core::Vtable::as_raw(self), r#type, ::core::mem::transmute(pctx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
-impl ::core::convert::From<IWMDMDeviceSession> for ::windows::core::IUnknown {
-    fn from(value: IWMDMDeviceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMDeviceSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMDeviceSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMDeviceSession> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMDeviceSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMDeviceSession, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMDeviceSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3376,21 +2555,7 @@ impl IWMDMEnumDevice {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumDevice>(result__)
     }
 }
-impl ::core::convert::From<IWMDMEnumDevice> for ::windows::core::IUnknown {
-    fn from(value: IWMDMEnumDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMEnumDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMEnumDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMEnumDevice> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMEnumDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMEnumDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMEnumDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3441,21 +2606,7 @@ impl IWMDMEnumStorage {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumStorage>(result__)
     }
 }
-impl ::core::convert::From<IWMDMEnumStorage> for ::windows::core::IUnknown {
-    fn from(value: IWMDMEnumStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMEnumStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMEnumStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMEnumStorage> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMEnumStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMEnumStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMEnumStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3538,21 +2689,7 @@ impl IWMDMLogger {
         (::windows::core::Vtable::vtable(self).SetSizeParams)(::windows::core::Vtable::as_raw(self), dwmaxsize, dwshrinktosize).ok()
     }
 }
-impl ::core::convert::From<IWMDMLogger> for ::windows::core::IUnknown {
-    fn from(value: IWMDMLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMLogger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMLogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMLogger> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMLogger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMLogger, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMLogger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3619,21 +2756,7 @@ impl IWMDMMetaData {
         (::windows::core::Vtable::vtable(self).GetItemCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWMDMMetaData> for ::windows::core::IUnknown {
-    fn from(value: IWMDMMetaData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMMetaData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMMetaData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMMetaData> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMMetaData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMMetaData, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMMetaData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3676,21 +2799,7 @@ impl IWMDMNotification {
         (::windows::core::Vtable::vtable(self).WMDMMessage)(::windows::core::Vtable::as_raw(self), dwmessagetype, pwszcanonicalname.into()).ok()
     }
 }
-impl ::core::convert::From<IWMDMNotification> for ::windows::core::IUnknown {
-    fn from(value: IWMDMNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMNotification> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3750,21 +2859,7 @@ impl IWMDMObjectInfo {
         (::windows::core::Vtable::vtable(self).GetLongestPlayPosition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWMDMObjectInfo> for ::windows::core::IUnknown {
-    fn from(value: IWMDMObjectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMObjectInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMObjectInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMObjectInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMObjectInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMObjectInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMObjectInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3841,21 +2936,7 @@ impl IWMDMOperation {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(phcompletioncode), pnewobject.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMDMOperation> for ::windows::core::IUnknown {
-    fn from(value: IWMDMOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMOperation> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMOperation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3951,36 +3032,7 @@ impl IWMDMOperation2 {
         (::windows::core::Vtable::vtable(self).GetObjectAttributes2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMOperation2> for ::windows::core::IUnknown {
-    fn from(value: IWMDMOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMOperation2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMOperation2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMOperation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMOperation2> for IWMDMOperation {
-    fn from(value: IWMDMOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMOperation2> for &'a IWMDMOperation {
-    fn from(value: &'a IWMDMOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMOperation2> for IWMDMOperation {
-    fn from(value: &IWMDMOperation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMOperation2, ::windows::core::IUnknown, IWMDMOperation);
 impl ::core::clone::Clone for IWMDMOperation2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4061,36 +3113,7 @@ impl IWMDMOperation3 {
         (::windows::core::Vtable::vtable(self).TransferObjectDataOnClearChannel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdata), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IWMDMOperation3> for ::windows::core::IUnknown {
-    fn from(value: IWMDMOperation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMOperation3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMOperation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMOperation3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMOperation3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMOperation3> for IWMDMOperation {
-    fn from(value: IWMDMOperation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMOperation3> for &'a IWMDMOperation {
-    fn from(value: &'a IWMDMOperation3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMOperation3> for IWMDMOperation {
-    fn from(value: &IWMDMOperation3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMOperation3, ::windows::core::IUnknown, IWMDMOperation);
 impl ::core::clone::Clone for IWMDMOperation3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4133,21 +3156,7 @@ impl IWMDMProgress {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMDMProgress> for ::windows::core::IUnknown {
-    fn from(value: IWMDMProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMProgress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4195,36 +3204,7 @@ impl IWMDMProgress2 {
         (::windows::core::Vtable::vtable(self).End2)(::windows::core::Vtable::as_raw(self), hrcompletioncode).ok()
     }
 }
-impl ::core::convert::From<IWMDMProgress2> for ::windows::core::IUnknown {
-    fn from(value: IWMDMProgress2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMProgress2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMProgress2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMProgress2> for IWMDMProgress {
-    fn from(value: IWMDMProgress2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress2> for &'a IWMDMProgress {
-    fn from(value: &'a IWMDMProgress2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress2> for IWMDMProgress {
-    fn from(value: &IWMDMProgress2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMProgress2, ::windows::core::IUnknown, IWMDMProgress);
 impl ::core::clone::Clone for IWMDMProgress2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4279,51 +3259,7 @@ impl IWMDMProgress3 {
         (::windows::core::Vtable::vtable(self).End3)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(eventid), hrcompletioncode, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMProgress3> for ::windows::core::IUnknown {
-    fn from(value: IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMProgress3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMProgress3> for IWMDMProgress {
-    fn from(value: IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a IWMDMProgress {
-    fn from(value: &'a IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress3> for IWMDMProgress {
-    fn from(value: &IWMDMProgress3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMProgress3> for IWMDMProgress2 {
-    fn from(value: IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMProgress3> for &'a IWMDMProgress2 {
-    fn from(value: &'a IWMDMProgress3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMProgress3> for IWMDMProgress2 {
-    fn from(value: &IWMDMProgress3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMProgress3, ::windows::core::IUnknown, IWMDMProgress, IWMDMProgress2);
 impl ::core::clone::Clone for IWMDMProgress3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4362,21 +3298,7 @@ impl IWMDMRevoked {
         (::windows::core::Vtable::vtable(self).GetRevocationURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppwszrevocationurl), ::core::mem::transmute(pdwbufferlen), ::core::mem::transmute(pdwrevokedbitflag)).ok()
     }
 }
-impl ::core::convert::From<IWMDMRevoked> for ::windows::core::IUnknown {
-    fn from(value: IWMDMRevoked) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMRevoked> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMRevoked) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMRevoked> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMRevoked) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMRevoked, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMRevoked {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4444,21 +3366,7 @@ impl IWMDMStorage {
         (::windows::core::Vtable::vtable(self).SendOpaqueCommand)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcommand)).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorage> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4557,36 +3465,7 @@ impl IWMDMStorage2 {
         (::windows::core::Vtable::vtable(self).GetAttributes2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwattributes), ::core::mem::transmute(pdwattributesex), ::core::mem::transmute(paudioformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideoformat.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorage2> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage2> for IWMDMStorage {
-    fn from(value: IWMDMStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage2> for &'a IWMDMStorage {
-    fn from(value: &'a IWMDMStorage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage2> for IWMDMStorage {
-    fn from(value: &IWMDMStorage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorage2, ::windows::core::IUnknown, IWMDMStorage);
 impl ::core::clone::Clone for IWMDMStorage2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4696,51 +3575,7 @@ impl IWMDMStorage3 {
         (::windows::core::Vtable::vtable(self).SetEnumPreference)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pmode), pviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorage3> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage3> for IWMDMStorage {
-    fn from(value: IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a IWMDMStorage {
-    fn from(value: &'a IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage3> for IWMDMStorage {
-    fn from(value: &IWMDMStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage3> for IWMDMStorage2 {
-    fn from(value: IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage3> for &'a IWMDMStorage2 {
-    fn from(value: &'a IWMDMStorage3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage3> for IWMDMStorage2 {
-    fn from(value: &IWMDMStorage3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorage3, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2);
 impl ::core::clone::Clone for IWMDMStorage3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4872,66 +3707,7 @@ impl IWMDMStorage4 {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMStorage>(result__)
     }
 }
-impl ::core::convert::From<IWMDMStorage4> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage4> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage {
-    fn from(value: IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage {
-    fn from(value: &'a IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage {
-    fn from(value: &IWMDMStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage2 {
-    fn from(value: IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage2 {
-    fn from(value: &'a IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage2 {
-    fn from(value: &IWMDMStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorage4> for IWMDMStorage3 {
-    fn from(value: IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorage4> for &'a IWMDMStorage3 {
-    fn from(value: &'a IWMDMStorage4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorage4> for IWMDMStorage3 {
-    fn from(value: &IWMDMStorage4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorage4, ::windows::core::IUnknown, IWMDMStorage, IWMDMStorage2, IWMDMStorage3);
 impl ::core::clone::Clone for IWMDMStorage4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5007,21 +3783,7 @@ impl IWMDMStorageControl {
         (::windows::core::Vtable::vtable(self).Move)(::windows::core::Vtable::as_raw(self), fumode, ptargetobject.into().abi(), pprogress.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorageControl> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorageControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorageControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorageControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorageControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMStorageControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5106,36 +3868,7 @@ impl IWMDMStorageControl2 {
         (::windows::core::Vtable::vtable(self).Insert2)(::windows::core::Vtable::as_raw(self), fumode, pwszfilesource.into(), pwszfiledest.into(), poperation.into().abi(), pprogress.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorageControl2> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorageControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorageControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorageControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorageControl2> for IWMDMStorageControl {
-    fn from(value: IWMDMStorageControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl2> for &'a IWMDMStorageControl {
-    fn from(value: &'a IWMDMStorageControl2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl2> for IWMDMStorageControl {
-    fn from(value: &IWMDMStorageControl2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorageControl2, ::windows::core::IUnknown, IWMDMStorageControl);
 impl ::core::clone::Clone for IWMDMStorageControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5227,51 +3960,7 @@ impl IWMDMStorageControl3 {
         (::windows::core::Vtable::vtable(self).Insert3)(::windows::core::Vtable::as_raw(self), fumode, futype, pwszfilesource.into(), pwszfiledest.into(), poperation.into().abi(), pprogress.into().abi(), pmetadata.into().abi(), punknown.into().abi(), ::core::mem::transmute(ppnewobject.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorageControl3> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorageControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorageControl3> for IWMDMStorageControl {
-    fn from(value: IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a IWMDMStorageControl {
-    fn from(value: &'a IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl {
-    fn from(value: &IWMDMStorageControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDMStorageControl3> for IWMDMStorageControl2 {
-    fn from(value: IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageControl3> for &'a IWMDMStorageControl2 {
-    fn from(value: &'a IWMDMStorageControl3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageControl3> for IWMDMStorageControl2 {
-    fn from(value: &IWMDMStorageControl3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorageControl3, ::windows::core::IUnknown, IWMDMStorageControl, IWMDMStorageControl2);
 impl ::core::clone::Clone for IWMDMStorageControl3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5331,21 +4020,7 @@ impl IWMDMStorageGlobals {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), fumode, pprogress.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMDMStorageGlobals> for ::windows::core::IUnknown {
-    fn from(value: IWMDMStorageGlobals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDMStorageGlobals> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDMStorageGlobals) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDMStorageGlobals> for ::windows::core::IUnknown {
-    fn from(value: &IWMDMStorageGlobals) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDMStorageGlobals, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDMStorageGlobals {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5397,21 +4072,7 @@ impl IWMDeviceManager {
         (::windows::core::Vtable::vtable(self).EnumDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDMEnumDevice>(result__)
     }
 }
-impl ::core::convert::From<IWMDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: IWMDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: &IWMDeviceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDeviceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDeviceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5473,36 +4134,7 @@ impl IWMDeviceManager2 {
         (::windows::core::Vtable::vtable(self).Reinitialize)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMDeviceManager2> for ::windows::core::IUnknown {
-    fn from(value: IWMDeviceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDeviceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDeviceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDeviceManager2> for IWMDeviceManager {
-    fn from(value: IWMDeviceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager2> for &'a IWMDeviceManager {
-    fn from(value: &'a IWMDeviceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager2> for IWMDeviceManager {
-    fn from(value: &IWMDeviceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDeviceManager2, ::windows::core::IUnknown, IWMDeviceManager);
 impl ::core::clone::Clone for IWMDeviceManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5567,51 +4199,7 @@ impl IWMDeviceManager3 {
         (::windows::core::Vtable::vtable(self).SetDeviceEnumPreference)(::windows::core::Vtable::as_raw(self), dwenumpref).ok()
     }
 }
-impl ::core::convert::From<IWMDeviceManager3> for ::windows::core::IUnknown {
-    fn from(value: IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDeviceManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDeviceManager3> for IWMDeviceManager {
-    fn from(value: IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a IWMDeviceManager {
-    fn from(value: &'a IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager3> for IWMDeviceManager {
-    fn from(value: &IWMDeviceManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDeviceManager3> for IWMDeviceManager2 {
-    fn from(value: IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceManager3> for &'a IWMDeviceManager2 {
-    fn from(value: &'a IWMDeviceManager3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceManager3> for IWMDeviceManager2 {
-    fn from(value: &IWMDeviceManager3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDeviceManager3, ::windows::core::IUnknown, IWMDeviceManager, IWMDeviceManager2);
 impl ::core::clone::Clone for IWMDeviceManager3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

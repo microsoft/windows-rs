@@ -129,41 +129,7 @@ impl INDClosedCaptionDataReceivedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: INDClosedCaptionDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDClosedCaptionDataReceivedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDClosedCaptionDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: INDClosedCaptionDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDClosedCaptionDataReceivedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDClosedCaptionDataReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDClosedCaptionDataReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &INDClosedCaptionDataReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDClosedCaptionDataReceivedEventArgs {
     fn clone(&self) -> Self {
@@ -244,41 +210,7 @@ impl INDCustomData {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDCustomData> for ::windows::core::IUnknown {
-    fn from(value: INDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDCustomData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDCustomData> for ::windows::core::IUnknown {
-    fn from(value: &INDCustomData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDCustomData> for ::windows::core::IInspectable {
-    fn from(value: INDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDCustomData> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDCustomData> for ::windows::core::IInspectable {
-    fn from(value: &INDCustomData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDCustomData {
     fn clone(&self) -> Self {
@@ -425,41 +357,7 @@ impl INDDownloadEngine {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDDownloadEngine> for ::windows::core::IUnknown {
-    fn from(value: INDDownloadEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDDownloadEngine> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDDownloadEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDDownloadEngine> for ::windows::core::IUnknown {
-    fn from(value: &INDDownloadEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDDownloadEngine> for ::windows::core::IInspectable {
-    fn from(value: INDDownloadEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDDownloadEngine> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDDownloadEngine) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDDownloadEngine> for ::windows::core::IInspectable {
-    fn from(value: &INDDownloadEngine) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDDownloadEngine, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDDownloadEngine {
     fn clone(&self) -> Self {
@@ -586,41 +484,7 @@ impl INDDownloadEngineNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::core::IUnknown {
-    fn from(value: INDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDDownloadEngineNotifier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::core::IUnknown {
-    fn from(value: &INDDownloadEngineNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDDownloadEngineNotifier> for ::windows::core::IInspectable {
-    fn from(value: INDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDDownloadEngineNotifier> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDDownloadEngineNotifier> for ::windows::core::IInspectable {
-    fn from(value: &INDDownloadEngineNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDDownloadEngineNotifier {
     fn clone(&self) -> Self {
@@ -704,41 +568,7 @@ impl INDLicenseFetchCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: INDLicenseFetchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchCompletedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDLicenseFetchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: INDLicenseFetchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchCompletedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDLicenseFetchCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &INDLicenseFetchCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDLicenseFetchCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -830,41 +660,7 @@ impl INDLicenseFetchDescriptor {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::core::IUnknown {
-    fn from(value: INDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchDescriptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &INDLicenseFetchDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchDescriptor> for ::windows::core::IInspectable {
-    fn from(value: INDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchDescriptor> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &INDLicenseFetchDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDLicenseFetchDescriptor {
     fn clone(&self) -> Self {
@@ -962,41 +758,7 @@ impl INDLicenseFetchResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchResult> for ::windows::core::IUnknown {
-    fn from(value: INDLicenseFetchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDLicenseFetchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::core::IUnknown {
-    fn from(value: &INDLicenseFetchResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDLicenseFetchResult> for ::windows::core::IInspectable {
-    fn from(value: INDLicenseFetchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDLicenseFetchResult> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDLicenseFetchResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDLicenseFetchResult> for ::windows::core::IInspectable {
-    fn from(value: &INDLicenseFetchResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDLicenseFetchResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDLicenseFetchResult {
     fn clone(&self) -> Self {
@@ -1087,41 +849,7 @@ impl INDMessenger {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDMessenger> for ::windows::core::IUnknown {
-    fn from(value: INDMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDMessenger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDMessenger> for ::windows::core::IUnknown {
-    fn from(value: &INDMessenger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDMessenger> for ::windows::core::IInspectable {
-    fn from(value: INDMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDMessenger> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDMessenger> for ::windows::core::IInspectable {
-    fn from(value: &INDMessenger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDMessenger {
     fn clone(&self) -> Self {
@@ -1197,41 +925,7 @@ impl INDProximityDetectionCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: INDProximityDetectionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDProximityDetectionCompletedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDProximityDetectionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDProximityDetectionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: INDProximityDetectionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDProximityDetectionCompletedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDProximityDetectionCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDProximityDetectionCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &INDProximityDetectionCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDProximityDetectionCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1319,41 +1013,7 @@ impl INDRegistrationCompletedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: INDRegistrationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDRegistrationCompletedEventArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDRegistrationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDRegistrationCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: INDRegistrationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDRegistrationCompletedEventArgs> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDRegistrationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDRegistrationCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &INDRegistrationCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDRegistrationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDRegistrationCompletedEventArgs {
     fn clone(&self) -> Self {
@@ -1429,41 +1089,7 @@ impl INDSendResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDSendResult> for ::windows::core::IUnknown {
-    fn from(value: INDSendResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDSendResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDSendResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDSendResult> for ::windows::core::IUnknown {
-    fn from(value: &INDSendResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDSendResult> for ::windows::core::IInspectable {
-    fn from(value: INDSendResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDSendResult> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDSendResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDSendResult> for ::windows::core::IInspectable {
-    fn from(value: &INDSendResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDSendResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDSendResult {
     fn clone(&self) -> Self {
@@ -1527,41 +1153,7 @@ impl INDStartResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStartResult> for ::windows::core::IUnknown {
-    fn from(value: INDStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStartResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStartResult> for ::windows::core::IUnknown {
-    fn from(value: &INDStartResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStartResult> for ::windows::core::IInspectable {
-    fn from(value: INDStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStartResult> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDStartResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStartResult> for ::windows::core::IInspectable {
-    fn from(value: &INDStartResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDStartResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDStartResult {
     fn clone(&self) -> Self {
@@ -1629,41 +1221,7 @@ impl INDStorageFileHelper {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStorageFileHelper> for ::windows::core::IUnknown {
-    fn from(value: INDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStorageFileHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStorageFileHelper> for ::windows::core::IUnknown {
-    fn from(value: &INDStorageFileHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStorageFileHelper> for ::windows::core::IInspectable {
-    fn from(value: INDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStorageFileHelper> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStorageFileHelper> for ::windows::core::IInspectable {
-    fn from(value: &INDStorageFileHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDStorageFileHelper {
     fn clone(&self) -> Self {
@@ -1758,41 +1316,7 @@ impl INDStreamParser {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStreamParser> for ::windows::core::IUnknown {
-    fn from(value: INDStreamParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStreamParser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDStreamParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStreamParser> for ::windows::core::IUnknown {
-    fn from(value: &INDStreamParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStreamParser> for ::windows::core::IInspectable {
-    fn from(value: INDStreamParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStreamParser> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDStreamParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStreamParser> for ::windows::core::IInspectable {
-    fn from(value: &INDStreamParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDStreamParser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDStreamParser {
     fn clone(&self) -> Self {
@@ -1901,41 +1425,7 @@ impl INDStreamParserNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStreamParserNotifier> for ::windows::core::IUnknown {
-    fn from(value: INDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStreamParserNotifier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::core::IUnknown {
-    fn from(value: &INDStreamParserNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDStreamParserNotifier> for ::windows::core::IInspectable {
-    fn from(value: INDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDStreamParserNotifier> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDStreamParserNotifier> for ::windows::core::IInspectable {
-    fn from(value: &INDStreamParserNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDStreamParserNotifier {
     fn clone(&self) -> Self {
@@ -2123,41 +1613,7 @@ impl INDTransmitterProperties {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDTransmitterProperties> for ::windows::core::IUnknown {
-    fn from(value: INDTransmitterProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDTransmitterProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INDTransmitterProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDTransmitterProperties> for ::windows::core::IUnknown {
-    fn from(value: &INDTransmitterProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<INDTransmitterProperties> for ::windows::core::IInspectable {
-    fn from(value: INDTransmitterProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a INDTransmitterProperties> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a INDTransmitterProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&INDTransmitterProperties> for ::windows::core::IInspectable {
-    fn from(value: &INDTransmitterProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INDTransmitterProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for INDTransmitterProperties {
     fn clone(&self) -> Self {
@@ -2388,36 +1844,7 @@ impl IPlayReadyDomain {
         }
     }
 }
-impl ::core::convert::From<IPlayReadyDomain> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyDomain> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyDomain> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyDomain> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyDomain> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyDomain> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPlayReadyDomain {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2604,36 +2031,7 @@ impl IPlayReadyLicense {
         }
     }
 }
-impl ::core::convert::From<IPlayReadyLicense> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicense> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicense> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyLicense> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicense> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicense> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPlayReadyLicense {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2800,36 +2198,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest {
         }
     }
 }
-impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseAcquisitionServiceRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseAcquisitionServiceRequest> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
@@ -2991,36 +2360,7 @@ impl IPlayReadyLicenseSession {
         unsafe { (::windows::core::Vtable::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mpm)).ok() }
     }
 }
-impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyLicenseSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyLicenseSession> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseSession> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyLicenseSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IPlayReadyLicenseSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3082,36 +2422,7 @@ impl IPlayReadyLicenseSession2 {
         unsafe { (::windows::core::Vtable::vtable(this).ConfigureMediaProtectionManager)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(mpm)).ok() }
     }
 }
-impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyLicenseSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyLicenseSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyLicenseSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyLicenseSession2> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyLicenseSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyLicenseSession2> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyLicenseSession2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyLicenseSession2> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyLicenseSession2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyLicenseSession2, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyLicenseSession2> for IPlayReadyLicenseSession {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyLicenseSession2) -> ::windows::core::Result<Self> {
@@ -3356,36 +2667,7 @@ impl IPlayReadySecureStopServiceRequest {
         }
     }
 }
-impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadySecureStopServiceRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadySecureStopServiceRequest> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadySecureStopServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
@@ -3567,36 +2849,7 @@ impl IPlayReadyServiceRequest {
         }
     }
 }
-impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: IPlayReadyServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyServiceRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPlayReadyServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &IPlayReadyServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPlayReadyServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: IPlayReadyServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPlayReadyServiceRequest> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IPlayReadyServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPlayReadyServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &IPlayReadyServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPlayReadyServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IPlayReadyServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: IPlayReadyServiceRequest) -> ::windows::core::Result<Self> {
@@ -3975,41 +3228,7 @@ impl ::windows::core::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDClient> for ::windows::core::IUnknown {
-    fn from(value: NDClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDClient> for ::windows::core::IUnknown {
-    fn from(value: &NDClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDClient> for &::windows::core::IUnknown {
-    fn from(value: &NDClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDClient> for ::windows::core::IInspectable {
-    fn from(value: NDClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDClient> for ::windows::core::IInspectable {
-    fn from(value: &NDClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDClient> for &::windows::core::IInspectable {
-    fn from(value: &NDClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDClient, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -4090,41 +3309,7 @@ impl ::windows::core::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDCustomData> for ::windows::core::IUnknown {
-    fn from(value: NDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDCustomData> for ::windows::core::IUnknown {
-    fn from(value: &NDCustomData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDCustomData> for &::windows::core::IUnknown {
-    fn from(value: &NDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDCustomData> for ::windows::core::IInspectable {
-    fn from(value: NDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDCustomData> for ::windows::core::IInspectable {
-    fn from(value: &NDCustomData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDCustomData> for &::windows::core::IInspectable {
-    fn from(value: &NDCustomData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDCustomData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDCustomData> for INDCustomData {
     type Error = ::windows::core::Error;
@@ -4242,41 +3427,7 @@ impl ::windows::core::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDDownloadEngineNotifier> for ::windows::core::IUnknown {
-    fn from(value: NDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::core::IUnknown {
-    fn from(value: &NDDownloadEngineNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDDownloadEngineNotifier> for &::windows::core::IUnknown {
-    fn from(value: &NDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDDownloadEngineNotifier> for ::windows::core::IInspectable {
-    fn from(value: NDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDDownloadEngineNotifier> for ::windows::core::IInspectable {
-    fn from(value: &NDDownloadEngineNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDDownloadEngineNotifier> for &::windows::core::IInspectable {
-    fn from(value: &NDDownloadEngineNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDDownloadEngineNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDDownloadEngineNotifier> for INDDownloadEngineNotifier {
     type Error = ::windows::core::Error;
@@ -4402,41 +3553,7 @@ impl ::windows::core::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDLicenseFetchDescriptor> for ::windows::core::IUnknown {
-    fn from(value: NDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &NDLicenseFetchDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDLicenseFetchDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &NDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDLicenseFetchDescriptor> for ::windows::core::IInspectable {
-    fn from(value: NDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDLicenseFetchDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &NDLicenseFetchDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDLicenseFetchDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &NDLicenseFetchDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDLicenseFetchDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDLicenseFetchDescriptor> for INDLicenseFetchDescriptor {
     type Error = ::windows::core::Error;
@@ -4527,41 +3644,7 @@ impl ::windows::core::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDStorageFileHelper> for ::windows::core::IUnknown {
-    fn from(value: NDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStorageFileHelper> for ::windows::core::IUnknown {
-    fn from(value: &NDStorageFileHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStorageFileHelper> for &::windows::core::IUnknown {
-    fn from(value: &NDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDStorageFileHelper> for ::windows::core::IInspectable {
-    fn from(value: NDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStorageFileHelper> for ::windows::core::IInspectable {
-    fn from(value: &NDStorageFileHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStorageFileHelper> for &::windows::core::IInspectable {
-    fn from(value: &NDStorageFileHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDStorageFileHelper, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDStorageFileHelper> for INDStorageFileHelper {
     type Error = ::windows::core::Error;
@@ -4677,41 +3760,7 @@ impl ::windows::core::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDStreamParserNotifier> for ::windows::core::IUnknown {
-    fn from(value: NDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::core::IUnknown {
-    fn from(value: &NDStreamParserNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStreamParserNotifier> for &::windows::core::IUnknown {
-    fn from(value: &NDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDStreamParserNotifier> for ::windows::core::IInspectable {
-    fn from(value: NDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStreamParserNotifier> for ::windows::core::IInspectable {
-    fn from(value: &NDStreamParserNotifier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDStreamParserNotifier> for &::windows::core::IInspectable {
-    fn from(value: &NDStreamParserNotifier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDStreamParserNotifier, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDStreamParserNotifier> for INDStreamParserNotifier {
     type Error = ::windows::core::Error;
@@ -4832,41 +3881,7 @@ impl ::windows::core::RuntimeName for NDTCPMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDTCPMessenger";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDTCPMessenger> for ::windows::core::IUnknown {
-    fn from(value: NDTCPMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDTCPMessenger> for ::windows::core::IUnknown {
-    fn from(value: &NDTCPMessenger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDTCPMessenger> for &::windows::core::IUnknown {
-    fn from(value: &NDTCPMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<NDTCPMessenger> for ::windows::core::IInspectable {
-    fn from(value: NDTCPMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDTCPMessenger> for ::windows::core::IInspectable {
-    fn from(value: &NDTCPMessenger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&NDTCPMessenger> for &::windows::core::IInspectable {
-    fn from(value: &NDTCPMessenger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(NDTCPMessenger, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<NDTCPMessenger> for INDMessenger {
     type Error = ::windows::core::Error;
@@ -5054,36 +4069,7 @@ unsafe impl ::windows::core::Interface for PlayReadyContentHeader {
 impl ::windows::core::RuntimeName for PlayReadyContentHeader {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
 }
-impl ::core::convert::From<PlayReadyContentHeader> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyContentHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyContentHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyContentHeader> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyContentHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyContentHeader> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyContentHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyContentHeader> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyContentHeader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyContentHeader> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyContentHeader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyContentHeader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
@@ -5176,36 +4162,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomain {
 impl ::windows::core::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
 }
-impl ::core::convert::From<PlayReadyDomain> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomain> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomain> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyDomain> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomain> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomain> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyDomain, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomain> for IPlayReadyDomain {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomain) -> ::windows::core::Result<Self> {
@@ -5311,41 +4268,7 @@ impl ::core::iter::IntoIterator for &PlayReadyDomainIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyDomainIterable> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyDomainIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterable> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyDomainIterable> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyDomainIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterable> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterable> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyDomainIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyDomainIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> {
     type Error = ::windows::core::Error;
@@ -5452,41 +4375,7 @@ impl ::windows::core::RuntimeName for PlayReadyDomainIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyDomainIterator> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyDomainIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterator> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyDomainIterator> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyDomainIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterator> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyDomainIterator> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyDomainIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyDomainIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> {
     type Error = ::windows::core::Error;
@@ -5663,36 +4552,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomainJoinServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyDomainJoinServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
 }
-impl ::core::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyDomainJoinServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyDomainJoinServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyDomainJoinServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainJoinServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainJoinServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyDomainJoinServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomainJoinServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomainJoinServiceRequest) -> ::windows::core::Result<Self> {
@@ -5874,36 +4734,7 @@ unsafe impl ::windows::core::Interface for PlayReadyDomainLeaveServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyDomainLeaveServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
 }
-impl ::core::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyDomainLeaveServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyDomainLeaveServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyDomainLeaveServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyDomainLeaveServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyDomainLeaveServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyDomainLeaveServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyDomainLeaveServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyDomainLeaveServiceRequest) -> ::windows::core::Result<Self> {
@@ -5999,36 +4830,7 @@ unsafe impl ::windows::core::Interface for PlayReadyITADataGenerator {
 impl ::windows::core::RuntimeName for PlayReadyITADataGenerator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
 }
-impl ::core::convert::From<PlayReadyITADataGenerator> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyITADataGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyITADataGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyITADataGenerator> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyITADataGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyITADataGenerator> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyITADataGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyITADataGenerator> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyITADataGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyITADataGenerator> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyITADataGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyITADataGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 #[repr(transparent)]
 pub struct PlayReadyIndividualizationServiceRequest(::windows::core::IUnknown);
@@ -6150,36 +4952,7 @@ unsafe impl ::windows::core::Interface for PlayReadyIndividualizationServiceRequ
 impl ::windows::core::RuntimeName for PlayReadyIndividualizationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
 }
-impl ::core::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyIndividualizationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyIndividualizationServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyIndividualizationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyIndividualizationServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyIndividualizationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyIndividualizationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyIndividualizationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyIndividualizationServiceRequest) -> ::windows::core::Result<Self> {
@@ -6334,36 +5107,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicense {
 impl ::windows::core::RuntimeName for PlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicense";
 }
-impl ::core::convert::From<PlayReadyLicense> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicense> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicense> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyLicense> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicense> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicense) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicense> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicense) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyLicense, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicense> for IPlayReadyLicense {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicense) -> ::windows::core::Result<Self> {
@@ -6542,36 +5286,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicenseAcquisitionServiceReq
 impl ::windows::core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
 }
-impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseAcquisitionServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicenseAcquisitionServiceRequest) -> ::windows::core::Result<Self> {
@@ -6722,41 +5437,7 @@ impl ::core::iter::IntoIterator for &PlayReadyLicenseIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyLicenseIterable> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyLicenseIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterable> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyLicenseIterable> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyLicenseIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterable> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterable> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyLicenseIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyLicenseIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> {
     type Error = ::windows::core::Error;
@@ -6863,41 +5544,7 @@ impl ::windows::core::RuntimeName for PlayReadyLicenseIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyLicenseIterator> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyLicenseIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterator> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadyLicenseIterator> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyLicenseIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterator> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadyLicenseIterator> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyLicenseIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadyLicenseIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> {
     type Error = ::windows::core::Error;
@@ -7014,36 +5661,7 @@ unsafe impl ::windows::core::Interface for PlayReadyLicenseSession {
 impl ::windows::core::RuntimeName for PlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
 }
-impl ::core::convert::From<PlayReadyLicenseSession> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseSession> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyLicenseSession> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseSession> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyLicenseSession> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyLicenseSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyLicenseSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyLicenseSession) -> ::windows::core::Result<Self> {
@@ -7214,36 +5832,7 @@ unsafe impl ::windows::core::Interface for PlayReadyMeteringReportServiceRequest
 impl ::windows::core::RuntimeName for PlayReadyMeteringReportServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
 }
-impl ::core::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyMeteringReportServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyMeteringReportServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyMeteringReportServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyMeteringReportServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyMeteringReportServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyMeteringReportServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyMeteringReportServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyMeteringReportServiceRequest) -> ::windows::core::Result<Self> {
@@ -7403,36 +5992,7 @@ unsafe impl ::windows::core::Interface for PlayReadyRevocationServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
 }
-impl ::core::convert::From<PlayReadyRevocationServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadyRevocationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadyRevocationServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadyRevocationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadyRevocationServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadyRevocationServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadyRevocationServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadyRevocationServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadyRevocationServiceRequest) -> ::windows::core::Result<Self> {
@@ -7557,41 +6117,7 @@ impl ::core::iter::IntoIterator for &PlayReadySecureStopIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadySecureStopIterable> for ::windows::core::IUnknown {
-    fn from(value: PlayReadySecureStopIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterable> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadySecureStopIterable> for ::windows::core::IInspectable {
-    fn from(value: PlayReadySecureStopIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterable> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopIterable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterable> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopIterable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadySecureStopIterable, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadySecureStopIterable> for super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> {
     type Error = ::windows::core::Error;
@@ -7698,41 +6224,7 @@ impl ::windows::core::RuntimeName for PlayReadySecureStopIterator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator";
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadySecureStopIterator> for ::windows::core::IUnknown {
-    fn from(value: PlayReadySecureStopIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterator> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<PlayReadySecureStopIterator> for ::windows::core::IInspectable {
-    fn from(value: PlayReadySecureStopIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterator> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&PlayReadySecureStopIterator> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadySecureStopIterator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PlayReadySecureStopIterator> for super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> {
     type Error = ::windows::core::Error;
@@ -7925,36 +6417,7 @@ unsafe impl ::windows::core::Interface for PlayReadySecureStopServiceRequest {
 impl ::windows::core::RuntimeName for PlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
 }
-impl ::core::convert::From<PlayReadySecureStopServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: PlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: PlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadySecureStopServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadySecureStopServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadySecureStopServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {
     type Error = ::windows::core::Error;
     fn try_from(value: PlayReadySecureStopServiceRequest) -> ::windows::core::Result<Self> {
@@ -8074,36 +6537,7 @@ unsafe impl ::windows::core::Interface for PlayReadySoapMessage {
 impl ::windows::core::RuntimeName for PlayReadySoapMessage {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySoapMessage";
 }
-impl ::core::convert::From<PlayReadySoapMessage> for ::windows::core::IUnknown {
-    fn from(value: PlayReadySoapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::core::IUnknown {
-    fn from(value: &PlayReadySoapMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadySoapMessage> for &::windows::core::IUnknown {
-    fn from(value: &PlayReadySoapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PlayReadySoapMessage> for ::windows::core::IInspectable {
-    fn from(value: PlayReadySoapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PlayReadySoapMessage> for ::windows::core::IInspectable {
-    fn from(value: &PlayReadySoapMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PlayReadySoapMessage> for &::windows::core::IInspectable {
-    fn from(value: &PlayReadySoapMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PlayReadySoapMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
 pub struct PlayReadyStatics;
 impl PlayReadyStatics {

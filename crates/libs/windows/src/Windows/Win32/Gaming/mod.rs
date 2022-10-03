@@ -337,21 +337,7 @@ impl IGameExplorer {
         (::windows::core::Vtable::vtable(self).VerifyAccess)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrgdfbinarypath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IGameExplorer> for ::windows::core::IUnknown {
-    fn from(value: IGameExplorer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameExplorer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameExplorer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameExplorer> for ::windows::core::IUnknown {
-    fn from(value: &IGameExplorer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameExplorer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGameExplorer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -413,21 +399,7 @@ impl IGameExplorer2 {
         (::windows::core::Vtable::vtable(self).CheckAccess)(::windows::core::Vtable::as_raw(self), binarygdfpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IGameExplorer2> for ::windows::core::IUnknown {
-    fn from(value: IGameExplorer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameExplorer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameExplorer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameExplorer2> for ::windows::core::IUnknown {
-    fn from(value: &IGameExplorer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameExplorer2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGameExplorer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -521,21 +493,7 @@ impl IGameStatistics {
         (::windows::core::Vtable::vtable(self).GetLastPlayedCategory)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IGameStatistics> for ::windows::core::IUnknown {
-    fn from(value: IGameStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameStatistics> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameStatistics> for ::windows::core::IUnknown {
-    fn from(value: &IGameStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameStatistics, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGameStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -595,21 +553,7 @@ impl IGameStatisticsMgr {
         (::windows::core::Vtable::vtable(self).RemoveGameStatistics)(::windows::core::Vtable::as_raw(self), gdfbinarypath.into()).ok()
     }
 }
-impl ::core::convert::From<IGameStatisticsMgr> for ::windows::core::IUnknown {
-    fn from(value: IGameStatisticsMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameStatisticsMgr> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameStatisticsMgr) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameStatisticsMgr> for ::windows::core::IUnknown {
-    fn from(value: &IGameStatisticsMgr) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameStatisticsMgr, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGameStatisticsMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -685,21 +629,7 @@ impl IXblIdpAuthManager {
         (::windows::core::Vtable::vtable(self).GetTokenAndSignatureWithTokenResult)(::windows::core::Vtable::as_raw(self), msaaccountid.into(), appsid.into(), msatarget.into(), msapolicy.into(), httpmethod.into(), uri.into(), headers.into(), ::core::mem::transmute(body.as_ptr()), body.len() as _, forcerefresh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXblIdpAuthTokenResult>(result__)
     }
 }
-impl ::core::convert::From<IXblIdpAuthManager> for ::windows::core::IUnknown {
-    fn from(value: IXblIdpAuthManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXblIdpAuthManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXblIdpAuthManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXblIdpAuthManager> for ::windows::core::IUnknown {
-    fn from(value: &IXblIdpAuthManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXblIdpAuthManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXblIdpAuthManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -821,21 +751,7 @@ impl IXblIdpAuthTokenResult {
         (::windows::core::Vtable::vtable(self).GetTitleRestrictions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IXblIdpAuthTokenResult> for ::windows::core::IUnknown {
-    fn from(value: IXblIdpAuthTokenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXblIdpAuthTokenResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXblIdpAuthTokenResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXblIdpAuthTokenResult> for ::windows::core::IUnknown {
-    fn from(value: &IXblIdpAuthTokenResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXblIdpAuthTokenResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXblIdpAuthTokenResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -900,21 +816,7 @@ impl IXblIdpAuthTokenResult2 {
         (::windows::core::Vtable::vtable(self).GetUniqueModernGamertag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IXblIdpAuthTokenResult2> for ::windows::core::IUnknown {
-    fn from(value: IXblIdpAuthTokenResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXblIdpAuthTokenResult2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXblIdpAuthTokenResult2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXblIdpAuthTokenResult2> for ::windows::core::IUnknown {
-    fn from(value: &IXblIdpAuthTokenResult2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXblIdpAuthTokenResult2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

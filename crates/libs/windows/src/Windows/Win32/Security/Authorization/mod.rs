@@ -1553,41 +1553,7 @@ impl IAzApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication> for ::windows::core::IUnknown {
-    fn from(value: IAzApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplication, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplication {
     fn clone(&self) -> Self {
@@ -2294,59 +2260,7 @@ impl IAzApplication2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication2> for ::windows::core::IUnknown {
-    fn from(value: IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication2> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplication2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplication2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication2> for IAzApplication {
-    fn from(value: IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication2> for &'a IAzApplication {
-    fn from(value: &'a IAzApplication2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication2> for IAzApplication {
-    fn from(value: &IAzApplication2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplication2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzApplication);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplication2 {
     fn clone(&self) -> Self {
@@ -2915,77 +2829,7 @@ impl IAzApplication3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication3> for ::windows::core::IUnknown {
-    fn from(value: IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication3> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplication3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication3> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication3> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication3> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplication3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication3> for IAzApplication {
-    fn from(value: IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication3> for &'a IAzApplication {
-    fn from(value: &'a IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication3> for IAzApplication {
-    fn from(value: &IAzApplication3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplication3> for IAzApplication2 {
-    fn from(value: IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplication3> for &'a IAzApplication2 {
-    fn from(value: &'a IAzApplication3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplication3> for IAzApplication2 {
-    fn from(value: &IAzApplication3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplication3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzApplication, IAzApplication2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplication3 {
     fn clone(&self) -> Self {
@@ -3276,41 +3120,7 @@ impl IAzApplicationGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroup> for ::windows::core::IUnknown {
-    fn from(value: IAzApplicationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplicationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroup> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplicationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroup> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplicationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplicationGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroup> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplicationGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplicationGroup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplicationGroup {
     fn clone(&self) -> Self {
@@ -3694,59 +3504,7 @@ impl IAzApplicationGroup2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroup2> for ::windows::core::IUnknown {
-    fn from(value: IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroup2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroup2> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplicationGroup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroup2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroup2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroup2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplicationGroup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroup2> for IAzApplicationGroup {
-    fn from(value: IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroup2> for &'a IAzApplicationGroup {
-    fn from(value: &'a IAzApplicationGroup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroup2> for IAzApplicationGroup {
-    fn from(value: &IAzApplicationGroup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplicationGroup2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzApplicationGroup);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplicationGroup2 {
     fn clone(&self) -> Self {
@@ -3813,41 +3571,7 @@ impl IAzApplicationGroups {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroups> for ::windows::core::IUnknown {
-    fn from(value: IAzApplicationGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroups> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplicationGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroups> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplicationGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplicationGroups> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplicationGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplicationGroups> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplicationGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplicationGroups> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplicationGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplicationGroups, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplicationGroups {
     fn clone(&self) -> Self {
@@ -3910,41 +3634,7 @@ impl IAzApplications {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplications> for ::windows::core::IUnknown {
-    fn from(value: IAzApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplications> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplications> for ::windows::core::IUnknown {
-    fn from(value: &IAzApplications) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzApplications> for super::super::System::Com::IDispatch {
-    fn from(value: IAzApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzApplications> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzApplications) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzApplications> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzApplications) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzApplications, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzApplications {
     fn clone(&self) -> Self {
@@ -4333,41 +4023,7 @@ impl IAzAuthorizationStore {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore> for ::windows::core::IUnknown {
-    fn from(value: IAzAuthorizationStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzAuthorizationStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore> for ::windows::core::IUnknown {
-    fn from(value: &IAzAuthorizationStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore> for super::super::System::Com::IDispatch {
-    fn from(value: IAzAuthorizationStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzAuthorizationStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzAuthorizationStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzAuthorizationStore, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzAuthorizationStore {
     fn clone(&self) -> Self {
@@ -4936,59 +4592,7 @@ impl IAzAuthorizationStore2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore2> for ::windows::core::IUnknown {
-    fn from(value: IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore2> for ::windows::core::IUnknown {
-    fn from(value: &IAzAuthorizationStore2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzAuthorizationStore2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore2> for IAzAuthorizationStore {
-    fn from(value: IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore2> for &'a IAzAuthorizationStore {
-    fn from(value: &'a IAzAuthorizationStore2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore2> for IAzAuthorizationStore {
-    fn from(value: &IAzAuthorizationStore2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzAuthorizationStore2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzAuthorizationStore);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzAuthorizationStore2 {
     fn clone(&self) -> Self {
@@ -5415,77 +5019,7 @@ impl IAzAuthorizationStore3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore3> for ::windows::core::IUnknown {
-    fn from(value: IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore3> for ::windows::core::IUnknown {
-    fn from(value: &IAzAuthorizationStore3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore3> for super::super::System::Com::IDispatch {
-    fn from(value: IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore3> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore3> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzAuthorizationStore3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore3> for IAzAuthorizationStore {
-    fn from(value: IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore3> for &'a IAzAuthorizationStore {
-    fn from(value: &'a IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore3> for IAzAuthorizationStore {
-    fn from(value: &IAzAuthorizationStore3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzAuthorizationStore3> for IAzAuthorizationStore2 {
-    fn from(value: IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzAuthorizationStore3> for &'a IAzAuthorizationStore2 {
-    fn from(value: &'a IAzAuthorizationStore3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzAuthorizationStore3> for IAzAuthorizationStore2 {
-    fn from(value: &IAzAuthorizationStore3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzAuthorizationStore3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzAuthorizationStore, IAzAuthorizationStore2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzAuthorizationStore3 {
     fn clone(&self) -> Self {
@@ -5554,41 +5088,7 @@ impl IAzBizRuleContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleContext> for ::windows::core::IUnknown {
-    fn from(value: IAzBizRuleContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzBizRuleContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleContext> for ::windows::core::IUnknown {
-    fn from(value: &IAzBizRuleContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleContext> for super::super::System::Com::IDispatch {
-    fn from(value: IAzBizRuleContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleContext> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzBizRuleContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleContext> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzBizRuleContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzBizRuleContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzBizRuleContext {
     fn clone(&self) -> Self {
@@ -5674,41 +5174,7 @@ impl IAzBizRuleInterfaces {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleInterfaces> for ::windows::core::IUnknown {
-    fn from(value: IAzBizRuleInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleInterfaces> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzBizRuleInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleInterfaces> for ::windows::core::IUnknown {
-    fn from(value: &IAzBizRuleInterfaces) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleInterfaces> for super::super::System::Com::IDispatch {
-    fn from(value: IAzBizRuleInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleInterfaces> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzBizRuleInterfaces) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleInterfaces> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzBizRuleInterfaces) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzBizRuleInterfaces, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzBizRuleInterfaces {
     fn clone(&self) -> Self {
@@ -5799,41 +5265,7 @@ impl IAzBizRuleParameters {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleParameters> for ::windows::core::IUnknown {
-    fn from(value: IAzBizRuleParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleParameters> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzBizRuleParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleParameters> for ::windows::core::IUnknown {
-    fn from(value: &IAzBizRuleParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzBizRuleParameters> for super::super::System::Com::IDispatch {
-    fn from(value: IAzBizRuleParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzBizRuleParameters> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzBizRuleParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzBizRuleParameters> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzBizRuleParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzBizRuleParameters, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzBizRuleParameters {
     fn clone(&self) -> Self {
@@ -5960,41 +5392,7 @@ impl IAzClientContext {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext> for ::windows::core::IUnknown {
-    fn from(value: IAzClientContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzClientContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext> for ::windows::core::IUnknown {
-    fn from(value: &IAzClientContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext> for super::super::System::Com::IDispatch {
-    fn from(value: IAzClientContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzClientContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzClientContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzClientContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzClientContext {
     fn clone(&self) -> Self {
@@ -6164,59 +5562,7 @@ impl IAzClientContext2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext2> for ::windows::core::IUnknown {
-    fn from(value: IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext2> for ::windows::core::IUnknown {
-    fn from(value: &IAzClientContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzClientContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext2> for IAzClientContext {
-    fn from(value: IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext2> for &'a IAzClientContext {
-    fn from(value: &'a IAzClientContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext2> for IAzClientContext {
-    fn from(value: &IAzClientContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzClientContext2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzClientContext);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzClientContext2 {
     fn clone(&self) -> Self {
@@ -6426,77 +5772,7 @@ impl IAzClientContext3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext3> for ::windows::core::IUnknown {
-    fn from(value: IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext3> for ::windows::core::IUnknown {
-    fn from(value: &IAzClientContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext3> for super::super::System::Com::IDispatch {
-    fn from(value: IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext3> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext3> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzClientContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext3> for IAzClientContext {
-    fn from(value: IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext3> for &'a IAzClientContext {
-    fn from(value: &'a IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext3> for IAzClientContext {
-    fn from(value: &IAzClientContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzClientContext3> for IAzClientContext2 {
-    fn from(value: IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzClientContext3> for &'a IAzClientContext2 {
-    fn from(value: &'a IAzClientContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzClientContext3> for IAzClientContext2 {
-    fn from(value: &IAzClientContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzClientContext3, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzClientContext, IAzClientContext2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzClientContext3 {
     fn clone(&self) -> Self {
@@ -6576,41 +5852,7 @@ impl IAzNameResolver {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzNameResolver> for ::windows::core::IUnknown {
-    fn from(value: IAzNameResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzNameResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzNameResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzNameResolver> for ::windows::core::IUnknown {
-    fn from(value: &IAzNameResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzNameResolver> for super::super::System::Com::IDispatch {
-    fn from(value: IAzNameResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzNameResolver> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzNameResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzNameResolver> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzNameResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzNameResolver, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzNameResolver {
     fn clone(&self) -> Self {
@@ -6670,41 +5912,7 @@ impl IAzObjectPicker {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzObjectPicker> for ::windows::core::IUnknown {
-    fn from(value: IAzObjectPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzObjectPicker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzObjectPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzObjectPicker> for ::windows::core::IUnknown {
-    fn from(value: &IAzObjectPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzObjectPicker> for super::super::System::Com::IDispatch {
-    fn from(value: IAzObjectPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzObjectPicker> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzObjectPicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzObjectPicker> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzObjectPicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzObjectPicker, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzObjectPicker {
     fn clone(&self) -> Self {
@@ -6812,41 +6020,7 @@ impl IAzOperation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperation> for ::windows::core::IUnknown {
-    fn from(value: IAzOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperation> for ::windows::core::IUnknown {
-    fn from(value: &IAzOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperation> for super::super::System::Com::IDispatch {
-    fn from(value: IAzOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperation> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperation> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzOperation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzOperation {
     fn clone(&self) -> Self {
@@ -6979,59 +6153,7 @@ impl IAzOperation2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperation2> for ::windows::core::IUnknown {
-    fn from(value: IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperation2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperation2> for ::windows::core::IUnknown {
-    fn from(value: &IAzOperation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperation2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperation2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperation2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzOperation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperation2> for IAzOperation {
-    fn from(value: IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperation2> for &'a IAzOperation {
-    fn from(value: &'a IAzOperation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperation2> for IAzOperation {
-    fn from(value: &IAzOperation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzOperation2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzOperation);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzOperation2 {
     fn clone(&self) -> Self {
@@ -7092,41 +6214,7 @@ impl IAzOperations {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperations> for ::windows::core::IUnknown {
-    fn from(value: IAzOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperations> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperations> for ::windows::core::IUnknown {
-    fn from(value: &IAzOperations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzOperations> for super::super::System::Com::IDispatch {
-    fn from(value: IAzOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzOperations> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzOperations> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzOperations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzOperations, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzOperations {
     fn clone(&self) -> Self {
@@ -7187,41 +6275,7 @@ impl IAzPrincipalLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzPrincipalLocator> for ::windows::core::IUnknown {
-    fn from(value: IAzPrincipalLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzPrincipalLocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzPrincipalLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzPrincipalLocator> for ::windows::core::IUnknown {
-    fn from(value: &IAzPrincipalLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzPrincipalLocator> for super::super::System::Com::IDispatch {
-    fn from(value: IAzPrincipalLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzPrincipalLocator> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzPrincipalLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzPrincipalLocator> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzPrincipalLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzPrincipalLocator, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzPrincipalLocator {
     fn clone(&self) -> Self {
@@ -7453,41 +6507,7 @@ impl IAzRole {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRole> for ::windows::core::IUnknown {
-    fn from(value: IAzRole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRole> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRole> for ::windows::core::IUnknown {
-    fn from(value: &IAzRole) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRole> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRole> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRole) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRole> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRole) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRole, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRole {
     fn clone(&self) -> Self {
@@ -7819,59 +6839,7 @@ impl IAzRoleAssignment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleAssignment> for ::windows::core::IUnknown {
-    fn from(value: IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleAssignment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleAssignment> for ::windows::core::IUnknown {
-    fn from(value: &IAzRoleAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleAssignment> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleAssignment> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleAssignment> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRoleAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleAssignment> for IAzRole {
-    fn from(value: IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleAssignment> for &'a IAzRole {
-    fn from(value: &'a IAzRoleAssignment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleAssignment> for IAzRole {
-    fn from(value: &IAzRoleAssignment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRoleAssignment, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzRole);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRoleAssignment {
     fn clone(&self) -> Self {
@@ -7938,41 +6906,7 @@ impl IAzRoleAssignments {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleAssignments> for ::windows::core::IUnknown {
-    fn from(value: IAzRoleAssignments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleAssignments> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRoleAssignments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleAssignments> for ::windows::core::IUnknown {
-    fn from(value: &IAzRoleAssignments) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleAssignments> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRoleAssignments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleAssignments> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRoleAssignments) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleAssignments> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRoleAssignments) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRoleAssignments, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRoleAssignments {
     fn clone(&self) -> Self {
@@ -8189,59 +7123,7 @@ impl IAzRoleDefinition {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleDefinition> for ::windows::core::IUnknown {
-    fn from(value: IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleDefinition> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleDefinition> for ::windows::core::IUnknown {
-    fn from(value: &IAzRoleDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleDefinition> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleDefinition> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleDefinition> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRoleDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleDefinition> for IAzTask {
-    fn from(value: IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleDefinition> for &'a IAzTask {
-    fn from(value: &'a IAzRoleDefinition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleDefinition> for IAzTask {
-    fn from(value: &IAzRoleDefinition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRoleDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzTask);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRoleDefinition {
     fn clone(&self) -> Self {
@@ -8308,41 +7190,7 @@ impl IAzRoleDefinitions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleDefinitions> for ::windows::core::IUnknown {
-    fn from(value: IAzRoleDefinitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleDefinitions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRoleDefinitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleDefinitions> for ::windows::core::IUnknown {
-    fn from(value: &IAzRoleDefinitions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoleDefinitions> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRoleDefinitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoleDefinitions> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRoleDefinitions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoleDefinitions> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRoleDefinitions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRoleDefinitions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRoleDefinitions {
     fn clone(&self) -> Self {
@@ -8405,41 +7253,7 @@ impl IAzRoles {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoles> for ::windows::core::IUnknown {
-    fn from(value: IAzRoles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoles> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzRoles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoles> for ::windows::core::IUnknown {
-    fn from(value: &IAzRoles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzRoles> for super::super::System::Com::IDispatch {
-    fn from(value: IAzRoles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzRoles> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzRoles) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzRoles> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzRoles) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzRoles, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzRoles {
     fn clone(&self) -> Self {
@@ -8755,41 +7569,7 @@ impl IAzScope {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScope> for ::windows::core::IUnknown {
-    fn from(value: IAzScope) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScope> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzScope) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScope> for ::windows::core::IUnknown {
-    fn from(value: &IAzScope) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScope> for super::super::System::Com::IDispatch {
-    fn from(value: IAzScope) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScope> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzScope) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScope> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzScope) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzScope, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzScope {
     fn clone(&self) -> Self {
@@ -9275,59 +8055,7 @@ impl IAzScope2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScope2> for ::windows::core::IUnknown {
-    fn from(value: IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScope2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScope2> for ::windows::core::IUnknown {
-    fn from(value: &IAzScope2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScope2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScope2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScope2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzScope2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScope2> for IAzScope {
-    fn from(value: IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScope2> for &'a IAzScope {
-    fn from(value: &'a IAzScope2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScope2> for IAzScope {
-    fn from(value: &IAzScope2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzScope2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzScope);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzScope2 {
     fn clone(&self) -> Self {
@@ -9410,41 +8138,7 @@ impl IAzScopes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScopes> for ::windows::core::IUnknown {
-    fn from(value: IAzScopes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScopes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzScopes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScopes> for ::windows::core::IUnknown {
-    fn from(value: &IAzScopes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzScopes> for super::super::System::Com::IDispatch {
-    fn from(value: IAzScopes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzScopes> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzScopes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzScopes> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzScopes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzScopes, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzScopes {
     fn clone(&self) -> Self {
@@ -9643,41 +8337,7 @@ impl IAzTask {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTask> for ::windows::core::IUnknown {
-    fn from(value: IAzTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTask> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTask> for ::windows::core::IUnknown {
-    fn from(value: &IAzTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTask> for super::super::System::Com::IDispatch {
-    fn from(value: IAzTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTask> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTask> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzTask, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzTask {
     fn clone(&self) -> Self {
@@ -9944,59 +8604,7 @@ impl IAzTask2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTask2> for ::windows::core::IUnknown {
-    fn from(value: IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTask2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTask2> for ::windows::core::IUnknown {
-    fn from(value: &IAzTask2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTask2> for super::super::System::Com::IDispatch {
-    fn from(value: IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTask2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTask2> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzTask2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTask2> for IAzTask {
-    fn from(value: IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTask2> for &'a IAzTask {
-    fn from(value: &'a IAzTask2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTask2> for IAzTask {
-    fn from(value: &IAzTask2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzTask2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IAzTask);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzTask2 {
     fn clone(&self) -> Self {
@@ -10057,41 +8665,7 @@ impl IAzTasks {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTasks> for ::windows::core::IUnknown {
-    fn from(value: IAzTasks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTasks> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAzTasks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTasks> for ::windows::core::IUnknown {
-    fn from(value: &IAzTasks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAzTasks> for super::super::System::Com::IDispatch {
-    fn from(value: IAzTasks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IAzTasks> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IAzTasks) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAzTasks> for super::super::System::Com::IDispatch {
-    fn from(value: &IAzTasks) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAzTasks, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IAzTasks {
     fn clone(&self) -> Self {

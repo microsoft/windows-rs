@@ -23,21 +23,7 @@ impl IGraphicsCaptureItemInterop {
         (::windows::core::Vtable::vtable(self).CreateForMonitor)(::windows::core::Vtable::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IGraphicsCaptureItemInterop> for ::windows::core::IUnknown {
-    fn from(value: IGraphicsCaptureItemInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGraphicsCaptureItemInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGraphicsCaptureItemInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGraphicsCaptureItemInterop> for ::windows::core::IUnknown {
-    fn from(value: &IGraphicsCaptureItemInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGraphicsCaptureItemInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

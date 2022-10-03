@@ -14,21 +14,7 @@ impl IObjectArray {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uiindex, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IObjectArray> for ::windows::core::IUnknown {
-    fn from(value: IObjectArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IObjectArray> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IObjectArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IObjectArray> for ::windows::core::IUnknown {
-    fn from(value: &IObjectArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IObjectArray, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IObjectArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -92,36 +78,7 @@ impl IObjectCollection {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: IObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IObjectCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IObjectCollection> for ::windows::core::IUnknown {
-    fn from(value: &IObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IObjectCollection> for IObjectArray {
-    fn from(value: IObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IObjectCollection> for &'a IObjectArray {
-    fn from(value: &'a IObjectCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IObjectCollection> for IObjectArray {
-    fn from(value: &IObjectCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IObjectCollection, ::windows::core::IUnknown, IObjectArray);
 impl ::core::clone::Clone for IObjectCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())

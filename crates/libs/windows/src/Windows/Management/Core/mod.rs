@@ -80,36 +80,7 @@ unsafe impl ::windows::core::Interface for ApplicationDataManager {
 impl ::windows::core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";
 }
-impl ::core::convert::From<ApplicationDataManager> for ::windows::core::IUnknown {
-    fn from(value: ApplicationDataManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationDataManager> for ::windows::core::IUnknown {
-    fn from(value: &ApplicationDataManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationDataManager> for &::windows::core::IUnknown {
-    fn from(value: &ApplicationDataManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ApplicationDataManager> for ::windows::core::IInspectable {
-    fn from(value: ApplicationDataManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ApplicationDataManager> for ::windows::core::IInspectable {
-    fn from(value: &ApplicationDataManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ApplicationDataManager> for &::windows::core::IInspectable {
-    fn from(value: &ApplicationDataManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ApplicationDataManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ApplicationDataManager {}
 unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 #[cfg(feature = "implement")]

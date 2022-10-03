@@ -1089,36 +1089,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSource {
 impl ::windows::core::RuntimeName for AdaptiveMediaSource {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource";
 }
-impl ::core::convert::From<AdaptiveMediaSource> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSource> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSource> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSource> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSource> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSource> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AdaptiveMediaSource> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1251,36 +1222,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceAdvancedSettings {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceAdvancedSettings {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings";
 }
-impl ::core::convert::From<AdaptiveMediaSourceAdvancedSettings> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceAdvancedSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceAdvancedSettings> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceAdvancedSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceAdvancedSettings> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceAdvancedSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceAdvancedSettings> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceAdvancedSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceAdvancedSettings> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceAdvancedSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceAdvancedSettings> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceAdvancedSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceAdvancedSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceAdvancedSettings {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceAdvancedSettings {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1347,36 +1289,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCorrelatedTimes {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCorrelatedTimes {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes";
 }
-impl ::core::convert::From<AdaptiveMediaSourceCorrelatedTimes> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCorrelatedTimes> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCorrelatedTimes> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceCorrelatedTimes> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCorrelatedTimes> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCorrelatedTimes> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceCorrelatedTimes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceCorrelatedTimes {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCorrelatedTimes {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1446,36 +1359,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCreationResult {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCreationResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult";
 }
-impl ::core::convert::From<AdaptiveMediaSourceCreationResult> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCreationResult> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCreationResult> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceCreationResult> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCreationResult> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceCreationResult> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCreationResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1617,36 +1501,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnosticAvailabl
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDiagnosticAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnosticAvailableEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnosticAvailableEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDiagnosticAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnosticAvailableEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnosticAvailableEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDiagnosticAvailableEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDiagnosticAvailableEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1701,36 +1556,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnostics {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnostics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDiagnostics> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnostics> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDiagnostics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnostics> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDiagnostics> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnostics> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDiagnostics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDiagnostics> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDiagnostics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnostics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnostics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1791,36 +1617,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadBitrateCha
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadBitrateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1942,36 +1739,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadCompletedE
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadCompletedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2100,36 +1868,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadFailedEven
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadFailedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadFailedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadFailedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadFailedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadFailedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadFailedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2173,36 +1912,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedD
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedDeferral {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedDeferral> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedDeferral> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedDeferral> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedDeferral> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedDeferral {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedDeferral {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2322,36 +2032,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedE
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2504,36 +2185,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadResult {
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadResult> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadResult> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadResult> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadResult> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadResult> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadResult {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2607,36 +2259,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadStatistics
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadStatistics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics";
 }
-impl ::core::convert::From<AdaptiveMediaSourceDownloadStatistics> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourceDownloadStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadStatistics> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadStatistics> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourceDownloadStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourceDownloadStatistics> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourceDownloadStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadStatistics> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadStatistics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourceDownloadStatistics> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourceDownloadStatistics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourceDownloadStatistics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadStatistics {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadStatistics {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2697,36 +2320,7 @@ unsafe impl ::windows::core::Interface for AdaptiveMediaSourcePlaybackBitrateCha
 impl ::windows::core::RuntimeName for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs";
 }
-impl ::core::convert::From<AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveMediaSourcePlaybackBitrateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdaptiveMediaSourcePlaybackBitrateChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]

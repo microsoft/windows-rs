@@ -791,41 +791,7 @@ impl IFaxAccount {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccount> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccount> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccount> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccount> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccount> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccount) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccount> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccount) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccount, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccount {
     fn clone(&self) -> Self {
@@ -899,41 +865,7 @@ impl IFaxAccountFolders {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountFolders> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountFolders> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountFolders> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountFolders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountFolders> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountFolders> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountFolders> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountFolders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountFolders, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountFolders {
     fn clone(&self) -> Self {
@@ -1015,41 +947,7 @@ impl IFaxAccountIncomingArchive {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountIncomingArchive> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountIncomingArchive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountIncomingArchive> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountIncomingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountIncomingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountIncomingArchive> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountIncomingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountIncomingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountIncomingArchive, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountIncomingArchive {
     fn clone(&self) -> Self {
@@ -1115,41 +1013,7 @@ impl IFaxAccountIncomingQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountIncomingQueue> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountIncomingQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountIncomingQueue> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountIncomingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountIncomingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountIncomingQueue> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountIncomingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountIncomingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountIncomingQueue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountIncomingQueue {
     fn clone(&self) -> Self {
@@ -1199,41 +1063,7 @@ pub struct IFaxAccountNotify(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountNotify {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountNotify> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountNotify> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountNotify> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountNotify> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountNotify> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountNotify, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountNotify {
     fn clone(&self) -> Self {
@@ -1299,41 +1129,7 @@ impl IFaxAccountOutgoingArchive {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountOutgoingArchive> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountOutgoingArchive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountOutgoingArchive> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountOutgoingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountOutgoingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountOutgoingArchive> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountOutgoingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountOutgoingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountOutgoingArchive, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountOutgoingArchive {
     fn clone(&self) -> Self {
@@ -1399,41 +1195,7 @@ impl IFaxAccountOutgoingQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountOutgoingQueue> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountOutgoingQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountOutgoingQueue> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountOutgoingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountOutgoingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountOutgoingQueue> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountOutgoingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountOutgoingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountOutgoingQueue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountOutgoingQueue {
     fn clone(&self) -> Self {
@@ -1505,41 +1267,7 @@ impl IFaxAccountSet {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountSet> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccountSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountSet> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccountSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountSet> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccountSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccountSet> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccountSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccountSet> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccountSet) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccountSet> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccountSet) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccountSet, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccountSet {
     fn clone(&self) -> Self {
@@ -1612,41 +1340,7 @@ impl IFaxAccounts {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccounts> for ::windows::core::IUnknown {
-    fn from(value: IFaxAccounts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccounts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxAccounts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccounts> for ::windows::core::IUnknown {
-    fn from(value: &IFaxAccounts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxAccounts> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxAccounts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxAccounts> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxAccounts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxAccounts> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxAccounts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxAccounts, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxAccounts {
     fn clone(&self) -> Self {
@@ -1714,41 +1408,7 @@ impl IFaxActivity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxActivity> for ::windows::core::IUnknown {
-    fn from(value: IFaxActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxActivity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxActivity> for ::windows::core::IUnknown {
-    fn from(value: &IFaxActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxActivity> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxActivity> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxActivity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxActivity> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxActivity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxActivity, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxActivity {
     fn clone(&self) -> Self {
@@ -1823,41 +1483,7 @@ impl IFaxActivityLogging {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxActivityLogging> for ::windows::core::IUnknown {
-    fn from(value: IFaxActivityLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxActivityLogging> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxActivityLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxActivityLogging> for ::windows::core::IUnknown {
-    fn from(value: &IFaxActivityLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxActivityLogging> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxActivityLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxActivityLogging> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxActivityLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxActivityLogging> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxActivityLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxActivityLogging, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxActivityLogging {
     fn clone(&self) -> Self {
@@ -2055,41 +1681,7 @@ impl IFaxConfiguration {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IFaxConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IFaxConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxConfiguration> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxConfiguration> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxConfiguration> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxConfiguration, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxConfiguration {
     fn clone(&self) -> Self {
@@ -2276,41 +1868,7 @@ impl IFaxDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDevice> for ::windows::core::IUnknown {
-    fn from(value: IFaxDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDevice> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDevice> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDevice> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDevice> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDevice, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDevice {
     fn clone(&self) -> Self {
@@ -2409,41 +1967,7 @@ impl IFaxDeviceIds {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceIds> for ::windows::core::IUnknown {
-    fn from(value: IFaxDeviceIds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceIds> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDeviceIds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceIds> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDeviceIds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceIds> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDeviceIds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceIds> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDeviceIds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceIds> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDeviceIds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDeviceIds, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDeviceIds {
     fn clone(&self) -> Self {
@@ -2542,41 +2066,7 @@ impl IFaxDeviceProvider {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: IFaxDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceProvider> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceProvider> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceProvider> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceProvider> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDeviceProvider, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDeviceProvider {
     fn clone(&self) -> Self {
@@ -2651,41 +2141,7 @@ impl IFaxDeviceProviders {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceProviders> for ::windows::core::IUnknown {
-    fn from(value: IFaxDeviceProviders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceProviders> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDeviceProviders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceProviders> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDeviceProviders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDeviceProviders> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDeviceProviders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDeviceProviders> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDeviceProviders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDeviceProviders> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDeviceProviders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDeviceProviders, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDeviceProviders {
     fn clone(&self) -> Self {
@@ -2757,41 +2213,7 @@ impl IFaxDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDevices> for ::windows::core::IUnknown {
-    fn from(value: IFaxDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDevices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDevices> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDevices> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDevices> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDevices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDevices> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDevices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDevices, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDevices {
     fn clone(&self) -> Self {
@@ -2983,41 +2405,7 @@ impl IFaxDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDocument> for ::windows::core::IUnknown {
-    fn from(value: IFaxDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDocument> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDocument> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDocument> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDocument> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDocument, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDocument {
     fn clone(&self) -> Self {
@@ -3282,59 +2670,7 @@ impl IFaxDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDocument2> for ::windows::core::IUnknown {
-    fn from(value: IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDocument2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDocument2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDocument2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDocument2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDocument2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxDocument2> for IFaxDocument {
-    fn from(value: IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxDocument2> for &'a IFaxDocument {
-    fn from(value: &'a IFaxDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxDocument2> for IFaxDocument {
-    fn from(value: &IFaxDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxDocument2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFaxDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxDocument2 {
     fn clone(&self) -> Self {
@@ -3428,41 +2764,7 @@ impl IFaxEventLogging {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxEventLogging> for ::windows::core::IUnknown {
-    fn from(value: IFaxEventLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxEventLogging> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxEventLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxEventLogging> for ::windows::core::IUnknown {
-    fn from(value: &IFaxEventLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxEventLogging> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxEventLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxEventLogging> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxEventLogging) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxEventLogging> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxEventLogging) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxEventLogging, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxEventLogging {
     fn clone(&self) -> Self {
@@ -3539,41 +2841,7 @@ impl IFaxFolders {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxFolders> for ::windows::core::IUnknown {
-    fn from(value: IFaxFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxFolders> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxFolders> for ::windows::core::IUnknown {
-    fn from(value: &IFaxFolders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxFolders> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxFolders> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxFolders) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxFolders> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxFolders) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxFolders, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxFolders {
     fn clone(&self) -> Self {
@@ -3644,41 +2912,7 @@ impl IFaxInboundRouting {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRouting> for ::windows::core::IUnknown {
-    fn from(value: IFaxInboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRouting> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxInboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRouting> for ::windows::core::IUnknown {
-    fn from(value: &IFaxInboundRouting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRouting> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxInboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRouting> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxInboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRouting> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxInboundRouting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxInboundRouting, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxInboundRouting {
     fn clone(&self) -> Self {
@@ -3775,41 +3009,7 @@ impl IFaxInboundRoutingExtension {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingExtension> for ::windows::core::IUnknown {
-    fn from(value: IFaxInboundRoutingExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxInboundRoutingExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingExtension> for ::windows::core::IUnknown {
-    fn from(value: &IFaxInboundRoutingExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingExtension> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxInboundRoutingExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingExtension> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxInboundRoutingExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingExtension> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxInboundRoutingExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxInboundRoutingExtension, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxInboundRoutingExtension {
     fn clone(&self) -> Self {
@@ -3883,41 +3083,7 @@ impl IFaxInboundRoutingExtensions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingExtensions> for ::windows::core::IUnknown {
-    fn from(value: IFaxInboundRoutingExtensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingExtensions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxInboundRoutingExtensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingExtensions> for ::windows::core::IUnknown {
-    fn from(value: &IFaxInboundRoutingExtensions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingExtensions> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxInboundRoutingExtensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingExtensions> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxInboundRoutingExtensions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingExtensions> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxInboundRoutingExtensions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxInboundRoutingExtensions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxInboundRoutingExtensions {
     fn clone(&self) -> Self {
@@ -3999,41 +3165,7 @@ impl IFaxInboundRoutingMethod {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingMethod> for ::windows::core::IUnknown {
-    fn from(value: IFaxInboundRoutingMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingMethod> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxInboundRoutingMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingMethod> for ::windows::core::IUnknown {
-    fn from(value: &IFaxInboundRoutingMethod) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingMethod> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxInboundRoutingMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingMethod> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxInboundRoutingMethod) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingMethod> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxInboundRoutingMethod) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxInboundRoutingMethod, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxInboundRoutingMethod {
     fn clone(&self) -> Self {
@@ -4102,41 +3234,7 @@ impl IFaxInboundRoutingMethods {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingMethods> for ::windows::core::IUnknown {
-    fn from(value: IFaxInboundRoutingMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingMethods> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxInboundRoutingMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingMethods> for ::windows::core::IUnknown {
-    fn from(value: &IFaxInboundRoutingMethods) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxInboundRoutingMethods> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxInboundRoutingMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxInboundRoutingMethods> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxInboundRoutingMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxInboundRoutingMethods> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxInboundRoutingMethods) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxInboundRoutingMethods, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxInboundRoutingMethods {
     fn clone(&self) -> Self {
@@ -4253,41 +3351,7 @@ impl IFaxIncomingArchive {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingArchive> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingArchive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingArchive> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingArchive> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingArchive, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingArchive {
     fn clone(&self) -> Self {
@@ -4427,41 +3491,7 @@ impl IFaxIncomingJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingJob> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingJob> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingJob> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingJob> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingJob> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingJob {
     fn clone(&self) -> Self {
@@ -4540,41 +3570,7 @@ impl IFaxIncomingJobs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingJobs> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingJobs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingJobs> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingJobs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingJobs> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingJobs> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingJobs> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingJobs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingJobs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingJobs {
     fn clone(&self) -> Self {
@@ -4673,41 +3669,7 @@ impl IFaxIncomingMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessage> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessage> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessage> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessage> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessage> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingMessage, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingMessage {
     fn clone(&self) -> Self {
@@ -4868,59 +3830,7 @@ impl IFaxIncomingMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessage2> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessage2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessage2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessage2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessage2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessage2> for IFaxIncomingMessage {
-    fn from(value: IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessage2> for &'a IFaxIncomingMessage {
-    fn from(value: &'a IFaxIncomingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessage2> for IFaxIncomingMessage {
-    fn from(value: &IFaxIncomingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingMessage2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFaxIncomingMessage);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingMessage2 {
     fn clone(&self) -> Self {
@@ -5002,41 +3912,7 @@ impl IFaxIncomingMessageIterator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessageIterator> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessageIterator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessageIterator> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingMessageIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingMessageIterator> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingMessageIterator> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingMessageIterator> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingMessageIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingMessageIterator, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingMessageIterator {
     fn clone(&self) -> Self {
@@ -5113,41 +3989,7 @@ impl IFaxIncomingQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingQueue> for ::windows::core::IUnknown {
-    fn from(value: IFaxIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingQueue> for ::windows::core::IUnknown {
-    fn from(value: &IFaxIncomingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxIncomingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxIncomingQueue> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxIncomingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxIncomingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxIncomingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxIncomingQueue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxIncomingQueue {
     fn clone(&self) -> Self {
@@ -5270,41 +4112,7 @@ impl IFaxJobStatus {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxJobStatus> for ::windows::core::IUnknown {
-    fn from(value: IFaxJobStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxJobStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxJobStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxJobStatus> for ::windows::core::IUnknown {
-    fn from(value: &IFaxJobStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxJobStatus> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxJobStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxJobStatus> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxJobStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxJobStatus> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxJobStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxJobStatus, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxJobStatus {
     fn clone(&self) -> Self {
@@ -5376,41 +4184,7 @@ impl IFaxLoggingOptions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxLoggingOptions> for ::windows::core::IUnknown {
-    fn from(value: IFaxLoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxLoggingOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxLoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxLoggingOptions> for ::windows::core::IUnknown {
-    fn from(value: &IFaxLoggingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxLoggingOptions> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxLoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxLoggingOptions> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxLoggingOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxLoggingOptions> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxLoggingOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxLoggingOptions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxLoggingOptions {
     fn clone(&self) -> Self {
@@ -5473,41 +4247,7 @@ impl IFaxOutboundRouting {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRouting> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRouting> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRouting> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutboundRouting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRouting> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRouting> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutboundRouting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRouting> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutboundRouting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutboundRouting, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutboundRouting {
     fn clone(&self) -> Self {
@@ -5572,41 +4312,7 @@ impl IFaxOutboundRoutingGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingGroup> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutboundRoutingGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutboundRoutingGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingGroup> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutboundRoutingGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingGroup> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutboundRoutingGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingGroup> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutboundRoutingGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingGroup> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutboundRoutingGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutboundRoutingGroup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutboundRoutingGroup {
     fn clone(&self) -> Self {
@@ -5686,41 +4392,7 @@ impl IFaxOutboundRoutingGroups {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingGroups> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutboundRoutingGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingGroups> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutboundRoutingGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingGroups> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutboundRoutingGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingGroups> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutboundRoutingGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingGroups> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutboundRoutingGroups) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingGroups> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutboundRoutingGroups) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutboundRoutingGroups, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutboundRoutingGroups {
     fn clone(&self) -> Self {
@@ -5816,41 +4488,7 @@ impl IFaxOutboundRoutingRule {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingRule> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutboundRoutingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingRule> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutboundRoutingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingRule> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutboundRoutingRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingRule> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutboundRoutingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingRule> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutboundRoutingRule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingRule> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutboundRoutingRule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutboundRoutingRule, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutboundRoutingRule {
     fn clone(&self) -> Self {
@@ -5936,41 +4574,7 @@ impl IFaxOutboundRoutingRules {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingRules> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutboundRoutingRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingRules> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutboundRoutingRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingRules> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutboundRoutingRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutboundRoutingRules> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutboundRoutingRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutboundRoutingRules> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutboundRoutingRules) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutboundRoutingRules> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutboundRoutingRules) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutboundRoutingRules, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutboundRoutingRules {
     fn clone(&self) -> Self {
@@ -6097,41 +4701,7 @@ impl IFaxOutgoingArchive {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingArchive> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingArchive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingArchive> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingArchive> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingArchive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingArchive> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingArchive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingArchive, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingArchive {
     fn clone(&self) -> Self {
@@ -6320,41 +4890,7 @@ impl IFaxOutgoingJob {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJob> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJob> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJob> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJob> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJob> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingJob, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingJob {
     fn clone(&self) -> Self {
@@ -6568,59 +5104,7 @@ impl IFaxOutgoingJob2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJob2> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJob2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJob2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingJob2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJob2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJob2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJob2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingJob2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJob2> for IFaxOutgoingJob {
-    fn from(value: IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJob2> for &'a IFaxOutgoingJob {
-    fn from(value: &'a IFaxOutgoingJob2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJob2> for IFaxOutgoingJob {
-    fn from(value: &IFaxOutgoingJob2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingJob2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFaxOutgoingJob);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingJob2 {
     fn clone(&self) -> Self {
@@ -6683,41 +5167,7 @@ impl IFaxOutgoingJobs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJobs> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJobs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJobs> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingJobs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingJobs> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingJobs> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingJobs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingJobs> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingJobs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingJobs, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingJobs {
     fn clone(&self) -> Self {
@@ -6844,41 +5294,7 @@ impl IFaxOutgoingMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessage> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessage> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessage> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessage> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessage> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingMessage, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingMessage {
     fn clone(&self) -> Self {
@@ -7049,59 +5465,7 @@ impl IFaxOutgoingMessage2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessage2> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessage2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessage2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessage2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessage2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessage2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessage2> for IFaxOutgoingMessage {
-    fn from(value: IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessage2> for &'a IFaxOutgoingMessage {
-    fn from(value: &'a IFaxOutgoingMessage2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessage2> for IFaxOutgoingMessage {
-    fn from(value: &IFaxOutgoingMessage2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingMessage2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFaxOutgoingMessage);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingMessage2 {
     fn clone(&self) -> Self {
@@ -7174,41 +5538,7 @@ impl IFaxOutgoingMessageIterator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessageIterator> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessageIterator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessageIterator> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingMessageIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingMessageIterator> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingMessageIterator> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingMessageIterator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingMessageIterator> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingMessageIterator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingMessageIterator, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingMessageIterator {
     fn clone(&self) -> Self {
@@ -7348,41 +5678,7 @@ impl IFaxOutgoingQueue {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingQueue> for ::windows::core::IUnknown {
-    fn from(value: IFaxOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingQueue> for ::windows::core::IUnknown {
-    fn from(value: &IFaxOutgoingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxOutgoingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxOutgoingQueue> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxOutgoingQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxOutgoingQueue> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxOutgoingQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxOutgoingQueue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxOutgoingQueue {
     fn clone(&self) -> Self {
@@ -7517,41 +5813,7 @@ impl IFaxReceiptOptions {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxReceiptOptions> for ::windows::core::IUnknown {
-    fn from(value: IFaxReceiptOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxReceiptOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxReceiptOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxReceiptOptions> for ::windows::core::IUnknown {
-    fn from(value: &IFaxReceiptOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxReceiptOptions> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxReceiptOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxReceiptOptions> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxReceiptOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxReceiptOptions> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxReceiptOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxReceiptOptions, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxReceiptOptions {
     fn clone(&self) -> Self {
@@ -7626,41 +5888,7 @@ impl IFaxRecipient {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxRecipient> for ::windows::core::IUnknown {
-    fn from(value: IFaxRecipient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxRecipient> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxRecipient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxRecipient> for ::windows::core::IUnknown {
-    fn from(value: &IFaxRecipient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxRecipient> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxRecipient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxRecipient> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxRecipient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxRecipient> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxRecipient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxRecipient, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxRecipient {
     fn clone(&self) -> Self {
@@ -7730,41 +5958,7 @@ impl IFaxRecipients {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxRecipients> for ::windows::core::IUnknown {
-    fn from(value: IFaxRecipients) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxRecipients> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxRecipients) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxRecipients> for ::windows::core::IUnknown {
-    fn from(value: &IFaxRecipients) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxRecipients> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxRecipients) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxRecipients> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxRecipients) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxRecipients> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxRecipients) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxRecipients, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxRecipients {
     fn clone(&self) -> Self {
@@ -7849,41 +6043,7 @@ impl IFaxSecurity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSecurity> for ::windows::core::IUnknown {
-    fn from(value: IFaxSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSecurity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSecurity> for ::windows::core::IUnknown {
-    fn from(value: &IFaxSecurity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSecurity> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSecurity> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxSecurity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSecurity> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxSecurity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxSecurity, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxSecurity {
     fn clone(&self) -> Self {
@@ -7970,41 +6130,7 @@ impl IFaxSecurity2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSecurity2> for ::windows::core::IUnknown {
-    fn from(value: IFaxSecurity2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSecurity2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxSecurity2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSecurity2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxSecurity2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSecurity2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxSecurity2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSecurity2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxSecurity2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSecurity2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxSecurity2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxSecurity2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxSecurity2 {
     fn clone(&self) -> Self {
@@ -8178,41 +6304,7 @@ impl IFaxSender {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSender> for ::windows::core::IUnknown {
-    fn from(value: IFaxSender) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSender> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxSender) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSender> for ::windows::core::IUnknown {
-    fn from(value: &IFaxSender) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxSender> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxSender) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxSender> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxSender) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxSender> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxSender) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxSender, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxSender {
     fn clone(&self) -> Self {
@@ -8415,41 +6507,7 @@ impl IFaxServer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServer> for ::windows::core::IUnknown {
-    fn from(value: IFaxServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServer> for ::windows::core::IUnknown {
-    fn from(value: &IFaxServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServer> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServer> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxServer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServer> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxServer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxServer, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxServer {
     fn clone(&self) -> Self {
@@ -8704,59 +6762,7 @@ impl IFaxServer2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServer2> for ::windows::core::IUnknown {
-    fn from(value: IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServer2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServer2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServer2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServer2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServer2> for IFaxServer {
-    fn from(value: IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServer2> for &'a IFaxServer {
-    fn from(value: &'a IFaxServer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServer2> for IFaxServer {
-    fn from(value: &IFaxServer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxServer2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IFaxServer);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxServer2 {
     fn clone(&self) -> Self {
@@ -8814,41 +6820,7 @@ pub struct IFaxServerNotify(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxServerNotify {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServerNotify> for ::windows::core::IUnknown {
-    fn from(value: IFaxServerNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServerNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxServerNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServerNotify> for ::windows::core::IUnknown {
-    fn from(value: &IFaxServerNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServerNotify> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxServerNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServerNotify> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxServerNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServerNotify> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxServerNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxServerNotify, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxServerNotify {
     fn clone(&self) -> Self {
@@ -8890,41 +6862,7 @@ pub struct IFaxServerNotify2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxServerNotify2 {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServerNotify2> for ::windows::core::IUnknown {
-    fn from(value: IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServerNotify2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServerNotify2> for ::windows::core::IUnknown {
-    fn from(value: &IFaxServerNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFaxServerNotify2> for super::super::System::Com::IDispatch {
-    fn from(value: IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IFaxServerNotify2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFaxServerNotify2> for super::super::System::Com::IDispatch {
-    fn from(value: &IFaxServerNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFaxServerNotify2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IFaxServerNotify2 {
     fn clone(&self) -> Self {
@@ -9034,21 +6972,7 @@ impl IStiDevice {
         (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<_ERROR_INFOW>(result__)
     }
 }
-impl ::core::convert::From<IStiDevice> for ::windows::core::IUnknown {
-    fn from(value: IStiDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStiDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStiDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStiDevice> for ::windows::core::IUnknown {
-    fn from(value: &IStiDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStiDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStiDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9165,21 +7089,7 @@ impl IStiDeviceControl {
         (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into(), dwerrorcode).ok()
     }
 }
-impl ::core::convert::From<IStiDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: IStiDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStiDeviceControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStiDeviceControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStiDeviceControl> for ::windows::core::IUnknown {
-    fn from(value: &IStiDeviceControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStiDeviceControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStiDeviceControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9309,21 +7219,7 @@ impl IStiUSD {
         (::windows::core::Vtable::vtable(self).GetLastErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<_ERROR_INFOW>(result__)
     }
 }
-impl ::core::convert::From<IStiUSD> for ::windows::core::IUnknown {
-    fn from(value: IStiUSD) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStiUSD> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStiUSD) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStiUSD> for ::windows::core::IUnknown {
-    fn from(value: &IStiUSD) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStiUSD, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStiUSD {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9484,21 +7380,7 @@ impl IStillImageW {
         (::windows::core::Vtable::vtable(self).WriteToErrorLog)(::windows::core::Vtable::as_raw(self), dwmessagetype, pszmessage.into()).ok()
     }
 }
-impl ::core::convert::From<IStillImageW> for ::windows::core::IUnknown {
-    fn from(value: IStillImageW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStillImageW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStillImageW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStillImageW> for ::windows::core::IUnknown {
-    fn from(value: &IStillImageW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStillImageW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStillImageW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9648,41 +7530,7 @@ impl _IFaxAccountNotify {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IFaxAccountNotify> for ::windows::core::IUnknown {
-    fn from(value: _IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IFaxAccountNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IFaxAccountNotify> for ::windows::core::IUnknown {
-    fn from(value: &_IFaxAccountNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IFaxAccountNotify> for super::super::System::Com::IDispatch {
-    fn from(value: _IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IFaxAccountNotify> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _IFaxAccountNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IFaxAccountNotify> for super::super::System::Com::IDispatch {
-    fn from(value: &_IFaxAccountNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_IFaxAccountNotify, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _IFaxAccountNotify {
     fn clone(&self) -> Self {
@@ -9979,41 +7827,7 @@ impl _IFaxServerNotify2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IFaxServerNotify2> for ::windows::core::IUnknown {
-    fn from(value: _IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IFaxServerNotify2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IFaxServerNotify2> for ::windows::core::IUnknown {
-    fn from(value: &_IFaxServerNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_IFaxServerNotify2> for super::super::System::Com::IDispatch {
-    fn from(value: _IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _IFaxServerNotify2> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a _IFaxServerNotify2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_IFaxServerNotify2> for super::super::System::Com::IDispatch {
-    fn from(value: &_IFaxServerNotify2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(_IFaxServerNotify2, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for _IFaxServerNotify2 {
     fn clone(&self) -> Self {

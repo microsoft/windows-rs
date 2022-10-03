@@ -5,41 +5,7 @@ pub struct IDummyMBNUCMExt(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDummyMBNUCMExt {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDummyMBNUCMExt> for ::windows::core::IUnknown {
-    fn from(value: IDummyMBNUCMExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDummyMBNUCMExt> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDummyMBNUCMExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDummyMBNUCMExt> for ::windows::core::IUnknown {
-    fn from(value: &IDummyMBNUCMExt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
-    fn from(value: IDummyMBNUCMExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDummyMBNUCMExt> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IDummyMBNUCMExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
-    fn from(value: &IDummyMBNUCMExt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDummyMBNUCMExt, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDummyMBNUCMExt {
     fn clone(&self) -> Self {
@@ -109,21 +75,7 @@ impl IMbnConnection {
         (::windows::core::Vtable::vtable(self).GetActivationNetworkError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnConnection> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnection> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -177,21 +129,7 @@ impl IMbnConnectionContext {
         (::windows::core::Vtable::vtable(self).SetProvisionedContext)(::windows::core::Vtable::as_raw(self), provisionedcontexts.into().abi(), providerid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnConnectionContext> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionContext> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -241,21 +179,7 @@ impl IMbnConnectionContextEvents {
         (::windows::core::Vtable::vtable(self).OnSetProvisionedContextComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionContextEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionContextEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionContextEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionContextEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionContextEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionContextEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionContextEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -314,21 +238,7 @@ impl IMbnConnectionEvents {
         (::windows::core::Vtable::vtable(self).OnVoiceCallStateChange)(::windows::core::Vtable::as_raw(self), newconnection.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -378,21 +288,7 @@ impl IMbnConnectionManager {
         (::windows::core::Vtable::vtable(self).GetConnections)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IMbnConnectionManager> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionManager> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -442,21 +338,7 @@ impl IMbnConnectionManagerEvents {
         (::windows::core::Vtable::vtable(self).OnConnectionRemoval)(::windows::core::Vtable::as_raw(self), oldconnection.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -504,21 +386,7 @@ impl IMbnConnectionProfile {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionProfile> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionProfile> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionProfile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -560,21 +428,7 @@ impl IMbnConnectionProfileEvents {
         (::windows::core::Vtable::vtable(self).OnProfileUpdate)(::windows::core::Vtable::as_raw(self), newprofile.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionProfileEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionProfileEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionProfileEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionProfileEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionProfileEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionProfileEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionProfileEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionProfileEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -631,21 +485,7 @@ impl IMbnConnectionProfileManager {
         (::windows::core::Vtable::vtable(self).CreateConnectionProfile)(::windows::core::Vtable::as_raw(self), xmlprofile.into()).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionProfileManager> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionProfileManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionProfileManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionProfileManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionProfileManager> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionProfileManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionProfileManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionProfileManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -696,21 +536,7 @@ impl IMbnConnectionProfileManagerEvents {
         (::windows::core::Vtable::vtable(self).OnConnectionProfileRemoval)(::windows::core::Vtable::as_raw(self), oldconnectionprofile.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnConnectionProfileManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnConnectionProfileManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnConnectionProfileManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnConnectionProfileManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnConnectionProfileManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnConnectionProfileManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnConnectionProfileManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnConnectionProfileManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -803,21 +629,7 @@ impl IMbnDeviceService {
         (::windows::core::Vtable::vtable(self).IsDataSessionOpen)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IMbnDeviceService> for ::windows::core::IUnknown {
-    fn from(value: IMbnDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnDeviceService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnDeviceService> for ::windows::core::IUnknown {
-    fn from(value: &IMbnDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnDeviceService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnDeviceService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -880,21 +692,7 @@ impl IMbnDeviceServiceStateEvents {
         (::windows::core::Vtable::vtable(self).OnSessionsStateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
     }
 }
-impl ::core::convert::From<IMbnDeviceServiceStateEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnDeviceServiceStateEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnDeviceServiceStateEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnDeviceServiceStateEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnDeviceServiceStateEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnDeviceServiceStateEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnDeviceServiceStateEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnDeviceServiceStateEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -946,21 +744,7 @@ impl IMbnDeviceServicesContext {
         (::windows::core::Vtable::vtable(self).MaxDataSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnDeviceServicesContext> for ::windows::core::IUnknown {
-    fn from(value: IMbnDeviceServicesContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnDeviceServicesContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnDeviceServicesContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnDeviceServicesContext> for ::windows::core::IUnknown {
-    fn from(value: &IMbnDeviceServicesContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnDeviceServicesContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnDeviceServicesContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1073,21 +857,7 @@ impl IMbnDeviceServicesEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceStateChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(interfaceid), statechange).ok()
     }
 }
-impl ::core::convert::From<IMbnDeviceServicesEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnDeviceServicesEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnDeviceServicesEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnDeviceServicesEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnDeviceServicesEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnDeviceServicesEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnDeviceServicesEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnDeviceServicesEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1150,21 +920,7 @@ impl IMbnDeviceServicesManager {
         (::windows::core::Vtable::vtable(self).GetDeviceServicesContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(networkinterfaceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMbnDeviceServicesContext>(result__)
     }
 }
-impl ::core::convert::From<IMbnDeviceServicesManager> for ::windows::core::IUnknown {
-    fn from(value: IMbnDeviceServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnDeviceServicesManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnDeviceServicesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnDeviceServicesManager> for ::windows::core::IUnknown {
-    fn from(value: &IMbnDeviceServicesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnDeviceServicesManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnDeviceServicesManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1247,21 +1003,7 @@ impl IMbnInterface {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMbnConnection>(result__)
     }
 }
-impl ::core::convert::From<IMbnInterface> for ::windows::core::IUnknown {
-    fn from(value: IMbnInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnInterface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnInterface> for ::windows::core::IUnknown {
-    fn from(value: &IMbnInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnInterface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnInterface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1362,21 +1104,7 @@ impl IMbnInterfaceEvents {
         (::windows::core::Vtable::vtable(self).OnScanNetworkComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnInterfaceEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnInterfaceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnInterfaceEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnInterfaceEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnInterfaceEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnInterfaceEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnInterfaceEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnInterfaceEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1430,21 +1158,7 @@ impl IMbnInterfaceManager {
         (::windows::core::Vtable::vtable(self).GetInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IMbnInterfaceManager> for ::windows::core::IUnknown {
-    fn from(value: IMbnInterfaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnInterfaceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnInterfaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnInterfaceManager> for ::windows::core::IUnknown {
-    fn from(value: &IMbnInterfaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnInterfaceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnInterfaceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1494,21 +1208,7 @@ impl IMbnInterfaceManagerEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceRemoval)(::windows::core::Vtable::as_raw(self), oldinterface.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnInterfaceManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnInterfaceManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnInterfaceManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnInterfaceManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnInterfaceManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnInterfaceManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnInterfaceManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnInterfaceManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1572,21 +1272,7 @@ impl IMbnMultiCarrier {
         (::windows::core::Vtable::vtable(self).ScanNetwork)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnMultiCarrier> for ::windows::core::IUnknown {
-    fn from(value: IMbnMultiCarrier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnMultiCarrier> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnMultiCarrier) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnMultiCarrier> for ::windows::core::IUnknown {
-    fn from(value: &IMbnMultiCarrier) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnMultiCarrier, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnMultiCarrier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1664,21 +1350,7 @@ impl IMbnMultiCarrierEvents {
         (::windows::core::Vtable::vtable(self).OnInterfaceCapabilityChange)(::windows::core::Vtable::as_raw(self), mbninterface.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnMultiCarrierEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnMultiCarrierEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnMultiCarrierEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnMultiCarrierEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnMultiCarrierEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnMultiCarrierEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnMultiCarrierEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnMultiCarrierEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1777,21 +1449,7 @@ impl IMbnPin {
         (::windows::core::Vtable::vtable(self).GetPinManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMbnPinManager>(result__)
     }
 }
-impl ::core::convert::From<IMbnPin> for ::windows::core::IUnknown {
-    fn from(value: IMbnPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnPin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnPin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnPin> for ::windows::core::IUnknown {
-    fn from(value: &IMbnPin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnPin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnPin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1865,21 +1523,7 @@ impl IMbnPinEvents {
         (::windows::core::Vtable::vtable(self).OnUnblockComplete)(::windows::core::Vtable::as_raw(self), pin.into().abi(), ::core::mem::transmute(pininfo), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnPinEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnPinEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnPinEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnPinEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnPinEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnPinEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnPinEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnPinEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1931,21 +1575,7 @@ impl IMbnPinManager {
         (::windows::core::Vtable::vtable(self).GetPinState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnPinManager> for ::windows::core::IUnknown {
-    fn from(value: IMbnPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnPinManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnPinManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnPinManager> for ::windows::core::IUnknown {
-    fn from(value: &IMbnPinManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnPinManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnPinManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1996,21 +1626,7 @@ impl IMbnPinManagerEvents {
         (::windows::core::Vtable::vtable(self).OnGetPinStateComplete)(::windows::core::Vtable::as_raw(self), pinmanager.into().abi(), ::core::mem::transmute(pininfo), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnPinManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnPinManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnPinManagerEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnPinManagerEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnPinManagerEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnPinManagerEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnPinManagerEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnPinManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2057,21 +1673,7 @@ impl IMbnRadio {
         (::windows::core::Vtable::vtable(self).SetSoftwareRadioState)(::windows::core::Vtable::as_raw(self), radiostate, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnRadio> for ::windows::core::IUnknown {
-    fn from(value: IMbnRadio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnRadio> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnRadio) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnRadio> for ::windows::core::IUnknown {
-    fn from(value: &IMbnRadio) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnRadio, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnRadio {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2119,21 +1721,7 @@ impl IMbnRadioEvents {
         (::windows::core::Vtable::vtable(self).OnSetSoftwareRadioStateComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnRadioEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnRadioEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnRadioEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnRadioEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnRadioEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnRadioEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnRadioEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnRadioEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2211,21 +1799,7 @@ impl IMbnRegistration {
         (::windows::core::Vtable::vtable(self).SetRegisterMode)(::windows::core::Vtable::as_raw(self), registermode, providerid.into(), dataclass, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnRegistration> for ::windows::core::IUnknown {
-    fn from(value: IMbnRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IMbnRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnRegistration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2292,21 +1866,7 @@ impl IMbnRegistrationEvents {
         (::windows::core::Vtable::vtable(self).OnSetRegisterModeComplete)(::windows::core::Vtable::as_raw(self), newinterface.into().abi(), requestid, status).ok()
     }
 }
-impl ::core::convert::From<IMbnRegistrationEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnRegistrationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnRegistrationEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnRegistrationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnRegistrationEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnRegistrationEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnRegistrationEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnRegistrationEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2349,21 +1909,7 @@ impl IMbnServiceActivation {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vendorspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnServiceActivation> for ::windows::core::IUnknown {
-    fn from(value: IMbnServiceActivation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnServiceActivation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnServiceActivation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnServiceActivation> for ::windows::core::IUnknown {
-    fn from(value: &IMbnServiceActivation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnServiceActivation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnServiceActivation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2408,21 +1954,7 @@ impl IMbnServiceActivationEvents {
         (::windows::core::Vtable::vtable(self).OnActivationComplete)(::windows::core::Vtable::as_raw(self), serviceactivation.into().abi(), ::core::mem::transmute(vendorspecificdata), requestid, status, networkerror).ok()
     }
 }
-impl ::core::convert::From<IMbnServiceActivationEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnServiceActivationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnServiceActivationEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnServiceActivationEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnServiceActivationEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnServiceActivationEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnServiceActivationEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnServiceActivationEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2467,21 +1999,7 @@ impl IMbnSignal {
         (::windows::core::Vtable::vtable(self).GetSignalError)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnSignal> for ::windows::core::IUnknown {
-    fn from(value: IMbnSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSignal> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSignal) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSignal> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSignal) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSignal, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSignal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2522,21 +2040,7 @@ impl IMbnSignalEvents {
         (::windows::core::Vtable::vtable(self).OnSignalStateChange)(::windows::core::Vtable::as_raw(self), newinterface.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnSignalEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnSignalEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSignalEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSignalEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSignalEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSignalEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSignalEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSignalEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2615,21 +2119,7 @@ impl IMbnSms {
         (::windows::core::Vtable::vtable(self).GetSmsStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MBN_SMS_STATUS_INFO>(result__)
     }
 }
-impl ::core::convert::From<IMbnSms> for ::windows::core::IUnknown {
-    fn from(value: IMbnSms) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSms> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSms) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSms> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSms) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSms, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSms {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2701,21 +2191,7 @@ impl IMbnSmsConfiguration {
         (::windows::core::Vtable::vtable(self).SetSmsFormat)(::windows::core::Vtable::as_raw(self), smsformat).ok()
     }
 }
-impl ::core::convert::From<IMbnSmsConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IMbnSmsConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSmsConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSmsConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSmsConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSmsConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSmsConfiguration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSmsConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2800,21 +2276,7 @@ impl IMbnSmsEvents {
         (::windows::core::Vtable::vtable(self).OnSmsStatusChange)(::windows::core::Vtable::as_raw(self), sms.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMbnSmsEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnSmsEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSmsEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSmsEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSmsEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSmsEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSmsEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSmsEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2878,21 +2340,7 @@ impl IMbnSmsReadMsgPdu {
         (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IMbnSmsReadMsgPdu> for ::windows::core::IUnknown {
-    fn from(value: IMbnSmsReadMsgPdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSmsReadMsgPdu> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSmsReadMsgPdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSmsReadMsgPdu> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSmsReadMsgPdu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSmsReadMsgPdu, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSmsReadMsgPdu {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2966,21 +2414,7 @@ impl IMbnSmsReadMsgTextCdma {
         (::windows::core::Vtable::vtable(self).Message)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IMbnSmsReadMsgTextCdma> for ::windows::core::IUnknown {
-    fn from(value: IMbnSmsReadMsgTextCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSmsReadMsgTextCdma> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSmsReadMsgTextCdma) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSmsReadMsgTextCdma> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSmsReadMsgTextCdma) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSmsReadMsgTextCdma, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSmsReadMsgTextCdma {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3038,21 +2472,7 @@ impl IMbnSubscriberInformation {
         (::windows::core::Vtable::vtable(self).TelephoneNumbers)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IMbnSubscriberInformation> for ::windows::core::IUnknown {
-    fn from(value: IMbnSubscriberInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnSubscriberInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnSubscriberInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnSubscriberInformation> for ::windows::core::IUnknown {
-    fn from(value: &IMbnSubscriberInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnSubscriberInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnSubscriberInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3107,21 +2527,7 @@ impl IMbnVendorSpecificEvents {
         (::windows::core::Vtable::vtable(self).OnSetVendorSpecificComplete)(::windows::core::Vtable::as_raw(self), vendoroperation.into().abi(), ::core::mem::transmute(vendorspecificdata), requestid).ok()
     }
 }
-impl ::core::convert::From<IMbnVendorSpecificEvents> for ::windows::core::IUnknown {
-    fn from(value: IMbnVendorSpecificEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnVendorSpecificEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnVendorSpecificEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnVendorSpecificEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMbnVendorSpecificEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnVendorSpecificEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnVendorSpecificEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3168,21 +2574,7 @@ impl IMbnVendorSpecificOperation {
         (::windows::core::Vtable::vtable(self).SetVendorSpecific)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(vendorspecificdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMbnVendorSpecificOperation> for ::windows::core::IUnknown {
-    fn from(value: IMbnVendorSpecificOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMbnVendorSpecificOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMbnVendorSpecificOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMbnVendorSpecificOperation> for ::windows::core::IUnknown {
-    fn from(value: &IMbnVendorSpecificOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMbnVendorSpecificOperation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMbnVendorSpecificOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())

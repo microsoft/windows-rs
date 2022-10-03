@@ -215,36 +215,7 @@ unsafe impl ::windows::core::Interface for LicenseSatisfactionInfo {
 impl ::windows::core::RuntimeName for LicenseSatisfactionInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
 }
-impl ::core::convert::From<LicenseSatisfactionInfo> for ::windows::core::IUnknown {
-    fn from(value: LicenseSatisfactionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::core::IUnknown {
-    fn from(value: &LicenseSatisfactionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionInfo> for &::windows::core::IUnknown {
-    fn from(value: &LicenseSatisfactionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LicenseSatisfactionInfo> for ::windows::core::IInspectable {
-    fn from(value: LicenseSatisfactionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::core::IInspectable {
-    fn from(value: &LicenseSatisfactionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionInfo> for &::windows::core::IInspectable {
-    fn from(value: &LicenseSatisfactionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LicenseSatisfactionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
@@ -300,36 +271,7 @@ unsafe impl ::windows::core::Interface for LicenseSatisfactionResult {
 impl ::windows::core::RuntimeName for LicenseSatisfactionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";
 }
-impl ::core::convert::From<LicenseSatisfactionResult> for ::windows::core::IUnknown {
-    fn from(value: LicenseSatisfactionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::core::IUnknown {
-    fn from(value: &LicenseSatisfactionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionResult> for &::windows::core::IUnknown {
-    fn from(value: &LicenseSatisfactionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LicenseSatisfactionResult> for ::windows::core::IInspectable {
-    fn from(value: LicenseSatisfactionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::core::IInspectable {
-    fn from(value: &LicenseSatisfactionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LicenseSatisfactionResult> for &::windows::core::IInspectable {
-    fn from(value: &LicenseSatisfactionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LicenseSatisfactionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionResult {}
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]

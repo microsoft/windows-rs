@@ -20,21 +20,7 @@ impl IADesktopP2 {
         (::windows::core::Vtable::vtable(self).MakeDynamicChanges)(::windows::core::Vtable::as_raw(self), poleobj.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IADesktopP2> for ::windows::core::IUnknown {
-    fn from(value: IADesktopP2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IADesktopP2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IADesktopP2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IADesktopP2> for ::windows::core::IUnknown {
-    fn from(value: &IADesktopP2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IADesktopP2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IADesktopP2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -89,21 +75,7 @@ impl IActiveDesktopP {
         (::windows::core::Vtable::vtable(self).GetScheme)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(pdwcchbuffer), dwflags).ok()
     }
 }
-impl ::core::convert::From<IActiveDesktopP> for ::windows::core::IUnknown {
-    fn from(value: IActiveDesktopP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IActiveDesktopP> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IActiveDesktopP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActiveDesktopP> for ::windows::core::IUnknown {
-    fn from(value: &IActiveDesktopP) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IActiveDesktopP, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IActiveDesktopP {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -148,21 +120,7 @@ impl IBriefcaseInitiator {
         (::windows::core::Vtable::vtable(self).IsMonikerInBriefcase)(::windows::core::Vtable::as_raw(self), pmk.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IBriefcaseInitiator> for ::windows::core::IUnknown {
-    fn from(value: IBriefcaseInitiator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IBriefcaseInitiator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IBriefcaseInitiator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBriefcaseInitiator> for ::windows::core::IUnknown {
-    fn from(value: &IBriefcaseInitiator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IBriefcaseInitiator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IBriefcaseInitiator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -232,21 +190,7 @@ impl IEmptyVolumeCache {
         (::windows::core::Vtable::vtable(self).Deactivate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<EMPTY_VOLUME_CACHE_FLAGS>(result__)
     }
 }
-impl ::core::convert::From<IEmptyVolumeCache> for ::windows::core::IUnknown {
-    fn from(value: IEmptyVolumeCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEmptyVolumeCache> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEmptyVolumeCache) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEmptyVolumeCache> for ::windows::core::IUnknown {
-    fn from(value: &IEmptyVolumeCache) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEmptyVolumeCache, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEmptyVolumeCache {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -333,36 +277,7 @@ impl IEmptyVolumeCache2 {
         (::windows::core::Vtable::vtable(self).InitializeEx)(::windows::core::Vtable::as_raw(self), hkregkey.into(), pcwszvolume.into(), pcwszkeyname.into(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
     }
 }
-impl ::core::convert::From<IEmptyVolumeCache2> for ::windows::core::IUnknown {
-    fn from(value: IEmptyVolumeCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEmptyVolumeCache2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEmptyVolumeCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEmptyVolumeCache2> for ::windows::core::IUnknown {
-    fn from(value: &IEmptyVolumeCache2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IEmptyVolumeCache2> for IEmptyVolumeCache {
-    fn from(value: IEmptyVolumeCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEmptyVolumeCache2> for &'a IEmptyVolumeCache {
-    fn from(value: &'a IEmptyVolumeCache2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEmptyVolumeCache2> for IEmptyVolumeCache {
-    fn from(value: &IEmptyVolumeCache2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEmptyVolumeCache2, ::windows::core::IUnknown, IEmptyVolumeCache);
 impl ::core::clone::Clone for IEmptyVolumeCache2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -411,21 +326,7 @@ impl IEmptyVolumeCacheCallBack {
         (::windows::core::Vtable::vtable(self).PurgeProgress)(::windows::core::Vtable::as_raw(self), dwlspacefreed, dwlspacetofree, dwflags, pcwszstatus.into()).ok()
     }
 }
-impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
-    fn from(value: IEmptyVolumeCacheCallBack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEmptyVolumeCacheCallBack> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEmptyVolumeCacheCallBack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
-    fn from(value: &IEmptyVolumeCacheCallBack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEmptyVolumeCacheCallBack, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -475,21 +376,7 @@ impl IReconcilableObject {
         (::windows::core::Vtable::vtable(self).GetProgressFeedbackMaxEstimate)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IReconcilableObject> for ::windows::core::IUnknown {
-    fn from(value: IReconcilableObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReconcilableObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReconcilableObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReconcilableObject> for ::windows::core::IUnknown {
-    fn from(value: &IReconcilableObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReconcilableObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IReconcilableObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -536,21 +423,7 @@ impl IReconcileInitiator {
         (::windows::core::Vtable::vtable(self).SetProgressFeedback)(::windows::core::Vtable::as_raw(self), ulprogress, ulprogressmax).ok()
     }
 }
-impl ::core::convert::From<IReconcileInitiator> for ::windows::core::IUnknown {
-    fn from(value: IReconcileInitiator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IReconcileInitiator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IReconcileInitiator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReconcileInitiator> for ::windows::core::IUnknown {
-    fn from(value: &IReconcileInitiator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IReconcileInitiator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IReconcileInitiator {
     fn clone(&self) -> Self {
         Self(self.0.clone())

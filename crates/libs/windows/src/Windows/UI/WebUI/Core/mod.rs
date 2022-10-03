@@ -128,36 +128,7 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarElement(::windows::core::IUnknown);
 impl IWebUICommandBarElement {}
-impl ::core::convert::From<IWebUICommandBarElement> for ::windows::core::IUnknown {
-    fn from(value: IWebUICommandBarElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebUICommandBarElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebUICommandBarElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUICommandBarElement> for ::windows::core::IUnknown {
-    fn from(value: &IWebUICommandBarElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebUICommandBarElement> for ::windows::core::IInspectable {
-    fn from(value: IWebUICommandBarElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebUICommandBarElement> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebUICommandBarElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUICommandBarElement> for ::windows::core::IInspectable {
-    fn from(value: &IWebUICommandBarElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebUICommandBarElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebUICommandBarElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -196,36 +167,7 @@ pub struct IWebUICommandBarElement_Vtbl {
 #[repr(transparent)]
 pub struct IWebUICommandBarIcon(::windows::core::IUnknown);
 impl IWebUICommandBarIcon {}
-impl ::core::convert::From<IWebUICommandBarIcon> for ::windows::core::IUnknown {
-    fn from(value: IWebUICommandBarIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebUICommandBarIcon> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWebUICommandBarIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUICommandBarIcon> for ::windows::core::IUnknown {
-    fn from(value: &IWebUICommandBarIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWebUICommandBarIcon> for ::windows::core::IInspectable {
-    fn from(value: IWebUICommandBarIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWebUICommandBarIcon> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IWebUICommandBarIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUICommandBarIcon> for ::windows::core::IInspectable {
-    fn from(value: &IWebUICommandBarIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWebUICommandBarIcon, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IWebUICommandBarIcon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -557,36 +499,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBar {
 impl ::windows::core::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
 }
-impl ::core::convert::From<WebUICommandBar> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBar> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBar> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBar> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBar> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBar> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebUICommandBar {}
 unsafe impl ::core::marker::Sync for WebUICommandBar {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
@@ -661,36 +574,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
 impl ::windows::core::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
 }
-impl ::core::convert::From<WebUICommandBarBitmapIcon> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarBitmapIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarBitmapIcon> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarBitmapIcon> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarBitmapIcon> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarBitmapIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarBitmapIcon> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarBitmapIcon> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarBitmapIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarBitmapIcon, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebUICommandBarBitmapIcon> for IWebUICommandBarIcon {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUICommandBarBitmapIcon) -> ::windows::core::Result<Self> {
@@ -782,36 +666,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
 impl ::windows::core::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
 }
-impl ::core::convert::From<WebUICommandBarConfirmationButton> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarConfirmationButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarConfirmationButton> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarConfirmationButton> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarConfirmationButton> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarConfirmationButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarConfirmationButton> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarConfirmationButton> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarConfirmationButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarConfirmationButton, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebUICommandBarConfirmationButton> for IWebUICommandBarElement {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUICommandBarConfirmationButton) -> ::windows::core::Result<Self> {
@@ -951,36 +806,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
 impl ::windows::core::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
 }
-impl ::core::convert::From<WebUICommandBarIconButton> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarIconButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarIconButton> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarIconButton) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarIconButton> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarIconButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarIconButton> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarIconButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarIconButton> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarIconButton) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarIconButton> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarIconButton) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarIconButton, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebUICommandBarIconButton> for IWebUICommandBarElement {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUICommandBarIconButton) -> ::windows::core::Result<Self> {
@@ -1046,36 +872,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
 impl ::windows::core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
 }
-impl ::core::convert::From<WebUICommandBarItemInvokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarItemInvokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarItemInvokedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarItemInvokedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarItemInvokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarItemInvokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarItemInvokedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarItemInvokedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarItemInvokedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarItemInvokedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebUICommandBarItemInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for WebUICommandBarItemInvokedEventArgs {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
@@ -1124,36 +921,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
 impl ::windows::core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
 }
-impl ::core::convert::From<WebUICommandBarSizeChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarSizeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSizeChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSizeChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarSizeChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarSizeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSizeChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSizeChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarSizeChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarSizeChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WebUICommandBarSizeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
@@ -1222,36 +990,7 @@ unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
 impl ::windows::core::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";
 }
-impl ::core::convert::From<WebUICommandBarSymbolIcon> for ::windows::core::IUnknown {
-    fn from(value: WebUICommandBarSymbolIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSymbolIcon> for ::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSymbolIcon> for &::windows::core::IUnknown {
-    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WebUICommandBarSymbolIcon> for ::windows::core::IInspectable {
-    fn from(value: WebUICommandBarSymbolIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSymbolIcon> for ::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WebUICommandBarSymbolIcon> for &::windows::core::IInspectable {
-    fn from(value: &WebUICommandBarSymbolIcon) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WebUICommandBarSymbolIcon, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<WebUICommandBarSymbolIcon> for IWebUICommandBarIcon {
     type Error = ::windows::core::Error;
     fn try_from(value: WebUICommandBarSymbolIcon) -> ::windows::core::Result<Self> {

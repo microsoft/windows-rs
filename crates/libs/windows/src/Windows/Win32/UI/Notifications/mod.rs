@@ -10,21 +10,7 @@ impl INotificationActivationCallback {
         (::windows::core::Vtable::vtable(self).Activate)(::windows::core::Vtable::as_raw(self), appusermodelid.into(), invokedargs.into(), ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
 }
-impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {
-    fn from(value: INotificationActivationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INotificationActivationCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INotificationActivationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INotificationActivationCallback> for ::windows::core::IUnknown {
-    fn from(value: &INotificationActivationCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INotificationActivationCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INotificationActivationCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())

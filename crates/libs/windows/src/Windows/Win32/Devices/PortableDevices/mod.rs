@@ -19,21 +19,7 @@ impl IConnectionRequestCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
 }
-impl ::core::convert::From<IConnectionRequestCallback> for ::windows::core::IUnknown {
-    fn from(value: IConnectionRequestCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IConnectionRequestCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IConnectionRequestCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IConnectionRequestCallback> for ::windows::core::IUnknown {
-    fn from(value: &IConnectionRequestCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IConnectionRequestCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IConnectionRequestCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -80,21 +66,7 @@ impl IEnumPortableDeviceConnectors {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumPortableDeviceConnectors>(result__)
     }
 }
-impl ::core::convert::From<IEnumPortableDeviceConnectors> for ::windows::core::IUnknown {
-    fn from(value: IEnumPortableDeviceConnectors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumPortableDeviceConnectors> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumPortableDeviceConnectors) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumPortableDeviceConnectors> for ::windows::core::IUnknown {
-    fn from(value: &IEnumPortableDeviceConnectors) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumPortableDeviceConnectors, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumPortableDeviceConnectors {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -147,21 +119,7 @@ impl IEnumPortableDeviceObjectIDs {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IEnumPortableDeviceObjectIDs> for ::windows::core::IUnknown {
-    fn from(value: IEnumPortableDeviceObjectIDs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumPortableDeviceObjectIDs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumPortableDeviceObjectIDs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumPortableDeviceObjectIDs> for ::windows::core::IUnknown {
-    fn from(value: &IEnumPortableDeviceObjectIDs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumPortableDeviceObjectIDs, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumPortableDeviceObjectIDs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -206,21 +164,7 @@ impl IMediaRadioManager {
         (::windows::core::Vtable::vtable(self).OnSystemRadioStateChange)(::windows::core::Vtable::as_raw(self), sysradiostate, utimeoutsec).ok()
     }
 }
-impl ::core::convert::From<IMediaRadioManager> for ::windows::core::IUnknown {
-    fn from(value: IMediaRadioManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaRadioManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaRadioManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaRadioManager> for ::windows::core::IUnknown {
-    fn from(value: &IMediaRadioManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaRadioManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMediaRadioManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -267,21 +211,7 @@ impl IMediaRadioManagerNotifySink {
         (::windows::core::Vtable::vtable(self).OnInstanceRadioChange)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrradioinstanceid), radiostate).ok()
     }
 }
-impl ::core::convert::From<IMediaRadioManagerNotifySink> for ::windows::core::IUnknown {
-    fn from(value: IMediaRadioManagerNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMediaRadioManagerNotifySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMediaRadioManagerNotifySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaRadioManagerNotifySink> for ::windows::core::IUnknown {
-    fn from(value: &IMediaRadioManagerNotifySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMediaRadioManagerNotifySink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMediaRadioManagerNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -363,21 +293,7 @@ impl IPortableDevice {
         (::windows::core::Vtable::vtable(self).GetPnPDeviceID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPortableDevice> for ::windows::core::IUnknown {
-    fn from(value: IPortableDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDevice> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -466,21 +382,7 @@ impl IPortableDeviceCapabilities {
         (::windows::core::Vtable::vtable(self).GetEventOptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(event), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPortableDeviceValues>(result__)
     }
 }
-impl ::core::convert::From<IPortableDeviceCapabilities> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceCapabilities, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -562,21 +464,7 @@ impl IPortableDeviceConnector {
         (::windows::core::Vtable::vtable(self).GetPnPID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPortableDeviceConnector> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceConnector> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceConnector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -681,21 +569,7 @@ impl IPortableDeviceContent {
         (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), pobjectids.into().abi(), pszdestinationfolderobjectid.into(), ::core::mem::transmute(ppresults)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceContent> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceContent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceContent> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceContent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -810,36 +684,7 @@ impl IPortableDeviceContent2 {
         (::windows::core::Vtable::vtable(self).UpdateObjectWithPropertiesAndData)(::windows::core::Vtable::as_raw(self), pszobjectid.into(), pproperties.into().abi(), ::core::mem::transmute(ppdata), ::core::mem::transmute(pdwoptimalwritebuffersize)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceContent2> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceContent2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceContent2> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceContent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPortableDeviceContent2> for IPortableDeviceContent {
-    fn from(value: IPortableDeviceContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceContent2> for &'a IPortableDeviceContent {
-    fn from(value: &'a IPortableDeviceContent2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceContent2> for IPortableDeviceContent {
-    fn from(value: &IPortableDeviceContent2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceContent2, ::windows::core::IUnknown, IPortableDeviceContent);
 impl ::core::clone::Clone for IPortableDeviceContent2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -946,59 +791,7 @@ impl IPortableDeviceDataStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPortableDeviceDataStream> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPortableDeviceDataStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPortableDeviceDataStream> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceDataStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPortableDeviceDataStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPortableDeviceDataStream> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPortableDeviceDataStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: &IPortableDeviceDataStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPortableDeviceDataStream> for super::super::System::Com::IStream {
-    fn from(value: IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPortableDeviceDataStream> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a IPortableDeviceDataStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPortableDeviceDataStream> for super::super::System::Com::IStream {
-    fn from(value: &IPortableDeviceDataStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceDataStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPortableDeviceDataStream {
     fn clone(&self) -> Self {
@@ -1049,21 +842,7 @@ impl IPortableDeviceDispatchFactory {
         (::windows::core::Vtable::vtable(self).GetDeviceDispatch)(::windows::core::Vtable::as_raw(self), pszpnpdeviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
-impl ::core::convert::From<IPortableDeviceDispatchFactory> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceDispatchFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceDispatchFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceDispatchFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceDispatchFactory> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceDispatchFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceDispatchFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceDispatchFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1106,21 +885,7 @@ impl IPortableDeviceEventCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), peventparameters.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceEventCallback> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceEventCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceEventCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceEventCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceEventCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceEventCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1173,21 +938,7 @@ impl IPortableDeviceKeyCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceKeyCollection> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceKeyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceKeyCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceKeyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceKeyCollection> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceKeyCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceKeyCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceKeyCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1265,21 +1016,7 @@ impl IPortableDeviceManager {
         (::windows::core::Vtable::vtable(self).GetPrivateDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppnpdeviceids), ::core::mem::transmute(pcpnpdeviceids)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceManager> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1345,21 +1082,7 @@ impl IPortableDevicePropVariantCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-impl ::core::convert::From<IPortableDevicePropVariantCollection> for ::windows::core::IUnknown {
-    fn from(value: IPortableDevicePropVariantCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDevicePropVariantCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDevicePropVariantCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDevicePropVariantCollection> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDevicePropVariantCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDevicePropVariantCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDevicePropVariantCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1447,21 +1170,7 @@ impl IPortableDeviceProperties {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceProperties> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceProperties> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceProperties> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceProperties, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1535,21 +1244,7 @@ impl IPortableDevicePropertiesBulk {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcontext)).ok()
     }
 }
-impl ::core::convert::From<IPortableDevicePropertiesBulk> for ::windows::core::IUnknown {
-    fn from(value: IPortableDevicePropertiesBulk) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDevicePropertiesBulk> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDevicePropertiesBulk) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDevicePropertiesBulk> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDevicePropertiesBulk) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDevicePropertiesBulk, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDevicePropertiesBulk {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1599,21 +1294,7 @@ impl IPortableDevicePropertiesBulkCallback {
         (::windows::core::Vtable::vtable(self).OnEnd)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcontext), hrstatus).ok()
     }
 }
-impl ::core::convert::From<IPortableDevicePropertiesBulkCallback> for ::windows::core::IUnknown {
-    fn from(value: IPortableDevicePropertiesBulkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDevicePropertiesBulkCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDevicePropertiesBulkCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDevicePropertiesBulkCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDevicePropertiesBulkCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDevicePropertiesBulkCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDevicePropertiesBulkCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1691,21 +1372,7 @@ impl IPortableDeviceResources {
         (::windows::core::Vtable::vtable(self).CreateResource)(::windows::core::Vtable::as_raw(self), presourceattributes.into().abi(), ::core::mem::transmute(ppdata), ::core::mem::transmute(pdwoptimalwritebuffersize), ::core::mem::transmute(ppszcookie)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceResources> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceResources) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceResources> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceResources) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceResources> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceResources) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceResources, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceResources {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1807,21 +1474,7 @@ impl IPortableDeviceService {
         (::windows::core::Vtable::vtable(self).SendCommand)(::windows::core::Vtable::as_raw(self), dwflags, pparameters.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPortableDeviceValues>(result__)
     }
 }
-impl ::core::convert::From<IPortableDeviceService> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceService> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceService) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceService> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceService) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceService, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1876,21 +1529,7 @@ impl IPortableDeviceServiceActivation {
         (::windows::core::Vtable::vtable(self).CancelOpenAsync)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceActivation> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceActivation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceActivation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceActivation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceActivation> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceActivation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceActivation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceActivation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1996,21 +1635,7 @@ impl IPortableDeviceServiceCapabilities {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceCapabilities> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceCapabilities> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceCapabilities> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceCapabilities, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2084,21 +1709,7 @@ impl IPortableDeviceServiceManager {
         (::windows::core::Vtable::vtable(self).GetDeviceForService)(::windows::core::Vtable::as_raw(self), pszpnpserviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceManager> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceManager> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2139,21 +1750,7 @@ impl IPortableDeviceServiceMethodCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus, presults.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceMethodCallback> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceMethodCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceMethodCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceMethodCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceMethodCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceMethodCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceMethodCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceMethodCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2206,21 +1803,7 @@ impl IPortableDeviceServiceMethods {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceMethods> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceMethods> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceMethods) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceMethods> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceMethods) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceMethods, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceMethods {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2259,21 +1842,7 @@ impl IPortableDeviceServiceOpenCallback {
         (::windows::core::Vtable::vtable(self).OnComplete)(::windows::core::Vtable::as_raw(self), hrstatus).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceServiceOpenCallback> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceServiceOpenCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceServiceOpenCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceServiceOpenCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceServiceOpenCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceServiceOpenCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceServiceOpenCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceServiceOpenCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2314,21 +1883,7 @@ impl IPortableDeviceUnitsStream {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceUnitsStream> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceUnitsStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceUnitsStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceUnitsStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceUnitsStream> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceUnitsStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceUnitsStream, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceUnitsStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2602,21 +2157,7 @@ impl IPortableDeviceValues {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceValues> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceValues> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceValues) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceValues> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceValues) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceValues, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceValues {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2822,21 +2363,7 @@ impl IPortableDeviceValuesCollection {
         (::windows::core::Vtable::vtable(self).RemoveAt)(::windows::core::Vtable::as_raw(self), dwindex).ok()
     }
 }
-impl ::core::convert::From<IPortableDeviceValuesCollection> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceValuesCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPortableDeviceValuesCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceValuesCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPortableDeviceValuesCollection> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceValuesCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceValuesCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPortableDeviceValuesCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2892,41 +2419,7 @@ impl IPortableDeviceWebControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPortableDeviceWebControl> for ::windows::core::IUnknown {
-    fn from(value: IPortableDeviceWebControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPortableDeviceWebControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPortableDeviceWebControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPortableDeviceWebControl> for ::windows::core::IUnknown {
-    fn from(value: &IPortableDeviceWebControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IPortableDeviceWebControl> for super::super::System::Com::IDispatch {
-    fn from(value: IPortableDeviceWebControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IPortableDeviceWebControl> for &'a super::super::System::Com::IDispatch {
-    fn from(value: &'a IPortableDeviceWebControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IPortableDeviceWebControl> for super::super::System::Com::IDispatch {
-    fn from(value: &IPortableDeviceWebControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPortableDeviceWebControl, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IPortableDeviceWebControl {
     fn clone(&self) -> Self {
@@ -3003,21 +2496,7 @@ impl IRadioInstance {
         (::windows::core::Vtable::vtable(self).IsAssociatingDevice)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IRadioInstance> for ::windows::core::IUnknown {
-    fn from(value: IRadioInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadioInstance> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRadioInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadioInstance> for ::windows::core::IUnknown {
-    fn from(value: &IRadioInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRadioInstance, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRadioInstance {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3071,21 +2550,7 @@ impl IRadioInstanceCollection {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), uindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRadioInstance>(result__)
     }
 }
-impl ::core::convert::From<IRadioInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: IRadioInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRadioInstanceCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRadioInstanceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRadioInstanceCollection> for ::windows::core::IUnknown {
-    fn from(value: &IRadioInstanceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRadioInstanceCollection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRadioInstanceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3143,21 +2608,7 @@ impl IWpdSerializer {
         (::windows::core::Vtable::vtable(self).GetSerializedSize)(::windows::core::Vtable::as_raw(self), psource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWpdSerializer> for ::windows::core::IUnknown {
-    fn from(value: IWpdSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWpdSerializer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWpdSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWpdSerializer> for ::windows::core::IUnknown {
-    fn from(value: &IWpdSerializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWpdSerializer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWpdSerializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -193,36 +193,7 @@ unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
 impl ::windows::core::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
 }
-impl ::core::convert::From<PhoneNumberFormatter> for ::windows::core::IUnknown {
-    fn from(value: PhoneNumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IUnknown {
-    fn from(value: &PhoneNumberFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNumberFormatter> for &::windows::core::IUnknown {
-    fn from(value: &PhoneNumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneNumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: PhoneNumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: &PhoneNumberFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNumberFormatter> for &::windows::core::IInspectable {
-    fn from(value: &PhoneNumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneNumberFormatter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
@@ -355,36 +326,7 @@ unsafe impl ::windows::core::Interface for PhoneNumberInfo {
 impl ::windows::core::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";
 }
-impl ::core::convert::From<PhoneNumberInfo> for ::windows::core::IUnknown {
-    fn from(value: PhoneNumberInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IUnknown {
-    fn from(value: &PhoneNumberInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNumberInfo> for &::windows::core::IUnknown {
-    fn from(value: &PhoneNumberInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhoneNumberInfo> for ::windows::core::IInspectable {
-    fn from(value: PhoneNumberInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IInspectable {
-    fn from(value: &PhoneNumberInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhoneNumberInfo> for &::windows::core::IInspectable {
-    fn from(value: &PhoneNumberInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhoneNumberInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PhoneNumberInfo> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;

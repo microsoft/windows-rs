@@ -302,36 +302,7 @@ unsafe impl ::windows::core::Interface for AppExtension {
 impl ::windows::core::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
 }
-impl ::core::convert::From<AppExtension> for ::windows::core::IUnknown {
-    fn from(value: AppExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtension> for ::windows::core::IUnknown {
-    fn from(value: &AppExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtension> for &::windows::core::IUnknown {
-    fn from(value: &AppExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtension> for ::windows::core::IInspectable {
-    fn from(value: AppExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtension> for ::windows::core::IInspectable {
-    fn from(value: &AppExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtension> for &::windows::core::IInspectable {
-    fn from(value: &AppExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtension, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtension {}
 unsafe impl ::core::marker::Sync for AppExtension {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -475,36 +446,7 @@ unsafe impl ::windows::core::Interface for AppExtensionCatalog {
 impl ::windows::core::RuntimeName for AppExtensionCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog";
 }
-impl ::core::convert::From<AppExtensionCatalog> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionCatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionCatalog> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionCatalog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionCatalog> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionCatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionCatalog> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionCatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionCatalog> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionCatalog) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionCatalog> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionCatalog) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionCatalog, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
@@ -565,36 +507,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageInstalledEventArgs
 impl ::windows::core::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
 }
-impl ::core::convert::From<AppExtensionPackageInstalledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionPackageInstalledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageInstalledEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageInstalledEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionPackageInstalledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionPackageInstalledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageInstalledEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageInstalledEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageInstalledEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionPackageInstalledEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageInstalledEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -648,36 +561,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageStatusChangedEvent
 impl ::windows::core::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
 }
-impl ::core::convert::From<AppExtensionPackageStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionPackageStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageStatusChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageStatusChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionPackageStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionPackageStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageStatusChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageStatusChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageStatusChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionPackageStatusChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -731,36 +615,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUninstallingEventA
 impl ::windows::core::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
 }
-impl ::core::convert::From<AppExtensionPackageUninstallingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionPackageUninstallingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUninstallingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUninstallingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionPackageUninstallingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionPackageUninstallingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUninstallingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUninstallingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUninstallingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionPackageUninstallingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -823,36 +678,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUpdatedEventArgs {
 impl ::windows::core::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
 }
-impl ::core::convert::From<AppExtensionPackageUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionPackageUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionPackageUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionPackageUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionPackageUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppExtensions\"`*"]
@@ -906,36 +732,7 @@ unsafe impl ::windows::core::Interface for AppExtensionPackageUpdatingEventArgs 
 impl ::windows::core::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
 }
-impl ::core::convert::From<AppExtensionPackageUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppExtensionPackageUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppExtensionPackageUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppExtensionPackageUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppExtensionPackageUpdatingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppExtensionPackageUpdatingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppExtensionPackageUpdatingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
 #[cfg(feature = "implement")]

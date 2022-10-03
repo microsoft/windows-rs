@@ -167,36 +167,7 @@ unsafe impl ::windows::core::Interface for Battery {
 impl ::windows::core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Devices.Power.Battery";
 }
-impl ::core::convert::From<Battery> for ::windows::core::IUnknown {
-    fn from(value: Battery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Battery> for ::windows::core::IUnknown {
-    fn from(value: &Battery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Battery> for &::windows::core::IUnknown {
-    fn from(value: &Battery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Battery> for ::windows::core::IInspectable {
-    fn from(value: Battery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Battery> for ::windows::core::IInspectable {
-    fn from(value: &Battery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Battery> for &::windows::core::IInspectable {
-    fn from(value: &Battery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Battery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
 #[doc = "*Required features: `\"Devices_Power\"`*"]
@@ -281,36 +252,7 @@ unsafe impl ::windows::core::Interface for BatteryReport {
 impl ::windows::core::RuntimeName for BatteryReport {
     const NAME: &'static str = "Windows.Devices.Power.BatteryReport";
 }
-impl ::core::convert::From<BatteryReport> for ::windows::core::IUnknown {
-    fn from(value: BatteryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BatteryReport> for ::windows::core::IUnknown {
-    fn from(value: &BatteryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BatteryReport> for &::windows::core::IUnknown {
-    fn from(value: &BatteryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BatteryReport> for ::windows::core::IInspectable {
-    fn from(value: BatteryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BatteryReport> for ::windows::core::IInspectable {
-    fn from(value: &BatteryReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BatteryReport> for &::windows::core::IInspectable {
-    fn from(value: &BatteryReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BatteryReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BatteryReport {}
 unsafe impl ::core::marker::Sync for BatteryReport {}
 #[cfg(feature = "implement")]

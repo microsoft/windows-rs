@@ -38,21 +38,7 @@ impl IDirect3DDxgiInterfaceAccess {
         (::windows::core::Vtable::vtable(self).GetInterface)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDirect3DDxgiInterfaceAccess> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDxgiInterfaceAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDxgiInterfaceAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDxgiInterfaceAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDxgiInterfaceAccess> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDxgiInterfaceAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirect3DDxgiInterfaceAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())

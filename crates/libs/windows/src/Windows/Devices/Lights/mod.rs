@@ -341,36 +341,7 @@ unsafe impl ::windows::core::Interface for Lamp {
 impl ::windows::core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
 }
-impl ::core::convert::From<Lamp> for ::windows::core::IUnknown {
-    fn from(value: Lamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Lamp> for ::windows::core::IUnknown {
-    fn from(value: &Lamp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Lamp> for &::windows::core::IUnknown {
-    fn from(value: &Lamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Lamp> for ::windows::core::IInspectable {
-    fn from(value: Lamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Lamp> for ::windows::core::IInspectable {
-    fn from(value: &Lamp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Lamp> for &::windows::core::IInspectable {
-    fn from(value: &Lamp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Lamp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<Lamp> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -634,36 +605,7 @@ unsafe impl ::windows::core::Interface for LampArray {
 impl ::windows::core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
 }
-impl ::core::convert::From<LampArray> for ::windows::core::IUnknown {
-    fn from(value: LampArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArray> for ::windows::core::IUnknown {
-    fn from(value: &LampArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArray> for &::windows::core::IUnknown {
-    fn from(value: &LampArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampArray> for ::windows::core::IInspectable {
-    fn from(value: LampArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampArray> for ::windows::core::IInspectable {
-    fn from(value: &LampArray) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampArray> for &::windows::core::IInspectable {
-    fn from(value: &LampArray) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampArray, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
@@ -710,36 +652,7 @@ unsafe impl ::windows::core::Interface for LampAvailabilityChangedEventArgs {
 impl ::windows::core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
 }
-impl ::core::convert::From<LampAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: LampAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: LampAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampAvailabilityChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
@@ -857,36 +770,7 @@ unsafe impl ::windows::core::Interface for LampInfo {
 impl ::windows::core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";
 }
-impl ::core::convert::From<LampInfo> for ::windows::core::IUnknown {
-    fn from(value: LampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampInfo> for ::windows::core::IUnknown {
-    fn from(value: &LampInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampInfo> for &::windows::core::IUnknown {
-    fn from(value: &LampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<LampInfo> for ::windows::core::IInspectable {
-    fn from(value: LampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&LampInfo> for ::windows::core::IInspectable {
-    fn from(value: &LampInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&LampInfo> for &::windows::core::IInspectable {
-    fn from(value: &LampInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LampInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]

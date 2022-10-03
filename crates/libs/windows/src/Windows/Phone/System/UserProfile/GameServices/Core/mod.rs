@@ -204,36 +204,7 @@ unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
 impl ::windows::core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";
 }
-impl ::core::convert::From<GameServicePropertyCollection> for ::windows::core::IUnknown {
-    fn from(value: GameServicePropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameServicePropertyCollection> for ::windows::core::IUnknown {
-    fn from(value: &GameServicePropertyCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameServicePropertyCollection> for &::windows::core::IUnknown {
-    fn from(value: &GameServicePropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameServicePropertyCollection> for ::windows::core::IInspectable {
-    fn from(value: GameServicePropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameServicePropertyCollection> for ::windows::core::IInspectable {
-    fn from(value: &GameServicePropertyCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameServicePropertyCollection> for &::windows::core::IInspectable {
-    fn from(value: &GameServicePropertyCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameServicePropertyCollection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]

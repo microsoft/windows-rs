@@ -1097,36 +1097,7 @@ unsafe impl ::windows::core::Interface for EmailDataProviderConnection {
 impl ::windows::core::RuntimeName for EmailDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection";
 }
-impl ::core::convert::From<EmailDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: EmailDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &EmailDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailDataProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &EmailDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: EmailDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &EmailDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailDataProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &EmailDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailDataProviderConnection {}
 unsafe impl ::core::marker::Sync for EmailDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1173,36 +1144,7 @@ unsafe impl ::windows::core::Interface for EmailDataProviderTriggerDetails {
 impl ::windows::core::RuntimeName for EmailDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails";
 }
-impl ::core::convert::From<EmailDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: EmailDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &EmailDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailDataProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &EmailDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: EmailDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &EmailDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailDataProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &EmailDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1281,36 +1223,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderRequest {
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest";
 }
-impl ::core::convert::From<EmailMailboxCreateFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxCreateFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxCreateFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxCreateFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxCreateFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxCreateFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxCreateFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxCreateFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxCreateFolderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1366,36 +1279,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderRequestEventA
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxCreateFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxCreateFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxCreateFolderRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxCreateFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxCreateFolderRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1467,36 +1351,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDeleteFolderRequest {
 impl ::windows::core::RuntimeName for EmailMailboxDeleteFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest";
 }
-impl ::core::convert::From<EmailMailboxDeleteFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDeleteFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDeleteFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDeleteFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDeleteFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDeleteFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDeleteFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDeleteFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDeleteFolderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1552,36 +1407,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDeleteFolderRequestEventA
 impl ::windows::core::RuntimeName for EmailMailboxDeleteFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxDeleteFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDeleteFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDeleteFolderRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDeleteFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDeleteFolderRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1660,36 +1486,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDownloadAttachmentRequest
 impl ::windows::core::RuntimeName for EmailMailboxDownloadAttachmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest";
 }
-impl ::core::convert::From<EmailMailboxDownloadAttachmentRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDownloadAttachmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadAttachmentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadAttachmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDownloadAttachmentRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDownloadAttachmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadAttachmentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadAttachmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDownloadAttachmentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1745,36 +1542,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDownloadAttachmentRequest
 impl ::windows::core::RuntimeName for EmailMailboxDownloadAttachmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxDownloadAttachmentRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDownloadAttachmentRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadAttachmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDownloadAttachmentRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1846,36 +1614,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDownloadMessageRequest {
 impl ::windows::core::RuntimeName for EmailMailboxDownloadMessageRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest";
 }
-impl ::core::convert::From<EmailMailboxDownloadMessageRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDownloadMessageRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadMessageRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadMessageRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDownloadMessageRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDownloadMessageRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadMessageRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadMessageRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDownloadMessageRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -1931,36 +1670,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxDownloadMessageRequestEve
 impl ::windows::core::RuntimeName for EmailMailboxDownloadMessageRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxDownloadMessageRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxDownloadMessageRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxDownloadMessageRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxDownloadMessageRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxDownloadMessageRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2032,36 +1742,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxEmptyFolderRequest {
 impl ::windows::core::RuntimeName for EmailMailboxEmptyFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest";
 }
-impl ::core::convert::From<EmailMailboxEmptyFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxEmptyFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxEmptyFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxEmptyFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxEmptyFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxEmptyFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxEmptyFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxEmptyFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxEmptyFolderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2117,36 +1798,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxEmptyFolderRequestEventAr
 impl ::windows::core::RuntimeName for EmailMailboxEmptyFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxEmptyFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxEmptyFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxEmptyFolderRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxEmptyFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxEmptyFolderRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2255,36 +1907,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxForwardMeetingRequest {
 impl ::windows::core::RuntimeName for EmailMailboxForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest";
 }
-impl ::core::convert::From<EmailMailboxForwardMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxForwardMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxForwardMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxForwardMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxForwardMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2340,36 +1963,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxForwardMeetingRequestEven
 impl ::windows::core::RuntimeName for EmailMailboxForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxForwardMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxForwardMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxForwardMeetingRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxForwardMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2441,36 +2035,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxGetAutoReplySettingsReque
 impl ::windows::core::RuntimeName for EmailMailboxGetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest";
 }
-impl ::core::convert::From<EmailMailboxGetAutoReplySettingsRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxGetAutoReplySettingsRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxGetAutoReplySettingsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2526,36 +2091,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxGetAutoReplySettingsReque
 impl ::windows::core::RuntimeName for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxGetAutoReplySettingsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxGetAutoReplySettingsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxGetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxGetAutoReplySettingsRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2641,36 +2177,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxMoveFolderRequest {
 impl ::windows::core::RuntimeName for EmailMailboxMoveFolderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest";
 }
-impl ::core::convert::From<EmailMailboxMoveFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxMoveFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxMoveFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxMoveFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxMoveFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxMoveFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxMoveFolderRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxMoveFolderRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxMoveFolderRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2726,36 +2233,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxMoveFolderRequestEventArg
 impl ::windows::core::RuntimeName for EmailMailboxMoveFolderRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxMoveFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxMoveFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxMoveFolderRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxMoveFolderRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxMoveFolderRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2859,36 +2337,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxProposeNewTimeForMeetingR
 impl ::windows::core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest";
 }
-impl ::core::convert::From<EmailMailboxProposeNewTimeForMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxProposeNewTimeForMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxProposeNewTimeForMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -2944,36 +2393,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxProposeNewTimeForMeetingR
 impl ::windows::core::RuntimeName for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxProposeNewTimeForMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3051,36 +2471,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxResolveRecipientsRequest 
 impl ::windows::core::RuntimeName for EmailMailboxResolveRecipientsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest";
 }
-impl ::core::convert::From<EmailMailboxResolveRecipientsRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxResolveRecipientsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxResolveRecipientsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxResolveRecipientsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxResolveRecipientsRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxResolveRecipientsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxResolveRecipientsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxResolveRecipientsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxResolveRecipientsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3136,36 +2527,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxResolveRecipientsRequestE
 impl ::windows::core::RuntimeName for EmailMailboxResolveRecipientsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxResolveRecipientsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxResolveRecipientsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxResolveRecipientsRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxResolveRecipientsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxResolveRecipientsRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3267,36 +2629,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxServerSearchReadBatchRequ
 impl ::windows::core::RuntimeName for EmailMailboxServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest";
 }
-impl ::core::convert::From<EmailMailboxServerSearchReadBatchRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxServerSearchReadBatchRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxServerSearchReadBatchRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3352,36 +2685,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxServerSearchReadBatchRequ
 impl ::windows::core::RuntimeName for EmailMailboxServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxServerSearchReadBatchRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxServerSearchReadBatchRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxServerSearchReadBatchRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxServerSearchReadBatchRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3453,36 +2757,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxSetAutoReplySettingsReque
 impl ::windows::core::RuntimeName for EmailMailboxSetAutoReplySettingsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest";
 }
-impl ::core::convert::From<EmailMailboxSetAutoReplySettingsRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxSetAutoReplySettingsRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxSetAutoReplySettingsRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3538,36 +2813,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxSetAutoReplySettingsReque
 impl ::windows::core::RuntimeName for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxSetAutoReplySettingsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxSetAutoReplySettingsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSetAutoReplySettingsRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxSetAutoReplySettingsRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3632,36 +2878,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxSyncManagerSyncRequest {
 impl ::windows::core::RuntimeName for EmailMailboxSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest";
 }
-impl ::core::convert::From<EmailMailboxSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3717,36 +2934,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxSyncManagerSyncRequestEve
 impl ::windows::core::RuntimeName for EmailMailboxSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3846,36 +3034,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxUpdateMeetingResponseRequ
 impl ::windows::core::RuntimeName for EmailMailboxUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest";
 }
-impl ::core::convert::From<EmailMailboxUpdateMeetingResponseRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxUpdateMeetingResponseRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxUpdateMeetingResponseRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -3931,36 +3090,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxUpdateMeetingResponseRequ
 impl ::windows::core::RuntimeName for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxUpdateMeetingResponseRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxUpdateMeetingResponseRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxUpdateMeetingResponseRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -4038,36 +3168,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxValidateCertificatesReque
 impl ::windows::core::RuntimeName for EmailMailboxValidateCertificatesRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest";
 }
-impl ::core::convert::From<EmailMailboxValidateCertificatesRequest> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxValidateCertificatesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequest> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxValidateCertificatesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequest> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxValidateCertificatesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxValidateCertificatesRequest> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxValidateCertificatesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequest> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxValidateCertificatesRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequest> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxValidateCertificatesRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxValidateCertificatesRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
@@ -4123,36 +3224,7 @@ unsafe impl ::windows::core::Interface for EmailMailboxValidateCertificatesReque
 impl ::windows::core::RuntimeName for EmailMailboxValidateCertificatesRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs";
 }
-impl ::core::convert::From<EmailMailboxValidateCertificatesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EmailMailboxValidateCertificatesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EmailMailboxValidateCertificatesRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &EmailMailboxValidateCertificatesRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(EmailMailboxValidateCertificatesRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequestEventArgs {}
 #[cfg(feature = "implement")]

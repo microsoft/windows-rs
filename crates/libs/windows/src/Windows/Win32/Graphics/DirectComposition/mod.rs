@@ -174,51 +174,7 @@ impl IDCompositionAffineTransform2DEffect {
         (::windows::core::Vtable::vtable(self).SetSharpness2)(::windows::core::Vtable::as_raw(self), sharpness).ok()
     }
 }
-impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionAffineTransform2DEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionAffineTransform2DEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionAffineTransform2DEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionAffineTransform2DEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionAffineTransform2DEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionAffineTransform2DEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -285,21 +241,7 @@ impl IDCompositionAnimation {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), endoffset, endvalue).ok()
     }
 }
-impl ::core::convert::From<IDCompositionAnimation> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionAnimation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionAnimation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionAnimation> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionAnimation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionAnimation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -393,51 +335,7 @@ impl IDCompositionArithmeticCompositeEffect {
         (::windows::core::Vtable::vtable(self).SetCoefficient42)(::windows::core::Vtable::as_raw(self), coefficient4).ok()
     }
 }
-impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionArithmeticCompositeEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionArithmeticCompositeEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionArithmeticCompositeEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionArithmeticCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionArithmeticCompositeEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -497,51 +395,7 @@ impl IDCompositionBlendEffect {
         (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-impl ::core::convert::From<IDCompositionBlendEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBlendEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBlendEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionBlendEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionBlendEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBlendEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBlendEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionBlendEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionBlendEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBlendEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionBlendEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBlendEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionBlendEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionBlendEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionBlendEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -630,51 +484,7 @@ impl IDCompositionBrightnessEffect {
         (::windows::core::Vtable::vtable(self).SetBlackPointY2)(::windows::core::Vtable::as_raw(self), blackpointy).ok()
     }
 }
-impl ::core::convert::From<IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBrightnessEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionBrightnessEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionBrightnessEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBrightnessEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBrightnessEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionBrightnessEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionBrightnessEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionBrightnessEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionBrightnessEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionBrightnessEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionBrightnessEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -722,21 +532,7 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionClip(::windows::core::IUnknown);
 impl IDCompositionClip {}
-impl ::core::convert::From<IDCompositionClip> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionClip> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionClip> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionClip, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionClip {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -802,51 +598,7 @@ impl IDCompositionColorMatrixEffect {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clamp.into()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionColorMatrixEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionColorMatrixEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionColorMatrixEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionColorMatrixEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionColorMatrixEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionColorMatrixEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionColorMatrixEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionColorMatrixEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionColorMatrixEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionColorMatrixEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -904,51 +656,7 @@ impl IDCompositionCompositeEffect {
         (::windows::core::Vtable::vtable(self).SetMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-impl ::core::convert::From<IDCompositionCompositeEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionCompositeEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionCompositeEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionCompositeEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionCompositeEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionCompositeEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionCompositeEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionCompositeEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionCompositeEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionCompositeEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionCompositeEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionCompositeEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionCompositeEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1001,21 +709,7 @@ impl IDCompositionDelegatedInkTrail {
         (::windows::core::Vtable::vtable(self).StartNewTrail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(color)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionDelegatedInkTrail> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDelegatedInkTrail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDelegatedInkTrail> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDelegatedInkTrail) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDelegatedInkTrail> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDelegatedInkTrail) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionDelegatedInkTrail {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1174,36 +868,7 @@ impl IDCompositionDesktopDevice {
         (::windows::core::Vtable::vtable(self).CreateSurfaceFromHwnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionDesktopDevice> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDesktopDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDesktopDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDesktopDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDesktopDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDesktopDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionDesktopDevice> for IDCompositionDevice2 {
-    fn from(value: IDCompositionDesktopDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDesktopDevice> for &'a IDCompositionDevice2 {
-    fn from(value: &'a IDCompositionDesktopDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDesktopDevice> for IDCompositionDevice2 {
-    fn from(value: &IDCompositionDesktopDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDesktopDevice, ::windows::core::IUnknown, IDCompositionDevice2);
 impl ::core::clone::Clone for IDCompositionDesktopDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1366,21 +1031,7 @@ impl IDCompositionDevice {
         (::windows::core::Vtable::vtable(self).CheckDeviceState)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionDevice> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1549,21 +1200,7 @@ impl IDCompositionDevice2 {
         (::windows::core::Vtable::vtable(self).CreateAnimation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAnimation>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionDevice2> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDevice2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDevice2> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDevice2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionDevice2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1769,36 +1406,7 @@ impl IDCompositionDevice3 {
         (::windows::core::Vtable::vtable(self).CreateAffineTransform2DEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionAffineTransform2DEffect>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionDevice3> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDevice3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDevice3> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionDevice3> for IDCompositionDevice2 {
-    fn from(value: IDCompositionDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDevice3> for &'a IDCompositionDevice2 {
-    fn from(value: &'a IDCompositionDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDevice3> for IDCompositionDevice2 {
-    fn from(value: &IDCompositionDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDevice3, ::windows::core::IUnknown, IDCompositionDevice2);
 impl ::core::clone::Clone for IDCompositionDevice3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1850,21 +1458,7 @@ impl IDCompositionDeviceDebug {
         (::windows::core::Vtable::vtable(self).DisableDebugCounters)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionDeviceDebug> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionDeviceDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionDeviceDebug> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionDeviceDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionDeviceDebug> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionDeviceDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionDeviceDebug, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionDeviceDebug {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1898,21 +1492,7 @@ pub struct IDCompositionDeviceDebug_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionEffect(::windows::core::IUnknown);
 impl IDCompositionEffect {}
-impl ::core::convert::From<IDCompositionEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionEffect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1960,36 +1540,7 @@ impl IDCompositionEffectGroup {
         (::windows::core::Vtable::vtable(self).SetTransform3D)(::windows::core::Vtable::as_raw(self), transform3d.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionEffectGroup> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionEffectGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionEffectGroup> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionEffectGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionEffectGroup> for IDCompositionEffect {
-    fn from(value: IDCompositionEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionEffectGroup> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionEffectGroup> for IDCompositionEffect {
-    fn from(value: &IDCompositionEffectGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionEffectGroup, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::clone::Clone for IDCompositionEffectGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2031,36 +1582,7 @@ impl IDCompositionFilterEffect {
         (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), index, input.into().abi(), flags).ok()
     }
 }
-impl ::core::convert::From<IDCompositionFilterEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionFilterEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionFilterEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionFilterEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionFilterEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionFilterEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionFilterEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionFilterEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionFilterEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionFilterEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionFilterEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionFilterEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionFilterEffect, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::clone::Clone for IDCompositionFilterEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2114,51 +1636,7 @@ impl IDCompositionGaussianBlurEffect {
         (::windows::core::Vtable::vtable(self).SetBorderMode)(::windows::core::Vtable::as_raw(self), mode).ok()
     }
 }
-impl ::core::convert::From<IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionGaussianBlurEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionGaussianBlurEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionGaussianBlurEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionGaussianBlurEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionGaussianBlurEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2212,51 +1690,7 @@ impl IDCompositionHueRotationEffect {
         (::windows::core::Vtable::vtable(self).SetAngle2)(::windows::core::Vtable::as_raw(self), amountdegrees).ok()
     }
 }
-impl ::core::convert::From<IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionHueRotationEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionHueRotationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionHueRotationEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionHueRotationEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionHueRotationEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionHueRotationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionHueRotationEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionHueRotationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionHueRotationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionHueRotationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionHueRotationEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2302,21 +1736,7 @@ impl IDCompositionInkTrailDevice {
         (::windows::core::Vtable::vtable(self).CreateDelegatedInkTrailForSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionDelegatedInkTrail>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionInkTrailDevice> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionInkTrailDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionInkTrailDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionInkTrailDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionInkTrailDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionInkTrailDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionInkTrailDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2469,51 +1889,7 @@ impl IDCompositionLinearTransferEffect {
         (::windows::core::Vtable::vtable(self).SetClampOutput)(::windows::core::Vtable::as_raw(self), clampoutput.into()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionLinearTransferEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionLinearTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionLinearTransferEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionLinearTransferEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionLinearTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionLinearTransferEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionLinearTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionLinearTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionLinearTransferEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2596,66 +1972,7 @@ impl IDCompositionMatrixTransform {
         (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform {
-    fn from(value: IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform> for &'a IDCompositionTransform {
-    fn from(value: &'a IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform {
-    fn from(value: &IDCompositionMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionMatrixTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::clone::Clone for IDCompositionMatrixTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2708,51 +2025,7 @@ impl IDCompositionMatrixTransform3D {
         (::windows::core::Vtable::vtable(self).SetMatrixElement2)(::windows::core::Vtable::as_raw(self), row, column, value).ok()
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionMatrixTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform3D> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionMatrixTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
-    fn from(value: IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionMatrixTransform3D> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionMatrixTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionMatrixTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::clone::Clone for IDCompositionMatrixTransform3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2899,36 +2172,7 @@ impl IDCompositionRectangleClip {
         (::windows::core::Vtable::vtable(self).SetBottomRightRadiusY2)(::windows::core::Vtable::as_raw(self), radius).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRectangleClip> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionRectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRectangleClip> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionRectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRectangleClip> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionRectangleClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRectangleClip> for IDCompositionClip {
-    fn from(value: IDCompositionRectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRectangleClip> for &'a IDCompositionClip {
-    fn from(value: &'a IDCompositionRectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRectangleClip> for IDCompositionClip {
-    fn from(value: &IDCompositionRectangleClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionRectangleClip, ::windows::core::IUnknown, IDCompositionClip);
 impl ::core::clone::Clone for IDCompositionRectangleClip {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3012,66 +2256,7 @@ impl IDCompositionRotateTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionRotateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionRotateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionRotateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform {
-    fn from(value: IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform> for &'a IDCompositionTransform {
-    fn from(value: &'a IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform {
-    fn from(value: &IDCompositionRotateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionRotateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::clone::Clone for IDCompositionRotateTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3173,51 +2358,7 @@ impl IDCompositionRotateTransform3D {
         (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionRotateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform3D> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionRotateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform3D> for IDCompositionTransform3D {
-    fn from(value: IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionRotateTransform3D> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionRotateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform3D> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionRotateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::clone::Clone for IDCompositionRotateTransform3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3279,51 +2420,7 @@ impl IDCompositionSaturationEffect {
         (::windows::core::Vtable::vtable(self).SetSaturation2)(::windows::core::Vtable::as_raw(self), ratio).ok()
     }
 }
-impl ::core::convert::From<IDCompositionSaturationEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSaturationEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSaturationEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionSaturationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionSaturationEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSaturationEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSaturationEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionSaturationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionSaturationEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSaturationEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionSaturationEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSaturationEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionSaturationEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionSaturationEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionSaturationEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3394,66 +2491,7 @@ impl IDCompositionScaleTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionScaleTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionScaleTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionScaleTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform {
-    fn from(value: IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform> for &'a IDCompositionTransform {
-    fn from(value: &'a IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform {
-    fn from(value: &IDCompositionScaleTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionScaleTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::clone::Clone for IDCompositionScaleTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3548,51 +2586,7 @@ impl IDCompositionScaleTransform3D {
         (::windows::core::Vtable::vtable(self).SetCenterZ2)(::windows::core::Vtable::as_raw(self), centerz).ok()
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionScaleTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform3D> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionScaleTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform3D> for IDCompositionTransform3D {
-    fn from(value: IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionScaleTransform3D> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionScaleTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform3D> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionScaleTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::clone::Clone for IDCompositionScaleTransform3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3693,51 +2687,7 @@ impl IDCompositionShadowEffect {
         (::windows::core::Vtable::vtable(self).SetAlpha2)(::windows::core::Vtable::as_raw(self), amount).ok()
     }
 }
-impl ::core::convert::From<IDCompositionShadowEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionShadowEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionShadowEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionShadowEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionShadowEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionShadowEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionShadowEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionShadowEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionShadowEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionShadowEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionShadowEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionShadowEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionShadowEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionShadowEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionShadowEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3820,66 +2770,7 @@ impl IDCompositionSkewTransform {
         (::windows::core::Vtable::vtable(self).SetCenterY2)(::windows::core::Vtable::as_raw(self), centery).ok()
     }
 }
-impl ::core::convert::From<IDCompositionSkewTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSkewTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSkewTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionSkewTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSkewTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionSkewTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSkewTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionSkewTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform {
-    fn from(value: IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSkewTransform> for &'a IDCompositionTransform {
-    fn from(value: &'a IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform {
-    fn from(value: &IDCompositionSkewTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionSkewTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::clone::Clone for IDCompositionSkewTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3939,21 +2830,7 @@ impl IDCompositionSurface {
         (::windows::core::Vtable::vtable(self).Scroll)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(scrollrect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(cliprect.unwrap_or(::std::ptr::null())), offsetx, offsety).ok()
     }
 }
-impl ::core::convert::From<IDCompositionSurface> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSurface> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionSurface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4009,21 +2886,7 @@ impl IDCompositionSurfaceFactory {
         (::windows::core::Vtable::vtable(self).CreateVirtualSurface)(::windows::core::Vtable::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDCompositionVirtualSurface>(result__)
     }
 }
-impl ::core::convert::From<IDCompositionSurfaceFactory> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionSurfaceFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionSurfaceFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionSurfaceFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSurfaceFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionSurfaceFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionSurfaceFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4158,51 +3021,7 @@ impl IDCompositionTableTransferEffect {
         (::windows::core::Vtable::vtable(self).SetAlphaTableValue2)(::windows::core::Vtable::as_raw(self), index, value).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTableTransferEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTableTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTableTransferEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTableTransferEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTableTransferEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionTableTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTableTransferEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionTableTransferEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionTableTransferEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTableTransferEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionTableTransferEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4273,21 +3092,7 @@ impl IDCompositionTarget {
         (::windows::core::Vtable::vtable(self).SetRoot)(::windows::core::Vtable::as_raw(self), visual.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTarget> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTarget> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTarget) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTarget> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTarget) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTarget, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4320,51 +3125,7 @@ pub struct IDCompositionTarget_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform(::windows::core::IUnknown);
 impl IDCompositionTransform {}
-impl ::core::convert::From<IDCompositionTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::clone::Clone for IDCompositionTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4396,36 +3157,7 @@ pub struct IDCompositionTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform3D(::windows::core::IUnknown);
 impl IDCompositionTransform3D {}
-impl ::core::convert::From<IDCompositionTransform3D> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTransform3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform3D> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTransform3D> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTransform3D, ::windows::core::IUnknown, IDCompositionEffect);
 impl ::core::clone::Clone for IDCompositionTransform3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4476,66 +3208,7 @@ impl IDCompositionTranslateTransform {
         (::windows::core::Vtable::vtable(self).SetOffsetY2)(::windows::core::Vtable::as_raw(self), offsety).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTranslateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionEffect {
-    fn from(value: IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionEffect {
-    fn from(value: &IDCompositionTranslateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionTranslateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform {
-    fn from(value: IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform> for &'a IDCompositionTransform {
-    fn from(value: &'a IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform {
-    fn from(value: &IDCompositionTranslateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTranslateTransform, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
 impl ::core::clone::Clone for IDCompositionTranslateTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4599,51 +3272,7 @@ impl IDCompositionTranslateTransform3D {
         (::windows::core::Vtable::vtable(self).SetOffsetZ2)(::windows::core::Vtable::as_raw(self), offsetz).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform3D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTranslateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform3D> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionTranslateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
-    fn from(value: IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTranslateTransform3D> for &'a IDCompositionTransform3D {
-    fn from(value: &'a IDCompositionTranslateTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionTranslateTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
 impl ::core::clone::Clone for IDCompositionTranslateTransform3D {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4722,51 +3351,7 @@ impl IDCompositionTurbulenceEffect {
         (::windows::core::Vtable::vtable(self).SetStitchable)(::windows::core::Vtable::as_raw(self), stitchable.into()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTurbulenceEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionTurbulenceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTurbulenceEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTurbulenceEffect> for &'a IDCompositionEffect {
-    fn from(value: &'a IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionTurbulenceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
-    fn from(value: IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionTurbulenceEffect> for &'a IDCompositionFilterEffect {
-    fn from(value: &'a IDCompositionTurbulenceEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
-    fn from(value: &IDCompositionTurbulenceEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows::core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl ::core::clone::Clone for IDCompositionTurbulenceEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4848,36 +3433,7 @@ impl IDCompositionVirtualSurface {
         (::windows::core::Vtable::vtable(self).Trim)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rectangles.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rectangles.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionVirtualSurface> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionVirtualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVirtualSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionVirtualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVirtualSurface> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionVirtualSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVirtualSurface> for IDCompositionSurface {
-    fn from(value: IDCompositionVirtualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVirtualSurface> for &'a IDCompositionSurface {
-    fn from(value: &'a IDCompositionVirtualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVirtualSurface> for IDCompositionSurface {
-    fn from(value: &IDCompositionVirtualSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionVirtualSurface, ::windows::core::IUnknown, IDCompositionSurface);
 impl ::core::clone::Clone for IDCompositionVirtualSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5001,21 +3557,7 @@ impl IDCompositionVisual {
         (::windows::core::Vtable::vtable(self).SetCompositeMode)(::windows::core::Vtable::as_raw(self), compositemode).ok()
     }
 }
-impl ::core::convert::From<IDCompositionVisual> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionVisual) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionVisual) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionVisual, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDCompositionVisual {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5166,36 +3708,7 @@ impl IDCompositionVisual2 {
         (::windows::core::Vtable::vtable(self).SetBackFaceVisibility)(::windows::core::Vtable::as_raw(self), visibility).ok()
     }
 }
-impl ::core::convert::From<IDCompositionVisual2> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionVisual2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionVisual2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual2> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionVisual2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisual2> for IDCompositionVisual {
-    fn from(value: IDCompositionVisual2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual2> for &'a IDCompositionVisual {
-    fn from(value: &'a IDCompositionVisual2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual2> for IDCompositionVisual {
-    fn from(value: &IDCompositionVisual2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionVisual2, ::windows::core::IUnknown, IDCompositionVisual);
 impl ::core::clone::Clone for IDCompositionVisual2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5376,66 +3889,7 @@ impl IDCompositionVisual3 {
         (::windows::core::Vtable::vtable(self).SetVisible)(::windows::core::Vtable::as_raw(self), visible.into()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionVisual3> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual3> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionVisual3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisual {
-    fn from(value: IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual3> for &'a IDCompositionVisual {
-    fn from(value: &'a IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisual {
-    fn from(value: &IDCompositionVisual3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisual2 {
-    fn from(value: IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual3> for &'a IDCompositionVisual2 {
-    fn from(value: &'a IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisual2 {
-    fn from(value: &IDCompositionVisual3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisualDebug {
-    fn from(value: IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisual3> for &'a IDCompositionVisualDebug {
-    fn from(value: &'a IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisualDebug {
-    fn from(value: &IDCompositionVisual3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionVisual3, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
 impl ::core::clone::Clone for IDCompositionVisual3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5588,51 +4042,7 @@ impl IDCompositionVisualDebug {
         (::windows::core::Vtable::vtable(self).DisableRedrawRegions)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionVisualDebug> for ::windows::core::IUnknown {
-    fn from(value: IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisualDebug> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisualDebug> for ::windows::core::IUnknown {
-    fn from(value: &IDCompositionVisualDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisualDebug> for IDCompositionVisual {
-    fn from(value: IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisualDebug> for &'a IDCompositionVisual {
-    fn from(value: &'a IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual {
-    fn from(value: &IDCompositionVisualDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDCompositionVisualDebug> for IDCompositionVisual2 {
-    fn from(value: IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDCompositionVisualDebug> for &'a IDCompositionVisual2 {
-    fn from(value: &'a IDCompositionVisualDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual2 {
-    fn from(value: &IDCompositionVisualDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDCompositionVisualDebug, ::windows::core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
 impl ::core::clone::Clone for IDCompositionVisualDebug {
     fn clone(&self) -> Self {
         Self(self.0.clone())

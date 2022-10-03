@@ -87,21 +87,7 @@ impl IRichEditOle {
         (::windows::core::Vtable::vtable(self).ImportDataObject)(::windows::core::Vtable::as_raw(self), lpdataobj.into().abi(), cf, hmetapict).ok()
     }
 }
-impl ::core::convert::From<IRichEditOle> for ::windows::core::IUnknown {
-    fn from(value: IRichEditOle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRichEditOle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRichEditOle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRichEditOle> for ::windows::core::IUnknown {
-    fn from(value: &IRichEditOle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRichEditOle, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRichEditOle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -247,21 +233,7 @@ impl IRichEditOleCallback {
         (::windows::core::Vtable::vtable(self).GetContextMenu)(::windows::core::Vtable::as_raw(self), seltype, lpoleobj.into().abi(), ::core::mem::transmute(lpchrg), ::core::mem::transmute(lphmenu)).ok()
     }
 }
-impl ::core::convert::From<IRichEditOleCallback> for ::windows::core::IUnknown {
-    fn from(value: IRichEditOleCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRichEditOleCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRichEditOleCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRichEditOleCallback> for ::windows::core::IUnknown {
-    fn from(value: &IRichEditOleCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRichEditOleCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRichEditOleCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -339,21 +311,7 @@ impl IRicheditUiaOverrides {
         (::windows::core::Vtable::vtable(self).GetPropertyOverrideValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(pretvalue)).ok()
     }
 }
-impl ::core::convert::From<IRicheditUiaOverrides> for ::windows::core::IUnknown {
-    fn from(value: IRicheditUiaOverrides) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRicheditUiaOverrides> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRicheditUiaOverrides) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRicheditUiaOverrides> for ::windows::core::IUnknown {
-    fn from(value: &IRicheditUiaOverrides) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRicheditUiaOverrides, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRicheditUiaOverrides {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -392,41 +350,7 @@ pub struct ITextDisplays(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDisplays {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDisplays> for ::windows::core::IUnknown {
-    fn from(value: ITextDisplays) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDisplays> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextDisplays) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDisplays> for ::windows::core::IUnknown {
-    fn from(value: &ITextDisplays) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDisplays> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextDisplays) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDisplays> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextDisplays) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDisplays> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextDisplays) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextDisplays, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextDisplays {
     fn clone(&self) -> Self {
@@ -550,41 +474,7 @@ impl ITextDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument> for ::windows::core::IUnknown {
-    fn from(value: ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument> for ::windows::core::IUnknown {
-    fn from(value: &ITextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextDocument {
     fn clone(&self) -> Self {
@@ -936,59 +826,7 @@ impl ITextDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2> for ::windows::core::IUnknown {
-    fn from(value: ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2> for ::windows::core::IUnknown {
-    fn from(value: &ITextDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2> for ITextDocument {
-    fn from(value: ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2> for &'a ITextDocument {
-    fn from(value: &'a ITextDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2> for ITextDocument {
-    fn from(value: &ITextDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextDocument2 {
     fn clone(&self) -> Self {
@@ -1287,59 +1125,7 @@ impl ITextDocument2Old {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2Old> for ::windows::core::IUnknown {
-    fn from(value: ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2Old> for ::windows::core::IUnknown {
-    fn from(value: &ITextDocument2Old) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2Old> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2Old> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextDocument2Old) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextDocument2Old> for ITextDocument {
-    fn from(value: ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextDocument2Old> for &'a ITextDocument {
-    fn from(value: &'a ITextDocument2Old) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextDocument2Old> for ITextDocument {
-    fn from(value: &ITextDocument2Old) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextDocument2Old, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextDocument2Old {
     fn clone(&self) -> Self {
@@ -1626,41 +1412,7 @@ impl ITextFont {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextFont> for ::windows::core::IUnknown {
-    fn from(value: ITextFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextFont> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextFont> for ::windows::core::IUnknown {
-    fn from(value: &ITextFont) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextFont> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextFont> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextFont) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextFont> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextFont) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextFont, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextFont {
     fn clone(&self) -> Self {
@@ -2144,59 +1896,7 @@ impl ITextFont2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextFont2> for ::windows::core::IUnknown {
-    fn from(value: ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextFont2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextFont2> for ::windows::core::IUnknown {
-    fn from(value: &ITextFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextFont2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextFont2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextFont2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextFont2> for ITextFont {
-    fn from(value: ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextFont2> for &'a ITextFont {
-    fn from(value: &'a ITextFont2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextFont2> for ITextFont {
-    fn from(value: &ITextFont2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextFont2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextFont);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextFont2 {
     fn clone(&self) -> Self {
@@ -2496,21 +2196,7 @@ impl ITextHost {
         (::windows::core::Vtable::vtable(self).TxGetSelectionBarWidth)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lselbarwidth)).ok()
     }
 }
-impl ::core::convert::From<ITextHost> for ::windows::core::IUnknown {
-    fn from(value: ITextHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextHost> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextHost> for ::windows::core::IUnknown {
-    fn from(value: &ITextHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextHost, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITextHost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2916,36 +2602,7 @@ impl ITextHost2 {
         (::windows::core::Vtable::vtable(self).TxGetHorzExtent)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(plhorzextent)).ok()
     }
 }
-impl ::core::convert::From<ITextHost2> for ::windows::core::IUnknown {
-    fn from(value: ITextHost2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextHost2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextHost2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextHost2> for ::windows::core::IUnknown {
-    fn from(value: &ITextHost2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextHost2> for ITextHost {
-    fn from(value: ITextHost2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextHost2> for &'a ITextHost {
-    fn from(value: &'a ITextHost2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextHost2> for ITextHost {
-    fn from(value: &ITextHost2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextHost2, ::windows::core::IUnknown, ITextHost);
 impl ::core::clone::Clone for ITextHost2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3188,41 +2845,7 @@ impl ITextPara {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextPara> for ::windows::core::IUnknown {
-    fn from(value: ITextPara) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextPara> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextPara) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextPara> for ::windows::core::IUnknown {
-    fn from(value: &ITextPara) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextPara> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextPara) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextPara> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextPara) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextPara> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextPara) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextPara, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextPara {
     fn clone(&self) -> Self {
@@ -3570,59 +3193,7 @@ impl ITextPara2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextPara2> for ::windows::core::IUnknown {
-    fn from(value: ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextPara2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextPara2> for ::windows::core::IUnknown {
-    fn from(value: &ITextPara2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextPara2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextPara2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextPara2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextPara2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextPara2> for ITextPara {
-    fn from(value: ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextPara2> for &'a ITextPara {
-    fn from(value: &'a ITextPara2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextPara2> for ITextPara {
-    fn from(value: &ITextPara2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextPara2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextPara);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextPara2 {
     fn clone(&self) -> Self {
@@ -3936,41 +3507,7 @@ impl ITextRange {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange> for ::windows::core::IUnknown {
-    fn from(value: ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange> for ::windows::core::IUnknown {
-    fn from(value: &ITextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextRange) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextRange) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextRange, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextRange {
     fn clone(&self) -> Self {
@@ -4580,77 +4117,7 @@ impl ITextRange2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange2> for ::windows::core::IUnknown {
-    fn from(value: ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange2> for ::windows::core::IUnknown {
-    fn from(value: &ITextRange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextRange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange2> for ITextRange {
-    fn from(value: ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ITextRange {
-    fn from(value: &'a ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange2> for ITextRange {
-    fn from(value: &ITextRange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRange2> for ITextSelection {
-    fn from(value: ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRange2> for &'a ITextSelection {
-    fn from(value: &'a ITextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRange2> for ITextSelection {
-    fn from(value: &ITextRange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextRange2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextRange2 {
     fn clone(&self) -> Self {
@@ -4927,41 +4394,7 @@ impl ITextRow {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRow> for ::windows::core::IUnknown {
-    fn from(value: ITextRow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRow> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextRow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRow> for ::windows::core::IUnknown {
-    fn from(value: &ITextRow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextRow> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextRow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextRow> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextRow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextRow> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextRow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextRow, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextRow {
     fn clone(&self) -> Self {
@@ -5337,59 +4770,7 @@ impl ITextSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection> for ::windows::core::IUnknown {
-    fn from(value: ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection> for ::windows::core::IUnknown {
-    fn from(value: &ITextSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection> for ITextRange {
-    fn from(value: ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection> for &'a ITextRange {
-    fn from(value: &'a ITextSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection> for ITextRange {
-    fn from(value: &ITextSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextSelection {
     fn clone(&self) -> Self {
@@ -5898,95 +5279,7 @@ impl ITextSelection2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection2> for ::windows::core::IUnknown {
-    fn from(value: ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection2> for ::windows::core::IUnknown {
-    fn from(value: &ITextSelection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextSelection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection2> for ITextRange {
-    fn from(value: ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextRange {
-    fn from(value: &'a ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection2> for ITextRange {
-    fn from(value: &ITextSelection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection2> for ITextSelection {
-    fn from(value: ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextSelection {
-    fn from(value: &'a ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection2> for ITextSelection {
-    fn from(value: &ITextSelection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextSelection2> for ITextRange2 {
-    fn from(value: ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextSelection2> for &'a ITextRange2 {
-    fn from(value: &'a ITextSelection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextSelection2> for ITextRange2 {
-    fn from(value: &ITextSelection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextSelection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextRange, ITextSelection, ITextRange2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextSelection2 {
     fn clone(&self) -> Self {
@@ -6122,21 +5415,7 @@ impl ITextServices {
         (::windows::core::Vtable::vtable(self).TxGetCachedSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
     }
 }
-impl ::core::convert::From<ITextServices> for ::windows::core::IUnknown {
-    fn from(value: ITextServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextServices> for ::windows::core::IUnknown {
-    fn from(value: &ITextServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextServices, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITextServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6327,36 +5606,7 @@ impl ITextServices2 {
         (::windows::core::Vtable::vtable(self).TxDrawD2D)(::windows::core::Vtable::as_raw(self), prendertarget.into().abi(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcupdate), lviewid).ok()
     }
 }
-impl ::core::convert::From<ITextServices2> for ::windows::core::IUnknown {
-    fn from(value: ITextServices2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextServices2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextServices2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextServices2> for ::windows::core::IUnknown {
-    fn from(value: &ITextServices2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITextServices2> for ITextServices {
-    fn from(value: ITextServices2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextServices2> for &'a ITextServices {
-    fn from(value: &'a ITextServices2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextServices2> for ITextServices {
-    fn from(value: &ITextServices2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextServices2, ::windows::core::IUnknown, ITextServices);
 impl ::core::clone::Clone for ITextServices2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6445,21 +5695,7 @@ impl ITextStory {
         (::windows::core::Vtable::vtable(self).SetText)(::windows::core::Vtable::as_raw(self), flags, ::core::mem::transmute_copy(bstr)).ok()
     }
 }
-impl ::core::convert::From<ITextStory> for ::windows::core::IUnknown {
-    fn from(value: ITextStory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITextStory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextStory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextStory> for ::windows::core::IUnknown {
-    fn from(value: &ITextStory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextStory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITextStory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6524,41 +5760,7 @@ impl ITextStoryRanges {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStoryRanges> for ::windows::core::IUnknown {
-    fn from(value: ITextStoryRanges) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStoryRanges> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextStoryRanges) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStoryRanges> for ::windows::core::IUnknown {
-    fn from(value: &ITextStoryRanges) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStoryRanges> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextStoryRanges) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStoryRanges> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextStoryRanges) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStoryRanges> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextStoryRanges) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextStoryRanges, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextStoryRanges {
     fn clone(&self) -> Self {
@@ -6627,59 +5829,7 @@ impl ITextStoryRanges2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStoryRanges2> for ::windows::core::IUnknown {
-    fn from(value: ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStoryRanges2> for ::windows::core::IUnknown {
-    fn from(value: &ITextStoryRanges2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStoryRanges2> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStoryRanges2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextStoryRanges2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStoryRanges2> for ITextStoryRanges {
-    fn from(value: ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStoryRanges2> for &'a ITextStoryRanges {
-    fn from(value: &'a ITextStoryRanges2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStoryRanges2> for ITextStoryRanges {
-    fn from(value: &ITextStoryRanges2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextStoryRanges2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ITextStoryRanges);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextStoryRanges2 {
     fn clone(&self) -> Self {
@@ -6808,41 +5958,7 @@ impl ITextStrings {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStrings> for ::windows::core::IUnknown {
-    fn from(value: ITextStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStrings> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITextStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStrings> for ::windows::core::IUnknown {
-    fn from(value: &ITextStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ITextStrings> for super::super::super::System::Com::IDispatch {
-    fn from(value: ITextStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ITextStrings> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ITextStrings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ITextStrings> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ITextStrings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITextStrings, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ITextStrings {
     fn clone(&self) -> Self {

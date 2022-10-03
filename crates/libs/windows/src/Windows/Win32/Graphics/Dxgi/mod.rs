@@ -99,36 +99,7 @@ impl IDXGIAdapter {
         (::windows::core::Vtable::vtable(self).CheckInterfaceSupport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IDXGIAdapter> for ::windows::core::IUnknown {
-    fn from(value: IDXGIAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter> for IDXGIObject {
-    fn from(value: IDXGIAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter> for IDXGIObject {
-    fn from(value: &IDXGIAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIAdapter, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIAdapter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -206,51 +177,7 @@ impl IDXGIAdapter1 {
         (::windows::core::Vtable::vtable(self).GetDesc1)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_ADAPTER_DESC1>(result__)
     }
 }
-impl ::core::convert::From<IDXGIAdapter1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIAdapter1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter1> for IDXGIObject {
-    fn from(value: IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter1> for IDXGIObject {
-    fn from(value: &IDXGIAdapter1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter1> for IDXGIAdapter {
-    fn from(value: IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter1> for &'a IDXGIAdapter {
-    fn from(value: &'a IDXGIAdapter1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter1> for IDXGIAdapter {
-    fn from(value: &IDXGIAdapter1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIAdapter1, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter);
 impl ::core::clone::Clone for IDXGIAdapter1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -332,66 +259,7 @@ impl IDXGIAdapter2 {
         (::windows::core::Vtable::vtable(self).GetDesc2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_ADAPTER_DESC2>(result__)
     }
 }
-impl ::core::convert::From<IDXGIAdapter2> for ::windows::core::IUnknown {
-    fn from(value: IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIAdapter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter2> for IDXGIObject {
-    fn from(value: IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter2> for IDXGIObject {
-    fn from(value: &IDXGIAdapter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter2> for IDXGIAdapter {
-    fn from(value: IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter2> for &'a IDXGIAdapter {
-    fn from(value: &'a IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter2> for IDXGIAdapter {
-    fn from(value: &IDXGIAdapter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter2> for IDXGIAdapter1 {
-    fn from(value: IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter2> for &'a IDXGIAdapter1 {
-    fn from(value: &'a IDXGIAdapter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter2> for IDXGIAdapter1 {
-    fn from(value: &IDXGIAdapter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIAdapter2, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
 impl ::core::clone::Clone for IDXGIAdapter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -504,81 +372,7 @@ impl IDXGIAdapter3 {
         (::windows::core::Vtable::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(::windows::core::Vtable::as_raw(self), dwcookie)
     }
 }
-impl ::core::convert::From<IDXGIAdapter3> for ::windows::core::IUnknown {
-    fn from(value: IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter3> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIAdapter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter3> for IDXGIObject {
-    fn from(value: IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter3> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter3> for IDXGIObject {
-    fn from(value: &IDXGIAdapter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter3> for IDXGIAdapter {
-    fn from(value: IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter3> for &'a IDXGIAdapter {
-    fn from(value: &'a IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter3> for IDXGIAdapter {
-    fn from(value: &IDXGIAdapter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter3> for IDXGIAdapter1 {
-    fn from(value: IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter3> for &'a IDXGIAdapter1 {
-    fn from(value: &'a IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter3> for IDXGIAdapter1 {
-    fn from(value: &IDXGIAdapter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter3> for IDXGIAdapter2 {
-    fn from(value: IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter3> for &'a IDXGIAdapter2 {
-    fn from(value: &'a IDXGIAdapter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter3> for IDXGIAdapter2 {
-    fn from(value: &IDXGIAdapter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIAdapter3, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
 impl ::core::clone::Clone for IDXGIAdapter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -705,96 +499,7 @@ impl IDXGIAdapter4 {
         (::windows::core::Vtable::vtable(self).GetDesc3)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_ADAPTER_DESC3>(result__)
     }
 }
-impl ::core::convert::From<IDXGIAdapter4> for ::windows::core::IUnknown {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter4> for IDXGIObject {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for IDXGIObject {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter4> for IDXGIAdapter {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a IDXGIAdapter {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for IDXGIAdapter {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter4> for IDXGIAdapter1 {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a IDXGIAdapter1 {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for IDXGIAdapter1 {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter4> for IDXGIAdapter2 {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a IDXGIAdapter2 {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for IDXGIAdapter2 {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIAdapter4> for IDXGIAdapter3 {
-    fn from(value: IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIAdapter4> for &'a IDXGIAdapter3 {
-    fn from(value: &'a IDXGIAdapter4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIAdapter4> for IDXGIAdapter3 {
-    fn from(value: &IDXGIAdapter4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIAdapter4, ::windows::core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
 impl ::core::clone::Clone for IDXGIAdapter4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -834,21 +539,7 @@ impl IDXGIDebug {
         (::windows::core::Vtable::vtable(self).ReportLiveObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(apiid), flags).ok()
     }
 }
-impl ::core::convert::From<IDXGIDebug> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDebug> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDebug) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDebug> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDebug) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDebug, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIDebug {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -896,36 +587,7 @@ impl IDXGIDebug1 {
         (::windows::core::Vtable::vtable(self).IsLeakTrackingEnabledForThread)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIDebug1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDebug1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDebug1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDebug1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDebug1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDebug1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDebug1> for IDXGIDebug {
-    fn from(value: IDXGIDebug1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDebug1> for &'a IDXGIDebug {
-    fn from(value: &'a IDXGIDebug1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDebug1> for IDXGIDebug {
-    fn from(value: &IDXGIDebug1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDebug1, ::windows::core::IUnknown, IDXGIDebug);
 impl ::core::clone::Clone for IDXGIDebug1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1001,21 +663,7 @@ impl IDXGIDecodeSwapChain {
         (::windows::core::Vtable::vtable(self).GetColorSpace)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIDecodeSwapChain> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDecodeSwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDecodeSwapChain> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDecodeSwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDecodeSwapChain> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDecodeSwapChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDecodeSwapChain, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIDecodeSwapChain {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1107,36 +755,7 @@ impl IDXGIDevice {
         (::windows::core::Vtable::vtable(self).GetGPUThreadPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIDevice> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice> for IDXGIObject {
-    fn from(value: IDXGIDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice> for IDXGIObject {
-    fn from(value: &IDXGIDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDevice, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1222,51 +841,7 @@ impl IDXGIDevice1 {
         (::windows::core::Vtable::vtable(self).GetMaximumFrameLatency)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIDevice1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice1> for IDXGIObject {
-    fn from(value: IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice1> for IDXGIObject {
-    fn from(value: &IDXGIDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice1> for IDXGIDevice {
-    fn from(value: IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice1> for &'a IDXGIDevice {
-    fn from(value: &'a IDXGIDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice1> for IDXGIDevice {
-    fn from(value: &IDXGIDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDevice1, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice);
 impl ::core::clone::Clone for IDXGIDevice1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1363,66 +938,7 @@ impl IDXGIDevice2 {
         (::windows::core::Vtable::vtable(self).EnqueueSetEvent)(::windows::core::Vtable::as_raw(self), hevent.into()).ok()
     }
 }
-impl ::core::convert::From<IDXGIDevice2> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice2> for IDXGIObject {
-    fn from(value: IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice2> for IDXGIObject {
-    fn from(value: &IDXGIDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice2> for IDXGIDevice {
-    fn from(value: IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice2> for &'a IDXGIDevice {
-    fn from(value: &'a IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice2> for IDXGIDevice {
-    fn from(value: &IDXGIDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice2> for IDXGIDevice1 {
-    fn from(value: IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice2> for &'a IDXGIDevice1 {
-    fn from(value: &'a IDXGIDevice2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice2> for IDXGIDevice1 {
-    fn from(value: &IDXGIDevice2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDevice2, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
 impl ::core::clone::Clone for IDXGIDevice2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1529,81 +1045,7 @@ impl IDXGIDevice3 {
         (::windows::core::Vtable::vtable(self).Trim)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIDevice3> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice3> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice3> for IDXGIObject {
-    fn from(value: IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice3> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice3> for IDXGIObject {
-    fn from(value: &IDXGIDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice3> for IDXGIDevice {
-    fn from(value: IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice3> for &'a IDXGIDevice {
-    fn from(value: &'a IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice3> for IDXGIDevice {
-    fn from(value: &IDXGIDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice3> for IDXGIDevice1 {
-    fn from(value: IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice3> for &'a IDXGIDevice1 {
-    fn from(value: &'a IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice3> for IDXGIDevice1 {
-    fn from(value: &IDXGIDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice3> for IDXGIDevice2 {
-    fn from(value: IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice3> for &'a IDXGIDevice2 {
-    fn from(value: &'a IDXGIDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice3> for IDXGIDevice2 {
-    fn from(value: &IDXGIDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDevice3, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
 impl ::core::clone::Clone for IDXGIDevice3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1709,96 +1151,7 @@ impl IDXGIDevice4 {
         (::windows::core::Vtable::vtable(self).ReclaimResources1)(::windows::core::Vtable::as_raw(self), numresources, ::core::mem::transmute(ppresources), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_RECLAIM_RESOURCE_RESULTS>(result__)
     }
 }
-impl ::core::convert::From<IDXGIDevice4> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice4> for IDXGIObject {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for IDXGIObject {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice4> for IDXGIDevice {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a IDXGIDevice {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for IDXGIDevice {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice4> for IDXGIDevice1 {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a IDXGIDevice1 {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for IDXGIDevice1 {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice4> for IDXGIDevice2 {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a IDXGIDevice2 {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for IDXGIDevice2 {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDevice4> for IDXGIDevice3 {
-    fn from(value: IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDevice4> for &'a IDXGIDevice3 {
-    fn from(value: &'a IDXGIDevice4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDevice4> for IDXGIDevice3 {
-    fn from(value: &IDXGIDevice4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDevice4, ::windows::core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
 impl ::core::clone::Clone for IDXGIDevice4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1859,36 +1212,7 @@ impl IDXGIDeviceSubObject {
         (::windows::core::Vtable::vtable(self).GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXGIDeviceSubObject> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDeviceSubObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDeviceSubObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDeviceSubObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDeviceSubObject> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDeviceSubObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIDeviceSubObject> for IDXGIObject {
-    fn from(value: IDXGIDeviceSubObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDeviceSubObject> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIDeviceSubObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDeviceSubObject> for IDXGIObject {
-    fn from(value: &IDXGIDeviceSubObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDeviceSubObject, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIDeviceSubObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1935,21 +1259,7 @@ impl IDXGIDisplayControl {
         (::windows::core::Vtable::vtable(self).SetStereoEnabled)(::windows::core::Vtable::as_raw(self), enabled.into())
     }
 }
-impl ::core::convert::From<IDXGIDisplayControl> for ::windows::core::IUnknown {
-    fn from(value: IDXGIDisplayControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIDisplayControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIDisplayControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIDisplayControl> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIDisplayControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIDisplayControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIDisplayControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2044,36 +1354,7 @@ impl IDXGIFactory {
         (::windows::core::Vtable::vtable(self).CreateSoftwareAdapter)(::windows::core::Vtable::as_raw(self), module.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGIAdapter>(result__)
     }
 }
-impl ::core::convert::From<IDXGIFactory> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory> for IDXGIObject {
-    fn from(value: IDXGIFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory> for IDXGIObject {
-    fn from(value: &IDXGIFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2186,51 +1467,7 @@ impl IDXGIFactory1 {
         (::windows::core::Vtable::vtable(self).IsCurrent)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIFactory1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory1> for IDXGIObject {
-    fn from(value: IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory1> for IDXGIObject {
-    fn from(value: &IDXGIFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory1> for IDXGIFactory {
-    fn from(value: IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory1> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory1> for IDXGIFactory {
-    fn from(value: &IDXGIFactory1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory1, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory);
 impl ::core::clone::Clone for IDXGIFactory1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2419,66 +1656,7 @@ impl IDXGIFactory2 {
         (::windows::core::Vtable::vtable(self).CreateSwapChainForComposition)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGISwapChain1>(result__)
     }
 }
-impl ::core::convert::From<IDXGIFactory2> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory2> for IDXGIObject {
-    fn from(value: IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory2> for IDXGIObject {
-    fn from(value: &IDXGIFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory2> for IDXGIFactory {
-    fn from(value: IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory2> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory2> for IDXGIFactory {
-    fn from(value: &IDXGIFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory2> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory2> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory2> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory2, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
 impl ::core::clone::Clone for IDXGIFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2703,81 +1881,7 @@ impl IDXGIFactory3 {
         (::windows::core::Vtable::vtable(self).GetCreationFlags)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIFactory3> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory3> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory3> for IDXGIObject {
-    fn from(value: IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory3> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory3> for IDXGIObject {
-    fn from(value: &IDXGIFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory3> for IDXGIFactory {
-    fn from(value: IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory3> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory3> for IDXGIFactory {
-    fn from(value: &IDXGIFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory3> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory3> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory3> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory3> for IDXGIFactory2 {
-    fn from(value: IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory3> for &'a IDXGIFactory2 {
-    fn from(value: &'a IDXGIFactory3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory3> for IDXGIFactory2 {
-    fn from(value: &IDXGIFactory3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory3, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
 impl ::core::clone::Clone for IDXGIFactory3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2981,96 +2085,7 @@ impl IDXGIFactory4 {
         (::windows::core::Vtable::vtable(self).EnumWarpAdapter)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXGIFactory4> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory4> for IDXGIObject {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for IDXGIObject {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory4> for IDXGIFactory {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for IDXGIFactory {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory4> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory4> for IDXGIFactory2 {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a IDXGIFactory2 {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for IDXGIFactory2 {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory4> for IDXGIFactory3 {
-    fn from(value: IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory4> for &'a IDXGIFactory3 {
-    fn from(value: &'a IDXGIFactory4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory4> for IDXGIFactory3 {
-    fn from(value: &IDXGIFactory4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory4, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
 impl ::core::clone::Clone for IDXGIFactory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3281,111 +2296,7 @@ impl IDXGIFactory5 {
         (::windows::core::Vtable::vtable(self).CheckFeatureSupport)(::windows::core::Vtable::as_raw(self), feature, ::core::mem::transmute(pfeaturesupportdata), featuresupportdatasize).ok()
     }
 }
-impl ::core::convert::From<IDXGIFactory5> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIObject {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIObject {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIFactory {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory2 {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIFactory2 {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIFactory2 {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory3 {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIFactory3 {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIFactory3 {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory4 {
-    fn from(value: IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory5> for &'a IDXGIFactory4 {
-    fn from(value: &'a IDXGIFactory5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory5> for IDXGIFactory4 {
-    fn from(value: &IDXGIFactory5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory5, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
 impl ::core::clone::Clone for IDXGIFactory5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3599,126 +2510,7 @@ impl IDXGIFactory6 {
         (::windows::core::Vtable::vtable(self).EnumAdapterByGpuPreference)(::windows::core::Vtable::as_raw(self), adapter, gpupreference, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXGIFactory6> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIObject {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIObject {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory2 {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory2 {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory2 {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory3 {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory3 {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory3 {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory4 {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory4 {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory4 {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory5 {
-    fn from(value: IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory6> for &'a IDXGIFactory5 {
-    fn from(value: &'a IDXGIFactory6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory6> for IDXGIFactory5 {
-    fn from(value: &IDXGIFactory6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory6, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
 impl ::core::clone::Clone for IDXGIFactory6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3944,141 +2736,7 @@ impl IDXGIFactory7 {
         (::windows::core::Vtable::vtable(self).UnregisterAdaptersChangedEvent)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
-impl ::core::convert::From<IDXGIFactory7> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIObject {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIObject {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory1 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory1 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory1 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory2 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory2 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory2 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory3 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory3 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory3 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory4 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory4 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory4 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory5 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory5 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory5 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory6 {
-    fn from(value: IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactory7> for &'a IDXGIFactory6 {
-    fn from(value: &'a IDXGIFactory7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactory7> for IDXGIFactory6 {
-    fn from(value: &IDXGIFactory7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactory7, ::windows::core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
 impl ::core::clone::Clone for IDXGIFactory7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4139,21 +2797,7 @@ impl IDXGIFactoryMedia {
         (::windows::core::Vtable::vtable(self).CreateDecodeSwapChainForCompositionSurfaceHandle)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), hsurface.into(), ::core::mem::transmute(pdesc), pyuvdecodebuffers.into().abi(), prestricttooutput.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGIDecodeSwapChain>(result__)
     }
 }
-impl ::core::convert::From<IDXGIFactoryMedia> for ::windows::core::IUnknown {
-    fn from(value: IDXGIFactoryMedia) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIFactoryMedia> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIFactoryMedia) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIFactoryMedia> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIFactoryMedia) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIFactoryMedia, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIFactoryMedia {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4339,21 +2983,7 @@ impl IDXGIInfoQueue {
         (::windows::core::Vtable::vtable(self).GetMuteDebugOutput)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(producer))
     }
 }
-impl ::core::convert::From<IDXGIInfoQueue> for ::windows::core::IUnknown {
-    fn from(value: IDXGIInfoQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIInfoQueue> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIInfoQueue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIInfoQueue> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIInfoQueue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIInfoQueue, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIInfoQueue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4479,51 +3109,7 @@ impl IDXGIKeyedMutex {
         (::windows::core::Vtable::vtable(self).ReleaseSync)(::windows::core::Vtable::as_raw(self), key).ok()
     }
 }
-impl ::core::convert::From<IDXGIKeyedMutex> for ::windows::core::IUnknown {
-    fn from(value: IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIKeyedMutex> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIKeyedMutex> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIKeyedMutex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIKeyedMutex> for IDXGIObject {
-    fn from(value: IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIKeyedMutex> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIKeyedMutex> for IDXGIObject {
-    fn from(value: &IDXGIKeyedMutex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIKeyedMutex> for IDXGIDeviceSubObject {
-    fn from(value: IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIKeyedMutex> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGIKeyedMutex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIKeyedMutex> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGIKeyedMutex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIKeyedMutex, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::clone::Clone for IDXGIKeyedMutex {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4577,21 +3163,7 @@ impl IDXGIObject {
         (::windows::core::Vtable::vtable(self).GetParent)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXGIObject> for ::windows::core::IUnknown {
-    fn from(value: IDXGIObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIObject> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGIObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4714,36 +3286,7 @@ impl IDXGIOutput {
         (::windows::core::Vtable::vtable(self).GetFrameStatistics)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput> for IDXGIObject {
-    fn from(value: IDXGIOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput> for IDXGIObject {
-    fn from(value: &IDXGIOutput) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIOutput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4921,51 +3464,7 @@ impl IDXGIOutput1 {
         (::windows::core::Vtable::vtable(self).DuplicateOutput)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGIOutputDuplication>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput1> for IDXGIObject {
-    fn from(value: IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput1> for IDXGIObject {
-    fn from(value: &IDXGIOutput1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput1> for IDXGIOutput {
-    fn from(value: IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput1> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput1> for IDXGIOutput {
-    fn from(value: &IDXGIOutput1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput1, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput);
 impl ::core::clone::Clone for IDXGIOutput1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5125,66 +3624,7 @@ impl IDXGIOutput2 {
         (::windows::core::Vtable::vtable(self).SupportsOverlays)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGIOutput2> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput2> for IDXGIObject {
-    fn from(value: IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput2> for IDXGIObject {
-    fn from(value: &IDXGIOutput2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput2> for IDXGIOutput {
-    fn from(value: IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput2> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput2> for IDXGIOutput {
-    fn from(value: &IDXGIOutput2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput2> for IDXGIOutput1 {
-    fn from(value: IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput2> for &'a IDXGIOutput1 {
-    fn from(value: &'a IDXGIOutput2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput2> for IDXGIOutput1 {
-    fn from(value: &IDXGIOutput2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput2, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
 impl ::core::clone::Clone for IDXGIOutput2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5347,81 +3787,7 @@ impl IDXGIOutput3 {
         (::windows::core::Vtable::vtable(self).CheckOverlaySupport)(::windows::core::Vtable::as_raw(self), enumformat, pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput3> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput3> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput3> for IDXGIObject {
-    fn from(value: IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput3> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput3> for IDXGIObject {
-    fn from(value: &IDXGIOutput3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput3> for IDXGIOutput {
-    fn from(value: IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput3> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput3> for IDXGIOutput {
-    fn from(value: &IDXGIOutput3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput3> for IDXGIOutput1 {
-    fn from(value: IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput3> for &'a IDXGIOutput1 {
-    fn from(value: &'a IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput3> for IDXGIOutput1 {
-    fn from(value: &IDXGIOutput3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput3> for IDXGIOutput2 {
-    fn from(value: IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput3> for &'a IDXGIOutput2 {
-    fn from(value: &'a IDXGIOutput3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput3> for IDXGIOutput2 {
-    fn from(value: &IDXGIOutput3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput3, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
 impl ::core::clone::Clone for IDXGIOutput3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5593,96 +3959,7 @@ impl IDXGIOutput4 {
         (::windows::core::Vtable::vtable(self).CheckOverlayColorSpaceSupport)(::windows::core::Vtable::as_raw(self), format, colorspace, pconcerneddevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput4> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput4> for IDXGIObject {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for IDXGIObject {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput4> for IDXGIOutput {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for IDXGIOutput {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput4> for IDXGIOutput1 {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a IDXGIOutput1 {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for IDXGIOutput1 {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput4> for IDXGIOutput2 {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a IDXGIOutput2 {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for IDXGIOutput2 {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput4> for IDXGIOutput3 {
-    fn from(value: IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput4> for &'a IDXGIOutput3 {
-    fn from(value: &'a IDXGIOutput4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput4> for IDXGIOutput3 {
-    fn from(value: &IDXGIOutput4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput4, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
 impl ::core::clone::Clone for IDXGIOutput4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5863,111 +4140,7 @@ impl IDXGIOutput5 {
         (::windows::core::Vtable::vtable(self).DuplicateOutput1)(::windows::core::Vtable::as_raw(self), pdevice.into().abi(), flags, psupportedformats.len() as _, ::core::mem::transmute(psupportedformats.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDXGIOutputDuplication>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput5> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIObject {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIObject {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIOutput {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput1 {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIOutput1 {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIOutput1 {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput2 {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIOutput2 {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIOutput2 {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput3 {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIOutput3 {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIOutput3 {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput4 {
-    fn from(value: IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput5> for &'a IDXGIOutput4 {
-    fn from(value: &'a IDXGIOutput5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput5> for IDXGIOutput4 {
-    fn from(value: &IDXGIOutput5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput5, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
 impl ::core::clone::Clone for IDXGIOutput5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6158,126 +4331,7 @@ impl IDXGIOutput6 {
         (::windows::core::Vtable::vtable(self).CheckHardwareCompositionSupport)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIOutput6> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIObject {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIObject {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput1 {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput1 {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput1 {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput2 {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput2 {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput2 {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput3 {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput3 {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput3 {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput4 {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput4 {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput4 {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput5 {
-    fn from(value: IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutput6> for &'a IDXGIOutput5 {
-    fn from(value: &'a IDXGIOutput6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutput6> for IDXGIOutput5 {
-    fn from(value: &IDXGIOutput6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutput6, ::windows::core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
 impl ::core::clone::Clone for IDXGIOutput6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6369,36 +4423,7 @@ impl IDXGIOutputDuplication {
         (::windows::core::Vtable::vtable(self).ReleaseFrame)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDXGIOutputDuplication> for ::windows::core::IUnknown {
-    fn from(value: IDXGIOutputDuplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutputDuplication> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIOutputDuplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutputDuplication> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIOutputDuplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIOutputDuplication> for IDXGIObject {
-    fn from(value: IDXGIOutputDuplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIOutputDuplication> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIOutputDuplication) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIOutputDuplication> for IDXGIObject {
-    fn from(value: &IDXGIOutputDuplication) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIOutputDuplication, ::windows::core::IUnknown, IDXGIObject);
 impl ::core::clone::Clone for IDXGIOutputDuplication {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6497,51 +4522,7 @@ impl IDXGIResource {
         (::windows::core::Vtable::vtable(self).GetEvictionPriority)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGIResource> for ::windows::core::IUnknown {
-    fn from(value: IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIResource> for IDXGIObject {
-    fn from(value: IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource> for IDXGIObject {
-    fn from(value: &IDXGIResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIResource> for IDXGIDeviceSubObject {
-    fn from(value: IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGIResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGIResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIResource, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::clone::Clone for IDXGIResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6637,66 +4618,7 @@ impl IDXGIResource1 {
         (::windows::core::Vtable::vtable(self).CreateSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), dwaccess, lpname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IDXGIResource1> for ::windows::core::IUnknown {
-    fn from(value: IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGIResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIResource1> for IDXGIObject {
-    fn from(value: IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource1> for IDXGIObject {
-    fn from(value: &IDXGIResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIResource1> for IDXGIDeviceSubObject {
-    fn from(value: IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource1> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource1> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGIResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGIResource1> for IDXGIResource {
-    fn from(value: IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGIResource1> for &'a IDXGIResource {
-    fn from(value: &'a IDXGIResource1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGIResource1> for IDXGIResource {
-    fn from(value: &IDXGIResource1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGIResource1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
 impl ::core::clone::Clone for IDXGIResource1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6772,51 +4694,7 @@ impl IDXGISurface {
         (::windows::core::Vtable::vtable(self).Unmap)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDXGISurface> for ::windows::core::IUnknown {
-    fn from(value: IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface> for IDXGIObject {
-    fn from(value: IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface> for IDXGIObject {
-    fn from(value: &IDXGISurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISurface, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::clone::Clone for IDXGISurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6907,66 +4785,7 @@ impl IDXGISurface1 {
         (::windows::core::Vtable::vtable(self).ReleaseDC)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdirtyrect.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<IDXGISurface1> for ::windows::core::IUnknown {
-    fn from(value: IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISurface1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface1> for IDXGIObject {
-    fn from(value: IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface1> for IDXGIObject {
-    fn from(value: &IDXGISurface1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface1> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface1> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface1> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISurface1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface1> for IDXGISurface {
-    fn from(value: IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface1> for &'a IDXGISurface {
-    fn from(value: &'a IDXGISurface1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface1> for IDXGISurface {
-    fn from(value: &IDXGISurface1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISurface1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
 impl ::core::clone::Clone for IDXGISurface1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7066,81 +4885,7 @@ impl IDXGISurface2 {
         (::windows::core::Vtable::vtable(self).GetResource)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _, ::core::mem::transmute(psubresourceindex)).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXGISurface2> for ::windows::core::IUnknown {
-    fn from(value: IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface2> for IDXGIObject {
-    fn from(value: IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface2> for IDXGIObject {
-    fn from(value: &IDXGISurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface2> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface2> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface2> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface2> for IDXGISurface {
-    fn from(value: IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface2> for &'a IDXGISurface {
-    fn from(value: &'a IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface2> for IDXGISurface {
-    fn from(value: &IDXGISurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISurface2> for IDXGISurface1 {
-    fn from(value: IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISurface2> for &'a IDXGISurface1 {
-    fn from(value: &'a IDXGISurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISurface2> for IDXGISurface1 {
-    fn from(value: &IDXGISurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISurface2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
 impl ::core::clone::Clone for IDXGISurface2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7252,51 +4997,7 @@ impl IDXGISwapChain {
         (::windows::core::Vtable::vtable(self).GetLastPresentCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDXGISwapChain> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain> for IDXGIObject {
-    fn from(value: IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain> for IDXGIObject {
-    fn from(value: &IDXGISwapChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISwapChain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISwapChain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChain, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl ::core::clone::Clone for IDXGISwapChain {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7489,66 +5190,7 @@ impl IDXGISwapChain1 {
         (::windows::core::Vtable::vtable(self).GetRotation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
     }
 }
-impl ::core::convert::From<IDXGISwapChain1> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain1> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain1> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChain1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain1> for IDXGIObject {
-    fn from(value: IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain1> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain1> for IDXGIObject {
-    fn from(value: &IDXGISwapChain1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain1> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain1> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain1> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISwapChain1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain1> for IDXGISwapChain {
-    fn from(value: IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain1> for &'a IDXGISwapChain {
-    fn from(value: &'a IDXGISwapChain1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain1> for IDXGISwapChain {
-    fn from(value: &IDXGISwapChain1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChain1, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
 impl ::core::clone::Clone for IDXGISwapChain1 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7773,81 +5415,7 @@ impl IDXGISwapChain2 {
         (::windows::core::Vtable::vtable(self).GetMatrixTransform)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_MATRIX_3X2_F>(result__)
     }
 }
-impl ::core::convert::From<IDXGISwapChain2> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain2> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain2> for IDXGIObject {
-    fn from(value: IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain2> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain2> for IDXGIObject {
-    fn from(value: &IDXGISwapChain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain2> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain2> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain2> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISwapChain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain2> for IDXGISwapChain {
-    fn from(value: IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain2> for &'a IDXGISwapChain {
-    fn from(value: &'a IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain2> for IDXGISwapChain {
-    fn from(value: &IDXGISwapChain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain2> for IDXGISwapChain1 {
-    fn from(value: IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain2> for &'a IDXGISwapChain1 {
-    fn from(value: &'a IDXGISwapChain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain2> for IDXGISwapChain1 {
-    fn from(value: &IDXGISwapChain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChain2, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
 impl ::core::clone::Clone for IDXGISwapChain2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8069,96 +5637,7 @@ impl IDXGISwapChain3 {
         (::windows::core::Vtable::vtable(self).ResizeBuffers1)(::windows::core::Vtable::as_raw(self), buffercount, width, height, format, swapchainflags, ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
 }
-impl ::core::convert::From<IDXGISwapChain3> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain3> for IDXGIObject {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for IDXGIObject {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain3> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain3> for IDXGISwapChain {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a IDXGISwapChain {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for IDXGISwapChain {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain3> for IDXGISwapChain1 {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a IDXGISwapChain1 {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for IDXGISwapChain1 {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain3> for IDXGISwapChain2 {
-    fn from(value: IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain3> for &'a IDXGISwapChain2 {
-    fn from(value: &'a IDXGISwapChain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain3> for IDXGISwapChain2 {
-    fn from(value: &IDXGISwapChain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChain3, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
 impl ::core::clone::Clone for IDXGISwapChain3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8386,111 +5865,7 @@ impl IDXGISwapChain4 {
         (::windows::core::Vtable::vtable(self).SetHDRMetaData)(::windows::core::Vtable::as_raw(self), r#type, pmetadata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pmetadata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
 }
-impl ::core::convert::From<IDXGISwapChain4> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGIObject {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGIObject {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGIObject {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGIDeviceSubObject {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGIDeviceSubObject {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGIDeviceSubObject {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGISwapChain {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGISwapChain {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGISwapChain {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGISwapChain1 {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGISwapChain1 {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGISwapChain1 {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGISwapChain2 {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGISwapChain2 {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGISwapChain2 {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDXGISwapChain4> for IDXGISwapChain3 {
-    fn from(value: IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChain4> for &'a IDXGISwapChain3 {
-    fn from(value: &'a IDXGISwapChain4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChain4> for IDXGISwapChain3 {
-    fn from(value: &IDXGISwapChain4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChain4, ::windows::core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl ::core::clone::Clone for IDXGISwapChain4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8534,21 +5909,7 @@ impl IDXGISwapChainMedia {
         (::windows::core::Vtable::vtable(self).CheckPresentDurationSupport)(::windows::core::Vtable::as_raw(self), desiredpresentduration, ::core::mem::transmute(pclosestsmallerpresentduration), ::core::mem::transmute(pclosestlargerpresentduration)).ok()
     }
 }
-impl ::core::convert::From<IDXGISwapChainMedia> for ::windows::core::IUnknown {
-    fn from(value: IDXGISwapChainMedia) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGISwapChainMedia> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGISwapChainMedia) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGISwapChainMedia> for ::windows::core::IUnknown {
-    fn from(value: &IDXGISwapChainMedia) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGISwapChainMedia, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGISwapChainMedia {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8590,21 +5951,7 @@ impl IDXGraphicsAnalysis {
         (::windows::core::Vtable::vtable(self).EndCapture)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDXGraphicsAnalysis> for ::windows::core::IUnknown {
-    fn from(value: IDXGraphicsAnalysis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXGraphicsAnalysis> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXGraphicsAnalysis) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXGraphicsAnalysis> for ::windows::core::IUnknown {
-    fn from(value: &IDXGraphicsAnalysis) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXGraphicsAnalysis, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXGraphicsAnalysis {
     fn clone(&self) -> Self {
         Self(self.0.clone())

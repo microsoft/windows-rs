@@ -49,41 +49,7 @@ impl IMXAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXAttributes> for ::windows::core::IUnknown {
-    fn from(value: IMXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXAttributes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXAttributes> for ::windows::core::IUnknown {
-    fn from(value: &IMXAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXAttributes> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXAttributes> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXAttributes> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXAttributes {
     fn clone(&self) -> Self {
@@ -189,21 +155,7 @@ impl IMXNamespaceManager {
         (::windows::core::Vtable::vtable(self).getURI)(::windows::core::Vtable::as_raw(self), pwchprefix.into(), pcontextnode.into().abi(), ::core::mem::transmute(pwchuri), ::core::mem::transmute(pcchuri)).ok()
     }
 }
-impl ::core::convert::From<IMXNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: IMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMXNamespaceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMXNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: &IMXNamespaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXNamespaceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMXNamespaceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -267,41 +219,7 @@ impl IMXNamespacePrefixes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXNamespacePrefixes> for ::windows::core::IUnknown {
-    fn from(value: IMXNamespacePrefixes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXNamespacePrefixes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXNamespacePrefixes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXNamespacePrefixes> for ::windows::core::IUnknown {
-    fn from(value: &IMXNamespacePrefixes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXNamespacePrefixes> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXNamespacePrefixes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXNamespacePrefixes> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXNamespacePrefixes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXNamespacePrefixes> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXNamespacePrefixes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXNamespacePrefixes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXNamespacePrefixes {
     fn clone(&self) -> Self {
@@ -356,41 +274,7 @@ impl IMXReaderControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXReaderControl> for ::windows::core::IUnknown {
-    fn from(value: IMXReaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXReaderControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXReaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXReaderControl> for ::windows::core::IUnknown {
-    fn from(value: &IMXReaderControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXReaderControl> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXReaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXReaderControl> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXReaderControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXReaderControl> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXReaderControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXReaderControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXReaderControl {
     fn clone(&self) -> Self {
@@ -444,41 +328,7 @@ impl IMXSchemaDeclHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXSchemaDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: IMXSchemaDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXSchemaDeclHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXSchemaDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXSchemaDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: &IMXSchemaDeclHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXSchemaDeclHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXSchemaDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXSchemaDeclHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXSchemaDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXSchemaDeclHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXSchemaDeclHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXSchemaDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXSchemaDeclHandler {
     fn clone(&self) -> Self {
@@ -591,41 +441,7 @@ impl IMXWriter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXWriter> for ::windows::core::IUnknown {
-    fn from(value: IMXWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXWriter> for ::windows::core::IUnknown {
-    fn from(value: &IMXWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXWriter> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXWriter> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXWriter> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXWriter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXWriter {
     fn clone(&self) -> Self {
@@ -752,41 +568,7 @@ impl IMXXMLFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: IMXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXXMLFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: &IMXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IMXXMLFilter> for super::super::super::System::Com::IDispatch {
-    fn from(value: IMXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IMXXMLFilter> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IMXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IMXXMLFilter> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IMXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IMXXMLFilter {
     fn clone(&self) -> Self {
@@ -907,21 +689,7 @@ impl ISAXAttributes {
         (::windows::core::Vtable::vtable(self).getValueFromQName)(::windows::core::Vtable::as_raw(self), pwchqname.into(), cchqname, ::core::mem::transmute(ppwchvalue), ::core::mem::transmute(pcchvalue)).ok()
     }
 }
-impl ::core::convert::From<ISAXAttributes> for ::windows::core::IUnknown {
-    fn from(value: ISAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXAttributes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXAttributes> for ::windows::core::IUnknown {
-    fn from(value: &ISAXAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXAttributes, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXAttributes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1034,21 +802,7 @@ impl ISAXContentHandler {
         (::windows::core::Vtable::vtable(self).skippedEntity)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname).ok()
     }
 }
-impl ::core::convert::From<ISAXContentHandler> for ::windows::core::IUnknown {
-    fn from(value: ISAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXContentHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXContentHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISAXContentHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXContentHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXContentHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1109,21 +863,7 @@ impl ISAXDTDHandler {
         (::windows::core::Vtable::vtable(self).unparsedEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid, pwchnotationname.into(), cchnotationname).ok()
     }
 }
-impl ::core::convert::From<ISAXDTDHandler> for ::windows::core::IUnknown {
-    fn from(value: ISAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXDTDHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXDTDHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISAXDTDHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXDTDHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXDTDHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1190,21 +930,7 @@ impl ISAXDeclHandler {
         (::windows::core::Vtable::vtable(self).externalEntityDecl)(::windows::core::Vtable::as_raw(self), pwchname.into(), cchname, pwchpublicid.into(), cchpublicid, pwchsystemid.into(), cchsystemid).ok()
     }
 }
-impl ::core::convert::From<ISAXDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: ISAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXDeclHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISAXDeclHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXDeclHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXDeclHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1251,21 +977,7 @@ impl ISAXEntityResolver {
         (::windows::core::Vtable::vtable(self).resolveEntity)(::windows::core::Vtable::as_raw(self), pwchpublicid.into(), pwchsystemid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
 }
-impl ::core::convert::From<ISAXEntityResolver> for ::windows::core::IUnknown {
-    fn from(value: ISAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXEntityResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXEntityResolver> for ::windows::core::IUnknown {
-    fn from(value: &ISAXEntityResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXEntityResolver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXEntityResolver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1323,21 +1035,7 @@ impl ISAXErrorHandler {
         (::windows::core::Vtable::vtable(self).ignorableWarning)(::windows::core::Vtable::as_raw(self), plocator.into().abi(), pwcherrormessage.into(), hrerrorcode).ok()
     }
 }
-impl ::core::convert::From<ISAXErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: ISAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXErrorHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISAXErrorHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXErrorHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXErrorHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1408,21 +1106,7 @@ impl ISAXLexicalHandler {
         (::windows::core::Vtable::vtable(self).comment)(::windows::core::Vtable::as_raw(self), pwchchars.into(), cchchars).ok()
     }
 }
-impl ::core::convert::From<ISAXLexicalHandler> for ::windows::core::IUnknown {
-    fn from(value: ISAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXLexicalHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXLexicalHandler> for ::windows::core::IUnknown {
-    fn from(value: &ISAXLexicalHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXLexicalHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXLexicalHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1478,21 +1162,7 @@ impl ISAXLocator {
         (::windows::core::Vtable::vtable(self).getSystemId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
 }
-impl ::core::convert::From<ISAXLocator> for ::windows::core::IUnknown {
-    fn from(value: ISAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXLocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXLocator> for ::windows::core::IUnknown {
-    fn from(value: &ISAXLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXLocator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXLocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1644,36 +1314,7 @@ impl ISAXXMLFilter {
         (::windows::core::Vtable::vtable(self).putParent)(::windows::core::Vtable::as_raw(self), preader.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISAXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: ISAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXXMLFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: &ISAXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ISAXXMLFilter> for ISAXXMLReader {
-    fn from(value: ISAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXXMLFilter> for &'a ISAXXMLReader {
-    fn from(value: &'a ISAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXXMLFilter> for ISAXXMLReader {
-    fn from(value: &ISAXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXXMLFilter, ::windows::core::IUnknown, ISAXXMLReader);
 impl ::core::clone::Clone for ISAXXMLFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1813,21 +1454,7 @@ impl ISAXXMLReader {
         (::windows::core::Vtable::vtable(self).parseURL)(::windows::core::Vtable::as_raw(self), pwchurl.into()).ok()
     }
 }
-impl ::core::convert::From<ISAXXMLReader> for ::windows::core::IUnknown {
-    fn from(value: ISAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISAXXMLReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISAXXMLReader> for ::windows::core::IUnknown {
-    fn from(value: &ISAXXMLReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISAXXMLReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISAXXMLReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1975,59 +1602,7 @@ impl ISchema {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchema> for ::windows::core::IUnknown {
-    fn from(value: ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchema> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchema> for ::windows::core::IUnknown {
-    fn from(value: &ISchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchema> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchema> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchema> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchema> for ISchemaItem {
-    fn from(value: ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchema> for &'a ISchemaItem {
-    fn from(value: &'a ISchema) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchema> for ISchemaItem {
-    fn from(value: &ISchema) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchema, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchema {
     fn clone(&self) -> Self {
@@ -2157,77 +1732,7 @@ impl ISchemaAny {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAny> for ::windows::core::IUnknown {
-    fn from(value: ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAny> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAny> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaAny) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAny> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAny> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAny> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaAny) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAny> for ISchemaItem {
-    fn from(value: ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAny> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAny> for ISchemaItem {
-    fn from(value: &ISchemaAny) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAny> for ISchemaParticle {
-    fn from(value: ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAny> for &'a ISchemaParticle {
-    fn from(value: &'a ISchemaAny) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAny> for ISchemaParticle {
-    fn from(value: &ISchemaAny) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaAny, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaAny {
     fn clone(&self) -> Self {
@@ -2338,59 +1843,7 @@ impl ISchemaAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttribute> for ::windows::core::IUnknown {
-    fn from(value: ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttribute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttribute> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttribute> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttribute> for ISchemaItem {
-    fn from(value: ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttribute> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttribute> for ISchemaItem {
-    fn from(value: &ISchemaAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaAttribute {
     fn clone(&self) -> Self {
@@ -2492,59 +1945,7 @@ impl ISchemaAttributeGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttributeGroup> for ::windows::core::IUnknown {
-    fn from(value: ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttributeGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttributeGroup> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaAttributeGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttributeGroup> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttributeGroup> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttributeGroup> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaAttributeGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaAttributeGroup> for ISchemaItem {
-    fn from(value: ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaAttributeGroup> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaAttributeGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaAttributeGroup> for ISchemaItem {
-    fn from(value: &ISchemaAttributeGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaAttributeGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaAttributeGroup {
     fn clone(&self) -> Self {
@@ -2744,77 +2145,7 @@ impl ISchemaComplexType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaComplexType> for ::windows::core::IUnknown {
-    fn from(value: ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaComplexType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaComplexType> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaComplexType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaComplexType> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaComplexType> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaComplexType> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaComplexType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaComplexType> for ISchemaItem {
-    fn from(value: ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaComplexType> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaComplexType> for ISchemaItem {
-    fn from(value: &ISchemaComplexType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaComplexType> for ISchemaType {
-    fn from(value: ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaComplexType> for &'a ISchemaType {
-    fn from(value: &'a ISchemaComplexType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaComplexType> for ISchemaType {
-    fn from(value: &ISchemaComplexType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaComplexType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaType);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaComplexType {
     fn clone(&self) -> Self {
@@ -2971,77 +2302,7 @@ impl ISchemaElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaElement> for ::windows::core::IUnknown {
-    fn from(value: ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaElement> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaElement> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaElement> for ISchemaItem {
-    fn from(value: ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaElement> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaElement> for ISchemaItem {
-    fn from(value: &ISchemaElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaElement> for ISchemaParticle {
-    fn from(value: ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaElement> for &'a ISchemaParticle {
-    fn from(value: &'a ISchemaElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaElement> for ISchemaParticle {
-    fn from(value: &ISchemaElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaElement {
     fn clone(&self) -> Self {
@@ -3158,59 +2419,7 @@ impl ISchemaIdentityConstraint {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaIdentityConstraint> for ::windows::core::IUnknown {
-    fn from(value: ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaIdentityConstraint> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaIdentityConstraint> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaIdentityConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaIdentityConstraint> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaIdentityConstraint> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaIdentityConstraint> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaIdentityConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaIdentityConstraint> for ISchemaItem {
-    fn from(value: ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaIdentityConstraint> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaIdentityConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaIdentityConstraint> for ISchemaItem {
-    fn from(value: &ISchemaIdentityConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaIdentityConstraint, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaIdentityConstraint {
     fn clone(&self) -> Self {
@@ -3297,41 +2506,7 @@ impl ISchemaItem {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaItem> for ::windows::core::IUnknown {
-    fn from(value: ISchemaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaItem> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaItem> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaItem> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaItem> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaItem, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaItem {
     fn clone(&self) -> Self {
@@ -3413,41 +2588,7 @@ impl ISchemaItemCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaItemCollection> for ::windows::core::IUnknown {
-    fn from(value: ISchemaItemCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaItemCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaItemCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaItemCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaItemCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaItemCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaItemCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaItemCollection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaItemCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaItemCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaItemCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaItemCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaItemCollection {
     fn clone(&self) -> Self {
@@ -3557,77 +2698,7 @@ impl ISchemaModelGroup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaModelGroup> for ::windows::core::IUnknown {
-    fn from(value: ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaModelGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaModelGroup> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaModelGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaModelGroup> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaModelGroup> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaModelGroup> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaModelGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaModelGroup> for ISchemaItem {
-    fn from(value: ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaModelGroup> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaModelGroup> for ISchemaItem {
-    fn from(value: &ISchemaModelGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaModelGroup> for ISchemaParticle {
-    fn from(value: ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaModelGroup> for &'a ISchemaParticle {
-    fn from(value: &'a ISchemaModelGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaModelGroup> for ISchemaParticle {
-    fn from(value: &ISchemaModelGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaModelGroup, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaModelGroup {
     fn clone(&self) -> Self {
@@ -3717,59 +2788,7 @@ impl ISchemaNotation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaNotation> for ::windows::core::IUnknown {
-    fn from(value: ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaNotation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaNotation> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaNotation> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaNotation> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaNotation> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaNotation> for ISchemaItem {
-    fn from(value: ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaNotation> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaNotation> for ISchemaItem {
-    fn from(value: &ISchemaNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaNotation {
     fn clone(&self) -> Self {
@@ -3861,59 +2880,7 @@ impl ISchemaParticle {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaParticle> for ::windows::core::IUnknown {
-    fn from(value: ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaParticle> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaParticle> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaParticle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaParticle> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaParticle> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaParticle> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaParticle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaParticle> for ISchemaItem {
-    fn from(value: ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaParticle> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaParticle) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaParticle> for ISchemaItem {
-    fn from(value: &ISchemaParticle) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaParticle, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaParticle {
     fn clone(&self) -> Self {
@@ -3976,41 +2943,7 @@ impl ISchemaStringCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaStringCollection> for ::windows::core::IUnknown {
-    fn from(value: ISchemaStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaStringCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaStringCollection> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaStringCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaStringCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaStringCollection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaStringCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaStringCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaStringCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaStringCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaStringCollection {
     fn clone(&self) -> Self {
@@ -4175,59 +3108,7 @@ impl ISchemaType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaType> for ::windows::core::IUnknown {
-    fn from(value: ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaType> for ::windows::core::IUnknown {
-    fn from(value: &ISchemaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaType> for super::super::super::System::Com::IDispatch {
-    fn from(value: ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaType> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaType> for super::super::super::System::Com::IDispatch {
-    fn from(value: &ISchemaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<ISchemaType> for ISchemaItem {
-    fn from(value: ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a ISchemaType> for &'a ISchemaItem {
-    fn from(value: &'a ISchemaType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&ISchemaType> for ISchemaItem {
-    fn from(value: &ISchemaType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISchemaType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for ISchemaType {
     fn clone(&self) -> Self {
@@ -4411,59 +3292,7 @@ impl IServerXMLHTTPRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest> for ::windows::core::IUnknown {
-    fn from(value: IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest> for ::windows::core::IUnknown {
-    fn from(value: &IServerXMLHTTPRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IServerXMLHTTPRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest> for IXMLHTTPRequest {
-    fn from(value: IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest> for &'a IXMLHTTPRequest {
-    fn from(value: &'a IServerXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest> for IXMLHTTPRequest {
-    fn from(value: &IServerXMLHTTPRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IServerXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IServerXMLHTTPRequest {
     fn clone(&self) -> Self {
@@ -4631,77 +3460,7 @@ impl IServerXMLHTTPRequest2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest2> for ::windows::core::IUnknown {
-    fn from(value: IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest2> for ::windows::core::IUnknown {
-    fn from(value: &IServerXMLHTTPRequest2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IServerXMLHTTPRequest2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest2> for IXMLHTTPRequest {
-    fn from(value: IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest2> for &'a IXMLHTTPRequest {
-    fn from(value: &'a IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest2> for IXMLHTTPRequest {
-    fn from(value: &IServerXMLHTTPRequest2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IServerXMLHTTPRequest2> for IServerXMLHTTPRequest {
-    fn from(value: IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IServerXMLHTTPRequest2> for &'a IServerXMLHTTPRequest {
-    fn from(value: &'a IServerXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IServerXMLHTTPRequest2> for IServerXMLHTTPRequest {
-    fn from(value: &IServerXMLHTTPRequest2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IServerXMLHTTPRequest2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest, IServerXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IServerXMLHTTPRequest2 {
     fn clone(&self) -> Self {
@@ -4803,41 +3562,7 @@ impl IVBMXNamespaceManager {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBMXNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: IVBMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBMXNamespaceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBMXNamespaceManager> for ::windows::core::IUnknown {
-    fn from(value: &IVBMXNamespaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBMXNamespaceManager> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBMXNamespaceManager> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBMXNamespaceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBMXNamespaceManager> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBMXNamespaceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBMXNamespaceManager, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBMXNamespaceManager {
     fn clone(&self) -> Self {
@@ -4954,41 +3679,7 @@ impl IVBSAXAttributes {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXAttributes> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXAttributes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXAttributes> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXAttributes> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXAttributes> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXAttributes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXAttributes> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXAttributes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXAttributes, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXAttributes {
     fn clone(&self) -> Self {
@@ -5086,41 +3777,7 @@ impl IVBSAXContentHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXContentHandler> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXContentHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXContentHandler> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXContentHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXContentHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXContentHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXContentHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXContentHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXContentHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXContentHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXContentHandler {
     fn clone(&self) -> Self {
@@ -5186,41 +3843,7 @@ impl IVBSAXDTDHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXDTDHandler> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXDTDHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXDTDHandler> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXDTDHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXDTDHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXDTDHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXDTDHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXDTDHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXDTDHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXDTDHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXDTDHandler {
     fn clone(&self) -> Self {
@@ -5277,41 +3900,7 @@ impl IVBSAXDeclHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXDeclHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXDeclHandler> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXDeclHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXDeclHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXDeclHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXDeclHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXDeclHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXDeclHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXDeclHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXDeclHandler {
     fn clone(&self) -> Self {
@@ -5363,41 +3952,7 @@ impl IVBSAXEntityResolver {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXEntityResolver> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXEntityResolver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXEntityResolver> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXEntityResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXEntityResolver> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXEntityResolver> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXEntityResolver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXEntityResolver> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXEntityResolver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXEntityResolver, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXEntityResolver {
     fn clone(&self) -> Self {
@@ -5468,41 +4023,7 @@ impl IVBSAXErrorHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXErrorHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXErrorHandler> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXErrorHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXErrorHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXErrorHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXErrorHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXErrorHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXErrorHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXErrorHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXErrorHandler {
     fn clone(&self) -> Self {
@@ -5578,41 +4099,7 @@ impl IVBSAXLexicalHandler {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXLexicalHandler> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXLexicalHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXLexicalHandler> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXLexicalHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXLexicalHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXLexicalHandler> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXLexicalHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXLexicalHandler> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXLexicalHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXLexicalHandler, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXLexicalHandler {
     fn clone(&self) -> Self {
@@ -5678,41 +4165,7 @@ impl IVBSAXLocator {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXLocator> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXLocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXLocator> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXLocator> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXLocator> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXLocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXLocator> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXLocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXLocator, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXLocator {
     fn clone(&self) -> Self {
@@ -5773,41 +4226,7 @@ impl IVBSAXXMLFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXXMLFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXXMLFilter> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXXMLFilter> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXXMLFilter> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXXMLFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXXMLFilter> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXXMLFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXXMLFilter, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXXMLFilter {
     fn clone(&self) -> Self {
@@ -5960,41 +4379,7 @@ impl IVBSAXXMLReader {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXXMLReader> for ::windows::core::IUnknown {
-    fn from(value: IVBSAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXXMLReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVBSAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXXMLReader> for ::windows::core::IUnknown {
-    fn from(value: &IVBSAXXMLReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IVBSAXXMLReader> for super::super::super::System::Com::IDispatch {
-    fn from(value: IVBSAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IVBSAXXMLReader> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IVBSAXXMLReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IVBSAXXMLReader> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IVBSAXXMLReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVBSAXXMLReader, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IVBSAXXMLReader {
     fn clone(&self) -> Self {
@@ -6096,41 +4481,7 @@ impl IXMLAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLAttribute> for ::windows::core::IUnknown {
-    fn from(value: IXMLAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLAttribute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLAttribute> for ::windows::core::IUnknown {
-    fn from(value: &IXMLAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLAttribute> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLAttribute {
     fn clone(&self) -> Self {
@@ -6388,59 +4739,7 @@ impl IXMLDOMAttribute {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMAttribute> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMAttribute> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMAttribute> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMAttribute> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMAttribute> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMAttribute> for IXMLDOMNode {
-    fn from(value: IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMAttribute> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMAttribute> for IXMLDOMNode {
-    fn from(value: &IXMLDOMAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMAttribute, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMAttribute {
     fn clone(&self) -> Self {
@@ -6719,95 +5018,7 @@ impl IXMLDOMCDATASection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCDATASection> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCDATASection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCDATASection> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMCDATASection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCDATASection> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCDATASection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCDATASection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMCDATASection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCDATASection> for IXMLDOMNode {
-    fn from(value: IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCDATASection> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCDATASection> for IXMLDOMNode {
-    fn from(value: &IXMLDOMCDATASection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCDATASection> for IXMLDOMCharacterData {
-    fn from(value: IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCDATASection> for &'a IXMLDOMCharacterData {
-    fn from(value: &'a IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCDATASection> for IXMLDOMCharacterData {
-    fn from(value: &IXMLDOMCDATASection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCDATASection> for IXMLDOMText {
-    fn from(value: IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCDATASection> for &'a IXMLDOMText {
-    fn from(value: &'a IXMLDOMCDATASection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCDATASection> for IXMLDOMText {
-    fn from(value: &IXMLDOMCDATASection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMCDATASection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData, IXMLDOMText);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMCDATASection {
     fn clone(&self) -> Self {
@@ -7071,59 +5282,7 @@ impl IXMLDOMCharacterData {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCharacterData> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCharacterData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCharacterData> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMCharacterData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCharacterData> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCharacterData> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCharacterData> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMCharacterData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMCharacterData> for IXMLDOMNode {
-    fn from(value: IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMCharacterData> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMCharacterData> for IXMLDOMNode {
-    fn from(value: &IXMLDOMCharacterData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMCharacterData, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMCharacterData {
     fn clone(&self) -> Self {
@@ -7395,77 +5554,7 @@ impl IXMLDOMComment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMComment> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMComment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMComment> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMComment> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMComment> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMComment> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMComment> for IXMLDOMNode {
-    fn from(value: IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMComment> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMComment> for IXMLDOMNode {
-    fn from(value: &IXMLDOMComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMComment> for IXMLDOMCharacterData {
-    fn from(value: IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMComment> for &'a IXMLDOMCharacterData {
-    fn from(value: &'a IXMLDOMComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMComment> for IXMLDOMCharacterData {
-    fn from(value: &IXMLDOMComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMComment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMComment {
     fn clone(&self) -> Self {
@@ -7882,59 +5971,7 @@ impl IXMLDOMDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument> for IXMLDOMNode {
-    fn from(value: IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument> for IXMLDOMNode {
-    fn from(value: &IXMLDOMDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMDocument {
     fn clone(&self) -> Self {
@@ -8487,77 +6524,7 @@ impl IXMLDOMDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument2> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument2> for IXMLDOMNode {
-    fn from(value: IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument2> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument2> for IXMLDOMNode {
-    fn from(value: &IXMLDOMDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument2> for IXMLDOMDocument {
-    fn from(value: IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument2> for &'a IXMLDOMDocument {
-    fn from(value: &'a IXMLDOMDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument2> for IXMLDOMDocument {
-    fn from(value: &IXMLDOMDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMDocument2 {
     fn clone(&self) -> Self {
@@ -9056,95 +7023,7 @@ impl IXMLDOMDocument3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument3> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument3> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMDocument3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument3> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument3> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument3> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMDocument3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument3> for IXMLDOMNode {
-    fn from(value: IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument3> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument3> for IXMLDOMNode {
-    fn from(value: &IXMLDOMDocument3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument3> for IXMLDOMDocument {
-    fn from(value: IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument3> for &'a IXMLDOMDocument {
-    fn from(value: &'a IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument3> for IXMLDOMDocument {
-    fn from(value: &IXMLDOMDocument3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocument3> for IXMLDOMDocument2 {
-    fn from(value: IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocument3> for &'a IXMLDOMDocument2 {
-    fn from(value: &'a IXMLDOMDocument3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocument3> for IXMLDOMDocument2 {
-    fn from(value: &IXMLDOMDocument3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMDocument3, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument, IXMLDOMDocument2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMDocument3 {
     fn clone(&self) -> Self {
@@ -9392,59 +7271,7 @@ impl IXMLDOMDocumentFragment {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentFragment> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentFragment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentFragment> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMDocumentFragment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentFragment> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentFragment> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentFragment> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMDocumentFragment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentFragment> for IXMLDOMNode {
-    fn from(value: IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentFragment> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentFragment> for IXMLDOMNode {
-    fn from(value: &IXMLDOMDocumentFragment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMDocumentFragment, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMDocumentFragment {
     fn clone(&self) -> Self {
@@ -9699,59 +7526,7 @@ impl IXMLDOMDocumentType {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentType> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentType> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentType> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMDocumentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentType> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentType> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentType> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMDocumentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMDocumentType> for IXMLDOMNode {
-    fn from(value: IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMDocumentType> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMDocumentType> for IXMLDOMNode {
-    fn from(value: &IXMLDOMDocumentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMDocumentType, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMDocumentType {
     fn clone(&self) -> Self {
@@ -10052,59 +7827,7 @@ impl IXMLDOMElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMElement> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMElement> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMElement> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMElement> for IXMLDOMNode {
-    fn from(value: IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMElement> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMElement> for IXMLDOMNode {
-    fn from(value: &IXMLDOMElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMElement {
     fn clone(&self) -> Self {
@@ -10384,59 +8107,7 @@ impl IXMLDOMEntity {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntity> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntity> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntity> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntity> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntity> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntity> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntity> for IXMLDOMNode {
-    fn from(value: IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntity> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntity> for IXMLDOMNode {
-    fn from(value: &IXMLDOMEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMEntity, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMEntity {
     fn clone(&self) -> Self {
@@ -10685,59 +8356,7 @@ impl IXMLDOMEntityReference {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntityReference> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntityReference> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntityReference> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMEntityReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntityReference> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntityReference> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntityReference> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMEntityReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMEntityReference> for IXMLDOMNode {
-    fn from(value: IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMEntityReference> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMEntityReference> for IXMLDOMNode {
-    fn from(value: &IXMLDOMEntityReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMEntityReference, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMEntityReference {
     fn clone(&self) -> Self {
@@ -10783,41 +8402,7 @@ impl IXMLDOMImplementation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMImplementation> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMImplementation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMImplementation> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMImplementation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMImplementation> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMImplementation> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMImplementation> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMImplementation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMImplementation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMImplementation {
     fn clone(&self) -> Self {
@@ -10916,41 +8501,7 @@ impl IXMLDOMNamedNodeMap {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNamedNodeMap> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNamedNodeMap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNamedNodeMap> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMNamedNodeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNamedNodeMap> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNamedNodeMap> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNamedNodeMap> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMNamedNodeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMNamedNodeMap, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMNamedNodeMap {
     fn clone(&self) -> Self {
@@ -11221,41 +8772,7 @@ impl IXMLDOMNode {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNode> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNode> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNode> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNode> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNode> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMNode, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMNode {
     fn clone(&self) -> Self {
@@ -11425,41 +8942,7 @@ impl IXMLDOMNodeList {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNodeList> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNodeList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNodeList> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMNodeList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNodeList> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNodeList> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNodeList> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMNodeList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMNodeList, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMNodeList {
     fn clone(&self) -> Self {
@@ -11720,59 +9203,7 @@ impl IXMLDOMNotation {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNotation> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNotation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNotation> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNotation> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNotation> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNotation> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMNotation> for IXMLDOMNode {
-    fn from(value: IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMNotation> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMNotation> for IXMLDOMNode {
-    fn from(value: &IXMLDOMNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMNotation, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMNotation {
     fn clone(&self) -> Self {
@@ -11844,41 +9275,7 @@ impl IXMLDOMParseError {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseError> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMParseError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMParseError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseError> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMParseError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseError> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMParseError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseError> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMParseError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseError> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMParseError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMParseError, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMParseError {
     fn clone(&self) -> Self {
@@ -11967,59 +9364,7 @@ impl IXMLDOMParseError2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseError2> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseError2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseError2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMParseError2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseError2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseError2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseError2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMParseError2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseError2> for IXMLDOMParseError {
-    fn from(value: IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseError2> for &'a IXMLDOMParseError {
-    fn from(value: &'a IXMLDOMParseError2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseError2> for IXMLDOMParseError {
-    fn from(value: &IXMLDOMParseError2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMParseError2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMParseError);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMParseError2 {
     fn clone(&self) -> Self {
@@ -12092,41 +9437,7 @@ impl IXMLDOMParseErrorCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseErrorCollection> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMParseErrorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseErrorCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMParseErrorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseErrorCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMParseErrorCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMParseErrorCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMParseErrorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMParseErrorCollection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMParseErrorCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMParseErrorCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMParseErrorCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMParseErrorCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMParseErrorCollection {
     fn clone(&self) -> Self {
@@ -12386,59 +9697,7 @@ impl IXMLDOMProcessingInstruction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMProcessingInstruction> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMProcessingInstruction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMProcessingInstruction> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMProcessingInstruction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMProcessingInstruction> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMProcessingInstruction> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMProcessingInstruction> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMProcessingInstruction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMProcessingInstruction> for IXMLDOMNode {
-    fn from(value: IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMProcessingInstruction> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMProcessingInstruction> for IXMLDOMNode {
-    fn from(value: &IXMLDOMProcessingInstruction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMProcessingInstruction, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMProcessingInstruction {
     fn clone(&self) -> Self {
@@ -12521,41 +9780,7 @@ impl IXMLDOMSchemaCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSchemaCollection> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMSchemaCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSchemaCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMSchemaCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSchemaCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMSchemaCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSchemaCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMSchemaCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSchemaCollection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMSchemaCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSchemaCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMSchemaCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMSchemaCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMSchemaCollection {
     fn clone(&self) -> Self {
@@ -12676,59 +9901,7 @@ impl IXMLDOMSchemaCollection2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSchemaCollection2> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSchemaCollection2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSchemaCollection2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMSchemaCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSchemaCollection2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSchemaCollection2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSchemaCollection2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMSchemaCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSchemaCollection2> for IXMLDOMSchemaCollection {
-    fn from(value: IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSchemaCollection2> for &'a IXMLDOMSchemaCollection {
-    fn from(value: &'a IXMLDOMSchemaCollection2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSchemaCollection2> for IXMLDOMSchemaCollection {
-    fn from(value: &IXMLDOMSchemaCollection2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMSchemaCollection2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMSchemaCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMSchemaCollection2 {
     fn clone(&self) -> Self {
@@ -12869,59 +10042,7 @@ impl IXMLDOMSelection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSelection> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSelection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSelection> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSelection> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSelection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSelection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMSelection> for IXMLDOMNodeList {
-    fn from(value: IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMSelection> for &'a IXMLDOMNodeList {
-    fn from(value: &'a IXMLDOMSelection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMSelection> for IXMLDOMNodeList {
-    fn from(value: &IXMLDOMSelection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMSelection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNodeList);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMSelection {
     fn clone(&self) -> Self {
@@ -13226,77 +10347,7 @@ impl IXMLDOMText {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMText> for ::windows::core::IUnknown {
-    fn from(value: IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMText> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMText> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDOMText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMText> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMText> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMText> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDOMText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMText> for IXMLDOMNode {
-    fn from(value: IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMText> for &'a IXMLDOMNode {
-    fn from(value: &'a IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMText> for IXMLDOMNode {
-    fn from(value: &IXMLDOMText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDOMText> for IXMLDOMCharacterData {
-    fn from(value: IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDOMText> for &'a IXMLDOMCharacterData {
-    fn from(value: &'a IXMLDOMText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDOMText> for IXMLDOMCharacterData {
-    fn from(value: &IXMLDOMText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDOMText, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDOMText {
     fn clone(&self) -> Self {
@@ -13373,41 +10424,7 @@ impl IXMLDSOControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDSOControl> for ::windows::core::IUnknown {
-    fn from(value: IXMLDSOControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDSOControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDSOControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDSOControl> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDSOControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDSOControl> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDSOControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDSOControl> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDSOControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDSOControl> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDSOControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDSOControl, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDSOControl {
     fn clone(&self) -> Self {
@@ -13529,41 +10546,7 @@ impl IXMLDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDocument> for ::windows::core::IUnknown {
-    fn from(value: IXMLDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDocument> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDocument> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDocument> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDocument> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDocument, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDocument {
     fn clone(&self) -> Self {
@@ -13695,41 +10678,7 @@ impl IXMLDocument2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDocument2> for ::windows::core::IUnknown {
-    fn from(value: IXMLDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDocument2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDocument2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLDocument2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLDocument2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLDocument2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLDocument2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLDocument2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLDocument2 {
     fn clone(&self) -> Self {
@@ -13857,41 +10806,7 @@ impl IXMLElement {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElement> for ::windows::core::IUnknown {
-    fn from(value: IXMLElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElement> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElement> for ::windows::core::IUnknown {
-    fn from(value: &IXMLElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElement> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElement> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLElement, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLElement {
     fn clone(&self) -> Self {
@@ -14033,41 +10948,7 @@ impl IXMLElement2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElement2> for ::windows::core::IUnknown {
-    fn from(value: IXMLElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElement2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElement2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElement2> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElement2> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElement2> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLElement2, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLElement2 {
     fn clone(&self) -> Self {
@@ -14165,41 +11046,7 @@ impl IXMLElementCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElementCollection> for ::windows::core::IUnknown {
-    fn from(value: IXMLElementCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElementCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLElementCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElementCollection> for ::windows::core::IUnknown {
-    fn from(value: &IXMLElementCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLElementCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLElementCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLElementCollection> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLElementCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLElementCollection> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLElementCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLElementCollection, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLElementCollection {
     fn clone(&self) -> Self {
@@ -14249,21 +11096,7 @@ impl IXMLError {
         (::windows::core::Vtable::vtable(self).GetErrorInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(perrorreturn)).ok()
     }
 }
-impl ::core::convert::From<IXMLError> for ::windows::core::IUnknown {
-    fn from(value: IXMLError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLError> for ::windows::core::IUnknown {
-    fn from(value: &IXMLError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLError, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXMLError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14374,41 +11207,7 @@ impl IXMLHTTPRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLHTTPRequest> for ::windows::core::IUnknown {
-    fn from(value: IXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLHTTPRequest> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHTTPRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLHTTPRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLHTTPRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLHTTPRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLHTTPRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHTTPRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLHTTPRequest {
     fn clone(&self) -> Self {
@@ -14547,21 +11346,7 @@ impl IXMLHTTPRequest2 {
         (::windows::core::Vtable::vtable(self).GetResponseHeader)(::windows::core::Vtable::as_raw(self), pwszheader.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u16>(result__)
     }
 }
-impl ::core::convert::From<IXMLHTTPRequest2> for ::windows::core::IUnknown {
-    fn from(value: IXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHTTPRequest2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest2> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHTTPRequest2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHTTPRequest2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXMLHTTPRequest2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14654,21 +11439,7 @@ impl IXMLHTTPRequest2Callback {
         (::windows::core::Vtable::vtable(self).OnError)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), hrerror).ok()
     }
 }
-impl ::core::convert::From<IXMLHTTPRequest2Callback> for ::windows::core::IUnknown {
-    fn from(value: IXMLHTTPRequest2Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest2Callback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHTTPRequest2Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest2Callback> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHTTPRequest2Callback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHTTPRequest2Callback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXMLHTTPRequest2Callback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14785,36 +11556,7 @@ impl IXMLHTTPRequest3 {
         (::windows::core::Vtable::vtable(self).SetClientCertificate)(::windows::core::Vtable::as_raw(self), pbclientcertificatehash.len() as _, ::core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.into()).ok()
     }
 }
-impl ::core::convert::From<IXMLHTTPRequest3> for ::windows::core::IUnknown {
-    fn from(value: IXMLHTTPRequest3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHTTPRequest3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest3> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHTTPRequest3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXMLHTTPRequest3> for IXMLHTTPRequest2 {
-    fn from(value: IXMLHTTPRequest3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest3> for &'a IXMLHTTPRequest2 {
-    fn from(value: &'a IXMLHTTPRequest3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest3> for IXMLHTTPRequest2 {
-    fn from(value: &IXMLHTTPRequest3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHTTPRequest3, ::windows::core::IUnknown, IXMLHTTPRequest2);
 impl ::core::clone::Clone for IXMLHTTPRequest3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -14898,36 +11640,7 @@ impl IXMLHTTPRequest3Callback {
         (::windows::core::Vtable::vtable(self).OnClientCertificateRequested)(::windows::core::Vtable::as_raw(self), pxhr.into().abi(), rgpwszissuerlist.len() as _, ::core::mem::transmute(rgpwszissuerlist.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IXMLHTTPRequest3Callback> for ::windows::core::IUnknown {
-    fn from(value: IXMLHTTPRequest3Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest3Callback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHTTPRequest3Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest3Callback> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHTTPRequest3Callback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXMLHTTPRequest3Callback> for IXMLHTTPRequest2Callback {
-    fn from(value: IXMLHTTPRequest3Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXMLHTTPRequest3Callback> for &'a IXMLHTTPRequest2Callback {
-    fn from(value: &'a IXMLHTTPRequest3Callback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXMLHTTPRequest3Callback> for IXMLHTTPRequest2Callback {
-    fn from(value: &IXMLHTTPRequest3Callback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHTTPRequest3Callback, ::windows::core::IUnknown, IXMLHTTPRequest2Callback);
 impl ::core::clone::Clone for IXMLHTTPRequest3Callback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -15039,41 +11752,7 @@ impl IXMLHttpRequest {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLHttpRequest> for ::windows::core::IUnknown {
-    fn from(value: IXMLHttpRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLHttpRequest> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXMLHttpRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLHttpRequest> for ::windows::core::IUnknown {
-    fn from(value: &IXMLHttpRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXMLHttpRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXMLHttpRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXMLHttpRequest> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXMLHttpRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXMLHttpRequest> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXMLHttpRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXMLHttpRequest, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXMLHttpRequest {
     fn clone(&self) -> Self {
@@ -15226,41 +11905,7 @@ impl IXSLProcessor {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXSLProcessor> for ::windows::core::IUnknown {
-    fn from(value: IXSLProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXSLProcessor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXSLProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXSLProcessor> for ::windows::core::IUnknown {
-    fn from(value: &IXSLProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXSLProcessor> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXSLProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXSLProcessor> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXSLProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXSLProcessor> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXSLProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXSLProcessor, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXSLProcessor {
     fn clone(&self) -> Self {
@@ -15361,41 +12006,7 @@ impl IXSLTemplate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXSLTemplate> for ::windows::core::IUnknown {
-    fn from(value: IXSLTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXSLTemplate> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXSLTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXSLTemplate> for ::windows::core::IUnknown {
-    fn from(value: &IXSLTemplate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXSLTemplate> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXSLTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXSLTemplate> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXSLTemplate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXSLTemplate> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXSLTemplate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXSLTemplate, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXSLTemplate {
     fn clone(&self) -> Self {
@@ -15711,59 +12322,7 @@ impl IXTLRuntime {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXTLRuntime> for ::windows::core::IUnknown {
-    fn from(value: IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXTLRuntime> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXTLRuntime> for ::windows::core::IUnknown {
-    fn from(value: &IXTLRuntime) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXTLRuntime> for super::super::super::System::Com::IDispatch {
-    fn from(value: IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXTLRuntime> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXTLRuntime> for super::super::super::System::Com::IDispatch {
-    fn from(value: &IXTLRuntime) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IXTLRuntime> for IXMLDOMNode {
-    fn from(value: IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IXTLRuntime> for &'a IXMLDOMNode {
-    fn from(value: &'a IXTLRuntime) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IXTLRuntime> for IXMLDOMNode {
-    fn from(value: &IXTLRuntime) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXTLRuntime, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IXTLRuntime {
     fn clone(&self) -> Self {
@@ -15835,41 +12394,7 @@ pub struct XMLDOMDocumentEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl XMLDOMDocumentEvents {}
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<XMLDOMDocumentEvents> for ::windows::core::IUnknown {
-    fn from(value: XMLDOMDocumentEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a XMLDOMDocumentEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a XMLDOMDocumentEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&XMLDOMDocumentEvents> for ::windows::core::IUnknown {
-    fn from(value: &XMLDOMDocumentEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<XMLDOMDocumentEvents> for super::super::super::System::Com::IDispatch {
-    fn from(value: XMLDOMDocumentEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a XMLDOMDocumentEvents> for &'a super::super::super::System::Com::IDispatch {
-    fn from(value: &'a XMLDOMDocumentEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&XMLDOMDocumentEvents> for super::super::super::System::Com::IDispatch {
-    fn from(value: &XMLDOMDocumentEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(XMLDOMDocumentEvents, ::windows::core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for XMLDOMDocumentEvents {
     fn clone(&self) -> Self {

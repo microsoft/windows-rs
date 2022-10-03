@@ -733,36 +733,7 @@ unsafe impl ::windows::core::Interface for DeviceAccountConfiguration {
 impl ::windows::core::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";
 }
-impl ::core::convert::From<DeviceAccountConfiguration> for ::windows::core::IUnknown {
-    fn from(value: DeviceAccountConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccountConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &DeviceAccountConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccountConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &DeviceAccountConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceAccountConfiguration> for ::windows::core::IInspectable {
-    fn from(value: DeviceAccountConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceAccountConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &DeviceAccountConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceAccountConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &DeviceAccountConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeviceAccountConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]

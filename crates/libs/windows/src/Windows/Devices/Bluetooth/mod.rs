@@ -983,36 +983,7 @@ unsafe impl ::windows::core::Interface for BluetoothAdapter {
 impl ::windows::core::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
 }
-impl ::core::convert::From<BluetoothAdapter> for ::windows::core::IUnknown {
-    fn from(value: BluetoothAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothAdapter> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothAdapter> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothAdapter> for ::windows::core::IInspectable {
-    fn from(value: BluetoothAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothAdapter> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothAdapter> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1097,36 +1068,7 @@ unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
 impl ::windows::core::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
 }
-impl ::core::convert::From<BluetoothClassOfDevice> for ::windows::core::IUnknown {
-    fn from(value: BluetoothClassOfDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothClassOfDevice> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothClassOfDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothClassOfDevice> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothClassOfDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothClassOfDevice> for ::windows::core::IInspectable {
-    fn from(value: BluetoothClassOfDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothClassOfDevice> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothClassOfDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothClassOfDevice> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothClassOfDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothClassOfDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1426,36 +1368,7 @@ unsafe impl ::windows::core::Interface for BluetoothDevice {
 impl ::windows::core::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
 }
-impl ::core::convert::From<BluetoothDevice> for ::windows::core::IUnknown {
-    fn from(value: BluetoothDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothDevice> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothDevice> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothDevice> for ::windows::core::IInspectable {
-    fn from(value: BluetoothDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothDevice> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothDevice> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1549,36 +1462,7 @@ unsafe impl ::windows::core::Interface for BluetoothDeviceId {
 impl ::windows::core::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
 }
-impl ::core::convert::From<BluetoothDeviceId> for ::windows::core::IUnknown {
-    fn from(value: BluetoothDeviceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothDeviceId> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothDeviceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothDeviceId> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothDeviceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothDeviceId> for ::windows::core::IInspectable {
-    fn from(value: BluetoothDeviceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothDeviceId> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothDeviceId) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothDeviceId> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothDeviceId) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothDeviceId, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -1656,36 +1540,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
 impl ::windows::core::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
 }
-impl ::core::convert::From<BluetoothLEAppearance> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAppearance> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAppearance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAppearance> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEAppearance> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEAppearance> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAppearance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEAppearance> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEAppearance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEAppearance, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEAppearance {}
 unsafe impl ::core::marker::Sync for BluetoothLEAppearance {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2070,36 +1925,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
 }
-impl ::core::convert::From<BluetoothLEConnectionParameters> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionParameters> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionParameters> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEConnectionParameters> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionParameters> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionParameters> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2153,36 +1979,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
 }
-impl ::core::convert::From<BluetoothLEConnectionPhy> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEConnectionPhy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhy> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionPhy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhy> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionPhy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEConnectionPhy> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEConnectionPhy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhy> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionPhy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhy> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionPhy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEConnectionPhy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhy {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2243,36 +2040,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
 }
-impl ::core::convert::From<BluetoothLEConnectionPhyInfo> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEConnectionPhyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhyInfo> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhyInfo> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEConnectionPhyInfo> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEConnectionPhyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhyInfo> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEConnectionPhyInfo> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEConnectionPhyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEConnectionPhyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhyInfo {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2627,36 +2395,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEDevice {
 impl ::windows::core::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
 }
-impl ::core::convert::From<BluetoothLEDevice> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEDevice> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEDevice> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEDevice> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEDevice> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEDevice> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothLEDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2769,36 +2508,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParamet
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
 }
-impl ::core::convert::From<BluetoothLEPreferredConnectionParameters> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEPreferredConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParameters> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParameters> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEPreferredConnectionParameters> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEPreferredConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParameters> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParameters> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEPreferredConnectionParameters) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEPreferredConnectionParameters, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParameters {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
@@ -2851,36 +2561,7 @@ unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParamet
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
 }
-impl ::core::convert::From<BluetoothLEPreferredConnectionParametersRequest> for ::windows::core::IUnknown {
-    fn from(value: BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothLEPreferredConnectionParametersRequest> for ::windows::core::IInspectable {
-    fn from(value: BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothLEPreferredConnectionParametersRequest> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothLEPreferredConnectionParametersRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<BluetoothLEPreferredConnectionParametersRequest> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3025,36 +2706,7 @@ unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
 impl ::windows::core::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
 }
-impl ::core::convert::From<BluetoothSignalStrengthFilter> for ::windows::core::IUnknown {
-    fn from(value: BluetoothSignalStrengthFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothSignalStrengthFilter> for ::windows::core::IUnknown {
-    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothSignalStrengthFilter> for &::windows::core::IUnknown {
-    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BluetoothSignalStrengthFilter> for ::windows::core::IInspectable {
-    fn from(value: BluetoothSignalStrengthFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BluetoothSignalStrengthFilter> for ::windows::core::IInspectable {
-    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BluetoothSignalStrengthFilter> for &::windows::core::IInspectable {
-    fn from(value: &BluetoothSignalStrengthFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(BluetoothSignalStrengthFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for BluetoothSignalStrengthFilter {}
 unsafe impl ::core::marker::Sync for BluetoothSignalStrengthFilter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]

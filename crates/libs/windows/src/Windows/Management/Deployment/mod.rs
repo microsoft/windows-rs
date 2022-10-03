@@ -1273,36 +1273,7 @@ unsafe impl ::windows::core::Interface for AddPackageOptions {
 impl ::windows::core::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
 }
-impl ::core::convert::From<AddPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: &AddPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IUnknown {
-    fn from(value: &AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AddPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: &AddPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AddPackageOptions> for &::windows::core::IInspectable {
-    fn from(value: &AddPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AddPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AddPackageOptions {}
 unsafe impl ::core::marker::Sync for AddPackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1373,36 +1344,7 @@ unsafe impl ::windows::core::Interface for AppInstallerManager {
 impl ::windows::core::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
 }
-impl ::core::convert::From<AppInstallerManager> for ::windows::core::IUnknown {
-    fn from(value: AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IUnknown {
-    fn from(value: &AppInstallerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IUnknown {
-    fn from(value: &AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppInstallerManager> for ::windows::core::IInspectable {
-    fn from(value: AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for ::windows::core::IInspectable {
-    fn from(value: &AppInstallerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppInstallerManager> for &::windows::core::IInspectable {
-    fn from(value: &AppInstallerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppInstallerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppInstallerManager {}
 unsafe impl ::core::marker::Sync for AppInstallerManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1605,36 +1547,7 @@ unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
 impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
 }
-impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
-    fn from(value: AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IUnknown {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IUnknown {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
-    fn from(value: AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for ::windows::core::IInspectable {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutoUpdateSettingsOptions> for &::windows::core::IInspectable {
-    fn from(value: &AutoUpdateSettingsOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AutoUpdateSettingsOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
 unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1712,36 +1625,7 @@ unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
 }
-impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1802,36 +1686,7 @@ unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
 }
-impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IUnknown {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CreateSharedPackageContainerResult> for &::windows::core::IInspectable {
-    fn from(value: &CreateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CreateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1900,36 +1755,7 @@ unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
 }
-impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeleteSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -1983,36 +1809,7 @@ unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
 }
-impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IUnknown {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeleteSharedPackageContainerResult> for &::windows::core::IInspectable {
-    fn from(value: &DeleteSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeleteSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2080,36 +1877,7 @@ unsafe impl ::windows::core::Interface for DeploymentResult {
 impl ::windows::core::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
 }
-impl ::core::convert::From<DeploymentResult> for ::windows::core::IUnknown {
-    fn from(value: DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for ::windows::core::IUnknown {
-    fn from(value: &DeploymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for &::windows::core::IUnknown {
-    fn from(value: &DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeploymentResult> for ::windows::core::IInspectable {
-    fn from(value: DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for ::windows::core::IInspectable {
-    fn from(value: &DeploymentResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeploymentResult> for &::windows::core::IInspectable {
-    fn from(value: &DeploymentResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DeploymentResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DeploymentResult {}
 unsafe impl ::core::marker::Sync for DeploymentResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2178,36 +1946,7 @@ unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
 }
-impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &FindSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FindSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for FindSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for FindSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2272,36 +2011,7 @@ unsafe impl ::windows::core::Interface for PackageAllUserProvisioningOptions {
 impl ::windows::core::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
 }
-impl ::core::convert::From<PackageAllUserProvisioningOptions> for ::windows::core::IUnknown {
-    fn from(value: PackageAllUserProvisioningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageAllUserProvisioningOptions> for ::windows::core::IUnknown {
-    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageAllUserProvisioningOptions> for &::windows::core::IUnknown {
-    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageAllUserProvisioningOptions> for ::windows::core::IInspectable {
-    fn from(value: PackageAllUserProvisioningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageAllUserProvisioningOptions> for ::windows::core::IInspectable {
-    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageAllUserProvisioningOptions> for &::windows::core::IInspectable {
-    fn from(value: &PackageAllUserProvisioningOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageAllUserProvisioningOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -2973,36 +2683,7 @@ unsafe impl ::windows::core::Interface for PackageManager {
 impl ::windows::core::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
 }
-impl ::core::convert::From<PackageManager> for ::windows::core::IUnknown {
-    fn from(value: PackageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageManager> for ::windows::core::IUnknown {
-    fn from(value: &PackageManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageManager> for &::windows::core::IUnknown {
-    fn from(value: &PackageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageManager> for ::windows::core::IInspectable {
-    fn from(value: PackageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageManager> for ::windows::core::IInspectable {
-    fn from(value: &PackageManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageManager> for &::windows::core::IInspectable {
-    fn from(value: &PackageManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageManager {}
 unsafe impl ::core::marker::Sync for PackageManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3060,36 +2741,7 @@ unsafe impl ::windows::core::Interface for PackageManagerDebugSettings {
 impl ::windows::core::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
 }
-impl ::core::convert::From<PackageManagerDebugSettings> for ::windows::core::IUnknown {
-    fn from(value: PackageManagerDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageManagerDebugSettings> for ::windows::core::IUnknown {
-    fn from(value: &PackageManagerDebugSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageManagerDebugSettings> for &::windows::core::IUnknown {
-    fn from(value: &PackageManagerDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageManagerDebugSettings> for ::windows::core::IInspectable {
-    fn from(value: PackageManagerDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageManagerDebugSettings> for ::windows::core::IInspectable {
-    fn from(value: &PackageManagerDebugSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageManagerDebugSettings> for &::windows::core::IInspectable {
-    fn from(value: &PackageManagerDebugSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageManagerDebugSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3143,36 +2795,7 @@ unsafe impl ::windows::core::Interface for PackageUserInformation {
 impl ::windows::core::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
 }
-impl ::core::convert::From<PackageUserInformation> for ::windows::core::IUnknown {
-    fn from(value: PackageUserInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageUserInformation> for ::windows::core::IUnknown {
-    fn from(value: &PackageUserInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageUserInformation> for &::windows::core::IUnknown {
-    fn from(value: &PackageUserInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageUserInformation> for ::windows::core::IInspectable {
-    fn from(value: PackageUserInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageUserInformation> for ::windows::core::IInspectable {
-    fn from(value: &PackageUserInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageUserInformation> for &::windows::core::IInspectable {
-    fn from(value: &PackageUserInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageUserInformation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageUserInformation {}
 unsafe impl ::core::marker::Sync for PackageUserInformation {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3403,36 +3026,7 @@ unsafe impl ::windows::core::Interface for PackageVolume {
 impl ::windows::core::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
 }
-impl ::core::convert::From<PackageVolume> for ::windows::core::IUnknown {
-    fn from(value: PackageVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageVolume> for ::windows::core::IUnknown {
-    fn from(value: &PackageVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageVolume> for &::windows::core::IUnknown {
-    fn from(value: &PackageVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PackageVolume> for ::windows::core::IInspectable {
-    fn from(value: PackageVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PackageVolume> for ::windows::core::IInspectable {
-    fn from(value: &PackageVolume) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PackageVolume> for &::windows::core::IInspectable {
-    fn from(value: &PackageVolume) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PackageVolume, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PackageVolume {}
 unsafe impl ::core::marker::Sync for PackageVolume {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3611,36 +3205,7 @@ unsafe impl ::windows::core::Interface for RegisterPackageOptions {
 impl ::windows::core::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
 }
-impl ::core::convert::From<RegisterPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: RegisterPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RegisterPackageOptions> for ::windows::core::IUnknown {
-    fn from(value: &RegisterPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RegisterPackageOptions> for &::windows::core::IUnknown {
-    fn from(value: &RegisterPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RegisterPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: RegisterPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RegisterPackageOptions> for ::windows::core::IInspectable {
-    fn from(value: &RegisterPackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RegisterPackageOptions> for &::windows::core::IInspectable {
-    fn from(value: &RegisterPackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RegisterPackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RegisterPackageOptions {}
 unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3717,36 +3282,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainer {
 impl ::windows::core::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
 }
-impl ::core::convert::From<SharedPackageContainer> for ::windows::core::IUnknown {
-    fn from(value: SharedPackageContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainer> for ::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainer> for &::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SharedPackageContainer> for ::windows::core::IInspectable {
-    fn from(value: SharedPackageContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainer> for ::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainer> for &::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SharedPackageContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainer {}
 unsafe impl ::core::marker::Sync for SharedPackageContainer {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3848,36 +3384,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainerManager {
 impl ::windows::core::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
 }
-impl ::core::convert::From<SharedPackageContainerManager> for ::windows::core::IUnknown {
-    fn from(value: SharedPackageContainerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerManager> for ::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerManager> for &::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SharedPackageContainerManager> for ::windows::core::IInspectable {
-    fn from(value: SharedPackageContainerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerManager> for ::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainerManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerManager> for &::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainerManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SharedPackageContainerManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainerManager {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerManager {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -3935,36 +3442,7 @@ unsafe impl ::windows::core::Interface for SharedPackageContainerMember {
 impl ::windows::core::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
 }
-impl ::core::convert::From<SharedPackageContainerMember> for ::windows::core::IUnknown {
-    fn from(value: SharedPackageContainerMember) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerMember> for ::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainerMember) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerMember> for &::windows::core::IUnknown {
-    fn from(value: &SharedPackageContainerMember) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SharedPackageContainerMember> for ::windows::core::IInspectable {
-    fn from(value: SharedPackageContainerMember) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerMember> for ::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainerMember) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SharedPackageContainerMember> for &::windows::core::IInspectable {
-    fn from(value: &SharedPackageContainerMember) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SharedPackageContainerMember, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4150,36 +3628,7 @@ unsafe impl ::windows::core::Interface for StagePackageOptions {
 impl ::windows::core::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
 }
-impl ::core::convert::From<StagePackageOptions> for ::windows::core::IUnknown {
-    fn from(value: StagePackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StagePackageOptions> for ::windows::core::IUnknown {
-    fn from(value: &StagePackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StagePackageOptions> for &::windows::core::IUnknown {
-    fn from(value: &StagePackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StagePackageOptions> for ::windows::core::IInspectable {
-    fn from(value: StagePackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StagePackageOptions> for ::windows::core::IInspectable {
-    fn from(value: &StagePackageOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StagePackageOptions> for &::windows::core::IInspectable {
-    fn from(value: &StagePackageOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StagePackageOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StagePackageOptions {}
 unsafe impl ::core::marker::Sync for StagePackageOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4248,36 +3697,7 @@ unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerOptions {
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
 }
-impl ::core::convert::From<UpdateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: UpdateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for ::windows::core::IUnknown {
-    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for &::windows::core::IUnknown {
-    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UpdateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: UpdateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for ::windows::core::IInspectable {
-    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerOptions> for &::windows::core::IInspectable {
-    fn from(value: &UpdateSharedPackageContainerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UpdateSharedPackageContainerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerOptions {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]
@@ -4331,36 +3751,7 @@ unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerResult {
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";
 }
-impl ::core::convert::From<UpdateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: UpdateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerResult> for ::windows::core::IUnknown {
-    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerResult> for &::windows::core::IUnknown {
-    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UpdateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: UpdateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerResult> for ::windows::core::IInspectable {
-    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UpdateSharedPackageContainerResult> for &::windows::core::IInspectable {
-    fn from(value: &UpdateSharedPackageContainerResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UpdateSharedPackageContainerResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerResult {}
 #[doc = "*Required features: `\"Management_Deployment\"`*"]

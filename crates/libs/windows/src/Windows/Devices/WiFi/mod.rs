@@ -342,36 +342,7 @@ unsafe impl ::windows::core::Interface for WiFiAdapter {
 impl ::windows::core::RuntimeName for WiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAdapter";
 }
-impl ::core::convert::From<WiFiAdapter> for ::windows::core::IUnknown {
-    fn from(value: WiFiAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiAdapter> for ::windows::core::IUnknown {
-    fn from(value: &WiFiAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiAdapter> for &::windows::core::IUnknown {
-    fn from(value: &WiFiAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiAdapter> for ::windows::core::IInspectable {
-    fn from(value: WiFiAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiAdapter> for ::windows::core::IInspectable {
-    fn from(value: &WiFiAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiAdapter> for &::windows::core::IInspectable {
-    fn from(value: &WiFiAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiAdapter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiAdapter {}
 unsafe impl ::core::marker::Sync for WiFiAdapter {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -494,36 +465,7 @@ unsafe impl ::windows::core::Interface for WiFiAvailableNetwork {
 impl ::windows::core::RuntimeName for WiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAvailableNetwork";
 }
-impl ::core::convert::From<WiFiAvailableNetwork> for ::windows::core::IUnknown {
-    fn from(value: WiFiAvailableNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiAvailableNetwork> for ::windows::core::IUnknown {
-    fn from(value: &WiFiAvailableNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiAvailableNetwork> for &::windows::core::IUnknown {
-    fn from(value: &WiFiAvailableNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiAvailableNetwork> for ::windows::core::IInspectable {
-    fn from(value: WiFiAvailableNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiAvailableNetwork> for ::windows::core::IInspectable {
-    fn from(value: &WiFiAvailableNetwork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiAvailableNetwork> for &::windows::core::IInspectable {
-    fn from(value: &WiFiAvailableNetwork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiAvailableNetwork, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
 unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -570,36 +512,7 @@ unsafe impl ::windows::core::Interface for WiFiConnectionResult {
 impl ::windows::core::RuntimeName for WiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiConnectionResult";
 }
-impl ::core::convert::From<WiFiConnectionResult> for ::windows::core::IUnknown {
-    fn from(value: WiFiConnectionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiConnectionResult> for ::windows::core::IUnknown {
-    fn from(value: &WiFiConnectionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiConnectionResult> for &::windows::core::IUnknown {
-    fn from(value: &WiFiConnectionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiConnectionResult> for ::windows::core::IInspectable {
-    fn from(value: WiFiConnectionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiConnectionResult> for ::windows::core::IInspectable {
-    fn from(value: &WiFiConnectionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiConnectionResult> for &::windows::core::IInspectable {
-    fn from(value: &WiFiConnectionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiConnectionResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -657,36 +570,7 @@ unsafe impl ::windows::core::Interface for WiFiNetworkReport {
 impl ::windows::core::RuntimeName for WiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiNetworkReport";
 }
-impl ::core::convert::From<WiFiNetworkReport> for ::windows::core::IUnknown {
-    fn from(value: WiFiNetworkReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiNetworkReport> for ::windows::core::IUnknown {
-    fn from(value: &WiFiNetworkReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiNetworkReport> for &::windows::core::IUnknown {
-    fn from(value: &WiFiNetworkReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiNetworkReport> for ::windows::core::IInspectable {
-    fn from(value: WiFiNetworkReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiNetworkReport> for ::windows::core::IInspectable {
-    fn from(value: &WiFiNetworkReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiNetworkReport> for &::windows::core::IInspectable {
-    fn from(value: &WiFiNetworkReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiNetworkReport, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiNetworkReport {}
 unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -742,36 +626,7 @@ unsafe impl ::windows::core::Interface for WiFiWpsConfigurationResult {
 impl ::windows::core::RuntimeName for WiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiWpsConfigurationResult";
 }
-impl ::core::convert::From<WiFiWpsConfigurationResult> for ::windows::core::IUnknown {
-    fn from(value: WiFiWpsConfigurationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiWpsConfigurationResult> for ::windows::core::IUnknown {
-    fn from(value: &WiFiWpsConfigurationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiWpsConfigurationResult> for &::windows::core::IUnknown {
-    fn from(value: &WiFiWpsConfigurationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WiFiWpsConfigurationResult> for ::windows::core::IInspectable {
-    fn from(value: WiFiWpsConfigurationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WiFiWpsConfigurationResult> for ::windows::core::IInspectable {
-    fn from(value: &WiFiWpsConfigurationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WiFiWpsConfigurationResult> for &::windows::core::IInspectable {
-    fn from(value: &WiFiWpsConfigurationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WiFiWpsConfigurationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
 unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
 #[doc = "*Required features: `\"Devices_WiFi\"`*"]

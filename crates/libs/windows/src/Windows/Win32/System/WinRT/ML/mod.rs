@@ -12,21 +12,7 @@ impl ILearningModelDeviceFactoryNative {
         (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<ILearningModelDeviceFactoryNative> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelDeviceFactoryNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelDeviceFactoryNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelDeviceFactoryNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelDeviceFactoryNative> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelDeviceFactoryNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelDeviceFactoryNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILearningModelDeviceFactoryNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -69,21 +55,7 @@ impl ILearningModelOperatorProviderNative {
         (::windows::core::Vtable::vtable(self).GetRegistry)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>(result__)
     }
 }
-impl ::core::convert::From<ILearningModelOperatorProviderNative> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelOperatorProviderNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelOperatorProviderNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelOperatorProviderNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelOperatorProviderNative> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelOperatorProviderNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelOperatorProviderNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILearningModelOperatorProviderNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -123,21 +95,7 @@ impl ILearningModelSessionOptionsNative {
         (::windows::core::Vtable::vtable(self).SetIntraOpNumThreadsOverride)(::windows::core::Vtable::as_raw(self), intraopnumthreads).ok()
     }
 }
-impl ::core::convert::From<ILearningModelSessionOptionsNative> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelSessionOptionsNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILearningModelSessionOptionsNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelSessionOptionsNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILearningModelSessionOptionsNative> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelSessionOptionsNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelSessionOptionsNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILearningModelSessionOptionsNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -180,21 +138,7 @@ impl ITensorNative {
         (::windows::core::Vtable::vtable(self).GetD3D12Resource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Graphics::Direct3D12::ID3D12Resource>(result__)
     }
 }
-impl ::core::convert::From<ITensorNative> for ::windows::core::IUnknown {
-    fn from(value: ITensorNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITensorNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITensorNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITensorNative> for ::windows::core::IUnknown {
-    fn from(value: &ITensorNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITensorNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITensorNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -240,21 +184,7 @@ impl ITensorStaticsNative {
         (::windows::core::Vtable::vtable(self).CreateFromD3D12Resource)(::windows::core::Vtable::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), shapecount, ::core::mem::transmute(result)).ok()
     }
 }
-impl ::core::convert::From<ITensorStaticsNative> for ::windows::core::IUnknown {
-    fn from(value: ITensorStaticsNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITensorStaticsNative> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITensorStaticsNative) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITensorStaticsNative> for ::windows::core::IUnknown {
-    fn from(value: &ITensorStaticsNative) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITensorStaticsNative, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITensorStaticsNative {
     fn clone(&self) -> Self {
         Self(self.0.clone())

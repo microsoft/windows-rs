@@ -200,41 +200,7 @@ impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreview {
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreview> for ::windows::core::IUnknown {
-    fn from(value: TwoPanelHingedDevicePosturePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreview> for ::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreview> for &::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreview> for ::windows::core::IInspectable {
-    fn from(value: TwoPanelHingedDevicePosturePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreview> for ::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreview> for &::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TwoPanelHingedDevicePosturePreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreview {}
 #[cfg(feature = "deprecated")]
@@ -341,41 +307,7 @@ impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreviewReading 
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreviewReading> for ::windows::core::IUnknown {
-    fn from(value: TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for ::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for &::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreviewReading> for ::windows::core::IInspectable {
-    fn from(value: TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for ::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReading> for &::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TwoPanelHingedDevicePosturePreviewReading, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReading {}
 #[cfg(feature = "deprecated")]
@@ -437,41 +369,7 @@ impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreviewReadingC
     const NAME: &'static str = "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
 #[cfg(feature = "deprecated")]

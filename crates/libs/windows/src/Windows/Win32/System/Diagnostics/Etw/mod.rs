@@ -923,21 +923,7 @@ impl ITraceEvent {
         (::windows::core::Vtable::vtable(self).SetProviderId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
 }
-impl ::core::convert::From<ITraceEvent> for ::windows::core::IUnknown {
-    fn from(value: ITraceEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITraceEvent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITraceEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITraceEvent> for ::windows::core::IUnknown {
-    fn from(value: &ITraceEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITraceEvent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITraceEvent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1002,21 +988,7 @@ impl ITraceEventCallback {
         (::windows::core::Vtable::vtable(self).OnEvent)(::windows::core::Vtable::as_raw(self), event.into().abi(), relogger.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ITraceEventCallback> for ::windows::core::IUnknown {
-    fn from(value: ITraceEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITraceEventCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITraceEventCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITraceEventCallback> for ::windows::core::IUnknown {
-    fn from(value: &ITraceEventCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITraceEventCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITraceEventCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1096,21 +1068,7 @@ impl ITraceRelogger {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITraceRelogger> for ::windows::core::IUnknown {
-    fn from(value: ITraceRelogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITraceRelogger> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITraceRelogger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITraceRelogger> for ::windows::core::IUnknown {
-    fn from(value: &ITraceRelogger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITraceRelogger, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITraceRelogger {
     fn clone(&self) -> Self {
         Self(self.0.clone())

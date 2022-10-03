@@ -168,36 +168,7 @@ unsafe impl ::windows::core::Interface for WalletItemSystemStore {
 impl ::windows::core::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";
 }
-impl ::core::convert::From<WalletItemSystemStore> for ::windows::core::IUnknown {
-    fn from(value: WalletItemSystemStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WalletItemSystemStore> for ::windows::core::IUnknown {
-    fn from(value: &WalletItemSystemStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WalletItemSystemStore> for &::windows::core::IUnknown {
-    fn from(value: &WalletItemSystemStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<WalletItemSystemStore> for ::windows::core::IInspectable {
-    fn from(value: WalletItemSystemStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&WalletItemSystemStore> for ::windows::core::IInspectable {
-    fn from(value: &WalletItemSystemStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&WalletItemSystemStore> for &::windows::core::IInspectable {
-    fn from(value: &WalletItemSystemStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(WalletItemSystemStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]

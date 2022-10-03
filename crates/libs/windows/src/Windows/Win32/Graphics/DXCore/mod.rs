@@ -51,21 +51,7 @@ impl IDXCoreAdapter {
         (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IDXCoreAdapter> for ::windows::core::IUnknown {
-    fn from(value: IDXCoreAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXCoreAdapter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXCoreAdapter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXCoreAdapter> for ::windows::core::IUnknown {
-    fn from(value: &IDXCoreAdapter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXCoreAdapter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXCoreAdapter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -137,21 +123,7 @@ impl IDXCoreAdapterFactory {
         (::windows::core::Vtable::vtable(self).UnregisterEventNotification)(::windows::core::Vtable::as_raw(self), eventcookie).ok()
     }
 }
-impl ::core::convert::From<IDXCoreAdapterFactory> for ::windows::core::IUnknown {
-    fn from(value: IDXCoreAdapterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXCoreAdapterFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXCoreAdapterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXCoreAdapterFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDXCoreAdapterFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXCoreAdapterFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXCoreAdapterFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -218,21 +190,7 @@ impl IDXCoreAdapterList {
         (::windows::core::Vtable::vtable(self).IsAdapterPreferenceSupported)(::windows::core::Vtable::as_raw(self), preference)
     }
 }
-impl ::core::convert::From<IDXCoreAdapterList> for ::windows::core::IUnknown {
-    fn from(value: IDXCoreAdapterList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDXCoreAdapterList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDXCoreAdapterList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDXCoreAdapterList> for ::windows::core::IUnknown {
-    fn from(value: &IDXCoreAdapterList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDXCoreAdapterList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDXCoreAdapterList {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -151,36 +151,7 @@ unsafe impl ::windows::core::Interface for Playlist {
 impl ::windows::core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";
 }
-impl ::core::convert::From<Playlist> for ::windows::core::IUnknown {
-    fn from(value: Playlist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Playlist> for ::windows::core::IUnknown {
-    fn from(value: &Playlist) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Playlist> for &::windows::core::IUnknown {
-    fn from(value: &Playlist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Playlist> for ::windows::core::IInspectable {
-    fn from(value: Playlist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Playlist> for ::windows::core::IInspectable {
-    fn from(value: &Playlist) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Playlist> for &::windows::core::IInspectable {
-    fn from(value: &Playlist) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(Playlist, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Media_Playlists\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

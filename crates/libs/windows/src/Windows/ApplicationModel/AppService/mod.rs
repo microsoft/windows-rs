@@ -337,36 +337,7 @@ unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
 impl ::windows::core::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
 }
-impl ::core::convert::From<AppServiceClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppServiceClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceClosedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceClosedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppServiceClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceClosedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceClosedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceClosedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceClosedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -526,36 +497,7 @@ unsafe impl ::windows::core::Interface for AppServiceConnection {
 impl ::windows::core::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
 }
-impl ::core::convert::From<AppServiceConnection> for ::windows::core::IUnknown {
-    fn from(value: AppServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceConnection> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceConnection> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceConnection> for ::windows::core::IInspectable {
-    fn from(value: AppServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceConnection> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceConnection> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AppServiceConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -621,36 +563,7 @@ unsafe impl ::windows::core::Interface for AppServiceDeferral {
 impl ::windows::core::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
 }
-impl ::core::convert::From<AppServiceDeferral> for ::windows::core::IUnknown {
-    fn from(value: AppServiceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceDeferral> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceDeferral> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceDeferral> for ::windows::core::IInspectable {
-    fn from(value: AppServiceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceDeferral> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceDeferral> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceDeferral {}
 unsafe impl ::core::marker::Sync for AppServiceDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -708,36 +621,7 @@ unsafe impl ::windows::core::Interface for AppServiceRequest {
 impl ::windows::core::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
 }
-impl ::core::convert::From<AppServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: AppServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: AppServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceRequest {}
 unsafe impl ::core::marker::Sync for AppServiceRequest {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -791,36 +675,7 @@ unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
 impl ::windows::core::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
 }
-impl ::core::convert::From<AppServiceRequestReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppServiceRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceRequestReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceRequestReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceRequestReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppServiceRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceRequestReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceRequestReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceRequestReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceRequestReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -876,36 +731,7 @@ unsafe impl ::windows::core::Interface for AppServiceResponse {
 impl ::windows::core::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
 }
-impl ::core::convert::From<AppServiceResponse> for ::windows::core::IUnknown {
-    fn from(value: AppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceResponse> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceResponse> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceResponse> for ::windows::core::IInspectable {
-    fn from(value: AppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceResponse> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceResponse> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -989,36 +815,7 @@ unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
 impl ::windows::core::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
 }
-impl ::core::convert::From<AppServiceTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: AppServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppServiceTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: AppServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppServiceTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppServiceTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &AppServiceTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppServiceTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
@@ -1074,36 +871,7 @@ unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
 impl ::windows::core::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
 }
-impl ::core::convert::From<StatelessAppServiceResponse> for ::windows::core::IUnknown {
-    fn from(value: StatelessAppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatelessAppServiceResponse> for ::windows::core::IUnknown {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatelessAppServiceResponse> for &::windows::core::IUnknown {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<StatelessAppServiceResponse> for ::windows::core::IInspectable {
-    fn from(value: StatelessAppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&StatelessAppServiceResponse> for ::windows::core::IInspectable {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&StatelessAppServiceResponse> for &::windows::core::IInspectable {
-    fn from(value: &StatelessAppServiceResponse) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(StatelessAppServiceResponse, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]

@@ -334,36 +334,7 @@ unsafe impl ::windows::core::Interface for DialApp {
 impl ::windows::core::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
 }
-impl ::core::convert::From<DialApp> for ::windows::core::IUnknown {
-    fn from(value: DialApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialApp> for ::windows::core::IUnknown {
-    fn from(value: &DialApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialApp> for &::windows::core::IUnknown {
-    fn from(value: &DialApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialApp> for ::windows::core::IInspectable {
-    fn from(value: DialApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialApp> for ::windows::core::IInspectable {
-    fn from(value: &DialApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialApp> for &::windows::core::IInspectable {
-    fn from(value: &DialApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -417,36 +388,7 @@ unsafe impl ::windows::core::Interface for DialAppStateDetails {
 impl ::windows::core::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
 }
-impl ::core::convert::From<DialAppStateDetails> for ::windows::core::IUnknown {
-    fn from(value: DialAppStateDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialAppStateDetails> for ::windows::core::IUnknown {
-    fn from(value: &DialAppStateDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialAppStateDetails> for &::windows::core::IUnknown {
-    fn from(value: &DialAppStateDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialAppStateDetails> for ::windows::core::IInspectable {
-    fn from(value: DialAppStateDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialAppStateDetails> for ::windows::core::IInspectable {
-    fn from(value: &DialAppStateDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialAppStateDetails> for &::windows::core::IInspectable {
-    fn from(value: &DialAppStateDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialAppStateDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -543,36 +485,7 @@ unsafe impl ::windows::core::Interface for DialDevice {
 impl ::windows::core::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
 }
-impl ::core::convert::From<DialDevice> for ::windows::core::IUnknown {
-    fn from(value: DialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevice> for ::windows::core::IUnknown {
-    fn from(value: &DialDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevice> for &::windows::core::IUnknown {
-    fn from(value: &DialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialDevice> for ::windows::core::IInspectable {
-    fn from(value: DialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevice> for ::windows::core::IInspectable {
-    fn from(value: &DialDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevice> for &::windows::core::IInspectable {
-    fn from(value: &DialDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -718,36 +631,7 @@ unsafe impl ::windows::core::Interface for DialDevicePicker {
 impl ::windows::core::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
 }
-impl ::core::convert::From<DialDevicePicker> for ::windows::core::IUnknown {
-    fn from(value: DialDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevicePicker> for ::windows::core::IUnknown {
-    fn from(value: &DialDevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevicePicker> for &::windows::core::IUnknown {
-    fn from(value: &DialDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialDevicePicker> for ::windows::core::IInspectable {
-    fn from(value: DialDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevicePicker> for ::windows::core::IInspectable {
-    fn from(value: &DialDevicePicker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevicePicker> for &::windows::core::IInspectable {
-    fn from(value: &DialDevicePicker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialDevicePicker, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevicePicker {}
 unsafe impl ::core::marker::Sync for DialDevicePicker {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -796,36 +680,7 @@ unsafe impl ::windows::core::Interface for DialDevicePickerFilter {
 impl ::windows::core::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
 }
-impl ::core::convert::From<DialDevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: DialDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevicePickerFilter> for ::windows::core::IUnknown {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevicePickerFilter> for &::windows::core::IUnknown {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialDevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: DialDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDevicePickerFilter> for ::windows::core::IInspectable {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDevicePickerFilter> for &::windows::core::IInspectable {
-    fn from(value: &DialDevicePickerFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialDevicePickerFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DialDevicePickerFilter {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -872,36 +727,7 @@ unsafe impl ::windows::core::Interface for DialDeviceSelectedEventArgs {
 impl ::windows::core::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
 }
-impl ::core::convert::From<DialDeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DialDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDeviceSelectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDeviceSelectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialDeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DialDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDeviceSelectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDeviceSelectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DialDeviceSelectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialDeviceSelectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -948,36 +774,7 @@ unsafe impl ::windows::core::Interface for DialDisconnectButtonClickedEventArgs 
 impl ::windows::core::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
 }
-impl ::core::convert::From<DialDisconnectButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DialDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDisconnectButtonClickedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDisconnectButtonClickedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialDisconnectButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DialDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialDisconnectButtonClickedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialDisconnectButtonClickedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DialDisconnectButtonClickedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]
@@ -1059,36 +856,7 @@ unsafe impl ::windows::core::Interface for DialReceiverApp {
 impl ::windows::core::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
 }
-impl ::core::convert::From<DialReceiverApp> for ::windows::core::IUnknown {
-    fn from(value: DialReceiverApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverApp> for ::windows::core::IUnknown {
-    fn from(value: &DialReceiverApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverApp> for &::windows::core::IUnknown {
-    fn from(value: &DialReceiverApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialReceiverApp> for ::windows::core::IInspectable {
-    fn from(value: DialReceiverApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverApp> for ::windows::core::IInspectable {
-    fn from(value: &DialReceiverApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverApp> for &::windows::core::IInspectable {
-    fn from(value: &DialReceiverApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DialReceiverApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DialReceiverApp {}
 unsafe impl ::core::marker::Sync for DialReceiverApp {}
 #[doc = "*Required features: `\"Media_DialProtocol\"`*"]

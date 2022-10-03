@@ -609,36 +609,7 @@ unsafe impl ::windows::core::Interface for PhotoImportDeleteImportedItemsFromSou
 impl ::windows::core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult";
 }
-impl ::core::convert::From<PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportDeleteImportedItemsFromSourceResult> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportDeleteImportedItemsFromSourceResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -914,36 +885,7 @@ unsafe impl ::windows::core::Interface for PhotoImportFindItemsResult {
 impl ::windows::core::RuntimeName for PhotoImportFindItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportFindItemsResult";
 }
-impl ::core::convert::From<PhotoImportFindItemsResult> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportFindItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportFindItemsResult> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportFindItemsResult> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportFindItemsResult> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportFindItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportFindItemsResult> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportFindItemsResult> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportFindItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportFindItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1085,36 +1027,7 @@ unsafe impl ::windows::core::Interface for PhotoImportImportItemsResult {
 impl ::windows::core::RuntimeName for PhotoImportImportItemsResult {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportImportItemsResult";
 }
-impl ::core::convert::From<PhotoImportImportItemsResult> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportImportItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportImportItemsResult> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportImportItemsResult> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportImportItemsResult> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportImportItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportImportItemsResult> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportImportItemsResult> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportImportItemsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportImportItemsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1261,36 +1174,7 @@ unsafe impl ::windows::core::Interface for PhotoImportItem {
 impl ::windows::core::RuntimeName for PhotoImportItem {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItem";
 }
-impl ::core::convert::From<PhotoImportItem> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportItem> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportItem> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportItem> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportItem> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportItem> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportItem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItem {}
 unsafe impl ::core::marker::Sync for PhotoImportItem {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1337,36 +1221,7 @@ unsafe impl ::windows::core::Interface for PhotoImportItemImportedEventArgs {
 impl ::windows::core::RuntimeName for PhotoImportItemImportedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportItemImportedEventArgs";
 }
-impl ::core::convert::From<PhotoImportItemImportedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportItemImportedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportItemImportedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportItemImportedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportItemImportedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportItemImportedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportItemImportedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportItemImportedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportItemImportedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportItemImportedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1483,36 +1338,7 @@ unsafe impl ::windows::core::Interface for PhotoImportOperation {
 impl ::windows::core::RuntimeName for PhotoImportOperation {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportOperation";
 }
-impl ::core::convert::From<PhotoImportOperation> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportOperation> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportOperation> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportOperation> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportOperation> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportOperation> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1559,36 +1385,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSelectionChangedEventArgs 
 impl ::windows::core::RuntimeName for PhotoImportSelectionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSelectionChangedEventArgs";
 }
-impl ::core::convert::From<PhotoImportSelectionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportSelectionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSelectionChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSelectionChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportSelectionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportSelectionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSelectionChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSelectionChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportSelectionChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -1731,36 +1528,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSession {
 impl ::windows::core::RuntimeName for PhotoImportSession {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSession";
 }
-impl ::core::convert::From<PhotoImportSession> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSession> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSession> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportSession> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSession> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSession> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<PhotoImportSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1845,36 +1613,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSidecar {
 impl ::windows::core::RuntimeName for PhotoImportSidecar {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSidecar";
 }
-impl ::core::convert::From<PhotoImportSidecar> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportSidecar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSidecar> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSidecar> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportSidecar> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportSidecar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSidecar> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSidecar> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportSidecar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportSidecar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSidecar {}
 unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2068,36 +1807,7 @@ unsafe impl ::windows::core::Interface for PhotoImportSource {
 impl ::windows::core::RuntimeName for PhotoImportSource {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportSource";
 }
-impl ::core::convert::From<PhotoImportSource> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSource> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSource> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportSource> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportSource> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportSource> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2190,36 +1900,7 @@ unsafe impl ::windows::core::Interface for PhotoImportStorageMedium {
 impl ::windows::core::RuntimeName for PhotoImportStorageMedium {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportStorageMedium";
 }
-impl ::core::convert::From<PhotoImportStorageMedium> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportStorageMedium) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportStorageMedium> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportStorageMedium> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportStorageMedium> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportStorageMedium) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportStorageMedium> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportStorageMedium> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportStorageMedium) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportStorageMedium, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
@@ -2298,36 +1979,7 @@ unsafe impl ::windows::core::Interface for PhotoImportVideoSegment {
 impl ::windows::core::RuntimeName for PhotoImportVideoSegment {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportVideoSegment";
 }
-impl ::core::convert::From<PhotoImportVideoSegment> for ::windows::core::IUnknown {
-    fn from(value: PhotoImportVideoSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportVideoSegment> for ::windows::core::IUnknown {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportVideoSegment> for &::windows::core::IUnknown {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<PhotoImportVideoSegment> for ::windows::core::IInspectable {
-    fn from(value: PhotoImportVideoSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&PhotoImportVideoSegment> for ::windows::core::IInspectable {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&PhotoImportVideoSegment> for &::windows::core::IInspectable {
-    fn from(value: &PhotoImportVideoSegment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(PhotoImportVideoSegment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportVideoSegment {}
 unsafe impl ::core::marker::Sync for PhotoImportVideoSegment {}
 #[doc = "*Required features: `\"Media_Import\"`*"]

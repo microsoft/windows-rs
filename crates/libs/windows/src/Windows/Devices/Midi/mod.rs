@@ -133,36 +133,7 @@ impl IMidiMessage {
         }
     }
 }
-impl ::core::convert::From<IMidiMessage> for ::windows::core::IUnknown {
-    fn from(value: IMidiMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMidiMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMidiMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiMessage> for ::windows::core::IUnknown {
-    fn from(value: &IMidiMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMidiMessage> for ::windows::core::IInspectable {
-    fn from(value: IMidiMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMidiMessage> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMidiMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiMessage> for ::windows::core::IInspectable {
-    fn from(value: &IMidiMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMidiMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IMidiMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -321,36 +292,7 @@ impl IMidiOutPort {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IMidiOutPort> for ::windows::core::IUnknown {
-    fn from(value: IMidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMidiOutPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IUnknown {
-    fn from(value: &IMidiOutPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: IMidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMidiOutPort> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IMidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: &IMidiOutPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IMidiOutPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -750,36 +692,7 @@ unsafe impl ::windows::core::Interface for MidiActiveSensingMessage {
 impl ::windows::core::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
 }
-impl ::core::convert::From<MidiActiveSensingMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiActiveSensingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiActiveSensingMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiActiveSensingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiActiveSensingMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiActiveSensingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiActiveSensingMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiActiveSensingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiActiveSensingMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiActiveSensingMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiActiveSensingMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiActiveSensingMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiActiveSensingMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiActiveSensingMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiActiveSensingMessage) -> ::windows::core::Result<Self> {
@@ -888,36 +801,7 @@ unsafe impl ::windows::core::Interface for MidiChannelPressureMessage {
 impl ::windows::core::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
 }
-impl ::core::convert::From<MidiChannelPressureMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiChannelPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiChannelPressureMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiChannelPressureMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiChannelPressureMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiChannelPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiChannelPressureMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiChannelPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiChannelPressureMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiChannelPressureMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiChannelPressureMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiChannelPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiChannelPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiChannelPressureMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiChannelPressureMessage) -> ::windows::core::Result<Self> {
@@ -1008,36 +892,7 @@ unsafe impl ::windows::core::Interface for MidiContinueMessage {
 impl ::windows::core::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
 }
-impl ::core::convert::From<MidiContinueMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiContinueMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiContinueMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiContinueMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiContinueMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiContinueMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiContinueMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiContinueMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiContinueMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiContinueMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiContinueMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiContinueMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiContinueMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiContinueMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiContinueMessage) -> ::windows::core::Result<Self> {
@@ -1153,36 +1008,7 @@ unsafe impl ::windows::core::Interface for MidiControlChangeMessage {
 impl ::windows::core::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
 }
-impl ::core::convert::From<MidiControlChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiControlChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiControlChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiControlChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiControlChangeMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiControlChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiControlChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiControlChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiControlChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiControlChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiControlChangeMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiControlChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiControlChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiControlChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiControlChangeMessage) -> ::windows::core::Result<Self> {
@@ -1288,36 +1114,7 @@ unsafe impl ::windows::core::Interface for MidiInPort {
 impl ::windows::core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
 }
-impl ::core::convert::From<MidiInPort> for ::windows::core::IUnknown {
-    fn from(value: MidiInPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiInPort> for ::windows::core::IUnknown {
-    fn from(value: &MidiInPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiInPort> for &::windows::core::IUnknown {
-    fn from(value: &MidiInPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiInPort> for ::windows::core::IInspectable {
-    fn from(value: MidiInPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiInPort> for ::windows::core::IInspectable {
-    fn from(value: &MidiInPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiInPort> for &::windows::core::IInspectable {
-    fn from(value: &MidiInPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiInPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiInPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1386,36 +1183,7 @@ unsafe impl ::windows::core::Interface for MidiMessageReceivedEventArgs {
 impl ::windows::core::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
 }
-impl ::core::convert::From<MidiMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: MidiMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: MidiMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiMessageReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1512,36 +1280,7 @@ unsafe impl ::windows::core::Interface for MidiNoteOffMessage {
 impl ::windows::core::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
 }
-impl ::core::convert::From<MidiNoteOffMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiNoteOffMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiNoteOffMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiNoteOffMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiNoteOffMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiNoteOffMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiNoteOffMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiNoteOffMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiNoteOffMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiNoteOffMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiNoteOffMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiNoteOffMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiNoteOffMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiNoteOffMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiNoteOffMessage) -> ::windows::core::Result<Self> {
@@ -1657,36 +1396,7 @@ unsafe impl ::windows::core::Interface for MidiNoteOnMessage {
 impl ::windows::core::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
 }
-impl ::core::convert::From<MidiNoteOnMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiNoteOnMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiNoteOnMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiNoteOnMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiNoteOnMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiNoteOnMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiNoteOnMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiNoteOnMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiNoteOnMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiNoteOnMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiNoteOnMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiNoteOnMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiNoteOnMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiNoteOnMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiNoteOnMessage) -> ::windows::core::Result<Self> {
@@ -1795,36 +1505,7 @@ unsafe impl ::windows::core::Interface for MidiOutPort {
 impl ::windows::core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
 }
-impl ::core::convert::From<MidiOutPort> for ::windows::core::IUnknown {
-    fn from(value: MidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiOutPort> for ::windows::core::IUnknown {
-    fn from(value: &MidiOutPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiOutPort> for &::windows::core::IUnknown {
-    fn from(value: &MidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: MidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: &MidiOutPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiOutPort> for &::windows::core::IInspectable {
-    fn from(value: &MidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiOutPort, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiOutPort> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1955,36 +1636,7 @@ unsafe impl ::windows::core::Interface for MidiPitchBendChangeMessage {
 impl ::windows::core::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
 }
-impl ::core::convert::From<MidiPitchBendChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiPitchBendChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiPitchBendChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiPitchBendChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiPitchBendChangeMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiPitchBendChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiPitchBendChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiPitchBendChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiPitchBendChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiPitchBendChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiPitchBendChangeMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiPitchBendChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiPitchBendChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiPitchBendChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiPitchBendChangeMessage) -> ::windows::core::Result<Self> {
@@ -2100,36 +1752,7 @@ unsafe impl ::windows::core::Interface for MidiPolyphonicKeyPressureMessage {
 impl ::windows::core::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
 }
-impl ::core::convert::From<MidiPolyphonicKeyPressureMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiPolyphonicKeyPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiPolyphonicKeyPressureMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiPolyphonicKeyPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiPolyphonicKeyPressureMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiPolyphonicKeyPressureMessage) -> ::windows::core::Result<Self> {
@@ -2238,36 +1861,7 @@ unsafe impl ::windows::core::Interface for MidiProgramChangeMessage {
 impl ::windows::core::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
 }
-impl ::core::convert::From<MidiProgramChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiProgramChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiProgramChangeMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiProgramChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiProgramChangeMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiProgramChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiProgramChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiProgramChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiProgramChangeMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiProgramChangeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiProgramChangeMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiProgramChangeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiProgramChangeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiProgramChangeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiProgramChangeMessage) -> ::windows::core::Result<Self> {
@@ -2369,36 +1963,7 @@ unsafe impl ::windows::core::Interface for MidiSongPositionPointerMessage {
 impl ::windows::core::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
 }
-impl ::core::convert::From<MidiSongPositionPointerMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiSongPositionPointerMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSongPositionPointerMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiSongPositionPointerMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSongPositionPointerMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiSongPositionPointerMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiSongPositionPointerMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiSongPositionPointerMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSongPositionPointerMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiSongPositionPointerMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSongPositionPointerMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiSongPositionPointerMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiSongPositionPointerMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSongPositionPointerMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSongPositionPointerMessage) -> ::windows::core::Result<Self> {
@@ -2500,36 +2065,7 @@ unsafe impl ::windows::core::Interface for MidiSongSelectMessage {
 impl ::windows::core::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
 }
-impl ::core::convert::From<MidiSongSelectMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiSongSelectMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSongSelectMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiSongSelectMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSongSelectMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiSongSelectMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiSongSelectMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiSongSelectMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSongSelectMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiSongSelectMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSongSelectMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiSongSelectMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiSongSelectMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSongSelectMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSongSelectMessage) -> ::windows::core::Result<Self> {
@@ -2620,36 +2156,7 @@ unsafe impl ::windows::core::Interface for MidiStartMessage {
 impl ::windows::core::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
 }
-impl ::core::convert::From<MidiStartMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiStartMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiStartMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiStartMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiStartMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiStartMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiStartMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiStartMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiStartMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiStartMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiStartMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiStartMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiStartMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiStartMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiStartMessage) -> ::windows::core::Result<Self> {
@@ -2740,36 +2247,7 @@ unsafe impl ::windows::core::Interface for MidiStopMessage {
 impl ::windows::core::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
 }
-impl ::core::convert::From<MidiStopMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiStopMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiStopMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiStopMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiStopMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiStopMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiStopMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiStopMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiStopMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiStopMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiStopMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiStopMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiStopMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiStopMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiStopMessage) -> ::windows::core::Result<Self> {
@@ -2908,36 +2386,7 @@ unsafe impl ::windows::core::Interface for MidiSynthesizer {
 impl ::windows::core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
 }
-impl ::core::convert::From<MidiSynthesizer> for ::windows::core::IUnknown {
-    fn from(value: MidiSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSynthesizer> for ::windows::core::IUnknown {
-    fn from(value: &MidiSynthesizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSynthesizer> for &::windows::core::IUnknown {
-    fn from(value: &MidiSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiSynthesizer> for ::windows::core::IInspectable {
-    fn from(value: MidiSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSynthesizer> for ::windows::core::IInspectable {
-    fn from(value: &MidiSynthesizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSynthesizer> for &::windows::core::IInspectable {
-    fn from(value: &MidiSynthesizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiSynthesizer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<MidiSynthesizer> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -3060,36 +2509,7 @@ unsafe impl ::windows::core::Interface for MidiSystemExclusiveMessage {
 impl ::windows::core::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
 }
-impl ::core::convert::From<MidiSystemExclusiveMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiSystemExclusiveMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSystemExclusiveMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiSystemExclusiveMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSystemExclusiveMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiSystemExclusiveMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiSystemExclusiveMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiSystemExclusiveMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSystemExclusiveMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiSystemExclusiveMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSystemExclusiveMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiSystemExclusiveMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiSystemExclusiveMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSystemExclusiveMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSystemExclusiveMessage) -> ::windows::core::Result<Self> {
@@ -3180,36 +2600,7 @@ unsafe impl ::windows::core::Interface for MidiSystemResetMessage {
 impl ::windows::core::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
 }
-impl ::core::convert::From<MidiSystemResetMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiSystemResetMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSystemResetMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiSystemResetMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSystemResetMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiSystemResetMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiSystemResetMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiSystemResetMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiSystemResetMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiSystemResetMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiSystemResetMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiSystemResetMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiSystemResetMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiSystemResetMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiSystemResetMessage) -> ::windows::core::Result<Self> {
@@ -3318,36 +2709,7 @@ unsafe impl ::windows::core::Interface for MidiTimeCodeMessage {
 impl ::windows::core::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
 }
-impl ::core::convert::From<MidiTimeCodeMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiTimeCodeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTimeCodeMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiTimeCodeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTimeCodeMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiTimeCodeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiTimeCodeMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiTimeCodeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTimeCodeMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiTimeCodeMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTimeCodeMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiTimeCodeMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiTimeCodeMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTimeCodeMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTimeCodeMessage) -> ::windows::core::Result<Self> {
@@ -3438,36 +2800,7 @@ unsafe impl ::windows::core::Interface for MidiTimingClockMessage {
 impl ::windows::core::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
 }
-impl ::core::convert::From<MidiTimingClockMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiTimingClockMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTimingClockMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiTimingClockMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTimingClockMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiTimingClockMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiTimingClockMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiTimingClockMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTimingClockMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiTimingClockMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTimingClockMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiTimingClockMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiTimingClockMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTimingClockMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTimingClockMessage) -> ::windows::core::Result<Self> {
@@ -3558,36 +2891,7 @@ unsafe impl ::windows::core::Interface for MidiTuneRequestMessage {
 impl ::windows::core::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";
 }
-impl ::core::convert::From<MidiTuneRequestMessage> for ::windows::core::IUnknown {
-    fn from(value: MidiTuneRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTuneRequestMessage> for ::windows::core::IUnknown {
-    fn from(value: &MidiTuneRequestMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTuneRequestMessage> for &::windows::core::IUnknown {
-    fn from(value: &MidiTuneRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<MidiTuneRequestMessage> for ::windows::core::IInspectable {
-    fn from(value: MidiTuneRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&MidiTuneRequestMessage> for ::windows::core::IInspectable {
-    fn from(value: &MidiTuneRequestMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&MidiTuneRequestMessage> for &::windows::core::IInspectable {
-    fn from(value: &MidiTuneRequestMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MidiTuneRequestMessage, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<MidiTuneRequestMessage> for IMidiMessage {
     type Error = ::windows::core::Error;
     fn try_from(value: MidiTuneRequestMessage) -> ::windows::core::Result<Self> {

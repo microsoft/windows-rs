@@ -38,21 +38,7 @@ impl IDxcAssembler {
         (::windows::core::Vtable::vtable(self).AssembleToContainer)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcOperationResult>(result__)
     }
 }
-impl ::core::convert::From<IDxcAssembler> for ::windows::core::IUnknown {
-    fn from(value: IDxcAssembler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcAssembler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcAssembler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcAssembler> for ::windows::core::IUnknown {
-    fn from(value: &IDxcAssembler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcAssembler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcAssembler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -92,21 +78,7 @@ impl IDxcBlob {
         (::windows::core::Vtable::vtable(self).GetBufferSize)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDxcBlob> for ::windows::core::IUnknown {
-    fn from(value: IDxcBlob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlob> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcBlob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlob> for ::windows::core::IUnknown {
-    fn from(value: &IDxcBlob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcBlob, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcBlob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -152,36 +124,7 @@ impl IDxcBlobEncoding {
         (::windows::core::Vtable::vtable(self).GetEncoding)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
     }
 }
-impl ::core::convert::From<IDxcBlobEncoding> for ::windows::core::IUnknown {
-    fn from(value: IDxcBlobEncoding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobEncoding> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcBlobEncoding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobEncoding> for ::windows::core::IUnknown {
-    fn from(value: &IDxcBlobEncoding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcBlobEncoding> for IDxcBlob {
-    fn from(value: IDxcBlobEncoding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobEncoding> for &'a IDxcBlob {
-    fn from(value: &'a IDxcBlobEncoding) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobEncoding> for IDxcBlob {
-    fn from(value: &IDxcBlobEncoding) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcBlobEncoding, ::windows::core::IUnknown, IDxcBlob);
 impl ::core::clone::Clone for IDxcBlobEncoding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -235,51 +178,7 @@ impl IDxcBlobUtf16 {
         (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDxcBlobUtf16> for ::windows::core::IUnknown {
-    fn from(value: IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf16> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf16> for ::windows::core::IUnknown {
-    fn from(value: &IDxcBlobUtf16) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcBlobUtf16> for IDxcBlob {
-    fn from(value: IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf16> for &'a IDxcBlob {
-    fn from(value: &'a IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf16> for IDxcBlob {
-    fn from(value: &IDxcBlobUtf16) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcBlobUtf16> for IDxcBlobEncoding {
-    fn from(value: IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf16> for &'a IDxcBlobEncoding {
-    fn from(value: &'a IDxcBlobUtf16) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf16> for IDxcBlobEncoding {
-    fn from(value: &IDxcBlobUtf16) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcBlobUtf16, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
 impl ::core::clone::Clone for IDxcBlobUtf16 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -331,51 +230,7 @@ impl IDxcBlobUtf8 {
         (::windows::core::Vtable::vtable(self).GetStringLength)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDxcBlobUtf8> for ::windows::core::IUnknown {
-    fn from(value: IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf8> for ::windows::core::IUnknown {
-    fn from(value: &IDxcBlobUtf8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcBlobUtf8> for IDxcBlob {
-    fn from(value: IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf8> for &'a IDxcBlob {
-    fn from(value: &'a IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf8> for IDxcBlob {
-    fn from(value: &IDxcBlobUtf8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcBlobUtf8> for IDxcBlobEncoding {
-    fn from(value: IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcBlobUtf8> for &'a IDxcBlobEncoding {
-    fn from(value: &'a IDxcBlobUtf8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcBlobUtf8> for IDxcBlobEncoding {
-    fn from(value: &IDxcBlobUtf8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcBlobUtf8, ::windows::core::IUnknown, IDxcBlob, IDxcBlobEncoding);
 impl ::core::clone::Clone for IDxcBlobUtf8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -437,21 +292,7 @@ impl IDxcCompiler {
         (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), psource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
 }
-impl ::core::convert::From<IDxcCompiler> for ::windows::core::IUnknown {
-    fn from(value: IDxcCompiler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcCompiler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcCompiler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcCompiler> for ::windows::core::IUnknown {
-    fn from(value: &IDxcCompiler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcCompiler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcCompiler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -539,36 +380,7 @@ impl IDxcCompiler2 {
         .ok()
     }
 }
-impl ::core::convert::From<IDxcCompiler2> for ::windows::core::IUnknown {
-    fn from(value: IDxcCompiler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcCompiler2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcCompiler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcCompiler2> for ::windows::core::IUnknown {
-    fn from(value: &IDxcCompiler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcCompiler2> for IDxcCompiler {
-    fn from(value: IDxcCompiler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcCompiler2> for &'a IDxcCompiler {
-    fn from(value: &'a IDxcCompiler2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcCompiler2> for IDxcCompiler {
-    fn from(value: &IDxcCompiler2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcCompiler2, ::windows::core::IUnknown, IDxcCompiler);
 impl ::core::clone::Clone for IDxcCompiler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -611,21 +423,7 @@ impl IDxcCompiler3 {
         (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppresult)).ok()
     }
 }
-impl ::core::convert::From<IDxcCompiler3> for ::windows::core::IUnknown {
-    fn from(value: IDxcCompiler3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcCompiler3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcCompiler3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcCompiler3> for ::windows::core::IUnknown {
-    fn from(value: &IDxcCompiler3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcCompiler3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcCompiler3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -675,21 +473,7 @@ impl IDxcCompilerArgs {
         (::windows::core::Vtable::vtable(self).AddDefines)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdefines.as_ptr()), pdefines.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDxcCompilerArgs> for ::windows::core::IUnknown {
-    fn from(value: IDxcCompilerArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcCompilerArgs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcCompilerArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcCompilerArgs> for ::windows::core::IUnknown {
-    fn from(value: &IDxcCompilerArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcCompilerArgs, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcCompilerArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -746,21 +530,7 @@ impl IDxcContainerBuilder {
         (::windows::core::Vtable::vtable(self).SerializeContainer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcOperationResult>(result__)
     }
 }
-impl ::core::convert::From<IDxcContainerBuilder> for ::windows::core::IUnknown {
-    fn from(value: IDxcContainerBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcContainerBuilder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcContainerBuilder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcContainerBuilder> for ::windows::core::IUnknown {
-    fn from(value: &IDxcContainerBuilder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcContainerBuilder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcContainerBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -822,21 +592,7 @@ impl IDxcContainerReflection {
         (::windows::core::Vtable::vtable(self).GetPartReflection)(::windows::core::Vtable::as_raw(self), idx, ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
-impl ::core::convert::From<IDxcContainerReflection> for ::windows::core::IUnknown {
-    fn from(value: IDxcContainerReflection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcContainerReflection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcContainerReflection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcContainerReflection> for ::windows::core::IUnknown {
-    fn from(value: &IDxcContainerReflection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcContainerReflection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcContainerReflection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -884,21 +640,7 @@ impl IDxcExtraOutputs {
         (::windows::core::Vtable::vtable(self).GetOutput)(::windows::core::Vtable::as_raw(self), uindex, &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _, ::core::mem::transmute(ppoutputtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppoutputname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IDxcExtraOutputs> for ::windows::core::IUnknown {
-    fn from(value: IDxcExtraOutputs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcExtraOutputs> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcExtraOutputs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcExtraOutputs> for ::windows::core::IUnknown {
-    fn from(value: &IDxcExtraOutputs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcExtraOutputs, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcExtraOutputs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -940,21 +682,7 @@ impl IDxcIncludeHandler {
         (::windows::core::Vtable::vtable(self).LoadSource)(::windows::core::Vtable::as_raw(self), pfilename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlob>(result__)
     }
 }
-impl ::core::convert::From<IDxcIncludeHandler> for ::windows::core::IUnknown {
-    fn from(value: IDxcIncludeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcIncludeHandler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcIncludeHandler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcIncludeHandler> for ::windows::core::IUnknown {
-    fn from(value: &IDxcIncludeHandler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcIncludeHandler, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcIncludeHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1054,21 +782,7 @@ impl IDxcLibrary {
         (::windows::core::Vtable::vtable(self).GetBlobAsUtf16)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
 }
-impl ::core::convert::From<IDxcLibrary> for ::windows::core::IUnknown {
-    fn from(value: IDxcLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcLibrary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcLibrary> for ::windows::core::IUnknown {
-    fn from(value: &IDxcLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcLibrary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1135,21 +849,7 @@ impl IDxcLinker {
         (::windows::core::Vtable::vtable(self).Link)(::windows::core::Vtable::as_raw(self), pentryname.into(), ptargetprofile.into(), ::core::mem::transmute(plibnames.as_ptr()), plibnames.len() as _, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcOperationResult>(result__)
     }
 }
-impl ::core::convert::From<IDxcLinker> for ::windows::core::IUnknown {
-    fn from(value: IDxcLinker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcLinker> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcLinker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcLinker> for ::windows::core::IUnknown {
-    fn from(value: &IDxcLinker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcLinker, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcLinker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1196,21 +896,7 @@ impl IDxcOperationResult {
         (::windows::core::Vtable::vtable(self).GetErrorBuffer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcBlobEncoding>(result__)
     }
 }
-impl ::core::convert::From<IDxcOperationResult> for ::windows::core::IUnknown {
-    fn from(value: IDxcOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcOperationResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &IDxcOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcOperationResult, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcOperationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1260,21 +946,7 @@ impl IDxcOptimizer {
         (::windows::core::Vtable::vtable(self).RunOptimizer)(::windows::core::Vtable::as_raw(self), pblob.into().abi(), ::core::mem::transmute(ppoptions.as_ptr()), ppoptions.len() as _, ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IDxcOptimizer> for ::windows::core::IUnknown {
-    fn from(value: IDxcOptimizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcOptimizer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcOptimizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcOptimizer> for ::windows::core::IUnknown {
-    fn from(value: &IDxcOptimizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcOptimizer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcOptimizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1330,21 +1002,7 @@ impl IDxcOptimizerPass {
         (::windows::core::Vtable::vtable(self).GetOptionArgDescription)(::windows::core::Vtable::as_raw(self), argindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IDxcOptimizerPass> for ::windows::core::IUnknown {
-    fn from(value: IDxcOptimizerPass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcOptimizerPass> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcOptimizerPass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcOptimizerPass> for ::windows::core::IUnknown {
-    fn from(value: &IDxcOptimizerPass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcOptimizerPass, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcOptimizerPass {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1483,21 +1141,7 @@ impl IDxcPdbUtils {
         (::windows::core::Vtable::vtable(self).OverrideRootSignature)(::windows::core::Vtable::as_raw(self), prootsignature.into()).ok()
     }
 }
-impl ::core::convert::From<IDxcPdbUtils> for ::windows::core::IUnknown {
-    fn from(value: IDxcPdbUtils) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcPdbUtils> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcPdbUtils) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcPdbUtils> for ::windows::core::IUnknown {
-    fn from(value: &IDxcPdbUtils) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcPdbUtils, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcPdbUtils {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1589,36 +1233,7 @@ impl IDxcResult {
         (::windows::core::Vtable::vtable(self).PrimaryOutput)(::windows::core::Vtable::as_raw(self))
     }
 }
-impl ::core::convert::From<IDxcResult> for ::windows::core::IUnknown {
-    fn from(value: IDxcResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcResult> for ::windows::core::IUnknown {
-    fn from(value: &IDxcResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcResult> for IDxcOperationResult {
-    fn from(value: IDxcResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcResult> for &'a IDxcOperationResult {
-    fn from(value: &'a IDxcResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcResult> for IDxcOperationResult {
-    fn from(value: &IDxcResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcResult, ::windows::core::IUnknown, IDxcOperationResult);
 impl ::core::clone::Clone for IDxcResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1738,21 +1353,7 @@ impl IDxcUtils {
         (::windows::core::Vtable::vtable(self).GetPDBContents)(::windows::core::Vtable::as_raw(self), ppdbblob.into().abi(), ::core::mem::transmute(pphash), ::core::mem::transmute(ppcontainer)).ok()
     }
 }
-impl ::core::convert::From<IDxcUtils> for ::windows::core::IUnknown {
-    fn from(value: IDxcUtils) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcUtils> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcUtils) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcUtils> for ::windows::core::IUnknown {
-    fn from(value: &IDxcUtils) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcUtils, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcUtils {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1811,21 +1412,7 @@ impl IDxcValidator {
         (::windows::core::Vtable::vtable(self).Validate)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcOperationResult>(result__)
     }
 }
-impl ::core::convert::From<IDxcValidator> for ::windows::core::IUnknown {
-    fn from(value: IDxcValidator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcValidator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcValidator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcValidator> for ::windows::core::IUnknown {
-    fn from(value: &IDxcValidator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcValidator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcValidator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1873,36 +1460,7 @@ impl IDxcValidator2 {
         (::windows::core::Vtable::vtable(self).ValidateWithDebug)(::windows::core::Vtable::as_raw(self), pshader.into().abi(), flags, ::core::mem::transmute(poptdebugbitcode.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDxcOperationResult>(result__)
     }
 }
-impl ::core::convert::From<IDxcValidator2> for ::windows::core::IUnknown {
-    fn from(value: IDxcValidator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcValidator2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcValidator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcValidator2> for ::windows::core::IUnknown {
-    fn from(value: &IDxcValidator2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcValidator2> for IDxcValidator {
-    fn from(value: IDxcValidator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcValidator2> for &'a IDxcValidator {
-    fn from(value: &'a IDxcValidator2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcValidator2> for IDxcValidator {
-    fn from(value: &IDxcValidator2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcValidator2, ::windows::core::IUnknown, IDxcValidator);
 impl ::core::clone::Clone for IDxcValidator2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1943,21 +1501,7 @@ impl IDxcVersionInfo {
         (::windows::core::Vtable::vtable(self).GetFlags)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IDxcVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: IDxcVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcVersionInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcVersionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcVersionInfo> for ::windows::core::IUnknown {
-    fn from(value: &IDxcVersionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcVersionInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcVersionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2002,36 +1546,7 @@ impl IDxcVersionInfo2 {
         (::windows::core::Vtable::vtable(self).GetCommitInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pcommitcount), ::core::mem::transmute(pcommithash)).ok()
     }
 }
-impl ::core::convert::From<IDxcVersionInfo2> for ::windows::core::IUnknown {
-    fn from(value: IDxcVersionInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcVersionInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcVersionInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcVersionInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IDxcVersionInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDxcVersionInfo2> for IDxcVersionInfo {
-    fn from(value: IDxcVersionInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcVersionInfo2> for &'a IDxcVersionInfo {
-    fn from(value: &'a IDxcVersionInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcVersionInfo2> for IDxcVersionInfo {
-    fn from(value: &IDxcVersionInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcVersionInfo2, ::windows::core::IUnknown, IDxcVersionInfo);
 impl ::core::clone::Clone for IDxcVersionInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2069,21 +1584,7 @@ impl IDxcVersionInfo3 {
         (::windows::core::Vtable::vtable(self).GetCustomVersionString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut i8>(result__)
     }
 }
-impl ::core::convert::From<IDxcVersionInfo3> for ::windows::core::IUnknown {
-    fn from(value: IDxcVersionInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDxcVersionInfo3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDxcVersionInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDxcVersionInfo3> for ::windows::core::IUnknown {
-    fn from(value: &IDxcVersionInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDxcVersionInfo3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDxcVersionInfo3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

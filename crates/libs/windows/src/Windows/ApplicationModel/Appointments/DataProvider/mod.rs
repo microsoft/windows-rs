@@ -477,36 +477,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingReque
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
 }
-impl ::core::convert::From<AppointmentCalendarCancelMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarCancelMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCancelMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCancelMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarCancelMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarCancelMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCancelMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCancelMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarCancelMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -562,36 +533,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCancelMeetingReque
 impl ::windows::core::RuntimeName for AppointmentCalendarCancelMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCancelMeetingRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCancelMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarCancelMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -679,36 +621,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppo
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
 }
-impl ::core::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -764,36 +677,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarCreateOrUpdateAppo
 impl ::windows::core::RuntimeName for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -904,36 +788,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequ
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
 }
-impl ::core::convert::From<AppointmentCalendarForwardMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarForwardMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarForwardMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarForwardMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarForwardMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarForwardMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -989,36 +844,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarForwardMeetingRequ
 impl ::windows::core::RuntimeName for AppointmentCalendarForwardMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarForwardMeetingRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarForwardMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarForwardMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1131,36 +957,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForM
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
 }
-impl ::core::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1216,36 +1013,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarProposeNewTimeForM
 impl ::windows::core::RuntimeName for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1310,36 +1078,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncReq
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
 }
-impl ::core::convert::From<AppointmentCalendarSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1395,36 +1134,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManagerSyncReq
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarSyncManagerSyncRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarSyncManagerSyncRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarSyncManagerSyncRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1533,36 +1243,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingRespo
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
 }
-impl ::core::convert::From<AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequest> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequest> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequest> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1618,36 +1299,7 @@ unsafe impl ::windows::core::Interface for AppointmentCalendarUpdateMeetingRespo
 impl ::windows::core::RuntimeName for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
 }
-impl ::core::convert::From<AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentCalendarUpdateMeetingResponseRequestEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentCalendarUpdateMeetingResponseRequestEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentCalendarUpdateMeetingResponseRequestEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1781,36 +1433,7 @@ unsafe impl ::windows::core::Interface for AppointmentDataProviderConnection {
 impl ::windows::core::RuntimeName for AppointmentDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
 }
-impl ::core::convert::From<AppointmentDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: AppointmentDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderConnection> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderConnection> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: AppointmentDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderConnection> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentDataProviderConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderConnection> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentDataProviderConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentDataProviderConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderConnection {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_DataProvider\"`*"]
@@ -1857,36 +1480,7 @@ unsafe impl ::windows::core::Interface for AppointmentDataProviderTriggerDetails
 impl ::windows::core::RuntimeName for AppointmentDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
 }
-impl ::core::convert::From<AppointmentDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: AppointmentDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: AppointmentDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentDataProviderTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentDataProviderTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentDataProviderTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[cfg(feature = "implement")]

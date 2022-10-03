@@ -96,21 +96,7 @@ impl IDDVideoPortContainer {
         (::windows::core::Vtable::vtable(self).QueryVideoPortStatus)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
 }
-impl ::core::convert::From<IDDVideoPortContainer> for ::windows::core::IUnknown {
-    fn from(value: IDDVideoPortContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDDVideoPortContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDDVideoPortContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDDVideoPortContainer> for ::windows::core::IUnknown {
-    fn from(value: &IDDVideoPortContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDDVideoPortContainer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDDVideoPortContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -236,21 +222,7 @@ impl IDirectDraw {
         (::windows::core::Vtable::vtable(self).WaitForVerticalBlank)(::windows::core::Vtable::as_raw(self), param0, param1.into()).ok()
     }
 }
-impl ::core::convert::From<IDirectDraw> for ::windows::core::IUnknown {
-    fn from(value: IDirectDraw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDraw> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDraw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDraw> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDraw) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDraw, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDraw {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -401,21 +373,7 @@ impl IDirectDraw2 {
         (::windows::core::Vtable::vtable(self).GetAvailableVidMem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectDraw2> for ::windows::core::IUnknown {
-    fn from(value: IDirectDraw2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDraw2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDraw2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDraw2> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDraw2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDraw2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDraw2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -587,21 +545,7 @@ impl IDirectDraw4 {
         (::windows::core::Vtable::vtable(self).GetDeviceIdentifier)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1).ok()
     }
 }
-impl ::core::convert::From<IDirectDraw4> for ::windows::core::IUnknown {
-    fn from(value: IDirectDraw4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDraw4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDraw4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDraw4> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDraw4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDraw4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDraw4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -791,21 +735,7 @@ impl IDirectDraw7 {
         (::windows::core::Vtable::vtable(self).EvaluateMode)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
 }
-impl ::core::convert::From<IDirectDraw7> for ::windows::core::IUnknown {
-    fn from(value: IDirectDraw7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDraw7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDraw7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDraw7> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDraw7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDraw7, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDraw7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -917,21 +847,7 @@ impl IDirectDrawClipper {
         (::windows::core::Vtable::vtable(self).SetHWnd)(::windows::core::Vtable::as_raw(self), param0, param1.into()).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawClipper> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawClipper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawClipper> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawClipper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawClipper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawClipper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -991,21 +907,7 @@ impl IDirectDrawColorControl {
         (::windows::core::Vtable::vtable(self).SetColorControls)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawColorControl> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawColorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawColorControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawColorControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawColorControl> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawColorControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawColorControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawColorControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1046,21 +948,7 @@ impl IDirectDrawGammaControl {
         (::windows::core::Vtable::vtable(self).SetGammaRamp)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawGammaControl> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawGammaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawGammaControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawGammaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawGammaControl> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawGammaControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawGammaControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawGammaControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1104,21 +992,7 @@ impl IDirectDrawKernel {
         (::windows::core::Vtable::vtable(self).ReleaseKernelHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawKernel> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawKernel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawKernel> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawKernel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawKernel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawKernel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1175,21 +1049,7 @@ impl IDirectDrawPalette {
         (::windows::core::Vtable::vtable(self).SetEntries)(::windows::core::Vtable::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawPalette> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawPalette) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawPalette> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawPalette) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawPalette> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawPalette) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawPalette, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawPalette {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1388,21 +1248,7 @@ impl IDirectDrawSurface {
         (::windows::core::Vtable::vtable(self).UpdateOverlayZOrder)(::windows::core::Vtable::as_raw(self), param0, param1.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurface> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurface> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurface, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1654,21 +1500,7 @@ impl IDirectDrawSurface2 {
         (::windows::core::Vtable::vtable(self).PageUnlock)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurface2> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurface2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurface2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurface2> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurface2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurface2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurface2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1926,21 +1758,7 @@ impl IDirectDrawSurface3 {
         (::windows::core::Vtable::vtable(self).SetSurfaceDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurface3> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurface3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurface3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurface3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurface3> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurface3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurface3, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurface3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2216,21 +2034,7 @@ impl IDirectDrawSurface4 {
         (::windows::core::Vtable::vtable(self).ChangeUniquenessValue)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurface4> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurface4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurface4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurface4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurface4> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurface4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurface4, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurface4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2526,21 +2330,7 @@ impl IDirectDrawSurface7 {
         (::windows::core::Vtable::vtable(self).GetLOD)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurface7> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurface7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurface7> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurface7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurface7> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurface7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurface7, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurface7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2652,21 +2442,7 @@ impl IDirectDrawSurfaceKernel {
         (::windows::core::Vtable::vtable(self).ReleaseKernelHandle)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawSurfaceKernel> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawSurfaceKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawSurfaceKernel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawSurfaceKernel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawSurfaceKernel> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawSurfaceKernel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2753,21 +2529,7 @@ impl IDirectDrawVideoPort {
         (::windows::core::Vtable::vtable(self).WaitForSync)(::windows::core::Vtable::as_raw(self), param0, param1, param2).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawVideoPort> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawVideoPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawVideoPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawVideoPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawVideoPort> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawVideoPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawVideoPort, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawVideoPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2833,21 +2595,7 @@ impl IDirectDrawVideoPortNotify {
         (::windows::core::Vtable::vtable(self).ReleaseNotification)(::windows::core::Vtable::as_raw(self), param0.into()).ok()
     }
 }
-impl ::core::convert::From<IDirectDrawVideoPortNotify> for ::windows::core::IUnknown {
-    fn from(value: IDirectDrawVideoPortNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectDrawVideoPortNotify> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectDrawVideoPortNotify) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectDrawVideoPortNotify> for ::windows::core::IUnknown {
-    fn from(value: &IDirectDrawVideoPortNotify) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
     fn clone(&self) -> Self {
         Self(self.0.clone())

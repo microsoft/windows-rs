@@ -12,36 +12,7 @@ impl ICompositionCapabilitiesInteropFactory {
         (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
     }
 }
-impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::core::IUnknown {
-    fn from(value: ICompositionCapabilitiesInteropFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionCapabilitiesInteropFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionCapabilitiesInteropFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionCapabilitiesInteropFactory> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionCapabilitiesInteropFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::core::IInspectable {
-    fn from(value: ICompositionCapabilitiesInteropFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionCapabilitiesInteropFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICompositionCapabilitiesInteropFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionCapabilitiesInteropFactory> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionCapabilitiesInteropFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICompositionCapabilitiesInteropFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -106,21 +77,7 @@ impl ICompositionDrawingSurfaceInterop {
         (::windows::core::Vtable::vtable(self).SuspendDraw)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ICompositionDrawingSurfaceInterop> for ::windows::core::IUnknown {
-    fn from(value: ICompositionDrawingSurfaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionDrawingSurfaceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionDrawingSurfaceInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionDrawingSurfaceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionDrawingSurfaceInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICompositionDrawingSurfaceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -204,36 +161,7 @@ impl ICompositionDrawingSurfaceInterop2 {
         (::windows::core::Vtable::vtable(self).CopySurface)(::windows::core::Vtable::as_raw(self), destinationresource.into().abi(), destinationoffsetx, destinationoffsety, ::core::mem::transmute(sourcerectangle.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ::windows::core::IUnknown {
-    fn from(value: ICompositionDrawingSurfaceInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionDrawingSurfaceInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionDrawingSurfaceInterop2> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionDrawingSurfaceInterop2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ICompositionDrawingSurfaceInterop {
-    fn from(value: ICompositionDrawingSurfaceInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop2> for &'a ICompositionDrawingSurfaceInterop {
-    fn from(value: &'a ICompositionDrawingSurfaceInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionDrawingSurfaceInterop2> for ICompositionDrawingSurfaceInterop {
-    fn from(value: &ICompositionDrawingSurfaceInterop2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionDrawingSurfaceInterop2, ::windows::core::IUnknown, ICompositionDrawingSurfaceInterop);
 impl ::core::clone::Clone for ICompositionDrawingSurfaceInterop2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -280,21 +208,7 @@ impl ICompositionGraphicsDeviceInterop {
         (::windows::core::Vtable::vtable(self).SetRenderingDevice)(::windows::core::Vtable::as_raw(self), value.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ICompositionGraphicsDeviceInterop> for ::windows::core::IUnknown {
-    fn from(value: ICompositionGraphicsDeviceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositionGraphicsDeviceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositionGraphicsDeviceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionGraphicsDeviceInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICompositionGraphicsDeviceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositionGraphicsDeviceInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICompositionGraphicsDeviceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -342,21 +256,7 @@ impl ICompositorDesktopInterop {
         (::windows::core::Vtable::vtable(self).EnsureOnThread)(::windows::core::Vtable::as_raw(self), threadid).ok()
     }
 }
-impl ::core::convert::From<ICompositorDesktopInterop> for ::windows::core::IUnknown {
-    fn from(value: ICompositorDesktopInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositorDesktopInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositorDesktopInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositorDesktopInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICompositorDesktopInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositorDesktopInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICompositorDesktopInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -421,21 +321,7 @@ impl ICompositorInterop {
         (::windows::core::Vtable::vtable(self).CreateGraphicsDevice)(::windows::core::Vtable::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
     }
 }
-impl ::core::convert::From<ICompositorInterop> for ::windows::core::IUnknown {
-    fn from(value: ICompositorInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICompositorInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICompositorInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositorInterop> for ::windows::core::IUnknown {
-    fn from(value: &ICompositorInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICompositorInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ICompositorInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -486,21 +372,7 @@ impl IDesktopWindowTargetInterop {
         (::windows::core::Vtable::vtable(self).Hwnd)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
-impl ::core::convert::From<IDesktopWindowTargetInterop> for ::windows::core::IUnknown {
-    fn from(value: IDesktopWindowTargetInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDesktopWindowTargetInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDesktopWindowTargetInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDesktopWindowTargetInterop> for ::windows::core::IUnknown {
-    fn from(value: &IDesktopWindowTargetInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDesktopWindowTargetInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDesktopWindowTargetInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -543,21 +415,7 @@ impl ISwapChainInterop {
         (::windows::core::Vtable::vtable(self).SetSwapChain)(::windows::core::Vtable::as_raw(self), swapchain.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ISwapChainInterop> for ::windows::core::IUnknown {
-    fn from(value: ISwapChainInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ISwapChainInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ISwapChainInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISwapChainInterop> for ::windows::core::IUnknown {
-    fn from(value: &ISwapChainInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ISwapChainInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ISwapChainInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -596,21 +454,7 @@ impl IVisualInteractionSourceInterop {
         (::windows::core::Vtable::vtable(self).TryRedirectForManipulation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pointerinfo)).ok()
     }
 }
-impl ::core::convert::From<IVisualInteractionSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: IVisualInteractionSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IVisualInteractionSourceInterop> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IVisualInteractionSourceInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualInteractionSourceInterop> for ::windows::core::IUnknown {
-    fn from(value: &IVisualInteractionSourceInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IVisualInteractionSourceInterop, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IVisualInteractionSourceInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())

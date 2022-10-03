@@ -170,21 +170,7 @@ impl INSNetSourceCreator {
         (::windows::core::Vtable::vtable(self).Shutdown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<INSNetSourceCreator> for ::windows::core::IUnknown {
-    fn from(value: INSNetSourceCreator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSNetSourceCreator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INSNetSourceCreator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSNetSourceCreator> for ::windows::core::IUnknown {
-    fn from(value: &INSNetSourceCreator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INSNetSourceCreator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INSNetSourceCreator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -246,21 +232,7 @@ impl INSSBuffer {
         (::windows::core::Vtable::vtable(self).GetBufferAndLength)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppdwbuffer), ::core::mem::transmute(pdwlength)).ok()
     }
 }
-impl ::core::convert::From<INSSBuffer> for ::windows::core::IUnknown {
-    fn from(value: INSSBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INSSBuffer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer> for ::windows::core::IUnknown {
-    fn from(value: &INSSBuffer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INSSBuffer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for INSSBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -323,36 +295,7 @@ impl INSSBuffer2 {
         (::windows::core::Vtable::vtable(self).SetSampleProperties)(::windows::core::Vtable::as_raw(self), cbproperties, ::core::mem::transmute(pbproperties)).ok()
     }
 }
-impl ::core::convert::From<INSSBuffer2> for ::windows::core::IUnknown {
-    fn from(value: INSSBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INSSBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer2> for ::windows::core::IUnknown {
-    fn from(value: &INSSBuffer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer2> for INSSBuffer {
-    fn from(value: INSSBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer2> for &'a INSSBuffer {
-    fn from(value: &'a INSSBuffer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer2> for INSSBuffer {
-    fn from(value: &INSSBuffer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INSSBuffer2, ::windows::core::IUnknown, INSSBuffer);
 impl ::core::clone::Clone for INSSBuffer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -418,51 +361,7 @@ impl INSSBuffer3 {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidbufferproperty), ::core::mem::transmute(pvbufferproperty), ::core::mem::transmute(pdwbufferpropertysize)).ok()
     }
 }
-impl ::core::convert::From<INSSBuffer3> for ::windows::core::IUnknown {
-    fn from(value: INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer3> for ::windows::core::IUnknown {
-    fn from(value: &INSSBuffer3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer3> for INSSBuffer {
-    fn from(value: INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer3> for &'a INSSBuffer {
-    fn from(value: &'a INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer3> for INSSBuffer {
-    fn from(value: &INSSBuffer3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer3> for INSSBuffer2 {
-    fn from(value: INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer3> for &'a INSSBuffer2 {
-    fn from(value: &'a INSSBuffer3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer3> for INSSBuffer2 {
-    fn from(value: &INSSBuffer3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INSSBuffer3, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2);
 impl ::core::clone::Clone for INSSBuffer3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -535,66 +434,7 @@ impl INSSBuffer4 {
         (::windows::core::Vtable::vtable(self).GetPropertyByIndex)(::windows::core::Vtable::as_raw(self), dwbufferpropertyindex, ::core::mem::transmute(pguidbufferproperty), ::core::mem::transmute(pvbufferproperty), ::core::mem::transmute(pdwbufferpropertysize)).ok()
     }
 }
-impl ::core::convert::From<INSSBuffer4> for ::windows::core::IUnknown {
-    fn from(value: INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer4> for ::windows::core::IUnknown {
-    fn from(value: &INSSBuffer4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer4> for INSSBuffer {
-    fn from(value: INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer4> for &'a INSSBuffer {
-    fn from(value: &'a INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer4> for INSSBuffer {
-    fn from(value: &INSSBuffer4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer4> for INSSBuffer2 {
-    fn from(value: INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer4> for &'a INSSBuffer2 {
-    fn from(value: &'a INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer4> for INSSBuffer2 {
-    fn from(value: &INSSBuffer4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<INSSBuffer4> for INSSBuffer3 {
-    fn from(value: INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a INSSBuffer4> for &'a INSSBuffer3 {
-    fn from(value: &'a INSSBuffer4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INSSBuffer4> for INSSBuffer3 {
-    fn from(value: &INSSBuffer4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(INSSBuffer4, ::windows::core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
 impl ::core::clone::Clone for INSSBuffer4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -643,21 +483,7 @@ impl IWMAddressAccess {
         (::windows::core::Vtable::vtable(self).RemoveAccessEntry)(::windows::core::Vtable::as_raw(self), aetype, dwentrynum).ok()
     }
 }
-impl ::core::convert::From<IWMAddressAccess> for ::windows::core::IUnknown {
-    fn from(value: IWMAddressAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMAddressAccess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMAddressAccess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMAddressAccess> for ::windows::core::IUnknown {
-    fn from(value: &IWMAddressAccess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMAddressAccess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMAddressAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -714,36 +540,7 @@ impl IWMAddressAccess2 {
         (::windows::core::Vtable::vtable(self).AddAccessEntryEx)(::windows::core::Vtable::as_raw(self), aetype, ::core::mem::transmute_copy(bstraddress), ::core::mem::transmute_copy(bstrmask)).ok()
     }
 }
-impl ::core::convert::From<IWMAddressAccess2> for ::windows::core::IUnknown {
-    fn from(value: IWMAddressAccess2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMAddressAccess2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMAddressAccess2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMAddressAccess2> for ::windows::core::IUnknown {
-    fn from(value: &IWMAddressAccess2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMAddressAccess2> for IWMAddressAccess {
-    fn from(value: IWMAddressAccess2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMAddressAccess2> for &'a IWMAddressAccess {
-    fn from(value: &'a IWMAddressAccess2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMAddressAccess2> for IWMAddressAccess {
-    fn from(value: &IWMAddressAccess2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMAddressAccess2, ::windows::core::IUnknown, IWMAddressAccess);
 impl ::core::clone::Clone for IWMAddressAccess2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -790,21 +587,7 @@ impl IWMAuthorizer {
         (::windows::core::Vtable::vtable(self).GetSharedData)(::windows::core::Vtable::as_raw(self), dwcertindex, ::core::mem::transmute(pbshareddata), ::core::mem::transmute(pbcert), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
     }
 }
-impl ::core::convert::From<IWMAuthorizer> for ::windows::core::IUnknown {
-    fn from(value: IWMAuthorizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMAuthorizer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMAuthorizer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMAuthorizer> for ::windows::core::IUnknown {
-    fn from(value: &IWMAuthorizer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMAuthorizer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMAuthorizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -868,21 +651,7 @@ impl IWMBackupRestoreProps {
         (::windows::core::Vtable::vtable(self).RemoveAllProps)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMBackupRestoreProps> for ::windows::core::IUnknown {
-    fn from(value: IWMBackupRestoreProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMBackupRestoreProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMBackupRestoreProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMBackupRestoreProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMBackupRestoreProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMBackupRestoreProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMBackupRestoreProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -943,36 +712,7 @@ impl IWMBandwidthSharing {
         (::windows::core::Vtable::vtable(self).SetBandwidth)(::windows::core::Vtable::as_raw(self), dwbitrate, msbufferwindow).ok()
     }
 }
-impl ::core::convert::From<IWMBandwidthSharing> for ::windows::core::IUnknown {
-    fn from(value: IWMBandwidthSharing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMBandwidthSharing> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMBandwidthSharing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMBandwidthSharing> for ::windows::core::IUnknown {
-    fn from(value: &IWMBandwidthSharing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMBandwidthSharing> for IWMStreamList {
-    fn from(value: IWMBandwidthSharing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMBandwidthSharing> for &'a IWMStreamList {
-    fn from(value: &'a IWMBandwidthSharing) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMBandwidthSharing> for IWMStreamList {
-    fn from(value: &IWMBandwidthSharing) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMBandwidthSharing, ::windows::core::IUnknown, IWMStreamList);
 impl ::core::clone::Clone for IWMBandwidthSharing {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1017,21 +757,7 @@ impl IWMClientConnections {
         (::windows::core::Vtable::vtable(self).GetClientProperties)(::windows::core::Vtable::as_raw(self), dwclientnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WM_CLIENT_PROPERTIES>(result__)
     }
 }
-impl ::core::convert::From<IWMClientConnections> for ::windows::core::IUnknown {
-    fn from(value: IWMClientConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMClientConnections> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMClientConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMClientConnections> for ::windows::core::IUnknown {
-    fn from(value: &IWMClientConnections) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMClientConnections, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMClientConnections {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1077,36 +803,7 @@ impl IWMClientConnections2 {
         (::windows::core::Vtable::vtable(self).GetClientInfo)(::windows::core::Vtable::as_raw(self), dwclientnum, ::core::mem::transmute(pwsznetworkaddress), ::core::mem::transmute(pcchnetworkaddress), ::core::mem::transmute(pwszport), ::core::mem::transmute(pcchport), ::core::mem::transmute(pwszdnsname), ::core::mem::transmute(pcchdnsname)).ok()
     }
 }
-impl ::core::convert::From<IWMClientConnections2> for ::windows::core::IUnknown {
-    fn from(value: IWMClientConnections2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMClientConnections2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMClientConnections2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMClientConnections2> for ::windows::core::IUnknown {
-    fn from(value: &IWMClientConnections2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMClientConnections2> for IWMClientConnections {
-    fn from(value: IWMClientConnections2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMClientConnections2> for &'a IWMClientConnections {
-    fn from(value: &'a IWMClientConnections2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMClientConnections2> for IWMClientConnections {
-    fn from(value: &IWMClientConnections2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMClientConnections2, ::windows::core::IUnknown, IWMClientConnections);
 impl ::core::clone::Clone for IWMClientConnections2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1152,21 +849,7 @@ impl IWMCodecInfo {
         (::windows::core::Vtable::vtable(self).GetCodecFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtype), dwcodecindex, dwformatindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMStreamConfig>(result__)
     }
 }
-impl ::core::convert::From<IWMCodecInfo> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCodecInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1220,36 +903,7 @@ impl IWMCodecInfo2 {
         (::windows::core::Vtable::vtable(self).GetCodecFormatDesc)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtype), dwcodecindex, dwformatindex, ::core::mem::transmute(ppistreamconfig), ::core::mem::transmute(wszdesc), ::core::mem::transmute(pcchdesc)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecInfo2> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMCodecInfo2> for IWMCodecInfo {
-    fn from(value: IWMCodecInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo2> for &'a IWMCodecInfo {
-    fn from(value: &'a IWMCodecInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo2> for IWMCodecInfo {
-    fn from(value: &IWMCodecInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecInfo2, ::windows::core::IUnknown, IWMCodecInfo);
 impl ::core::clone::Clone for IWMCodecInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1326,51 +980,7 @@ impl IWMCodecInfo3 {
         (::windows::core::Vtable::vtable(self).GetCodecEnumerationSetting)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtype), dwcodecindex, pszname.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IWMCodecInfo3> for ::windows::core::IUnknown {
-    fn from(value: IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo3> for ::windows::core::IUnknown {
-    fn from(value: &IWMCodecInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMCodecInfo3> for IWMCodecInfo {
-    fn from(value: IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo3> for &'a IWMCodecInfo {
-    fn from(value: &'a IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo3> for IWMCodecInfo {
-    fn from(value: &IWMCodecInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMCodecInfo3> for IWMCodecInfo2 {
-    fn from(value: IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCodecInfo3> for &'a IWMCodecInfo2 {
-    fn from(value: &'a IWMCodecInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCodecInfo3> for IWMCodecInfo2 {
-    fn from(value: &IWMCodecInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCodecInfo3, ::windows::core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
 impl ::core::clone::Clone for IWMCodecInfo3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1414,21 +1024,7 @@ impl IWMCredentialCallback {
         (::windows::core::Vtable::vtable(self).AcquireCredentials)(::windows::core::Vtable::as_raw(self), pwszrealm.into(), pwszsite.into(), ::core::mem::transmute(pwszuser.as_ptr()), pwszuser.len() as _, ::core::mem::transmute(pwszpassword.as_ptr()), pwszpassword.len() as _, hrstatus, ::core::mem::transmute(pdwflags)).ok()
     }
 }
-impl ::core::convert::From<IWMCredentialCallback> for ::windows::core::IUnknown {
-    fn from(value: IWMCredentialCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMCredentialCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMCredentialCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMCredentialCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWMCredentialCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMCredentialCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMCredentialCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1468,21 +1064,7 @@ impl IWMDRMEditor {
         (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMEditor> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMEditor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMEditor> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMEditor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMEditor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMEditor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1522,21 +1104,7 @@ impl IWMDRMMessageParser {
         (::windows::core::Vtable::vtable(self).ParseLicenseRequestMsg)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pblicenserequestmsg.as_ptr()), pblicenserequestmsg.len() as _, ::core::mem::transmute(ppdevicecert), ::core::mem::transmute(pdeviceserialnumber), ::core::mem::transmute(pbstraction)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMMessageParser> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMMessageParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMMessageParser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMMessageParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMMessageParser> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMMessageParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMMessageParser, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMMessageParser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1601,21 +1169,7 @@ impl IWMDRMReader {
         (::windows::core::Vtable::vtable(self).GetDRMProperty)(::windows::core::Vtable::as_raw(self), pwstrname.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMReader> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1703,36 +1257,7 @@ impl IWMDRMReader2 {
         (::windows::core::Vtable::vtable(self).TryNextLicense)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMReader2> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMReader2> for IWMDRMReader {
-    fn from(value: IWMDRMReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader2> for &'a IWMDRMReader {
-    fn from(value: &'a IWMDRMReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader2> for IWMDRMReader {
-    fn from(value: &IWMDRMReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMReader2, ::windows::core::IUnknown, IWMDRMReader);
 impl ::core::clone::Clone for IWMDRMReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1822,51 +1347,7 @@ impl IWMDRMReader3 {
         (::windows::core::Vtable::vtable(self).GetInclusionList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppguids), ::core::mem::transmute(pcguids)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMReader3> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMReader3> for IWMDRMReader {
-    fn from(value: IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader3> for &'a IWMDRMReader {
-    fn from(value: &'a IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader3> for IWMDRMReader {
-    fn from(value: &IWMDRMReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMReader3> for IWMDRMReader2 {
-    fn from(value: IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMReader3> for &'a IWMDRMReader2 {
-    fn from(value: &'a IWMDRMReader3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMReader3> for IWMDRMReader2 {
-    fn from(value: &IWMDRMReader3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMReader3, ::windows::core::IUnknown, IWMDRMReader, IWMDRMReader2);
 impl ::core::clone::Clone for IWMDRMReader3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1904,21 +1385,7 @@ impl IWMDRMTranscryptionManager {
         (::windows::core::Vtable::vtable(self).CreateTranscryptor)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMDRMTranscryptor>(result__)
     }
 }
-impl ::core::convert::From<IWMDRMTranscryptionManager> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMTranscryptionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMTranscryptionManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMTranscryptionManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMTranscryptionManager> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMTranscryptionManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMTranscryptionManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMTranscryptionManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1967,21 +1434,7 @@ impl IWMDRMTranscryptor {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMTranscryptor> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMTranscryptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMTranscryptor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMTranscryptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMTranscryptor> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMTranscryptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMTranscryptor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMTranscryptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2057,36 +1510,7 @@ impl IWMDRMTranscryptor2 {
         (::windows::core::Vtable::vtable(self).GetDuration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IWMDRMTranscryptor2> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMTranscryptor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMTranscryptor2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMTranscryptor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMTranscryptor2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMTranscryptor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMTranscryptor2> for IWMDRMTranscryptor {
-    fn from(value: IWMDRMTranscryptor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMTranscryptor2> for &'a IWMDRMTranscryptor {
-    fn from(value: &'a IWMDRMTranscryptor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMTranscryptor2> for IWMDRMTranscryptor {
-    fn from(value: &IWMDRMTranscryptor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMTranscryptor2, ::windows::core::IUnknown, IWMDRMTranscryptor);
 impl ::core::clone::Clone for IWMDRMTranscryptor2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2144,21 +1568,7 @@ impl IWMDRMWriter {
         (::windows::core::Vtable::vtable(self).SetDRMAttribute)(::windows::core::Vtable::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
-impl ::core::convert::From<IWMDRMWriter> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDRMWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2218,36 +1628,7 @@ impl IWMDRMWriter2 {
         (::windows::core::Vtable::vtable(self).SetWMDRMNetEncryption)(::windows::core::Vtable::as_raw(self), fsamplesencrypted.into(), ::core::mem::transmute(pbkeyid), cbkeyid).ok()
     }
 }
-impl ::core::convert::From<IWMDRMWriter2> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter2> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMWriter2> for IWMDRMWriter {
-    fn from(value: IWMDRMWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter2> for &'a IWMDRMWriter {
-    fn from(value: &'a IWMDRMWriter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter2> for IWMDRMWriter {
-    fn from(value: &IWMDRMWriter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMWriter2, ::windows::core::IUnknown, IWMDRMWriter);
 impl ::core::clone::Clone for IWMDRMWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2310,51 +1691,7 @@ impl IWMDRMWriter3 {
         (::windows::core::Vtable::vtable(self).SetProtectStreamSamples)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pimportinitstruct)).ok()
     }
 }
-impl ::core::convert::From<IWMDRMWriter3> for ::windows::core::IUnknown {
-    fn from(value: IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter3> for ::windows::core::IUnknown {
-    fn from(value: &IWMDRMWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMWriter3> for IWMDRMWriter {
-    fn from(value: IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter3> for &'a IWMDRMWriter {
-    fn from(value: &'a IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter3> for IWMDRMWriter {
-    fn from(value: &IWMDRMWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMDRMWriter3> for IWMDRMWriter2 {
-    fn from(value: IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDRMWriter3> for &'a IWMDRMWriter2 {
-    fn from(value: &'a IWMDRMWriter3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDRMWriter3> for IWMDRMWriter2 {
-    fn from(value: &IWMDRMWriter3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDRMWriter3, ::windows::core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
 impl ::core::clone::Clone for IWMDRMWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2411,21 +1748,7 @@ impl IWMDeviceRegistration {
         (::windows::core::Vtable::vtable(self).GetRegisteredDeviceByID)(::windows::core::Vtable::as_raw(self), dwregistertype, ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, ::core::mem::transmute(serialnumber), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMRegisteredDevice>(result__)
     }
 }
-impl ::core::convert::From<IWMDeviceRegistration> for ::windows::core::IUnknown {
-    fn from(value: IWMDeviceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMDeviceRegistration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMDeviceRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMDeviceRegistration> for ::windows::core::IUnknown {
-    fn from(value: &IWMDeviceRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMDeviceRegistration, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMDeviceRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2468,21 +1791,7 @@ impl IWMGetSecureChannel {
         (::windows::core::Vtable::vtable(self).GetPeerSecureChannelInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSecureChannel>(result__)
     }
 }
-impl ::core::convert::From<IWMGetSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: IWMGetSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMGetSecureChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMGetSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMGetSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: &IWMGetSecureChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMGetSecureChannel, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMGetSecureChannel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2568,21 +1877,7 @@ impl IWMHeaderInfo {
         (::windows::core::Vtable::vtable(self).RemoveScript)(::windows::core::Vtable::as_raw(self), windex).ok()
     }
 }
-impl ::core::convert::From<IWMHeaderInfo> for ::windows::core::IUnknown {
-    fn from(value: IWMHeaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMHeaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWMHeaderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMHeaderInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMHeaderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2686,36 +1981,7 @@ impl IWMHeaderInfo2 {
         (::windows::core::Vtable::vtable(self).GetCodecInfo)(::windows::core::Vtable::as_raw(self), windex, ::core::mem::transmute(pcchname), ::core::mem::transmute(pwszname), ::core::mem::transmute(pcchdescription), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pcodectype), ::core::mem::transmute(pcbcodecinfo), ::core::mem::transmute(pbcodecinfo)).ok()
     }
 }
-impl ::core::convert::From<IWMHeaderInfo2> for ::windows::core::IUnknown {
-    fn from(value: IWMHeaderInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMHeaderInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IWMHeaderInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMHeaderInfo2> for IWMHeaderInfo {
-    fn from(value: IWMHeaderInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo2> for &'a IWMHeaderInfo {
-    fn from(value: &'a IWMHeaderInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo2> for IWMHeaderInfo {
-    fn from(value: &IWMHeaderInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMHeaderInfo2, ::windows::core::IUnknown, IWMHeaderInfo);
 impl ::core::clone::Clone for IWMHeaderInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2841,51 +2107,7 @@ impl IWMHeaderInfo3 {
         (::windows::core::Vtable::vtable(self).AddCodecInfo)(::windows::core::Vtable::as_raw(self), pwszname.into(), pwszdescription.into(), codectype, pbcodecinfo.len() as _, ::core::mem::transmute(pbcodecinfo.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWMHeaderInfo3> for ::windows::core::IUnknown {
-    fn from(value: IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo3> for ::windows::core::IUnknown {
-    fn from(value: &IWMHeaderInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMHeaderInfo3> for IWMHeaderInfo {
-    fn from(value: IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo3> for &'a IWMHeaderInfo {
-    fn from(value: &'a IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo {
-    fn from(value: &IWMHeaderInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMHeaderInfo3> for IWMHeaderInfo2 {
-    fn from(value: IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMHeaderInfo3> for &'a IWMHeaderInfo2 {
-    fn from(value: &'a IWMHeaderInfo3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMHeaderInfo3> for IWMHeaderInfo2 {
-    fn from(value: &IWMHeaderInfo3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMHeaderInfo3, ::windows::core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
 impl ::core::clone::Clone for IWMHeaderInfo3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2931,21 +2153,7 @@ impl IWMIStreamProps {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into(), ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pdwsize)).ok()
     }
 }
-impl ::core::convert::From<IWMIStreamProps> for ::windows::core::IUnknown {
-    fn from(value: IWMIStreamProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMIStreamProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMIStreamProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMIStreamProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMIStreamProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMIStreamProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMIStreamProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2986,21 +2194,7 @@ impl IWMImageInfo {
         (::windows::core::Vtable::vtable(self).GetImage)(::windows::core::Vtable::as_raw(self), windex, ::core::mem::transmute(pcchmimetype), ::core::mem::transmute(pwszmimetype), ::core::mem::transmute(pcchdescription), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pimagetype), ::core::mem::transmute(pcbimagedata), ::core::mem::transmute(pbimagedata)).ok()
     }
 }
-impl ::core::convert::From<IWMImageInfo> for ::windows::core::IUnknown {
-    fn from(value: IWMImageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMImageInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMImageInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMImageInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWMImageInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMImageInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMImageInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3045,21 +2239,7 @@ impl IWMIndexer {
         (::windows::core::Vtable::vtable(self).Cancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMIndexer> for ::windows::core::IUnknown {
-    fn from(value: IWMIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMIndexer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMIndexer> for ::windows::core::IUnknown {
-    fn from(value: &IWMIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMIndexer, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMIndexer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3107,36 +2287,7 @@ impl IWMIndexer2 {
         (::windows::core::Vtable::vtable(self).Configure)(::windows::core::Vtable::as_raw(self), wstreamnum, nindexertype, ::core::mem::transmute(pvinterval), ::core::mem::transmute(pvindextype)).ok()
     }
 }
-impl ::core::convert::From<IWMIndexer2> for ::windows::core::IUnknown {
-    fn from(value: IWMIndexer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMIndexer2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMIndexer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMIndexer2> for ::windows::core::IUnknown {
-    fn from(value: &IWMIndexer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMIndexer2> for IWMIndexer {
-    fn from(value: IWMIndexer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMIndexer2> for &'a IWMIndexer {
-    fn from(value: &'a IWMIndexer2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMIndexer2> for IWMIndexer {
-    fn from(value: &IWMIndexer2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMIndexer2, ::windows::core::IUnknown, IWMIndexer);
 impl ::core::clone::Clone for IWMIndexer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3190,36 +2341,7 @@ impl IWMInputMediaProps {
         (::windows::core::Vtable::vtable(self).GetGroupName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pcchname)).ok()
     }
 }
-impl ::core::convert::From<IWMInputMediaProps> for ::windows::core::IUnknown {
-    fn from(value: IWMInputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMInputMediaProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMInputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMInputMediaProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMInputMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMInputMediaProps> for IWMMediaProps {
-    fn from(value: IWMInputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMInputMediaProps> for &'a IWMMediaProps {
-    fn from(value: &'a IWMInputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMInputMediaProps> for IWMMediaProps {
-    fn from(value: &IWMInputMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMInputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::clone::Clone for IWMInputMediaProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3268,21 +2390,7 @@ impl IWMLanguageList {
         (::windows::core::Vtable::vtable(self).AddLanguageByRFC1766String)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
 }
-impl ::core::convert::From<IWMLanguageList> for ::windows::core::IUnknown {
-    fn from(value: IWMLanguageList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMLanguageList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMLanguageList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMLanguageList> for ::windows::core::IUnknown {
-    fn from(value: &IWMLanguageList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMLanguageList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMLanguageList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3327,21 +2435,7 @@ impl IWMLicenseBackup {
         (::windows::core::Vtable::vtable(self).CancelLicenseBackup)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMLicenseBackup> for ::windows::core::IUnknown {
-    fn from(value: IWMLicenseBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMLicenseBackup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMLicenseBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMLicenseBackup> for ::windows::core::IUnknown {
-    fn from(value: &IWMLicenseBackup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMLicenseBackup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMLicenseBackup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3385,21 +2479,7 @@ impl IWMLicenseRestore {
         (::windows::core::Vtable::vtable(self).CancelLicenseRestore)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMLicenseRestore> for ::windows::core::IUnknown {
-    fn from(value: IWMLicenseRestore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMLicenseRestore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMLicenseRestore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMLicenseRestore> for ::windows::core::IUnknown {
-    fn from(value: &IWMLicenseRestore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMLicenseRestore, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMLicenseRestore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3440,21 +2520,7 @@ impl IWMLicenseRevocationAgent {
         (::windows::core::Vtable::vtable(self).ProcessLRB)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psignedlrb), dwsignedlrblength, ::core::mem::transmute(psignedack), ::core::mem::transmute(pdwsignedacklength)).ok()
     }
 }
-impl ::core::convert::From<IWMLicenseRevocationAgent> for ::windows::core::IUnknown {
-    fn from(value: IWMLicenseRevocationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMLicenseRevocationAgent> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMLicenseRevocationAgent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMLicenseRevocationAgent> for ::windows::core::IUnknown {
-    fn from(value: &IWMLicenseRevocationAgent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMLicenseRevocationAgent, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMLicenseRevocationAgent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3503,21 +2569,7 @@ impl IWMMediaProps {
         (::windows::core::Vtable::vtable(self).SetMediaType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
 }
-impl ::core::convert::From<IWMMediaProps> for ::windows::core::IUnknown {
-    fn from(value: IWMMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMediaProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMediaProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMMediaProps, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMMediaProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3571,21 +2623,7 @@ impl IWMMetadataEditor {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMMetadataEditor> for ::windows::core::IUnknown {
-    fn from(value: IWMMetadataEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMetadataEditor> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMMetadataEditor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMetadataEditor> for ::windows::core::IUnknown {
-    fn from(value: &IWMMetadataEditor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMMetadataEditor, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMMetadataEditor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3639,36 +2677,7 @@ impl IWMMetadataEditor2 {
         (::windows::core::Vtable::vtable(self).OpenEx)(::windows::core::Vtable::as_raw(self), pwszfilename.into(), dwdesiredaccess, dwsharemode).ok()
     }
 }
-impl ::core::convert::From<IWMMetadataEditor2> for ::windows::core::IUnknown {
-    fn from(value: IWMMetadataEditor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMetadataEditor2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMMetadataEditor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMetadataEditor2> for ::windows::core::IUnknown {
-    fn from(value: &IWMMetadataEditor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMMetadataEditor2> for IWMMetadataEditor {
-    fn from(value: IWMMetadataEditor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMetadataEditor2> for &'a IWMMetadataEditor {
-    fn from(value: &'a IWMMetadataEditor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMetadataEditor2> for IWMMetadataEditor {
-    fn from(value: &IWMMetadataEditor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMMetadataEditor2, ::windows::core::IUnknown, IWMMetadataEditor);
 impl ::core::clone::Clone for IWMMetadataEditor2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3718,36 +2727,7 @@ impl IWMMutualExclusion {
         (::windows::core::Vtable::vtable(self).SetType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidtype)).ok()
     }
 }
-impl ::core::convert::From<IWMMutualExclusion> for ::windows::core::IUnknown {
-    fn from(value: IWMMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMutualExclusion> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMutualExclusion> for ::windows::core::IUnknown {
-    fn from(value: &IWMMutualExclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMMutualExclusion> for IWMStreamList {
-    fn from(value: IWMMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMutualExclusion> for &'a IWMStreamList {
-    fn from(value: &'a IWMMutualExclusion) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMutualExclusion> for IWMStreamList {
-    fn from(value: &IWMMutualExclusion) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMMutualExclusion, ::windows::core::IUnknown, IWMStreamList);
 impl ::core::clone::Clone for IWMMutualExclusion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3835,51 +2815,7 @@ impl IWMMutualExclusion2 {
         (::windows::core::Vtable::vtable(self).RemoveStreamForRecord)(::windows::core::Vtable::as_raw(self), wrecordnumber, wstreamnumber).ok()
     }
 }
-impl ::core::convert::From<IWMMutualExclusion2> for ::windows::core::IUnknown {
-    fn from(value: IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMutualExclusion2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMutualExclusion2> for ::windows::core::IUnknown {
-    fn from(value: &IWMMutualExclusion2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMMutualExclusion2> for IWMStreamList {
-    fn from(value: IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMutualExclusion2> for &'a IWMStreamList {
-    fn from(value: &'a IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMutualExclusion2> for IWMStreamList {
-    fn from(value: &IWMMutualExclusion2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMMutualExclusion2> for IWMMutualExclusion {
-    fn from(value: IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMMutualExclusion2> for &'a IWMMutualExclusion {
-    fn from(value: &'a IWMMutualExclusion2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMMutualExclusion2> for IWMMutualExclusion {
-    fn from(value: &IWMMutualExclusion2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMMutualExclusion2, ::windows::core::IUnknown, IWMStreamList, IWMMutualExclusion);
 impl ::core::clone::Clone for IWMMutualExclusion2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3942,36 +2878,7 @@ impl IWMOutputMediaProps {
         (::windows::core::Vtable::vtable(self).GetConnectionName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pcchname)).ok()
     }
 }
-impl ::core::convert::From<IWMOutputMediaProps> for ::windows::core::IUnknown {
-    fn from(value: IWMOutputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMOutputMediaProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMOutputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMOutputMediaProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMOutputMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMOutputMediaProps> for IWMMediaProps {
-    fn from(value: IWMOutputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMOutputMediaProps> for &'a IWMMediaProps {
-    fn from(value: &'a IWMOutputMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMOutputMediaProps> for IWMMediaProps {
-    fn from(value: &IWMOutputMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMOutputMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::clone::Clone for IWMOutputMediaProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4013,21 +2920,7 @@ impl IWMPacketSize {
         (::windows::core::Vtable::vtable(self).SetMaxPacketSize)(::windows::core::Vtable::as_raw(self), dwmaxpacketsize).ok()
     }
 }
-impl ::core::convert::From<IWMPacketSize> for ::windows::core::IUnknown {
-    fn from(value: IWMPacketSize) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPacketSize> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMPacketSize) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPacketSize> for ::windows::core::IUnknown {
-    fn from(value: &IWMPacketSize) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMPacketSize, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMPacketSize {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4076,36 +2969,7 @@ impl IWMPacketSize2 {
         (::windows::core::Vtable::vtable(self).SetMinPacketSize)(::windows::core::Vtable::as_raw(self), dwminpacketsize).ok()
     }
 }
-impl ::core::convert::From<IWMPacketSize2> for ::windows::core::IUnknown {
-    fn from(value: IWMPacketSize2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPacketSize2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMPacketSize2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPacketSize2> for ::windows::core::IUnknown {
-    fn from(value: &IWMPacketSize2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMPacketSize2> for IWMPacketSize {
-    fn from(value: IWMPacketSize2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPacketSize2> for &'a IWMPacketSize {
-    fn from(value: &'a IWMPacketSize2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPacketSize2> for IWMPacketSize {
-    fn from(value: &IWMPacketSize2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMPacketSize2, ::windows::core::IUnknown, IWMPacketSize);
 impl ::core::clone::Clone for IWMPacketSize2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4143,21 +3007,7 @@ impl IWMPlayerHook {
         (::windows::core::Vtable::vtable(self).PreDecode)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMPlayerHook> for ::windows::core::IUnknown {
-    fn from(value: IWMPlayerHook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPlayerHook> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMPlayerHook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPlayerHook> for ::windows::core::IUnknown {
-    fn from(value: &IWMPlayerHook) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMPlayerHook, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMPlayerHook {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4195,21 +3045,7 @@ impl IWMPlayerTimestampHook {
         (::windows::core::Vtable::vtable(self).MapTimestamp)(::windows::core::Vtable::as_raw(self), rtin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
-impl ::core::convert::From<IWMPlayerTimestampHook> for ::windows::core::IUnknown {
-    fn from(value: IWMPlayerTimestampHook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPlayerTimestampHook> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMPlayerTimestampHook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPlayerTimestampHook> for ::windows::core::IUnknown {
-    fn from(value: &IWMPlayerTimestampHook) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMPlayerTimestampHook, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMPlayerTimestampHook {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4326,21 +3162,7 @@ impl IWMProfile {
         (::windows::core::Vtable::vtable(self).CreateNewMutualExclusion)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMutualExclusion>(result__)
     }
 }
-impl ::core::convert::From<IWMProfile> for ::windows::core::IUnknown {
-    fn from(value: IWMProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfile, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMProfile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4478,36 +3300,7 @@ impl IWMProfile2 {
         (::windows::core::Vtable::vtable(self).GetProfileID)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IWMProfile2> for ::windows::core::IUnknown {
-    fn from(value: IWMProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile2> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMProfile2> for IWMProfile {
-    fn from(value: IWMProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile2> for &'a IWMProfile {
-    fn from(value: &'a IWMProfile2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile2> for IWMProfile {
-    fn from(value: &IWMProfile2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfile2, ::windows::core::IUnknown, IWMProfile);
 impl ::core::clone::Clone for IWMProfile2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4680,51 +3473,7 @@ impl IWMProfile3 {
         (::windows::core::Vtable::vtable(self).GetExpectedPacketCount)(::windows::core::Vtable::as_raw(self), msduration, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
-impl ::core::convert::From<IWMProfile3> for ::windows::core::IUnknown {
-    fn from(value: IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile3> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMProfile3> for IWMProfile {
-    fn from(value: IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile3> for &'a IWMProfile {
-    fn from(value: &'a IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile3> for IWMProfile {
-    fn from(value: &IWMProfile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMProfile3> for IWMProfile2 {
-    fn from(value: IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfile3> for &'a IWMProfile2 {
-    fn from(value: &'a IWMProfile3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfile3> for IWMProfile2 {
-    fn from(value: &IWMProfile3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfile3, ::windows::core::IUnknown, IWMProfile, IWMProfile2);
 impl ::core::clone::Clone for IWMProfile3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4799,21 +3548,7 @@ impl IWMProfileManager {
         (::windows::core::Vtable::vtable(self).LoadSystemProfile)(::windows::core::Vtable::as_raw(self), dwprofileindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfile>(result__)
     }
 }
-impl ::core::convert::From<IWMProfileManager> for ::windows::core::IUnknown {
-    fn from(value: IWMProfileManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfileManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfileManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfileManager> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfileManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfileManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMProfileManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4888,36 +3623,7 @@ impl IWMProfileManager2 {
         (::windows::core::Vtable::vtable(self).SetSystemProfileVersion)(::windows::core::Vtable::as_raw(self), dwversion).ok()
     }
 }
-impl ::core::convert::From<IWMProfileManager2> for ::windows::core::IUnknown {
-    fn from(value: IWMProfileManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfileManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfileManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfileManager2> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfileManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMProfileManager2> for IWMProfileManager {
-    fn from(value: IWMProfileManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfileManager2> for &'a IWMProfileManager {
-    fn from(value: &'a IWMProfileManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfileManager2> for IWMProfileManager {
-    fn from(value: &IWMProfileManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfileManager2, ::windows::core::IUnknown, IWMProfileManager);
 impl ::core::clone::Clone for IWMProfileManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4958,21 +3664,7 @@ impl IWMProfileManagerLanguage {
         (::windows::core::Vtable::vtable(self).SetUserLanguageID)(::windows::core::Vtable::as_raw(self), wlangid).ok()
     }
 }
-impl ::core::convert::From<IWMProfileManagerLanguage> for ::windows::core::IUnknown {
-    fn from(value: IWMProfileManagerLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProfileManagerLanguage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProfileManagerLanguage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProfileManagerLanguage> for ::windows::core::IUnknown {
-    fn from(value: &IWMProfileManagerLanguage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProfileManagerLanguage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMProfileManagerLanguage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5034,21 +3726,7 @@ impl IWMPropertyVault {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMPropertyVault> for ::windows::core::IUnknown {
-    fn from(value: IWMPropertyVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMPropertyVault> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMPropertyVault) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMPropertyVault> for ::windows::core::IUnknown {
-    fn from(value: &IWMPropertyVault) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMPropertyVault, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMPropertyVault {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5093,21 +3771,7 @@ impl IWMProximityDetection {
         (::windows::core::Vtable::vtable(self).StartDetection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbregistrationmsg.as_ptr()), pbregistrationmsg.len() as _, ::core::mem::transmute(pblocaladdress.as_ptr()), pblocaladdress.len() as _, dwextraportsallowed, ::core::mem::transmute(ppregistrationresponsemsg), pcallback.into().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMProximityDetection> for ::windows::core::IUnknown {
-    fn from(value: IWMProximityDetection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMProximityDetection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMProximityDetection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMProximityDetection> for ::windows::core::IUnknown {
-    fn from(value: &IWMProximityDetection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMProximityDetection, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMProximityDetection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5185,21 +3849,7 @@ impl IWMReader {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMReader> for ::windows::core::IUnknown {
-    fn from(value: IWMReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReader> for ::windows::core::IUnknown {
-    fn from(value: &IWMReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5251,21 +3901,7 @@ impl IWMReaderAccelerator {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), dwoutputnum, ::core::mem::transmute(psubtype)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAccelerator> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAccelerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAccelerator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAccelerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAccelerator> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAccelerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAccelerator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderAccelerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5416,21 +4052,7 @@ impl IWMReaderAdvanced {
         (::windows::core::Vtable::vtable(self).NotifyLateDelivery)(::windows::core::Vtable::as_raw(self), cnslateness).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderAdvanced {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5705,36 +4327,7 @@ impl IWMReaderAdvanced2 {
         (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi(), pcallback.into().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced2> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced2> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced2> for IWMReaderAdvanced {
-    fn from(value: IWMReaderAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced2> for &'a IWMReaderAdvanced {
-    fn from(value: &'a IWMReaderAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced2> for IWMReaderAdvanced {
-    fn from(value: &IWMReaderAdvanced2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced2, ::windows::core::IUnknown, IWMReaderAdvanced);
 impl ::core::clone::Clone for IWMReaderAdvanced2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5980,51 +4573,7 @@ impl IWMReaderAdvanced3 {
         (::windows::core::Vtable::vtable(self).StartAtPosition)(::windows::core::Vtable::as_raw(self), wstreamnum, ::core::mem::transmute(pvoffsetstart), ::core::mem::transmute(pvduration), dwoffsetformat, frate, ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced3> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced3> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced3> for IWMReaderAdvanced {
-    fn from(value: IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced3> for &'a IWMReaderAdvanced {
-    fn from(value: &'a IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced {
-    fn from(value: &IWMReaderAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced3> for IWMReaderAdvanced2 {
-    fn from(value: IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced3> for &'a IWMReaderAdvanced2 {
-    fn from(value: &'a IWMReaderAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced3> for IWMReaderAdvanced2 {
-    fn from(value: &IWMReaderAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced3, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2);
 impl ::core::clone::Clone for IWMReaderAdvanced3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6288,66 +4837,7 @@ impl IWMReaderAdvanced4 {
         (::windows::core::Vtable::vtable(self).GetURL)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwszurl), ::core::mem::transmute(pcchurl)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced4> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced4> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced4> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced {
-    fn from(value: IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced4> for &'a IWMReaderAdvanced {
-    fn from(value: &'a IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced {
-    fn from(value: &IWMReaderAdvanced4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced2 {
-    fn from(value: IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced4> for &'a IWMReaderAdvanced2 {
-    fn from(value: &'a IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced2 {
-    fn from(value: &IWMReaderAdvanced4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced4> for IWMReaderAdvanced3 {
-    fn from(value: IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced4> for &'a IWMReaderAdvanced3 {
-    fn from(value: &'a IWMReaderAdvanced4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced4> for IWMReaderAdvanced3 {
-    fn from(value: &IWMReaderAdvanced4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced4, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
 impl ::core::clone::Clone for IWMReaderAdvanced4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6630,81 +5120,7 @@ impl IWMReaderAdvanced5 {
         (::windows::core::Vtable::vtable(self).SetPlayerHook)(::windows::core::Vtable::as_raw(self), dwoutputnum, phook.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced5> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced5> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced5> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced {
-    fn from(value: IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced5> for &'a IWMReaderAdvanced {
-    fn from(value: &'a IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced {
-    fn from(value: &IWMReaderAdvanced5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced2 {
-    fn from(value: IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced5> for &'a IWMReaderAdvanced2 {
-    fn from(value: &'a IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced2 {
-    fn from(value: &IWMReaderAdvanced5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced3 {
-    fn from(value: IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced5> for &'a IWMReaderAdvanced3 {
-    fn from(value: &'a IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced3 {
-    fn from(value: &IWMReaderAdvanced5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced5> for IWMReaderAdvanced4 {
-    fn from(value: IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced5> for &'a IWMReaderAdvanced4 {
-    fn from(value: &'a IWMReaderAdvanced5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced5> for IWMReaderAdvanced4 {
-    fn from(value: &IWMReaderAdvanced5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced5, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
 impl ::core::clone::Clone for IWMReaderAdvanced5 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6976,96 +5392,7 @@ impl IWMReaderAdvanced6 {
         (::windows::core::Vtable::vtable(self).SetProtectStreamSamples)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbcertificate.as_ptr()), pbcertificate.len() as _, dwcertificatetype, dwflags, ::core::mem::transmute(pbinitializationvector), ::core::mem::transmute(pcbinitializationvector)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAdvanced6> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a IWMReaderAdvanced {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced2 {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a IWMReaderAdvanced2 {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced2 {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced3 {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a IWMReaderAdvanced3 {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced3 {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced4 {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a IWMReaderAdvanced4 {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced4 {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderAdvanced6> for IWMReaderAdvanced5 {
-    fn from(value: IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAdvanced6> for &'a IWMReaderAdvanced5 {
-    fn from(value: &'a IWMReaderAdvanced6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAdvanced6> for IWMReaderAdvanced5 {
-    fn from(value: &IWMReaderAdvanced6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAdvanced6, ::windows::core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
 impl ::core::clone::Clone for IWMReaderAdvanced6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7105,21 +5432,7 @@ impl IWMReaderAllocatorEx {
         (::windows::core::Vtable::vtable(self).AllocateForOutputEx)(::windows::core::Vtable::as_raw(self), dwoutputnum, cbbuffer, ::core::mem::transmute(ppbuffer), dwflags, cnssampletime, cnssampleduration, ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderAllocatorEx> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderAllocatorEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderAllocatorEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderAllocatorEx> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderAllocatorEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderAllocatorEx, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderAllocatorEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7163,36 +5476,7 @@ impl IWMReaderCallback {
         (::windows::core::Vtable::vtable(self).OnSample)(::windows::core::Vtable::as_raw(self), dwoutputnum, cnssampletime, cnssampleduration, dwflags, psample.into().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderCallback> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderCallback> for IWMStatusCallback {
-    fn from(value: IWMReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderCallback> for &'a IWMStatusCallback {
-    fn from(value: &'a IWMReaderCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderCallback> for IWMStatusCallback {
-    fn from(value: &IWMReaderCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderCallback, ::windows::core::IUnknown, IWMStatusCallback);
 impl ::core::clone::Clone for IWMReaderCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7249,21 +5533,7 @@ impl IWMReaderCallbackAdvanced {
         (::windows::core::Vtable::vtable(self).AllocateForOutput)(::windows::core::Vtable::as_raw(self), dwoutputnum, cbbuffer, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderCallbackAdvanced> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderCallbackAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderCallbackAdvanced> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderCallbackAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderCallbackAdvanced> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderCallbackAdvanced) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderCallbackAdvanced, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderCallbackAdvanced {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7491,21 +5761,7 @@ impl IWMReaderNetworkConfig {
         (::windows::core::Vtable::vtable(self).ResetLoggingUrlList)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderNetworkConfig> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderNetworkConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderNetworkConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderNetworkConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderNetworkConfig> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderNetworkConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderNetworkConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderNetworkConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7867,36 +6123,7 @@ impl IWMReaderNetworkConfig2 {
         (::windows::core::Vtable::vtable(self).GetMaxNetPacketSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWMReaderNetworkConfig2> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderNetworkConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderNetworkConfig2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderNetworkConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderNetworkConfig2> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderNetworkConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMReaderNetworkConfig2> for IWMReaderNetworkConfig {
-    fn from(value: IWMReaderNetworkConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderNetworkConfig2> for &'a IWMReaderNetworkConfig {
-    fn from(value: &'a IWMReaderNetworkConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderNetworkConfig2> for IWMReaderNetworkConfig {
-    fn from(value: &IWMReaderNetworkConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderNetworkConfig2, ::windows::core::IUnknown, IWMReaderNetworkConfig);
 impl ::core::clone::Clone for IWMReaderNetworkConfig2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -7982,21 +6209,7 @@ impl IWMReaderPlaylistBurn {
         (::windows::core::Vtable::vtable(self).EndPlaylistBurn)(::windows::core::Vtable::as_raw(self), hrburnresult).ok()
     }
 }
-impl ::core::convert::From<IWMReaderPlaylistBurn> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderPlaylistBurn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderPlaylistBurn> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderPlaylistBurn) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderPlaylistBurn> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderPlaylistBurn) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderPlaylistBurn, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderPlaylistBurn {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8043,21 +6256,7 @@ impl IWMReaderStreamClock {
         (::windows::core::Vtable::vtable(self).KillTimer)(::windows::core::Vtable::as_raw(self), dwtimerid).ok()
     }
 }
-impl ::core::convert::From<IWMReaderStreamClock> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderStreamClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderStreamClock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderStreamClock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderStreamClock> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderStreamClock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderStreamClock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderStreamClock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8100,21 +6299,7 @@ impl IWMReaderTimecode {
         (::windows::core::Vtable::vtable(self).GetTimecodeRangeBounds)(::windows::core::Vtable::as_raw(self), wstreamnum, wrangenum, ::core::mem::transmute(pstarttimecode), ::core::mem::transmute(pendtimecode)).ok()
     }
 }
-impl ::core::convert::From<IWMReaderTimecode> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderTimecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderTimecode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderTimecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderTimecode> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderTimecode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderTimecode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderTimecode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8155,21 +6340,7 @@ impl IWMReaderTypeNegotiation {
         (::windows::core::Vtable::vtable(self).TryOutputProps)(::windows::core::Vtable::as_raw(self), dwoutputnum, poutput.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMReaderTypeNegotiation> for ::windows::core::IUnknown {
-    fn from(value: IWMReaderTypeNegotiation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMReaderTypeNegotiation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMReaderTypeNegotiation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMReaderTypeNegotiation> for ::windows::core::IUnknown {
-    fn from(value: &IWMReaderTypeNegotiation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMReaderTypeNegotiation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMReaderTypeNegotiation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8215,21 +6386,7 @@ impl IWMRegisterCallback {
         (::windows::core::Vtable::vtable(self).Unadvise)(::windows::core::Vtable::as_raw(self), pcallback.into().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMRegisterCallback> for ::windows::core::IUnknown {
-    fn from(value: IWMRegisterCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMRegisterCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMRegisterCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMRegisterCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWMRegisterCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMRegisterCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMRegisterCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8328,21 +6485,7 @@ impl IWMRegisteredDevice {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMRegisteredDevice> for ::windows::core::IUnknown {
-    fn from(value: IWMRegisteredDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMRegisteredDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMRegisteredDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMRegisteredDevice> for ::windows::core::IUnknown {
-    fn from(value: &IWMRegisteredDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMRegisteredDevice, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMRegisteredDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8412,21 +6555,7 @@ impl IWMSBufferAllocator {
         (::windows::core::Vtable::vtable(self).AllocatePageSizeBuffer)(::windows::core::Vtable::as_raw(self), dwmaxbuffersize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INSSBuffer>(result__)
     }
 }
-impl ::core::convert::From<IWMSBufferAllocator> for ::windows::core::IUnknown {
-    fn from(value: IWMSBufferAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSBufferAllocator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSBufferAllocator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSBufferAllocator> for ::windows::core::IUnknown {
-    fn from(value: &IWMSBufferAllocator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSBufferAllocator, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMSBufferAllocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8517,21 +6646,7 @@ impl IWMSInternalAdminNetSource {
         (::windows::core::Vtable::vtable(self).IsUsingIE)(::windows::core::Vtable::as_raw(self), dwproxycontext, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWMSInternalAdminNetSource> for ::windows::core::IUnknown {
-    fn from(value: IWMSInternalAdminNetSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSInternalAdminNetSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSInternalAdminNetSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSInternalAdminNetSource> for ::windows::core::IUnknown {
-    fn from(value: &IWMSInternalAdminNetSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMSInternalAdminNetSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8621,21 +6736,7 @@ impl IWMSInternalAdminNetSource2 {
         (::windows::core::Vtable::vtable(self).FindProxyForURLEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprotocol), ::core::mem::transmute_copy(bstrhost), ::core::mem::transmute_copy(bstrurl), ::core::mem::transmute(pfproxyenabled), ::core::mem::transmute(pbstrproxyserver), ::core::mem::transmute(pdwproxyport), ::core::mem::transmute(pdwproxycontext)).ok()
     }
 }
-impl ::core::convert::From<IWMSInternalAdminNetSource2> for ::windows::core::IUnknown {
-    fn from(value: IWMSInternalAdminNetSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSInternalAdminNetSource2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSInternalAdminNetSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSInternalAdminNetSource2> for ::windows::core::IUnknown {
-    fn from(value: &IWMSInternalAdminNetSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMSInternalAdminNetSource2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8756,36 +6857,7 @@ impl IWMSInternalAdminNetSource3 {
         (::windows::core::Vtable::vtable(self).GetCredentialsEx2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrealm), ::core::mem::transmute_copy(bstrurl), fproxy.into(), fcleartextauthentication.into(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
 }
-impl ::core::convert::From<IWMSInternalAdminNetSource3> for ::windows::core::IUnknown {
-    fn from(value: IWMSInternalAdminNetSource3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSInternalAdminNetSource3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSInternalAdminNetSource3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSInternalAdminNetSource3> for ::windows::core::IUnknown {
-    fn from(value: &IWMSInternalAdminNetSource3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMSInternalAdminNetSource3> for IWMSInternalAdminNetSource2 {
-    fn from(value: IWMSInternalAdminNetSource3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSInternalAdminNetSource3> for &'a IWMSInternalAdminNetSource2 {
-    fn from(value: &'a IWMSInternalAdminNetSource3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSInternalAdminNetSource3> for IWMSInternalAdminNetSource2 {
-    fn from(value: &IWMSInternalAdminNetSource3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSInternalAdminNetSource3, ::windows::core::IUnknown, IWMSInternalAdminNetSource2);
 impl ::core::clone::Clone for IWMSInternalAdminNetSource3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8891,36 +6963,7 @@ impl IWMSecureChannel {
         (::windows::core::Vtable::vtable(self).WMSC_SetSharedData)(::windows::core::Vtable::as_raw(self), dwcertindex, ::core::mem::transmute(pbshareddata)).ok()
     }
 }
-impl ::core::convert::From<IWMSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: IWMSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSecureChannel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSecureChannel> for ::windows::core::IUnknown {
-    fn from(value: &IWMSecureChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMSecureChannel> for IWMAuthorizer {
-    fn from(value: IWMSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSecureChannel> for &'a IWMAuthorizer {
-    fn from(value: &'a IWMSecureChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSecureChannel> for IWMAuthorizer {
-    fn from(value: &IWMSecureChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSecureChannel, ::windows::core::IUnknown, IWMAuthorizer);
 impl ::core::clone::Clone for IWMSecureChannel {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -8970,21 +7013,7 @@ impl IWMStatusCallback {
         (::windows::core::Vtable::vtable(self).OnStatus)(::windows::core::Vtable::as_raw(self), status, hr, dwtype, ::core::mem::transmute(pvalue), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMStatusCallback> for ::windows::core::IUnknown {
-    fn from(value: IWMStatusCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStatusCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStatusCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStatusCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWMStatusCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStatusCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMStatusCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9061,21 +7090,7 @@ impl IWMStreamConfig {
         (::windows::core::Vtable::vtable(self).SetBufferWindow)(::windows::core::Vtable::as_raw(self), msbufferwindow).ok()
     }
 }
-impl ::core::convert::From<IWMStreamConfig> for ::windows::core::IUnknown {
-    fn from(value: IWMStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStreamConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig> for ::windows::core::IUnknown {
-    fn from(value: &IWMStreamConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStreamConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMStreamConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9182,36 +7197,7 @@ impl IWMStreamConfig2 {
         (::windows::core::Vtable::vtable(self).RemoveAllDataUnitExtensions)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMStreamConfig2> for ::windows::core::IUnknown {
-    fn from(value: IWMStreamConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStreamConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig2> for ::windows::core::IUnknown {
-    fn from(value: &IWMStreamConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMStreamConfig2> for IWMStreamConfig {
-    fn from(value: IWMStreamConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig2> for &'a IWMStreamConfig {
-    fn from(value: &'a IWMStreamConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig2> for IWMStreamConfig {
-    fn from(value: &IWMStreamConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStreamConfig2, ::windows::core::IUnknown, IWMStreamConfig);
 impl ::core::clone::Clone for IWMStreamConfig2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9322,51 +7308,7 @@ impl IWMStreamConfig3 {
         (::windows::core::Vtable::vtable(self).SetLanguage)(::windows::core::Vtable::as_raw(self), pwszlanguagestring.into()).ok()
     }
 }
-impl ::core::convert::From<IWMStreamConfig3> for ::windows::core::IUnknown {
-    fn from(value: IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig3> for ::windows::core::IUnknown {
-    fn from(value: &IWMStreamConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMStreamConfig3> for IWMStreamConfig {
-    fn from(value: IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig3> for &'a IWMStreamConfig {
-    fn from(value: &'a IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig3> for IWMStreamConfig {
-    fn from(value: &IWMStreamConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMStreamConfig3> for IWMStreamConfig2 {
-    fn from(value: IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamConfig3> for &'a IWMStreamConfig2 {
-    fn from(value: &'a IWMStreamConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamConfig3> for IWMStreamConfig2 {
-    fn from(value: &IWMStreamConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStreamConfig3, ::windows::core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
 impl ::core::clone::Clone for IWMStreamConfig3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9410,21 +7352,7 @@ impl IWMStreamList {
         (::windows::core::Vtable::vtable(self).RemoveStream)(::windows::core::Vtable::as_raw(self), wstreamnum).ok()
     }
 }
-impl ::core::convert::From<IWMStreamList> for ::windows::core::IUnknown {
-    fn from(value: IWMStreamList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStreamList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamList> for ::windows::core::IUnknown {
-    fn from(value: &IWMStreamList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStreamList, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMStreamList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9470,21 +7398,7 @@ impl IWMStreamPrioritization {
         (::windows::core::Vtable::vtable(self).SetPriorityRecords)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(precordarray), crecords).ok()
     }
 }
-impl ::core::convert::From<IWMStreamPrioritization> for ::windows::core::IUnknown {
-    fn from(value: IWMStreamPrioritization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMStreamPrioritization> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMStreamPrioritization) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMStreamPrioritization> for ::windows::core::IUnknown {
-    fn from(value: &IWMStreamPrioritization) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMStreamPrioritization, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMStreamPrioritization {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9622,21 +7536,7 @@ impl IWMSyncReader {
         (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pstream.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWMSyncReader> for ::windows::core::IUnknown {
-    fn from(value: IWMSyncReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSyncReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSyncReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSyncReader> for ::windows::core::IUnknown {
-    fn from(value: &IWMSyncReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSyncReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMSyncReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9823,36 +7723,7 @@ impl IWMSyncReader2 {
         (::windows::core::Vtable::vtable(self).GetAllocateForStream)(::windows::core::Vtable::as_raw(self), dwsreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReaderAllocatorEx>(result__)
     }
 }
-impl ::core::convert::From<IWMSyncReader2> for ::windows::core::IUnknown {
-    fn from(value: IWMSyncReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSyncReader2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMSyncReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSyncReader2> for ::windows::core::IUnknown {
-    fn from(value: &IWMSyncReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMSyncReader2> for IWMSyncReader {
-    fn from(value: IWMSyncReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMSyncReader2> for &'a IWMSyncReader {
-    fn from(value: &'a IWMSyncReader2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMSyncReader2> for IWMSyncReader {
-    fn from(value: &IWMSyncReader2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMSyncReader2, ::windows::core::IUnknown, IWMSyncReader);
 impl ::core::clone::Clone for IWMSyncReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9919,36 +7790,7 @@ impl IWMVideoMediaProps {
         (::windows::core::Vtable::vtable(self).SetQuality)(::windows::core::Vtable::as_raw(self), dwquality).ok()
     }
 }
-impl ::core::convert::From<IWMVideoMediaProps> for ::windows::core::IUnknown {
-    fn from(value: IWMVideoMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMVideoMediaProps> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMVideoMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMVideoMediaProps> for ::windows::core::IUnknown {
-    fn from(value: &IWMVideoMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMVideoMediaProps> for IWMMediaProps {
-    fn from(value: IWMVideoMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMVideoMediaProps> for &'a IWMMediaProps {
-    fn from(value: &'a IWMVideoMediaProps) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMVideoMediaProps> for IWMMediaProps {
-    fn from(value: &IWMVideoMediaProps) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMVideoMediaProps, ::windows::core::IUnknown, IWMMediaProps);
 impl ::core::clone::Clone for IWMVideoMediaProps {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -9993,21 +7835,7 @@ impl IWMWatermarkInfo {
         (::windows::core::Vtable::vtable(self).GetWatermarkEntry)(::windows::core::Vtable::as_raw(self), wmettype, dwentrynum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_WATERMARK_ENTRY>(result__)
     }
 }
-impl ::core::convert::From<IWMWatermarkInfo> for ::windows::core::IUnknown {
-    fn from(value: IWMWatermarkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWatermarkInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWatermarkInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWatermarkInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWMWatermarkInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWatermarkInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWatermarkInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10098,21 +7926,7 @@ impl IWMWriter {
         (::windows::core::Vtable::vtable(self).Flush)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriter> for ::windows::core::IUnknown {
-    fn from(value: IWMWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriter> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10213,21 +8027,7 @@ impl IWMWriterAdvanced {
         (::windows::core::Vtable::vtable(self).GetSyncTolerance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWMWriterAdvanced> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterAdvanced) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterAdvanced) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterAdvanced, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWriterAdvanced {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10344,36 +8144,7 @@ impl IWMWriterAdvanced2 {
         (::windows::core::Vtable::vtable(self).SetInputSetting)(::windows::core::Vtable::as_raw(self), dwinputnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
 }
-impl ::core::convert::From<IWMWriterAdvanced2> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced2> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterAdvanced2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterAdvanced2> for IWMWriterAdvanced {
-    fn from(value: IWMWriterAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced2> for &'a IWMWriterAdvanced {
-    fn from(value: &'a IWMWriterAdvanced2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced2> for IWMWriterAdvanced {
-    fn from(value: &IWMWriterAdvanced2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterAdvanced2, ::windows::core::IUnknown, IWMWriterAdvanced);
 impl ::core::clone::Clone for IWMWriterAdvanced2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10482,51 +8253,7 @@ impl IWMWriterAdvanced3 {
         (::windows::core::Vtable::vtable(self).SetNonBlocking)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterAdvanced3> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced3> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterAdvanced3> for IWMWriterAdvanced {
-    fn from(value: IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced3> for &'a IWMWriterAdvanced {
-    fn from(value: &'a IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced {
-    fn from(value: &IWMWriterAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterAdvanced3> for IWMWriterAdvanced2 {
-    fn from(value: IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterAdvanced3> for &'a IWMWriterAdvanced2 {
-    fn from(value: &'a IWMWriterAdvanced3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterAdvanced3> for IWMWriterAdvanced2 {
-    fn from(value: &IWMWriterAdvanced3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterAdvanced3, ::windows::core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
 impl ::core::clone::Clone for IWMWriterAdvanced3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10592,36 +8319,7 @@ impl IWMWriterFileSink {
         (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), pwszfilename.into()).ok()
     }
 }
-impl ::core::convert::From<IWMWriterFileSink> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterFileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterFileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterFileSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink> for IWMWriterSink {
-    fn from(value: IWMWriterFileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink> for &'a IWMWriterSink {
-    fn from(value: &'a IWMWriterFileSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink> for IWMWriterSink {
-    fn from(value: &IWMWriterFileSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterFileSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::clone::Clone for IWMWriterFileSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10715,51 +8413,7 @@ impl IWMWriterFileSink2 {
         (::windows::core::Vtable::vtable(self).IsClosed)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWMWriterFileSink2> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink2> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterFileSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink2> for IWMWriterSink {
-    fn from(value: IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink2> for &'a IWMWriterSink {
-    fn from(value: &'a IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink2> for IWMWriterSink {
-    fn from(value: &IWMWriterFileSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink2> for IWMWriterFileSink {
-    fn from(value: IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink2> for &'a IWMWriterFileSink {
-    fn from(value: &'a IWMWriterFileSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink2> for IWMWriterFileSink {
-    fn from(value: &IWMWriterFileSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterFileSink2, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink);
 impl ::core::clone::Clone for IWMWriterFileSink2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -10912,66 +8566,7 @@ impl IWMWriterFileSink3 {
         (::windows::core::Vtable::vtable(self).CompleteOperations)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterFileSink3> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink3> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterFileSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink3> for IWMWriterSink {
-    fn from(value: IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink3> for &'a IWMWriterSink {
-    fn from(value: &'a IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink3> for IWMWriterSink {
-    fn from(value: &IWMWriterFileSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink3> for IWMWriterFileSink {
-    fn from(value: IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink3> for &'a IWMWriterFileSink {
-    fn from(value: &'a IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink {
-    fn from(value: &IWMWriterFileSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterFileSink3> for IWMWriterFileSink2 {
-    fn from(value: IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterFileSink3> for &'a IWMWriterFileSink2 {
-    fn from(value: &'a IWMWriterFileSink3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterFileSink3> for IWMWriterFileSink2 {
-    fn from(value: &IWMWriterFileSink3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterFileSink3, ::windows::core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
 impl ::core::clone::Clone for IWMWriterFileSink3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11078,36 +8673,7 @@ impl IWMWriterNetworkSink {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterNetworkSink> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterNetworkSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterNetworkSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterNetworkSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterNetworkSink> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterNetworkSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterNetworkSink> for IWMWriterSink {
-    fn from(value: IWMWriterNetworkSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterNetworkSink> for &'a IWMWriterSink {
-    fn from(value: &'a IWMWriterNetworkSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterNetworkSink> for IWMWriterSink {
-    fn from(value: &IWMWriterNetworkSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterNetworkSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::clone::Clone for IWMWriterNetworkSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11200,21 +8766,7 @@ impl IWMWriterPostView {
         (::windows::core::Vtable::vtable(self).GetAllocateForPostView)(::windows::core::Vtable::as_raw(self), wstreamnumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWMWriterPostView> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterPostView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPostView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterPostView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPostView> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterPostView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterPostView, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWriterPostView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11280,36 +8832,7 @@ impl IWMWriterPostViewCallback {
         (::windows::core::Vtable::vtable(self).AllocateForPostView)(::windows::core::Vtable::as_raw(self), wstreamnum, cbbuffer, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pvcontext)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterPostViewCallback> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterPostViewCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPostViewCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterPostViewCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPostViewCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterPostViewCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterPostViewCallback> for IWMStatusCallback {
-    fn from(value: IWMWriterPostViewCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPostViewCallback> for &'a IWMStatusCallback {
-    fn from(value: &'a IWMWriterPostViewCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPostViewCallback> for IWMStatusCallback {
-    fn from(value: &IWMWriterPostViewCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterPostViewCallback, ::windows::core::IUnknown, IWMStatusCallback);
 impl ::core::clone::Clone for IWMWriterPostViewCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11363,21 +8886,7 @@ impl IWMWriterPreprocess {
         (::windows::core::Vtable::vtable(self).EndPreprocessingPass)(::windows::core::Vtable::as_raw(self), dwinputnum, dwflags).ok()
     }
 }
-impl ::core::convert::From<IWMWriterPreprocess> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterPreprocess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPreprocess> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterPreprocess) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPreprocess> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterPreprocess) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterPreprocess, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWriterPreprocess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11456,36 +8965,7 @@ impl IWMWriterPushSink {
         (::windows::core::Vtable::vtable(self).EndSession)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterPushSink> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterPushSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPushSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterPushSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPushSink> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterPushSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWMWriterPushSink> for IWMWriterSink {
-    fn from(value: IWMWriterPushSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterPushSink> for &'a IWMWriterSink {
-    fn from(value: &'a IWMWriterPushSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterPushSink> for IWMWriterSink {
-    fn from(value: &IWMWriterPushSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterPushSink, ::windows::core::IUnknown, IWMWriterSink);
 impl ::core::clone::Clone for IWMWriterPushSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -11549,21 +9029,7 @@ impl IWMWriterSink {
         (::windows::core::Vtable::vtable(self).OnEndWriting)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWMWriterSink> for ::windows::core::IUnknown {
-    fn from(value: IWMWriterSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWMWriterSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWMWriterSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWMWriterSink> for ::windows::core::IUnknown {
-    fn from(value: &IWMWriterSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWMWriterSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWMWriterSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())

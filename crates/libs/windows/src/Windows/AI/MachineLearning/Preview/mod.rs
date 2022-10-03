@@ -322,41 +322,7 @@ impl ILearningModelVariableDescriptorPreview {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ILearningModelVariableDescriptorPreview> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: ILearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::From<&'a ILearningModelVariableDescriptorPreview> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ILearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILearningModelVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for ILearningModelVariableDescriptorPreview {
     fn clone(&self) -> Self {
@@ -608,41 +574,7 @@ impl ::windows::core::RuntimeName for ImageVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ImageVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: ImageVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ImageVariableDescriptorPreview> for &::windows::core::IUnknown {
-    fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<ImageVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: ImageVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ImageVariableDescriptorPreview> for &::windows::core::IInspectable {
-    fn from(value: &ImageVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<ImageVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::core::Error;
@@ -788,41 +720,7 @@ impl ::windows::core::RuntimeName for InferencingOptionsPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.InferencingOptionsPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<InferencingOptionsPreview> for ::windows::core::IUnknown {
-    fn from(value: InferencingOptionsPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IUnknown {
-    fn from(value: &InferencingOptionsPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&InferencingOptionsPreview> for &::windows::core::IUnknown {
-    fn from(value: &InferencingOptionsPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<InferencingOptionsPreview> for ::windows::core::IInspectable {
-    fn from(value: InferencingOptionsPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IInspectable {
-    fn from(value: &InferencingOptionsPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&InferencingOptionsPreview> for &::windows::core::IInspectable {
-    fn from(value: &InferencingOptionsPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InferencingOptionsPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -969,41 +867,7 @@ impl ::core::iter::IntoIterator for &LearningModelBindingPreview {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelBindingPreview> for ::windows::core::IUnknown {
-    fn from(value: LearningModelBindingPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelBindingPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelBindingPreview> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelBindingPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelBindingPreview> for ::windows::core::IInspectable {
-    fn from(value: LearningModelBindingPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelBindingPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelBindingPreview> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelBindingPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelBindingPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl ::core::convert::TryFrom<LearningModelBindingPreview> for super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -1168,41 +1032,7 @@ impl ::windows::core::RuntimeName for LearningModelDescriptionPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelDescriptionPreview> for ::windows::core::IUnknown {
-    fn from(value: LearningModelDescriptionPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelDescriptionPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelDescriptionPreview> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelDescriptionPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelDescriptionPreview> for ::windows::core::IInspectable {
-    fn from(value: LearningModelDescriptionPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelDescriptionPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelDescriptionPreview> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelDescriptionPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelDescriptionPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1269,41 +1099,7 @@ impl ::windows::core::RuntimeName for LearningModelEvaluationResultPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelEvaluationResultPreview> for ::windows::core::IUnknown {
-    fn from(value: LearningModelEvaluationResultPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelEvaluationResultPreview> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelEvaluationResultPreview> for ::windows::core::IInspectable {
-    fn from(value: LearningModelEvaluationResultPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelEvaluationResultPreview> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelEvaluationResultPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1428,41 +1224,7 @@ impl ::windows::core::RuntimeName for LearningModelPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelPreview> for ::windows::core::IUnknown {
-    fn from(value: LearningModelPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelPreview> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelPreview> for ::windows::core::IInspectable {
-    fn from(value: LearningModelPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelPreview> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1547,41 +1309,7 @@ impl ::windows::core::RuntimeName for LearningModelVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: LearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for &::windows::core::IUnknown {
-    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<LearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: LearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for &::windows::core::IInspectable {
-    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(LearningModelVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<LearningModelVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::core::Error;
@@ -1724,41 +1452,7 @@ impl ::windows::core::RuntimeName for MapVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<MapVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: MapVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &MapVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&MapVariableDescriptorPreview> for &::windows::core::IUnknown {
-    fn from(value: &MapVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<MapVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: MapVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &MapVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&MapVariableDescriptorPreview> for &::windows::core::IInspectable {
-    fn from(value: &MapVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(MapVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<MapVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::core::Error;
@@ -1874,41 +1568,7 @@ impl ::windows::core::RuntimeName for SequenceVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<SequenceVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: SequenceVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SequenceVariableDescriptorPreview> for &::windows::core::IUnknown {
-    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<SequenceVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: SequenceVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&SequenceVariableDescriptorPreview> for &::windows::core::IInspectable {
-    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SequenceVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SequenceVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::core::Error;
@@ -2033,41 +1693,7 @@ impl ::windows::core::RuntimeName for TensorVariableDescriptorPreview {
     const NAME: &'static str = "Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview";
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<TensorVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: TensorVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core::IUnknown {
-    fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TensorVariableDescriptorPreview> for &::windows::core::IUnknown {
-    fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<TensorVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: TensorVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core::IInspectable {
-    fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&TensorVariableDescriptorPreview> for &::windows::core::IInspectable {
-    fn from(value: &TensorVariableDescriptorPreview) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(TensorVariableDescriptorPreview, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<TensorVariableDescriptorPreview> for ILearningModelVariableDescriptorPreview {
     type Error = ::windows::core::Error;

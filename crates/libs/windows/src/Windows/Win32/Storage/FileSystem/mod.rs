@@ -5324,41 +5324,7 @@ impl IDiskQuotaControl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDiskQuotaControl> for ::windows::core::IUnknown {
-    fn from(value: IDiskQuotaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDiskQuotaControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDiskQuotaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDiskQuotaControl> for ::windows::core::IUnknown {
-    fn from(value: &IDiskQuotaControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
-    fn from(value: IDiskQuotaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IDiskQuotaControl> for &'a super::super::System::Com::IConnectionPointContainer {
-    fn from(value: &'a IDiskQuotaControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDiskQuotaControl> for super::super::System::Com::IConnectionPointContainer {
-    fn from(value: &IDiskQuotaControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDiskQuotaControl, ::windows::core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IDiskQuotaControl {
     fn clone(&self) -> Self {
@@ -5437,21 +5403,7 @@ impl IDiskQuotaEvents {
         (::windows::core::Vtable::vtable(self).OnUserNameChanged)(::windows::core::Vtable::as_raw(self), puser.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDiskQuotaEvents> for ::windows::core::IUnknown {
-    fn from(value: IDiskQuotaEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDiskQuotaEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDiskQuotaEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDiskQuotaEvents> for ::windows::core::IUnknown {
-    fn from(value: &IDiskQuotaEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDiskQuotaEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDiskQuotaEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5554,21 +5506,7 @@ impl IDiskQuotaUser {
         (::windows::core::Vtable::vtable(self).GetAccountStatus)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwstatus)).ok()
     }
 }
-impl ::core::convert::From<IDiskQuotaUser> for ::windows::core::IUnknown {
-    fn from(value: IDiskQuotaUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDiskQuotaUser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDiskQuotaUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDiskQuotaUser> for ::windows::core::IUnknown {
-    fn from(value: &IDiskQuotaUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDiskQuotaUser, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDiskQuotaUser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5640,21 +5578,7 @@ impl IDiskQuotaUserBatch {
         (::windows::core::Vtable::vtable(self).FlushToDisk)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDiskQuotaUserBatch> for ::windows::core::IUnknown {
-    fn from(value: IDiskQuotaUserBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDiskQuotaUserBatch> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDiskQuotaUserBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDiskQuotaUserBatch> for ::windows::core::IUnknown {
-    fn from(value: &IDiskQuotaUserBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDiskQuotaUserBatch, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDiskQuotaUserBatch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5704,21 +5628,7 @@ impl IEnumDiskQuotaUsers {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumDiskQuotaUsers>(result__)
     }
 }
-impl ::core::convert::From<IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
-    fn from(value: IEnumDiskQuotaUsers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumDiskQuotaUsers> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumDiskQuotaUsers) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumDiskQuotaUsers> for ::windows::core::IUnknown {
-    fn from(value: &IEnumDiskQuotaUsers) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumDiskQuotaUsers {
     fn clone(&self) -> Self {
         Self(self.0.clone())

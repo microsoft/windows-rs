@@ -24,21 +24,7 @@ impl IMILBitmapEffect {
         (::windows::core::Vtable::vtable(self).SetInputSource)(::windows::core::Vtable::as_raw(self), uiindex, pbitmapsource.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffect> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffect> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -88,21 +74,7 @@ impl IMILBitmapEffectConnections {
         (::windows::core::Vtable::vtable(self).GetOutputConnector)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectOutputConnector>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectConnections> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnections> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectConnections) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectConnections> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectConnections) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectConnections, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectConnections {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -153,21 +125,7 @@ impl IMILBitmapEffectConnectionsInfo {
         (::windows::core::Vtable::vtable(self).GetOutputConnectorInfo)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectConnectorInfo>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectConnectionsInfo> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectConnectionsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnectionsInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectConnectionsInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectConnectionsInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectConnectionsInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectConnectionsInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectConnectionsInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -228,36 +186,7 @@ impl IMILBitmapEffectConnector {
         (::windows::core::Vtable::vtable(self).GetBitmapEffect)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffect>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectConnector> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectConnector> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMILBitmapEffectConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: IMILBitmapEffectConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnector> for &'a IMILBitmapEffectConnectorInfo {
-    fn from(value: &'a IMILBitmapEffectConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: &IMILBitmapEffectConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo);
 impl ::core::clone::Clone for IMILBitmapEffectConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -308,21 +237,7 @@ impl IMILBitmapEffectConnectorInfo {
         (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), ulindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectConnectorInfo> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectConnectorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectConnectorInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectConnectorInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectConnectorInfo> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectConnectorInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectConnectorInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectConnectorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -371,21 +286,7 @@ impl IMILBitmapEffectEvents {
         (::windows::core::Vtable::vtable(self).DirtyRegion)(::windows::core::Vtable::as_raw(self), peffect.into().abi(), ::core::mem::transmute(prect)).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectEvents> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectEvents> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -432,21 +333,7 @@ impl IMILBitmapEffectFactory {
         (::windows::core::Vtable::vtable(self).CreateEffectOuter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffect>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectFactory> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectFactory> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -496,21 +383,7 @@ impl IMILBitmapEffectGroup {
         (::windows::core::Vtable::vtable(self).Add)(::windows::core::Vtable::as_raw(self), peffect.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectGroup> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectGroup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectGroup> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectGroup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -560,21 +433,7 @@ impl IMILBitmapEffectGroupImpl {
         (::windows::core::Vtable::vtable(self).GetChildren)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffects>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectGroupImpl> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectGroupImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectGroupImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectGroupImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectGroupImpl> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectGroupImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectGroupImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectGroupImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -655,21 +514,7 @@ impl IMILBitmapEffectImpl {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pinner.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectImpl> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectImpl> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -752,51 +597,7 @@ impl IMILBitmapEffectInputConnector {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectOutputConnector>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectInputConnector> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectInputConnector> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectInputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a IMILBitmapEffectConnectorInfo {
-    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: &IMILBitmapEffectInputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMILBitmapEffectInputConnector> for IMILBitmapEffectConnector {
-    fn from(value: IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectInputConnector> for &'a IMILBitmapEffectConnector {
-    fn from(value: &'a IMILBitmapEffectInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectInputConnector> for IMILBitmapEffectConnector {
-    fn from(value: &IMILBitmapEffectInputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectInputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
 impl ::core::clone::Clone for IMILBitmapEffectInputConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -835,21 +636,7 @@ impl IMILBitmapEffectInteriorInputConnector {
         (::windows::core::Vtable::vtable(self).GetInputConnector)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectInteriorInputConnector> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectInteriorInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectInteriorInputConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectInteriorInputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectInteriorInputConnector> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectInteriorInputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectInteriorInputConnector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectInteriorInputConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -887,21 +674,7 @@ impl IMILBitmapEffectInteriorOutputConnector {
         (::windows::core::Vtable::vtable(self).GetOutputConnector)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectOutputConnector>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectInteriorOutputConnector> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectInteriorOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectInteriorOutputConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectInteriorOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectInteriorOutputConnector> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectInteriorOutputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectInteriorOutputConnector, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectInteriorOutputConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -967,51 +740,7 @@ impl IMILBitmapEffectOutputConnector {
         (::windows::core::Vtable::vtable(self).GetConnection)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMILBitmapEffectInputConnector>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectOutputConnector> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a IMILBitmapEffectConnectorInfo {
-    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnectorInfo {
-    fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnector {
-    fn from(value: IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnector> for &'a IMILBitmapEffectConnector {
-    fn from(value: &'a IMILBitmapEffectOutputConnector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectOutputConnector> for IMILBitmapEffectConnector {
-    fn from(value: &IMILBitmapEffectOutputConnector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectOutputConnector, ::windows::core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
 impl ::core::clone::Clone for IMILBitmapEffectOutputConnector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1058,21 +787,7 @@ impl IMILBitmapEffectOutputConnectorImpl {
         (::windows::core::Vtable::vtable(self).RemoveBackLink)(::windows::core::Vtable::as_raw(self), pconnection.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectOutputConnectorImpl> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectOutputConnectorImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectOutputConnectorImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectOutputConnectorImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectOutputConnectorImpl> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectOutputConnectorImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectOutputConnectorImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectOutputConnectorImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1140,21 +855,7 @@ impl IMILBitmapEffectPrimitive {
         (::windows::core::Vtable::vtable(self).GetAffineMatrix)(::windows::core::Vtable::as_raw(self), uiindex, ::core::mem::transmute(pmatrix)).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectPrimitive> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectPrimitive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectPrimitive> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectPrimitive) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectPrimitive> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectPrimitive) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectPrimitive, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectPrimitive {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1206,21 +907,7 @@ impl IMILBitmapEffectPrimitiveImpl {
         (::windows::core::Vtable::vtable(self).IsVolatile)(::windows::core::Vtable::as_raw(self), uioutputindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffectPrimitiveImpl> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectPrimitiveImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectPrimitiveImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectPrimitiveImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectPrimitiveImpl> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectPrimitiveImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectPrimitiveImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1281,21 +968,7 @@ impl IMILBitmapEffectRenderContext {
         (::windows::core::Vtable::vtable(self).SetRegionOfInterest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect)).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectRenderContext> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectRenderContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectRenderContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectRenderContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectRenderContext> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectRenderContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectRenderContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1352,21 +1025,7 @@ impl IMILBitmapEffectRenderContextImpl {
         (::windows::core::Vtable::vtable(self).UpdateOutputBounds)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prect)).ok()
     }
 }
-impl ::core::convert::From<IMILBitmapEffectRenderContextImpl> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffectRenderContextImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffectRenderContextImpl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffectRenderContextImpl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffectRenderContextImpl> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffectRenderContextImpl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffectRenderContextImpl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1420,21 +1079,7 @@ impl IMILBitmapEffects {
         (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IMILBitmapEffects> for ::windows::core::IUnknown {
-    fn from(value: IMILBitmapEffects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMILBitmapEffects> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMILBitmapEffects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMILBitmapEffects> for ::windows::core::IUnknown {
-    fn from(value: &IMILBitmapEffects) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMILBitmapEffects, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMILBitmapEffects {
     fn clone(&self) -> Self {
         Self(self.0.clone())

@@ -47,36 +47,7 @@ impl IUserDataAccountProviderOperation {
         }
     }
 }
-impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IUnknown {
-    fn from(value: IUserDataAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserDataAccountProviderOperation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IUserDataAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IUnknown {
-    fn from(value: &IUserDataAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: IUserDataAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IUserDataAccountProviderOperation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IUserDataAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: &IUserDataAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IUserDataAccountProviderOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IUserDataAccountProviderOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -202,36 +173,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountPartnerAccountInfo {
 impl ::windows::core::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
 }
-impl ::core::convert::From<UserDataAccountPartnerAccountInfo> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountPartnerAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountPartnerAccountInfo> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountPartnerAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountPartnerAccountInfo> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountPartnerAccountInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountPartnerAccountInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
@@ -298,36 +240,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderAddAccountOper
 impl ::windows::core::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
 }
-impl ::core::convert::From<UserDataAccountProviderAddAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountProviderAddAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderAddAccountOperation> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderAddAccountOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderAddAccountOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderAddAccountOperation) -> ::windows::core::Result<Self> {
@@ -404,36 +317,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderResolveErrorsO
 impl ::windows::core::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
 }
-impl ::core::convert::From<UserDataAccountProviderResolveErrorsOperation> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountProviderResolveErrorsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountProviderResolveErrorsOperation> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountProviderResolveErrorsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderResolveErrorsOperation> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderResolveErrorsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderResolveErrorsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderResolveErrorsOperation) -> ::windows::core::Result<Self> {
@@ -510,36 +394,7 @@ unsafe impl ::windows::core::Interface for UserDataAccountProviderSettingsOperat
 impl ::windows::core::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";
 }
-impl ::core::convert::From<UserDataAccountProviderSettingsOperation> for ::windows::core::IUnknown {
-    fn from(value: UserDataAccountProviderSettingsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for ::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for &::windows::core::IUnknown {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataAccountProviderSettingsOperation> for ::windows::core::IInspectable {
-    fn from(value: UserDataAccountProviderSettingsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for ::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataAccountProviderSettingsOperation> for &::windows::core::IInspectable {
-    fn from(value: &UserDataAccountProviderSettingsOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataAccountProviderSettingsOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<UserDataAccountProviderSettingsOperation> for IUserDataAccountProviderOperation {
     type Error = ::windows::core::Error;
     fn try_from(value: UserDataAccountProviderSettingsOperation) -> ::windows::core::Result<Self> {

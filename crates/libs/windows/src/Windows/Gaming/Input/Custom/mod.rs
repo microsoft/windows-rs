@@ -30,36 +30,7 @@ impl ICustomGameControllerFactory {
         unsafe { (::windows::core::Vtable::vtable(this).OnGameControllerRemoved)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
-impl ::core::convert::From<ICustomGameControllerFactory> for ::windows::core::IUnknown {
-    fn from(value: ICustomGameControllerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICustomGameControllerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICustomGameControllerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICustomGameControllerFactory> for ::windows::core::IUnknown {
-    fn from(value: &ICustomGameControllerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICustomGameControllerFactory> for ::windows::core::IInspectable {
-    fn from(value: ICustomGameControllerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICustomGameControllerFactory> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICustomGameControllerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICustomGameControllerFactory> for ::windows::core::IInspectable {
-    fn from(value: &ICustomGameControllerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICustomGameControllerFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICustomGameControllerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -142,36 +113,7 @@ impl IGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: IGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerInputSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: &IGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerInputSink> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGameControllerInputSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -248,36 +190,7 @@ impl IGameControllerProvider {
         }
     }
 }
-impl ::core::convert::From<IGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: IGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &IGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameControllerProvider> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGameControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -355,36 +268,7 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IGipGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: IGipGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGipGameControllerInputSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGipGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGipGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: &IGipGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGipGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IGipGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGipGameControllerInputSink> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGipGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGipGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IGipGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGipGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IGipGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IGipGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -477,36 +361,7 @@ impl IHidGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IHidGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: IHidGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHidGameControllerInputSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IHidGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHidGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: &IHidGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IHidGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IHidGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IHidGameControllerInputSink> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IHidGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHidGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IHidGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IHidGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IHidGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IHidGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -597,36 +452,7 @@ impl IXusbGameControllerInputSink {
         unsafe { (::windows::core::Vtable::vtable(this).OnInputSuspended)(::windows::core::Vtable::as_raw(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IXusbGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: IXusbGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXusbGameControllerInputSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXusbGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXusbGameControllerInputSink> for ::windows::core::IUnknown {
-    fn from(value: &IXusbGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXusbGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IXusbGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXusbGameControllerInputSink> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXusbGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXusbGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IXusbGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXusbGameControllerInputSink, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXusbGameControllerInputSink> for IGameControllerInputSink {
     type Error = ::windows::core::Error;
     fn try_from(value: IXusbGameControllerInputSink) -> ::windows::core::Result<Self> {
@@ -804,36 +630,7 @@ unsafe impl ::windows::core::Interface for GipFirmwareUpdateResult {
 impl ::windows::core::RuntimeName for GipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult";
 }
-impl ::core::convert::From<GipFirmwareUpdateResult> for ::windows::core::IUnknown {
-    fn from(value: GipFirmwareUpdateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GipFirmwareUpdateResult> for ::windows::core::IUnknown {
-    fn from(value: &GipFirmwareUpdateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GipFirmwareUpdateResult> for &::windows::core::IUnknown {
-    fn from(value: &GipFirmwareUpdateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GipFirmwareUpdateResult> for ::windows::core::IInspectable {
-    fn from(value: GipFirmwareUpdateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GipFirmwareUpdateResult> for ::windows::core::IInspectable {
-    fn from(value: &GipFirmwareUpdateResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GipFirmwareUpdateResult> for &::windows::core::IInspectable {
-    fn from(value: &GipFirmwareUpdateResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GipFirmwareUpdateResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GipFirmwareUpdateResult {}
 unsafe impl ::core::marker::Sync for GipFirmwareUpdateResult {}
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
@@ -929,36 +726,7 @@ unsafe impl ::windows::core::Interface for GipGameControllerProvider {
 impl ::windows::core::RuntimeName for GipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipGameControllerProvider";
 }
-impl ::core::convert::From<GipGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: GipGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GipGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &GipGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GipGameControllerProvider> for &::windows::core::IUnknown {
-    fn from(value: &GipGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GipGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: GipGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GipGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &GipGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GipGameControllerProvider> for &::windows::core::IInspectable {
-    fn from(value: &GipGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GipGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GipGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: GipGameControllerProvider) -> ::windows::core::Result<Self> {
@@ -1078,36 +846,7 @@ unsafe impl ::windows::core::Interface for HidGameControllerProvider {
 impl ::windows::core::RuntimeName for HidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.HidGameControllerProvider";
 }
-impl ::core::convert::From<HidGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: HidGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &HidGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidGameControllerProvider> for &::windows::core::IUnknown {
-    fn from(value: &HidGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HidGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: HidGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HidGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &HidGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HidGameControllerProvider> for &::windows::core::IInspectable {
-    fn from(value: &HidGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HidGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<HidGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: HidGameControllerProvider) -> ::windows::core::Result<Self> {
@@ -1205,36 +944,7 @@ unsafe impl ::windows::core::Interface for XusbGameControllerProvider {
 impl ::windows::core::RuntimeName for XusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";
 }
-impl ::core::convert::From<XusbGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: XusbGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XusbGameControllerProvider> for ::windows::core::IUnknown {
-    fn from(value: &XusbGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XusbGameControllerProvider> for &::windows::core::IUnknown {
-    fn from(value: &XusbGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XusbGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: XusbGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XusbGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &XusbGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XusbGameControllerProvider> for &::windows::core::IInspectable {
-    fn from(value: &XusbGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XusbGameControllerProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XusbGameControllerProvider> for IGameControllerProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: XusbGameControllerProvider) -> ::windows::core::Result<Self> {

@@ -1295,36 +1295,7 @@ unsafe impl ::windows::core::Interface for CardAddedEventArgs {
 impl ::windows::core::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
 }
-impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CardAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
 unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1371,36 +1342,7 @@ unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
 impl ::windows::core::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
 }
-impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CardRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1502,36 +1444,7 @@ unsafe impl ::windows::core::Interface for SmartCard {
 impl ::windows::core::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
 }
-impl ::core::convert::From<SmartCard> for ::windows::core::IUnknown {
-    fn from(value: SmartCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCard> for ::windows::core::IUnknown {
-    fn from(value: &SmartCard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCard> for &::windows::core::IUnknown {
-    fn from(value: &SmartCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCard> for ::windows::core::IInspectable {
-    fn from(value: SmartCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCard> for ::windows::core::IInspectable {
-    fn from(value: &SmartCard) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCard> for &::windows::core::IInspectable {
-    fn from(value: &SmartCard) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCard, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1709,36 +1622,7 @@ unsafe impl ::windows::core::Interface for SmartCardAppletIdGroup {
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
 }
-impl ::core::convert::From<SmartCardAppletIdGroup> for ::windows::core::IUnknown {
-    fn from(value: SmartCardAppletIdGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroup> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardAppletIdGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroup> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardAppletIdGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardAppletIdGroup> for ::windows::core::IInspectable {
-    fn from(value: SmartCardAppletIdGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroup> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardAppletIdGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroup> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardAppletIdGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardAppletIdGroup, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1837,36 +1721,7 @@ unsafe impl ::windows::core::Interface for SmartCardAppletIdGroupRegistration {
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
 }
-impl ::core::convert::From<SmartCardAppletIdGroupRegistration> for ::windows::core::IUnknown {
-    fn from(value: SmartCardAppletIdGroupRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardAppletIdGroupRegistration> for ::windows::core::IInspectable {
-    fn from(value: SmartCardAppletIdGroupRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardAppletIdGroupRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2061,36 +1916,7 @@ unsafe impl ::windows::core::Interface for SmartCardAutomaticResponseApdu {
 impl ::windows::core::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
 }
-impl ::core::convert::From<SmartCardAutomaticResponseApdu> for ::windows::core::IUnknown {
-    fn from(value: SmartCardAutomaticResponseApdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardAutomaticResponseApdu> for ::windows::core::IInspectable {
-    fn from(value: SmartCardAutomaticResponseApdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardAutomaticResponseApdu, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2199,36 +2025,7 @@ unsafe impl ::windows::core::Interface for SmartCardChallengeContext {
 impl ::windows::core::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
 }
-impl ::core::convert::From<SmartCardChallengeContext> for ::windows::core::IUnknown {
-    fn from(value: SmartCardChallengeContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardChallengeContext> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardChallengeContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardChallengeContext> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardChallengeContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardChallengeContext> for ::windows::core::IInspectable {
-    fn from(value: SmartCardChallengeContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardChallengeContext> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardChallengeContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardChallengeContext> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardChallengeContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardChallengeContext, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SmartCardChallengeContext> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2309,36 +2106,7 @@ unsafe impl ::windows::core::Interface for SmartCardConnection {
 impl ::windows::core::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
 }
-impl ::core::convert::From<SmartCardConnection> for ::windows::core::IUnknown {
-    fn from(value: SmartCardConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardConnection> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardConnection> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardConnection> for ::windows::core::IInspectable {
-    fn from(value: SmartCardConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardConnection> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardConnection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardConnection> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardConnection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardConnection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SmartCardConnection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2591,36 +2359,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGenerator {
 impl ::windows::core::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
 }
-impl ::core::convert::From<SmartCardCryptogramGenerator> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGenerator> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGenerator> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramGenerator> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGenerator> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGenerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGenerator> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGenerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramGenerator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2683,36 +2422,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMa
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
 }
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2775,36 +2485,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMa
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
 }
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -2867,36 +2548,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramSt
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
 }
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3005,36 +2657,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialCharacteri
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
 }
-impl ::core::convert::From<SmartCardCryptogramMaterialCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramMaterialCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramMaterialCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramMaterialCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3111,36 +2734,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPackageCha
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
 }
-impl ::core::convert::From<SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3196,36 +2790,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPossession
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
 }
-impl ::core::convert::From<SmartCardCryptogramMaterialPossessionProof> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramMaterialPossessionProof) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramMaterialPossessionProof> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramMaterialPossessionProof) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3379,36 +2944,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramPlacementStep {
 impl ::windows::core::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
 }
-impl ::core::convert::From<SmartCardCryptogramPlacementStep> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramPlacementStep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramPlacementStep> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramPlacementStep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramPlacementStep, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3485,36 +3021,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyCharacte
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
 }
-impl ::core::convert::From<SmartCardCryptogramStorageKeyCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramStorageKeyCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3618,36 +3125,7 @@ unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyInfo {
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
 }
-impl ::core::convert::From<SmartCardCryptogramStorageKeyInfo> for ::windows::core::IUnknown {
-    fn from(value: SmartCardCryptogramStorageKeyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardCryptogramStorageKeyInfo> for ::windows::core::IInspectable {
-    fn from(value: SmartCardCryptogramStorageKeyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3794,36 +3272,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulator {
 impl ::windows::core::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
 }
-impl ::core::convert::From<SmartCardEmulator> for ::windows::core::IUnknown {
-    fn from(value: SmartCardEmulator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulator> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulator> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardEmulator> for ::windows::core::IInspectable {
-    fn from(value: SmartCardEmulator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulator> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulator> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardEmulator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
 unsafe impl ::core::marker::Sync for SmartCardEmulator {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -3953,36 +3402,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorApduReceivedEventArg
 impl ::windows::core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
 }
-impl ::core::convert::From<SmartCardEmulatorApduReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardEmulatorApduReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4036,36 +3456,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionDeactivate
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
 }
-impl ::core::convert::From<SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4119,36 +3510,7 @@ unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionProperties
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
 }
-impl ::core::convert::From<SmartCardEmulatorConnectionProperties> for ::windows::core::IUnknown {
-    fn from(value: SmartCardEmulatorConnectionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardEmulatorConnectionProperties> for ::windows::core::IInspectable {
-    fn from(value: SmartCardEmulatorConnectionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardEmulatorConnectionProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4261,36 +3623,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinPolicy {
 impl ::windows::core::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
 }
-impl ::core::convert::From<SmartCardPinPolicy> for ::windows::core::IUnknown {
-    fn from(value: SmartCardPinPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinPolicy> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardPinPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinPolicy> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardPinPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardPinPolicy> for ::windows::core::IInspectable {
-    fn from(value: SmartCardPinPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinPolicy> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardPinPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinPolicy> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardPinPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardPinPolicy, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4334,36 +3667,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetDeferral {
 impl ::windows::core::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
 }
-impl ::core::convert::From<SmartCardPinResetDeferral> for ::windows::core::IUnknown {
-    fn from(value: SmartCardPinResetDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetDeferral> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardPinResetDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetDeferral> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardPinResetDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardPinResetDeferral> for ::windows::core::IInspectable {
-    fn from(value: SmartCardPinResetDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetDeferral> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardPinResetDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetDeferral> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardPinResetDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardPinResetDeferral, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4438,36 +3742,7 @@ unsafe impl ::windows::core::Interface for SmartCardPinResetRequest {
 impl ::windows::core::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
 }
-impl ::core::convert::From<SmartCardPinResetRequest> for ::windows::core::IUnknown {
-    fn from(value: SmartCardPinResetRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetRequest> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardPinResetRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetRequest> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardPinResetRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardPinResetRequest> for ::windows::core::IInspectable {
-    fn from(value: SmartCardPinResetRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetRequest> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardPinResetRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardPinResetRequest> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardPinResetRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardPinResetRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4642,36 +3917,7 @@ unsafe impl ::windows::core::Interface for SmartCardProvisioning {
 impl ::windows::core::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
 }
-impl ::core::convert::From<SmartCardProvisioning> for ::windows::core::IUnknown {
-    fn from(value: SmartCardProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardProvisioning> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardProvisioning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardProvisioning> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardProvisioning> for ::windows::core::IInspectable {
-    fn from(value: SmartCardProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardProvisioning> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardProvisioning) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardProvisioning> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardProvisioning) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardProvisioning, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
 unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4805,36 +4051,7 @@ unsafe impl ::windows::core::Interface for SmartCardReader {
 impl ::windows::core::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
 }
-impl ::core::convert::From<SmartCardReader> for ::windows::core::IUnknown {
-    fn from(value: SmartCardReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardReader> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardReader> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardReader> for ::windows::core::IInspectable {
-    fn from(value: SmartCardReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardReader> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardReader> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4931,36 +4148,7 @@ unsafe impl ::windows::core::Interface for SmartCardTriggerDetails {
 impl ::windows::core::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";
 }
-impl ::core::convert::From<SmartCardTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: SmartCardTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &SmartCardTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &SmartCardTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<SmartCardTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: SmartCardTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&SmartCardTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &SmartCardTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&SmartCardTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &SmartCardTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SmartCardTriggerDetails, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]

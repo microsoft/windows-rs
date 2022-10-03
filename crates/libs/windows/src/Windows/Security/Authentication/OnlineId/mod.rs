@@ -278,36 +278,7 @@ unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
 impl ::windows::core::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
 }
-impl ::core::convert::From<OnlineIdAuthenticator> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdAuthenticator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdAuthenticator> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdAuthenticator> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdAuthenticator> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdAuthenticator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdAuthenticator> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdAuthenticator> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdAuthenticator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdAuthenticator, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
 unsafe impl ::core::marker::Sync for OnlineIdAuthenticator {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -368,36 +339,7 @@ unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
 impl ::windows::core::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
 }
-impl ::core::convert::From<OnlineIdServiceTicket> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdServiceTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicket> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicket> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdServiceTicket> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdServiceTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicket> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicket> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdServiceTicket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdServiceTicket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicket {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -468,36 +410,7 @@ unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
 impl ::windows::core::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
 }
-impl ::core::convert::From<OnlineIdServiceTicketRequest> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdServiceTicketRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicketRequest> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicketRequest> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdServiceTicketRequest> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdServiceTicketRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicketRequest> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdServiceTicketRequest> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdServiceTicketRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicketRequest {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -592,36 +505,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
 }
-impl ::core::convert::From<OnlineIdSystemAuthenticatorForUser> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdSystemAuthenticatorForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdSystemAuthenticatorForUser> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdSystemAuthenticatorForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -675,36 +559,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
 impl ::windows::core::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
 }
-impl ::core::convert::From<OnlineIdSystemIdentity> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdSystemIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemIdentity> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemIdentity> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdSystemIdentity> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdSystemIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemIdentity> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemIdentity> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdSystemIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemIdentity {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
@@ -765,36 +620,7 @@ unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
 impl ::windows::core::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
 }
-impl ::core::convert::From<OnlineIdSystemTicketResult> for ::windows::core::IUnknown {
-    fn from(value: OnlineIdSystemTicketResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemTicketResult> for ::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemTicketResult> for &::windows::core::IUnknown {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<OnlineIdSystemTicketResult> for ::windows::core::IInspectable {
-    fn from(value: OnlineIdSystemTicketResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemTicketResult> for ::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&OnlineIdSystemTicketResult> for &::windows::core::IInspectable {
-    fn from(value: &OnlineIdSystemTicketResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(OnlineIdSystemTicketResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
@@ -936,41 +762,7 @@ impl ::std::future::Future for SignOutUserOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<SignOutUserOperation> for ::windows::core::IUnknown {
-    fn from(value: SignOutUserOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&SignOutUserOperation> for ::windows::core::IUnknown {
-    fn from(value: &SignOutUserOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&SignOutUserOperation> for &::windows::core::IUnknown {
-    fn from(value: &SignOutUserOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<SignOutUserOperation> for ::windows::core::IInspectable {
-    fn from(value: SignOutUserOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&SignOutUserOperation> for ::windows::core::IInspectable {
-    fn from(value: &SignOutUserOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&SignOutUserOperation> for &::windows::core::IInspectable {
-    fn from(value: &SignOutUserOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(SignOutUserOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -1161,41 +953,7 @@ impl ::std::future::Future for UserAuthenticationOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::convert::From<UserAuthenticationOperation> for ::windows::core::IUnknown {
-    fn from(value: UserAuthenticationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&UserAuthenticationOperation> for ::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&UserAuthenticationOperation> for &::windows::core::IUnknown {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<UserAuthenticationOperation> for ::windows::core::IInspectable {
-    fn from(value: UserAuthenticationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&UserAuthenticationOperation> for ::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::From<&UserAuthenticationOperation> for &::windows::core::IInspectable {
-    fn from(value: &UserAuthenticationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserAuthenticationOperation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -1339,36 +1097,7 @@ unsafe impl ::windows::core::Interface for UserIdentity {
 impl ::windows::core::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";
 }
-impl ::core::convert::From<UserIdentity> for ::windows::core::IUnknown {
-    fn from(value: UserIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserIdentity> for ::windows::core::IUnknown {
-    fn from(value: &UserIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserIdentity> for &::windows::core::IUnknown {
-    fn from(value: &UserIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserIdentity> for ::windows::core::IInspectable {
-    fn from(value: UserIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserIdentity> for ::windows::core::IInspectable {
-    fn from(value: &UserIdentity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserIdentity> for &::windows::core::IInspectable {
-    fn from(value: &UserIdentity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserIdentity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserIdentity {}
 unsafe impl ::core::marker::Sync for UserIdentity {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]

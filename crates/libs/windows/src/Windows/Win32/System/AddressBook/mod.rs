@@ -681,51 +681,7 @@ impl IABContainer {
         (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
     }
 }
-impl ::core::convert::From<IABContainer> for ::windows::core::IUnknown {
-    fn from(value: IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IABContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IABContainer> for ::windows::core::IUnknown {
-    fn from(value: &IABContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IABContainer> for IMAPIProp {
-    fn from(value: IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IABContainer> for &'a IMAPIProp {
-    fn from(value: &'a IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IABContainer> for IMAPIProp {
-    fn from(value: &IABContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IABContainer> for IMAPIContainer {
-    fn from(value: IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IABContainer> for &'a IMAPIContainer {
-    fn from(value: &'a IABContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IABContainer> for IMAPIContainer {
-    fn from(value: &IABContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IABContainer, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
 impl ::core::clone::Clone for IABContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -879,36 +835,7 @@ impl IAddrBook {
         (::windows::core::Vtable::vtable(self).PrepareRecips)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpproptagarray), ::core::mem::transmute(lpreciplist)).ok()
     }
 }
-impl ::core::convert::From<IAddrBook> for ::windows::core::IUnknown {
-    fn from(value: IAddrBook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAddrBook> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAddrBook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAddrBook> for ::windows::core::IUnknown {
-    fn from(value: &IAddrBook) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAddrBook> for IMAPIProp {
-    fn from(value: IAddrBook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAddrBook> for &'a IMAPIProp {
-    fn from(value: &'a IAddrBook) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAddrBook> for IMAPIProp {
-    fn from(value: &IAddrBook) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAddrBook, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IAddrBook {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1023,36 +950,7 @@ impl IAttach {
         (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
     }
 }
-impl ::core::convert::From<IAttach> for ::windows::core::IUnknown {
-    fn from(value: IAttach) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAttach> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IAttach) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAttach> for ::windows::core::IUnknown {
-    fn from(value: &IAttach) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IAttach> for IMAPIProp {
-    fn from(value: IAttach) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IAttach> for &'a IMAPIProp {
-    fn from(value: &'a IAttach) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAttach> for IMAPIProp {
-    fn from(value: &IAttach) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IAttach, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IAttach {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1168,51 +1066,7 @@ impl IDistList {
         (::windows::core::Vtable::vtable(self).ResolveNames)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpproptagarray.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(lpadrlist), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FlagList>(result__)
     }
 }
-impl ::core::convert::From<IDistList> for ::windows::core::IUnknown {
-    fn from(value: IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDistList> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDistList> for ::windows::core::IUnknown {
-    fn from(value: &IDistList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDistList> for IMAPIProp {
-    fn from(value: IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDistList> for &'a IMAPIProp {
-    fn from(value: &'a IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDistList> for IMAPIProp {
-    fn from(value: &IDistList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDistList> for IMAPIContainer {
-    fn from(value: IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDistList> for &'a IMAPIContainer {
-    fn from(value: &'a IDistList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDistList> for IMAPIContainer {
-    fn from(value: &IDistList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDistList, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
 impl ::core::clone::Clone for IDistList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1257,21 +1111,7 @@ impl IMAPIAdviseSink {
         (::windows::core::Vtable::vtable(self).OnNotify)(::windows::core::Vtable::as_raw(self), cnotif, ::core::mem::transmute(lpnotifications))
     }
 }
-impl ::core::convert::From<IMAPIAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: IMAPIAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIAdviseSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIAdviseSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIAdviseSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMAPIAdviseSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1372,36 +1212,7 @@ impl IMAPIContainer {
         (::windows::core::Vtable::vtable(self).GetSearchCriteria)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpprestriction.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lppcontainerlist.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpulsearchstate.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
-impl ::core::convert::From<IMAPIContainer> for ::windows::core::IUnknown {
-    fn from(value: IMAPIContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIContainer> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMAPIContainer> for IMAPIProp {
-    fn from(value: IMAPIContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIContainer> for &'a IMAPIProp {
-    fn from(value: &'a IMAPIContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIContainer> for IMAPIProp {
-    fn from(value: &IMAPIContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIContainer, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IMAPIContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1455,21 +1266,7 @@ impl IMAPIControl {
         (::windows::core::Vtable::vtable(self).GetState)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lpulstate)).ok()
     }
 }
-impl ::core::convert::From<IMAPIControl> for ::windows::core::IUnknown {
-    fn from(value: IMAPIControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIControl> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMAPIControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1623,51 +1420,7 @@ impl IMAPIFolder {
         (::windows::core::Vtable::vtable(self).EmptyFolder)(::windows::core::Vtable::as_raw(self), uluiparam, lpprogress.into().abi(), ulflags).ok()
     }
 }
-impl ::core::convert::From<IMAPIFolder> for ::windows::core::IUnknown {
-    fn from(value: IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIFolder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIFolder> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMAPIFolder> for IMAPIProp {
-    fn from(value: IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIFolder> for &'a IMAPIProp {
-    fn from(value: &'a IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIFolder> for IMAPIProp {
-    fn from(value: &IMAPIFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMAPIFolder> for IMAPIContainer {
-    fn from(value: IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIFolder> for &'a IMAPIContainer {
-    fn from(value: &'a IMAPIFolder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIFolder> for IMAPIContainer {
-    fn from(value: &IMAPIFolder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIFolder, ::windows::core::IUnknown, IMAPIProp, IMAPIContainer);
 impl ::core::clone::Clone for IMAPIFolder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1726,21 +1479,7 @@ impl IMAPIProgress {
         (::windows::core::Vtable::vtable(self).SetLimits)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpulmin), ::core::mem::transmute(lpulmax), ::core::mem::transmute(lpulflags)).ok()
     }
 }
-impl ::core::convert::From<IMAPIProgress> for ::windows::core::IUnknown {
-    fn from(value: IMAPIProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIProgress> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIProgress, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMAPIProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1821,21 +1560,7 @@ impl IMAPIProp {
         (::windows::core::Vtable::vtable(self).GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
     }
 }
-impl ::core::convert::From<IMAPIProp> for ::windows::core::IUnknown {
-    fn from(value: IMAPIProp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIProp> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIProp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIProp> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIProp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIProp, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMAPIProp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1940,36 +1665,7 @@ impl IMAPIStatus {
         (::windows::core::Vtable::vtable(self).FlushQueues)(::windows::core::Vtable::as_raw(self), uluiparam, lptargettransport.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lptargettransport.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ulflags).ok()
     }
 }
-impl ::core::convert::From<IMAPIStatus> for ::windows::core::IUnknown {
-    fn from(value: IMAPIStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIStatus> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPIStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIStatus> for ::windows::core::IUnknown {
-    fn from(value: &IMAPIStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMAPIStatus> for IMAPIProp {
-    fn from(value: IMAPIStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPIStatus> for &'a IMAPIProp {
-    fn from(value: &'a IMAPIStatus) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPIStatus> for IMAPIProp {
-    fn from(value: &IMAPIStatus) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPIStatus, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IMAPIStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2086,21 +1782,7 @@ impl IMAPITable {
         (::windows::core::Vtable::vtable(self).SetCollapseState)(::windows::core::Vtable::as_raw(self), ulflags, cbcollapsestate, ::core::mem::transmute(pbcollapsestate), ::core::mem::transmute(lpbklocation)).ok()
     }
 }
-impl ::core::convert::From<IMAPITable> for ::windows::core::IUnknown {
-    fn from(value: IMAPITable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMAPITable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMAPITable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMAPITable> for ::windows::core::IUnknown {
-    fn from(value: &IMAPITable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMAPITable, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IMAPITable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2211,36 +1893,7 @@ impl IMailUser {
         (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
     }
 }
-impl ::core::convert::From<IMailUser> for ::windows::core::IUnknown {
-    fn from(value: IMailUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMailUser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMailUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMailUser> for ::windows::core::IUnknown {
-    fn from(value: &IMailUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMailUser> for IMAPIProp {
-    fn from(value: IMailUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMailUser> for &'a IMAPIProp {
-    fn from(value: &'a IMailUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMailUser> for IMAPIProp {
-    fn from(value: &IMailUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMailUser, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IMailUser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2348,36 +2001,7 @@ impl IMessage {
         (::windows::core::Vtable::vtable(self).SetReadFlag)(::windows::core::Vtable::as_raw(self), ulflags).ok()
     }
 }
-impl ::core::convert::From<IMessage> for ::windows::core::IUnknown {
-    fn from(value: IMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMessage> for ::windows::core::IUnknown {
-    fn from(value: &IMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMessage> for IMAPIProp {
-    fn from(value: IMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMessage> for &'a IMAPIProp {
-    fn from(value: &'a IMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMessage> for IMAPIProp {
-    fn from(value: &IMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMessage, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2515,36 +2139,7 @@ impl IMsgStore {
         (::windows::core::Vtable::vtable(self).NotifyNewMail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpnotification)).ok()
     }
 }
-impl ::core::convert::From<IMsgStore> for ::windows::core::IUnknown {
-    fn from(value: IMsgStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMsgStore> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IMsgStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMsgStore> for ::windows::core::IUnknown {
-    fn from(value: &IMsgStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IMsgStore> for IMAPIProp {
-    fn from(value: IMsgStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IMsgStore> for &'a IMAPIProp {
-    fn from(value: &'a IMsgStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMsgStore> for IMAPIProp {
-    fn from(value: &IMsgStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IMsgStore, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IMsgStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2636,36 +2231,7 @@ impl IProfSect {
         (::windows::core::Vtable::vtable(self).base__.GetIDsFromNames)(::windows::core::Vtable::as_raw(self), cpropnames, ::core::mem::transmute(lpppropnames), ulflags, ::core::mem::transmute(lppproptags)).ok()
     }
 }
-impl ::core::convert::From<IProfSect> for ::windows::core::IUnknown {
-    fn from(value: IProfSect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProfSect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProfSect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProfSect> for ::windows::core::IUnknown {
-    fn from(value: &IProfSect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IProfSect> for IMAPIProp {
-    fn from(value: IProfSect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProfSect> for &'a IMAPIProp {
-    fn from(value: &'a IProfSect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProfSect> for IMAPIProp {
-    fn from(value: &IProfSect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProfSect, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IProfSect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2753,36 +2319,7 @@ impl IPropData {
         (::windows::core::Vtable::vtable(self).HrAddObjProps)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lppproptagarray), ::core::mem::transmute(lprgulaccess)).ok()
     }
 }
-impl ::core::convert::From<IPropData> for ::windows::core::IUnknown {
-    fn from(value: IPropData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropData> for ::windows::core::IUnknown {
-    fn from(value: &IPropData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPropData> for IMAPIProp {
-    fn from(value: IPropData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropData> for &'a IMAPIProp {
-    fn from(value: &'a IPropData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropData> for IMAPIProp {
-    fn from(value: &IPropData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropData, ::windows::core::IUnknown, IMAPIProp);
 impl ::core::clone::Clone for IPropData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2840,21 +2377,7 @@ impl IProviderAdmin {
         (::windows::core::Vtable::vtable(self).OpenProfileSection)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpuid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpinterface.unwrap_or(::std::ptr::null())), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IProfSect>(result__)
     }
 }
-impl ::core::convert::From<IProviderAdmin> for ::windows::core::IUnknown {
-    fn from(value: IProviderAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IProviderAdmin> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IProviderAdmin) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProviderAdmin> for ::windows::core::IUnknown {
-    fn from(value: &IProviderAdmin) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IProviderAdmin, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IProviderAdmin {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2938,21 +2461,7 @@ impl ITableData {
         (::windows::core::Vtable::vtable(self).HrDeleteRows)(::windows::core::Vtable::as_raw(self), ulflags, ::core::mem::transmute(lprowsettodelete), ::core::mem::transmute(crowsdeleted)).ok()
     }
 }
-impl ::core::convert::From<ITableData> for ::windows::core::IUnknown {
-    fn from(value: ITableData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITableData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITableData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITableData> for ::windows::core::IUnknown {
-    fn from(value: &ITableData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITableData, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITableData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3023,21 +2532,7 @@ impl IWABExtInit {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(lpwabextdisplay)).ok()
     }
 }
-impl ::core::convert::From<IWABExtInit> for ::windows::core::IUnknown {
-    fn from(value: IWABExtInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWABExtInit> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWABExtInit) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWABExtInit> for ::windows::core::IUnknown {
-    fn from(value: &IWABExtInit) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWABExtInit, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWABExtInit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3327,21 +2822,7 @@ impl IWABObject {
         (::windows::core::Vtable::vtable(self).SetMe)(::windows::core::Vtable::as_raw(self), lpiab.into().abi(), ulflags, ::core::mem::transmute(sbeid), hwnd.into()).ok()
     }
 }
-impl ::core::convert::From<IWABObject> for ::windows::core::IUnknown {
-    fn from(value: IWABObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWABObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWABObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWABObject> for ::windows::core::IUnknown {
-    fn from(value: &IWABObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWABObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWABObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())

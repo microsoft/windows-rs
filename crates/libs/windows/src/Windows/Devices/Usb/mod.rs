@@ -690,36 +690,7 @@ unsafe impl ::windows::core::Interface for UsbBulkInEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
 }
-impl ::core::convert::From<UsbBulkInEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbBulkInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbBulkInEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbBulkInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbBulkInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -806,36 +777,7 @@ unsafe impl ::windows::core::Interface for UsbBulkInPipe {
 impl ::windows::core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
 }
-impl ::core::convert::From<UsbBulkInPipe> for ::windows::core::IUnknown {
-    fn from(value: UsbBulkInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkInPipe> for ::windows::core::IUnknown {
-    fn from(value: &UsbBulkInPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkInPipe> for &::windows::core::IUnknown {
-    fn from(value: &UsbBulkInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbBulkInPipe> for ::windows::core::IInspectable {
-    fn from(value: UsbBulkInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkInPipe> for ::windows::core::IInspectable {
-    fn from(value: &UsbBulkInPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkInPipe> for &::windows::core::IInspectable {
-    fn from(value: &UsbBulkInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbBulkInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkInPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -896,36 +838,7 @@ unsafe impl ::windows::core::Interface for UsbBulkOutEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
 }
-impl ::core::convert::From<UsbBulkOutEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbBulkOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbBulkOutEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbBulkOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbBulkOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1001,36 +914,7 @@ unsafe impl ::windows::core::Interface for UsbBulkOutPipe {
 impl ::windows::core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
 }
-impl ::core::convert::From<UsbBulkOutPipe> for ::windows::core::IUnknown {
-    fn from(value: UsbBulkOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkOutPipe> for ::windows::core::IUnknown {
-    fn from(value: &UsbBulkOutPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkOutPipe> for &::windows::core::IUnknown {
-    fn from(value: &UsbBulkOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbBulkOutPipe> for ::windows::core::IInspectable {
-    fn from(value: UsbBulkOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbBulkOutPipe> for ::windows::core::IInspectable {
-    fn from(value: &UsbBulkOutPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbBulkOutPipe> for &::windows::core::IInspectable {
-    fn from(value: &UsbBulkOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbBulkOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1095,36 +979,7 @@ unsafe impl ::windows::core::Interface for UsbConfiguration {
 impl ::windows::core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
 }
-impl ::core::convert::From<UsbConfiguration> for ::windows::core::IUnknown {
-    fn from(value: UsbConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &UsbConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &UsbConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbConfiguration> for ::windows::core::IInspectable {
-    fn from(value: UsbConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &UsbConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &UsbConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbConfiguration {}
 unsafe impl ::core::marker::Sync for UsbConfiguration {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1209,36 +1064,7 @@ unsafe impl ::windows::core::Interface for UsbConfigurationDescriptor {
 impl ::windows::core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
 }
-impl ::core::convert::From<UsbConfigurationDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbConfigurationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbConfigurationDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbConfigurationDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbConfigurationDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbConfigurationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbConfigurationDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbConfigurationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbConfigurationDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbConfigurationDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbConfigurationDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbConfigurationDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbConfigurationDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1329,36 +1155,7 @@ unsafe impl ::windows::core::Interface for UsbControlRequestType {
 impl ::windows::core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
 }
-impl ::core::convert::From<UsbControlRequestType> for ::windows::core::IUnknown {
-    fn from(value: UsbControlRequestType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbControlRequestType> for ::windows::core::IUnknown {
-    fn from(value: &UsbControlRequestType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbControlRequestType> for &::windows::core::IUnknown {
-    fn from(value: &UsbControlRequestType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbControlRequestType> for ::windows::core::IInspectable {
-    fn from(value: UsbControlRequestType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbControlRequestType> for ::windows::core::IInspectable {
-    fn from(value: &UsbControlRequestType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbControlRequestType> for &::windows::core::IInspectable {
-    fn from(value: &UsbControlRequestType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbControlRequestType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1422,36 +1219,7 @@ unsafe impl ::windows::core::Interface for UsbDescriptor {
 impl ::windows::core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
 }
-impl ::core::convert::From<UsbDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1599,36 +1367,7 @@ unsafe impl ::windows::core::Interface for UsbDevice {
 impl ::windows::core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
-impl ::core::convert::From<UsbDevice> for ::windows::core::IUnknown {
-    fn from(value: UsbDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDevice> for ::windows::core::IUnknown {
-    fn from(value: &UsbDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDevice> for &::windows::core::IUnknown {
-    fn from(value: &UsbDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbDevice> for ::windows::core::IInspectable {
-    fn from(value: UsbDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDevice> for ::windows::core::IInspectable {
-    fn from(value: &UsbDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDevice> for &::windows::core::IInspectable {
-    fn from(value: &UsbDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UsbDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -1746,36 +1485,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceClass {
 impl ::windows::core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
 }
-impl ::core::convert::From<UsbDeviceClass> for ::windows::core::IUnknown {
-    fn from(value: UsbDeviceClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceClass> for ::windows::core::IUnknown {
-    fn from(value: &UsbDeviceClass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceClass> for &::windows::core::IUnknown {
-    fn from(value: &UsbDeviceClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbDeviceClass> for ::windows::core::IInspectable {
-    fn from(value: UsbDeviceClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceClass> for ::windows::core::IInspectable {
-    fn from(value: &UsbDeviceClass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceClass> for &::windows::core::IInspectable {
-    fn from(value: &UsbDeviceClass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbDeviceClass, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceClass {}
 unsafe impl ::core::marker::Sync for UsbDeviceClass {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1874,36 +1584,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceClasses {
 impl ::windows::core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
 }
-impl ::core::convert::From<UsbDeviceClasses> for ::windows::core::IUnknown {
-    fn from(value: UsbDeviceClasses) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceClasses> for ::windows::core::IUnknown {
-    fn from(value: &UsbDeviceClasses) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceClasses> for &::windows::core::IUnknown {
-    fn from(value: &UsbDeviceClasses) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbDeviceClasses> for ::windows::core::IInspectable {
-    fn from(value: UsbDeviceClasses) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceClasses> for ::windows::core::IInspectable {
-    fn from(value: &UsbDeviceClasses) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceClasses> for &::windows::core::IInspectable {
-    fn from(value: &UsbDeviceClasses) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbDeviceClasses, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceClasses {}
 unsafe impl ::core::marker::Sync for UsbDeviceClasses {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1985,36 +1666,7 @@ unsafe impl ::windows::core::Interface for UsbDeviceDescriptor {
 impl ::windows::core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
 }
-impl ::core::convert::From<UsbDeviceDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbDeviceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbDeviceDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbDeviceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbDeviceDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbDeviceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbDeviceDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbDeviceDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbDeviceDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbDeviceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbDeviceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDeviceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2120,36 +1772,7 @@ unsafe impl ::windows::core::Interface for UsbEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
 }
-impl ::core::convert::From<UsbEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbEndpointDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbEndpointDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2250,36 +1873,7 @@ unsafe impl ::windows::core::Interface for UsbInterface {
 impl ::windows::core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
 }
-impl ::core::convert::From<UsbInterface> for ::windows::core::IUnknown {
-    fn from(value: UsbInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterface> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterface> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterface> for ::windows::core::IInspectable {
-    fn from(value: UsbInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterface> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterface> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterface {}
 unsafe impl ::core::marker::Sync for UsbInterface {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2371,36 +1965,7 @@ unsafe impl ::windows::core::Interface for UsbInterfaceDescriptor {
 impl ::windows::core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
 }
-impl ::core::convert::From<UsbInterfaceDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbInterfaceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterfaceDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterfaceDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterfaceDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterfaceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterfaceDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbInterfaceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterfaceDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterfaceDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterfaceDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterfaceDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterfaceDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2508,36 +2073,7 @@ unsafe impl ::windows::core::Interface for UsbInterfaceSetting {
 impl ::windows::core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
 }
-impl ::core::convert::From<UsbInterfaceSetting> for ::windows::core::IUnknown {
-    fn from(value: UsbInterfaceSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterfaceSetting> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterfaceSetting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterfaceSetting> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterfaceSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterfaceSetting> for ::windows::core::IInspectable {
-    fn from(value: UsbInterfaceSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterfaceSetting> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterfaceSetting) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterfaceSetting> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterfaceSetting) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterfaceSetting, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
 unsafe impl ::core::marker::Sync for UsbInterfaceSetting {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2607,36 +2143,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
 }
-impl ::core::convert::From<UsbInterruptInEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbInterruptInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterruptInEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbInterruptInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterruptInEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2685,36 +2192,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInEventArgs {
 impl ::windows::core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
 }
-impl ::core::convert::From<UsbInterruptInEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UsbInterruptInEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterruptInEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UsbInterruptInEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterruptInEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEventArgs {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2785,36 +2263,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptInPipe {
 impl ::windows::core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
 }
-impl ::core::convert::From<UsbInterruptInPipe> for ::windows::core::IUnknown {
-    fn from(value: UsbInterruptInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInPipe> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInPipe> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterruptInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterruptInPipe> for ::windows::core::IInspectable {
-    fn from(value: UsbInterruptInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptInPipe> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptInPipe> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterruptInPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterruptInPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2884,36 +2333,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptOutEndpointDescriptor {
 impl ::windows::core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
 }
-impl ::core::convert::From<UsbInterruptOutEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: UsbInterruptOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterruptOutEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: UsbInterruptOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterruptOutEndpointDescriptor, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2989,36 +2409,7 @@ unsafe impl ::windows::core::Interface for UsbInterruptOutPipe {
 impl ::windows::core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
 }
-impl ::core::convert::From<UsbInterruptOutPipe> for ::windows::core::IUnknown {
-    fn from(value: UsbInterruptOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutPipe> for ::windows::core::IUnknown {
-    fn from(value: &UsbInterruptOutPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutPipe> for &::windows::core::IUnknown {
-    fn from(value: &UsbInterruptOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbInterruptOutPipe> for ::windows::core::IInspectable {
-    fn from(value: UsbInterruptOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutPipe> for ::windows::core::IInspectable {
-    fn from(value: &UsbInterruptOutPipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbInterruptOutPipe> for &::windows::core::IInspectable {
-    fn from(value: &UsbInterruptOutPipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbInterruptOutPipe, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -3137,36 +2528,7 @@ unsafe impl ::windows::core::Interface for UsbSetupPacket {
 impl ::windows::core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";
 }
-impl ::core::convert::From<UsbSetupPacket> for ::windows::core::IUnknown {
-    fn from(value: UsbSetupPacket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbSetupPacket> for ::windows::core::IUnknown {
-    fn from(value: &UsbSetupPacket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbSetupPacket> for &::windows::core::IUnknown {
-    fn from(value: &UsbSetupPacket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UsbSetupPacket> for ::windows::core::IInspectable {
-    fn from(value: UsbSetupPacket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UsbSetupPacket> for ::windows::core::IInspectable {
-    fn from(value: &UsbSetupPacket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UsbSetupPacket> for &::windows::core::IInspectable {
-    fn from(value: &UsbSetupPacket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UsbSetupPacket, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UsbSetupPacket {}
 unsafe impl ::core::marker::Sync for UsbSetupPacket {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]

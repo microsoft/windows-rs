@@ -106,36 +106,7 @@ impl IImageScannerFormatConfiguration {
         }
     }
 }
-impl ::core::convert::From<IImageScannerFormatConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageScannerFormatConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerFormatConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IImageScannerFormatConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageScannerFormatConfiguration> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &IImageScannerFormatConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImageScannerFormatConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IImageScannerFormatConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -431,36 +402,7 @@ impl IImageScannerSourceConfiguration {
         }
     }
 }
-impl ::core::convert::From<IImageScannerSourceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageScannerSourceConfiguration> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerSourceConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &IImageScannerSourceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IImageScannerSourceConfiguration> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &IImageScannerSourceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IImageScannerSourceConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IImageScannerSourceConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: IImageScannerSourceConfiguration) -> ::windows::core::Result<Self> {
@@ -701,36 +643,7 @@ unsafe impl ::windows::core::Interface for ImageScanner {
 impl ::windows::core::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
 }
-impl ::core::convert::From<ImageScanner> for ::windows::core::IUnknown {
-    fn from(value: ImageScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScanner> for ::windows::core::IUnknown {
-    fn from(value: &ImageScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScanner> for &::windows::core::IUnknown {
-    fn from(value: &ImageScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScanner> for ::windows::core::IInspectable {
-    fn from(value: ImageScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScanner> for ::windows::core::IInspectable {
-    fn from(value: &ImageScanner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScanner> for &::windows::core::IInspectable {
-    fn from(value: &ImageScanner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScanner, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScanner {}
 unsafe impl ::core::marker::Sync for ImageScanner {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -795,36 +708,7 @@ unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
 }
-impl ::core::convert::From<ImageScannerAutoConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ImageScannerAutoConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerAutoConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ImageScannerAutoConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerAutoConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ImageScannerAutoConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScannerAutoConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ImageScannerAutoConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerAutoConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ImageScannerAutoConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerAutoConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ImageScannerAutoConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScannerAutoConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerAutoConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerAutoConfiguration) -> ::windows::core::Result<Self> {
@@ -1214,36 +1098,7 @@ unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
 }
-impl ::core::convert::From<ImageScannerFeederConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ImageScannerFeederConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerFeederConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ImageScannerFeederConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerFeederConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ImageScannerFeederConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScannerFeederConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ImageScannerFeederConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerFeederConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ImageScannerFeederConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerFeederConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ImageScannerFeederConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScannerFeederConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerFeederConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerFeederConfiguration) -> ::windows::core::Result<Self> {
@@ -1539,36 +1394,7 @@ unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
 impl ::windows::core::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
 }
-impl ::core::convert::From<ImageScannerFlatbedConfiguration> for ::windows::core::IUnknown {
-    fn from(value: ImageScannerFlatbedConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerFlatbedConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &ImageScannerFlatbedConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerFlatbedConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &ImageScannerFlatbedConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScannerFlatbedConfiguration> for ::windows::core::IInspectable {
-    fn from(value: ImageScannerFlatbedConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerFlatbedConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &ImageScannerFlatbedConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerFlatbedConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &ImageScannerFlatbedConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScannerFlatbedConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<ImageScannerFlatbedConfiguration> for IImageScannerFormatConfiguration {
     type Error = ::windows::core::Error;
     fn try_from(value: ImageScannerFlatbedConfiguration) -> ::windows::core::Result<Self> {
@@ -1660,36 +1486,7 @@ unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
 impl ::windows::core::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
 }
-impl ::core::convert::From<ImageScannerPreviewResult> for ::windows::core::IUnknown {
-    fn from(value: ImageScannerPreviewResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerPreviewResult> for ::windows::core::IUnknown {
-    fn from(value: &ImageScannerPreviewResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerPreviewResult> for &::windows::core::IUnknown {
-    fn from(value: &ImageScannerPreviewResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScannerPreviewResult> for ::windows::core::IInspectable {
-    fn from(value: ImageScannerPreviewResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerPreviewResult> for ::windows::core::IInspectable {
-    fn from(value: &ImageScannerPreviewResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerPreviewResult> for &::windows::core::IInspectable {
-    fn from(value: &ImageScannerPreviewResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScannerPreviewResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
 unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
@@ -1738,36 +1535,7 @@ unsafe impl ::windows::core::Interface for ImageScannerScanResult {
 impl ::windows::core::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";
 }
-impl ::core::convert::From<ImageScannerScanResult> for ::windows::core::IUnknown {
-    fn from(value: ImageScannerScanResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerScanResult> for ::windows::core::IUnknown {
-    fn from(value: &ImageScannerScanResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerScanResult> for &::windows::core::IUnknown {
-    fn from(value: &ImageScannerScanResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ImageScannerScanResult> for ::windows::core::IInspectable {
-    fn from(value: ImageScannerScanResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ImageScannerScanResult> for ::windows::core::IInspectable {
-    fn from(value: &ImageScannerScanResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ImageScannerScanResult> for &::windows::core::IInspectable {
-    fn from(value: &ImageScannerScanResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(ImageScannerScanResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]

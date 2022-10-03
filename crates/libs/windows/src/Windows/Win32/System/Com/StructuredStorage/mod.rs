@@ -574,21 +574,7 @@ impl IDirectWriterLock {
         (::windows::core::Vtable::vtable(self).HaveWriteAccess)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDirectWriterLock> for ::windows::core::IUnknown {
-    fn from(value: IDirectWriterLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectWriterLock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectWriterLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectWriterLock> for ::windows::core::IUnknown {
-    fn from(value: &IDirectWriterLock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectWriterLock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectWriterLock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -639,21 +625,7 @@ impl IEnumSTATPROPSETSTG {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSTATPROPSETSTG>(result__)
     }
 }
-impl ::core::convert::From<IEnumSTATPROPSETSTG> for ::windows::core::IUnknown {
-    fn from(value: IEnumSTATPROPSETSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumSTATPROPSETSTG> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumSTATPROPSETSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumSTATPROPSETSTG> for ::windows::core::IUnknown {
-    fn from(value: &IEnumSTATPROPSETSTG) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumSTATPROPSETSTG, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -706,21 +678,7 @@ impl IEnumSTATPROPSTG {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSTATPROPSTG>(result__)
     }
 }
-impl ::core::convert::From<IEnumSTATPROPSTG> for ::windows::core::IUnknown {
-    fn from(value: IEnumSTATPROPSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumSTATPROPSTG> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumSTATPROPSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumSTATPROPSTG> for ::windows::core::IUnknown {
-    fn from(value: &IEnumSTATPROPSTG) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumSTATPROPSTG, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumSTATPROPSTG {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -772,21 +730,7 @@ impl IEnumSTATSTG {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSTATSTG>(result__)
     }
 }
-impl ::core::convert::From<IEnumSTATSTG> for ::windows::core::IUnknown {
-    fn from(value: IEnumSTATSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IEnumSTATSTG> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IEnumSTATSTG) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnumSTATSTG> for ::windows::core::IUnknown {
-    fn from(value: &IEnumSTATSTG) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IEnumSTATSTG, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IEnumSTATSTG {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -845,21 +789,7 @@ impl IFillLockBytes {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self), bcanceled.into()).ok()
     }
 }
-impl ::core::convert::From<IFillLockBytes> for ::windows::core::IUnknown {
-    fn from(value: IFillLockBytes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFillLockBytes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFillLockBytes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFillLockBytes> for ::windows::core::IUnknown {
-    fn from(value: &IFillLockBytes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFillLockBytes, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IFillLockBytes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -920,21 +850,7 @@ impl ILayoutStorage {
         (::windows::core::Vtable::vtable(self).ReLayoutDocfileOnILockBytes)(::windows::core::Vtable::as_raw(self), pilockbytes.into().abi()).ok()
     }
 }
-impl ::core::convert::From<ILayoutStorage> for ::windows::core::IUnknown {
-    fn from(value: ILayoutStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILayoutStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILayoutStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILayoutStorage> for ::windows::core::IUnknown {
-    fn from(value: &ILayoutStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILayoutStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILayoutStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -996,21 +912,7 @@ impl ILockBytes {
         (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
 }
-impl ::core::convert::From<ILockBytes> for ::windows::core::IUnknown {
-    fn from(value: ILockBytes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILockBytes> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILockBytes) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILockBytes> for ::windows::core::IUnknown {
-    fn from(value: &ILockBytes) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILockBytes, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILockBytes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1090,36 +992,7 @@ impl IPersistStorage {
         (::windows::core::Vtable::vtable(self).HandsOffStorage)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IPersistStorage> for ::windows::core::IUnknown {
-    fn from(value: IPersistStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPersistStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistStorage> for ::windows::core::IUnknown {
-    fn from(value: &IPersistStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IPersistStorage> for super::IPersist {
-    fn from(value: IPersistStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPersistStorage> for &'a super::IPersist {
-    fn from(value: &'a IPersistStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPersistStorage> for super::IPersist {
-    fn from(value: &IPersistStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPersistStorage, ::windows::core::IUnknown, super::IPersist);
 impl ::core::clone::Clone for IPersistStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1178,21 +1051,7 @@ impl IPropertyBag {
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), pszpropname.into(), ::core::mem::transmute(pvar)).ok()
     }
 }
-impl ::core::convert::From<IPropertyBag> for ::windows::core::IUnknown {
-    fn from(value: IPropertyBag) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyBag> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyBag) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyBag> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyBag) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyBag, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyBag {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1261,21 +1120,7 @@ impl IPropertyBag2 {
         (::windows::core::Vtable::vtable(self).LoadObject)(::windows::core::Vtable::as_raw(self), pstrname.into(), dwhint, punkobject.into().abi(), perrlog.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IPropertyBag2> for ::windows::core::IUnknown {
-    fn from(value: IPropertyBag2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyBag2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyBag2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyBag2> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyBag2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyBag2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyBag2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1334,21 +1179,7 @@ impl IPropertySetStorage {
         (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumSTATPROPSETSTG>(result__)
     }
 }
-impl ::core::convert::From<IPropertySetStorage> for ::windows::core::IUnknown {
-    fn from(value: IPropertySetStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertySetStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertySetStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertySetStorage> for ::windows::core::IUnknown {
-    fn from(value: &IPropertySetStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertySetStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertySetStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1433,21 +1264,7 @@ impl IPropertyStorage {
         (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<STATPROPSETSTG>(result__)
     }
 }
-impl ::core::convert::From<IPropertyStorage> for ::windows::core::IUnknown {
-    fn from(value: IPropertyStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPropertyStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPropertyStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPropertyStorage> for ::windows::core::IUnknown {
-    fn from(value: &IPropertyStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPropertyStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPropertyStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1510,21 +1327,7 @@ impl IRootStorage {
         (::windows::core::Vtable::vtable(self).SwitchToFile)(::windows::core::Vtable::as_raw(self), pszfile.into()).ok()
     }
 }
-impl ::core::convert::From<IRootStorage> for ::windows::core::IUnknown {
-    fn from(value: IRootStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRootStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRootStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRootStorage> for ::windows::core::IUnknown {
-    fn from(value: &IRootStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRootStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRootStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1641,21 +1444,7 @@ impl IStorage {
         (::windows::core::Vtable::vtable(self).Stat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
     }
 }
-impl ::core::convert::From<IStorage> for ::windows::core::IUnknown {
-    fn from(value: IStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorage> for ::windows::core::IUnknown {
-    fn from(value: &IStorage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IStorage, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())

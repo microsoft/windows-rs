@@ -61,21 +61,7 @@ impl IDtcLuConfigure {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _).ok()
     }
 }
-impl ::core::convert::From<IDtcLuConfigure> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuConfigure) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuConfigure> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuConfigure) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuConfigure> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuConfigure) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuConfigure, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuConfigure {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -109,21 +95,7 @@ pub struct IDtcLuConfigure_Vtbl {
 #[repr(transparent)]
 pub struct IDtcLuRecovery(::windows::core::IUnknown);
 impl IDtcLuRecovery {}
-impl ::core::convert::From<IDtcLuRecovery> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecovery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecovery> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecovery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecovery> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecovery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecovery, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecovery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -160,21 +132,7 @@ impl IDtcLuRecoveryFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDtcLuRecovery>(result__)
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryFactory> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -211,21 +169,7 @@ impl IDtcLuRecoveryInitiatedByDtc {
         (::windows::core::Vtable::vtable(self).GetWork)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pwork), ::core::mem::transmute(ppv)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryInitiatedByDtc> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryInitiatedByDtc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryInitiatedByDtc> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryInitiatedByDtc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryInitiatedByDtc> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryInitiatedByDtc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtc {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -262,21 +206,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork {
         (::windows::core::Vtable::vtable(self).HandleCheckLuStatus)(::windows::core::Vtable::as_raw(self), lrecoveryseqnum).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryInitiatedByDtcStatusWork> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryInitiatedByDtcStatusWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryInitiatedByDtcStatusWork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryInitiatedByDtcStatusWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryInitiatedByDtcStatusWork> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryInitiatedByDtcStatusWork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcStatusWork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -351,21 +281,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
         (::windows::core::Vtable::vtable(self).ObsoleteRecoverySeqNum)(::windows::core::Vtable::as_raw(self), lnewrecoveryseqnum).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryInitiatedByDtcTransWork> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryInitiatedByDtcTransWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryInitiatedByDtcTransWork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryInitiatedByDtcTransWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryInitiatedByDtcTransWork> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryInitiatedByDtcTransWork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcTransWork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -418,21 +334,7 @@ impl IDtcLuRecoveryInitiatedByLu {
         (::windows::core::Vtable::vtable(self).GetObjectToHandleWorkFromLu)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDtcLuRecoveryInitiatedByLuWork>(result__)
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryInitiatedByLu> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryInitiatedByLu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryInitiatedByLu> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryInitiatedByLu) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryInitiatedByLu> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryInitiatedByLu) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLu {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -490,21 +392,7 @@ impl IDtcLuRecoveryInitiatedByLuWork {
         (::windows::core::Vtable::vtable(self).ConversationLost)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRecoveryInitiatedByLuWork> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRecoveryInitiatedByLuWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRecoveryInitiatedByLuWork> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRecoveryInitiatedByLuWork) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRecoveryInitiatedByLuWork> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRecoveryInitiatedByLuWork) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLuWork {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -568,21 +456,7 @@ impl IDtcLuRmEnlistment {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRmEnlistment> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRmEnlistment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRmEnlistment> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRmEnlistment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRmEnlistment> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRmEnlistment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRmEnlistment, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRmEnlistment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -631,21 +505,7 @@ impl IDtcLuRmEnlistmentFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair), cblupair, pitransaction.into().abi(), ::core::mem::transmute(ptransid), cbtransid, prmenlistmentsink.into().abi(), ::core::mem::transmute(pprmenlistment)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRmEnlistmentFactory> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRmEnlistmentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRmEnlistmentFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRmEnlistmentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRmEnlistmentFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRmEnlistmentFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRmEnlistmentFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -706,21 +566,7 @@ impl IDtcLuRmEnlistmentSink {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuRmEnlistmentSink> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuRmEnlistmentSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuRmEnlistmentSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuRmEnlistmentSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuRmEnlistmentSink> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuRmEnlistmentSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuRmEnlistmentSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -788,21 +634,7 @@ impl IDtcLuSubordinateDtc {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuSubordinateDtc> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuSubordinateDtc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuSubordinateDtc> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuSubordinateDtc) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuSubordinateDtc> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuSubordinateDtc) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuSubordinateDtc {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -853,21 +685,7 @@ impl IDtcLuSubordinateDtcFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(puclupair), cblupair, punktransactionouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(pptransaction), ::core::mem::transmute(ptransid), cbtransid, psubordinatedtcsink.into().abi(), ::core::mem::transmute(ppsubordinatedtc)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuSubordinateDtcFactory> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuSubordinateDtcFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuSubordinateDtcFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuSubordinateDtcFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuSubordinateDtcFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuSubordinateDtcFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuSubordinateDtcFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -925,21 +743,7 @@ impl IDtcLuSubordinateDtcSink {
         (::windows::core::Vtable::vtable(self).RequestCommit)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcLuSubordinateDtcSink> for ::windows::core::IUnknown {
-    fn from(value: IDtcLuSubordinateDtcSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcLuSubordinateDtcSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcLuSubordinateDtcSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcLuSubordinateDtcSink> for ::windows::core::IUnknown {
-    fn from(value: &IDtcLuSubordinateDtcSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcLuSubordinateDtcSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1067,21 +871,7 @@ impl IDtcNetworkAccessConfig {
         (::windows::core::Vtable::vtable(self).RestartDtcService)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDtcNetworkAccessConfig> for ::windows::core::IUnknown {
-    fn from(value: IDtcNetworkAccessConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcNetworkAccessConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig> for ::windows::core::IUnknown {
-    fn from(value: &IDtcNetworkAccessConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcNetworkAccessConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1285,36 +1075,7 @@ impl IDtcNetworkAccessConfig2 {
         (::windows::core::Vtable::vtable(self).SetAuthenticationLevel)(::windows::core::Vtable::as_raw(self), authlevel).ok()
     }
 }
-impl ::core::convert::From<IDtcNetworkAccessConfig2> for ::windows::core::IUnknown {
-    fn from(value: IDtcNetworkAccessConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcNetworkAccessConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig2> for ::windows::core::IUnknown {
-    fn from(value: &IDtcNetworkAccessConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
-    fn from(value: IDtcNetworkAccessConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig2> for &'a IDtcNetworkAccessConfig {
-    fn from(value: &'a IDtcNetworkAccessConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
-    fn from(value: &IDtcNetworkAccessConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows::core::IUnknown, IDtcNetworkAccessConfig);
 impl ::core::clone::Clone for IDtcNetworkAccessConfig2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1501,51 +1262,7 @@ impl IDtcNetworkAccessConfig3 {
         (::windows::core::Vtable::vtable(self).SetLUAccess)(::windows::core::Vtable::as_raw(self), bluaccess.into()).ok()
     }
 }
-impl ::core::convert::From<IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
-    fn from(value: IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
-    fn from(value: &IDtcNetworkAccessConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig {
-    fn from(value: IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig3> for &'a IDtcNetworkAccessConfig {
-    fn from(value: &'a IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig {
-    fn from(value: &IDtcNetworkAccessConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
-    fn from(value: IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcNetworkAccessConfig3> for &'a IDtcNetworkAccessConfig2 {
-    fn from(value: &'a IDtcNetworkAccessConfig3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
-    fn from(value: &IDtcNetworkAccessConfig3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows::core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
 impl ::core::clone::Clone for IDtcNetworkAccessConfig3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1603,21 +1320,7 @@ impl IDtcToXaHelper {
         (::windows::core::Vtable::vtable(self).TranslateTridToXid)(::windows::core::Vtable::as_raw(self), pitransaction.into().abi(), ::core::mem::transmute(pguidbqual), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XID>(result__)
     }
 }
-impl ::core::convert::From<IDtcToXaHelper> for ::windows::core::IUnknown {
-    fn from(value: IDtcToXaHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcToXaHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcToXaHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcToXaHelper> for ::windows::core::IUnknown {
-    fn from(value: &IDtcToXaHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcToXaHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcToXaHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1665,21 +1368,7 @@ impl IDtcToXaHelperFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pszdsn.into(), pszclientdllname.into(), ::core::mem::transmute(pguidrm), ::core::mem::transmute(ppxahelper)).ok()
     }
 }
-impl ::core::convert::From<IDtcToXaHelperFactory> for ::windows::core::IUnknown {
-    fn from(value: IDtcToXaHelperFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcToXaHelperFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcToXaHelperFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcToXaHelperFactory> for ::windows::core::IUnknown {
-    fn from(value: &IDtcToXaHelperFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcToXaHelperFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcToXaHelperFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1741,21 +1430,7 @@ impl IDtcToXaHelperSinglePipe {
         (::windows::core::Vtable::vtable(self).ReleaseRMCookie)(::windows::core::Vtable::as_raw(self), i_dwrmcookie, i_fnormal.into())
     }
 }
-impl ::core::convert::From<IDtcToXaHelperSinglePipe> for ::windows::core::IUnknown {
-    fn from(value: IDtcToXaHelperSinglePipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcToXaHelperSinglePipe> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcToXaHelperSinglePipe) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcToXaHelperSinglePipe> for ::windows::core::IUnknown {
-    fn from(value: &IDtcToXaHelperSinglePipe) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcToXaHelperSinglePipe {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1816,21 +1491,7 @@ impl IDtcToXaMapper {
         (::windows::core::Vtable::vtable(self).ReleaseResourceManager)(::windows::core::Vtable::as_raw(self), dwrmcookie).ok()
     }
 }
-impl ::core::convert::From<IDtcToXaMapper> for ::windows::core::IUnknown {
-    fn from(value: IDtcToXaMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDtcToXaMapper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDtcToXaMapper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDtcToXaMapper> for ::windows::core::IUnknown {
-    fn from(value: &IDtcToXaMapper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDtcToXaMapper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDtcToXaMapper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1873,21 +1534,7 @@ impl IGetDispenser {
         (::windows::core::Vtable::vtable(self).GetDispenser)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
-impl ::core::convert::From<IGetDispenser> for ::windows::core::IUnknown {
-    fn from(value: IGetDispenser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGetDispenser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGetDispenser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGetDispenser> for ::windows::core::IUnknown {
-    fn from(value: &IGetDispenser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGetDispenser, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGetDispenser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1927,21 +1574,7 @@ impl IKernelTransaction {
         (::windows::core::Vtable::vtable(self).GetHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
 }
-impl ::core::convert::From<IKernelTransaction> for ::windows::core::IUnknown {
-    fn from(value: IKernelTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IKernelTransaction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IKernelTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IKernelTransaction> for ::windows::core::IUnknown {
-    fn from(value: &IKernelTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IKernelTransaction, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IKernelTransaction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1984,21 +1617,7 @@ impl ILastResourceManager {
         (::windows::core::Vtable::vtable(self).RecoveryDone)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ILastResourceManager> for ::windows::core::IUnknown {
-    fn from(value: ILastResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ILastResourceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ILastResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILastResourceManager> for ::windows::core::IUnknown {
-    fn from(value: &ILastResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ILastResourceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ILastResourceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2039,21 +1658,7 @@ impl IPrepareInfo {
         (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo)).ok()
     }
 }
-impl ::core::convert::From<IPrepareInfo> for ::windows::core::IUnknown {
-    fn from(value: IPrepareInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrepareInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrepareInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrepareInfo> for ::windows::core::IUnknown {
-    fn from(value: &IPrepareInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrepareInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrepareInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2095,21 +1700,7 @@ impl IPrepareInfo2 {
         (::windows::core::Vtable::vtable(self).GetPrepareInfo)(::windows::core::Vtable::as_raw(self), pprepinfo.len() as _, ::core::mem::transmute(pprepinfo.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IPrepareInfo2> for ::windows::core::IUnknown {
-    fn from(value: IPrepareInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrepareInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrepareInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrepareInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IPrepareInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IPrepareInfo2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IPrepareInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2157,21 +1748,7 @@ impl IRMHelper {
         (::windows::core::Vtable::vtable(self).RMInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pxa_switch), fcdeclcallingconv.into(), pszopenstring.into(), pszclosestring.into(), ::core::mem::transmute(guidrmrecovery)).ok()
     }
 }
-impl ::core::convert::From<IRMHelper> for ::windows::core::IUnknown {
-    fn from(value: IRMHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRMHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRMHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRMHelper> for ::windows::core::IUnknown {
-    fn from(value: &IRMHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRMHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRMHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2226,21 +1803,7 @@ impl IResourceManager {
         (::windows::core::Vtable::vtable(self).GetDistributedTransactionManager)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
-impl ::core::convert::From<IResourceManager> for ::windows::core::IUnknown {
-    fn from(value: IResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManager> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IResourceManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2309,36 +1872,7 @@ impl IResourceManager2 {
         (::windows::core::Vtable::vtable(self).Reenlist2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pxid), dwtimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
 }
-impl ::core::convert::From<IResourceManager2> for ::windows::core::IUnknown {
-    fn from(value: IResourceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManager2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManager2> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IResourceManager2> for IResourceManager {
-    fn from(value: IResourceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManager2> for &'a IResourceManager {
-    fn from(value: &'a IResourceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManager2> for IResourceManager {
-    fn from(value: &IResourceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManager2, ::windows::core::IUnknown, IResourceManager);
 impl ::core::clone::Clone for IResourceManager2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2387,21 +1921,7 @@ impl IResourceManagerFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidrm), pszrmname.into(), piresmgrsink.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IResourceManager>(result__)
     }
 }
-impl ::core::convert::From<IResourceManagerFactory> for ::windows::core::IUnknown {
-    fn from(value: IResourceManagerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManagerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerFactory> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManagerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManagerFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IResourceManagerFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2450,36 +1970,7 @@ impl IResourceManagerFactory2 {
         (::windows::core::Vtable::vtable(self).CreateEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguidrm), pszrmname.into(), piresmgrsink.into().abi(), ::core::mem::transmute(riidrequested), ::core::mem::transmute(ppvresmgr)).ok()
     }
 }
-impl ::core::convert::From<IResourceManagerFactory2> for ::windows::core::IUnknown {
-    fn from(value: IResourceManagerFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManagerFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerFactory2> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManagerFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IResourceManagerFactory2> for IResourceManagerFactory {
-    fn from(value: IResourceManagerFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerFactory2> for &'a IResourceManagerFactory {
-    fn from(value: &'a IResourceManagerFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerFactory2> for IResourceManagerFactory {
-    fn from(value: &IResourceManagerFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManagerFactory2, ::windows::core::IUnknown, IResourceManagerFactory);
 impl ::core::clone::Clone for IResourceManagerFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2549,51 +2040,7 @@ impl IResourceManagerRejoinable {
         (::windows::core::Vtable::vtable(self).Rejoin)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTSTAT>(result__)
     }
 }
-impl ::core::convert::From<IResourceManagerRejoinable> for ::windows::core::IUnknown {
-    fn from(value: IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerRejoinable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerRejoinable> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManagerRejoinable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IResourceManagerRejoinable> for IResourceManager {
-    fn from(value: IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerRejoinable> for &'a IResourceManager {
-    fn from(value: &'a IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerRejoinable> for IResourceManager {
-    fn from(value: &IResourceManagerRejoinable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IResourceManagerRejoinable> for IResourceManager2 {
-    fn from(value: IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerRejoinable> for &'a IResourceManager2 {
-    fn from(value: &'a IResourceManagerRejoinable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerRejoinable> for IResourceManager2 {
-    fn from(value: &IResourceManagerRejoinable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManagerRejoinable, ::windows::core::IUnknown, IResourceManager, IResourceManager2);
 impl ::core::clone::Clone for IResourceManagerRejoinable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2630,21 +2077,7 @@ impl IResourceManagerSink {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IResourceManagerSink> for ::windows::core::IUnknown {
-    fn from(value: IResourceManagerSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IResourceManagerSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IResourceManagerSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerSink> for ::windows::core::IUnknown {
-    fn from(value: &IResourceManagerSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IResourceManagerSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IResourceManagerSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2693,21 +2126,7 @@ impl ITipHelper {
         (::windows::core::Vtable::vtable(self).GetLocalTmUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut u8>(result__)
     }
 }
-impl ::core::convert::From<ITipHelper> for ::windows::core::IUnknown {
-    fn from(value: ITipHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITipHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITipHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITipHelper> for ::windows::core::IUnknown {
-    fn from(value: &ITipHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITipHelper, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITipHelper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2746,21 +2165,7 @@ impl ITipPullSink {
         (::windows::core::Vtable::vtable(self).PullComplete)(::windows::core::Vtable::as_raw(self), i_hrpull).ok()
     }
 }
-impl ::core::convert::From<ITipPullSink> for ::windows::core::IUnknown {
-    fn from(value: ITipPullSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITipPullSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITipPullSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITipPullSink> for ::windows::core::IUnknown {
-    fn from(value: &ITipPullSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITipPullSink, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITipPullSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2802,21 +2207,7 @@ impl ITipTransaction {
         (::windows::core::Vtable::vtable(self).GetTransactionUrl)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PSTR>(result__)
     }
 }
-impl ::core::convert::From<ITipTransaction> for ::windows::core::IUnknown {
-    fn from(value: ITipTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITipTransaction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITipTransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITipTransaction> for ::windows::core::IUnknown {
-    fn from(value: &ITipTransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITipTransaction, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITipTransaction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2858,21 +2249,7 @@ impl ITmNodeName {
         (::windows::core::Vtable::vtable(self).GetNodeName)(::windows::core::Vtable::as_raw(self), cbnodenamebuffersize, ::core::mem::transmute(pnodenamebuffer)).ok()
     }
 }
-impl ::core::convert::From<ITmNodeName> for ::windows::core::IUnknown {
-    fn from(value: ITmNodeName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITmNodeName> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITmNodeName) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITmNodeName> for ::windows::core::IUnknown {
-    fn from(value: &ITmNodeName) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITmNodeName, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITmNodeName {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2928,21 +2305,7 @@ impl ITransaction {
         (::windows::core::Vtable::vtable(self).GetTransactionInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTTRANSINFO>(result__)
     }
 }
-impl ::core::convert::From<ITransaction> for ::windows::core::IUnknown {
-    fn from(value: ITransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransaction> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransaction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransaction> for ::windows::core::IUnknown {
-    fn from(value: &ITransaction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransaction, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransaction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3013,51 +2376,7 @@ impl ITransaction2 {
         (::windows::core::Vtable::vtable(self).GetTransactionInfo2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XACTTRANSINFO>(result__)
     }
 }
-impl ::core::convert::From<ITransaction2> for ::windows::core::IUnknown {
-    fn from(value: ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransaction2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransaction2> for ::windows::core::IUnknown {
-    fn from(value: &ITransaction2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITransaction2> for ITransaction {
-    fn from(value: ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransaction2> for &'a ITransaction {
-    fn from(value: &'a ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransaction2> for ITransaction {
-    fn from(value: &ITransaction2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITransaction2> for ITransactionCloner {
-    fn from(value: ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransaction2> for &'a ITransactionCloner {
-    fn from(value: &'a ITransaction2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransaction2> for ITransactionCloner {
-    fn from(value: &ITransaction2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransaction2, ::windows::core::IUnknown, ITransaction, ITransactionCloner);
 impl ::core::clone::Clone for ITransaction2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3116,36 +2435,7 @@ impl ITransactionCloner {
         (::windows::core::Vtable::vtable(self).CloneWithCommitDisabled)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
-impl ::core::convert::From<ITransactionCloner> for ::windows::core::IUnknown {
-    fn from(value: ITransactionCloner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionCloner> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionCloner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionCloner> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionCloner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITransactionCloner> for ITransaction {
-    fn from(value: ITransactionCloner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionCloner> for &'a ITransaction {
-    fn from(value: &'a ITransactionCloner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionCloner> for ITransaction {
-    fn from(value: &ITransactionCloner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionCloner, ::windows::core::IUnknown, ITransaction);
 impl ::core::clone::Clone for ITransactionCloner {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3191,21 +2481,7 @@ impl ITransactionDispenser {
         (::windows::core::Vtable::vtable(self).BeginTransaction)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), isolevel, isoflags, poptions.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
-impl ::core::convert::From<ITransactionDispenser> for ::windows::core::IUnknown {
-    fn from(value: ITransactionDispenser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionDispenser> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionDispenser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionDispenser> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionDispenser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionDispenser, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionDispenser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3254,21 +2530,7 @@ impl ITransactionEnlistmentAsync {
         (::windows::core::Vtable::vtable(self).AbortRequestDone)(::windows::core::Vtable::as_raw(self), hr).ok()
     }
 }
-impl ::core::convert::From<ITransactionEnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionEnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionEnlistmentAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionEnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionEnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionEnlistmentAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionEnlistmentAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3320,21 +2582,7 @@ impl ITransactionExport {
         (::windows::core::Vtable::vtable(self).GetTransactionCookie)(::windows::core::Vtable::as_raw(self), punktransaction.into().abi(), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
 }
-impl ::core::convert::From<ITransactionExport> for ::windows::core::IUnknown {
-    fn from(value: ITransactionExport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionExport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionExport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionExport> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionExport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionExport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionExport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3377,21 +2625,7 @@ impl ITransactionExportFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionExport>(result__)
     }
 }
-impl ::core::convert::From<ITransactionExportFactory> for ::windows::core::IUnknown {
-    fn from(value: ITransactionExportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionExportFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionExportFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionExportFactory> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionExportFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionExportFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionExportFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3433,21 +2667,7 @@ impl ITransactionImport {
         (::windows::core::Vtable::vtable(self).Import)(::windows::core::Vtable::as_raw(self), rgbtransactioncookie.len() as _, ::core::mem::transmute(rgbtransactioncookie.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ITransactionImport> for ::windows::core::IUnknown {
-    fn from(value: ITransactionImport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionImport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionImport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionImport> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionImport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionImport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionImport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3488,21 +2708,7 @@ impl ITransactionImportWhereabouts {
         (::windows::core::Vtable::vtable(self).GetWhereabouts)(::windows::core::Vtable::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), ::core::mem::transmute(pcbused)).ok()
     }
 }
-impl ::core::convert::From<ITransactionImportWhereabouts> for ::windows::core::IUnknown {
-    fn from(value: ITransactionImportWhereabouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionImportWhereabouts> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionImportWhereabouts) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionImportWhereabouts> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionImportWhereabouts) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionImportWhereabouts, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionImportWhereabouts {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3540,21 +2746,7 @@ impl ITransactionLastEnlistmentAsync {
         (::windows::core::Vtable::vtable(self).TransactionOutcome)(::windows::core::Vtable::as_raw(self), xactstat, ::core::mem::transmute(pboidreason)).ok()
     }
 }
-impl ::core::convert::From<ITransactionLastEnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionLastEnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionLastEnlistmentAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionLastEnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionLastEnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionLastEnlistmentAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionLastEnlistmentAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3594,21 +2786,7 @@ impl ITransactionLastResourceAsync {
         (::windows::core::Vtable::vtable(self).ForgetRequest)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnewuow)).ok()
     }
 }
-impl ::core::convert::From<ITransactionLastResourceAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionLastResourceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionLastResourceAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionLastResourceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionLastResourceAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionLastResourceAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionLastResourceAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionLastResourceAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3649,21 +2827,7 @@ impl ITransactionOptions {
         (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(poptions)).ok()
     }
 }
-impl ::core::convert::From<ITransactionOptions> for ::windows::core::IUnknown {
-    fn from(value: ITransactionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionOptions> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionOptions> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionOptions, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3720,21 +2884,7 @@ impl ITransactionOutcomeEvents {
         (::windows::core::Vtable::vtable(self).Indoubt)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionOutcomeEvents> for ::windows::core::IUnknown {
-    fn from(value: ITransactionOutcomeEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionOutcomeEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionOutcomeEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionOutcomeEvents> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionOutcomeEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionOutcomeEvents, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionOutcomeEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3793,21 +2943,7 @@ impl ITransactionPhase0EnlistmentAsync {
         (::windows::core::Vtable::vtable(self).GetTransaction)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
-impl ::core::convert::From<ITransactionPhase0EnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionPhase0EnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionPhase0EnlistmentAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionPhase0EnlistmentAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionPhase0EnlistmentAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionPhase0EnlistmentAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionPhase0EnlistmentAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3852,21 +2988,7 @@ impl ITransactionPhase0Factory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), pphase0notify.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionPhase0EnlistmentAsync>(result__)
     }
 }
-impl ::core::convert::From<ITransactionPhase0Factory> for ::windows::core::IUnknown {
-    fn from(value: ITransactionPhase0Factory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionPhase0Factory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionPhase0Factory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionPhase0Factory> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionPhase0Factory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionPhase0Factory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionPhase0Factory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3911,21 +3033,7 @@ impl ITransactionPhase0NotifyAsync {
         (::windows::core::Vtable::vtable(self).EnlistCompleted)(::windows::core::Vtable::as_raw(self), status).ok()
     }
 }
-impl ::core::convert::From<ITransactionPhase0NotifyAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionPhase0NotifyAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionPhase0NotifyAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionPhase0NotifyAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionPhase0NotifyAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionPhase0NotifyAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionPhase0NotifyAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3977,21 +3085,7 @@ impl ITransactionReceiver {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionReceiver> for ::windows::core::IUnknown {
-    fn from(value: ITransactionReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionReceiver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionReceiver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionReceiver> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionReceiver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionReceiver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionReceiver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4032,21 +3126,7 @@ impl ITransactionReceiverFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionReceiver>(result__)
     }
 }
-impl ::core::convert::From<ITransactionReceiverFactory> for ::windows::core::IUnknown {
-    fn from(value: ITransactionReceiverFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionReceiverFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionReceiverFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionReceiverFactory> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionReceiverFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionReceiverFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionReceiverFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4104,21 +3184,7 @@ impl ITransactionResource {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionResource> for ::windows::core::IUnknown {
-    fn from(value: ITransactionResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionResource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionResource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionResource> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionResource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionResource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4185,21 +3251,7 @@ impl ITransactionResourceAsync {
         (::windows::core::Vtable::vtable(self).TMDown)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionResourceAsync> for ::windows::core::IUnknown {
-    fn from(value: ITransactionResourceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionResourceAsync> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionResourceAsync) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionResourceAsync> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionResourceAsync) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionResourceAsync, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionResourceAsync {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4261,21 +3313,7 @@ impl ITransactionTransmitter {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionTransmitter> for ::windows::core::IUnknown {
-    fn from(value: ITransactionTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionTransmitter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionTransmitter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionTransmitter> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionTransmitter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionTransmitter, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionTransmitter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4317,21 +3355,7 @@ impl ITransactionTransmitterFactory {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionTransmitter>(result__)
     }
 }
-impl ::core::convert::From<ITransactionTransmitterFactory> for ::windows::core::IUnknown {
-    fn from(value: ITransactionTransmitterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionTransmitterFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionTransmitterFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionTransmitterFactory> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionTransmitterFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionTransmitterFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionTransmitterFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4368,21 +3392,7 @@ impl ITransactionVoterBallotAsync2 {
         (::windows::core::Vtable::vtable(self).VoteRequestDone)(::windows::core::Vtable::as_raw(self), hr, ::core::mem::transmute(pboidreason.unwrap_or(::std::ptr::null()))).ok()
     }
 }
-impl ::core::convert::From<ITransactionVoterBallotAsync2> for ::windows::core::IUnknown {
-    fn from(value: ITransactionVoterBallotAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionVoterBallotAsync2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionVoterBallotAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionVoterBallotAsync2> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionVoterBallotAsync2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionVoterBallotAsync2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4424,21 +3434,7 @@ impl ITransactionVoterFactory2 {
         (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), ptransaction.into().abi(), pvoternotify.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransactionVoterBallotAsync2>(result__)
     }
 }
-impl ::core::convert::From<ITransactionVoterFactory2> for ::windows::core::IUnknown {
-    fn from(value: ITransactionVoterFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionVoterFactory2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionVoterFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionVoterFactory2> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionVoterFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionVoterFactory2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for ITransactionVoterFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4497,36 +3493,7 @@ impl ITransactionVoterNotifyAsync2 {
         (::windows::core::Vtable::vtable(self).VoteRequest)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ::windows::core::IUnknown {
-    fn from(value: ITransactionVoterNotifyAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionVoterNotifyAsync2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ITransactionVoterNotifyAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionVoterNotifyAsync2> for ::windows::core::IUnknown {
-    fn from(value: &ITransactionVoterNotifyAsync2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
-    fn from(value: ITransactionVoterNotifyAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ITransactionVoterNotifyAsync2> for &'a ITransactionOutcomeEvents {
-    fn from(value: &'a ITransactionVoterNotifyAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
-    fn from(value: &ITransactionVoterNotifyAsync2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows::core::IUnknown, ITransactionOutcomeEvents);
 impl ::core::clone::Clone for ITransactionVoterNotifyAsync2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4566,21 +3533,7 @@ impl IXAConfig {
         (::windows::core::Vtable::vtable(self).Terminate)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IXAConfig> for ::windows::core::IUnknown {
-    fn from(value: IXAConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAConfig> for ::windows::core::IUnknown {
-    fn from(value: &IXAConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4621,21 +3574,7 @@ impl IXAObtainRMInfo {
         (::windows::core::Vtable::vtable(self).ObtainRMInfo)(::windows::core::Vtable::as_raw(self), pirmhelper.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IXAObtainRMInfo> for ::windows::core::IUnknown {
-    fn from(value: IXAObtainRMInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXAObtainRMInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXAObtainRMInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXAObtainRMInfo> for ::windows::core::IUnknown {
-    fn from(value: &IXAObtainRMInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXAObtainRMInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXAObtainRMInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4673,21 +3612,7 @@ impl IXATransLookup {
         (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
-impl ::core::convert::From<IXATransLookup> for ::windows::core::IUnknown {
-    fn from(value: IXATransLookup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXATransLookup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXATransLookup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXATransLookup> for ::windows::core::IUnknown {
-    fn from(value: &IXATransLookup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXATransLookup, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXATransLookup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4727,21 +3652,7 @@ impl IXATransLookup2 {
         (::windows::core::Vtable::vtable(self).Lookup)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pxid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITransaction>(result__)
     }
 }
-impl ::core::convert::From<IXATransLookup2> for ::windows::core::IUnknown {
-    fn from(value: IXATransLookup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXATransLookup2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXATransLookup2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXATransLookup2> for ::windows::core::IUnknown {
-    fn from(value: &IXATransLookup2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXATransLookup2, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IXATransLookup2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())

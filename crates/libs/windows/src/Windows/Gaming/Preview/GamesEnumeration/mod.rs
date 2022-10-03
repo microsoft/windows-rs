@@ -46,36 +46,7 @@ impl IGameListEntry {
         }
     }
 }
-impl ::core::convert::From<IGameListEntry> for ::windows::core::IUnknown {
-    fn from(value: IGameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameListEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameListEntry> for ::windows::core::IUnknown {
-    fn from(value: &IGameListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGameListEntry> for ::windows::core::IInspectable {
-    fn from(value: IGameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGameListEntry> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameListEntry> for ::windows::core::IInspectable {
-    fn from(value: &IGameListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGameListEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IGameListEntry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -580,36 +551,7 @@ unsafe impl ::windows::core::Interface for GameListEntry {
 impl ::windows::core::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
 }
-impl ::core::convert::From<GameListEntry> for ::windows::core::IUnknown {
-    fn from(value: GameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameListEntry> for ::windows::core::IUnknown {
-    fn from(value: &GameListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameListEntry> for &::windows::core::IUnknown {
-    fn from(value: &GameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameListEntry> for ::windows::core::IInspectable {
-    fn from(value: GameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameListEntry> for ::windows::core::IInspectable {
-    fn from(value: &GameListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameListEntry> for &::windows::core::IInspectable {
-    fn from(value: &GameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameListEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<GameListEntry> for IGameListEntry {
     type Error = ::windows::core::Error;
     fn try_from(value: GameListEntry) -> ::windows::core::Result<Self> {
@@ -822,36 +764,7 @@ unsafe impl ::windows::core::Interface for GameModeConfiguration {
 impl ::windows::core::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
 }
-impl ::core::convert::From<GameModeConfiguration> for ::windows::core::IUnknown {
-    fn from(value: GameModeConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameModeConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &GameModeConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameModeConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &GameModeConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameModeConfiguration> for ::windows::core::IInspectable {
-    fn from(value: GameModeConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameModeConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &GameModeConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameModeConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &GameModeConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameModeConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameModeConfiguration {}
 unsafe impl ::core::marker::Sync for GameModeConfiguration {}
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
@@ -920,36 +833,7 @@ unsafe impl ::windows::core::Interface for GameModeUserConfiguration {
 impl ::windows::core::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
 }
-impl ::core::convert::From<GameModeUserConfiguration> for ::windows::core::IUnknown {
-    fn from(value: GameModeUserConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameModeUserConfiguration> for ::windows::core::IUnknown {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameModeUserConfiguration> for &::windows::core::IUnknown {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameModeUserConfiguration> for ::windows::core::IInspectable {
-    fn from(value: GameModeUserConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameModeUserConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameModeUserConfiguration> for &::windows::core::IInspectable {
-    fn from(value: &GameModeUserConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameModeUserConfiguration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::core::marker::Sync for GameModeUserConfiguration {}
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]

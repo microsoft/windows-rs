@@ -13,36 +13,7 @@ impl IDirect3DDevice {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IInspectable {
-    fn from(value: IDirect3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DDevice> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDirect3DDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IInspectable {
-    fn from(value: &IDirect3DDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DDevice, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DDevice> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -118,36 +89,7 @@ impl IDirect3DSurface {
         unsafe { (::windows::core::Vtable::vtable(this).Close)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IUnknown {
-    fn from(value: IDirect3DSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSurface> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirect3DSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IUnknown {
-    fn from(value: &IDirect3DSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IInspectable {
-    fn from(value: IDirect3DSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirect3DSurface> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IDirect3DSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IInspectable {
-    fn from(value: &IDirect3DSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirect3DSurface, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<IDirect3DSurface> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;

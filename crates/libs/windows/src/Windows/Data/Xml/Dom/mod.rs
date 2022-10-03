@@ -339,36 +339,7 @@ impl IXmlCharacterData {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IXmlCharacterData> for ::windows::core::IUnknown {
-    fn from(value: IXmlCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlCharacterData> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlCharacterData> for ::windows::core::IUnknown {
-    fn from(value: &IXmlCharacterData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXmlCharacterData> for ::windows::core::IInspectable {
-    fn from(value: IXmlCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlCharacterData> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXmlCharacterData) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlCharacterData> for ::windows::core::IInspectable {
-    fn from(value: &IXmlCharacterData) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlCharacterData, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlCharacterData> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlCharacterData) -> ::windows::core::Result<Self> {
@@ -953,36 +924,7 @@ impl IXmlNode {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IXmlNode> for ::windows::core::IUnknown {
-    fn from(value: IXmlNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNode> for ::windows::core::IUnknown {
-    fn from(value: &IXmlNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXmlNode> for ::windows::core::IInspectable {
-    fn from(value: IXmlNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNode> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXmlNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNode> for ::windows::core::IInspectable {
-    fn from(value: &IXmlNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlNode, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlNode> for IXmlNodeSelector {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlNode) -> ::windows::core::Result<Self> {
@@ -1133,36 +1075,7 @@ impl IXmlNodeSelector {
         }
     }
 }
-impl ::core::convert::From<IXmlNodeSelector> for ::windows::core::IUnknown {
-    fn from(value: IXmlNodeSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNodeSelector> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlNodeSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNodeSelector> for ::windows::core::IUnknown {
-    fn from(value: &IXmlNodeSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXmlNodeSelector> for ::windows::core::IInspectable {
-    fn from(value: IXmlNodeSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNodeSelector> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXmlNodeSelector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNodeSelector> for ::windows::core::IInspectable {
-    fn from(value: &IXmlNodeSelector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlNodeSelector, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IXmlNodeSelector {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1224,36 +1137,7 @@ impl IXmlNodeSerializer {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IXmlNodeSerializer> for ::windows::core::IUnknown {
-    fn from(value: IXmlNodeSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNodeSerializer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlNodeSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNodeSerializer> for ::windows::core::IUnknown {
-    fn from(value: &IXmlNodeSerializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXmlNodeSerializer> for ::windows::core::IInspectable {
-    fn from(value: IXmlNodeSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlNodeSerializer> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXmlNodeSerializer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlNodeSerializer> for ::windows::core::IInspectable {
-    fn from(value: &IXmlNodeSerializer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlNodeSerializer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IXmlNodeSerializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1591,36 +1475,7 @@ impl IXmlText {
         unsafe { (::windows::core::Vtable::vtable(this).SetInnerText)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::convert::From<IXmlText> for ::windows::core::IUnknown {
-    fn from(value: IXmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlText> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IXmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlText> for ::windows::core::IUnknown {
-    fn from(value: &IXmlText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IXmlText> for ::windows::core::IInspectable {
-    fn from(value: IXmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IXmlText> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IXmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXmlText> for ::windows::core::IInspectable {
-    fn from(value: &IXmlText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IXmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<IXmlText> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: IXmlText) -> ::windows::core::Result<Self> {
@@ -2020,36 +1875,7 @@ unsafe impl ::windows::core::Interface for DtdEntity {
 impl ::windows::core::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
 }
-impl ::core::convert::From<DtdEntity> for ::windows::core::IUnknown {
-    fn from(value: DtdEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DtdEntity> for ::windows::core::IUnknown {
-    fn from(value: &DtdEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DtdEntity> for &::windows::core::IUnknown {
-    fn from(value: &DtdEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DtdEntity> for ::windows::core::IInspectable {
-    fn from(value: DtdEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DtdEntity> for ::windows::core::IInspectable {
-    fn from(value: &DtdEntity) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DtdEntity> for &::windows::core::IInspectable {
-    fn from(value: &DtdEntity) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DtdEntity, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DtdEntity> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: DtdEntity) -> ::windows::core::Result<Self> {
@@ -2390,36 +2216,7 @@ unsafe impl ::windows::core::Interface for DtdNotation {
 impl ::windows::core::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
 }
-impl ::core::convert::From<DtdNotation> for ::windows::core::IUnknown {
-    fn from(value: DtdNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DtdNotation> for ::windows::core::IUnknown {
-    fn from(value: &DtdNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DtdNotation> for &::windows::core::IUnknown {
-    fn from(value: &DtdNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DtdNotation> for ::windows::core::IInspectable {
-    fn from(value: DtdNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DtdNotation> for ::windows::core::IInspectable {
-    fn from(value: &DtdNotation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DtdNotation> for &::windows::core::IInspectable {
-    fn from(value: &DtdNotation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DtdNotation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<DtdNotation> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: DtdNotation) -> ::windows::core::Result<Self> {
@@ -2771,36 +2568,7 @@ unsafe impl ::windows::core::Interface for XmlAttribute {
 impl ::windows::core::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
 }
-impl ::core::convert::From<XmlAttribute> for ::windows::core::IUnknown {
-    fn from(value: XmlAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlAttribute> for ::windows::core::IUnknown {
-    fn from(value: &XmlAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlAttribute> for &::windows::core::IUnknown {
-    fn from(value: &XmlAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlAttribute> for ::windows::core::IInspectable {
-    fn from(value: XmlAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlAttribute> for ::windows::core::IInspectable {
-    fn from(value: &XmlAttribute) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlAttribute> for &::windows::core::IInspectable {
-    fn from(value: &XmlAttribute) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlAttribute, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlAttribute> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlAttribute) -> ::windows::core::Result<Self> {
@@ -3175,36 +2943,7 @@ unsafe impl ::windows::core::Interface for XmlCDataSection {
 impl ::windows::core::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
 }
-impl ::core::convert::From<XmlCDataSection> for ::windows::core::IUnknown {
-    fn from(value: XmlCDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlCDataSection> for ::windows::core::IUnknown {
-    fn from(value: &XmlCDataSection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlCDataSection> for &::windows::core::IUnknown {
-    fn from(value: &XmlCDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlCDataSection> for ::windows::core::IInspectable {
-    fn from(value: XmlCDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlCDataSection> for ::windows::core::IInspectable {
-    fn from(value: &XmlCDataSection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlCDataSection> for &::windows::core::IInspectable {
-    fn from(value: &XmlCDataSection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlCDataSection, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlCDataSection> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlCDataSection) -> ::windows::core::Result<Self> {
@@ -3610,36 +3349,7 @@ unsafe impl ::windows::core::Interface for XmlComment {
 impl ::windows::core::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
 }
-impl ::core::convert::From<XmlComment> for ::windows::core::IUnknown {
-    fn from(value: XmlComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlComment> for ::windows::core::IUnknown {
-    fn from(value: &XmlComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlComment> for &::windows::core::IUnknown {
-    fn from(value: &XmlComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlComment> for ::windows::core::IInspectable {
-    fn from(value: XmlComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlComment> for ::windows::core::IInspectable {
-    fn from(value: &XmlComment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlComment> for &::windows::core::IInspectable {
-    fn from(value: &XmlComment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlComment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlComment> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlComment) -> ::windows::core::Result<Self> {
@@ -4207,36 +3917,7 @@ unsafe impl ::windows::core::Interface for XmlDocument {
 impl ::windows::core::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
 }
-impl ::core::convert::From<XmlDocument> for ::windows::core::IUnknown {
-    fn from(value: XmlDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocument> for ::windows::core::IUnknown {
-    fn from(value: &XmlDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocument> for &::windows::core::IUnknown {
-    fn from(value: &XmlDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlDocument> for ::windows::core::IInspectable {
-    fn from(value: XmlDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocument> for ::windows::core::IInspectable {
-    fn from(value: &XmlDocument) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocument> for &::windows::core::IInspectable {
-    fn from(value: &XmlDocument) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlDocument, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocument> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocument) -> ::windows::core::Result<Self> {
@@ -4563,36 +4244,7 @@ unsafe impl ::windows::core::Interface for XmlDocumentFragment {
 impl ::windows::core::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
 }
-impl ::core::convert::From<XmlDocumentFragment> for ::windows::core::IUnknown {
-    fn from(value: XmlDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocumentFragment> for ::windows::core::IUnknown {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocumentFragment> for &::windows::core::IUnknown {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlDocumentFragment> for ::windows::core::IInspectable {
-    fn from(value: XmlDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocumentFragment> for ::windows::core::IInspectable {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocumentFragment> for &::windows::core::IInspectable {
-    fn from(value: &XmlDocumentFragment) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlDocumentFragment, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocumentFragment> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocumentFragment) -> ::windows::core::Result<Self> {
@@ -4940,36 +4592,7 @@ unsafe impl ::windows::core::Interface for XmlDocumentType {
 impl ::windows::core::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
 }
-impl ::core::convert::From<XmlDocumentType> for ::windows::core::IUnknown {
-    fn from(value: XmlDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocumentType> for ::windows::core::IUnknown {
-    fn from(value: &XmlDocumentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocumentType> for &::windows::core::IUnknown {
-    fn from(value: &XmlDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlDocumentType> for ::windows::core::IInspectable {
-    fn from(value: XmlDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDocumentType> for ::windows::core::IInspectable {
-    fn from(value: &XmlDocumentType) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDocumentType> for &::windows::core::IInspectable {
-    fn from(value: &XmlDocumentType) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlDocumentType, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlDocumentType> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlDocumentType) -> ::windows::core::Result<Self> {
@@ -5076,36 +4699,7 @@ unsafe impl ::windows::core::Interface for XmlDomImplementation {
 impl ::windows::core::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
 }
-impl ::core::convert::From<XmlDomImplementation> for ::windows::core::IUnknown {
-    fn from(value: XmlDomImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDomImplementation> for ::windows::core::IUnknown {
-    fn from(value: &XmlDomImplementation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDomImplementation> for &::windows::core::IUnknown {
-    fn from(value: &XmlDomImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlDomImplementation> for ::windows::core::IInspectable {
-    fn from(value: XmlDomImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlDomImplementation> for ::windows::core::IInspectable {
-    fn from(value: &XmlDomImplementation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlDomImplementation> for &::windows::core::IInspectable {
-    fn from(value: &XmlDomImplementation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlDomImplementation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -5466,36 +5060,7 @@ unsafe impl ::windows::core::Interface for XmlElement {
 impl ::windows::core::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
 }
-impl ::core::convert::From<XmlElement> for ::windows::core::IUnknown {
-    fn from(value: XmlElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlElement> for ::windows::core::IUnknown {
-    fn from(value: &XmlElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlElement> for &::windows::core::IUnknown {
-    fn from(value: &XmlElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlElement> for ::windows::core::IInspectable {
-    fn from(value: XmlElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlElement> for ::windows::core::IInspectable {
-    fn from(value: &XmlElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlElement> for &::windows::core::IInspectable {
-    fn from(value: &XmlElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlElement, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlElement> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlElement) -> ::windows::core::Result<Self> {
@@ -5822,36 +5387,7 @@ unsafe impl ::windows::core::Interface for XmlEntityReference {
 impl ::windows::core::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
 }
-impl ::core::convert::From<XmlEntityReference> for ::windows::core::IUnknown {
-    fn from(value: XmlEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlEntityReference> for ::windows::core::IUnknown {
-    fn from(value: &XmlEntityReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlEntityReference> for &::windows::core::IUnknown {
-    fn from(value: &XmlEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlEntityReference> for ::windows::core::IInspectable {
-    fn from(value: XmlEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlEntityReference> for ::windows::core::IInspectable {
-    fn from(value: &XmlEntityReference) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlEntityReference> for &::windows::core::IInspectable {
-    fn from(value: &XmlEntityReference) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlEntityReference, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlEntityReference> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlEntityReference) -> ::windows::core::Result<Self> {
@@ -6010,36 +5546,7 @@ unsafe impl ::windows::core::Interface for XmlLoadSettings {
 impl ::windows::core::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
 }
-impl ::core::convert::From<XmlLoadSettings> for ::windows::core::IUnknown {
-    fn from(value: XmlLoadSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlLoadSettings> for ::windows::core::IUnknown {
-    fn from(value: &XmlLoadSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlLoadSettings> for &::windows::core::IUnknown {
-    fn from(value: &XmlLoadSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlLoadSettings> for ::windows::core::IInspectable {
-    fn from(value: XmlLoadSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlLoadSettings> for ::windows::core::IInspectable {
-    fn from(value: &XmlLoadSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlLoadSettings> for &::windows::core::IInspectable {
-    fn from(value: &XmlLoadSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlLoadSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -6214,36 +5721,7 @@ impl ::core::iter::IntoIterator for &XmlNamedNodeMap {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<XmlNamedNodeMap> for ::windows::core::IUnknown {
-    fn from(value: XmlNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlNamedNodeMap> for ::windows::core::IUnknown {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlNamedNodeMap> for &::windows::core::IUnknown {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlNamedNodeMap> for ::windows::core::IInspectable {
-    fn from(value: XmlNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlNamedNodeMap> for ::windows::core::IInspectable {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlNamedNodeMap> for &::windows::core::IInspectable {
-    fn from(value: &XmlNamedNodeMap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlNamedNodeMap, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<XmlNamedNodeMap> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::core::Error;
@@ -6406,36 +5884,7 @@ impl ::core::iter::IntoIterator for &XmlNodeList {
         super::super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
     }
 }
-impl ::core::convert::From<XmlNodeList> for ::windows::core::IUnknown {
-    fn from(value: XmlNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlNodeList> for ::windows::core::IUnknown {
-    fn from(value: &XmlNodeList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlNodeList> for &::windows::core::IUnknown {
-    fn from(value: &XmlNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlNodeList> for ::windows::core::IInspectable {
-    fn from(value: XmlNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlNodeList> for ::windows::core::IInspectable {
-    fn from(value: &XmlNodeList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlNodeList> for &::windows::core::IInspectable {
-    fn from(value: &XmlNodeList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlNodeList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<XmlNodeList> for super::super::super::Foundation::Collections::IIterable<IXmlNode> {
     type Error = ::windows::core::Error;
@@ -6767,36 +6216,7 @@ unsafe impl ::windows::core::Interface for XmlProcessingInstruction {
 impl ::windows::core::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
 }
-impl ::core::convert::From<XmlProcessingInstruction> for ::windows::core::IUnknown {
-    fn from(value: XmlProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlProcessingInstruction> for ::windows::core::IUnknown {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlProcessingInstruction> for &::windows::core::IUnknown {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlProcessingInstruction> for ::windows::core::IInspectable {
-    fn from(value: XmlProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlProcessingInstruction> for ::windows::core::IInspectable {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlProcessingInstruction> for &::windows::core::IInspectable {
-    fn from(value: &XmlProcessingInstruction) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlProcessingInstruction, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlProcessingInstruction> for IXmlNode {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlProcessingInstruction) -> ::windows::core::Result<Self> {
@@ -7171,36 +6591,7 @@ unsafe impl ::windows::core::Interface for XmlText {
 impl ::windows::core::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";
 }
-impl ::core::convert::From<XmlText> for ::windows::core::IUnknown {
-    fn from(value: XmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlText> for ::windows::core::IUnknown {
-    fn from(value: &XmlText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlText> for &::windows::core::IUnknown {
-    fn from(value: &XmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<XmlText> for ::windows::core::IInspectable {
-    fn from(value: XmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&XmlText> for ::windows::core::IInspectable {
-    fn from(value: &XmlText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&XmlText> for &::windows::core::IInspectable {
-    fn from(value: &XmlText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(XmlText, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<XmlText> for IXmlCharacterData {
     type Error = ::windows::core::Error;
     fn try_from(value: XmlText) -> ::windows::core::Result<Self> {

@@ -210,36 +210,7 @@ impl ICoreApplicationUnhandledError {
         unsafe { (::windows::core::Vtable::vtable(this).RemoveUnhandledErrorDetected)(::windows::core::Vtable::as_raw(this), token).ok() }
     }
 }
-impl ::core::convert::From<ICoreApplicationUnhandledError> for ::windows::core::IUnknown {
-    fn from(value: ICoreApplicationUnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreApplicationUnhandledError> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ICoreApplicationUnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreApplicationUnhandledError> for ::windows::core::IUnknown {
-    fn from(value: &ICoreApplicationUnhandledError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
-    fn from(value: ICoreApplicationUnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ICoreApplicationUnhandledError> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a ICoreApplicationUnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
-    fn from(value: &ICoreApplicationUnhandledError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(ICoreApplicationUnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for ICoreApplicationUnhandledError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -517,36 +488,7 @@ impl IFrameworkView {
         unsafe { (::windows::core::Vtable::vtable(this).Uninitialize)(::windows::core::Vtable::as_raw(this)).ok() }
     }
 }
-impl ::core::convert::From<IFrameworkView> for ::windows::core::IUnknown {
-    fn from(value: IFrameworkView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFrameworkView> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFrameworkView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkView> for ::windows::core::IUnknown {
-    fn from(value: &IFrameworkView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFrameworkView> for ::windows::core::IInspectable {
-    fn from(value: IFrameworkView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFrameworkView> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFrameworkView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkView> for ::windows::core::IInspectable {
-    fn from(value: &IFrameworkView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFrameworkView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IFrameworkView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -601,36 +543,7 @@ impl IFrameworkViewSource {
         }
     }
 }
-impl ::core::convert::From<IFrameworkViewSource> for ::windows::core::IUnknown {
-    fn from(value: IFrameworkViewSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFrameworkViewSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IFrameworkViewSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkViewSource> for ::windows::core::IUnknown {
-    fn from(value: &IFrameworkViewSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IFrameworkViewSource> for ::windows::core::IInspectable {
-    fn from(value: IFrameworkViewSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IFrameworkViewSource> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IFrameworkViewSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkViewSource> for ::windows::core::IInspectable {
-    fn from(value: &IFrameworkViewSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IFrameworkViewSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IFrameworkViewSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -791,36 +704,7 @@ unsafe impl ::windows::core::Interface for AppListEntry {
 impl ::windows::core::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
 }
-impl ::core::convert::From<AppListEntry> for ::windows::core::IUnknown {
-    fn from(value: AppListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppListEntry> for ::windows::core::IUnknown {
-    fn from(value: &AppListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppListEntry> for &::windows::core::IUnknown {
-    fn from(value: &AppListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppListEntry> for ::windows::core::IInspectable {
-    fn from(value: AppListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppListEntry> for ::windows::core::IInspectable {
-    fn from(value: &AppListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppListEntry> for &::windows::core::IInspectable {
-    fn from(value: &AppListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AppListEntry, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AppListEntry {}
 unsafe impl ::core::marker::Sync for AppListEntry {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1197,36 +1081,7 @@ unsafe impl ::windows::core::Interface for CoreApplicationView {
 impl ::windows::core::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
 }
-impl ::core::convert::From<CoreApplicationView> for ::windows::core::IUnknown {
-    fn from(value: CoreApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreApplicationView> for ::windows::core::IUnknown {
-    fn from(value: &CoreApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreApplicationView> for &::windows::core::IUnknown {
-    fn from(value: &CoreApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreApplicationView> for ::windows::core::IInspectable {
-    fn from(value: CoreApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreApplicationView> for ::windows::core::IInspectable {
-    fn from(value: &CoreApplicationView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreApplicationView> for &::windows::core::IInspectable {
-    fn from(value: &CoreApplicationView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreApplicationView, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
 #[repr(transparent)]
 pub struct CoreApplicationViewTitleBar(::windows::core::IUnknown);
@@ -1333,36 +1188,7 @@ unsafe impl ::windows::core::Interface for CoreApplicationViewTitleBar {
 impl ::windows::core::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
 }
-impl ::core::convert::From<CoreApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: CoreApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreApplicationViewTitleBar> for ::windows::core::IUnknown {
-    fn from(value: &CoreApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreApplicationViewTitleBar> for &::windows::core::IUnknown {
-    fn from(value: &CoreApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: CoreApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreApplicationViewTitleBar> for ::windows::core::IInspectable {
-    fn from(value: &CoreApplicationViewTitleBar) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreApplicationViewTitleBar> for &::windows::core::IInspectable {
-    fn from(value: &CoreApplicationViewTitleBar) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CoreApplicationViewTitleBar, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
 #[repr(transparent)]
 pub struct HostedViewClosingEventArgs(::windows::core::IUnknown);
@@ -1409,36 +1235,7 @@ unsafe impl ::windows::core::Interface for HostedViewClosingEventArgs {
 impl ::windows::core::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
 }
-impl ::core::convert::From<HostedViewClosingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HostedViewClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HostedViewClosingEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HostedViewClosingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HostedViewClosingEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HostedViewClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HostedViewClosingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HostedViewClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HostedViewClosingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HostedViewClosingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HostedViewClosingEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HostedViewClosingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(HostedViewClosingEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for HostedViewClosingEventArgs {}
 unsafe impl ::core::marker::Sync for HostedViewClosingEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1489,36 +1286,7 @@ unsafe impl ::windows::core::Interface for UnhandledError {
 impl ::windows::core::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
 }
-impl ::core::convert::From<UnhandledError> for ::windows::core::IUnknown {
-    fn from(value: UnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnhandledError> for ::windows::core::IUnknown {
-    fn from(value: &UnhandledError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnhandledError> for &::windows::core::IUnknown {
-    fn from(value: &UnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UnhandledError> for ::windows::core::IInspectable {
-    fn from(value: UnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnhandledError> for ::windows::core::IInspectable {
-    fn from(value: &UnhandledError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnhandledError> for &::windows::core::IInspectable {
-    fn from(value: &UnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnhandledError, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnhandledError {}
 unsafe impl ::core::marker::Sync for UnhandledError {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
@@ -1565,36 +1333,7 @@ unsafe impl ::windows::core::Interface for UnhandledErrorDetectedEventArgs {
 impl ::windows::core::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
 }
-impl ::core::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnhandledErrorDetectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UnhandledErrorDetectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UnhandledErrorDetectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for UnhandledErrorDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]

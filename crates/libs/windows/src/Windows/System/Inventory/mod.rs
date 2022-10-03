@@ -121,36 +121,7 @@ unsafe impl ::windows::core::Interface for InstalledDesktopApp {
 impl ::windows::core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";
 }
-impl ::core::convert::From<InstalledDesktopApp> for ::windows::core::IUnknown {
-    fn from(value: InstalledDesktopApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InstalledDesktopApp> for ::windows::core::IUnknown {
-    fn from(value: &InstalledDesktopApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InstalledDesktopApp> for &::windows::core::IUnknown {
-    fn from(value: &InstalledDesktopApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<InstalledDesktopApp> for ::windows::core::IInspectable {
-    fn from(value: InstalledDesktopApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&InstalledDesktopApp> for ::windows::core::IInspectable {
-    fn from(value: &InstalledDesktopApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&InstalledDesktopApp> for &::windows::core::IInspectable {
-    fn from(value: &InstalledDesktopApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(InstalledDesktopApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<InstalledDesktopApp> for super::super::Foundation::IStringable {
     type Error = ::windows::core::Error;

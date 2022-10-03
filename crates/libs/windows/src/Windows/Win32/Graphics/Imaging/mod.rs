@@ -153,36 +153,7 @@ impl IWICBitmap {
         (::windows::core::Vtable::vtable(self).SetResolution)(::windows::core::Vtable::as_raw(self), dpix, dpiy).ok()
     }
 }
-impl ::core::convert::From<IWICBitmap> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmap> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmap> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmap> for IWICBitmapSource {
-    fn from(value: IWICBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmap> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmap> for IWICBitmapSource {
-    fn from(value: &IWICBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmap, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICBitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -243,36 +214,7 @@ impl IWICBitmapClipper {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), ::core::mem::transmute(prc)).ok()
     }
 }
-impl ::core::convert::From<IWICBitmapClipper> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapClipper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapClipper> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapClipper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapClipper> for IWICBitmapSource {
-    fn from(value: IWICBitmapClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapClipper> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICBitmapClipper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapClipper> for IWICBitmapSource {
-    fn from(value: &IWICBitmapClipper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapClipper, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICBitmapClipper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -389,36 +331,7 @@ impl IWICBitmapCodecInfo {
         (::windows::core::Vtable::vtable(self).MatchesMimeType)(::windows::core::Vtable::as_raw(self), wzmimetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapCodecInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapCodecInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapCodecInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapCodecInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapCodecInfo> for IWICComponentInfo {
-    fn from(value: IWICBitmapCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapCodecInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICBitmapCodecInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapCodecInfo> for IWICComponentInfo {
-    fn from(value: &IWICBitmapCodecInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapCodecInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::clone::Clone for IWICBitmapCodecInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -481,21 +394,7 @@ impl IWICBitmapCodecProgressNotification {
         (::windows::core::Vtable::vtable(self).RegisterProgressNotification)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pfnprogressnotification), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null())), dwprogressflags).ok()
     }
 }
-impl ::core::convert::From<IWICBitmapCodecProgressNotification> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapCodecProgressNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapCodecProgressNotification> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapCodecProgressNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapCodecProgressNotification> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapCodecProgressNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapCodecProgressNotification, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -583,21 +482,7 @@ impl IWICBitmapDecoder {
         (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapFrameDecode>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapDecoder> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapDecoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapDecoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapDecoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapDecoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -748,51 +633,7 @@ impl IWICBitmapDecoderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapDecoderInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapDecoderInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapDecoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapDecoderInfo> for IWICComponentInfo {
-    fn from(value: IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapDecoderInfo> for IWICComponentInfo {
-    fn from(value: &IWICBitmapDecoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
-    fn from(value: IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a IWICBitmapCodecInfo {
-    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
-    fn from(value: &IWICBitmapDecoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapDecoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::clone::Clone for IWICBitmapDecoderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -883,21 +724,7 @@ impl IWICBitmapEncoder {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapEncoder> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapEncoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapEncoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapEncoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapEncoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1033,51 +860,7 @@ impl IWICBitmapEncoderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapEncoder>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapEncoderInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapEncoderInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapEncoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapEncoderInfo> for IWICComponentInfo {
-    fn from(value: IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapEncoderInfo> for IWICComponentInfo {
-    fn from(value: &IWICBitmapEncoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
-    fn from(value: IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a IWICBitmapCodecInfo {
-    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
-    fn from(value: &IWICBitmapEncoderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapEncoderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl ::core::clone::Clone for IWICBitmapEncoderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1136,36 +919,7 @@ impl IWICBitmapFlipRotator {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), options).ok()
     }
 }
-impl ::core::convert::From<IWICBitmapFlipRotator> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapFlipRotator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapFlipRotator> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapFlipRotator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapFlipRotator> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapFlipRotator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapFlipRotator> for IWICBitmapSource {
-    fn from(value: IWICBitmapFlipRotator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapFlipRotator> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICBitmapFlipRotator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapFlipRotator> for IWICBitmapSource {
-    fn from(value: &IWICBitmapFlipRotator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapFlipRotator, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICBitmapFlipRotator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1229,36 +983,7 @@ impl IWICBitmapFrameDecode {
         (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapSource>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapFrameDecode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapFrameDecode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapFrameDecode> for IWICBitmapSource {
-    fn from(value: IWICBitmapFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapFrameDecode> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICBitmapFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapFrameDecode> for IWICBitmapSource {
-    fn from(value: &IWICBitmapFrameDecode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapFrameDecode, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICBitmapFrameDecode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1342,21 +1067,7 @@ impl IWICBitmapFrameEncode {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapFrameEncode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapFrameEncode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapFrameEncode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1417,21 +1128,7 @@ impl IWICBitmapLock {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapLock> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapLock> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapLock) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapLock> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapLock) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapLock, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapLock {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1493,36 +1190,7 @@ impl IWICBitmapScaler {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pisource.into().abi(), uiwidth, uiheight, mode).ok()
     }
 }
-impl ::core::convert::From<IWICBitmapScaler> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapScaler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapScaler> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapScaler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapScaler> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapScaler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICBitmapScaler> for IWICBitmapSource {
-    fn from(value: IWICBitmapScaler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapScaler> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICBitmapScaler) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapScaler> for IWICBitmapSource {
-    fn from(value: &IWICBitmapScaler) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapScaler, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICBitmapScaler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1575,21 +1243,7 @@ impl IWICBitmapSource {
         (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prc), cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWICBitmapSource> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapSource> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapSource> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapSource, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1642,21 +1296,7 @@ impl IWICBitmapSourceTransform {
         (::windows::core::Vtable::vtable(self).DoesSupportTransform)(::windows::core::Vtable::as_raw(self), dsttransform, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICBitmapSourceTransform> for ::windows::core::IUnknown {
-    fn from(value: IWICBitmapSourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICBitmapSourceTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICBitmapSourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICBitmapSourceTransform> for ::windows::core::IUnknown {
-    fn from(value: &IWICBitmapSourceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICBitmapSourceTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1719,21 +1359,7 @@ impl IWICColorContext {
         (::windows::core::Vtable::vtable(self).GetExifColorSpace)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<IWICColorContext> for ::windows::core::IUnknown {
-    fn from(value: IWICColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICColorContext> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICColorContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICColorContext> for ::windows::core::IUnknown {
-    fn from(value: &IWICColorContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICColorContext, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICColorContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1799,36 +1425,7 @@ impl IWICColorTransform {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pibitmapsource.into().abi(), picontextsource.into().abi(), picontextdest.into().abi(), ::core::mem::transmute(pixelfmtdest)).ok()
     }
 }
-impl ::core::convert::From<IWICColorTransform> for ::windows::core::IUnknown {
-    fn from(value: IWICColorTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICColorTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICColorTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICColorTransform> for ::windows::core::IUnknown {
-    fn from(value: &IWICColorTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICColorTransform> for IWICBitmapSource {
-    fn from(value: IWICColorTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICColorTransform> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICColorTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICColorTransform> for IWICBitmapSource {
-    fn from(value: &IWICColorTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICColorTransform, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICColorTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2049,36 +1646,7 @@ impl IWICComponentFactory {
         (::windows::core::Vtable::vtable(self).CreateEncoderPropertyBag)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppropoptions.as_ptr()), ppropoptions.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::IPropertyBag2>(result__)
     }
 }
-impl ::core::convert::From<IWICComponentFactory> for ::windows::core::IUnknown {
-    fn from(value: IWICComponentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICComponentFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICComponentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICComponentFactory> for ::windows::core::IUnknown {
-    fn from(value: &IWICComponentFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICComponentFactory> for IWICImagingFactory {
-    fn from(value: IWICComponentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICComponentFactory> for &'a IWICImagingFactory {
-    fn from(value: &'a IWICComponentFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICComponentFactory> for IWICImagingFactory {
-    fn from(value: &IWICComponentFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICComponentFactory, ::windows::core::IUnknown, IWICImagingFactory);
 impl ::core::clone::Clone for IWICComponentFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2155,21 +1723,7 @@ impl IWICComponentInfo {
         (::windows::core::Vtable::vtable(self).GetFriendlyName)(::windows::core::Vtable::as_raw(self), wzfriendlyname.len() as _, ::core::mem::transmute(wzfriendlyname.as_ptr()), ::core::mem::transmute(pcchactual)).ok()
     }
 }
-impl ::core::convert::From<IWICComponentInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICComponentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICComponentInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICComponentInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICComponentInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICComponentInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICComponentInfo, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICComponentInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2220,21 +1774,7 @@ impl IWICDdsDecoder {
         (::windows::core::Vtable::vtable(self).GetFrame)(::windows::core::Vtable::as_raw(self), arrayindex, miplevel, sliceindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapFrameDecode>(result__)
     }
 }
-impl ::core::convert::From<IWICDdsDecoder> for ::windows::core::IUnknown {
-    fn from(value: IWICDdsDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDdsDecoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICDdsDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDdsDecoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICDdsDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICDdsDecoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICDdsDecoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2286,21 +1826,7 @@ impl IWICDdsEncoder {
         (::windows::core::Vtable::vtable(self).CreateNewFrame)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppiframeencode), ::core::mem::transmute(parrayindex), ::core::mem::transmute(pmiplevel), ::core::mem::transmute(psliceindex)).ok()
     }
 }
-impl ::core::convert::From<IWICDdsEncoder> for ::windows::core::IUnknown {
-    fn from(value: IWICDdsEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDdsEncoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICDdsEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDdsEncoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICDdsEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICDdsEncoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICDdsEncoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2354,21 +1880,7 @@ impl IWICDdsFrameDecode {
         (::windows::core::Vtable::vtable(self).CopyBlocks)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prcboundsinblocks), cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWICDdsFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: IWICDdsFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDdsFrameDecode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICDdsFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDdsFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: &IWICDdsFrameDecode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICDdsFrameDecode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICDdsFrameDecode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2553,51 +2065,7 @@ impl IWICDevelopRaw {
         (::windows::core::Vtable::vtable(self).SetNotificationCallback)(::windows::core::Vtable::as_raw(self), pcallback.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IWICDevelopRaw> for ::windows::core::IUnknown {
-    fn from(value: IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDevelopRaw> for ::windows::core::IUnknown {
-    fn from(value: &IWICDevelopRaw) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICDevelopRaw> for IWICBitmapSource {
-    fn from(value: IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDevelopRaw> for IWICBitmapSource {
-    fn from(value: &IWICDevelopRaw) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICDevelopRaw> for IWICBitmapFrameDecode {
-    fn from(value: IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a IWICBitmapFrameDecode {
-    fn from(value: &'a IWICDevelopRaw) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDevelopRaw> for IWICBitmapFrameDecode {
-    fn from(value: &IWICDevelopRaw) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICDevelopRaw, ::windows::core::IUnknown, IWICBitmapSource, IWICBitmapFrameDecode);
 impl ::core::clone::Clone for IWICDevelopRaw {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2668,21 +2136,7 @@ impl IWICDevelopRawNotificationCallback {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), notificationmask).ok()
     }
 }
-impl ::core::convert::From<IWICDevelopRawNotificationCallback> for ::windows::core::IUnknown {
-    fn from(value: IWICDevelopRawNotificationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICDevelopRawNotificationCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICDevelopRawNotificationCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICDevelopRawNotificationCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWICDevelopRawNotificationCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICDevelopRawNotificationCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2731,21 +2185,7 @@ impl IWICEnumMetadataItem {
         (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICEnumMetadataItem>(result__)
     }
 }
-impl ::core::convert::From<IWICEnumMetadataItem> for ::windows::core::IUnknown {
-    fn from(value: IWICEnumMetadataItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICEnumMetadataItem> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICEnumMetadataItem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICEnumMetadataItem> for ::windows::core::IUnknown {
-    fn from(value: &IWICEnumMetadataItem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICEnumMetadataItem, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICEnumMetadataItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2792,21 +2232,7 @@ impl IWICFastMetadataEncoder {
         (::windows::core::Vtable::vtable(self).GetMetadataQueryWriter)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
-impl ::core::convert::From<IWICFastMetadataEncoder> for ::windows::core::IUnknown {
-    fn from(value: IWICFastMetadataEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICFastMetadataEncoder> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICFastMetadataEncoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICFastMetadataEncoder> for ::windows::core::IUnknown {
-    fn from(value: &IWICFastMetadataEncoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICFastMetadataEncoder, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICFastMetadataEncoder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2873,36 +2299,7 @@ impl IWICFormatConverter {
         (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(srcpixelformat), ::core::mem::transmute(dstpixelformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: IWICFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICFormatConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: &IWICFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICFormatConverter> for IWICBitmapSource {
-    fn from(value: IWICFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICFormatConverter> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICFormatConverter> for IWICBitmapSource {
-    fn from(value: &IWICFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICFormatConverter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2975,36 +2372,7 @@ impl IWICFormatConverterInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFormatConverter>(result__)
     }
 }
-impl ::core::convert::From<IWICFormatConverterInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICFormatConverterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICFormatConverterInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICFormatConverterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICFormatConverterInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICFormatConverterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICFormatConverterInfo> for IWICComponentInfo {
-    fn from(value: IWICFormatConverterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICFormatConverterInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICFormatConverterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICFormatConverterInfo> for IWICComponentInfo {
-    fn from(value: &IWICFormatConverterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICFormatConverterInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::clone::Clone for IWICFormatConverterInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3177,21 +2545,7 @@ impl IWICImagingFactory {
         (::windows::core::Vtable::vtable(self).CreateQueryWriterFromReader)(::windows::core::Vtable::as_raw(self), piqueryreader.into().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
-impl ::core::convert::From<IWICImagingFactory> for ::windows::core::IUnknown {
-    fn from(value: IWICImagingFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICImagingFactory> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICImagingFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICImagingFactory> for ::windows::core::IUnknown {
-    fn from(value: &IWICImagingFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICImagingFactory, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICImagingFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3308,21 +2662,7 @@ impl IWICJpegFrameDecode {
         (::windows::core::Vtable::vtable(self).CopyMinimalStream)(::windows::core::Vtable::as_raw(self), streamoffset, pbstreamdata.len() as _, ::core::mem::transmute(pbstreamdata.as_ptr()), ::core::mem::transmute(pcbstreamdataactual)).ok()
     }
 }
-impl ::core::convert::From<IWICJpegFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: IWICJpegFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICJpegFrameDecode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICJpegFrameDecode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICJpegFrameDecode> for ::windows::core::IUnknown {
-    fn from(value: &IWICJpegFrameDecode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICJpegFrameDecode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICJpegFrameDecode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3398,21 +2738,7 @@ impl IWICJpegFrameEncode {
         (::windows::core::Vtable::vtable(self).WriteScan)(::windows::core::Vtable::as_raw(self), pbscandata.len() as _, ::core::mem::transmute(pbscandata.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IWICJpegFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: IWICJpegFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICJpegFrameEncode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICJpegFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICJpegFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: &IWICJpegFrameEncode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICJpegFrameEncode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICJpegFrameEncode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3476,21 +2802,7 @@ impl IWICMetadataBlockReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataBlockReader> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataBlockReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataBlockReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataBlockReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataBlockReader> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataBlockReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataBlockReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICMetadataBlockReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3573,36 +2885,7 @@ impl IWICMetadataBlockWriter {
         (::windows::core::Vtable::vtable(self).RemoveWriterByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
     }
 }
-impl ::core::convert::From<IWICMetadataBlockWriter> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataBlockWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataBlockWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataBlockWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataBlockWriter> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataBlockWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataBlockWriter> for IWICMetadataBlockReader {
-    fn from(value: IWICMetadataBlockWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataBlockWriter> for &'a IWICMetadataBlockReader {
-    fn from(value: &'a IWICMetadataBlockWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataBlockWriter> for IWICMetadataBlockReader {
-    fn from(value: &IWICMetadataBlockWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataBlockWriter, ::windows::core::IUnknown, IWICMetadataBlockReader);
 impl ::core::clone::Clone for IWICMetadataBlockWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3699,36 +2982,7 @@ impl IWICMetadataHandlerInfo {
         (::windows::core::Vtable::vtable(self).DoesRequireFixedSize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataHandlerInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataHandlerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataHandlerInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataHandlerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataHandlerInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataHandlerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataHandlerInfo> for IWICComponentInfo {
-    fn from(value: IWICMetadataHandlerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataHandlerInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICMetadataHandlerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataHandlerInfo> for IWICComponentInfo {
-    fn from(value: &IWICMetadataHandlerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataHandlerInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::clone::Clone for IWICMetadataHandlerInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3798,21 +3052,7 @@ impl IWICMetadataQueryReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumString>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataQueryReader> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataQueryReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataQueryReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataQueryReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataQueryReader> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataQueryReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataQueryReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICMetadataQueryReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3890,36 +3130,7 @@ impl IWICMetadataQueryWriter {
         (::windows::core::Vtable::vtable(self).RemoveMetadataByName)(::windows::core::Vtable::as_raw(self), wzname.into()).ok()
     }
 }
-impl ::core::convert::From<IWICMetadataQueryWriter> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataQueryWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataQueryWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataQueryWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataQueryWriter> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataQueryWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataQueryWriter> for IWICMetadataQueryReader {
-    fn from(value: IWICMetadataQueryWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataQueryWriter> for &'a IWICMetadataQueryReader {
-    fn from(value: &'a IWICMetadataQueryWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataQueryWriter> for IWICMetadataQueryReader {
-    fn from(value: &IWICMetadataQueryWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataQueryWriter, ::windows::core::IUnknown, IWICMetadataQueryReader);
 impl ::core::clone::Clone for IWICMetadataQueryWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3983,21 +3194,7 @@ impl IWICMetadataReader {
         (::windows::core::Vtable::vtable(self).GetEnumerator)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICEnumMetadataItem>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataReader> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataReader> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataReader> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataReader, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICMetadataReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4117,51 +3314,7 @@ impl IWICMetadataReaderInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataReader>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataReaderInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataReaderInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataReaderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataReaderInfo> for IWICComponentInfo {
-    fn from(value: IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataReaderInfo> for IWICComponentInfo {
-    fn from(value: &IWICMetadataReaderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
-    fn from(value: IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a IWICMetadataHandlerInfo {
-    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
-    fn from(value: &IWICMetadataReaderInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataReaderInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::clone::Clone for IWICMetadataReaderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4244,36 +3397,7 @@ impl IWICMetadataWriter {
         (::windows::core::Vtable::vtable(self).RemoveValueByIndex)(::windows::core::Vtable::as_raw(self), nindex).ok()
     }
 }
-impl ::core::convert::From<IWICMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataWriter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataWriter> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataWriter> for IWICMetadataReader {
-    fn from(value: IWICMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataWriter> for &'a IWICMetadataReader {
-    fn from(value: &'a IWICMetadataWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataWriter> for IWICMetadataReader {
-    fn from(value: &IWICMetadataWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataWriter, ::windows::core::IUnknown, IWICMetadataReader);
 impl ::core::clone::Clone for IWICMetadataWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4385,51 +3509,7 @@ impl IWICMetadataWriterInfo {
         (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataWriter>(result__)
     }
 }
-impl ::core::convert::From<IWICMetadataWriterInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataWriterInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICMetadataWriterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataWriterInfo> for IWICComponentInfo {
-    fn from(value: IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataWriterInfo> for IWICComponentInfo {
-    fn from(value: &IWICMetadataWriterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
-    fn from(value: IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a IWICMetadataHandlerInfo {
-    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
-    fn from(value: &IWICMetadataWriterInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICMetadataWriterInfo, ::windows::core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl ::core::clone::Clone for IWICMetadataWriterInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4519,21 +3599,7 @@ impl IWICPalette {
         (::windows::core::Vtable::vtable(self).HasAlpha)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICPalette> for ::windows::core::IUnknown {
-    fn from(value: IWICPalette) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPalette> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPalette) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPalette> for ::windows::core::IUnknown {
-    fn from(value: &IWICPalette) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPalette, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICPalette {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4645,59 +3711,7 @@ impl IWICPersistStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICPersistStream> for ::windows::core::IUnknown {
-    fn from(value: IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICPersistStream> for ::windows::core::IUnknown {
-    fn from(value: &IWICPersistStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICPersistStream> for super::super::System::Com::IPersist {
-    fn from(value: IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a super::super::System::Com::IPersist {
-    fn from(value: &'a IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICPersistStream> for super::super::System::Com::IPersist {
-    fn from(value: &IWICPersistStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICPersistStream> for super::super::System::Com::IPersistStream {
-    fn from(value: IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a super::super::System::Com::IPersistStream {
-    fn from(value: &'a IWICPersistStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICPersistStream> for super::super::System::Com::IPersistStream {
-    fn from(value: &IWICPersistStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPersistStream, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWICPersistStream {
     fn clone(&self) -> Self {
@@ -4792,36 +3806,7 @@ impl IWICPixelFormatInfo {
         (::windows::core::Vtable::vtable(self).GetChannelMask)(::windows::core::Vtable::as_raw(self), uichannelindex, pbmaskbuffer.len() as _, ::core::mem::transmute(pbmaskbuffer.as_ptr()), ::core::mem::transmute(pcbactual)).ok()
     }
 }
-impl ::core::convert::From<IWICPixelFormatInfo> for ::windows::core::IUnknown {
-    fn from(value: IWICPixelFormatInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPixelFormatInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPixelFormatInfo> for ::windows::core::IUnknown {
-    fn from(value: &IWICPixelFormatInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICPixelFormatInfo> for IWICComponentInfo {
-    fn from(value: IWICPixelFormatInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICPixelFormatInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPixelFormatInfo> for IWICComponentInfo {
-    fn from(value: &IWICPixelFormatInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPixelFormatInfo, ::windows::core::IUnknown, IWICComponentInfo);
 impl ::core::clone::Clone for IWICPixelFormatInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -4916,51 +3901,7 @@ impl IWICPixelFormatInfo2 {
         (::windows::core::Vtable::vtable(self).GetNumericRepresentation)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WICPixelFormatNumericRepresentation>(result__)
     }
 }
-impl ::core::convert::From<IWICPixelFormatInfo2> for ::windows::core::IUnknown {
-    fn from(value: IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPixelFormatInfo2> for ::windows::core::IUnknown {
-    fn from(value: &IWICPixelFormatInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICPixelFormatInfo2> for IWICComponentInfo {
-    fn from(value: IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a IWICComponentInfo {
-    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPixelFormatInfo2> for IWICComponentInfo {
-    fn from(value: &IWICPixelFormatInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICPixelFormatInfo2> for IWICPixelFormatInfo {
-    fn from(value: IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a IWICPixelFormatInfo {
-    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPixelFormatInfo2> for IWICPixelFormatInfo {
-    fn from(value: &IWICPixelFormatInfo2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPixelFormatInfo2, ::windows::core::IUnknown, IWICComponentInfo, IWICPixelFormatInfo);
 impl ::core::clone::Clone for IWICPixelFormatInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5004,21 +3945,7 @@ impl IWICPlanarBitmapFrameEncode {
         (::windows::core::Vtable::vtable(self).WriteSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, ::core::mem::transmute(prcsource)).ok()
     }
 }
-impl ::core::convert::From<IWICPlanarBitmapFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: IWICPlanarBitmapFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPlanarBitmapFrameEncode> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPlanarBitmapFrameEncode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPlanarBitmapFrameEncode> for ::windows::core::IUnknown {
-    fn from(value: &IWICPlanarBitmapFrameEncode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPlanarBitmapFrameEncode, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5061,21 +3988,7 @@ impl IWICPlanarBitmapSourceTransform {
         (::windows::core::Vtable::vtable(self).CopyPixels)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(prcsource), uiwidth, uiheight, dsttransform, dstplanaroptions, ::core::mem::transmute(pdstplanes.as_ptr()), pdstplanes.len() as _).ok()
     }
 }
-impl ::core::convert::From<IWICPlanarBitmapSourceTransform> for ::windows::core::IUnknown {
-    fn from(value: IWICPlanarBitmapSourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPlanarBitmapSourceTransform> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPlanarBitmapSourceTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPlanarBitmapSourceTransform> for ::windows::core::IUnknown {
-    fn from(value: &IWICPlanarBitmapSourceTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPlanarBitmapSourceTransform, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5144,36 +4057,7 @@ impl IWICPlanarFormatConverter {
         (::windows::core::Vtable::vtable(self).CanConvert)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(psrcpixelformats.as_ptr()), psrcpixelformats.len() as _, ::core::mem::transmute(dstpixelformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IWICPlanarFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: IWICPlanarFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPlanarFormatConverter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICPlanarFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPlanarFormatConverter> for ::windows::core::IUnknown {
-    fn from(value: &IWICPlanarFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IWICPlanarFormatConverter> for IWICBitmapSource {
-    fn from(value: IWICPlanarFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICPlanarFormatConverter> for &'a IWICBitmapSource {
-    fn from(value: &'a IWICPlanarFormatConverter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICPlanarFormatConverter> for IWICBitmapSource {
-    fn from(value: &IWICPlanarFormatConverter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICPlanarFormatConverter, ::windows::core::IUnknown, IWICBitmapSource);
 impl ::core::clone::Clone for IWICPlanarFormatConverter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5214,21 +4098,7 @@ impl IWICProgressCallback {
         (::windows::core::Vtable::vtable(self).Notify)(::windows::core::Vtable::as_raw(self), uframenum, operation, dblprogress).ok()
     }
 }
-impl ::core::convert::From<IWICProgressCallback> for ::windows::core::IUnknown {
-    fn from(value: IWICProgressCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICProgressCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICProgressCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICProgressCallback> for ::windows::core::IUnknown {
-    fn from(value: &IWICProgressCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICProgressCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICProgressCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5273,21 +4143,7 @@ impl IWICProgressiveLevelControl {
         (::windows::core::Vtable::vtable(self).SetCurrentLevel)(::windows::core::Vtable::as_raw(self), nlevel).ok()
     }
 }
-impl ::core::convert::From<IWICProgressiveLevelControl> for ::windows::core::IUnknown {
-    fn from(value: IWICProgressiveLevelControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICProgressiveLevelControl> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICProgressiveLevelControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICProgressiveLevelControl> for ::windows::core::IUnknown {
-    fn from(value: &IWICProgressiveLevelControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICProgressiveLevelControl, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICProgressiveLevelControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -5411,59 +4267,7 @@ impl IWICStream {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICStream> for ::windows::core::IUnknown {
-    fn from(value: IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICStream> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICStream> for ::windows::core::IUnknown {
-    fn from(value: &IWICStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICStream> for &'a super::super::System::Com::ISequentialStream {
-    fn from(value: &'a IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICStream> for super::super::System::Com::ISequentialStream {
-    fn from(value: &IWICStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IWICStream> for super::super::System::Com::IStream {
-    fn from(value: IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IWICStream> for &'a super::super::System::Com::IStream {
-    fn from(value: &'a IWICStream) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IWICStream> for super::super::System::Com::IStream {
-    fn from(value: &IWICStream) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICStream, ::windows::core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IWICStream {
     fn clone(&self) -> Self {
@@ -5530,21 +4334,7 @@ impl IWICStreamProvider {
         (::windows::core::Vtable::vtable(self).RefreshStream)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IWICStreamProvider> for ::windows::core::IUnknown {
-    fn from(value: IWICStreamProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWICStreamProvider> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWICStreamProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICStreamProvider> for ::windows::core::IUnknown {
-    fn from(value: &IWICStreamProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IWICStreamProvider, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IWICStreamProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())

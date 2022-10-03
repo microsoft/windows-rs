@@ -10,21 +10,7 @@ impl IDedupBackupSupport {
         (::windows::core::Vtable::vtable(self).RestoreFiles)(::windows::core::Vtable::as_raw(self), numberoffiles, ::core::mem::transmute(filefullpaths), store.into().abi(), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
 }
-impl ::core::convert::From<IDedupBackupSupport> for ::windows::core::IUnknown {
-    fn from(value: IDedupBackupSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupBackupSupport> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupBackupSupport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupBackupSupport> for ::windows::core::IUnknown {
-    fn from(value: &IDedupBackupSupport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupBackupSupport, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupBackupSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -76,21 +62,7 @@ impl IDedupChunkLibrary {
         (::windows::core::Vtable::vtable(self).StartChunking)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iiditeratorinterfaceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
-impl ::core::convert::From<IDedupChunkLibrary> for ::windows::core::IUnknown {
-    fn from(value: IDedupChunkLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupChunkLibrary> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupChunkLibrary) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupChunkLibrary> for ::windows::core::IUnknown {
-    fn from(value: &IDedupChunkLibrary) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupChunkLibrary, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupChunkLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -184,21 +156,7 @@ impl IDedupDataPort {
         (::windows::core::Vtable::vtable(self).GetRequestResults)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(requestid), maxwaitms, ::core::mem::transmute(pbatchresult), ::core::mem::transmute(pbatchcount), ::core::mem::transmute(pstatus), ::core::mem::transmute(ppitemresults)).ok()
     }
 }
-impl ::core::convert::From<IDedupDataPort> for ::windows::core::IUnknown {
-    fn from(value: IDedupDataPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupDataPort> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupDataPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupDataPort> for ::windows::core::IUnknown {
-    fn from(value: &IDedupDataPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupDataPort, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupDataPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -260,21 +218,7 @@ impl IDedupDataPortManager {
         (::windows::core::Vtable::vtable(self).GetVolumeDataPort)(::windows::core::Vtable::as_raw(self), options, ::core::mem::transmute_copy(path), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDedupDataPort>(result__)
     }
 }
-impl ::core::convert::From<IDedupDataPortManager> for ::windows::core::IUnknown {
-    fn from(value: IDedupDataPortManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupDataPortManager> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupDataPortManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupDataPortManager> for ::windows::core::IUnknown {
-    fn from(value: &IDedupDataPortManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupDataPortManager, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupDataPortManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -322,21 +266,7 @@ impl IDedupIterateChunksHash32 {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
-impl ::core::convert::From<IDedupIterateChunksHash32> for ::windows::core::IUnknown {
-    fn from(value: IDedupIterateChunksHash32) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupIterateChunksHash32> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupIterateChunksHash32) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupIterateChunksHash32> for ::windows::core::IUnknown {
-    fn from(value: &IDedupIterateChunksHash32) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupIterateChunksHash32, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupIterateChunksHash32 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -382,21 +312,7 @@ impl IDedupReadFileCallback {
         (::windows::core::Vtable::vtable(self).PreviewContainerRead)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(filefullpath), readoffsets.len() as _, ::core::mem::transmute(readoffsets.as_ptr())).ok()
     }
 }
-impl ::core::convert::From<IDedupReadFileCallback> for ::windows::core::IUnknown {
-    fn from(value: IDedupReadFileCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDedupReadFileCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDedupReadFileCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDedupReadFileCallback> for ::windows::core::IUnknown {
-    fn from(value: &IDedupReadFileCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDedupReadFileCallback, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDedupReadFileCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())

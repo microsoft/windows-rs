@@ -560,36 +560,7 @@ impl IDirectInput2A {
         (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInput2A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput2A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput2A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput2A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput2A> for IDirectInputA {
-    fn from(value: IDirectInput2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput2A> for &'a IDirectInputA {
-    fn from(value: &'a IDirectInput2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput2A> for IDirectInputA {
-    fn from(value: &IDirectInput2A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput2A, ::windows::core::IUnknown, IDirectInputA);
 impl ::core::clone::Clone for IDirectInput2A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -659,36 +630,7 @@ impl IDirectInput2W {
         (::windows::core::Vtable::vtable(self).FindDevice)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), param1.into(), ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInput2W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput2W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput2W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput2W> for IDirectInputW {
-    fn from(value: IDirectInput2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput2W> for &'a IDirectInputW {
-    fn from(value: &'a IDirectInput2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput2W> for IDirectInputW {
-    fn from(value: &IDirectInput2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput2W, ::windows::core::IUnknown, IDirectInputW);
 impl ::core::clone::Clone for IDirectInput2W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -764,51 +706,7 @@ impl IDirectInput7A {
         (::windows::core::Vtable::vtable(self).CreateDeviceEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectInput7A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput7A> for IDirectInputA {
-    fn from(value: IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a IDirectInputA {
-    fn from(value: &'a IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7A> for IDirectInputA {
-    fn from(value: &IDirectInput7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput7A> for IDirectInput2A {
-    fn from(value: IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7A> for &'a IDirectInput2A {
-    fn from(value: &'a IDirectInput7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7A> for IDirectInput2A {
-    fn from(value: &IDirectInput7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput7A, ::windows::core::IUnknown, IDirectInputA, IDirectInput2A);
 impl ::core::clone::Clone for IDirectInput7A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -884,51 +782,7 @@ impl IDirectInput7W {
         (::windows::core::Vtable::vtable(self).CreateDeviceEx)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3.into().abi()).ok()
     }
 }
-impl ::core::convert::From<IDirectInput7W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput7W> for IDirectInputW {
-    fn from(value: IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a IDirectInputW {
-    fn from(value: &'a IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7W> for IDirectInputW {
-    fn from(value: &IDirectInput7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInput7W> for IDirectInput2W {
-    fn from(value: IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput7W> for &'a IDirectInput2W {
-    fn from(value: &'a IDirectInput7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput7W> for IDirectInput2W {
-    fn from(value: &IDirectInput7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput7W, ::windows::core::IUnknown, IDirectInputW, IDirectInput2W);
 impl ::core::clone::Clone for IDirectInput7W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1011,21 +865,7 @@ impl IDirectInput8A {
         (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, ::core::mem::transmute(param3)).ok()
     }
 }
-impl ::core::convert::From<IDirectInput8A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput8A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput8A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput8A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput8A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput8A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput8A, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInput8A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1130,21 +970,7 @@ impl IDirectInput8W {
         (::windows::core::Vtable::vtable(self).ConfigureDevices)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, ::core::mem::transmute(param3)).ok()
     }
 }
-impl ::core::convert::From<IDirectInput8W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInput8W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInput8W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInput8W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInput8W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInput8W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInput8W, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInput8W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1230,21 +1056,7 @@ impl IDirectInputA {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), param0.into(), param1).ok()
     }
 }
-impl ::core::convert::From<IDirectInputA> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputA> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputA> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputA) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputA, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputA {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1398,36 +1210,7 @@ impl IDirectInputDevice2A {
         (::windows::core::Vtable::vtable(self).SendDeviceData)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice2A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice2A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice2A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
-    fn from(value: IDirectInputDevice2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice2A> for &'a IDirectInputDeviceA {
-    fn from(value: &'a IDirectInputDevice2A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
-    fn from(value: &IDirectInputDevice2A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice2A, ::windows::core::IUnknown, IDirectInputDeviceA);
 impl ::core::clone::Clone for IDirectInputDevice2A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1579,36 +1362,7 @@ impl IDirectInputDevice2W {
         (::windows::core::Vtable::vtable(self).SendDeviceData)(::windows::core::Vtable::as_raw(self), param0, ::core::mem::transmute(param1), ::core::mem::transmute(param2), param3).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice2W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice2W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
-    fn from(value: IDirectInputDevice2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice2W> for &'a IDirectInputDeviceW {
-    fn from(value: &'a IDirectInputDevice2W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
-    fn from(value: &IDirectInputDevice2W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice2W, ::windows::core::IUnknown, IDirectInputDeviceW);
 impl ::core::clone::Clone for IDirectInputDevice2W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1779,51 +1533,7 @@ impl IDirectInputDevice7A {
         (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2), param3).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice7A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
-    fn from(value: IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a IDirectInputDeviceA {
-    fn from(value: &'a IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
-    fn from(value: &IDirectInputDevice7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
-    fn from(value: IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7A> for &'a IDirectInputDevice2A {
-    fn from(value: &'a IDirectInputDevice7A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
-    fn from(value: &IDirectInputDevice7A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice7A, ::windows::core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
 impl ::core::clone::Clone for IDirectInputDevice7A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1981,51 +1691,7 @@ impl IDirectInputDevice7W {
         (::windows::core::Vtable::vtable(self).WriteEffectToFile)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2), param3).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice7W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
-    fn from(value: IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a IDirectInputDeviceW {
-    fn from(value: &'a IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
-    fn from(value: &IDirectInputDevice7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
-    fn from(value: IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice7W> for &'a IDirectInputDevice2W {
-    fn from(value: &'a IDirectInputDevice7W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
-    fn from(value: &IDirectInputDevice7W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice7W, ::windows::core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
 impl ::core::clone::Clone for IDirectInputDevice7W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2210,21 +1876,7 @@ impl IDirectInputDevice8A {
         (::windows::core::Vtable::vtable(self).GetImageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice8A> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice8A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice8A> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice8A) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice8A> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice8A) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice8A, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputDevice8A {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2469,21 +2121,7 @@ impl IDirectInputDevice8W {
         (::windows::core::Vtable::vtable(self).GetImageInfo)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDevice8W> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDevice8W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDevice8W> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDevice8W) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDevice8W> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDevice8W) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDevice8W, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputDevice8W {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2652,21 +2290,7 @@ impl IDirectInputDeviceA {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDeviceA> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDeviceA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDeviceA> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDeviceA) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDeviceA> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDeviceA) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDeviceA, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputDeviceA {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2802,21 +2426,7 @@ impl IDirectInputDeviceW {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), param0.into(), param1, ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputDeviceW> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputDeviceW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputDeviceW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputDeviceW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputDeviceW> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputDeviceW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputDeviceW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputDeviceW {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -2914,21 +2524,7 @@ impl IDirectInputEffect {
         (::windows::core::Vtable::vtable(self).Escape)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputEffect> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputEffect> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputEffect> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputEffect, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3007,21 +2603,7 @@ impl IDirectInputEffectDriver {
         (::windows::core::Vtable::vtable(self).GetEffectStatus)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputEffectDriver> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputEffectDriver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputEffectDriver> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputEffectDriver) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputEffectDriver> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputEffectDriver) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputEffectDriver, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputEffectDriver {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3141,21 +2723,7 @@ impl IDirectInputJoyConfig {
         (::windows::core::Vtable::vtable(self).OpenConfigKey)(::windows::core::Vtable::as_raw(self), param0, param1, ::core::mem::transmute(param2)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputJoyConfig> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputJoyConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputJoyConfig> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputJoyConfig) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputJoyConfig> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputJoyConfig) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputJoyConfig, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputJoyConfig {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3296,21 +2864,7 @@ impl IDirectInputJoyConfig8 {
         (::windows::core::Vtable::vtable(self).OpenAppStatusKey)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
 }
-impl ::core::convert::From<IDirectInputJoyConfig8> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputJoyConfig8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputJoyConfig8> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputJoyConfig8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputJoyConfig8> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputJoyConfig8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputJoyConfig8, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputJoyConfig8 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -3404,21 +2958,7 @@ impl IDirectInputW {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), param0.into(), param1).ok()
     }
 }
-impl ::core::convert::From<IDirectInputW> for ::windows::core::IUnknown {
-    fn from(value: IDirectInputW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IDirectInputW> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IDirectInputW) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectInputW> for ::windows::core::IUnknown {
-    fn from(value: &IDirectInputW) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IDirectInputW, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IDirectInputW {
     fn clone(&self) -> Self {
         Self(self.0.clone())

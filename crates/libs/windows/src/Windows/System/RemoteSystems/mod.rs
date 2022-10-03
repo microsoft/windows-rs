@@ -412,36 +412,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
 #[repr(transparent)]
 pub struct IRemoteSystemFilter(::windows::core::IUnknown);
 impl IRemoteSystemFilter {}
-impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IUnknown {
-    fn from(value: IRemoteSystemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRemoteSystemFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRemoteSystemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IUnknown {
-    fn from(value: &IRemoteSystemFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IInspectable {
-    fn from(value: IRemoteSystemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRemoteSystemFilter> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IRemoteSystemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IInspectable {
-    fn from(value: &IRemoteSystemFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRemoteSystemFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IRemoteSystemFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -1547,36 +1518,7 @@ unsafe impl ::windows::core::Interface for RemoteSystem {
 impl ::windows::core::RuntimeName for RemoteSystem {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystem";
 }
-impl ::core::convert::From<RemoteSystem> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystem> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystem> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystem> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystem> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystem) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystem> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystem) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystem, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1623,36 +1565,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAddedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1743,36 +1656,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemApp {
 impl ::windows::core::RuntimeName for RemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemApp";
 }
-impl ::core::convert::From<RemoteSystemApp> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemApp> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemApp> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemApp> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemApp> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemApp) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemApp> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemApp) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemApp, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemApp {}
 unsafe impl ::core::marker::Sync for RemoteSystemApp {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1854,36 +1738,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAppRegistration {
 impl ::windows::core::RuntimeName for RemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAppRegistration";
 }
-impl ::core::convert::From<RemoteSystemAppRegistration> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemAppRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAppRegistration> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAppRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAppRegistration> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAppRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemAppRegistration> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemAppRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAppRegistration> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAppRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAppRegistration> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAppRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemAppRegistration, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1941,36 +1796,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemAuthorizationKindFilter {
 impl ::windows::core::RuntimeName for RemoteSystemAuthorizationKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter";
 }
-impl ::core::convert::From<RemoteSystemAuthorizationKindFilter> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemAuthorizationKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemAuthorizationKindFilter> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemAuthorizationKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemAuthorizationKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemAuthorizationKindFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemAuthorizationKindFilter) -> ::windows::core::Result<Self> {
@@ -2049,36 +1875,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemConnectionInfo {
 impl ::windows::core::RuntimeName for RemoteSystemConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionInfo";
 }
-impl ::core::convert::From<RemoteSystemConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionInfo> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemConnectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionInfo> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemConnectionInfo> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionInfo> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemConnectionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionInfo> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemConnectionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemConnectionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2178,36 +1975,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemConnectionRequest {
 impl ::windows::core::RuntimeName for RemoteSystemConnectionRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionRequest";
 }
-impl ::core::convert::From<RemoteSystemConnectionRequest> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemConnectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionRequest> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemConnectionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionRequest> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemConnectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemConnectionRequest> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemConnectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionRequest> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemConnectionRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemConnectionRequest> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemConnectionRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemConnectionRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2265,36 +2033,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemDiscoveryTypeFilter {
 impl ::windows::core::RuntimeName for RemoteSystemDiscoveryTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter";
 }
-impl ::core::convert::From<RemoteSystemDiscoveryTypeFilter> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemDiscoveryTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemDiscoveryTypeFilter> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemDiscoveryTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemDiscoveryTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemDiscoveryTypeFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemDiscoveryTypeFilter) -> ::windows::core::Result<Self> {
@@ -2352,36 +2091,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemEnumerationCompletedEvent
 impl ::windows::core::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemEnumerationCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemEnumerationCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemEnumerationCompletedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2447,36 +2157,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemKindFilter {
 impl ::windows::core::RuntimeName for RemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKindFilter";
 }
-impl ::core::convert::From<RemoteSystemKindFilter> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemKindFilter> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemKindFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemKindFilter> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemKindFilter> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemKindFilter> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemKindFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemKindFilter> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemKindFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemKindFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemKindFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemKindFilter) -> ::windows::core::Result<Self> {
@@ -2607,36 +2288,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemRemovedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2745,36 +2397,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSession {
 impl ::windows::core::RuntimeName for RemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSession";
 }
-impl ::core::convert::From<RemoteSystemSession> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSession> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSession> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSession> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSession> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSession> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSession, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<RemoteSystemSession> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2843,36 +2466,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionAddedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2962,36 +2556,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionController {
 impl ::windows::core::RuntimeName for RemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionController";
 }
-impl ::core::convert::From<RemoteSystemSessionController> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionController> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionController> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionController> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionController> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionController> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionController, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3045,36 +2610,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionCreationResult {
 impl ::windows::core::RuntimeName for RemoteSystemSessionCreationResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult";
 }
-impl ::core::convert::From<RemoteSystemSessionCreationResult> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionCreationResult> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionCreationResult> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionCreationResult> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionCreationResult> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionCreationResult> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionCreationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3121,36 +2657,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionDisconnectedEventA
 impl ::windows::core::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionDisconnectedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3213,36 +2720,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInfo {
 impl ::windows::core::RuntimeName for RemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInfo";
 }
-impl ::core::convert::From<RemoteSystemSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInfo> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInfo> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInfo> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInfo> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3296,36 +2774,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitation {
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitation {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitation";
 }
-impl ::core::convert::From<RemoteSystemSessionInvitation> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitation> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitation> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionInvitation> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitation> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitation> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionInvitation, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3387,36 +2836,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationListener
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener";
 }
-impl ::core::convert::From<RemoteSystemSessionInvitationListener> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionInvitationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionInvitationListener> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionInvitationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionInvitationListener, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3463,36 +2883,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationReceived
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionInvitationReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3543,36 +2934,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequest {
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest";
 }
-impl ::core::convert::From<RemoteSystemSessionJoinRequest> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionJoinRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionJoinRequest> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionJoinRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionJoinRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3628,36 +2990,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequestedEvent
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionJoinRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionJoinRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionJoinRequestedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3711,36 +3044,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinResult {
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult";
 }
-impl ::core::convert::From<RemoteSystemSessionJoinResult> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionJoinResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinResult> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinResult> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionJoinResult> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionJoinResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinResult> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionJoinResult> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionJoinResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3850,36 +3154,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionMessageChannel {
 impl ::windows::core::RuntimeName for RemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel";
 }
-impl ::core::convert::From<RemoteSystemSessionMessageChannel> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionMessageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionMessageChannel> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionMessageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionMessageChannel, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -3937,36 +3212,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionOptions {
 impl ::windows::core::RuntimeName for RemoteSystemSessionOptions {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionOptions";
 }
-impl ::core::convert::From<RemoteSystemSessionOptions> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionOptions> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionOptions> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionOptions> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionOptions> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionOptions> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4022,36 +3268,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipant {
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipant";
 }
-impl ::core::convert::From<RemoteSystemSessionParticipant> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipant> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipant) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipant> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionParticipant> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipant> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipant) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipant> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipant) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionParticipant, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4098,36 +3315,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantAddedEv
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionParticipantAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionParticipantAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantAddedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4174,36 +3362,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantRemoved
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4303,36 +3462,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantWatcher
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher";
 }
-impl ::core::convert::From<RemoteSystemSessionParticipantWatcher> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionParticipantWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionParticipantWatcher> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionParticipantWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionParticipantWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4379,36 +3509,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionRemovedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionRemovedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4455,36 +3556,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionUpdatedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4540,36 +3612,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionValueSetReceivedEv
 impl ::windows::core::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionValueSetReceivedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4669,36 +3712,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemSessionWatcher {
 impl ::windows::core::RuntimeName for RemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionWatcher";
 }
-impl ::core::convert::From<RemoteSystemSessionWatcher> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemSessionWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionWatcher> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionWatcher> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemSessionWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemSessionWatcher> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemSessionWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionWatcher> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemSessionWatcher> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemSessionWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemSessionWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -4756,36 +3770,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemStatusTypeFilter {
 impl ::windows::core::RuntimeName for RemoteSystemStatusTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter";
 }
-impl ::core::convert::From<RemoteSystemStatusTypeFilter> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemStatusTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemStatusTypeFilter> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemStatusTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemStatusTypeFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemStatusTypeFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemStatusTypeFilter) -> ::windows::core::Result<Self> {
@@ -4851,36 +3836,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemUpdatedEventArgs {
 impl ::windows::core::RuntimeName for RemoteSystemUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs";
 }
-impl ::core::convert::From<RemoteSystemUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemUpdatedEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -5010,36 +3966,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWatcher {
 impl ::windows::core::RuntimeName for RemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcher";
 }
-impl ::core::convert::From<RemoteSystemWatcher> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcher> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcher> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemWatcher> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcher> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcher> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemWatcher, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -5086,36 +4013,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWatcherErrorOccurredEvent
 impl ::windows::core::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs";
 }
-impl ::core::convert::From<RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemWatcherErrorOccurredEventArgs, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -5177,36 +4075,7 @@ unsafe impl ::windows::core::Interface for RemoteSystemWebAccountFilter {
 impl ::windows::core::RuntimeName for RemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter";
 }
-impl ::core::convert::From<RemoteSystemWebAccountFilter> for ::windows::core::IUnknown {
-    fn from(value: RemoteSystemWebAccountFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWebAccountFilter> for ::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWebAccountFilter> for &::windows::core::IUnknown {
-    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<RemoteSystemWebAccountFilter> for ::windows::core::IInspectable {
-    fn from(value: RemoteSystemWebAccountFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&RemoteSystemWebAccountFilter> for ::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&RemoteSystemWebAccountFilter> for &::windows::core::IInspectable {
-    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(RemoteSystemWebAccountFilter, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::convert::TryFrom<RemoteSystemWebAccountFilter> for IRemoteSystemFilter {
     type Error = ::windows::core::Error;
     fn try_from(value: RemoteSystemWebAccountFilter) -> ::windows::core::Result<Self> {

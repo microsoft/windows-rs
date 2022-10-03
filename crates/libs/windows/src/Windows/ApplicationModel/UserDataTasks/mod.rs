@@ -644,36 +644,7 @@ unsafe impl ::windows::core::Interface for UserDataTask {
 impl ::windows::core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
 }
-impl ::core::convert::From<UserDataTask> for ::windows::core::IUnknown {
-    fn from(value: UserDataTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTask> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTask> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTask> for ::windows::core::IInspectable {
-    fn from(value: UserDataTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTask> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTask> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTask, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -722,36 +693,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskBatch {
 impl ::windows::core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
 }
-impl ::core::convert::From<UserDataTaskBatch> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskBatch> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskBatch> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskBatch> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskBatch> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskBatch) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskBatch> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskBatch) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskBatch, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -927,36 +869,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskList {
 impl ::windows::core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
 }
-impl ::core::convert::From<UserDataTaskList> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskList> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskList> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskList> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskList> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskList> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskList, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1032,36 +945,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListLimitedWriteOperation
 impl ::windows::core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
 }
-impl ::core::convert::From<UserDataTaskListLimitedWriteOperations> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListLimitedWriteOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListLimitedWriteOperations> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListLimitedWriteOperations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListLimitedWriteOperations> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListLimitedWriteOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListLimitedWriteOperations> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListLimitedWriteOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListLimitedWriteOperations> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListLimitedWriteOperations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListLimitedWriteOperations> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListLimitedWriteOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListLimitedWriteOperations, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1166,36 +1050,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskListSyncManager {
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
 }
-impl ::core::convert::From<UserDataTaskListSyncManager> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskListSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManager> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManager> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskListSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskListSyncManager> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskListSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManager> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskListSyncManager> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskListSyncManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskListSyncManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1272,36 +1127,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskManager {
 impl ::windows::core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
 }
-impl ::core::convert::From<UserDataTaskManager> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskManager> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskManager> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskManager> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskManager> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskManager> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskManager, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1370,36 +1196,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskQueryOptions {
 impl ::windows::core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
 }
-impl ::core::convert::From<UserDataTaskQueryOptions> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskQueryOptions> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskQueryOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskQueryOptions> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskQueryOptions> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskQueryOptions> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskQueryOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskQueryOptions> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskQueryOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskQueryOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1448,36 +1245,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskReader {
 impl ::windows::core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
 }
-impl ::core::convert::From<UserDataTaskReader> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskReader> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskReader> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskReader> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskReader> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskReader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskReader> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskReader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskReader, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1660,36 +1428,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskRecurrenceProperties {
 impl ::windows::core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
 }
-impl ::core::convert::From<UserDataTaskRecurrenceProperties> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskRecurrenceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskRecurrenceProperties> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskRecurrenceProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskRecurrenceProperties> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskRecurrenceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskRecurrenceProperties> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskRecurrenceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskRecurrenceProperties> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskRecurrenceProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskRecurrenceProperties> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskRecurrenceProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskRecurrenceProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1796,36 +1535,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskRegenerationProperties {
 impl ::windows::core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
 }
-impl ::core::convert::From<UserDataTaskRegenerationProperties> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskRegenerationProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskRegenerationProperties> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskRegenerationProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskRegenerationProperties> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskRegenerationProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskRegenerationProperties> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskRegenerationProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskRegenerationProperties> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskRegenerationProperties) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskRegenerationProperties> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskRegenerationProperties) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskRegenerationProperties, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]
@@ -1901,36 +1611,7 @@ unsafe impl ::windows::core::Interface for UserDataTaskStore {
 impl ::windows::core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
 }
-impl ::core::convert::From<UserDataTaskStore> for ::windows::core::IUnknown {
-    fn from(value: UserDataTaskStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskStore> for ::windows::core::IUnknown {
-    fn from(value: &UserDataTaskStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskStore> for &::windows::core::IUnknown {
-    fn from(value: &UserDataTaskStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserDataTaskStore> for ::windows::core::IInspectable {
-    fn from(value: UserDataTaskStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserDataTaskStore> for ::windows::core::IInspectable {
-    fn from(value: &UserDataTaskStore) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserDataTaskStore> for &::windows::core::IInspectable {
-    fn from(value: &UserDataTaskStore) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserDataTaskStore, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataTasks\"`*"]

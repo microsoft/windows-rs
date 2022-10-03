@@ -84,36 +84,7 @@ impl IToastNotificationManagerStatics3 {
         }
     }
 }
-impl ::core::convert::From<IToastNotificationManagerStatics3> for ::windows::core::IUnknown {
-    fn from(value: IToastNotificationManagerStatics3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IToastNotificationManagerStatics3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IToastNotificationManagerStatics3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IToastNotificationManagerStatics3> for ::windows::core::IUnknown {
-    fn from(value: &IToastNotificationManagerStatics3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IToastNotificationManagerStatics3> for ::windows::core::IInspectable {
-    fn from(value: IToastNotificationManagerStatics3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IToastNotificationManagerStatics3> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IToastNotificationManagerStatics3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IToastNotificationManagerStatics3> for ::windows::core::IInspectable {
-    fn from(value: &IToastNotificationManagerStatics3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows::core::IUnknown, ::windows::core::IInspectable);
 impl ::core::clone::Clone for IToastNotificationManagerStatics3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -308,35 +279,6 @@ unsafe impl ::windows::core::Interface for DualSimTile {
 impl ::windows::core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";
 }
-impl ::core::convert::From<DualSimTile> for ::windows::core::IUnknown {
-    fn from(value: DualSimTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DualSimTile> for ::windows::core::IUnknown {
-    fn from(value: &DualSimTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DualSimTile> for &::windows::core::IUnknown {
-    fn from(value: &DualSimTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DualSimTile> for ::windows::core::IInspectable {
-    fn from(value: DualSimTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DualSimTile> for ::windows::core::IInspectable {
-    fn from(value: &DualSimTile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DualSimTile> for &::windows::core::IInspectable {
-    fn from(value: &DualSimTile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DualSimTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

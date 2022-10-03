@@ -488,36 +488,7 @@ unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
 impl ::windows::core::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
 }
-impl ::core::convert::From<AdvertisingManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: AdvertisingManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvertisingManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvertisingManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvertisingManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: AdvertisingManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvertisingManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvertisingManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &AdvertisingManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AdvertisingManagerForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::core::marker::Sync for AdvertisingManagerForUser {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -595,36 +566,7 @@ unsafe impl ::windows::core::Interface for AssignedAccessSettings {
 impl ::windows::core::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
 }
-impl ::core::convert::From<AssignedAccessSettings> for ::windows::core::IUnknown {
-    fn from(value: AssignedAccessSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AssignedAccessSettings> for ::windows::core::IUnknown {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AssignedAccessSettings> for &::windows::core::IUnknown {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AssignedAccessSettings> for ::windows::core::IInspectable {
-    fn from(value: AssignedAccessSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AssignedAccessSettings> for ::windows::core::IInspectable {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AssignedAccessSettings> for &::windows::core::IInspectable {
-    fn from(value: &AssignedAccessSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(AssignedAccessSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for AssignedAccessSettings {}
 unsafe impl ::core::marker::Sync for AssignedAccessSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -695,36 +637,7 @@ unsafe impl ::windows::core::Interface for DiagnosticsSettings {
 impl ::windows::core::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
 }
-impl ::core::convert::From<DiagnosticsSettings> for ::windows::core::IUnknown {
-    fn from(value: DiagnosticsSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticsSettings> for ::windows::core::IUnknown {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticsSettings> for &::windows::core::IUnknown {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DiagnosticsSettings> for ::windows::core::IInspectable {
-    fn from(value: DiagnosticsSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticsSettings> for ::windows::core::IInspectable {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticsSettings> for &::windows::core::IInspectable {
-    fn from(value: &DiagnosticsSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(DiagnosticsSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for DiagnosticsSettings {}
 unsafe impl ::core::marker::Sync for DiagnosticsSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -833,36 +746,7 @@ impl ::core::iter::IntoIterator for &FirstSignInSettings {
         self.First().unwrap()
     }
 }
-impl ::core::convert::From<FirstSignInSettings> for ::windows::core::IUnknown {
-    fn from(value: FirstSignInSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FirstSignInSettings> for ::windows::core::IUnknown {
-    fn from(value: &FirstSignInSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FirstSignInSettings> for &::windows::core::IUnknown {
-    fn from(value: &FirstSignInSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FirstSignInSettings> for ::windows::core::IInspectable {
-    fn from(value: FirstSignInSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FirstSignInSettings> for ::windows::core::IInspectable {
-    fn from(value: &FirstSignInSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FirstSignInSettings> for &::windows::core::IInspectable {
-    fn from(value: &FirstSignInSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(FirstSignInSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FirstSignInSettings> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -1097,36 +981,7 @@ unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
 impl ::windows::core::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
 }
-impl ::core::convert::From<GlobalizationPreferencesForUser> for ::windows::core::IUnknown {
-    fn from(value: GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GlobalizationPreferencesForUser> for ::windows::core::IUnknown {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GlobalizationPreferencesForUser> for &::windows::core::IUnknown {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GlobalizationPreferencesForUser> for ::windows::core::IInspectable {
-    fn from(value: GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GlobalizationPreferencesForUser> for ::windows::core::IInspectable {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GlobalizationPreferencesForUser> for &::windows::core::IInspectable {
-    fn from(value: &GlobalizationPreferencesForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GlobalizationPreferencesForUser, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GlobalizationPreferencesForUser {}
 unsafe impl ::core::marker::Sync for GlobalizationPreferencesForUser {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -1429,36 +1284,7 @@ unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
 impl ::windows::core::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";
 }
-impl ::core::convert::From<UserProfilePersonalizationSettings> for ::windows::core::IUnknown {
-    fn from(value: UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserProfilePersonalizationSettings> for ::windows::core::IUnknown {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserProfilePersonalizationSettings> for &::windows::core::IUnknown {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UserProfilePersonalizationSettings> for ::windows::core::IInspectable {
-    fn from(value: UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UserProfilePersonalizationSettings> for ::windows::core::IInspectable {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UserProfilePersonalizationSettings> for &::windows::core::IInspectable {
-    fn from(value: &UserProfilePersonalizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(UserProfilePersonalizationSettings, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}
 unsafe impl ::core::marker::Sync for UserProfilePersonalizationSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]

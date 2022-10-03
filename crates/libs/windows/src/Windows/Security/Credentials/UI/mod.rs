@@ -308,36 +308,7 @@ unsafe impl ::windows::core::Interface for CredentialPickerOptions {
 impl ::windows::core::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
 }
-impl ::core::convert::From<CredentialPickerOptions> for ::windows::core::IUnknown {
-    fn from(value: CredentialPickerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialPickerOptions> for ::windows::core::IUnknown {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialPickerOptions> for &::windows::core::IUnknown {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CredentialPickerOptions> for ::windows::core::IInspectable {
-    fn from(value: CredentialPickerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialPickerOptions> for ::windows::core::IInspectable {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialPickerOptions> for &::windows::core::IInspectable {
-    fn from(value: &CredentialPickerOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CredentialPickerOptions, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 #[repr(transparent)]
 pub struct CredentialPickerResults(::windows::core::IUnknown);
@@ -426,36 +397,7 @@ unsafe impl ::windows::core::Interface for CredentialPickerResults {
 impl ::windows::core::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
 }
-impl ::core::convert::From<CredentialPickerResults> for ::windows::core::IUnknown {
-    fn from(value: CredentialPickerResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialPickerResults> for ::windows::core::IUnknown {
-    fn from(value: &CredentialPickerResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialPickerResults> for &::windows::core::IUnknown {
-    fn from(value: &CredentialPickerResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CredentialPickerResults> for ::windows::core::IInspectable {
-    fn from(value: CredentialPickerResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CredentialPickerResults> for ::windows::core::IInspectable {
-    fn from(value: &CredentialPickerResults) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CredentialPickerResults> for &::windows::core::IInspectable {
-    fn from(value: &CredentialPickerResults) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(CredentialPickerResults, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
 pub struct UserConsentVerifier;
 impl UserConsentVerifier {

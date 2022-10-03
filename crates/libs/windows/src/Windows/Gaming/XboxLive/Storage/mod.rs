@@ -317,36 +317,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobGetResult {
 impl ::windows::core::RuntimeName for GameSaveBlobGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult";
 }
-impl ::core::convert::From<GameSaveBlobGetResult> for ::windows::core::IUnknown {
-    fn from(value: GameSaveBlobGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobGetResult> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveBlobGetResult> for ::windows::core::IInspectable {
-    fn from(value: GameSaveBlobGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobGetResult> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveBlobGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -400,36 +371,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfo {
 impl ::windows::core::RuntimeName for GameSaveBlobInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfo";
 }
-impl ::core::convert::From<GameSaveBlobInfo> for ::windows::core::IUnknown {
-    fn from(value: GameSaveBlobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfo> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveBlobInfo> for ::windows::core::IInspectable {
-    fn from(value: GameSaveBlobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfo> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveBlobInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -485,36 +427,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfoGetResult {
 impl ::windows::core::RuntimeName for GameSaveBlobInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoGetResult";
 }
-impl ::core::convert::From<GameSaveBlobInfoGetResult> for ::windows::core::IUnknown {
-    fn from(value: GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoGetResult> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveBlobInfoGetResult> for ::windows::core::IInspectable {
-    fn from(value: GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoGetResult> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveBlobInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -581,36 +494,7 @@ unsafe impl ::windows::core::Interface for GameSaveBlobInfoQuery {
 impl ::windows::core::RuntimeName for GameSaveBlobInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveBlobInfoQuery";
 }
-impl ::core::convert::From<GameSaveBlobInfoQuery> for ::windows::core::IUnknown {
-    fn from(value: GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoQuery> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveBlobInfoQuery> for ::windows::core::IInspectable {
-    fn from(value: GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveBlobInfoQuery> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveBlobInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveBlobInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -727,36 +611,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainer {
 impl ::windows::core::RuntimeName for GameSaveContainer {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainer";
 }
-impl ::core::convert::From<GameSaveContainer> for ::windows::core::IUnknown {
-    fn from(value: GameSaveContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainer> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainer> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveContainer> for ::windows::core::IInspectable {
-    fn from(value: GameSaveContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainer> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainer> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveContainer, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainer {}
 unsafe impl ::core::marker::Sync for GameSaveContainer {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -833,36 +688,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfo {
 impl ::windows::core::RuntimeName for GameSaveContainerInfo {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo";
 }
-impl ::core::convert::From<GameSaveContainerInfo> for ::windows::core::IUnknown {
-    fn from(value: GameSaveContainerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfo> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveContainerInfo> for ::windows::core::IInspectable {
-    fn from(value: GameSaveContainerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfo> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveContainerInfo, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -918,36 +744,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfoGetResult {
 impl ::windows::core::RuntimeName for GameSaveContainerInfoGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoGetResult";
 }
-impl ::core::convert::From<GameSaveContainerInfoGetResult> for ::windows::core::IUnknown {
-    fn from(value: GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoGetResult> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveContainerInfoGetResult> for ::windows::core::IInspectable {
-    fn from(value: GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoGetResult> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveContainerInfoGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1014,36 +811,7 @@ unsafe impl ::windows::core::Interface for GameSaveContainerInfoQuery {
 impl ::windows::core::RuntimeName for GameSaveContainerInfoQuery {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery";
 }
-impl ::core::convert::From<GameSaveContainerInfoQuery> for ::windows::core::IUnknown {
-    fn from(value: GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoQuery> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveContainerInfoQuery> for ::windows::core::IInspectable {
-    fn from(value: GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveContainerInfoQuery> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveContainerInfoQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveContainerInfoQuery, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1090,36 +858,7 @@ unsafe impl ::windows::core::Interface for GameSaveOperationResult {
 impl ::windows::core::RuntimeName for GameSaveOperationResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveOperationResult";
 }
-impl ::core::convert::From<GameSaveOperationResult> for ::windows::core::IUnknown {
-    fn from(value: GameSaveOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveOperationResult> for ::windows::core::IInspectable {
-    fn from(value: GameSaveOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveOperationResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveOperationResult {}
 unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1237,36 +976,7 @@ unsafe impl ::windows::core::Interface for GameSaveProvider {
 impl ::windows::core::RuntimeName for GameSaveProvider {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProvider";
 }
-impl ::core::convert::From<GameSaveProvider> for ::windows::core::IUnknown {
-    fn from(value: GameSaveProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveProvider> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveProvider> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveProvider> for ::windows::core::IInspectable {
-    fn from(value: GameSaveProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveProvider> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveProvider> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveProvider, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveProvider {}
 unsafe impl ::core::marker::Sync for GameSaveProvider {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1320,36 +1030,7 @@ unsafe impl ::windows::core::Interface for GameSaveProviderGetResult {
 impl ::windows::core::RuntimeName for GameSaveProviderGetResult {
     const NAME: &'static str = "Windows.Gaming.XboxLive.Storage.GameSaveProviderGetResult";
 }
-impl ::core::convert::From<GameSaveProviderGetResult> for ::windows::core::IUnknown {
-    fn from(value: GameSaveProviderGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::core::IUnknown {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveProviderGetResult> for &::windows::core::IUnknown {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GameSaveProviderGetResult> for ::windows::core::IInspectable {
-    fn from(value: GameSaveProviderGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::core::IInspectable {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GameSaveProviderGetResult> for &::windows::core::IInspectable {
-    fn from(value: &GameSaveProviderGetResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
+::windows::core::interface_hierarchy!(GameSaveProviderGetResult, ::windows::core::IUnknown, ::windows::core::IInspectable);
 unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveProviderGetResult {}
 #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]

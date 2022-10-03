@@ -451,21 +451,7 @@ impl IGPEInformation {
         (::windows::core::Vtable::vtable(self).PolicyChanged)(::windows::core::Vtable::as_raw(self), bmachine.into(), badd.into(), ::core::mem::transmute(pguidextension), ::core::mem::transmute(pguidsnapin)).ok()
     }
 }
-impl ::core::convert::From<IGPEInformation> for ::windows::core::IUnknown {
-    fn from(value: IGPEInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGPEInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPEInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGPEInformation> for ::windows::core::IUnknown {
-    fn from(value: &IGPEInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPEInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGPEInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -585,41 +571,7 @@ impl IGPM {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPM> for ::windows::core::IUnknown {
-    fn from(value: IGPM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPM> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPM> for ::windows::core::IUnknown {
-    fn from(value: &IGPM) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPM> for super::Com::IDispatch {
-    fn from(value: IGPM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPM> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPM> for super::Com::IDispatch {
-    fn from(value: &IGPM) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPM, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPM {
     fn clone(&self) -> Self {
@@ -785,59 +737,7 @@ impl IGPM2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPM2> for ::windows::core::IUnknown {
-    fn from(value: IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPM2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPM2> for ::windows::core::IUnknown {
-    fn from(value: &IGPM2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPM2> for super::Com::IDispatch {
-    fn from(value: IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPM2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPM2> for super::Com::IDispatch {
-    fn from(value: &IGPM2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPM2> for IGPM {
-    fn from(value: IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPM2> for &'a IGPM {
-    fn from(value: &'a IGPM2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPM2> for IGPM {
-    fn from(value: &IGPM2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPM2, ::windows::core::IUnknown, super::Com::IDispatch, IGPM);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPM2 {
     fn clone(&self) -> Self {
@@ -888,41 +788,7 @@ impl IGPMAsyncCancel {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMAsyncCancel> for ::windows::core::IUnknown {
-    fn from(value: IGPMAsyncCancel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMAsyncCancel> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMAsyncCancel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMAsyncCancel> for ::windows::core::IUnknown {
-    fn from(value: &IGPMAsyncCancel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMAsyncCancel> for super::Com::IDispatch {
-    fn from(value: IGPMAsyncCancel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMAsyncCancel> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMAsyncCancel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMAsyncCancel> for super::Com::IDispatch {
-    fn from(value: &IGPMAsyncCancel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMAsyncCancel, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMAsyncCancel {
     fn clone(&self) -> Self {
@@ -974,41 +840,7 @@ impl IGPMAsyncProgress {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMAsyncProgress> for ::windows::core::IUnknown {
-    fn from(value: IGPMAsyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMAsyncProgress> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMAsyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMAsyncProgress> for ::windows::core::IUnknown {
-    fn from(value: &IGPMAsyncProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMAsyncProgress> for super::Com::IDispatch {
-    fn from(value: IGPMAsyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMAsyncProgress> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMAsyncProgress) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMAsyncProgress> for super::Com::IDispatch {
-    fn from(value: &IGPMAsyncProgress) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMAsyncProgress, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMAsyncProgress {
     fn clone(&self) -> Self {
@@ -1097,41 +929,7 @@ impl IGPMBackup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackup> for ::windows::core::IUnknown {
-    fn from(value: IGPMBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackup> for ::windows::core::IUnknown {
-    fn from(value: &IGPMBackup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackup> for super::Com::IDispatch {
-    fn from(value: IGPMBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackup> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackup> for super::Com::IDispatch {
-    fn from(value: &IGPMBackup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMBackup, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMBackup {
     fn clone(&self) -> Self {
@@ -1206,41 +1004,7 @@ impl IGPMBackupCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMBackupCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupCollection> for super::Com::IDispatch {
-    fn from(value: IGPMBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMBackupCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMBackupCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMBackupCollection {
     fn clone(&self) -> Self {
@@ -1311,41 +1075,7 @@ impl IGPMBackupDir {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupDir> for ::windows::core::IUnknown {
-    fn from(value: IGPMBackupDir) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupDir> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMBackupDir) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupDir> for ::windows::core::IUnknown {
-    fn from(value: &IGPMBackupDir) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupDir> for super::Com::IDispatch {
-    fn from(value: IGPMBackupDir) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupDir> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMBackupDir) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupDir> for super::Com::IDispatch {
-    fn from(value: &IGPMBackupDir) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMBackupDir, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMBackupDir {
     fn clone(&self) -> Self {
@@ -1420,41 +1150,7 @@ impl IGPMBackupDirEx {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupDirEx> for ::windows::core::IUnknown {
-    fn from(value: IGPMBackupDirEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupDirEx> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMBackupDirEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupDirEx> for ::windows::core::IUnknown {
-    fn from(value: &IGPMBackupDirEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMBackupDirEx> for super::Com::IDispatch {
-    fn from(value: IGPMBackupDirEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMBackupDirEx> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMBackupDirEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMBackupDirEx> for super::Com::IDispatch {
-    fn from(value: &IGPMBackupDirEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMBackupDirEx, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMBackupDirEx {
     fn clone(&self) -> Self {
@@ -1523,41 +1219,7 @@ impl IGPMCSECollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMCSECollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMCSECollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMCSECollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMCSECollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMCSECollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMCSECollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMCSECollection> for super::Com::IDispatch {
-    fn from(value: IGPMCSECollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMCSECollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMCSECollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMCSECollection> for super::Com::IDispatch {
-    fn from(value: &IGPMCSECollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMCSECollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMCSECollection {
     fn clone(&self) -> Self {
@@ -1625,41 +1287,7 @@ impl IGPMClientSideExtension {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMClientSideExtension> for ::windows::core::IUnknown {
-    fn from(value: IGPMClientSideExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMClientSideExtension> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMClientSideExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMClientSideExtension> for ::windows::core::IUnknown {
-    fn from(value: &IGPMClientSideExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMClientSideExtension> for super::Com::IDispatch {
-    fn from(value: IGPMClientSideExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMClientSideExtension> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMClientSideExtension) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMClientSideExtension> for super::Com::IDispatch {
-    fn from(value: &IGPMClientSideExtension) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMClientSideExtension, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMClientSideExtension {
     fn clone(&self) -> Self {
@@ -1946,41 +1574,7 @@ impl IGPMConstants {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMConstants> for ::windows::core::IUnknown {
-    fn from(value: IGPMConstants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMConstants> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMConstants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMConstants> for ::windows::core::IUnknown {
-    fn from(value: &IGPMConstants) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMConstants> for super::Com::IDispatch {
-    fn from(value: IGPMConstants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMConstants> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMConstants) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMConstants> for super::Com::IDispatch {
-    fn from(value: &IGPMConstants) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMConstants, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMConstants {
     fn clone(&self) -> Self {
@@ -2383,59 +1977,7 @@ impl IGPMConstants2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMConstants2> for ::windows::core::IUnknown {
-    fn from(value: IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMConstants2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMConstants2> for ::windows::core::IUnknown {
-    fn from(value: &IGPMConstants2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMConstants2> for super::Com::IDispatch {
-    fn from(value: IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMConstants2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMConstants2> for super::Com::IDispatch {
-    fn from(value: &IGPMConstants2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMConstants2> for IGPMConstants {
-    fn from(value: IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMConstants2> for &'a IGPMConstants {
-    fn from(value: &'a IGPMConstants2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMConstants2> for IGPMConstants {
-    fn from(value: &IGPMConstants2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMConstants2, ::windows::core::IUnknown, super::Com::IDispatch, IGPMConstants);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMConstants2 {
     fn clone(&self) -> Self {
@@ -2560,41 +2102,7 @@ impl IGPMDomain {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain> for ::windows::core::IUnknown {
-    fn from(value: IGPMDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain> for ::windows::core::IUnknown {
-    fn from(value: &IGPMDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain> for super::Com::IDispatch {
-    fn from(value: IGPMDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMDomain) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain> for super::Com::IDispatch {
-    fn from(value: &IGPMDomain) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMDomain, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMDomain {
     fn clone(&self) -> Self {
@@ -2781,59 +2289,7 @@ impl IGPMDomain2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain2> for ::windows::core::IUnknown {
-    fn from(value: IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain2> for ::windows::core::IUnknown {
-    fn from(value: &IGPMDomain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain2> for super::Com::IDispatch {
-    fn from(value: IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain2> for super::Com::IDispatch {
-    fn from(value: &IGPMDomain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain2> for IGPMDomain {
-    fn from(value: IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain2> for &'a IGPMDomain {
-    fn from(value: &'a IGPMDomain2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain2> for IGPMDomain {
-    fn from(value: &IGPMDomain2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMDomain2, ::windows::core::IUnknown, super::Com::IDispatch, IGPMDomain);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMDomain2 {
     fn clone(&self) -> Self {
@@ -3025,77 +2481,7 @@ impl IGPMDomain3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain3> for ::windows::core::IUnknown {
-    fn from(value: IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain3> for ::windows::core::IUnknown {
-    fn from(value: &IGPMDomain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain3> for super::Com::IDispatch {
-    fn from(value: IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain3> for super::Com::IDispatch {
-    fn from(value: &IGPMDomain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain3> for IGPMDomain {
-    fn from(value: IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain3> for &'a IGPMDomain {
-    fn from(value: &'a IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain3> for IGPMDomain {
-    fn from(value: &IGPMDomain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMDomain3> for IGPMDomain2 {
-    fn from(value: IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMDomain3> for &'a IGPMDomain2 {
-    fn from(value: &'a IGPMDomain3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMDomain3> for IGPMDomain2 {
-    fn from(value: &IGPMDomain3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMDomain3, ::windows::core::IUnknown, super::Com::IDispatch, IGPMDomain, IGPMDomain2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMDomain3 {
     fn clone(&self) -> Self {
@@ -3286,41 +2672,7 @@ impl IGPMGPO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO> for super::Com::IDispatch {
-    fn from(value: IGPMGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO> for super::Com::IDispatch {
-    fn from(value: &IGPMGPO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPO, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPO {
     fn clone(&self) -> Self {
@@ -3573,59 +2925,7 @@ impl IGPMGPO2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO2> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO2> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPO2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO2> for super::Com::IDispatch {
-    fn from(value: IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO2> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO2> for super::Com::IDispatch {
-    fn from(value: &IGPMGPO2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO2> for IGPMGPO {
-    fn from(value: IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO2> for &'a IGPMGPO {
-    fn from(value: &'a IGPMGPO2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO2> for IGPMGPO {
-    fn from(value: &IGPMGPO2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPO2, ::windows::core::IUnknown, super::Com::IDispatch, IGPMGPO);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPO2 {
     fn clone(&self) -> Self {
@@ -3828,77 +3128,7 @@ impl IGPMGPO3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO3> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO3> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO3> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPO3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO3> for super::Com::IDispatch {
-    fn from(value: IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO3> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO3> for super::Com::IDispatch {
-    fn from(value: &IGPMGPO3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO3> for IGPMGPO {
-    fn from(value: IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO3> for &'a IGPMGPO {
-    fn from(value: &'a IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO3> for IGPMGPO {
-    fn from(value: &IGPMGPO3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPO3> for IGPMGPO2 {
-    fn from(value: IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPO3> for &'a IGPMGPO2 {
-    fn from(value: &'a IGPMGPO3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPO3> for IGPMGPO2 {
-    fn from(value: &IGPMGPO3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPO3, ::windows::core::IUnknown, super::Com::IDispatch, IGPMGPO, IGPMGPO2);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPO3 {
     fn clone(&self) -> Self {
@@ -3960,41 +3190,7 @@ impl IGPMGPOCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPOCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOCollection> for super::Com::IDispatch {
-    fn from(value: IGPMGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMGPOCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPOCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPOCollection {
     fn clone(&self) -> Self {
@@ -4081,41 +3277,7 @@ impl IGPMGPOLink {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOLink> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPOLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOLink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPOLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOLink> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPOLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOLink> for super::Com::IDispatch {
-    fn from(value: IGPMGPOLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOLink> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPOLink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOLink> for super::Com::IDispatch {
-    fn from(value: &IGPMGPOLink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPOLink, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPOLink {
     fn clone(&self) -> Self {
@@ -4186,41 +3348,7 @@ impl IGPMGPOLinksCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOLinksCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMGPOLinksCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOLinksCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMGPOLinksCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOLinksCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMGPOLinksCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMGPOLinksCollection> for super::Com::IDispatch {
-    fn from(value: IGPMGPOLinksCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMGPOLinksCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMGPOLinksCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMGPOLinksCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMGPOLinksCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMGPOLinksCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMGPOLinksCollection {
     fn clone(&self) -> Self {
@@ -4288,41 +3416,7 @@ impl IGPMMapEntry {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMapEntry> for ::windows::core::IUnknown {
-    fn from(value: IGPMMapEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMapEntry> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMMapEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMapEntry> for ::windows::core::IUnknown {
-    fn from(value: &IGPMMapEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMapEntry> for super::Com::IDispatch {
-    fn from(value: IGPMMapEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMapEntry> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMMapEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMapEntry> for super::Com::IDispatch {
-    fn from(value: &IGPMMapEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMMapEntry, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMMapEntry {
     fn clone(&self) -> Self {
@@ -4385,41 +3479,7 @@ impl IGPMMapEntryCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMapEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMMapEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMapEntryCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMMapEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMapEntryCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMMapEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMapEntryCollection> for super::Com::IDispatch {
-    fn from(value: IGPMMapEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMapEntryCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMMapEntryCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMapEntryCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMMapEntryCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMMapEntryCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMMapEntryCollection {
     fn clone(&self) -> Self {
@@ -4515,41 +3575,7 @@ impl IGPMMigrationTable {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMigrationTable> for ::windows::core::IUnknown {
-    fn from(value: IGPMMigrationTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMigrationTable> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMMigrationTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMigrationTable> for ::windows::core::IUnknown {
-    fn from(value: &IGPMMigrationTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMMigrationTable> for super::Com::IDispatch {
-    fn from(value: IGPMMigrationTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMMigrationTable> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMMigrationTable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMMigrationTable> for super::Com::IDispatch {
-    fn from(value: &IGPMMigrationTable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMMigrationTable, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMMigrationTable {
     fn clone(&self) -> Self {
@@ -4640,41 +3666,7 @@ impl IGPMPermission {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMPermission> for ::windows::core::IUnknown {
-    fn from(value: IGPMPermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMPermission> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMPermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMPermission> for ::windows::core::IUnknown {
-    fn from(value: &IGPMPermission) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMPermission> for super::Com::IDispatch {
-    fn from(value: IGPMPermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMPermission> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMPermission) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMPermission> for super::Com::IDispatch {
-    fn from(value: &IGPMPermission) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMPermission, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMPermission {
     fn clone(&self) -> Self {
@@ -4882,41 +3874,7 @@ impl IGPMRSOP {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMRSOP> for ::windows::core::IUnknown {
-    fn from(value: IGPMRSOP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMRSOP> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMRSOP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMRSOP> for ::windows::core::IUnknown {
-    fn from(value: &IGPMRSOP) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMRSOP> for super::Com::IDispatch {
-    fn from(value: IGPMRSOP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMRSOP> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMRSOP) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMRSOP> for super::Com::IDispatch {
-    fn from(value: &IGPMRSOP) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMRSOP, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMRSOP {
     fn clone(&self) -> Self {
@@ -5042,41 +4000,7 @@ impl IGPMResult {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMResult> for ::windows::core::IUnknown {
-    fn from(value: IGPMResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMResult> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMResult> for ::windows::core::IUnknown {
-    fn from(value: &IGPMResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMResult> for super::Com::IDispatch {
-    fn from(value: IGPMResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMResult> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMResult> for super::Com::IDispatch {
-    fn from(value: &IGPMResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMResult, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMResult {
     fn clone(&self) -> Self {
@@ -5182,41 +4106,7 @@ impl IGPMSOM {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSOM> for ::windows::core::IUnknown {
-    fn from(value: IGPMSOM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSOM> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMSOM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSOM> for ::windows::core::IUnknown {
-    fn from(value: &IGPMSOM) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSOM> for super::Com::IDispatch {
-    fn from(value: IGPMSOM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSOM> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMSOM) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSOM> for super::Com::IDispatch {
-    fn from(value: &IGPMSOM) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMSOM, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMSOM {
     fn clone(&self) -> Self {
@@ -5300,41 +4190,7 @@ impl IGPMSOMCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSOMCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMSOMCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSOMCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMSOMCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSOMCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMSOMCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSOMCollection> for super::Com::IDispatch {
-    fn from(value: IGPMSOMCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSOMCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMSOMCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSOMCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMSOMCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMSOMCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMSOMCollection {
     fn clone(&self) -> Self {
@@ -5394,41 +4250,7 @@ impl IGPMSearchCriteria {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSearchCriteria> for ::windows::core::IUnknown {
-    fn from(value: IGPMSearchCriteria) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSearchCriteria> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMSearchCriteria) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSearchCriteria> for ::windows::core::IUnknown {
-    fn from(value: &IGPMSearchCriteria) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSearchCriteria> for super::Com::IDispatch {
-    fn from(value: IGPMSearchCriteria) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSearchCriteria> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMSearchCriteria) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSearchCriteria> for super::Com::IDispatch {
-    fn from(value: &IGPMSearchCriteria) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMSearchCriteria, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMSearchCriteria {
     fn clone(&self) -> Self {
@@ -5510,41 +4332,7 @@ impl IGPMSecurityInfo {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSecurityInfo> for ::windows::core::IUnknown {
-    fn from(value: IGPMSecurityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSecurityInfo> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMSecurityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSecurityInfo> for ::windows::core::IUnknown {
-    fn from(value: &IGPMSecurityInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSecurityInfo> for super::Com::IDispatch {
-    fn from(value: IGPMSecurityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSecurityInfo> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMSecurityInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSecurityInfo> for super::Com::IDispatch {
-    fn from(value: &IGPMSecurityInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMSecurityInfo, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMSecurityInfo {
     fn clone(&self) -> Self {
@@ -5632,41 +4420,7 @@ impl IGPMSitesContainer {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSitesContainer> for ::windows::core::IUnknown {
-    fn from(value: IGPMSitesContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSitesContainer> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMSitesContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSitesContainer> for ::windows::core::IUnknown {
-    fn from(value: &IGPMSitesContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMSitesContainer> for super::Com::IDispatch {
-    fn from(value: IGPMSitesContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMSitesContainer> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMSitesContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMSitesContainer> for super::Com::IDispatch {
-    fn from(value: &IGPMSitesContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMSitesContainer, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMSitesContainer {
     fn clone(&self) -> Self {
@@ -5815,41 +4569,7 @@ impl IGPMStarterGPO {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPO> for ::windows::core::IUnknown {
-    fn from(value: IGPMStarterGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPO> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStarterGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPO> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStarterGPO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPO> for super::Com::IDispatch {
-    fn from(value: IGPMStarterGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPO> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStarterGPO) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPO> for super::Com::IDispatch {
-    fn from(value: &IGPMStarterGPO) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStarterGPO, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStarterGPO {
     fn clone(&self) -> Self {
@@ -5980,41 +4700,7 @@ impl IGPMStarterGPOBackup {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOBackup> for ::windows::core::IUnknown {
-    fn from(value: IGPMStarterGPOBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOBackup> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStarterGPOBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOBackup> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStarterGPOBackup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOBackup> for super::Com::IDispatch {
-    fn from(value: IGPMStarterGPOBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOBackup> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStarterGPOBackup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOBackup> for super::Com::IDispatch {
-    fn from(value: &IGPMStarterGPOBackup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStarterGPOBackup, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStarterGPOBackup {
     fn clone(&self) -> Self {
@@ -6090,41 +4776,7 @@ impl IGPMStarterGPOBackupCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOBackupCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMStarterGPOBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOBackupCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStarterGPOBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOBackupCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStarterGPOBackupCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOBackupCollection> for super::Com::IDispatch {
-    fn from(value: IGPMStarterGPOBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOBackupCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStarterGPOBackupCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOBackupCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMStarterGPOBackupCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStarterGPOBackupCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStarterGPOBackupCollection {
     fn clone(&self) -> Self {
@@ -6192,41 +4844,7 @@ impl IGPMStarterGPOCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMStarterGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStarterGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStarterGPOCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStarterGPOCollection> for super::Com::IDispatch {
-    fn from(value: IGPMStarterGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStarterGPOCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStarterGPOCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStarterGPOCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMStarterGPOCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStarterGPOCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStarterGPOCollection {
     fn clone(&self) -> Self {
@@ -6300,41 +4918,7 @@ impl IGPMStatusMessage {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStatusMessage> for ::windows::core::IUnknown {
-    fn from(value: IGPMStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStatusMessage> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStatusMessage> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStatusMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStatusMessage> for super::Com::IDispatch {
-    fn from(value: IGPMStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStatusMessage> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStatusMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStatusMessage> for super::Com::IDispatch {
-    fn from(value: &IGPMStatusMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStatusMessage, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStatusMessage {
     fn clone(&self) -> Self {
@@ -6399,41 +4983,7 @@ impl IGPMStatusMsgCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStatusMsgCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMStatusMsgCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStatusMsgCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMStatusMsgCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStatusMsgCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMStatusMsgCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMStatusMsgCollection> for super::Com::IDispatch {
-    fn from(value: IGPMStatusMsgCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMStatusMsgCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMStatusMsgCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMStatusMsgCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMStatusMsgCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMStatusMsgCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMStatusMsgCollection {
     fn clone(&self) -> Self {
@@ -6505,41 +5055,7 @@ impl IGPMTrustee {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMTrustee> for ::windows::core::IUnknown {
-    fn from(value: IGPMTrustee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMTrustee> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMTrustee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMTrustee> for ::windows::core::IUnknown {
-    fn from(value: &IGPMTrustee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMTrustee> for super::Com::IDispatch {
-    fn from(value: IGPMTrustee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMTrustee> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMTrustee) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMTrustee> for super::Com::IDispatch {
-    fn from(value: &IGPMTrustee) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMTrustee, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMTrustee {
     fn clone(&self) -> Self {
@@ -6625,41 +5141,7 @@ impl IGPMWMIFilter {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMWMIFilter> for ::windows::core::IUnknown {
-    fn from(value: IGPMWMIFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMWMIFilter> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMWMIFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMWMIFilter> for ::windows::core::IUnknown {
-    fn from(value: &IGPMWMIFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMWMIFilter> for super::Com::IDispatch {
-    fn from(value: IGPMWMIFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMWMIFilter> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMWMIFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMWMIFilter> for super::Com::IDispatch {
-    fn from(value: &IGPMWMIFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMWMIFilter, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMWMIFilter {
     fn clone(&self) -> Self {
@@ -6735,41 +5217,7 @@ impl IGPMWMIFilterCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMWMIFilterCollection> for ::windows::core::IUnknown {
-    fn from(value: IGPMWMIFilterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMWMIFilterCollection> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGPMWMIFilterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMWMIFilterCollection> for ::windows::core::IUnknown {
-    fn from(value: &IGPMWMIFilterCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IGPMWMIFilterCollection> for super::Com::IDispatch {
-    fn from(value: IGPMWMIFilterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a IGPMWMIFilterCollection> for &'a super::Com::IDispatch {
-    fn from(value: &'a IGPMWMIFilterCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IGPMWMIFilterCollection> for super::Com::IDispatch {
-    fn from(value: &IGPMWMIFilterCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGPMWMIFilterCollection, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for IGPMWMIFilterCollection {
     fn clone(&self) -> Self {
@@ -6895,21 +5343,7 @@ impl IGroupPolicyObject {
         (::windows::core::Vtable::vtable(self).GetPropertySheetPages)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(hpages), ::core::mem::transmute(upagecount)).ok()
     }
 }
-impl ::core::convert::From<IGroupPolicyObject> for ::windows::core::IUnknown {
-    fn from(value: IGroupPolicyObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGroupPolicyObject> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGroupPolicyObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGroupPolicyObject> for ::windows::core::IUnknown {
-    fn from(value: &IGroupPolicyObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IGroupPolicyObject, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IGroupPolicyObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
@@ -6984,21 +5418,7 @@ impl IRSOPInformation {
         (::windows::core::Vtable::vtable(self).GetEventLogEntryText)(::windows::core::Vtable::as_raw(self), pszeventsource.into(), pszeventlogname.into(), pszeventtime.into(), dweventid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
-impl ::core::convert::From<IRSOPInformation> for ::windows::core::IUnknown {
-    fn from(value: IRSOPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IRSOPInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IRSOPInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRSOPInformation> for ::windows::core::IUnknown {
-    fn from(value: &IRSOPInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
+::windows::core::interface_hierarchy!(IRSOPInformation, ::windows::core::IUnknown);
 impl ::core::clone::Clone for IRSOPInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
