@@ -426,17 +426,17 @@ mod d3d12_hello_triangle {
         let asset_path = exe_path.parent().unwrap();
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
-        let shaders_hlsl = PCWSTR::from(&shaders_hlsl.into());
+        let shaders_hlsl: HSTRING = shaders_hlsl.into();
 
         let mut vertex_shader = None;
-        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, None, None, PCSTR(b"VSMain\0".as_ptr()), PCSTR(b"vs_5_0\0".as_ptr()), compile_flags, 0, &mut vertex_shader, None) }.map(|()| vertex_shader.unwrap())?;
+        let vertex_shader = unsafe { D3DCompileFromFile(&shaders_hlsl, None, None, s!("VSMain"), s!("vs_5_0"), compile_flags, 0, &mut vertex_shader, None) }.map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
-        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, None, None, PCSTR(b"PSMain\0".as_ptr()), PCSTR(b"ps_5_0\0".as_ptr()), compile_flags, 0, &mut pixel_shader, None) }.map(|()| pixel_shader.unwrap())?;
+        let pixel_shader = unsafe { D3DCompileFromFile(&shaders_hlsl, None, None, s!("PSMain"), s!("ps_5_0"), compile_flags, 0, &mut pixel_shader, None) }.map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
-                SemanticName: PCSTR(b"POSITION\0".as_ptr()),
+                SemanticName: s!("POSITION"),
                 SemanticIndex: 0,
                 Format: DXGI_FORMAT_R32G32B32_FLOAT,
                 InputSlot: 0,
@@ -445,7 +445,7 @@ mod d3d12_hello_triangle {
                 InstanceDataStepRate: 0,
             },
             D3D12_INPUT_ELEMENT_DESC {
-                SemanticName: PCSTR(b"COLOR\0".as_ptr()),
+                SemanticName: s!("COLOR"),
                 SemanticIndex: 0,
                 Format: DXGI_FORMAT_R32G32B32A32_FLOAT,
                 InputSlot: 0,
