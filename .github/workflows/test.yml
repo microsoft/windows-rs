@@ -109,6 +109,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_simple &&
           cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
           cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
+          cargo test --target ${{ matrix.target }} -p sample_wasapi_oscillator &&
           cargo test --target ${{ matrix.target }} -p sample_wmi &&
           cargo test --target ${{ matrix.target }} -p sample_xml &&
           cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
@@ -126,8 +127,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_bcrypt &&
           cargo test --target ${{ matrix.target }} -p test_bstr &&
           cargo test --target ${{ matrix.target }} -p test_calling_convention &&
-          cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
           cargo test --target ${{ matrix.target }} -p test_const_fields &&
