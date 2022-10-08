@@ -34,7 +34,7 @@ fn main() -> Result<()> {
 
 extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     unsafe {
-        match message as u32 {
+        match message {
             WM_PAINT => {
                 println!("WM_PAINT");
                 ValidateRect(window, None);

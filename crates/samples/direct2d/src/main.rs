@@ -179,6 +179,7 @@ impl Window {
 
         let size = unsafe { target.GetSize() };
 
+        #[allow(clippy::manual_clamp)]
         let radius = size.width.min(size.height).max(200.0) / 2.0 - 50.0;
         let translation = Matrix3x2::translation(size.width / 2.0, size.height / 2.0);
         unsafe { target.SetTransform(&translation) };
