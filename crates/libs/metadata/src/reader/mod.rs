@@ -260,7 +260,7 @@ impl<'a> Reader<'a> {
         let _this_and_gen_param_count = sig.read_usize();
         let fixed_arg_count = sig.read_usize();
         let _ret_type = sig.read_usize();
-        let mut args: Vec<(String, Value)> = Vec::with_capacity(fixed_arg_count as usize);
+        let mut args: Vec<(String, Value)> = Vec::with_capacity(fixed_arg_count);
 
         for _ in 0..fixed_arg_count {
             let arg = match self.type_from_blob(&mut sig, None, &[]).expect("Type not found") {
@@ -1512,7 +1512,7 @@ impl<'a> Reader<'a> {
 
         match code {
             0x11 | 0x12 => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
-            0x13 => generics.get(blob.read_usize() as usize).unwrap_or(&Type::Void).clone(),
+            0x13 => generics.get(blob.read_usize()).unwrap_or(&Type::Void).clone(),
             0x14 => {
                 let kind = self.type_from_blob(blob, enclosing, generics).unwrap();
                 let _rank = blob.read_usize();
