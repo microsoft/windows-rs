@@ -1,7 +1,4 @@
-use windows::{core::*,
-Foundation::*,
-Media::Control::*,
-};
+use windows::{core::*, Foundation::*, Media::Control::*};
 
 #[test]
 fn agile_send() -> Result<()> {
