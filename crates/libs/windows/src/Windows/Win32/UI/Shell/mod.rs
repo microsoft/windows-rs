@@ -5520,10 +5520,10 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SHSTOCKICONINFO) -> ::windows::core::Result<()> {
+pub unsafe fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: *mut SHSTOCKICONINFO) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SHSTOCKICONINFO) -> ::windows::core::HRESULT;
+        fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: *mut SHSTOCKICONINFO) -> ::windows::core::HRESULT;
     }
     SHGetStockIconInfo(siid, uflags, ::core::mem::transmute(psii)).ok()
 }
@@ -46822,8 +46822,6 @@ pub const SHGNLI_PREFIXNAME: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGNLI_USEURLEXT: u64 = 32u64;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGSI_ICONLOCATION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGVSPB_ALLFOLDERS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGVSPB_ALLUSERS: u32 = 2u32;
@@ -54420,6 +54418,73 @@ unsafe impl ::windows::core::Abi for SHGLOBALCOUNTER {
 impl ::core::fmt::Debug for SHGLOBALCOUNTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHGLOBALCOUNTER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHGSI_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_ICONLOCATION: SHGSI_FLAGS = SHGSI_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_ICON: SHGSI_FLAGS = SHGSI_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SYSICONINDEX: SHGSI_FLAGS = SHGSI_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_LINKOVERLAY: SHGSI_FLAGS = SHGSI_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SELECTED: SHGSI_FLAGS = SHGSI_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_LARGEICON: SHGSI_FLAGS = SHGSI_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SMALLICON: SHGSI_FLAGS = SHGSI_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SHELLICONSIZE: SHGSI_FLAGS = SHGSI_FLAGS(4u32);
+impl ::core::marker::Copy for SHGSI_FLAGS {}
+impl ::core::clone::Clone for SHGSI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SHGSI_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SHGSI_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHGSI_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHGSI_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SHGSI_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SHGSI_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SHGSI_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SHGSI_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SHGSI_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

@@ -1202,7 +1202,7 @@ extern "system" {
     pub fn SHGetSpecialFolderPathW(hwnd: super::super::Foundation::HWND, pszpath: ::windows_sys::core::PWSTR, csidl: i32, fcreate: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT;
+    pub fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: SHGSI_FLAGS, psii: *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub fn SHGetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_sys::core::HRESULT;
@@ -4622,8 +4622,6 @@ pub const SHGNLI_PIDL: u64 = 1u64;
 pub const SHGNLI_PREFIXNAME: u64 = 2u64;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGNLI_USEURLEXT: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGSI_ICONLOCATION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGVSPB_ALLFOLDERS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -8205,6 +8203,24 @@ pub const GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE: SHGLOBALCOUNT
 pub const GLOBALCOUNTER_BANNERS_DATAMODEL_CACHE_MACHINEWIDE: SHGLOBALCOUNTER = 58i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const GLOBALCOUNTER_MAXIMUMVALUE: SHGLOBALCOUNTER = 59i32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type SHGSI_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_ICONLOCATION: SHGSI_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_ICON: SHGSI_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SYSICONINDEX: SHGSI_FLAGS = 16384u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_LINKOVERLAY: SHGSI_FLAGS = 32768u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SELECTED: SHGSI_FLAGS = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_LARGEICON: SHGSI_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SMALLICON: SHGSI_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGSI_SHELLICONSIZE: SHGSI_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type SHOP_TYPE = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

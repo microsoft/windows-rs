@@ -796,8 +796,8 @@ impl IDispatchEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub trait IDropSource_Impl: Sized {
-    fn QueryContinueDrag(&self, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::Result<()>;
-    fn GiveFeedback(&self, dweffect: DROPEFFECT) -> ::windows::core::Result<()>;
+    fn QueryContinueDrag(&self, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT;
+    fn GiveFeedback(&self, dweffect: DROPEFFECT) -> ::windows::core::HRESULT;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::windows::core::RuntimeName for IDropSource {}
@@ -807,12 +807,12 @@ impl IDropSource_Vtbl {
         unsafe extern "system" fn QueryContinueDrag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fescapepressed: super::super::Foundation::BOOL, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryContinueDrag(::core::mem::transmute_copy(&fescapepressed), ::core::mem::transmute_copy(&grfkeystate)).into()
+            this.QueryContinueDrag(::core::mem::transmute_copy(&fescapepressed), ::core::mem::transmute_copy(&grfkeystate))
         }
         unsafe extern "system" fn GiveFeedback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDropSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dweffect: DROPEFFECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GiveFeedback(::core::mem::transmute_copy(&dweffect)).into()
+            this.GiveFeedback(::core::mem::transmute_copy(&dweffect))
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
