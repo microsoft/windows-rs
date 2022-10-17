@@ -398,6 +398,18 @@ impl<'a> Reader<'a> {
     fn field_cfg_combine(&'a self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg<'a>) {
         self.type_cfg_combine(&self.field_type(row, enclosing), cfg)
     }
+    pub fn field_is_ansi(&self, row: Field) -> bool {
+        for attribute in self.field_attributes(row) {
+            if self.attribute_name(attribute) == "NativeEncodingAttribute" {
+                if let Some((_, Value::String(encoding))) = self.attribute_args(attribute).get(0) {
+                    if encoding == "ansi" {
+                        return true;
+                    }
+                }
+            }
+        }
+        false
+    }
 
     //
     // GenericParam table queries

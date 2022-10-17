@@ -439,7 +439,7 @@ impl<'a> Gen<'a> {
             tokens
         }
     }
-    fn crate_name(&self) -> TokenStream {
+    pub fn crate_name(&self) -> TokenStream {
         if self.sys {
             "windows_sys".into()
         } else {

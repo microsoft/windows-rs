@@ -11,11 +11,30 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
         let constant_type = gen.reader.constant_type(constant);
 
         if ty == constant_type {
-            let value = gen.typed_value(&gen.reader.constant_value(constant));
-            quote! {
-                #doc
-                #features
-                pub const #name: #value;
+            if ty == Type::String {
+                let crate_name = gen.crate_name();
+                if gen.reader.field_is_ansi(def) {
+                    let value = gen.value(&gen.reader.constant_value(constant));
+                    quote! {
+                        #doc
+                        #features
+                        pub const #name: ::#crate_name::core::PCSTR = ::#crate_name::s!(#value);
+                    }
+                } else {
+                    let value = gen.value(&gen.reader.constant_value(constant));
+                    quote! {
+                        #doc
+                        #features
+                        pub const #name: ::#crate_name::core::PCWSTR = ::#crate_name::w!(#value);
+                    }
+                }
+            } else {
+                let value = gen.typed_value(&gen.reader.constant_value(constant));
+                quote! {
+                    #doc
+                    #features
+                    pub const #name: #value;
+                }
             }
         } else {
             let kind = gen.type_default_name(&ty);
