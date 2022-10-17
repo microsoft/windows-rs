@@ -463,17 +463,17 @@ pub const CRYPTCAT_E_CDF_TAGNOTFOUND: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_E_CDF_UNSUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const CRYPTCAT_FILEEXT: &str = "CAT";
+pub const CRYPTCAT_FILEEXT: ::windows::core::PCWSTR = ::windows::w!("CAT");
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST: &str = "1.3.6.1.4.1.311.12.1.1";
+pub const szOID_CATALOG_LIST: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.12.1.1");
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST_MEMBER: &str = "1.3.6.1.4.1.311.12.1.2";
+pub const szOID_CATALOG_LIST_MEMBER: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.12.1.2");
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
-pub const szOID_CATALOG_LIST_MEMBER2: &str = "1.3.6.1.4.1.311.12.1.3";
+pub const szOID_CATALOG_LIST_MEMBER2: ::windows::core::PCSTR = ::windows::s!("1.3.6.1.4.1.311.12.1.3");
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

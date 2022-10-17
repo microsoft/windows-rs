@@ -496,9 +496,9 @@ where
     WerUnregisterRuntimeExceptionModule(pwszoutofprocesscallbackdll.into(), ::core::mem::transmute(pcontext)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const APPCRASH_EVENT: &str = "APPCRASH";
+pub const APPCRASH_EVENT: ::windows::core::PCWSTR = ::windows::w!("APPCRASH");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const PACKAGED_APPCRASH_EVENT: &str = "MoAppCrash";
+pub const PACKAGED_APPCRASH_EVENT: ::windows::core::PCWSTR = ::windows::w!("MoAppCrash");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_DUMP_AUXILIARY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
@@ -576,11 +576,11 @@ pub const WER_P8: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_P9: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: &str = "OutOfProcessExceptionEventDebuggerLaunchCallback";
+pub const WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH: ::windows::core::PCSTR = ::windows::s!("OutOfProcessExceptionEventDebuggerLaunchCallback");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: &str = "OutOfProcessExceptionEventCallback";
+pub const WER_RUNTIME_EXCEPTION_EVENT_FUNCTION: ::windows::core::PCSTR = ::windows::s!("OutOfProcessExceptionEventCallback");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
-pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: &str = "OutOfProcessExceptionEventSignatureCallback";
+pub const WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE_FUNCTION: ::windows::core::PCSTR = ::windows::s!("OutOfProcessExceptionEventSignatureCallback");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const WER_SUBMIT_BYPASS_NETWORK_COST_THROTTLING: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]

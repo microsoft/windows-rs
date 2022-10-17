@@ -704,7 +704,7 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_VERSION: &str = "HTTP/1.0";
+pub const HTTP_VERSION: ::windows::core::PCWSTR = ::windows::w!("HTTP/1.0");
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

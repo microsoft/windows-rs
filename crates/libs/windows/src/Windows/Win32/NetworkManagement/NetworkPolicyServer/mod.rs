@@ -622,25 +622,25 @@ pub struct ITemplateSdo_Vtbl {
     AddToSdoAsProperty: usize,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_AUTHORIZATION_VALUE_W: &str = "AuthorizationDLLs";
+pub const AUTHSRV_AUTHORIZATION_VALUE_W: ::windows::core::PCWSTR = ::windows::w!("AuthorizationDLLs");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: &str = "EnforceNetworkPolicyForPAPBasedChallengeResponse";
+pub const AUTHSRV_ENFORCE_NP_FOR_PAP_CHALLENGE_RESPONSE_VALUE_W: ::windows::core::PCWSTR = ::windows::w!("EnforceNetworkPolicyForPAPBasedChallengeResponse");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_EXTENSIONS_VALUE_W: &str = "ExtensionDLLs";
+pub const AUTHSRV_EXTENSIONS_VALUE_W: ::windows::core::PCWSTR = ::windows::w!("ExtensionDLLs");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const AUTHSRV_PARAMETERS_KEY_W: &str = "System\\CurrentControlSet\\Services\\AuthSrv\\Parameters";
+pub const AUTHSRV_PARAMETERS_KEY_W: ::windows::core::PCWSTR = ::windows::w!("System\\CurrentControlSet\\Services\\AuthSrv\\Parameters");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: &str = "RadiusExtensionFreeAttributes";
+pub const RADIUS_EXTENSION_FREE_ATTRIBUTES: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionFreeAttributes");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_INIT: &str = "RadiusExtensionInit";
+pub const RADIUS_EXTENSION_INIT: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionInit");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS: &str = "RadiusExtensionProcess";
+pub const RADIUS_EXTENSION_PROCESS: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionProcess");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS2: &str = "RadiusExtensionProcess2";
+pub const RADIUS_EXTENSION_PROCESS2: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionProcess2");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_PROCESS_EX: &str = "RadiusExtensionProcessEx";
+pub const RADIUS_EXTENSION_PROCESS_EX: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionProcessEx");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub const RADIUS_EXTENSION_TERM: &str = "RadiusExtensionTerm";
+pub const RADIUS_EXTENSION_TERM: ::windows::core::PCSTR = ::windows::s!("RadiusExtensionTerm");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 pub const SdoMachine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
