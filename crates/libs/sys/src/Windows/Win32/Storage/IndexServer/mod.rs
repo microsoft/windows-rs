@@ -14,7 +14,7 @@ extern "system" {
 pub type IFilter = *mut ::core::ffi::c_void;
 pub type IPhraseSink = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CIADMIN: &str = "::_nodocstore_::";
+pub const CIADMIN: ::windows_sys::core::PCWSTR = ::windows_sys::w!("::_nodocstore_::");
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -28,7 +28,7 @@ pub const CICAT_STOPPED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CICAT_WRITABLE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-pub const CINULLCATALOG: &str = "::_noindex_::";
+pub const CINULLCATALOG: ::windows_sys::core::PCWSTR = ::windows_sys::w!("::_noindex_::");
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]

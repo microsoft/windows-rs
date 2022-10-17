@@ -71,13 +71,13 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const GET_RESOURCE_STRING_FN_NAME: &str = "GetResourceString";
+pub const GET_RESOURCE_STRING_FN_NAME: ::windows_sys::core::PCSTR = ::windows_sys::s!("GetResourceString");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_ARG_DELIMITER: &str = "=";
+pub const NETSH_ARG_DELIMITER: ::windows_sys::core::PCWSTR = ::windows_sys::w!("=");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_CMD_DELIMITER: &str = " ";
+pub const NETSH_CMD_DELIMITER: ::windows_sys::core::PCWSTR = ::windows_sys::w!(" ");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -89,7 +89,7 @@ pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_GET_EVENT_IDS_FN_NAME: &str = "GetEventIds";
+pub const NS_GET_EVENT_IDS_FN_NAME: ::windows_sys::core::PCSTR = ::windows_sys::s!("GetEventIds");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub type NS_CMD_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
