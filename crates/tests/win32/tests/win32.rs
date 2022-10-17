@@ -2,7 +2,8 @@ use windows::{
     core::*,
     Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
     Win32::Gaming::HasExpandedResources,
-    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
+    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::*},
+    Win32::Graphics::Direct3D::Fxc::*,
     Win32::Networking::Ldap::LDAPSearch,
     Win32::Security::Authorization::*,
     Win32::System::Com::StructuredStorage::*,
@@ -85,8 +86,17 @@ fn constant() {
     assert!(WM_KEYUP == 257u32);
     assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
     assert!(UIA_ScrollPatternNoScroll == -1f64);
-    assert!(D3DCOMPILER_DLL == "d3dcompiler_47.dll");
     assert!(CLSID_D2D1Shadow == GUID::from("C67EA361-1863-4e69-89DB-695D3E9A5B6B"));
+
+    let a: PCWSTR = D3DCOMPILER_DLL;
+    let b: PCSTR = D3DCOMPILER_DLL_A;
+    let c: PCWSTR = D3DCOMPILER_DLL_W;
+
+    unsafe {
+    assert_eq!(a.to_string().unwrap(), "d3dcompiler_47.dll");
+    assert_eq!(b.to_string().unwrap(), "d3dcompiler_47.dll");
+    assert_eq!(c.to_string().unwrap(), "d3dcompiler_47.dll");
+    }
 }
 
 #[test]

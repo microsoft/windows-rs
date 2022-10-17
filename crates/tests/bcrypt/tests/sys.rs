@@ -1,18 +1,17 @@
-use windows_sys::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
+use windows_sys::{Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]
 fn test() {
     unsafe {
         let mut rng = 0;
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1008
-        assert_eq!(STATUS_SUCCESS, BCryptOpenAlgorithmProvider(&mut rng, w!("RNG"), std::ptr::null(), 0));
+        assert_eq!(STATUS_SUCCESS, BCryptOpenAlgorithmProvider(&mut rng, BCRYPT_RNG_ALGORITHM, std::ptr::null(), 0));
 
         let mut des = 0;
-        assert_eq!(STATUS_SUCCESS, BCryptOpenAlgorithmProvider(&mut des, w!("3DES"), std::ptr::null(), 0));
+        assert_eq!(STATUS_SUCCESS, BCryptOpenAlgorithmProvider(&mut des, BCRYPT_3DES_ALGORITHM, std::ptr::null(), 0));
 
         let mut object_len = [0; 4];
         let mut bytes_copied = 0;
-        assert_eq!(STATUS_SUCCESS, BCryptGetProperty(des, w!("ObjectLength"), object_len.as_mut_ptr(), object_len.len() as _, &mut bytes_copied, 0));
+        assert_eq!(STATUS_SUCCESS, BCryptGetProperty(des, BCRYPT_OBJECT_LENGTH, object_len.as_mut_ptr(), object_len.len() as _, &mut bytes_copied, 0));
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as _];
@@ -22,7 +21,7 @@ fn test() {
         assert_eq!(STATUS_SUCCESS, BCryptGenerateSymmetricKey(des, &mut encrypt_key, std::ptr::null_mut(), 0, shared_secret.as_ptr(), shared_secret.len() as _, 0));
 
         let mut block_len = [0; 4];
-        assert_eq!(STATUS_SUCCESS, BCryptGetProperty(des, w!("BlockLength"), block_len.as_mut_ptr(), block_len.len() as _, &mut bytes_copied, 0));
+        assert_eq!(STATUS_SUCCESS, BCryptGetProperty(des, BCRYPT_BLOCK_LENGTH, block_len.as_mut_ptr(), block_len.len() as _, &mut bytes_copied, 0));
         let block_len = u32::from_le_bytes(block_len) as usize;
 
         let send_message = "I ❤️ Rust";

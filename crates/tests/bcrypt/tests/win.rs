@@ -4,15 +4,14 @@ use windows::{core::*, Win32::Security::Cryptography::*};
 fn test() -> Result<()> {
     unsafe {
         let mut rng = Default::default();
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1008
-        BCryptOpenAlgorithmProvider(&mut rng, w!("RNG"), None, Default::default())?;
+        BCryptOpenAlgorithmProvider(&mut rng, BCRYPT_RNG_ALGORITHM, None, Default::default())?;
 
         let mut des = Default::default();
-        BCryptOpenAlgorithmProvider(&mut des, w!("3DES"), None, Default::default())?;
+        BCryptOpenAlgorithmProvider(&mut des, BCRYPT_3DES_ALGORITHM, None, Default::default())?;
 
         let mut object_len = [0; 4];
         let mut bytes_copied = 0;
-        BCryptGetProperty(des, w!("ObjectLength"), Some(&mut object_len), &mut bytes_copied, 0)?;
+        BCryptGetProperty(des, BCRYPT_OBJECT_LENGTH, Some(&mut object_len), &mut bytes_copied, 0)?;
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as _];
@@ -22,7 +21,7 @@ fn test() -> Result<()> {
         BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, &shared_secret, 0)?;
 
         let mut block_len = [0; 4];
-        BCryptGetProperty(des, w!("BlockLength"), Some(&mut block_len), &mut bytes_copied, 0)?;
+        BCryptGetProperty(des, BCRYPT_BLOCK_LENGTH, Some(&mut block_len), &mut bytes_copied, 0)?;
         let block_len = u32::from_le_bytes(block_len) as usize;
 
         let send_message = "I ❤️ Rust";
