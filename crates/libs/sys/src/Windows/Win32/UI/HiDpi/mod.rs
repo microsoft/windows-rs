@@ -55,9 +55,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LogicalToPhysicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows_sys::core::PCWSTR, dpi: u32) -> isize;
+    #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+    pub fn OpenThemeDataForDpi(hwnd: super::super::Foundation::HWND, pszclasslist: ::windows_sys::core::PCWSTR, dpi: u32) -> super::Controls::HTHEME;
     #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PhysicalToLogicalPointForPerMonitorDPI(hwnd: super::super::Foundation::HWND, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL;

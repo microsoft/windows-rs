@@ -738,16 +738,16 @@ where
     }
     OleDraw(punknown.into().abi(), dwaspect, hdcdraw.into(), ::core::mem::transmute(lprcbounds)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 #[inline]
-pub unsafe fn OleDuplicateData<'a, P0>(hsrc: P0, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE
+pub unsafe fn OleDuplicateData<'a, P0>(hsrc: P0, cfformat: u16, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE;
+        fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE;
     }
     OleDuplicateData(hsrc.into(), cfformat, uiflags)
 }
@@ -1521,10 +1521,10 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn ReleaseStgMedium(param0: *const super::Com::STGMEDIUM) {
+pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ReleaseStgMedium(param0: *const super::Com::STGMEDIUM);
+        fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM);
     }
     ReleaseStgMedium(::core::mem::transmute(param0))
 }
@@ -6191,14 +6191,14 @@ pub struct IDropSource(::windows::core::IUnknown);
 impl IDropSource {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-    pub unsafe fn QueryContinueDrag<'a, P0>(&self, fescapepressed: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::Result<()>
+    pub unsafe fn QueryContinueDrag<'a, P0>(&self, fescapepressed: P0, grfkeystate: super::SystemServices::MODIFIERKEYS_FLAGS) -> ::windows::core::HRESULT
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        (::windows::core::Vtable::vtable(self).QueryContinueDrag)(::windows::core::Vtable::as_raw(self), fescapepressed.into(), grfkeystate).ok()
+        (::windows::core::Vtable::vtable(self).QueryContinueDrag)(::windows::core::Vtable::as_raw(self), fescapepressed.into(), grfkeystate)
     }
-    pub unsafe fn GiveFeedback(&self, dweffect: DROPEFFECT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GiveFeedback)(::windows::core::Vtable::as_raw(self), dweffect).ok()
+    pub unsafe fn GiveFeedback(&self, dweffect: DROPEFFECT) -> ::windows::core::HRESULT {
+        (::windows::core::Vtable::vtable(self).GiveFeedback)(::windows::core::Vtable::as_raw(self), dweffect)
     }
 }
 ::windows::core::interface_hierarchy!(IDropSource, ::windows::core::IUnknown);

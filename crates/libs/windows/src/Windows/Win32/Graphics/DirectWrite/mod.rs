@@ -41,6 +41,8 @@ impl ::core::fmt::Debug for IDWriteAsyncResult {
         f.debug_tuple("IDWriteAsyncResult").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteAsyncResult {}
+unsafe impl ::core::marker::Sync for IDWriteAsyncResult {}
 unsafe impl ::windows::core::Vtable for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResult_Vtbl;
 }
@@ -116,6 +118,8 @@ impl ::core::fmt::Debug for IDWriteBitmapRenderTarget {
         f.debug_tuple("IDWriteBitmapRenderTarget").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteBitmapRenderTarget {}
+unsafe impl ::core::marker::Sync for IDWriteBitmapRenderTarget {}
 unsafe impl ::windows::core::Vtable for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTarget_Vtbl;
 }
@@ -209,6 +213,8 @@ impl ::core::fmt::Debug for IDWriteBitmapRenderTarget1 {
         f.debug_tuple("IDWriteBitmapRenderTarget1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteBitmapRenderTarget1 {}
+unsafe impl ::core::marker::Sync for IDWriteBitmapRenderTarget1 {}
 unsafe impl ::windows::core::Vtable for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1_Vtbl;
 }
@@ -256,6 +262,8 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator {
         f.debug_tuple("IDWriteColorGlyphRunEnumerator").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteColorGlyphRunEnumerator {}
+unsafe impl ::core::marker::Sync for IDWriteColorGlyphRunEnumerator {}
 unsafe impl ::windows::core::Vtable for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumerator_Vtbl;
 }
@@ -315,6 +323,8 @@ impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator1 {
         f.debug_tuple("IDWriteColorGlyphRunEnumerator1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteColorGlyphRunEnumerator1 {}
+unsafe impl ::core::marker::Sync for IDWriteColorGlyphRunEnumerator1 {}
 unsafe impl ::windows::core::Vtable for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1_Vtbl;
 }
@@ -489,6 +499,8 @@ impl ::core::fmt::Debug for IDWriteFactory {
         f.debug_tuple("IDWriteFactory").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory {}
+unsafe impl ::core::marker::Sync for IDWriteFactory {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory {
     type Vtable = IDWriteFactory_Vtbl;
 }
@@ -710,6 +722,8 @@ impl ::core::fmt::Debug for IDWriteFactory1 {
         f.debug_tuple("IDWriteFactory1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory1 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory1 {
     type Vtable = IDWriteFactory1_Vtbl;
 }
@@ -921,6 +935,8 @@ impl ::core::fmt::Debug for IDWriteFactory2 {
         f.debug_tuple("IDWriteFactory2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory2 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory2 {
     type Vtable = IDWriteFactory2_Vtbl;
 }
@@ -1192,6 +1208,8 @@ impl ::core::fmt::Debug for IDWriteFactory3 {
         f.debug_tuple("IDWriteFactory3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory3 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory3 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory3 {
     type Vtable = IDWriteFactory3_Vtbl;
 }
@@ -1488,6 +1506,8 @@ impl ::core::fmt::Debug for IDWriteFactory4 {
         f.debug_tuple("IDWriteFactory4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory4 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory4 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory4 {
     type Vtable = IDWriteFactory4_Vtbl;
 }
@@ -1801,6 +1821,8 @@ impl ::core::fmt::Debug for IDWriteFactory5 {
         f.debug_tuple("IDWriteFactory5").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory5 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory5 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory5 {
     type Vtable = IDWriteFactory5_Vtbl;
 }
@@ -2159,6 +2181,8 @@ impl ::core::fmt::Debug for IDWriteFactory6 {
         f.debug_tuple("IDWriteFactory6").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory6 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory6 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory6 {
     type Vtable = IDWriteFactory6_Vtbl;
 }
@@ -2543,6 +2567,8 @@ impl ::core::fmt::Debug for IDWriteFactory7 {
         f.debug_tuple("IDWriteFactory7").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFactory7 {}
+unsafe impl ::core::marker::Sync for IDWriteFactory7 {}
 unsafe impl ::windows::core::Vtable for IDWriteFactory7 {
     type Vtable = IDWriteFactory7_Vtbl;
 }
@@ -2627,6 +2653,8 @@ impl ::core::fmt::Debug for IDWriteFont {
         f.debug_tuple("IDWriteFont").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFont {}
+unsafe impl ::core::marker::Sync for IDWriteFont {}
 unsafe impl ::windows::core::Vtable for IDWriteFont {
     type Vtable = IDWriteFont_Vtbl;
 }
@@ -2739,6 +2767,8 @@ impl ::core::fmt::Debug for IDWriteFont1 {
         f.debug_tuple("IDWriteFont1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFont1 {}
+unsafe impl ::core::marker::Sync for IDWriteFont1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFont1 {
     type Vtable = IDWriteFont1_Vtbl;
 }
@@ -2846,6 +2876,8 @@ impl ::core::fmt::Debug for IDWriteFont2 {
         f.debug_tuple("IDWriteFont2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFont2 {}
+unsafe impl ::core::marker::Sync for IDWriteFont2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFont2 {
     type Vtable = IDWriteFont2_Vtbl;
 }
@@ -2971,6 +3003,8 @@ impl ::core::fmt::Debug for IDWriteFont3 {
         f.debug_tuple("IDWriteFont3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFont3 {}
+unsafe impl ::core::marker::Sync for IDWriteFont3 {}
 unsafe impl ::windows::core::Vtable for IDWriteFont3 {
     type Vtable = IDWriteFont3_Vtbl;
 }
@@ -3037,6 +3071,8 @@ impl ::core::fmt::Debug for IDWriteFontCollection {
         f.debug_tuple("IDWriteFontCollection").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontCollection {}
+unsafe impl ::core::marker::Sync for IDWriteFontCollection {}
 unsafe impl ::windows::core::Vtable for IDWriteFontCollection {
     type Vtable = IDWriteFontCollection_Vtbl;
 }
@@ -3107,6 +3143,8 @@ impl ::core::fmt::Debug for IDWriteFontCollection1 {
         f.debug_tuple("IDWriteFontCollection1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontCollection1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontCollection1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1_Vtbl;
 }
@@ -3190,6 +3228,8 @@ impl ::core::fmt::Debug for IDWriteFontCollection2 {
         f.debug_tuple("IDWriteFontCollection2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontCollection2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontCollection2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2_Vtbl;
 }
@@ -3280,6 +3320,8 @@ impl ::core::fmt::Debug for IDWriteFontCollection3 {
         f.debug_tuple("IDWriteFontCollection3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontCollection3 {}
+unsafe impl ::core::marker::Sync for IDWriteFontCollection3 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3_Vtbl;
 }
@@ -3324,6 +3366,8 @@ impl ::core::fmt::Debug for IDWriteFontCollectionLoader {
         f.debug_tuple("IDWriteFontCollectionLoader").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontCollectionLoader {}
+unsafe impl ::core::marker::Sync for IDWriteFontCollectionLoader {}
 unsafe impl ::windows::core::Vtable for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoader_Vtbl;
 }
@@ -3365,6 +3409,8 @@ impl ::core::fmt::Debug for IDWriteFontDownloadListener {
         f.debug_tuple("IDWriteFontDownloadListener").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontDownloadListener {}
+unsafe impl ::core::marker::Sync for IDWriteFontDownloadListener {}
 unsafe impl ::windows::core::Vtable for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListener_Vtbl;
 }
@@ -3426,6 +3472,8 @@ impl ::core::fmt::Debug for IDWriteFontDownloadQueue {
         f.debug_tuple("IDWriteFontDownloadQueue").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontDownloadQueue {}
+unsafe impl ::core::marker::Sync for IDWriteFontDownloadQueue {}
 unsafe impl ::windows::core::Vtable for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueue_Vtbl;
 }
@@ -3541,6 +3589,8 @@ impl ::core::fmt::Debug for IDWriteFontFace {
         f.debug_tuple("IDWriteFontFace").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace {
     type Vtable = IDWriteFontFace_Vtbl;
 }
@@ -3744,6 +3794,8 @@ impl ::core::fmt::Debug for IDWriteFontFace1 {
         f.debug_tuple("IDWriteFontFace1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1_Vtbl;
 }
@@ -3976,6 +4028,8 @@ impl ::core::fmt::Debug for IDWriteFontFace2 {
         f.debug_tuple("IDWriteFontFace2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2_Vtbl;
 }
@@ -4254,6 +4308,8 @@ impl ::core::fmt::Debug for IDWriteFontFace3 {
         f.debug_tuple("IDWriteFontFace3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace3 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace3 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3_Vtbl;
 }
@@ -4571,6 +4627,8 @@ impl ::core::fmt::Debug for IDWriteFontFace4 {
         f.debug_tuple("IDWriteFontFace4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace4 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace4 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4_Vtbl;
 }
@@ -4883,6 +4941,8 @@ impl ::core::fmt::Debug for IDWriteFontFace5 {
         f.debug_tuple("IDWriteFontFace5").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace5 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace5 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5_Vtbl;
 }
@@ -5207,6 +5267,8 @@ impl ::core::fmt::Debug for IDWriteFontFace6 {
         f.debug_tuple("IDWriteFontFace6").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFace6 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFace6 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6_Vtbl;
 }
@@ -5295,6 +5357,8 @@ impl ::core::fmt::Debug for IDWriteFontFaceReference {
         f.debug_tuple("IDWriteFontFaceReference").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFaceReference {}
+unsafe impl ::core::marker::Sync for IDWriteFontFaceReference {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReference_Vtbl;
 }
@@ -5411,6 +5475,8 @@ impl ::core::fmt::Debug for IDWriteFontFaceReference1 {
         f.debug_tuple("IDWriteFontFaceReference1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFaceReference1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFaceReference1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1_Vtbl;
 }
@@ -5455,6 +5521,8 @@ impl ::core::fmt::Debug for IDWriteFontFallback {
         f.debug_tuple("IDWriteFontFallback").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFallback {}
+unsafe impl ::core::marker::Sync for IDWriteFontFallback {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFallback {
     type Vtable = IDWriteFontFallback_Vtbl;
 }
@@ -5505,6 +5573,8 @@ impl ::core::fmt::Debug for IDWriteFontFallback1 {
         f.debug_tuple("IDWriteFontFallback1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFallback1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFallback1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1_Vtbl;
 }
@@ -5557,6 +5627,8 @@ impl ::core::fmt::Debug for IDWriteFontFallbackBuilder {
         f.debug_tuple("IDWriteFontFallbackBuilder").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFallbackBuilder {}
+unsafe impl ::core::marker::Sync for IDWriteFontFallbackBuilder {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilder_Vtbl;
 }
@@ -5616,6 +5688,8 @@ impl ::core::fmt::Debug for IDWriteFontFamily {
         f.debug_tuple("IDWriteFontFamily").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFamily {}
+unsafe impl ::core::marker::Sync for IDWriteFontFamily {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFamily {
     type Vtable = IDWriteFontFamily_Vtbl;
 }
@@ -5686,6 +5760,8 @@ impl ::core::fmt::Debug for IDWriteFontFamily1 {
         f.debug_tuple("IDWriteFontFamily1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFamily1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFamily1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1_Vtbl;
 }
@@ -5764,6 +5840,8 @@ impl ::core::fmt::Debug for IDWriteFontFamily2 {
         f.debug_tuple("IDWriteFontFamily2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFamily2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontFamily2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2_Vtbl;
 }
@@ -5811,6 +5889,8 @@ impl ::core::fmt::Debug for IDWriteFontFile {
         f.debug_tuple("IDWriteFontFile").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFile {}
+unsafe impl ::core::marker::Sync for IDWriteFontFile {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFile {
     type Vtable = IDWriteFontFile_Vtbl;
 }
@@ -5860,6 +5940,8 @@ impl ::core::fmt::Debug for IDWriteFontFileEnumerator {
         f.debug_tuple("IDWriteFontFileEnumerator").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFileEnumerator {}
+unsafe impl ::core::marker::Sync for IDWriteFontFileEnumerator {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumerator_Vtbl;
 }
@@ -5902,6 +5984,8 @@ impl ::core::fmt::Debug for IDWriteFontFileLoader {
         f.debug_tuple("IDWriteFontFileLoader").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFileLoader {}
+unsafe impl ::core::marker::Sync for IDWriteFontFileLoader {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoader_Vtbl;
 }
@@ -5950,6 +6034,8 @@ impl ::core::fmt::Debug for IDWriteFontFileStream {
         f.debug_tuple("IDWriteFontFileStream").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontFileStream {}
+unsafe impl ::core::marker::Sync for IDWriteFontFileStream {}
 unsafe impl ::windows::core::Vtable for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStream_Vtbl;
 }
@@ -5998,6 +6084,8 @@ impl ::core::fmt::Debug for IDWriteFontList {
         f.debug_tuple("IDWriteFontList").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontList {}
+unsafe impl ::core::marker::Sync for IDWriteFontList {}
 unsafe impl ::windows::core::Vtable for IDWriteFontList {
     type Vtable = IDWriteFontList_Vtbl;
 }
@@ -6056,6 +6144,8 @@ impl ::core::fmt::Debug for IDWriteFontList1 {
         f.debug_tuple("IDWriteFontList1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontList1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontList1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontList1 {
     type Vtable = IDWriteFontList1_Vtbl;
 }
@@ -6118,6 +6208,8 @@ impl ::core::fmt::Debug for IDWriteFontList2 {
         f.debug_tuple("IDWriteFontList2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontList2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontList2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontList2 {
     type Vtable = IDWriteFontList2_Vtbl;
 }
@@ -6194,6 +6286,8 @@ impl ::core::fmt::Debug for IDWriteFontResource {
         f.debug_tuple("IDWriteFontResource").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontResource {}
+unsafe impl ::core::marker::Sync for IDWriteFontResource {}
 unsafe impl ::windows::core::Vtable for IDWriteFontResource {
     type Vtable = IDWriteFontResource_Vtbl;
 }
@@ -6296,6 +6390,8 @@ impl ::core::fmt::Debug for IDWriteFontSet {
         f.debug_tuple("IDWriteFontSet").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSet {}
+unsafe impl ::core::marker::Sync for IDWriteFontSet {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSet {
     type Vtable = IDWriteFontSet_Vtbl;
 }
@@ -6469,6 +6565,8 @@ impl ::core::fmt::Debug for IDWriteFontSet1 {
         f.debug_tuple("IDWriteFontSet1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSet1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSet1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1_Vtbl;
 }
@@ -6653,6 +6751,8 @@ impl ::core::fmt::Debug for IDWriteFontSet2 {
         f.debug_tuple("IDWriteFontSet2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSet2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSet2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2_Vtbl;
 }
@@ -6825,6 +6925,8 @@ impl ::core::fmt::Debug for IDWriteFontSet3 {
         f.debug_tuple("IDWriteFontSet3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSet3 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSet3 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3_Vtbl;
 }
@@ -6883,6 +6985,8 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder {
         f.debug_tuple("IDWriteFontSetBuilder").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSetBuilder {}
+unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilder_Vtbl;
 }
@@ -6948,6 +7052,8 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder1 {
         f.debug_tuple("IDWriteFontSetBuilder1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSetBuilder1 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder1 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1_Vtbl;
 }
@@ -7022,6 +7128,8 @@ impl ::core::fmt::Debug for IDWriteFontSetBuilder2 {
         f.debug_tuple("IDWriteFontSetBuilder2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteFontSetBuilder2 {}
+unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder2 {}
 unsafe impl ::windows::core::Vtable for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2_Vtbl;
 }
@@ -7098,6 +7206,8 @@ impl ::core::fmt::Debug for IDWriteGdiInterop {
         f.debug_tuple("IDWriteGdiInterop").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteGdiInterop {}
+unsafe impl ::core::marker::Sync for IDWriteGdiInterop {}
 unsafe impl ::windows::core::Vtable for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInterop_Vtbl;
 }
@@ -7228,6 +7338,8 @@ impl ::core::fmt::Debug for IDWriteGdiInterop1 {
         f.debug_tuple("IDWriteGdiInterop1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteGdiInterop1 {}
+unsafe impl ::core::marker::Sync for IDWriteGdiInterop1 {}
 unsafe impl ::windows::core::Vtable for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1_Vtbl;
 }
@@ -7294,6 +7406,8 @@ impl ::core::fmt::Debug for IDWriteGlyphRunAnalysis {
         f.debug_tuple("IDWriteGlyphRunAnalysis").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteGlyphRunAnalysis {}
+unsafe impl ::core::marker::Sync for IDWriteGlyphRunAnalysis {}
 unsafe impl ::windows::core::Vtable for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysis_Vtbl;
 }
@@ -7351,6 +7465,8 @@ impl ::core::fmt::Debug for IDWriteInMemoryFontFileLoader {
         f.debug_tuple("IDWriteInMemoryFontFileLoader").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteInMemoryFontFileLoader {}
+unsafe impl ::core::marker::Sync for IDWriteInMemoryFontFileLoader {}
 unsafe impl ::windows::core::Vtable for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoader_Vtbl;
 }
@@ -7410,6 +7526,8 @@ impl ::core::fmt::Debug for IDWriteInlineObject {
         f.debug_tuple("IDWriteInlineObject").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteInlineObject {}
+unsafe impl ::core::marker::Sync for IDWriteInlineObject {}
 unsafe impl ::windows::core::Vtable for IDWriteInlineObject {
     type Vtable = IDWriteInlineObject_Vtbl;
 }
@@ -7470,6 +7588,8 @@ impl ::core::fmt::Debug for IDWriteLocalFontFileLoader {
         f.debug_tuple("IDWriteLocalFontFileLoader").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteLocalFontFileLoader {}
+unsafe impl ::core::marker::Sync for IDWriteLocalFontFileLoader {}
 unsafe impl ::windows::core::Vtable for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoader_Vtbl;
 }
@@ -7534,6 +7654,8 @@ impl ::core::fmt::Debug for IDWriteLocalizedStrings {
         f.debug_tuple("IDWriteLocalizedStrings").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteLocalizedStrings {}
+unsafe impl ::core::marker::Sync for IDWriteLocalizedStrings {}
 unsafe impl ::windows::core::Vtable for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStrings_Vtbl;
 }
@@ -7575,6 +7697,8 @@ impl ::core::fmt::Debug for IDWriteNumberSubstitution {
         f.debug_tuple("IDWriteNumberSubstitution").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteNumberSubstitution {}
+unsafe impl ::core::marker::Sync for IDWriteNumberSubstitution {}
 unsafe impl ::windows::core::Vtable for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitution_Vtbl;
 }
@@ -7622,6 +7746,8 @@ impl ::core::fmt::Debug for IDWritePixelSnapping {
         f.debug_tuple("IDWritePixelSnapping").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWritePixelSnapping {}
+unsafe impl ::core::marker::Sync for IDWritePixelSnapping {}
 unsafe impl ::windows::core::Vtable for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnapping_Vtbl;
 }
@@ -7682,6 +7808,8 @@ impl ::core::fmt::Debug for IDWriteRemoteFontFileLoader {
         f.debug_tuple("IDWriteRemoteFontFileLoader").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRemoteFontFileLoader {}
+unsafe impl ::core::marker::Sync for IDWriteRemoteFontFileLoader {}
 unsafe impl ::windows::core::Vtable for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoader_Vtbl;
 }
@@ -7748,6 +7876,8 @@ impl ::core::fmt::Debug for IDWriteRemoteFontFileStream {
         f.debug_tuple("IDWriteRemoteFontFileStream").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRemoteFontFileStream {}
+unsafe impl ::core::marker::Sync for IDWriteRemoteFontFileStream {}
 unsafe impl ::windows::core::Vtable for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStream_Vtbl;
 }
@@ -7803,6 +7933,8 @@ impl ::core::fmt::Debug for IDWriteRenderingParams {
         f.debug_tuple("IDWriteRenderingParams").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRenderingParams {}
+unsafe impl ::core::marker::Sync for IDWriteRenderingParams {}
 unsafe impl ::windows::core::Vtable for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParams_Vtbl;
 }
@@ -7859,6 +7991,8 @@ impl ::core::fmt::Debug for IDWriteRenderingParams1 {
         f.debug_tuple("IDWriteRenderingParams1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRenderingParams1 {}
+unsafe impl ::core::marker::Sync for IDWriteRenderingParams1 {}
 unsafe impl ::windows::core::Vtable for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1_Vtbl;
 }
@@ -7914,6 +8048,8 @@ impl ::core::fmt::Debug for IDWriteRenderingParams2 {
         f.debug_tuple("IDWriteRenderingParams2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRenderingParams2 {}
+unsafe impl ::core::marker::Sync for IDWriteRenderingParams2 {}
 unsafe impl ::windows::core::Vtable for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2_Vtbl;
 }
@@ -7972,6 +8108,8 @@ impl ::core::fmt::Debug for IDWriteRenderingParams3 {
         f.debug_tuple("IDWriteRenderingParams3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteRenderingParams3 {}
+unsafe impl ::core::marker::Sync for IDWriteRenderingParams3 {}
 unsafe impl ::windows::core::Vtable for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3_Vtbl;
 }
@@ -8023,6 +8161,8 @@ impl ::core::fmt::Debug for IDWriteStringList {
         f.debug_tuple("IDWriteStringList").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteStringList {}
+unsafe impl ::core::marker::Sync for IDWriteStringList {}
 unsafe impl ::windows::core::Vtable for IDWriteStringList {
     type Vtable = IDWriteStringList_Vtbl;
 }
@@ -8076,6 +8216,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSink {
         f.debug_tuple("IDWriteTextAnalysisSink").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalysisSink {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSink {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSink_Vtbl;
 }
@@ -8137,6 +8279,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSink1 {
         f.debug_tuple("IDWriteTextAnalysisSink1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalysisSink1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSink1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1_Vtbl;
 }
@@ -8189,6 +8333,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource {
         f.debug_tuple("IDWriteTextAnalysisSource").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalysisSource {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSource {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSource_Vtbl;
 }
@@ -8245,6 +8391,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalysisSource1 {
         f.debug_tuple("IDWriteTextAnalysisSource1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalysisSource1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSource1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1_Vtbl;
 }
@@ -8410,6 +8558,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer {
         f.debug_tuple("IDWriteTextAnalyzer").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalyzer {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzer_Vtbl;
 }
@@ -8693,6 +8843,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer1 {
         f.debug_tuple("IDWriteTextAnalyzer1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalyzer1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1_Vtbl;
 }
@@ -8979,6 +9131,8 @@ impl ::core::fmt::Debug for IDWriteTextAnalyzer2 {
         f.debug_tuple("IDWriteTextAnalyzer2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextAnalyzer2 {}
+unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer2 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2_Vtbl;
 }
@@ -9097,6 +9251,8 @@ impl ::core::fmt::Debug for IDWriteTextFormat {
         f.debug_tuple("IDWriteTextFormat").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextFormat {}
+unsafe impl ::core::marker::Sync for IDWriteTextFormat {}
 unsafe impl ::windows::core::Vtable for IDWriteTextFormat {
     type Vtable = IDWriteTextFormat_Vtbl;
 }
@@ -9269,6 +9425,8 @@ impl ::core::fmt::Debug for IDWriteTextFormat1 {
         f.debug_tuple("IDWriteTextFormat1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextFormat1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextFormat1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1_Vtbl;
 }
@@ -9437,6 +9595,8 @@ impl ::core::fmt::Debug for IDWriteTextFormat2 {
         f.debug_tuple("IDWriteTextFormat2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextFormat2 {}
+unsafe impl ::core::marker::Sync for IDWriteTextFormat2 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2_Vtbl;
 }
@@ -9608,6 +9768,8 @@ impl ::core::fmt::Debug for IDWriteTextFormat3 {
         f.debug_tuple("IDWriteTextFormat3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextFormat3 {}
+unsafe impl ::core::marker::Sync for IDWriteTextFormat3 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3_Vtbl;
 }
@@ -9891,6 +10053,8 @@ impl ::core::fmt::Debug for IDWriteTextLayout {
         f.debug_tuple("IDWriteTextLayout").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextLayout {}
+unsafe impl ::core::marker::Sync for IDWriteTextLayout {}
 unsafe impl ::windows::core::Vtable for IDWriteTextLayout {
     type Vtable = IDWriteTextLayout_Vtbl;
 }
@@ -10251,6 +10415,8 @@ impl ::core::fmt::Debug for IDWriteTextLayout1 {
         f.debug_tuple("IDWriteTextLayout1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextLayout1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextLayout1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1_Vtbl;
 }
@@ -10597,6 +10763,8 @@ impl ::core::fmt::Debug for IDWriteTextLayout2 {
         f.debug_tuple("IDWriteTextLayout2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextLayout2 {}
+unsafe impl ::core::marker::Sync for IDWriteTextLayout2 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2_Vtbl;
 }
@@ -10963,6 +11131,8 @@ impl ::core::fmt::Debug for IDWriteTextLayout3 {
         f.debug_tuple("IDWriteTextLayout3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextLayout3 {}
+unsafe impl ::core::marker::Sync for IDWriteTextLayout3 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3_Vtbl;
 }
@@ -11336,6 +11506,8 @@ impl ::core::fmt::Debug for IDWriteTextLayout4 {
         f.debug_tuple("IDWriteTextLayout4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextLayout4 {}
+unsafe impl ::core::marker::Sync for IDWriteTextLayout4 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4_Vtbl;
 }
@@ -11419,6 +11591,8 @@ impl ::core::fmt::Debug for IDWriteTextRenderer {
         f.debug_tuple("IDWriteTextRenderer").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextRenderer {}
+unsafe impl ::core::marker::Sync for IDWriteTextRenderer {}
 unsafe impl ::windows::core::Vtable for IDWriteTextRenderer {
     type Vtable = IDWriteTextRenderer_Vtbl;
 }
@@ -11538,6 +11712,8 @@ impl ::core::fmt::Debug for IDWriteTextRenderer1 {
         f.debug_tuple("IDWriteTextRenderer1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTextRenderer1 {}
+unsafe impl ::core::marker::Sync for IDWriteTextRenderer1 {}
 unsafe impl ::windows::core::Vtable for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1_Vtbl;
 }
@@ -11591,6 +11767,8 @@ impl ::core::fmt::Debug for IDWriteTypography {
         f.debug_tuple("IDWriteTypography").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDWriteTypography {}
+unsafe impl ::core::marker::Sync for IDWriteTypography {}
 unsafe impl ::windows::core::Vtable for IDWriteTypography {
     type Vtable = IDWriteTypography_Vtbl;
 }

@@ -6345,12 +6345,13 @@ pub struct IWTSVirtualChannelCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWTSVirtualChannelManager(::windows::core::IUnknown);
 impl IWTSVirtualChannelManager {
-    pub unsafe fn CreateListener<'a, P0>(&self, pszchannelname: *const u8, uflags: u32, plistenercallback: P0) -> ::windows::core::Result<IWTSListener>
+    pub unsafe fn CreateListener<'a, P0, P1>(&self, pszchannelname: P0, uflags: u32, plistenercallback: P1) -> ::windows::core::Result<IWTSListener>
     where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IWTSListenerCallback>>,
+        P0: ::std::convert::Into<::windows::core::PCSTR>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, IWTSListenerCallback>>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pszchannelname), uflags, plistenercallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSListener>(result__)
+        (::windows::core::Vtable::vtable(self).CreateListener)(::windows::core::Vtable::as_raw(self), pszchannelname.into(), uflags, plistenercallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWTSListener>(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWTSVirtualChannelManager, ::windows::core::IUnknown);
@@ -6380,7 +6381,7 @@ unsafe impl ::windows::core::Interface for IWTSVirtualChannelManager {
 #[doc(hidden)]
 pub struct IWTSVirtualChannelManager_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszchannelname: *const u8, uflags: u32, plistenercallback: *mut ::core::ffi::c_void, pplistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateListener: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszchannelname: ::windows::core::PCSTR, uflags: u32, plistenercallback: *mut ::core::ffi::c_void, pplistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]

@@ -1976,16 +1976,18 @@ pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::Common::ITEMIDLIS
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SHGetPropertyStoreFromParsingName<'a, P0, P1>(pszpath: P0, pbc: P1, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn SHGetPropertyStoreFromParsingName<'a, P0, P1, T>(pszpath: P0, pbc: P1, flags: GETPROPERTYSTOREFLAGS) -> ::windows::core::Result<T>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::IBindCtx>>,
+    T: ::windows::core::Interface,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SHGetPropertyStoreFromParsingName(pszpath: ::windows::core::PCWSTR, pbc: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    SHGetPropertyStoreFromParsingName(pszpath.into(), pbc.into().abi(), flags, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    let mut result__ = ::core::option::Option::None;
+    SHGetPropertyStoreFromParsingName(pszpath.into(), pbc.into().abi(), flags, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
