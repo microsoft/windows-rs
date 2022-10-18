@@ -843,7 +843,7 @@ impl<'a> Gen<'a> {
         quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
     }
     pub fn param_name(&self, param: Param) -> TokenStream {
-        // In Rust, function parameters cannot be named the same as structs. This avoids some collisions that occur in the win32 metadata. 
+        // In Rust, function parameters cannot be named the same as structs. This avoids some collisions that occur in the win32 metadata.
         // See Icmp6SendEcho2 for an example.
         to_ident(&self.reader.param_name(param).to_lowercase())
     }

@@ -68,7 +68,8 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
 
     if !is_exclusive {
         let mut methods = quote! {};
-        // TODO: why do we need to distinguish between public and virtual methods?
+        // We need to distinguish between public and virtual methods because some WinRT type hierarchies inherit colliding (overloaded)
+        // methods that must be distinguishable.
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
