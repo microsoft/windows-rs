@@ -2316,7 +2316,7 @@ pub const PEER_GROUP_ROLE_ADMIN: ::windows::core::GUID = ::windows::core::GUID::
 pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4370fd89_dc18_4cfb_8dbf_9853a8a9f905);
 pub const PEER_GROUP_ROLE_MEMBER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12dc4c7_0857_4ca0_93fc_b1bb19a3d8c2);
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const PEER_PNRP_ALL_LINK_CLOUDS: &str = "PEER_PNRP_ALL_LINKS";
+pub const PEER_PNRP_ALL_LINK_CLOUDS: ::windows::core::PCWSTR = ::windows::w!("PEER_PNRP_ALL_LINKS");
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const PNRPINFO_HINT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
@@ -2345,11 +2345,11 @@ pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_GLOBAL: &str = "GLOBAL";
+pub const WSZ_SCOPE_GLOBAL: ::windows::core::PCWSTR = ::windows::w!("GLOBAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_LINKLOCAL: &str = "LINKLOCAL";
+pub const WSZ_SCOPE_LINKLOCAL: ::windows::core::PCWSTR = ::windows::w!("LINKLOCAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
-pub const WSZ_SCOPE_SITELOCAL: &str = "SITELOCAL";
+pub const WSZ_SCOPE_SITELOCAL: ::windows::core::PCWSTR = ::windows::w!("SITELOCAL");
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

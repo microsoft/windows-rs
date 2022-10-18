@@ -850,9 +850,9 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
 pub const GameExplorer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_THUMBNAIL_STR: &str = "__GDF_THUMBNAIL";
+pub const ID_GDF_THUMBNAIL_STR: ::windows::core::PCWSTR = ::windows::w!("__GDF_THUMBNAIL");
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const ID_GDF_XML_STR: &str = "__GDF_XML";
+pub const ID_GDF_XML_STR: ::windows::core::PCWSTR = ::windows::w!("__GDF_XML");
 pub const XblIdpAuthManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
 pub const XblIdpAuthTokenResult: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]

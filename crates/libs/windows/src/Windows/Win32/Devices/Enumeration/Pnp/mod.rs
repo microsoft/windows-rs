@@ -1610,7 +1610,7 @@ pub struct IUPnPServices_Vtbl {
     get_Item: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const ADDRESS_FAMILY_VALUE_NAME: &str = "AddressFamily";
+pub const ADDRESS_FAMILY_VALUE_NAME: ::windows::core::PCWSTR = ::windows::w!("AddressFamily");
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -1626,7 +1626,7 @@ pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const REMOTE_ADDRESS_VALUE_NAME: &str = "RemoteAddress";
+pub const REMOTE_ADDRESS_VALUE_NAME: ::windows::core::PCWSTR = ::windows::w!("RemoteAddress");
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]

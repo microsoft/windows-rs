@@ -66,11 +66,11 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
     XInputSetState(dwuserindex, ::core::mem::transmute(pvibration))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL: &str = "xinput1_4.dll";
+pub const XINPUT_DLL: ::windows::core::PCWSTR = ::windows::w!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_A: &str = "xinput1_4.dll";
+pub const XINPUT_DLL_A: ::windows::core::PCSTR = ::windows::s!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DLL_W: &str = "xinput1_4.dll";
+pub const XINPUT_DLL_W: ::windows::core::PCWSTR = ::windows::w!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]

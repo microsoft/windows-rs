@@ -283,9 +283,9 @@ where
     D3DWriteBlobToFile(pblob.into().abi(), pfilename.into(), boverwrite.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
-pub const D3DCOMPILER_DLL_A: &str = "d3dcompiler_47.dll";
+pub const D3DCOMPILER_DLL_A: ::windows::core::PCSTR = ::windows::s!("d3dcompiler_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
-pub const D3DCOMPILER_DLL_W: &str = "d3dcompiler_47.dll";
+pub const D3DCOMPILER_DLL_W: ::windows::core::PCWSTR = ::windows::w!("d3dcompiler_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]

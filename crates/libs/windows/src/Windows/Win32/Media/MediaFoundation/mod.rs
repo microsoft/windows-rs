@@ -32940,19 +32940,19 @@ pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszSpeechFormatCaps: &str = "SpeechFormatCap";
+pub const g_wszSpeechFormatCaps: ::windows::core::PCWSTR = ::windows::w!("SpeechFormatCap");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRQuality: &str = "_VBRQUALITY";
+pub const g_wszWMCPAudioVBRQuality: ::windows::core::PCWSTR = ::windows::w!("_VBRQUALITY");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPAudioVBRSupported: &str = "_VBRENABLED";
+pub const g_wszWMCPAudioVBRSupported: ::windows::core::PCWSTR = ::windows::w!("_VBRENABLED");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPCodecName: &str = "_CODECNAME";
+pub const g_wszWMCPCodecName: ::windows::core::PCWSTR = ::windows::w!("_CODECNAME");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPDefaultCrisp: &str = "_DEFAULTCRISP";
+pub const g_wszWMCPDefaultCrisp: ::windows::core::PCWSTR = ::windows::w!("_DEFAULTCRISP");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPMaxPasses: &str = "_PASSESRECOMMENDED";
+pub const g_wszWMCPMaxPasses: ::windows::core::PCWSTR = ::windows::w!("_PASSESRECOMMENDED");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const g_wszWMCPSupportedVBRModes: &str = "_SUPPORTEDVBRMODES";
+pub const g_wszWMCPSupportedVBRModes: ::windows::core::PCWSTR = ::windows::w!("_SUPPORTEDVBRMODES");
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -15,6 +15,7 @@ features = [
     "Win32_Graphics_Direct3D12",
     "Win32_Graphics_Dxgi_Common",
     "Win32_Graphics_Hlsl",
+    "Win32_Graphics_Direct3D_Fxc",
     "Win32_Networking_Ldap",
     "Win32_Networking_WinSock",
     "Win32_Security_Authorization",

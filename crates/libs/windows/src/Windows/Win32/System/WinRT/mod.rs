@@ -2667,11 +2667,11 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     RequestTokenWithWebAccountForWindowAsync: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_CastingTypes: &str = "CastingTypes";
+pub const CastingSourceInfo_Property_CastingTypes: ::windows::core::PCWSTR = ::windows::w!("CastingTypes");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &str = "PreferredSourceUriScheme";
+pub const CastingSourceInfo_Property_PreferredSourceUriScheme: ::windows::core::PCWSTR = ::windows::w!("PreferredSourceUriScheme");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CastingSourceInfo_Property_ProtectedMedia: &str = "ProtectedMedia";
+pub const CastingSourceInfo_Property_ProtectedMedia: ::windows::core::PCWSTR = ::windows::w!("ProtectedMedia");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]

@@ -449,7 +449,7 @@ pub struct ISecurityObjectTypeInfo_Vtbl {
     pub GetInheritSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
-pub const CFSTR_ACLUI_SID_INFO_LIST: &str = "CFSTR_ACLUI_SID_INFO_LIST";
+pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows::core::PCWSTR = ::windows::w!("CFSTR_ACLUI_SID_INFO_LIST");
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]

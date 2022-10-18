@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Win32_Graphics_Hlsl\"`*"]
-pub const D3DCOMPILER_DLL: &str = "d3dcompiler_47.dll";
+pub const D3DCOMPILER_DLL: ::windows::core::PCWSTR = ::windows::w!("d3dcompiler_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Hlsl\"`*"]
 pub const D3DCOMPILE_OPTIMIZATION_LEVEL2: u32 = 49152u32;
 #[doc = "*Required features: `\"Win32_Graphics_Hlsl\"`*"]
