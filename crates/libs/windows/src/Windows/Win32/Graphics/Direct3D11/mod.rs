@@ -7089,15 +7089,6 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11FunctionParameterReflection(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<ID3D11FunctionParameterReflection> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for ID3D11FunctionParameterReflection {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl ID3D11FunctionParameterReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -7138,15 +7129,6 @@ pub struct ID3D11FunctionParameterReflection_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11FunctionReflection(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<ID3D11FunctionReflection> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for ID3D11FunctionReflection {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl ID3D11FunctionReflection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -8860,15 +8842,6 @@ pub struct ID3D11ShaderReflection_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionConstantBuffer(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionConstantBuffer> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionConstantBuffer {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl ID3D11ShaderReflectionConstantBuffer {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -8919,15 +8892,6 @@ pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionType(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionType> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionType {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl ID3D11ShaderReflectionType {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -9020,15 +8984,6 @@ pub struct ID3D11ShaderReflectionType_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionVariable(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<ID3D11ShaderReflectionVariable> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for ID3D11ShaderReflectionVariable {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl ID3D11ShaderReflectionVariable {
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<D3D11_SHADER_VARIABLE_DESC> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

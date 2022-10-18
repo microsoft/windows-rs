@@ -328,15 +328,6 @@ pub struct IXAudio2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2EngineCallback(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2EngineCallback> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2EngineCallback {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2EngineCallback {
     pub unsafe fn OnProcessingPassStart(&self) {
         (::windows::core::Vtable::vtable(self).OnProcessingPassStart)(::windows::core::Vtable::as_raw(self))
@@ -418,15 +409,6 @@ pub struct IXAudio2Extension_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2MasteringVoice(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2MasteringVoice> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2MasteringVoice {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2MasteringVoice {
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
         (::windows::core::Vtable::vtable(self).base__.GetVoiceDetails)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvoicedetails))
@@ -535,15 +517,6 @@ pub struct IXAudio2MasteringVoice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2SourceVoice(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2SourceVoice> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2SourceVoice {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2SourceVoice {
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
         (::windows::core::Vtable::vtable(self).base__.GetVoiceDetails)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvoicedetails))
@@ -687,15 +660,6 @@ pub struct IXAudio2SourceVoice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2SubmixVoice(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2SubmixVoice> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2SubmixVoice {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2SubmixVoice {
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
         (::windows::core::Vtable::vtable(self).base__.GetVoiceDetails)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvoicedetails))
@@ -799,15 +763,6 @@ pub struct IXAudio2SubmixVoice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2Voice(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2Voice> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2Voice {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2Voice {
     pub unsafe fn GetVoiceDetails(&self, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS) {
         (::windows::core::Vtable::vtable(self).GetVoiceDetails)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvoicedetails))
@@ -934,15 +889,6 @@ pub struct IXAudio2Voice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
 pub struct IXAudio2VoiceCallback(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IXAudio2VoiceCallback> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IXAudio2VoiceCallback {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IXAudio2VoiceCallback {
     pub unsafe fn OnVoiceProcessingPassStart(&self, bytesrequired: u32) {
         (::windows::core::Vtable::vtable(self).OnVoiceProcessingPassStart)(::windows::core::Vtable::as_raw(self), bytesrequired)

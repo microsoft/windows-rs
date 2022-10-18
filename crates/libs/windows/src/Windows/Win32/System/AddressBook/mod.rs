@@ -2567,15 +2567,6 @@ pub struct IWABExtInit_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
 pub struct IWABOBJECT_(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IWABOBJECT_> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IWABOBJECT_ {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IWABOBJECT_ {
     pub unsafe fn QueryInterface(&self, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).QueryInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobj)).ok()

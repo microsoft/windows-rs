@@ -963,15 +963,6 @@ pub struct IVssCreateExpressWriterMetadata_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 pub struct IVssCreateWriterMetadata(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IVssCreateWriterMetadata> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IVssCreateWriterMetadata {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IVssCreateWriterMetadata {
     pub unsafe fn AddIncludeFiles<'a, P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P2) -> ::windows::core::Result<()>
     where
@@ -2178,15 +2169,6 @@ pub struct IVssWMFiledesc_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[repr(transparent)]
 pub struct IVssWriterComponents(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IVssWriterComponents> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IVssWriterComponents {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IVssWriterComponents {
     pub unsafe fn GetComponentCount(&self, pccomponents: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetComponentCount)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pccomponents)).ok()

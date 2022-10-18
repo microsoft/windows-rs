@@ -60,11 +60,11 @@ pub unsafe trait Abi: Sized {
     }
 }
 
-unsafe impl<T: Interface> Abi for Option<T> {
+unsafe impl<T: Vtable> Abi for Option<T> {
     type Abi = *mut std::ffi::c_void;
 }
 
-unsafe impl<T: Interface> Abi for T {
+unsafe impl<T: Vtable> Abi for T {
     type Abi = *mut std::ffi::c_void;
 
     fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
