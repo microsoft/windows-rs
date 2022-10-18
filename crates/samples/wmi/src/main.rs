@@ -10,14 +10,12 @@ fn main() -> Result<()> {
 
         let server = locator.ConnectServer(&BSTR::from("root\\cimv2"), &BSTR::new(), &BSTR::new(), &BSTR::new(), 0, &BSTR::new(), None)?;
 
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1265
         let query = server.ExecQuery(&BSTR::from("WQL"), &BSTR::from("select Caption from Win32_LogicalDisk"), WBEM_FLAG_FORWARD_ONLY | WBEM_FLAG_RETURN_IMMEDIATELY, None)?;
 
         loop {
             let mut row = [None; 1];
             let mut returned = 0;
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1266
-            query.Next(-1, &mut row, &mut returned).ok()?;
+            query.Next(WBEM_INFINITE, &mut row, &mut returned).ok()?;
 
             if let Some(row) = &row[0] {
                 let mut value = Default::default();

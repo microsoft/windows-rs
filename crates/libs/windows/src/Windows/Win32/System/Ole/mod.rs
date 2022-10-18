@@ -123,7 +123,7 @@ where
 pub unsafe fn DispCallFunc(pvinstance: ::core::option::Option<*const ::core::ffi::c_void>, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const super::Com::VARIANT, pvargresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn DispCallFunc(pvinstance: *const ::core::ffi::c_void, ovft: usize, cc: super::Com::CALLCONV, vtreturn: super::Com::VARENUM, cactuals: u32, prgvt: *const u16, prgpvarg: *const *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DispCallFunc(::core::mem::transmute(pvinstance.unwrap_or(::std::ptr::null())), ovft, cc, vtreturn, cactuals, ::core::mem::transmute(prgvt), ::core::mem::transmute(prgpvarg), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -148,7 +148,7 @@ where
 pub unsafe fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Com::VARENUM, pvarresult: *mut super::Com::VARIANT, puargerr: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Com::VARENUM, pvarresult: *mut super::Com::VARIANT, puargerr: *mut u32) -> ::windows::core::HRESULT;
+        fn DispGetParam(pdispparams: *const super::Com::DISPPARAMS, position: u32, vttarg: super::Com::VARENUM, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, puargerr: *mut u32) -> ::windows::core::HRESULT;
     }
     DispGetParam(::core::mem::transmute(pdispparams), position, vttarg, ::core::mem::transmute(pvarresult), ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
 }
@@ -161,7 +161,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT;
+        fn DispInvoke(_this: *mut ::core::ffi::c_void, ptinfo: *mut ::core::ffi::c_void, dispidmember: i32, wflags: u16, pparams: *mut super::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT;
     }
     DispInvoke(::core::mem::transmute(_this), ptinfo.into().abi(), dispidmember, wflags, ::core::mem::transmute(pparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
 }
@@ -1299,7 +1299,7 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32;
+        fn OleUIChangeSourceA(param0: *const ::core::mem::ManuallyDrop<OLEUICHANGESOURCEA>) -> u32;
     }
     OleUIChangeSourceA(::core::mem::transmute(param0))
 }
@@ -1309,7 +1309,7 @@ pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32;
+        fn OleUIChangeSourceW(param0: *const ::core::mem::ManuallyDrop<OLEUICHANGESOURCEW>) -> u32;
     }
     OleUIChangeSourceW(::core::mem::transmute(param0))
 }
@@ -1339,7 +1339,7 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32;
+        fn OleUIEditLinksA(param0: *const ::core::mem::ManuallyDrop<OLEUIEDITLINKSA>) -> u32;
     }
     OleUIEditLinksA(::core::mem::transmute(param0))
 }
@@ -1349,7 +1349,7 @@ pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32;
+        fn OleUIEditLinksW(param0: *const ::core::mem::ManuallyDrop<OLEUIEDITLINKSW>) -> u32;
     }
     OleUIEditLinksW(::core::mem::transmute(param0))
 }
@@ -1359,7 +1359,7 @@ pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32;
+        fn OleUIInsertObjectA(param0: *const ::core::mem::ManuallyDrop<OLEUIINSERTOBJECTA>) -> u32;
     }
     OleUIInsertObjectA(::core::mem::transmute(param0))
 }
@@ -1369,7 +1369,7 @@ pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32;
+        fn OleUIInsertObjectW(param0: *const ::core::mem::ManuallyDrop<OLEUIINSERTOBJECTW>) -> u32;
     }
     OleUIInsertObjectW(::core::mem::transmute(param0))
 }
@@ -1379,7 +1379,7 @@ pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32;
+        fn OleUIObjectPropertiesA(param0: *const ::core::mem::ManuallyDrop<OLEUIOBJECTPROPSA>) -> u32;
     }
     OleUIObjectPropertiesA(::core::mem::transmute(param0))
 }
@@ -1389,7 +1389,7 @@ pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32;
+        fn OleUIObjectPropertiesW(param0: *const ::core::mem::ManuallyDrop<OLEUIOBJECTPROPSW>) -> u32;
     }
     OleUIObjectPropertiesW(::core::mem::transmute(param0))
 }
@@ -1399,7 +1399,7 @@ pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32;
+        fn OleUIPasteSpecialA(param0: *const ::core::mem::ManuallyDrop<OLEUIPASTESPECIALA>) -> u32;
     }
     OleUIPasteSpecialA(::core::mem::transmute(param0))
 }
@@ -1409,7 +1409,7 @@ pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32;
+        fn OleUIPasteSpecialW(param0: *const ::core::mem::ManuallyDrop<OLEUIPASTESPECIALW>) -> u32;
     }
     OleUIPasteSpecialW(::core::mem::transmute(param0))
 }
@@ -1524,7 +1524,7 @@ where
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM);
+        fn ReleaseStgMedium(param0: *mut ::core::mem::ManuallyDrop<super::Com::STGMEDIUM>);
     }
     ReleaseStgMedium(::core::mem::transmute(param0))
 }
@@ -1916,7 +1916,7 @@ pub unsafe fn UnRegisterTypeLibForUser(libid: *const ::windows::core::GUID, wmaj
 pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarAbs(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarAbs(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarAbs(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -1927,7 +1927,7 @@ pub unsafe fn VarAbs(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarAdd(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarAdd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -1938,7 +1938,7 @@ pub unsafe fn VarAdd(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarAnd(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -2291,7 +2291,7 @@ pub unsafe fn VarBstrFromUI8(ui64in: u64, lcid: u32, dwflags: u32) -> ::windows:
 pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarCat(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarCat(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -2302,7 +2302,7 @@ pub unsafe fn VarCat(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> VARCMP {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarCmp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, lcid: u32, dwflags: u32) -> VARCMP;
+        fn VarCmp(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, lcid: u32, dwflags: u32) -> VARCMP;
     }
     VarCmp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), lcid, dwflags)
 }
@@ -3094,7 +3094,7 @@ pub unsafe fn VarDecSub(pdecleft: *const super::super::Foundation::DECIMAL, pdec
 pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarDiv(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarDiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3105,7 +3105,7 @@ pub unsafe fn VarDiv(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarEqv(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarEqv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3116,7 +3116,7 @@ pub unsafe fn VarEqv(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarFix(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFix(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarFix(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFix(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3130,7 +3130,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormat(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarFormat(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pstrformat: ::windows::core::PCWSTR, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormat(::core::mem::transmute(pvarin), pstrformat.into(), ifirstday, ifirstweek, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -3141,7 +3141,7 @@ where
 pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarFormatCurrency(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, inumdig: i32, iinclead: i32, iuseparens: i32, igroup: i32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormatCurrency(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -3152,7 +3152,7 @@ pub unsafe fn VarFormatCurrency(pvarin: *const super::Com::VARIANT, inumdig: i32
 pub unsafe fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormatDateTime(pvarin: *const super::Com::VARIANT, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarFormatDateTime(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, inamedformat: VARFORMAT_NAMED_FORMAT, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormatDateTime(::core::mem::transmute(pvarin), inamedformat, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -3166,7 +3166,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormatFromTokens(pvarin: *const super::Com::VARIANT, pstrformat: ::windows::core::PCWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, lcid: u32) -> ::windows::core::HRESULT;
+        fn VarFormatFromTokens(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pstrformat: ::windows::core::PCWSTR, pbtokcur: *const u8, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, lcid: u32) -> ::windows::core::HRESULT;
     }
     VarFormatFromTokens(::core::mem::transmute(pvarin), pstrformat.into(), ::core::mem::transmute(pbtokcur), dwflags, ::core::mem::transmute(pbstrout), lcid).ok()
 }
@@ -3176,7 +3176,7 @@ where
 pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarFormatNumber(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormatNumber(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -3187,7 +3187,7 @@ pub unsafe fn VarFormatNumber(pvarin: *const super::Com::VARIANT, inumdig: i32, 
 pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarFormatPercent(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormatPercent(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -3820,7 +3820,7 @@ pub unsafe fn VarI8FromUI8(ui64in: u64) -> ::windows::core::Result<i64> {
 pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarIdiv(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarIdiv(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3831,7 +3831,7 @@ pub unsafe fn VarIdiv(pvarleft: *const super::Com::VARIANT, pvarright: *const su
 pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarImp(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarImp(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3842,7 +3842,7 @@ pub unsafe fn VarImp(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarInt(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarInt(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarInt(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3853,7 +3853,7 @@ pub unsafe fn VarInt(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarMod(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarMod(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarMod(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3874,7 +3874,7 @@ pub unsafe fn VarMonthName(imonth: i32, fabbrev: i32, dwflags: u32) -> ::windows
 pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarMul(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarMul(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3885,7 +3885,7 @@ pub unsafe fn VarMul(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarNeg(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarNeg(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarNeg(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3896,7 +3896,7 @@ pub unsafe fn VarNeg(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarNot(pvarin: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarNot(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarNot(::core::mem::transmute(pvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3907,7 +3907,7 @@ pub unsafe fn VarNot(pvarin: *const super::Com::VARIANT) -> ::windows::core::Res
 pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dwvtbits: u32, pvar: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarNumFromParseNum(::core::mem::transmute(pnumprs), ::core::mem::transmute(rgbdig), dwvtbits, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3918,7 +3918,7 @@ pub unsafe fn VarNumFromParseNum(pnumprs: *const NUMPARSE, rgbdig: *const u8, dw
 pub unsafe fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarOr(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarOr(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarOr(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -3941,7 +3941,7 @@ where
 pub unsafe fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarPow(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarPow(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -4304,7 +4304,7 @@ pub unsafe fn VarR8Round(dblin: f64, cdecimals: i32) -> ::windows::core::Result<
 pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarRound(pvarin: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, cdecimals: i32, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarRound(::core::mem::transmute(pvarin), cdecimals, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -4315,7 +4315,7 @@ pub unsafe fn VarRound(pvarin: *const super::Com::VARIANT, cdecimals: i32) -> ::
 pub unsafe fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarSub(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarSub(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -5000,7 +5000,7 @@ pub unsafe fn VarWeekdayName(iweekday: i32, fabbrev: i32, ifirstday: i32, dwflag
 pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT) -> ::windows::core::Result<super::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VarXor(pvarleft: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarright: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarresult: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarXor(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
@@ -5011,7 +5011,7 @@ pub unsafe fn VarXor(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
 pub unsafe fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::HRESULT;
+        fn VariantChangeType(pvargdest: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     VariantChangeType(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), wflags, vt).ok()
 }
@@ -5021,7 +5021,7 @@ pub unsafe fn VariantChangeType(pvargdest: *mut super::Com::VARIANT, pvarsrc: *c
 pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::HRESULT;
+        fn VariantChangeTypeEx(pvargdest: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, lcid: u32, wflags: u16, vt: super::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     VariantChangeTypeEx(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvarsrc), lcid, wflags, vt).ok()
 }
@@ -5031,7 +5031,7 @@ pub unsafe fn VariantChangeTypeEx(pvargdest: *mut super::Com::VARIANT, pvarsrc: 
 pub unsafe fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VariantClear(pvarg: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     VariantClear(::core::mem::transmute(pvarg)).ok()
 }
@@ -5041,7 +5041,7 @@ pub unsafe fn VariantClear(pvarg: *mut super::Com::VARIANT) -> ::windows::core::
 pub unsafe fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VariantCopy(pvargdest: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     VariantCopy(::core::mem::transmute(pvargdest), ::core::mem::transmute(pvargsrc)).ok()
 }
@@ -5051,7 +5051,7 @@ pub unsafe fn VariantCopy(pvargdest: *mut super::Com::VARIANT, pvargsrc: *const 
 pub unsafe fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *const super::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn VariantCopyInd(pvardest: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvargsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     VariantCopyInd(::core::mem::transmute(pvardest), ::core::mem::transmute(pvargsrc)).ok()
 }
@@ -5061,7 +5061,7 @@ pub unsafe fn VariantCopyInd(pvardest: *mut super::Com::VARIANT, pvargsrc: *cons
 pub unsafe fn VariantInit(pvarg: *mut super::Com::VARIANT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantInit(pvarg: *mut super::Com::VARIANT);
+        fn VariantInit(pvarg: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>);
     }
     VariantInit(::core::mem::transmute(pvarg))
 }
@@ -5208,7 +5208,7 @@ unsafe impl ::windows::core::Interface for ICanHandleException {
 pub struct ICanHandleException_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const super::Com::EXCEPINFO, pvar: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CanHandleException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *const ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, pvar: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CanHandleException: usize,
 }
@@ -5814,23 +5814,23 @@ pub struct ICreateTypeInfo2_Vtbl {
     pub DeleteVarDescByMemId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memid: i32) -> ::windows::core::HRESULT,
     pub DeleteImplType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetFuncCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetFuncCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetParamCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetParamCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetVarCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetVarCustData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetImplTypeCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetImplTypeCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
@@ -6029,7 +6029,7 @@ pub struct ICreateTypeLib2_Vtbl {
     pub base__: ICreateTypeLib_Vtbl,
     pub DeleteTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCustData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvarval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     SetCustData: usize,
     pub SetHelpStringContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwhelpstringcontext: u32) -> ::windows::core::HRESULT,
@@ -6175,7 +6175,7 @@ pub struct IDispatchEx_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetDispID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, grfdex: u32, pid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut super::Com::VARIANT, pei: *mut super::Com::EXCEPINFO, pspcaller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub InvokeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, lcid: u32, wflags: u16, pdp: *const super::Com::DISPPARAMS, pvarres: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pei: *mut ::core::mem::ManuallyDrop<super::Com::EXCEPINFO>, pspcaller: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     InvokeEx: usize,
     pub DeleteMemberByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, grfdex: u32) -> ::windows::core::HRESULT,
@@ -6606,7 +6606,7 @@ unsafe impl ::windows::core::Interface for IEnumVARIANT {
 pub struct IEnumVARIANT_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut super::Com::VARIANT, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
+    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -7255,7 +7255,7 @@ pub struct IOleCache_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     InitCache: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const super::Com::STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const super::Com::FORMATETC, pmedium: *const ::core::mem::ManuallyDrop<super::Com::STGMEDIUM>, frelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     SetData: usize,
 }
@@ -7502,7 +7502,7 @@ pub struct IOleCommandTarget_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ccmds: u32, prgcmds: *mut OLECMD, pcmdtext: *mut OLECMDTEXT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::Com::VARIANT, pvaout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Exec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvaout: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Exec: usize,
 }
@@ -10167,7 +10167,7 @@ pub struct IPerPropertyBrowsing_Vtbl {
     pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastringsout: *mut CALPOLESTR, pcacookiesout: *mut CADWORD) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32, pvarout: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetPredefinedValue: usize,
 }
@@ -10767,7 +10767,7 @@ pub struct IPrint_Vtbl {
     pub SetInitialPageNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nfirstpage: i32) -> ::windows::core::HRESULT,
     pub GetPageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnfirstpage: *mut i32, pcpages: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut super::Com::STGMEDIUM, pcallback: *mut ::core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
+    pub Print: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, pptd: *mut *mut super::Com::DVTARGETDEVICE, pppageset: *mut *mut PAGESET, pstgmoptions: *mut ::core::mem::ManuallyDrop<super::Com::STGMEDIUM>, pcallback: *mut ::core::ffi::c_void, nfirstpage: i32, pcpagesprinted: *mut i32, pnlastpage: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     Print: usize,
 }
@@ -11408,7 +11408,7 @@ unsafe impl ::windows::core::Interface for IQuickActivate {
 pub struct IQuickActivate_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-    pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
+    pub QuickActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqacontainer: *const ::core::mem::ManuallyDrop<QACONTAINER>, pqacontrol: *mut QACONTROL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     QuickActivate: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -11543,19 +11543,19 @@ pub struct IRecordInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTypeInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetField: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut super::Com::VARIANT, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *const ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppvdatacarray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFieldNoCopy: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PutField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutField: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wflags: super::Com::INVOKEKIND, pvdata: *mut ::core::ffi::c_void, szfieldname: ::windows::core::PCWSTR, pvarfield: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     PutFieldNoCopy: usize,
     pub GetFieldNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnames: *mut u32, rgbstrnames: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -11860,7 +11860,7 @@ unsafe impl ::windows::core::Interface for IVBFormat {
 pub struct IVBFormat_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut super::Com::VARIANT, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
+    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vdata: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, bstrformat: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lpbuffer: *mut ::core::ffi::c_void, cb: u16, lcid: i32, sfirstdayofweek: i16, sfirstweekofyear: u16, rcb: *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Format: usize,
 }
@@ -11945,7 +11945,7 @@ unsafe impl ::windows::core::Interface for IVariantChangeType {
 pub struct IVariantChangeType_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut super::Com::VARIANT, pvarsrc: *const super::Com::VARIANT, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::HRESULT,
+    pub ChangeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardst: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, lcid: u32, vtnew: super::Com::VARENUM) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     ChangeType: usize,
 }

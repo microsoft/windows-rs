@@ -993,7 +993,7 @@ where
 pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::core::ffi::c_void;
+        fn NdrAllocate(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, len: usize) -> *mut ::core::ffi::c_void;
     }
     NdrAllocate(::core::mem::transmute(pstubmsg), len)
 }
@@ -1012,7 +1012,7 @@ pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrByteCountPointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrByteCountPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1022,7 +1022,7 @@ pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
 pub unsafe fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrByteCountPointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrByteCountPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1032,7 +1032,7 @@ pub unsafe fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrByteCountPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrByteCountPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrByteCountPointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrByteCountPointerMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1042,7 +1042,7 @@ pub unsafe fn NdrByteCountPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
 pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrByteCountPointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrByteCountPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1052,7 +1052,7 @@ pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void);
+        fn NdrClearOutParameters(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, argaddr: *mut ::core::ffi::c_void);
     }
     NdrClearOutParameters(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), ::core::mem::transmute(argaddr))
 }
@@ -1062,7 +1062,7 @@ pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *
 pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: isize, fcheck: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: isize, fcheck: i32);
+        fn NdrClientContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: isize, fcheck: i32);
     }
     NdrClientContextMarshall(::core::mem::transmute(pstubmsg), contexthandle, fcheck)
 }
@@ -1072,7 +1072,7 @@ pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
 pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void);
+        fn NdrClientContextUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcontexthandle: *mut isize, bindhandle: *mut ::core::ffi::c_void);
     }
     NdrClientContextUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcontexthandle), ::core::mem::transmute(bindhandle))
 }
@@ -1082,7 +1082,7 @@ pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcont
 pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
+        fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
     }
     NdrClientInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), procnum)
 }
@@ -1092,7 +1092,7 @@ pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL
 pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
+        fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
     }
     NdrClientInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), procnum)
 }
@@ -1102,7 +1102,7 @@ pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut M
 pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrComplexArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrComplexArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1112,7 +1112,7 @@ pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
 pub unsafe fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrComplexArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrComplexArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1122,7 +1122,7 @@ pub unsafe fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
 pub unsafe fn NdrComplexArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrComplexArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrComplexArrayMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1132,7 +1132,7 @@ pub unsafe fn NdrComplexArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrComplexArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrComplexArrayMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1142,7 +1142,7 @@ pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
 pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrComplexArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrComplexArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1152,7 +1152,7 @@ pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
 pub unsafe fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrComplexStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrComplexStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1162,7 +1162,7 @@ pub unsafe fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemo
 pub unsafe fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrComplexStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrComplexStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1172,7 +1172,7 @@ pub unsafe fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
 pub unsafe fn NdrComplexStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrComplexStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrComplexStructMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1182,7 +1182,7 @@ pub unsafe fn NdrComplexStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
 pub unsafe fn NdrComplexStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrComplexStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrComplexStructMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1192,7 +1192,7 @@ pub unsafe fn NdrComplexStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pform
 pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrComplexStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrComplexStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1202,7 +1202,7 @@ pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmem
 pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1212,7 +1212,7 @@ pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pme
 pub unsafe fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1222,7 +1222,7 @@ pub unsafe fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: 
 pub unsafe fn NdrConformantArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrConformantArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrConformantArrayMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1232,7 +1232,7 @@ pub unsafe fn NdrConformantArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemo
 pub unsafe fn NdrConformantArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrConformantArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrConformantArrayMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1242,7 +1242,7 @@ pub unsafe fn NdrConformantArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pfo
 pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrConformantArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrConformantArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1252,7 +1252,7 @@ pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppm
 pub unsafe fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantStringBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1262,7 +1262,7 @@ pub unsafe fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
 pub unsafe fn NdrConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrConformantStringMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrConformantStringMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1272,7 +1272,7 @@ pub unsafe fn NdrConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
 pub unsafe fn NdrConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrConformantStringMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrConformantStringMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1282,7 +1282,7 @@ pub unsafe fn NdrConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pf
 pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrConformantStringUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1292,7 +1292,7 @@ pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 pub unsafe fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1302,7 +1302,7 @@ pub unsafe fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
 pub unsafe fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1312,7 +1312,7 @@ pub unsafe fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrConformantStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrConformantStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrConformantStructMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1322,7 +1322,7 @@ pub unsafe fn NdrConformantStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
 pub unsafe fn NdrConformantStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrConformantStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrConformantStructMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1332,7 +1332,7 @@ pub unsafe fn NdrConformantStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pf
 pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrConformantStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrConformantStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1342,7 +1342,7 @@ pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1352,7 +1352,7 @@ pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSA
 pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantVaryingArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1362,7 +1362,7 @@ pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
 pub unsafe fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrConformantVaryingArrayMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1372,7 +1372,7 @@ pub unsafe fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE
 pub unsafe fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrConformantVaryingArrayMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1382,7 +1382,7 @@ pub unsafe fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSA
 pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrConformantVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1392,7 +1392,7 @@ pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSA
 pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantVaryingStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1402,7 +1402,7 @@ pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESS
 pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrConformantVaryingStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrConformantVaryingStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1412,7 +1412,7 @@ pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrConformantVaryingStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrConformantVaryingStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrConformantVaryingStructMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1422,7 +1422,7 @@ pub unsafe fn NdrConformantVaryingStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAG
 pub unsafe fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrConformantVaryingStructMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1432,7 +1432,7 @@ pub unsafe fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut MIDL_STUB_MESS
 pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrConformantVaryingStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1442,7 +1442,7 @@ pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESS
 pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
+        fn NdrContextHandleInitialize(pstubmsg: *const ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
     }
     NdrContextHandleInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1452,7 +1452,7 @@ pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pfo
 pub unsafe fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrContextHandleSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrContextHandleSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1462,7 +1462,7 @@ pub unsafe fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
 pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8);
+        fn NdrConvert(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8);
     }
     NdrConvert(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1472,7 +1472,7 @@ pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
 pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32);
+        fn NdrConvert2(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, numberparams: i32);
     }
     NdrConvert2(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat), numberparams)
 }
@@ -1482,7 +1482,7 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
 pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE);
+        fn NdrCorrelationFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrCorrelationFree(::core::mem::transmute(pstubmsg))
 }
@@ -1492,7 +1492,7 @@ pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32);
+        fn NdrCorrelationInitialize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void, cachesize: u32, flags: u32);
     }
     NdrCorrelationInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), cachesize, flags)
 }
@@ -1502,7 +1502,7 @@ pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
 pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE);
+        fn NdrCorrelationPass(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrCorrelationPass(::core::mem::transmute(pstubmsg))
 }
@@ -1539,7 +1539,7 @@ where
 pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1549,7 +1549,7 @@ pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrEncapsulatedUnionFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1559,7 +1559,7 @@ pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
 pub unsafe fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrEncapsulatedUnionMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1569,7 +1569,7 @@ pub unsafe fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pme
 pub unsafe fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrEncapsulatedUnionMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1579,7 +1579,7 @@ pub unsafe fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1589,7 +1589,7 @@ pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrFixedArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrFixedArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1599,7 +1599,7 @@ pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrFixedArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrFixedArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1609,7 +1609,7 @@ pub unsafe fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut 
 pub unsafe fn NdrFixedArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFixedArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrFixedArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrFixedArrayMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1619,7 +1619,7 @@ pub unsafe fn NdrFixedArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *
 pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrFixedArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrFixedArrayMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1629,7 +1629,7 @@ pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat:
 pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrFixedArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrFixedArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1639,7 +1639,7 @@ pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory
 pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE);
+        fn NdrFreeBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrFreeBuffer(::core::mem::transmute(pstubmsg))
 }
@@ -1667,7 +1667,7 @@ pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE)
 pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
+        fn NdrGetBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
     }
     NdrGetBuffer(::core::mem::transmute(pstubmsg), bufferlength, ::core::mem::transmute(handle))
 }
@@ -1677,7 +1677,7 @@ pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, 
 pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows::core::HRESULT;
+        fn NdrGetDcomProtocolVersion(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pversion: *mut RPC_VERSION) -> ::windows::core::HRESULT;
     }
     NdrGetDcomProtocolVersion(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pversion)).ok()
 }
@@ -1687,7 +1687,7 @@ pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversi
 pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS;
+        fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut ::core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO>) -> RPC_STATUS;
     }
     NdrGetUserMarshalInfo(::core::mem::transmute(pflags), informationlevel, ::core::mem::transmute(pmarshalinfo))
 }
@@ -1697,7 +1697,7 @@ pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, p
 pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrInterfacePointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrInterfacePointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1707,7 +1707,7 @@ pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pm
 pub unsafe fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrInterfacePointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrInterfacePointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1717,7 +1717,7 @@ pub unsafe fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrInterfacePointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrInterfacePointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrInterfacePointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrInterfacePointerMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1727,7 +1727,7 @@ pub unsafe fn NdrInterfacePointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
 pub unsafe fn NdrInterfacePointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrInterfacePointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrInterfacePointerMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrInterfacePointerMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1737,7 +1737,7 @@ pub unsafe fn NdrInterfacePointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pf
 pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrInterfacePointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrInterfacePointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1747,7 +1747,7 @@ pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pp
 pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
+        fn NdrMapCommAndFaultStatus(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
     }
     NdrMapCommAndFaultStatus(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pcommstatus), ::core::mem::transmute(pfaultstatus), status)
 }
@@ -1925,7 +1925,7 @@ pub unsafe fn NdrMesTypeFree3(handle: *mut ::core::ffi::c_void, ppicklinginfo: *
 pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrNonConformantStringBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrNonConformantStringBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1935,7 +1935,7 @@ pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrNonConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrNonConformantStringMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrNonConformantStringMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1945,7 +1945,7 @@ pub unsafe fn NdrNonConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrNonConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrNonConformantStringMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrNonConformantStringMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -1955,7 +1955,7 @@ pub unsafe fn NdrNonConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrNonConformantStringUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrNonConformantStringUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -1965,7 +1965,7 @@ pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrNonEncapsulatedUnionBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1975,7 +1975,7 @@ pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE
 pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrNonEncapsulatedUnionFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1985,7 +1985,7 @@ pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmem
 pub unsafe fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrNonEncapsulatedUnionMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -1995,7 +1995,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, 
 pub unsafe fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrNonEncapsulatedUnionMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2005,7 +2005,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE
 pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrNonEncapsulatedUnionUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2015,7 +2015,7 @@ pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE
 pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
+        fn NdrNsGetBuffer(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::core::ffi::c_void) -> *mut u8;
     }
     NdrNsGetBuffer(::core::mem::transmute(pstubmsg), bufferlength, ::core::mem::transmute(handle))
 }
@@ -2025,7 +2025,7 @@ pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32
 pub unsafe fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut *mut ::core::ffi::c_void) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut *mut ::core::ffi::c_void) -> *mut u8;
+        fn NdrNsSendReceive(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8, pautohandle: *mut *mut ::core::ffi::c_void) -> *mut u8;
     }
     NdrNsSendReceive(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pbufferend), ::core::mem::transmute(pautohandle))
 }
@@ -2053,7 +2053,7 @@ pub unsafe fn NdrOleFree(nodetofree: *const ::core::ffi::c_void) {
 pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void);
+        fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void);
     }
     NdrPartialIgnoreClientBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory))
 }
@@ -2063,7 +2063,7 @@ pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::core::ffi::c_void);
+        fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::core::ffi::c_void);
     }
     NdrPartialIgnoreClientMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory))
 }
@@ -2073,7 +2073,7 @@ pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, p
 pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8);
+        fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::core::ffi::c_void, pformat: *mut u8);
     }
     NdrPartialIgnoreServerInitialize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat))
 }
@@ -2083,7 +2083,7 @@ pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::core::ffi::c_void);
+        fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::core::ffi::c_void);
     }
     NdrPartialIgnoreServerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory))
 }
@@ -2093,7 +2093,7 @@ pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE,
 pub unsafe fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrPointerBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrPointerBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2103,7 +2103,7 @@ pub unsafe fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *m
 pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrPointerFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrPointerFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2113,7 +2113,7 @@ pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8,
 pub unsafe fn NdrPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrPointerMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrPointerMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2123,7 +2123,7 @@ pub unsafe fn NdrPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut
 pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrPointerMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrPointerMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2133,7 +2133,7 @@ pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *m
 pub unsafe fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrPointerUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrPointerUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2143,7 +2143,7 @@ pub unsafe fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *
 pub unsafe fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrRangeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrRangeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2171,7 +2171,7 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::core::ffi::c_void) {
 pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE);
+        fn NdrRpcSmSetClientToOsf(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrRpcSmSetClientToOsf(::core::mem::transmute(pmessage))
 }
@@ -2199,7 +2199,7 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::core::ffi::c_void) {
 pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE);
+        fn NdrRpcSsDisableAllocate(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrRpcSsDisableAllocate(::core::mem::transmute(pmessage))
 }
@@ -2209,7 +2209,7 @@ pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE);
+        fn NdrRpcSsEnableAllocate(pmessage: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrRpcSsEnableAllocate(::core::mem::transmute(pmessage))
 }
@@ -2219,7 +2219,7 @@ pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
 pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8;
+        fn NdrSendReceive(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8) -> *mut u8;
     }
     NdrSendReceive(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pbufferend))
 }
@@ -2256,7 +2256,7 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
 pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void);
+        fn NdrServerContextMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void);
     }
     NdrServerContextMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine))
 }
@@ -2266,7 +2266,7 @@ pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, context
 pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: NDR_RUNDOWN, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void, pformat: *mut u8);
+        fn NdrServerContextNewMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: *mut ::core::ffi::c_void, pformat: *mut u8);
     }
     NdrServerContextNewMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(contexthandle), ::core::mem::transmute(rundownroutine), ::core::mem::transmute(pformat))
 }
@@ -2276,7 +2276,7 @@ pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, cont
 pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
+        fn NdrServerContextNewUnmarshall(pstubmsg: *const ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
     }
     NdrServerContextNewUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2286,7 +2286,7 @@ pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, 
 pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT_1 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT_1;
+        fn NdrServerContextUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>) -> *mut NDR_SCONTEXT_1;
     }
     NdrServerContextUnmarshall(::core::mem::transmute(pstubmsg))
 }
@@ -2296,7 +2296,7 @@ pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *m
 pub unsafe fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
+        fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
     }
     NdrServerInitialize(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor))
 }
@@ -2306,7 +2306,7 @@ pub unsafe fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL
 pub unsafe fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE);
+        fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
     }
     NdrServerInitializeMarshall(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg))
 }
@@ -2316,7 +2316,7 @@ pub unsafe fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *
 pub unsafe fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
+        fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
     }
     NdrServerInitializeNew(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor))
 }
@@ -2326,7 +2326,7 @@ pub unsafe fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut M
 pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
+        fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
     }
     NdrServerInitializePartial(::core::mem::transmute(prpcmsg), ::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), requestedbuffersize)
 }
@@ -2336,7 +2336,7 @@ pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *m
 pub unsafe fn NdrServerInitializeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrServerInitializeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8;
+        fn NdrServerInitializeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8;
     }
     NdrServerInitializeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(prpcmsg))
 }
@@ -2346,7 +2346,7 @@ pub unsafe fn NdrServerInitializeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ps
 pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrSimpleStructBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrSimpleStructBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2356,7 +2356,7 @@ pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
 pub unsafe fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrSimpleStructFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrSimpleStructFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2366,7 +2366,7 @@ pub unsafe fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
 pub unsafe fn NdrSimpleStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrSimpleStructMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrSimpleStructMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2376,7 +2376,7 @@ pub unsafe fn NdrSimpleStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrSimpleStructMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrSimpleStructMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2386,7 +2386,7 @@ pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
 pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrSimpleStructUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrSimpleStructUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2396,7 +2396,7 @@ pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
 pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
+        fn NdrSimpleTypeMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
     }
     NdrSimpleTypeMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), formatchar)
 }
@@ -2406,7 +2406,7 @@ pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *
 pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8);
+        fn NdrSimpleTypeUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
     }
     NdrSimpleTypeUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), formatchar)
 }
@@ -2434,7 +2434,7 @@ pub unsafe fn NdrStubCall3(pthis: *mut ::core::ffi::c_void, pchannel: *mut ::cor
 pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrUserMarshalBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrUserMarshalBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2444,7 +2444,7 @@ pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
 pub unsafe fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrUserMarshalFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrUserMarshalFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2454,7 +2454,7 @@ pub unsafe fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut
 pub unsafe fn NdrUserMarshalMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrUserMarshalMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrUserMarshalMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrUserMarshalMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2464,7 +2464,7 @@ pub unsafe fn NdrUserMarshalMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: 
 pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrUserMarshalMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrUserMarshalMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2483,7 +2483,7 @@ pub unsafe fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8
 pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrUserMarshalUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrUserMarshalUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2493,7 +2493,7 @@ pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemor
 pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrVaryingArrayBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrVaryingArrayBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2503,7 +2503,7 @@ pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemor
 pub unsafe fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrVaryingArrayFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrVaryingArrayFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2513,7 +2513,7 @@ pub unsafe fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mu
 pub unsafe fn NdrVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrVaryingArrayMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrVaryingArrayMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2523,7 +2523,7 @@ pub unsafe fn NdrVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory:
 pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrVaryingArrayMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrVaryingArrayMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2533,7 +2533,7 @@ pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
 pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrVaryingArrayUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrVaryingArrayUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }
@@ -2543,7 +2543,7 @@ pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemo
 pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrXmitOrRepAsBufferSize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2553,7 +2553,7 @@ pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory
 pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8);
+        fn NdrXmitOrRepAsFree(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
     }
     NdrXmitOrRepAsFree(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2563,7 +2563,7 @@ pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut
 pub unsafe fn NdrXmitOrRepAsMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrXmitOrRepAsMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
+        fn NdrXmitOrRepAsMarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
     }
     NdrXmitOrRepAsMarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pmemory), ::core::mem::transmute(pformat))
 }
@@ -2573,7 +2573,7 @@ pub unsafe fn NdrXmitOrRepAsMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: 
 pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32;
+        fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
     }
     NdrXmitOrRepAsMemorySize(::core::mem::transmute(pstubmsg), ::core::mem::transmute(pformat))
 }
@@ -2583,7 +2583,7 @@ pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat
 pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
+        fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut ::core::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
     }
     NdrXmitOrRepAsUnmarshall(::core::mem::transmute(pstubmsg), ::core::mem::transmute(ppmemory), ::core::mem::transmute(pformat), fmustalloc)
 }

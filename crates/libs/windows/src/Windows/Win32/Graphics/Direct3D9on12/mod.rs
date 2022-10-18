@@ -4,7 +4,7 @@
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
+        fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::core::option::Option<super::Direct3D9::IDirect3D9>;
     }
     Direct3DCreate9On12(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries)
 }
@@ -14,7 +14,7 @@ pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::core::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut ::core::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     Direct3DCreate9On12Ex(sdkversion, ::core::mem::transmute(poverridelist), numoverrideentries, ::core::mem::transmute(ppoutputinterface)).ok()
 }

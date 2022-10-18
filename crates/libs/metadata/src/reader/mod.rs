@@ -869,7 +869,9 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComposableAttribute")
     }
     pub fn type_def_is_udt(&self, row: TypeDef) -> bool {
-        // TODO: should this just check whether the struct has > 1 fields rather than type_def_is_handle?
+        // This check is used to detect virtual functions that return C-style PODs that affect how the stack is packed for x86.
+        // It could be defined as a struct with more than one field but that check is complicated as it would have to detect
+        // nested structs. Fortunately, this is rare enough that this check is sufficient.
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
     fn type_def_is_borrowed(&self, row: TypeDef) -> bool {

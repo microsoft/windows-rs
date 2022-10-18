@@ -94,7 +94,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn AssocGetDetailsOfPropKey(psf: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pkey: *const PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::VARIANT, pffoundpropkey: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn AssocGetDetailsOfPropKey(psf: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pkey: *const PropertiesSystem::PROPERTYKEY, pv: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pffoundpropkey: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     AssocGetDetailsOfPropKey(psf.into().abi(), ::core::mem::transmute(pidl), ::core::mem::transmute(pkey), ::core::mem::transmute(pv), ::core::mem::transmute(pffoundpropkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
@@ -4245,7 +4245,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn SHCreateDefaultContextMenu(pdcm: *const ::core::mem::ManuallyDrop<DEFCONTEXTMENU>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::option::Option::None;
     SHCreateDefaultContextMenu(::core::mem::transmute(pdcm), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -4459,7 +4459,7 @@ pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> ::windows::core::Result<su
 pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> ::windows::core::Result<IShellView> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE, ppsv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn SHCreateShellFolderView(pcsfv: *const ::core::mem::ManuallyDrop<SFV_CREATE>, ppsv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHCreateShellFolderView(::core::mem::transmute(pcsfv), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IShellView>(result__)
@@ -4470,7 +4470,7 @@ pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> ::windows::co
 pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> ::windows::core::Result<IShellView> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHCreateShellFolderViewEx(pcsfv: *const CSFV, ppsv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn SHCreateShellFolderViewEx(pcsfv: *const ::core::mem::ManuallyDrop<CSFV>, ppsv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHCreateShellFolderViewEx(::core::mem::transmute(pcsfv), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IShellView>(result__)
@@ -5536,7 +5536,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHGetTemporaryPropertyForItem(psi: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn SHGetTemporaryPropertyForItem(psi: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHGetTemporaryPropertyForItem(psi.into().abi(), ::core::mem::transmute(propkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -6704,7 +6704,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHSetTemporaryPropertyForItem(psi: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn SHSetTemporaryPropertyForItem(psi: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     SHSetTemporaryPropertyForItem(psi.into().abi(), ::core::mem::transmute(propkey), ::core::mem::transmute(propvar)).ok()
 }
@@ -8740,7 +8740,7 @@ pub struct DFConstraint_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbs: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pv: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pv: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Value: usize,
 }
@@ -9684,7 +9684,7 @@ pub struct FolderItem2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     InvokeVerbEx: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ExtendedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvret: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ExtendedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvret: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ExtendedProperty: usize,
 }
@@ -12158,11 +12158,11 @@ pub struct IBrowserService_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     CacheOLEServer: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetSetCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarin: *const super::super::System::Com::VARIANT, pvarout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetSetCodePage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarin: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarout: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetSetCodePage: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnHttpEquiv: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psv: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const super::super::System::Com::VARIANT, pvarargout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub OnHttpEquiv: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psv: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarargout: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnHttpEquiv: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -12764,7 +12764,7 @@ pub struct IBrowserService2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetViewWindow: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-    pub GetBaseBrowserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbd: *mut *mut BASEBROWSERDATALH) -> ::windows::core::HRESULT,
+    pub GetBaseBrowserData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbd: *mut *mut ::core::mem::ManuallyDrop<BASEBROWSERDATALH>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common")))]
     GetBaseBrowserData: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
@@ -12804,7 +12804,7 @@ pub struct IBrowserService2_Vtbl {
     _TryShell2Rename: usize,
     pub _SwitchActivationNow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub _ExecChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Com::VARIANT, pvarargout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub _ExecChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows::core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarargout: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     _ExecChildren: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -12861,7 +12861,7 @@ pub struct IBrowserService2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     _CloseAndReleaseToolbars: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub v_MayGetNextToolbarFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut TOOLBARITEM, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
+    pub v_MayGetNextToolbarFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *const super::WindowsAndMessaging::MSG, itbnext: u32, citb: i32, pptbi: *mut *mut ::core::mem::ManuallyDrop<TOOLBARITEM>, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     v_MayGetNextToolbarFocus: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -12870,7 +12870,7 @@ pub struct IBrowserService2_Vtbl {
     _ResizeNextBorderHelper: usize,
     pub _FindTBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punksrc: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub _SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptbi: *const TOOLBARITEM, hwnd: super::super::Foundation::HWND, lpmsg: *const super::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
+    pub _SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptbi: *const ::core::mem::ManuallyDrop<TOOLBARITEM>, hwnd: super::super::Foundation::HWND, lpmsg: *const super::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     _SetFocus: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14407,7 +14407,7 @@ pub struct IColumnProvider_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetColumnInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetItemData: usize,
 }
@@ -16162,7 +16162,7 @@ pub struct ICredentialProviderUser_Vtbl {
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetStringValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetValue: usize,
 }
@@ -17543,7 +17543,7 @@ unsafe impl ::windows::core::Interface for IDocViewSite {
 pub struct IDocViewSite_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnSetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtitle: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub OnSetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtitle: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnSetTitle: usize,
 }
@@ -19107,7 +19107,7 @@ pub struct IExpDispSupport_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     OnTranslateAccelerator: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnInvoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    pub OnInvoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnInvoke: usize,
 }
@@ -19168,7 +19168,7 @@ pub struct IExpDispSupportXP_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     OnTranslateAccelerator: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnInvoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
+    pub OnInvoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::core::mem::ManuallyDrop<super::super::System::Com::EXCEPINFO>, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnInvoke: usize,
 }
@@ -21556,16 +21556,16 @@ pub struct IFileSearchBand_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetSearchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, bnavtoresults: i16, pvarscope: *const super::super::System::Com::VARIANT, pvarqueryfile: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetSearchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, bnavtoresults: i16, pvarscope: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarqueryfile: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetSearchParameters: usize,
     pub SearchID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsearchid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarscope: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarscope: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Scope: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub QueryFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarfile: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub QueryFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarfile: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     QueryFile: usize,
 }
@@ -22288,11 +22288,11 @@ pub struct IFolderView2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetGroupBy: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub SetViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub SetViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
     SetViewProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetViewProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetViewProperty: usize,
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -25077,7 +25077,7 @@ pub struct INameSpaceTreeAccessible_Vtbl {
     pub OnGetDefaultAccessibilityAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pbstrdefaultaction: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub OnDoDefaultAccessibilityAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnGetAccessibilityRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub OnGetAccessibilityRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pvarrole: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnGetAccessibilityRole: usize,
 }
@@ -25491,11 +25491,11 @@ pub struct INameSpaceTreeControlCustomDraw_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     PostPaint: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
-    pub ItemPrePaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::super::Foundation::COLORREF, pclrtextbk: *mut super::super::Foundation::COLORREF, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    pub ItemPrePaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const ::core::mem::ManuallyDrop<NSTCCUSTOMDRAW>, pclrtext: *mut super::super::Foundation::COLORREF, pclrtextbk: *mut super::super::Foundation::COLORREF, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls")))]
     ItemPrePaint: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
-    pub ItemPostPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW) -> ::windows::core::HRESULT,
+    pub ItemPostPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const ::core::mem::ManuallyDrop<NSTCCUSTOMDRAW>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls")))]
     ItemPostPaint: usize,
 }
@@ -25859,11 +25859,11 @@ unsafe impl ::windows::core::Interface for INamedPropertyBag {
 pub struct INamedPropertyBag_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub ReadPropertyNPB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbagname: ::windows::core::PCWSTR, pszpropname: ::windows::core::PCWSTR, pvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub ReadPropertyNPB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbagname: ::windows::core::PCWSTR, pszpropname: ::windows::core::PCWSTR, pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     ReadPropertyNPB: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub WritePropertyNPB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbagname: ::windows::core::PCWSTR, pszpropname: ::windows::core::PCWSTR, pvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub WritePropertyNPB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbagname: ::windows::core::PCWSTR, pszpropname: ::windows::core::PCWSTR, pvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     WritePropertyNPB: usize,
     pub RemovePropertyNPB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbagname: ::windows::core::PCWSTR, pszpropname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -30324,27 +30324,27 @@ pub struct IShellDispatch2_Vtbl {
     ShellExecute: usize,
     pub FindPrinter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, model: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetSystemInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pv: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetSystemInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pv: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetSystemInformation: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ServiceStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, persistent: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ServiceStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, persistent: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ServiceStart: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ServiceStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, persistent: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ServiceStop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, persistent: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ServiceStop: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub IsServiceRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, prunning: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub IsServiceRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, prunning: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     IsServiceRunning: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CanStartStopService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcanstartstop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CanStartStopService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcanstartstop: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CanStartStopService: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ShowBrowserBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bshow: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ShowBrowserBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bshow: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, psuccess: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ShowBrowserBar: usize,
 }
@@ -30798,7 +30798,7 @@ pub struct IShellDispatch4_Vtbl {
     pub WindowsSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ToggleDesktop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ExplorerPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpolicyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ExplorerPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpolicyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ExplorerPolicy: usize,
     pub GetSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsetting: i32, presult: *mut i16) -> ::windows::core::HRESULT,
@@ -31735,7 +31735,7 @@ pub struct IShellFolder2_Vtbl {
     pub GetDefaultColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwres: u32, psort: *mut u32, pdisplay: *mut u32) -> ::windows::core::HRESULT,
     pub GetDefaultColumnState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icolumn: u32, pcsflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetDetailsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetDetailsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetDetailsEx: usize,
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -31802,11 +31802,11 @@ pub struct IShellFolderBand_Vtbl {
     #[cfg(not(feature = "Win32_UI_Shell_Common"))]
     InitializeSFB: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub SetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *const BANDINFOSFB) -> ::windows::core::HRESULT,
+    pub SetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *const ::core::mem::ManuallyDrop<BANDINFOSFB>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     SetBandInfoSFB: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub GetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *mut BANDINFOSFB) -> ::windows::core::HRESULT,
+    pub GetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *mut ::core::mem::ManuallyDrop<BANDINFOSFB>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     GetBandInfoSFB: usize,
 }
@@ -32248,7 +32248,7 @@ pub struct IShellFolderViewDual_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     FocusedItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SelectItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvfi: *const super::super::System::Com::VARIANT, dwflags: i32) -> ::windows::core::HRESULT,
+    pub SelectItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvfi: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, dwflags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SelectItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -33275,7 +33275,7 @@ pub struct IShellItem2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetProperty: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -34422,11 +34422,11 @@ pub struct IShellMenu_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     GetMenu: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub InvalidateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *const SMDATA, dwflags: u32) -> ::windows::core::HRESULT,
+    pub InvalidateItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *const ::core::mem::ManuallyDrop<SMDATA>, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging")))]
     InvalidateItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *mut SMDATA) -> ::windows::core::HRESULT,
+    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *mut ::core::mem::ManuallyDrop<SMDATA>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging")))]
     GetState: usize,
     pub SetMenuToolbar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
@@ -34473,7 +34473,7 @@ unsafe impl ::windows::core::Interface for IShellMenuCallback {
 pub struct IShellMenuCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub CallbackSM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *mut SMDATA, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
+    pub CallbackSM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmd: *mut ::core::mem::ManuallyDrop<SMDATA>, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging")))]
     CallbackSM: usize,
 }
@@ -34666,7 +34666,7 @@ pub struct IShellNameSpace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSelectedItem: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Root: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Root: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -34993,34 +34993,34 @@ pub struct IShellUIHelper_Vtbl {
     pub ResetSafeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RefreshOfflineDesktop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddFavorite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, title: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AddFavorite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, title: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddFavorite: usize,
     pub AddChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddDesktopComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, left: *const super::super::System::Com::VARIANT, top: *const super::super::System::Com::VARIANT, width: *const super::super::System::Com::VARIANT, height: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AddDesktopComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: ::core::mem::ManuallyDrop<::windows::core::BSTR>, left: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, top: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, width: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, height: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddDesktopComponent: usize,
     pub IsSubscribed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbool: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub NavigateAndFind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vartargetframe: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub NavigateAndFind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strquery: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vartargetframe: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     NavigateAndFind: usize,
     pub ImportExportFavorites: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fimport: i16, strimpexppath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AutoCompleteSaveForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, form: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AutoCompleteSaveForm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, form: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AutoCompleteSaveForm: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AutoScan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsearch: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strfailureurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvartargetframe: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AutoScan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsearch: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strfailureurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvartargetframe: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AutoScan: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AutoCompleteAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AutoCompleteAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AutoCompleteAttach: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ShowBrowserUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarin: *const super::super::System::Com::VARIANT, pvarout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ShowBrowserUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarin: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarout: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ShowBrowserUI: usize,
 }
@@ -35395,7 +35395,7 @@ pub struct IShellUIHelper3_Vtbl {
     pub IsServiceInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, verb: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdwresult: *mut u32) -> ::windows::core::HRESULT,
     pub InPrivateFilteringEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddToFavoritesBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, title: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub AddToFavoritesBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, title: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddToFavoritesBar: usize,
     pub BuildNewTabPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -35692,7 +35692,7 @@ pub struct IShellUIHelper4_Vtbl {
     pub msIsSiteMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfsitemode: *mut i16) -> ::windows::core::HRESULT,
     pub msSiteModeShowThumbBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msSiteModeAddThumbBarButton: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstriconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtooltip: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarbuttonid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msSiteModeAddThumbBarButton: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstriconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtooltip: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarbuttonid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msSiteModeAddThumbBarButton: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35700,20 +35700,20 @@ pub struct IShellUIHelper4_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msSiteModeUpdateThumbBarButton: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msSiteModeSetIconOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvardescription: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msSiteModeSetIconOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvardescription: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msSiteModeSetIconOverlay: usize,
     pub msSiteModeClearIconOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub msAddSiteMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub msSiteModeCreateJumpList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrheader: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msSiteModeAddJumpListItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstractionuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstriconuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarwindowtype: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msSiteModeAddJumpListItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstractionuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstriconuri: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarwindowtype: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msSiteModeAddJumpListItem: usize,
     pub msSiteModeClearJumpList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub msSiteModeShowJumpList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msSiteModeAddButtonStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uibuttonid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bstriconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtooltip: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarstyleid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msSiteModeAddButtonStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uibuttonid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bstriconurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrtooltip: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarstyleid: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msSiteModeAddButtonStyle: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -35722,7 +35722,7 @@ pub struct IShellUIHelper4_Vtbl {
     msSiteModeShowButtonStyle: usize,
     pub msSiteModeActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msIsSiteModeFirstRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fpreservestate: i16, puifirstrun: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msIsSiteModeFirstRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fpreservestate: i16, puifirstrun: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msIsSiteModeFirstRun: usize,
     pub msAddTrackingProtectionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrfiltername: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -36035,7 +36035,7 @@ unsafe impl ::windows::core::Interface for IShellUIHelper5 {
 pub struct IShellUIHelper5_Vtbl {
     pub base__: IShellUIHelper4_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msProvisionNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovisioningxml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, puiresult: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msProvisionNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovisioningxml: ::core::mem::ManuallyDrop<::windows::core::BSTR>, puiresult: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msProvisionNetworks: usize,
     pub msReportSafeUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36433,7 +36433,7 @@ pub struct IShellUIHelper6_Vtbl {
     pub msClearTile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub msEnableTileNotificationQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub msPinnedSiteState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsitestate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub msPinnedSiteState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarsitestate: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     msPinnedSiteState: usize,
     pub msEnableTileNotificationQueueForSquare150x150: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT,
@@ -38023,7 +38023,7 @@ pub struct IShellView2_Vtbl {
     pub base__: IShellView_Vtbl,
     pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvid: *mut ::windows::core::GUID, uview: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub CreateViewWindow2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpparams: *const SV2CVW2_PARAMS) -> ::windows::core::HRESULT,
+    pub CreateViewWindow2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpparams: *const ::core::mem::ManuallyDrop<SV2CVW2_PARAMS>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     CreateViewWindow2: usize,
     #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -38293,17 +38293,17 @@ pub struct IShellWindows_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Register: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RegisterPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT,
+    pub RegisterPending: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarlocroot: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, swclass: i32, plcookie: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RegisterPending: usize,
     pub Revoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32, pvarloc: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub OnNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32, pvarloc: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnNavigate: usize,
     pub OnActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32, factive: i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindWindowSW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindWindowSW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarloc: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarlocroot: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindWindowSW: usize,
     pub OnCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcookie: i32, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -38934,7 +38934,7 @@ unsafe impl ::windows::core::Interface for ISyncMgrConflict {
 pub struct ISyncMgrConflict_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetProperty: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -39032,7 +39032,7 @@ unsafe impl ::windows::core::Interface for ISyncMgrConflictItems {
 pub struct ISyncMgrConflictItems_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
-    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, piteminfo: *mut CONFIRM_CONFLICT_ITEM) -> ::windows::core::HRESULT,
+    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, piteminfo: *mut ::core::mem::ManuallyDrop<CONFIRM_CONFLICT_ITEM>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
@@ -43447,12 +43447,12 @@ pub struct IWebBrowser_Vtbl {
     pub GoHome: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GoSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: *const super::super::System::Com::VARIANT, targetframename: *const super::super::System::Com::VARIANT, postdata: *const super::super::System::Com::VARIANT, headers: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, targetframename: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, postdata: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, headers: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Navigate: usize,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Refresh2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Refresh2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Refresh2: usize,
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -43785,7 +43785,7 @@ unsafe impl ::windows::core::Interface for IWebBrowser2 {
 pub struct IWebBrowser2_Vtbl {
     pub base__: IWebBrowserApp_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Navigate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: *const super::super::System::Com::VARIANT, flags: *const super::super::System::Com::VARIANT, targetframename: *const super::super::System::Com::VARIANT, postdata: *const super::super::System::Com::VARIANT, headers: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Navigate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, flags: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, targetframename: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, postdata: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, headers: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Navigate2: usize,
     #[cfg(feature = "Win32_System_Ole")]
@@ -43793,11 +43793,11 @@ pub struct IWebBrowser2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     QueryStatusWB: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ExecWB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const super::super::System::Com::VARIANT, pvaout: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ExecWB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvaout: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ExecWB: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ShowBrowserBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaclsid: *const super::super::System::Com::VARIANT, pvarshow: *const super::super::System::Com::VARIANT, pvarsize: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ShowBrowserBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaclsid: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarshow: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarsize: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ShowBrowserBar: usize,
     #[cfg(feature = "Win32_System_Ole")]
@@ -44048,7 +44048,7 @@ pub struct IWebBrowserApp_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PutProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvtvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvtvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProperty: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -44216,11 +44216,11 @@ pub struct IWebWizardHost_Vtbl {
     pub SetCaption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaption: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Caption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcaption: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub put_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     put_Property: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvproperty: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Property: usize,
     pub SetWizardButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vfenableback: i16, vfenablenext: i16, vflastpage: i16) -> ::windows::core::HRESULT,

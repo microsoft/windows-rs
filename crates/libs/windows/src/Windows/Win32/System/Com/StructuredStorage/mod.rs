@@ -7,7 +7,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CoGetInstanceFromFile(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: ::windows::core::PCWSTR, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::HRESULT;
+        fn CoGetInstanceFromFile(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: ::windows::core::PCWSTR, dwcount: u32, presults: *mut ::core::mem::ManuallyDrop<super::MULTI_QI>) -> ::windows::core::HRESULT;
     }
     CoGetInstanceFromFile(::core::mem::transmute(pserverinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pclsid.unwrap_or(::std::ptr::null())), punkouter.into().abi(), dwclsctx, grfmode, pwszname.into(), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
@@ -20,7 +20,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CoGetInstanceFromIStorage(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, pstg: *mut ::core::ffi::c_void, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::HRESULT;
+        fn CoGetInstanceFromIStorage(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: super::CLSCTX, pstg: *mut ::core::ffi::c_void, dwcount: u32, presults: *mut ::core::mem::ManuallyDrop<super::MULTI_QI>) -> ::windows::core::HRESULT;
     }
     CoGetInstanceFromIStorage(::core::mem::transmute(pserverinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pclsid.unwrap_or(::std::ptr::null())), punkouter.into().abi(), dwclsctx, pstg.into().abi(), presults.len() as _, ::core::mem::transmute(presults.as_ptr())).ok()
 }
@@ -81,7 +81,7 @@ pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: 
 pub unsafe fn FreePropVariantArray(rgvars: &mut [PROPVARIANT]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows::core::HRESULT;
+        fn FreePropVariantArray(cvariants: u32, rgvars: *mut ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     FreePropVariantArray(rgvars.len() as _, ::core::mem::transmute(rgvars.as_ptr())).ok()
 }
@@ -145,7 +145,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
+        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, ::core::mem::transmute(pmedium), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
@@ -171,7 +171,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
+        fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> ::windows::core::HRESULT;
     }
     OleConvertOLESTREAMToIStorageEx(::core::mem::transmute(polestm), pstg.into().abi(), ::core::mem::transmute(pcfformat), ::core::mem::transmute(plwwidth), ::core::mem::transmute(plheight), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pmedium)).ok()
 }
@@ -194,7 +194,7 @@ where
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PropVariantClear(pvar: *mut ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     PropVariantClear(::core::mem::transmute(pvar)).ok()
 }
@@ -204,7 +204,7 @@ pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Resul
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PropVariantCopy(pvardest: *mut ::core::mem::ManuallyDrop<PROPVARIANT>, pvarsrc: *const ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     PropVariantCopy(::core::mem::transmute(pvardest), ::core::mem::transmute(pvarsrc)).ok()
 }
@@ -266,7 +266,7 @@ where
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
+        fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut ::core::mem::ManuallyDrop<PROPVARIANT>, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
     }
     StgConvertPropertyToVariant(::core::mem::transmute(pprop), codepage, ::core::mem::transmute(pvar), ::core::mem::transmute(pma))
 }
@@ -279,7 +279,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
+        fn StgConvertVariantToProperty(pvar: *const ::core::mem::ManuallyDrop<PROPVARIANT>, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
     }
     StgConvertVariantToProperty(::core::mem::transmute(pvar), codepage, ::core::mem::transmute(pprop.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcb), pid, freserved.into(), ::core::mem::transmute(pcindirect.unwrap_or(::std::ptr::null_mut())))
 }
@@ -355,7 +355,7 @@ where
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
+        fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     StgDeserializePropVariant(::core::mem::transmute(pprop), cbmax, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPVARIANT>(result__)
@@ -506,7 +506,7 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, 
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::HRESULT;
+        fn StgSerializePropVariant(ppropvar: *const ::core::mem::ManuallyDrop<PROPVARIANT>, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::HRESULT;
     }
     StgSerializePropVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(ppprop), ::core::mem::transmute(pcb)).ok()
 }
@@ -1079,11 +1079,11 @@ unsafe impl ::windows::core::Interface for IPropertyBag {
 pub struct IPropertyBag_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *mut ::core::mem::ManuallyDrop<super::VARIANT>, perrorlog: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     Read: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const super::VARIANT) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: ::windows::core::PCWSTR, pvar: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     Write: usize,
 }
@@ -1148,11 +1148,11 @@ unsafe impl ::windows::core::Interface for IPropertyBag2 {
 pub struct IPropertyBag2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut ::core::mem::ManuallyDrop<super::VARIANT>, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     Read: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
+    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     Write: usize,
     pub CountProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcproperties: *mut u32) -> ::windows::core::HRESULT,
@@ -1292,11 +1292,11 @@ unsafe impl ::windows::core::Interface for IPropertyStorage {
 pub struct IPropertyStorage_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub ReadMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT,
+    pub ReadMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut ::core::mem::ManuallyDrop<PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ReadMultiple: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub WriteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT,
+    pub WriteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const ::core::mem::ManuallyDrop<PROPVARIANT>, propidnamefirst: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     WriteMultiple: usize,
     pub DeleteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC) -> ::windows::core::HRESULT,

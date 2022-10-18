@@ -1039,7 +1039,7 @@ pub unsafe fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2:
 pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGMEDIUM);
+        fn STGMEDIUM_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>);
     }
     STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
@@ -1049,7 +1049,7 @@ pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::STGME
 pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STGMEDIUM);
+        fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>);
     }
     STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
@@ -1059,7 +1059,7 @@ pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::STG
 pub unsafe fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
+        fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> *mut u8;
     }
     STGMEDIUM_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1069,7 +1069,7 @@ pub unsafe fn STGMEDIUM_UserMarshal(param0: *const u32, param1: *mut u8, param2:
 pub unsafe fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::STGMEDIUM) -> *mut u8;
+        fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> *mut u8;
     }
     STGMEDIUM_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1079,7 +1079,7 @@ pub unsafe fn STGMEDIUM_UserMarshal64(param0: *const u32, param1: *mut u8, param
 pub unsafe fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
+        fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> u32;
     }
     STGMEDIUM_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
@@ -1089,7 +1089,7 @@ pub unsafe fn STGMEDIUM_UserSize(param0: *const u32, param1: u32, param2: *const
 pub unsafe fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const super::STGMEDIUM) -> u32;
+        fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> u32;
     }
     STGMEDIUM_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
@@ -1099,7 +1099,7 @@ pub unsafe fn STGMEDIUM_UserSize64(param0: *const u32, param1: u32, param2: *con
 pub unsafe fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
+        fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> *mut u8;
     }
     STGMEDIUM_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1109,7 +1109,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal(param0: *const u32, param1: *const u8, par
 pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::STGMEDIUM) -> *mut u8;
+        fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> *mut u8;
     }
     STGMEDIUM_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1119,7 +1119,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT);
+        fn VARIANT_UserFree(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<super::VARIANT>);
     }
     VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
@@ -1129,7 +1129,7 @@ pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const super::VARIANT
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIANT);
+        fn VARIANT_UserFree64(param0: *const u32, param1: *const ::core::mem::ManuallyDrop<super::VARIANT>);
     }
     VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
@@ -1139,7 +1139,7 @@ pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const super::VARIA
 pub unsafe fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
+        fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> *mut u8;
     }
     VARIANT_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1149,7 +1149,7 @@ pub unsafe fn VARIANT_UserMarshal(param0: *const u32, param1: *mut u8, param2: *
 pub unsafe fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::VARIANT) -> *mut u8;
+        fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> *mut u8;
     }
     VARIANT_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1159,7 +1159,7 @@ pub unsafe fn VARIANT_UserMarshal64(param0: *const u32, param1: *mut u8, param2:
 pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
+        fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> u32;
     }
     VARIANT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
@@ -1169,7 +1169,7 @@ pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const s
 pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const super::VARIANT) -> u32;
+        fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const ::core::mem::ManuallyDrop<super::VARIANT>) -> u32;
     }
     VARIANT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
@@ -1179,7 +1179,7 @@ pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const
 pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
+        fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> *mut u8;
     }
     VARIANT_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
@@ -1189,7 +1189,7 @@ pub unsafe fn VARIANT_UserUnmarshal(param0: *const u32, param1: *const u8, param
 pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::VARIANT) -> *mut u8;
+        fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::core::mem::ManuallyDrop<super::VARIANT>) -> *mut u8;
     }
     VARIANT_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }

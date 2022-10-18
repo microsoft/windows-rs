@@ -2265,12 +2265,12 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             this.SetCallback(::core::mem::transmute(&pcallback)).into()
         }
-        unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WMPPartnerNotification, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Notify(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pcontext)).into()
         }
-        unsafe extern "system" fn GetItemInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const super::super::System::Com::VARIANT, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetItemInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pdata: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemInfo(::core::mem::transmute(&bstrinfoname), ::core::mem::transmute_copy(&pcontext)) {
@@ -2281,7 +2281,7 @@ impl IWMPContentPartner_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetContentPartnerInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetContentPartnerInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfoname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdata: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetContentPartnerInfo(::core::mem::transmute(&bstrinfoname)) {
@@ -2292,12 +2292,12 @@ impl IWMPContentPartner_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCommands<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCommands<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plocationcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, itemlocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, citemids: u32, prgitemids: *const u32, pcitemids: *mut u32, pprgitems: *mut *mut ::core::mem::ManuallyDrop<WMPContextMenuInfo>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCommands(::core::mem::transmute(&location), ::core::mem::transmute_copy(&plocationcontext), ::core::mem::transmute(&itemlocation), ::core::mem::transmute_copy(&citemids), ::core::mem::transmute_copy(&prgitemids), ::core::mem::transmute_copy(&pcitemids), ::core::mem::transmute_copy(&pprgitems)).into()
         }
-        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcommandid: u32, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, citemids: u32, rgitemids: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InvokeCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcommandid: u32, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, plocationcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, itemlocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, citemids: u32, rgitemids: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeCommand(::core::mem::transmute_copy(&dwcommandid), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&plocationcontext), ::core::mem::transmute(&itemlocation), ::core::mem::transmute_copy(&citemids), ::core::mem::transmute_copy(&rgitemids)).into()
@@ -2312,7 +2312,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             this.Buy(::core::mem::transmute(&pinfo), ::core::mem::transmute_copy(&cookie)).into()
         }
-        unsafe extern "system" fn GetStreamingURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const super::super::System::Com::VARIANT, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStreamingURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, st: WMPStreamingType, pstreamcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pbstrurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStreamingURL(::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&pstreamcontext)) {
@@ -2333,17 +2333,17 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             this.DownloadTrackComplete(::core::mem::transmute_copy(&hrresult), ::core::mem::transmute_copy(&contentid), ::core::mem::transmute(&downloadtrackparam)).into()
         }
-        unsafe extern "system" fn RefreshLicense<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcookie: u32, flocal: i16, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: ::core::mem::ManuallyDrop<::windows::core::BSTR>, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RefreshLicense<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcookie: u32, flocal: i16, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: ::core::mem::ManuallyDrop<::windows::core::BSTR>, preasoncontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RefreshLicense(::core::mem::transmute_copy(&dwcookie), ::core::mem::transmute_copy(&flocal), ::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&contentid), ::core::mem::transmute(&bstrrefreshreason), ::core::mem::transmute_copy(&preasoncontext)).into()
         }
-        unsafe extern "system" fn GetCatalogURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexpirationdate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCatalogURL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, pexpirationdate: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCatalogURL(::core::mem::transmute_copy(&dwcatalogversion), ::core::mem::transmute_copy(&dwcatalogschemaversion), ::core::mem::transmute_copy(&cataloglcid), ::core::mem::transmute_copy(&pdwnewcatalogversion), ::core::mem::transmute_copy(&pbstrcatalogurl), ::core::mem::transmute_copy(&pexpirationdate)).into()
         }
-        unsafe extern "system" fn GetTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: WMPTaskType, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const super::super::System::Com::VARIANT, clicklocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrviewparams: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrtemplateurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetTemplate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: WMPTaskType, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, clicklocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pclickcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bstrfilter: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrviewparams: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbstrtemplateurl: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetTemplate(::core::mem::transmute_copy(&task), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute(&clicklocation), ::core::mem::transmute_copy(&pclickcontext), ::core::mem::transmute(&bstrfilter), ::core::mem::transmute(&bstrviewparams), ::core::mem::transmute_copy(&pbstrtemplateurl), ::core::mem::transmute_copy(&ptemplatesize)).into()
@@ -2353,7 +2353,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             this.UpdateDevice(::core::mem::transmute(&bstrdevicename)).into()
         }
-        unsafe extern "system" fn GetListContents<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrparams: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwlistcookie: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetListContents<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bstrlisttype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrparams: ::core::mem::ManuallyDrop<::windows::core::BSTR>, dwlistcookie: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetListContents(::core::mem::transmute(&location), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute(&bstrlisttype), ::core::mem::transmute(&bstrparams), ::core::mem::transmute_copy(&dwlistcookie)).into()
@@ -2394,7 +2394,7 @@ impl IWMPContentPartner_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn VerifyPermission<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyPermission<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.VerifyPermission(::core::mem::transmute(&bstrpermission), ::core::mem::transmute_copy(&pcontext)).into()
@@ -2451,7 +2451,7 @@ impl ::windows::core::RuntimeName for IWMPContentPartnerCallback {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWMPContentPartnerCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>() -> IWMPContentPartnerCallback_Vtbl {
-        unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: WMPCallbackNotification, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Notify(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&pcontext)).into()
@@ -2511,7 +2511,7 @@ impl IWMPContentPartnerCallback_Vtbl {
             let this = (*this).get_impl();
             this.ShowPopup(::core::mem::transmute_copy(&lindex), ::core::mem::transmute(&bstrparameters)).into()
         }
-        unsafe extern "system" fn VerifyPermissionComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn VerifyPermissionComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPContentPartnerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcontext: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, hrpermission: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.VerifyPermissionComplete(::core::mem::transmute(&bstrpermission), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&hrpermission)).into()
@@ -3581,7 +3581,7 @@ impl IWMPErrorItem_Vtbl {
             let this = (*this).get_impl();
             this.errorDescription(::core::mem::transmute_copy(&pbstrdescription)).into()
         }
-        unsafe extern "system" fn errorContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPErrorItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn errorContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPErrorItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarcontext: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.errorContext(::core::mem::transmute_copy(&pvarcontext)).into()
@@ -4575,7 +4575,7 @@ impl IWMPMedia3_Vtbl {
             let this = (*this).get_impl();
             this.getAttributeCountByType(::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&plcount)).into()
         }
-        unsafe extern "system" fn getItemInfoByType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPMedia3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getItemInfoByType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPMedia3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lindex: i32, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.getItemInfoByType(::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&pvarvalue)).into()
@@ -6166,12 +6166,12 @@ impl IWMPPluginUI_Vtbl {
             let this = (*this).get_impl();
             this.DisplayPropertyPage(::core::mem::transmute_copy(&hwndparent)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetProperty(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
         }
-        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPPluginUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pvarproperty: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&pvarproperty)).into()
@@ -6615,7 +6615,7 @@ impl IWMPStringCollection2_Vtbl {
             let this = (*this).get_impl();
             this.getAttributeCountByType(::core::mem::transmute_copy(&lcollectionindex), ::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&plcount)).into()
         }
-        unsafe extern "system" fn getItemInfoByType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPStringCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn getItemInfoByType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMPStringCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lattributeindex: i32, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.getItemInfoByType(::core::mem::transmute_copy(&lcollectionindex), ::core::mem::transmute(&bstrtype), ::core::mem::transmute(&bstrlanguage), ::core::mem::transmute_copy(&lattributeindex), ::core::mem::transmute_copy(&pvarvalue)).into()

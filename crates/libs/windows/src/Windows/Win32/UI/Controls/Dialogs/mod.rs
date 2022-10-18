@@ -167,7 +167,7 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::HRESULT;
+        fn PrintDlgExA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::core::HRESULT;
     }
     PrintDlgExA(::core::mem::transmute(ppd)).ok()
 }
@@ -177,7 +177,7 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> 
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::HRESULT;
+        fn PrintDlgExW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::core::HRESULT;
     }
     PrintDlgExW(::core::mem::transmute(ppd)).ok()
 }

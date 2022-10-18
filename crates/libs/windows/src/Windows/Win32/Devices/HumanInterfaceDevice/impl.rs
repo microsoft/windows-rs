@@ -129,7 +129,7 @@ impl IDirectInput8A_Vtbl {
             let this = (*this).get_impl();
             this.EnumDevicesBySemantics(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2), ::core::mem::transmute_copy(&param3), ::core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn ConfigureDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ConfigureDevices(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()
@@ -201,7 +201,7 @@ impl IDirectInput8W_Vtbl {
             let this = (*this).get_impl();
             this.EnumDevicesBySemantics(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2), ::core::mem::transmute_copy(&param3), ::core::mem::transmute_copy(&param4)).into()
         }
-        unsafe extern "system" fn ConfigureDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ConfigureDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ConfigureDevices(::core::mem::transmute(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()

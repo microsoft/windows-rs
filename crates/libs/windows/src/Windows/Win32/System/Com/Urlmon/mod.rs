@@ -255,7 +255,7 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::core::GUID, pdwcomp
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::Result<super::BINDINFO> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows::core::HRESULT;
+        fn CopyBindInfo(pcbisrc: *const ::core::mem::ManuallyDrop<super::BINDINFO>, pbidest: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CopyBindInfo(::core::mem::transmute(pcbisrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::BINDINFO>(result__)
@@ -266,7 +266,7 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::core::Result<super::STGMEDIUM> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
+        fn CopyStgMedium(pcstgmedsrc: *const ::core::mem::ManuallyDrop<super::STGMEDIUM>, pstgmeddest: *mut ::core::mem::ManuallyDrop<super::STGMEDIUM>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CopyStgMedium(::core::mem::transmute(pcstgmedsrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::STGMEDIUM>(result__)
@@ -683,7 +683,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows::core:
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO);
+        fn ReleaseBindInfo(pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>);
     }
     ReleaseBindInfo(::core::mem::transmute(pbindinfo))
 }
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::Interface for IInternetBindInfo {
 pub struct IInternetBindInfo_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetBindInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::HRESULT,
+    pub GetBindInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))]
     GetBindInfo: usize,
     pub GetBindString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstringtype: u32, ppwzstr: *mut ::windows::core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::HRESULT,
@@ -1584,7 +1584,7 @@ unsafe impl ::windows::core::Interface for IInternetBindInfoEx {
 pub struct IInternetBindInfoEx_Vtbl {
     pub base__: IInternetBindInfo_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetBindInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
+    pub GetBindInfoEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut ::core::mem::ManuallyDrop<super::BINDINFO>, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage")))]
     GetBindInfoEx: usize,
 }

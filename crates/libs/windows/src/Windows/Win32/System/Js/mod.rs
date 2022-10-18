@@ -816,7 +816,7 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
 pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
+        fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> JsErrorCode;
     }
     JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant))
 }
@@ -826,7 +826,7 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+        fn JsVariantToValue(variant: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
     JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value))
 }
