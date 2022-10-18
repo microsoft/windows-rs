@@ -157,10 +157,6 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
-        self.type_abi_name_imp(ty, false)
-    }
-    // TODO: this is only because we're trying to avoid the ManuallyDrop below - I don't think that matters so may want to scrap this once we have parity.
-    fn type_abi_name_imp(&self, ty: &Type, ptr: bool) -> TokenStream {
         match ty {
             Type::String => {
                 quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
@@ -172,7 +168,7 @@ impl<'a> Gen<'a> {
                 quote! { *mut ::core::ffi::c_void }
             }
             Type::Win32Array((kind, len)) => {
-                let name = self.type_abi_name_imp(kind, ptr);
+                let name = self.type_abi_name(kind);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
@@ -184,7 +180,7 @@ impl<'a> Gen<'a> {
                 TypeKind::Enum => self.type_def_name(*def, &[]),
                 TypeKind::Struct => {
                     let tokens = self.type_def_name(*def, &[]);
-                    if self.reader.type_def_is_blittable(*def) || ptr {
+                    if self.reader.type_def_is_blittable(*def) {
                         tokens
                     } else {
                         quote! { ::core::mem::ManuallyDrop<#tokens> }
@@ -194,16 +190,16 @@ impl<'a> Gen<'a> {
             },
             Type::MutPtr((kind, pointers)) => {
                 let pointers = gen_mut_ptrs(*pointers);
-                let kind = self.type_abi_name_imp(kind, true);
+                let kind = self.type_abi_name(kind);
                 quote! { #pointers #kind }
             }
             Type::ConstPtr((kind, pointers)) => {
                 let pointers = gen_const_ptrs(*pointers);
-                let kind = self.type_abi_name_imp(kind, true);
+                let kind = self.type_abi_name(kind);
                 quote! { #pointers #kind }
             }
-            Type::WinrtArray(kind) => self.type_abi_name_imp(kind, ptr),
-            Type::WinrtArrayRef(kind) => self.type_abi_name_imp(kind, ptr),
+            Type::WinrtArray(kind) => self.type_abi_name(kind),
+            Type::WinrtArrayRef(kind) => self.type_abi_name(kind),
             _ => self.type_name(ty),
         }
     }
@@ -847,7 +843,8 @@ impl<'a> Gen<'a> {
         quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
     }
     pub fn param_name(&self, param: Param) -> TokenStream {
-        // TODO: why do we need to_lowercase
+        // In Rust, function parameters cannot be named the same as structs. This avoids some collisions that occur in the win32 metadata. 
+        // See Icmp6SendEcho2 for an example.
         to_ident(&self.reader.param_name(param).to_lowercase())
     }
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {

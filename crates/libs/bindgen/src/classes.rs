@@ -22,7 +22,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let name = to_ident(gen.reader.type_def_name(def));
     let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, Vec::new())));
-    // TODO: faster if this were a Vec?
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
