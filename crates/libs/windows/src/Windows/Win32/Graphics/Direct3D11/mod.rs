@@ -10567,7 +10567,7 @@ pub struct ID3D11VideoContext_Vtbl {
     VideoProcessorGetStreamFilter: usize,
     pub VideoProcessorGetStreamExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pextensionguid: *const ::windows::core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32,
     #[cfg(feature = "Win32_Foundation")]
-    pub VideoProcessorBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows::core::HRESULT,
+    pub VideoProcessorBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const ::core::mem::ManuallyDrop<D3D11_VIDEO_PROCESSOR_STREAM>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     VideoProcessorBlt: usize,
     pub NegotiateCryptoSessionKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

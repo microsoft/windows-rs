@@ -75,7 +75,7 @@ unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
+    pub AddAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::core::HRESULT,
     pub RemoveAuxiliaryInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputid: u32) -> ::windows::core::HRESULT,
     pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestedinputformat: *mut ::core::ffi::c_void, ppsupportedinputformat: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -328,7 +328,7 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectConfiguration {
 #[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub LockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT,
+    pub LockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>, u32numoutputconnections: u32, ppoutputconnections: *const *const ::core::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::core::HRESULT,
     pub UnlockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -411,9 +411,9 @@ unsafe impl ::windows::core::Interface for IAudioProcessingObjectNotifications {
 #[doc(hidden)]
 pub struct IAudioProcessingObjectNotifications_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT,
+    pub GetApoNotificationRegistrationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut ::core::mem::ManuallyDrop<APO_NOTIFICATION_DESCRIPTOR>, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub HandleNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const APO_NOTIFICATION),
+    pub HandleNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const ::core::mem::ManuallyDrop<APO_NOTIFICATION>),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))]
     HandleNotification: usize,
 }

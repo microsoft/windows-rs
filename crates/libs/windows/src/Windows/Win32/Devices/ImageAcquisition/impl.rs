@@ -8,7 +8,7 @@ pub trait IEnumWIA_DEV_CAPS_Impl: Sized {
 impl ::windows::core::RuntimeName for IEnumWIA_DEV_CAPS {}
 impl IEnumWIA_DEV_CAPS_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumWIA_DEV_CAPS_Impl, const OFFSET: isize>() -> IEnumWIA_DEV_CAPS_Vtbl {
-        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumWIA_DEV_CAPS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumWIA_DEV_CAPS_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::core::mem::ManuallyDrop<WIA_DEV_CAP>, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
@@ -364,7 +364,7 @@ impl ::windows::core::RuntimeName for IWiaDataTransfer {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWiaDataTransfer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaDataTransfer_Impl, const OFFSET: isize>() -> IWiaDataTransfer_Vtbl {
-        unsafe extern "system" fn idtGetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn idtGetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaDataTransfer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmedium: *mut ::core::mem::ManuallyDrop<super::super::System::Com::STGMEDIUM>, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.idtGetData(::core::mem::transmute_copy(&pmedium), ::core::mem::transmute(&piwiadatacallback)).into()
@@ -1384,7 +1384,7 @@ impl IWiaMiniDrv_Vtbl {
             this.drvInitializeWia(::core::mem::transmute_copy(&__midl__iwiaminidrv0000), ::core::mem::transmute_copy(&__midl__iwiaminidrv0001), ::core::mem::transmute(&__midl__iwiaminidrv0002), ::core::mem::transmute(&__midl__iwiaminidrv0003), ::core::mem::transmute(&__midl__iwiaminidrv0004), ::core::mem::transmute(&__midl__iwiaminidrv0005), ::core::mem::transmute_copy(&__midl__iwiaminidrv0006), ::core::mem::transmute_copy(&__midl__iwiaminidrv0007), ::core::mem::transmute_copy(&__midl__iwiaminidrv0008))
                 .into()
         }
-        unsafe extern "system" fn drvAcquireItemData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn drvAcquireItemData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut ::core::mem::ManuallyDrop<MINIDRV_TRANSFER_CONTEXT>, __midl__iwiaminidrv0012: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.drvAcquireItemData(::core::mem::transmute_copy(&__midl__iwiaminidrv0009), ::core::mem::transmute_copy(&__midl__iwiaminidrv0010), ::core::mem::transmute_copy(&__midl__iwiaminidrv0011), ::core::mem::transmute_copy(&__midl__iwiaminidrv0012)).into()
@@ -1411,7 +1411,7 @@ impl IWiaMiniDrv_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn drvWriteItemProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0024: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn drvWriteItemProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrv_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const ::core::mem::ManuallyDrop<MINIDRV_TRANSFER_CONTEXT>, __midl__iwiaminidrv0024: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.drvWriteItemProperties(::core::mem::transmute_copy(&__midl__iwiaminidrv0021), ::core::mem::transmute_copy(&__midl__iwiaminidrv0022), ::core::mem::transmute_copy(&__midl__iwiaminidrv0023)) {
@@ -1546,7 +1546,7 @@ impl ::windows::core::RuntimeName for IWiaMiniDrvCallBack {}
 #[cfg(feature = "Win32_Foundation")]
 impl IWiaMiniDrvCallBack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvCallBack_Impl, const OFFSET: isize>() -> IWiaMiniDrvCallBack_Vtbl {
-        unsafe extern "system" fn MiniDrvCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvCallBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MiniDrvCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaMiniDrvCallBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const ::core::mem::ManuallyDrop<MINIDRV_TRANSFER_CONTEXT>, lreserved: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.MiniDrvCallback(::core::mem::transmute_copy(&lreason), ::core::mem::transmute_copy(&lstatus), ::core::mem::transmute_copy(&lpercentcomplete), ::core::mem::transmute_copy(&loffset), ::core::mem::transmute_copy(&llength), ::core::mem::transmute_copy(&ptranctx), ::core::mem::transmute_copy(&lreserved)).into()
@@ -1675,7 +1675,7 @@ impl ::windows::core::RuntimeName for IWiaPropertyStorage {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IWiaPropertyStorage_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>() -> IWiaPropertyStorage_Vtbl {
-        unsafe extern "system" fn ReadMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReadMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReadMultiple(::core::mem::transmute_copy(&cpspec), ::core::mem::transmute_copy(&rgpspec)) {
@@ -1686,7 +1686,7 @@ impl IWiaPropertyStorage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn WriteMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WriteMultiple<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>, propidnamefirst: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.WriteMultiple(::core::mem::transmute_copy(&cpspec), ::core::mem::transmute_copy(&rgpspec), ::core::mem::transmute_copy(&rgpropvar), ::core::mem::transmute_copy(&propidnamefirst)).into()
@@ -1759,7 +1759,7 @@ impl IWiaPropertyStorage_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPropertyAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPropertyAttributes(::core::mem::transmute_copy(&cpspec), ::core::mem::transmute_copy(&rgpspec), ::core::mem::transmute_copy(&rgflags), ::core::mem::transmute_copy(&rgpropvar)).into()
@@ -1926,7 +1926,7 @@ impl ::windows::core::RuntimeName for IWiaUIExtension {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWiaUIExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>() -> IWiaUIExtension_Vtbl {
-        unsafe extern "system" fn DeviceDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const ::core::mem::ManuallyDrop<DEVICEDIALOGDATA>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeviceDialog(::core::mem::transmute_copy(&pdevicedialogdata)).into()
@@ -1962,7 +1962,7 @@ impl ::windows::core::RuntimeName for IWiaUIExtension2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWiaUIExtension2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>() -> IWiaUIExtension2_Vtbl {
-        unsafe extern "system" fn DeviceDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeviceDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWiaUIExtension2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const ::core::mem::ManuallyDrop<DEVICEDIALOGDATA2>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DeviceDialog(::core::mem::transmute_copy(&pdevicedialogdata)).into()

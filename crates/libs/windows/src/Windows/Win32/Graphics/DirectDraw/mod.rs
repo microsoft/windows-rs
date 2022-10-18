@@ -1281,11 +1281,11 @@ pub struct IDirectDrawSurface_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1327,7 +1327,7 @@ pub struct IDirectDrawSurface_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -1533,11 +1533,11 @@ pub struct IDirectDrawSurface2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1579,7 +1579,7 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -1791,11 +1791,11 @@ pub struct IDirectDrawSurface3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1837,7 +1837,7 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub SetPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -2067,11 +2067,11 @@ pub struct IDirectDrawSurface4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2116,7 +2116,7 @@ pub struct IDirectDrawSurface4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
@@ -2363,11 +2363,11 @@ pub struct IDirectDrawSurface7_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddOverlayDirtyRect: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDBLTFX) -> ::windows::core::HRESULT,
+    pub Blt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDBLTFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Blt: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::HRESULT,
+    pub BltBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::mem::ManuallyDrop<DDBLTBATCH>, param1: u32, param2: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BltBatch: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2412,7 +2412,7 @@ pub struct IDirectDrawSurface7_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Unlock: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut DDOVERLAYFX) -> ::windows::core::HRESULT,
+    pub UpdateOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::RECT, param1: *mut ::core::ffi::c_void, param2: *mut super::super::Foundation::RECT, param3: u32, param4: *mut ::core::mem::ManuallyDrop<DDOVERLAYFX>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateOverlay: usize,
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,

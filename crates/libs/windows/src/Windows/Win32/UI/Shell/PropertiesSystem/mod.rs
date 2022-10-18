@@ -4,7 +4,7 @@
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System::Com::StructuredStorage::PROPVARIANT]) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ClearPropVariantArray(rgpropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, cvars: u32);
+        fn ClearPropVariantArray(rgpropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, cvars: u32);
     }
     ClearPropVariantArray(::core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len() as _)
 }
@@ -14,7 +14,7 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System
 pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::VARIANT]) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ClearVariantArray(pvars: *mut super::super::super::System::Com::VARIANT, cvars: u32);
+        fn ClearVariantArray(pvars: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, cvars: u32);
     }
     ClearVariantArray(::core::mem::transmute(pvars.as_ptr()), pvars.len() as _)
 }
@@ -24,7 +24,7 @@ pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::V
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: ::core::option::Option<&[super::super::super::Foundation::BOOL]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromBooleanVector(prgf: *const super::super::super::Foundation::BOOL, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromBooleanVector(::core::mem::transmute(prgf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -35,7 +35,7 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: ::core::option::Option<&[su
 pub unsafe fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromBuffer(::core::mem::transmute(pv), cb, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -46,7 +46,7 @@ pub unsafe fn InitPropVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32)
 pub unsafe fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -57,7 +57,7 @@ pub unsafe fn InitPropVariantFromCLSID(clsid: *const ::windows::core::GUID) -> :
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: ::core::option::Option<&[f64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromDoubleVector(prgn: *const f64, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromDoubleVector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -68,7 +68,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: ::core::option::Option<&[f64
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromFileTime(::core::mem::transmute(pftin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -79,7 +79,7 @@ pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Fou
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromFileTimeVector(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromFileTimeVector(::core::mem::transmute(prgft.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -90,7 +90,7 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: ::core::option::Option<&[
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -101,7 +101,7 @@ pub unsafe fn InitPropVariantFromGUIDAsString(guid: *const ::windows::core::GUID
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: ::core::option::Option<&[i16]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromInt16Vector(prgn: *const i16, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt16Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -112,7 +112,7 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: ::core::option::Option<&[i16]
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: ::core::option::Option<&[i32]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromInt32Vector(prgn: *const i32, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt32Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -123,7 +123,7 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: ::core::option::Option<&[i32]
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: ::core::option::Option<&[i64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromInt64Vector(prgn: *const i64, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt64Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -134,7 +134,7 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: ::core::option::Option<&[i64]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromPropVariantVectorElem(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromPropVariantVectorElem(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromPropVariantVectorElem(::core::mem::transmute(propvarin), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -148,7 +148,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromResource(hinst.into(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -159,7 +159,7 @@ where
 pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: ::core::option::Option<*const super::Common::ITEMIDLIST>, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromStrRet(pstrret: *mut super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     InitPropVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppropvar)).ok()
 }
@@ -172,7 +172,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromStringAsVector(psz: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromStringAsVector(psz: ::windows::core::PCWSTR, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromStringAsVector(psz.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -183,7 +183,7 @@ where
 pub unsafe fn InitPropVariantFromStringVector(prgsz: ::core::option::Option<&[::windows::core::PWSTR]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromStringVector(prgsz: *const ::windows::core::PWSTR, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromStringVector(prgsz: *const ::windows::core::PWSTR, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromStringVector(::core::mem::transmute(prgsz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgsz.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -194,7 +194,7 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: ::core::option::Option<&[::
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: ::core::option::Option<&[u16]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromUInt16Vector(prgn: *const u16, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt16Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -205,7 +205,7 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: ::core::option::Option<&[u16
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: ::core::option::Option<&[u32]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromUInt32Vector(prgn: *const u32, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt32Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -216,7 +216,7 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: ::core::option::Option<&[u32
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: ::core::option::Option<&[u64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantFromUInt64Vector(prgn: *const u64, celems: u32, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt64Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -227,7 +227,7 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: ::core::option::Option<&[u64
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarvector: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn InitPropVariantVectorFromPropVariant(propvarsingle: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppropvarvector: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantVectorFromPropVariant(::core::mem::transmute(propvarsingle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -238,7 +238,7 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: *const super::
 pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromBooleanArray(prgf: *const super::super::super::Foundation::BOOL, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBooleanArray(::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -249,7 +249,7 @@ pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundatio
 pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBuffer(::core::mem::transmute(pv), cb, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -260,7 +260,7 @@ pub unsafe fn InitVariantFromBuffer(pv: *const ::core::ffi::c_void, cb: u32) -> 
 pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromDoubleArray(prgn: *const f64, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromDoubleArray(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -271,7 +271,7 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Resul
 pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromFileTime(pft: *const super::super::super::Foundation::FILETIME, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTime(::core::mem::transmute(pft), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -282,7 +282,7 @@ pub unsafe fn InitVariantFromFileTime(pft: *const super::super::super::Foundatio
 pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromFileTimeArray(prgft: *const super::super::super::Foundation::FILETIME, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTimeArray(::core::mem::transmute(prgft.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -293,7 +293,7 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super
 pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -304,7 +304,7 @@ pub unsafe fn InitVariantFromGUIDAsString(guid: *const ::windows::core::GUID) ->
 pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromInt16Array(prgn: *const i16, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -315,7 +315,7 @@ pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result
 pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromInt32Array(prgn: *const i32, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -326,7 +326,7 @@ pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result
 pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromInt64Array(prgn: *const i64, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -340,7 +340,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromResource(hinst.into(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -351,7 +351,7 @@ where
 pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl: *const super::Common::ITEMIDLIST, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -362,7 +362,7 @@ pub unsafe fn InitVariantFromStrRet(pstrret: *const super::Common::STRRET, pidl:
 pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromStringArray(prgsz: *const ::windows::core::PWSTR, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromStringArray(prgsz: *const ::windows::core::PWSTR, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStringArray(::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -373,7 +373,7 @@ pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::
 pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromUInt16Array(prgn: *const u16, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -384,7 +384,7 @@ pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Resul
 pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromUInt32Array(prgn: *const u32, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -395,7 +395,7 @@ pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Resul
 pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromUInt64Array(prgn: *const u64, celems: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -406,7 +406,7 @@ pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Resul
 pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn InitVariantFromVariantArrayElem(varin: *const super::super::super::System::Com::VARIANT, ielem: u32, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn InitVariantFromVariantArrayElem(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromVariantArrayElem(::core::mem::transmute(varin), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -417,7 +417,7 @@ pub unsafe fn InitVariantFromVariantArrayElem(varin: *const super::super::super:
 pub unsafe fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     PSCoerceToCanonicalValue(::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
 }
@@ -469,7 +469,7 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Op
 pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: ::core::option::Option<*const PROPERTYKEY>, rgflags: ::core::option::Option<*const PKA_FLAGS>, rgpropvar: ::core::option::Option<*const super::super::super::System::Com::StructuredStorage::PROPVARIANT>, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, cchanges: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rgflags.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rgpropvar.unwrap_or(::std::ptr::null())), cchanges, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
@@ -504,7 +504,7 @@ where
 pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     PSCreateSimplePropertyChange(flags, ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
@@ -523,7 +523,7 @@ pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, rii
 pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
+        fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT;
     }
     PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(pwsztext.as_ptr()), pwsztext.len() as _).ok()
 }
@@ -533,7 +533,7 @@ pub unsafe fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const su
 pub unsafe fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PSFormatForDisplayAlloc(key: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -558,7 +558,7 @@ where
 pub unsafe fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetImageReferenceForValue(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -611,7 +611,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PSGetNamedPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszname: ::windows::core::PCWSTR, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps), cb, pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -655,7 +655,7 @@ where
 pub unsafe fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PSGetPropertyFromPropertyStorage(psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps), cb, ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -692,7 +692,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSGetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PSGetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetPropertyValue(pps.into().abi(), ppd.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -943,7 +943,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
+        fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     PSPropertyBag_ReadType(propbag.into().abi(), propname.into(), ::core::mem::transmute(var), r#type).ok()
 }
@@ -1234,7 +1234,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSSetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn PSSetPropertyValue(pps: *mut ::core::ffi::c_void, ppd: *mut ::core::ffi::c_void, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     PSSetPropertyValue(pps.into().abi(), ppd.into().abi(), ::core::mem::transmute(propvar)).ok()
 }
@@ -1320,7 +1320,7 @@ where
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::super::System::Com::VARENUM) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
+        fn PropVariantChangeType(ppropvardest: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, propvarsrc: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), flags, vt).ok()
 }
@@ -1330,7 +1330,7 @@ pub unsafe fn PropVariantChangeType(ppropvardest: *mut super::super::super::Syst
 pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantCompareEx(propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
+        fn PropVariantCompareEx(propvar1: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, propvar2: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32;
     }
     PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), unit, flags)
 }
@@ -1340,7 +1340,7 @@ pub unsafe fn PropVariantCompareEx(propvar1: *const super::super::super::System:
 pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetBooleanElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn PropVariantGetBooleanElem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetBooleanElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
@@ -1351,7 +1351,7 @@ pub unsafe fn PropVariantGetBooleanElem(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetDoubleElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
+        fn PropVariantGetDoubleElem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetDoubleElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -1362,7 +1362,7 @@ pub unsafe fn PropVariantGetDoubleElem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetElementCount(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32;
+        fn PropVariantGetElementCount(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> u32;
     }
     PropVariantGetElementCount(::core::mem::transmute(propvar))
 }
@@ -1372,7 +1372,7 @@ pub unsafe fn PropVariantGetElementCount(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetFileTimeElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pftval: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
+        fn PropVariantGetFileTimeElem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pftval: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetFileTimeElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
@@ -1383,7 +1383,7 @@ pub unsafe fn PropVariantGetFileTimeElem(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
+        fn PropVariantGetInt16Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt16Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -1394,7 +1394,7 @@ pub unsafe fn PropVariantGetInt16Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
+        fn PropVariantGetInt32Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt32Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -1405,7 +1405,7 @@ pub unsafe fn PropVariantGetInt32Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
+        fn PropVariantGetInt64Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt64Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
@@ -1416,7 +1416,7 @@ pub unsafe fn PropVariantGetInt64Elem(propvar: *const super::super::super::Syste
 pub unsafe fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetStringElem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PropVariantGetStringElem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetStringElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -1427,7 +1427,7 @@ pub unsafe fn PropVariantGetStringElem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetUInt16Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
+        fn PropVariantGetUInt16Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt16Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -1438,7 +1438,7 @@ pub unsafe fn PropVariantGetUInt16Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetUInt32Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantGetUInt32Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt32Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -1449,7 +1449,7 @@ pub unsafe fn PropVariantGetUInt32Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantGetUInt64Elem(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
+        fn PropVariantGetUInt64Elem(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt64Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -1460,7 +1460,7 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBSTR(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn PropVariantToBSTR(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToBSTR(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -1471,7 +1471,7 @@ pub unsafe fn PropVariantToBSTR(propvar: *const super::super::super::System::Com
 pub unsafe fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBoolean(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn PropVariantToBoolean(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToBoolean(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
@@ -1482,7 +1482,7 @@ pub unsafe fn PropVariantToBoolean(propvarin: *const super::super::super::System
 pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBooleanVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToBooleanVector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgf: *mut super::super::super::Foundation::BOOL, crgf: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1492,7 +1492,7 @@ pub unsafe fn PropVariantToBooleanVector(propvar: *const super::super::super::Sy
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBooleanVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToBooleanVectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToBooleanVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1505,7 +1505,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBooleanWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+        fn PropVariantToBooleanWithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
     PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into())
 }
@@ -1515,7 +1515,7 @@ where
 pub unsafe fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToBuffer(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
+        fn PropVariantToBuffer(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
     }
     PropVariantToBuffer(::core::mem::transmute(propvar), ::core::mem::transmute(pv), cb).ok()
 }
@@ -1525,7 +1525,7 @@ pub unsafe fn PropVariantToBuffer(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToDouble(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
+        fn PropVariantToDouble(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdblret: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToDouble(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -1536,7 +1536,7 @@ pub unsafe fn PropVariantToDouble(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToDoubleVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToDoubleVector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1546,7 +1546,7 @@ pub unsafe fn PropVariantToDoubleVector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToDoubleVectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToDoubleVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1556,7 +1556,7 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToDoubleWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64;
+        fn PropVariantToDoubleWithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, dbldefault: f64) -> f64;
     }
     PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), dbldefault)
 }
@@ -1566,7 +1566,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToFileTime(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
+        fn PropVariantToFileTime(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pstfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToFileTime(::core::mem::transmute(propvar), pstfout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
@@ -1577,7 +1577,7 @@ pub unsafe fn PropVariantToFileTime(propvar: *const super::super::super::System:
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: &mut [super::super::super::Foundation::FILETIME], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToFileTimeVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToFileTimeVector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgft: *mut super::super::super::Foundation::FILETIME, crgft: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgft.as_ptr()), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1587,7 +1587,7 @@ pub unsafe fn PropVariantToFileTimeVector(propvar: *const super::super::super::S
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToFileTimeVectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToFileTimeVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgft), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1597,7 +1597,7 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const super::super::sup
 pub unsafe fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToGUID(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+        fn PropVariantToGUID(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToGUID(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
@@ -1608,7 +1608,7 @@ pub unsafe fn PropVariantToGUID(propvar: *const super::super::super::System::Com
 pub unsafe fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
+        fn PropVariantToInt16(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, piret: *mut i16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -1619,7 +1619,7 @@ pub unsafe fn PropVariantToInt16(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt16Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1629,7 +1629,7 @@ pub unsafe fn PropVariantToInt16Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt16VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1639,7 +1639,7 @@ pub unsafe fn PropVariantToInt16VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16;
+        fn PropVariantToInt16WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, idefault: i16) -> i16;
     }
     PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), idefault)
 }
@@ -1649,7 +1649,7 @@ pub unsafe fn PropVariantToInt16WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt32(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, plret: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -1660,7 +1660,7 @@ pub unsafe fn PropVariantToInt32(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt32Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1670,7 +1670,7 @@ pub unsafe fn PropVariantToInt32Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt32VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1680,7 +1680,7 @@ pub unsafe fn PropVariantToInt32VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32;
+        fn PropVariantToInt32WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ldefault: i32) -> i32;
     }
     PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ldefault)
 }
@@ -1690,7 +1690,7 @@ pub unsafe fn PropVariantToInt32WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
+        fn PropVariantToInt64(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pllret: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
@@ -1701,7 +1701,7 @@ pub unsafe fn PropVariantToInt64(propvarin: *const super::super::super::System::
 pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt64Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1711,7 +1711,7 @@ pub unsafe fn PropVariantToInt64Vector(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToInt64VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1721,7 +1721,7 @@ pub unsafe fn PropVariantToInt64VectorAlloc(propvar: *const super::super::super:
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64;
+        fn PropVariantToInt64WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, lldefault: i64) -> i64;
     }
     PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), lldefault)
 }
@@ -1731,7 +1731,7 @@ pub unsafe fn PropVariantToInt64WithDefault(propvarin: *const super::super::supe
 pub unsafe fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::Common::STRRET> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToStrRet(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
+        fn PropVariantToStrRet(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToStrRet(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
@@ -1742,7 +1742,7 @@ pub unsafe fn PropVariantToStrRet(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToString(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
+        fn PropVariantToString(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, psz: ::windows::core::PWSTR, cch: u32) -> ::windows::core::HRESULT;
     }
     PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(psz.as_ptr()), psz.len() as _).ok()
 }
@@ -1752,7 +1752,7 @@ pub unsafe fn PropVariantToString(propvar: *const super::super::super::System::C
 pub unsafe fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToStringAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PropVariantToStringAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppszout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToStringAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -1763,7 +1763,7 @@ pub unsafe fn PropVariantToStringAlloc(propvar: *const super::super::super::Syst
 pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToStringVector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToStringVector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1773,7 +1773,7 @@ pub unsafe fn PropVariantToStringVector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToStringVectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToStringVectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToStringVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1786,7 +1786,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToStringWithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
+        fn PropVariantToStringWithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
     PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into())
 }
@@ -1796,7 +1796,7 @@ where
 pub unsafe fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt16(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt16(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, puiret: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -1807,7 +1807,7 @@ pub unsafe fn PropVariantToUInt16(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt16Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt16Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1817,7 +1817,7 @@ pub unsafe fn PropVariantToUInt16Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt16VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1827,7 +1827,7 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt16WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16;
+        fn PropVariantToUInt16WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, uidefault: u16) -> u16;
     }
     PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), uidefault)
 }
@@ -1837,7 +1837,7 @@ pub unsafe fn PropVariantToUInt16WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt32(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt32(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pulret: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -1848,7 +1848,7 @@ pub unsafe fn PropVariantToUInt32(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt32Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt32Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1858,7 +1858,7 @@ pub unsafe fn PropVariantToUInt32Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt32VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1868,7 +1868,7 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt32WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32;
+        fn PropVariantToUInt32WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, uldefault: u32) -> u32;
     }
     PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), uldefault)
 }
@@ -1878,7 +1878,7 @@ pub unsafe fn PropVariantToUInt32WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt64(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt64(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pullret: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -1889,7 +1889,7 @@ pub unsafe fn PropVariantToUInt64(propvarin: *const super::super::super::System:
 pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt64Vector(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt64Vector(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -1899,7 +1899,7 @@ pub unsafe fn PropVariantToUInt64Vector(propvar: *const super::super::super::Sys
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn PropVariantToUInt64VectorAlloc(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     PropVariantToUInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -1909,7 +1909,7 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: *const super::super::super
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToUInt64WithDefault(propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64;
+        fn PropVariantToUInt64WithDefault(propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ulldefault: u64) -> u64;
     }
     PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ulldefault)
 }
@@ -1919,7 +1919,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const super::super::sup
 pub unsafe fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToVariant(ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pvar: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn PropVariantToVariant(ppropvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
@@ -1933,7 +1933,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantToWinRTPropertyValue(propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+        fn PropVariantToWinRTPropertyValue(propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     PropVariantToWinRTPropertyValue(::core::mem::transmute(propvar), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
 }
@@ -2011,7 +2011,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHPropStgReadMultiple(pps: *mut ::core::ffi::c_void, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn SHPropStgReadMultiple(pps: *mut ::core::ffi::c_void, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHPropStgReadMultiple(pps.into().abi(), ucodepage, cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -2025,7 +2025,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHPropStgWriteMultiple(pps: *mut ::core::ffi::c_void, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::HRESULT;
+        fn SHPropStgWriteMultiple(pps: *mut ::core::ffi::c_void, pucodepage: *mut u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, propidnamefirst: u32) -> ::windows::core::HRESULT;
     }
     SHPropStgWriteMultiple(pps.into().abi(), ::core::mem::transmute(pucodepage.unwrap_or(::std::ptr::null_mut())), cpspec, ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar), propidnamefirst).ok()
 }
@@ -2035,7 +2035,7 @@ where
 pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantCompare(var1: *const super::super::super::System::Com::VARIANT, var2: *const super::super::super::System::Com::VARIANT) -> i32;
+        fn VariantCompare(var1: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var2: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> i32;
     }
     VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2))
 }
@@ -2045,7 +2045,7 @@ pub unsafe fn VariantCompare(var1: *const super::super::super::System::Com::VARI
 pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetBooleanElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn VariantGetBooleanElem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pfval: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetBooleanElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
@@ -2056,7 +2056,7 @@ pub unsafe fn VariantGetBooleanElem(var: *const super::super::super::System::Com
 pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetDoubleElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
+        fn VariantGetDoubleElem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetDoubleElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -2067,7 +2067,7 @@ pub unsafe fn VariantGetDoubleElem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetElementCount(varin: *const super::super::super::System::Com::VARIANT) -> u32;
+        fn VariantGetElementCount(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> u32;
     }
     VariantGetElementCount(::core::mem::transmute(varin))
 }
@@ -2077,7 +2077,7 @@ pub unsafe fn VariantGetElementCount(varin: *const super::super::super::System::
 pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
+        fn VariantGetInt16Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut i16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt16Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -2088,7 +2088,7 @@ pub unsafe fn VariantGetInt16Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
+        fn VariantGetInt32Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt32Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -2099,7 +2099,7 @@ pub unsafe fn VariantGetInt32Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
+        fn VariantGetInt64Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt64Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
@@ -2110,7 +2110,7 @@ pub unsafe fn VariantGetInt64Elem(var: *const super::super::super::System::Com::
 pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetStringElem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn VariantGetStringElem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, ppszval: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetStringElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -2121,7 +2121,7 @@ pub unsafe fn VariantGetStringElem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetUInt16Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
+        fn VariantGetUInt16Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt16Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -2132,7 +2132,7 @@ pub unsafe fn VariantGetUInt16Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetUInt32Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantGetUInt32Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt32Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -2143,7 +2143,7 @@ pub unsafe fn VariantGetUInt32Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantGetUInt64Elem(var: *const super::super::super::System::Com::VARIANT, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
+        fn VariantGetUInt64Elem(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ielem: u32, pnval: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt64Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -2154,7 +2154,7 @@ pub unsafe fn VariantGetUInt64Elem(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToBoolean(varin: *const super::super::super::System::Com::VARIANT, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+        fn VariantToBoolean(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pfret: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToBoolean(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
@@ -2165,7 +2165,7 @@ pub unsafe fn VariantToBoolean(varin: *const super::super::super::System::Com::V
 pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToBooleanArray(var: *const super::super::super::System::Com::VARIANT, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToBooleanArray(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgf: *mut super::super::super::Foundation::BOOL, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2175,7 +2175,7 @@ pub unsafe fn VariantToBooleanArray(var: *const super::super::super::System::Com
 pub unsafe fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToBooleanArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToBooleanArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgf: *mut *mut super::super::super::Foundation::BOOL, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToBooleanArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2188,7 +2188,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToBooleanWithDefault(varin: *const super::super::super::System::Com::VARIANT, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
+        fn VariantToBooleanWithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, fdefault: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
     }
     VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into())
 }
@@ -2198,7 +2198,7 @@ where
 pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToBuffer(varin: *const super::super::super::System::Com::VARIANT, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
+        fn VariantToBuffer(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
     }
     VariantToBuffer(::core::mem::transmute(varin), ::core::mem::transmute(pv), cb).ok()
 }
@@ -2208,7 +2208,7 @@ pub unsafe fn VariantToBuffer(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToDosDateTime(varin: *const super::super::super::System::Com::VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::HRESULT;
+        fn VariantToDosDateTime(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pwdate: *mut u16, pwtime: *mut u16) -> ::windows::core::HRESULT;
     }
     VariantToDosDateTime(::core::mem::transmute(varin), ::core::mem::transmute(pwdate), ::core::mem::transmute(pwtime)).ok()
 }
@@ -2218,7 +2218,7 @@ pub unsafe fn VariantToDosDateTime(varin: *const super::super::super::System::Co
 pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToDouble(varin: *const super::super::super::System::Com::VARIANT, pdblret: *mut f64) -> ::windows::core::HRESULT;
+        fn VariantToDouble(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pdblret: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToDouble(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -2229,7 +2229,7 @@ pub unsafe fn VariantToDouble(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToDoubleArray(var: *const super::super::super::System::Com::VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToDoubleArray(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2239,7 +2239,7 @@ pub unsafe fn VariantToDoubleArray(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToDoubleArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToDoubleArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut f64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToDoubleArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2249,7 +2249,7 @@ pub unsafe fn VariantToDoubleArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToDoubleWithDefault(varin: *const super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64;
+        fn VariantToDoubleWithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, dbldefault: f64) -> f64;
     }
     VariantToDoubleWithDefault(::core::mem::transmute(varin), dbldefault)
 }
@@ -2259,7 +2259,7 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToFileTime(varin: *const super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
+        fn VariantToFileTime(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, stfout: PSTIME_FLAGS, pftout: *mut super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToFileTime(::core::mem::transmute(varin), stfout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
@@ -2270,7 +2270,7 @@ pub unsafe fn VariantToFileTime(varin: *const super::super::super::System::Com::
 pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToGUID(varin: *const super::super::super::System::Com::VARIANT, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+        fn VariantToGUID(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToGUID(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
@@ -2281,7 +2281,7 @@ pub unsafe fn VariantToGUID(varin: *const super::super::super::System::Com::VARI
 pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt16(varin: *const super::super::super::System::Com::VARIANT, piret: *mut i16) -> ::windows::core::HRESULT;
+        fn VariantToInt16(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, piret: *mut i16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -2292,7 +2292,7 @@ pub unsafe fn VariantToInt16(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt16Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2302,7 +2302,7 @@ pub unsafe fn VariantToInt16Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt16ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut i16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2312,7 +2312,7 @@ pub unsafe fn VariantToInt16ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, idefault: i16) -> i16;
+        fn VariantToInt16WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, idefault: i16) -> i16;
     }
     VariantToInt16WithDefault(::core::mem::transmute(varin), idefault)
 }
@@ -2322,7 +2322,7 @@ pub unsafe fn VariantToInt16WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt32(varin: *const super::super::super::System::Com::VARIANT, plret: *mut i32) -> ::windows::core::HRESULT;
+        fn VariantToInt32(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, plret: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -2333,7 +2333,7 @@ pub unsafe fn VariantToInt32(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt32Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2343,7 +2343,7 @@ pub unsafe fn VariantToInt32Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt32ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut i32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2353,7 +2353,7 @@ pub unsafe fn VariantToInt32ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, ldefault: i32) -> i32;
+        fn VariantToInt32WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ldefault: i32) -> i32;
     }
     VariantToInt32WithDefault(::core::mem::transmute(varin), ldefault)
 }
@@ -2363,7 +2363,7 @@ pub unsafe fn VariantToInt32WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt64(varin: *const super::super::super::System::Com::VARIANT, pllret: *mut i64) -> ::windows::core::HRESULT;
+        fn VariantToInt64(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pllret: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
@@ -2374,7 +2374,7 @@ pub unsafe fn VariantToInt64(varin: *const super::super::super::System::Com::VAR
 pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt64Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2384,7 +2384,7 @@ pub unsafe fn VariantToInt64Array(var: *const super::super::super::System::Com::
 pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToInt64ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut i64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2394,7 +2394,7 @@ pub unsafe fn VariantToInt64ArrayAlloc(var: *const super::super::super::System::
 pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, lldefault: i64) -> i64;
+        fn VariantToInt64WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, lldefault: i64) -> i64;
     }
     VariantToInt64WithDefault(::core::mem::transmute(varin), lldefault)
 }
@@ -2404,7 +2404,7 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const super::super::super::Syste
 pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToPropVariant(pvar: *const super::super::super::System::Com::VARIANT, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn VariantToPropVariant(pvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToPropVariant(::core::mem::transmute(pvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -2415,7 +2415,7 @@ pub unsafe fn VariantToPropVariant(pvar: *const super::super::super::System::Com
 pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::Common::STRRET> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToStrRet(varin: *const super::super::super::System::Com::VARIANT, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
+        fn VariantToStrRet(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pstrret: *mut super::Common::STRRET) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToStrRet(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
@@ -2426,7 +2426,7 @@ pub unsafe fn VariantToStrRet(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToString(varin: *const super::super::super::System::Com::VARIANT, pszbuf: ::windows::core::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
+        fn VariantToString(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pszbuf: ::windows::core::PWSTR, cchbuf: u32) -> ::windows::core::HRESULT;
     }
     VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
@@ -2436,7 +2436,7 @@ pub unsafe fn VariantToString(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToStringAlloc(varin: *const super::super::super::System::Com::VARIANT, ppszbuf: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn VariantToStringAlloc(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppszbuf: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToStringAlloc(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -2447,7 +2447,7 @@ pub unsafe fn VariantToStringAlloc(varin: *const super::super::super::System::Co
 pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToStringArray(var: *const super::super::super::System::Com::VARIANT, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToStringArray(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgsz: *mut ::windows::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2457,7 +2457,7 @@ pub unsafe fn VariantToStringArray(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToStringArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToStringArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgsz: *mut *mut ::windows::core::PWSTR, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToStringArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2470,7 +2470,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToStringWithDefault(varin: *const super::super::super::System::Com::VARIANT, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
+        fn VariantToStringWithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pszdefault: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
     VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into())
 }
@@ -2480,7 +2480,7 @@ where
 pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt16(varin: *const super::super::super::System::Com::VARIANT, puiret: *mut u16) -> ::windows::core::HRESULT;
+        fn VariantToUInt16(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, puiret: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -2491,7 +2491,7 @@ pub unsafe fn VariantToUInt16(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt16Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt16Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2501,7 +2501,7 @@ pub unsafe fn VariantToUInt16Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt16ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut u16, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2511,7 +2511,7 @@ pub unsafe fn VariantToUInt16ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt16WithDefault(varin: *const super::super::super::System::Com::VARIANT, uidefault: u16) -> u16;
+        fn VariantToUInt16WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, uidefault: u16) -> u16;
     }
     VariantToUInt16WithDefault(::core::mem::transmute(varin), uidefault)
 }
@@ -2521,7 +2521,7 @@ pub unsafe fn VariantToUInt16WithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt32(varin: *const super::super::super::System::Com::VARIANT, pulret: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt32(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pulret: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -2532,7 +2532,7 @@ pub unsafe fn VariantToUInt32(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt32Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt32Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2542,7 +2542,7 @@ pub unsafe fn VariantToUInt32Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt32ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2552,7 +2552,7 @@ pub unsafe fn VariantToUInt32ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt32WithDefault(varin: *const super::super::super::System::Com::VARIANT, uldefault: u32) -> u32;
+        fn VariantToUInt32WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, uldefault: u32) -> u32;
     }
     VariantToUInt32WithDefault(::core::mem::transmute(varin), uldefault)
 }
@@ -2562,7 +2562,7 @@ pub unsafe fn VariantToUInt32WithDefault(varin: *const super::super::super::Syst
 pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt64(varin: *const super::super::super::System::Com::VARIANT, pullret: *mut u64) -> ::windows::core::HRESULT;
+        fn VariantToUInt64(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pullret: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -2573,7 +2573,7 @@ pub unsafe fn VariantToUInt64(varin: *const super::super::super::System::Com::VA
 pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt64Array(var: *const super::super::super::System::Com::VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt64Array(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
@@ -2583,7 +2583,7 @@ pub unsafe fn VariantToUInt64Array(var: *const super::super::super::System::Com:
 pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System::Com::VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
+        fn VariantToUInt64ArrayAlloc(var: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pprgn: *mut *mut u64, pcelem: *mut u32) -> ::windows::core::HRESULT;
     }
     VariantToUInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
@@ -2593,7 +2593,7 @@ pub unsafe fn VariantToUInt64ArrayAlloc(var: *const super::super::super::System:
 pub unsafe fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VariantToUInt64WithDefault(varin: *const super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64;
+        fn VariantToUInt64WithDefault(varin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ulldefault: u64) -> u64;
     }
     VariantToUInt64WithDefault(::core::mem::transmute(varin), ulldefault)
 }
@@ -2606,7 +2606,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn WinRTPropertyValueToPropVariant(punkpropertyvalue: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
+        fn WinRTPropertyValueToPropVariant(punkpropertyvalue: *mut ::core::ffi::c_void, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WinRTPropertyValueToPropVariant(punkpropertyvalue.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
@@ -2852,11 +2852,11 @@ unsafe impl ::windows::core::Interface for INamedPropertyStore {
 pub struct INamedPropertyStore_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetNamedValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub SetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub SetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     SetNamedValue: usize,
     pub GetNameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
@@ -3046,7 +3046,7 @@ unsafe impl ::windows::core::Interface for IPropertyChange {
 pub struct IPropertyChange_Vtbl {
     pub base__: IObjectWithPropertyKey_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub ApplyToPropVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarout: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub ApplyToPropVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarin: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppropvarout: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     ApplyToPropVariant: usize,
 }
@@ -3268,7 +3268,7 @@ pub struct IPropertyDescription_Vtbl {
     pub GetGroupingRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgr: *mut PROPDESC_GROUPING_RANGE) -> ::windows::core::HRESULT,
     pub GetRelativeDescriptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetRelativeDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut ::windows::core::PWSTR, ppszdesc2: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub GetRelativeDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar1: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, propvar2: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppszdesc1: *mut ::windows::core::PWSTR, ppszdesc2: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetRelativeDescription: usize,
     pub GetSortDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psd: *mut PROPDESC_SORTDESCRIPTION) -> ::windows::core::HRESULT,
@@ -3283,15 +3283,15 @@ pub struct IPropertyDescription_Vtbl {
     GetConditionType: usize,
     pub GetEnumTypeList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub CoerceToCanonicalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub CoerceToCanonicalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     CoerceToCanonicalValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FormatForDisplay: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub IsValueCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub IsValueCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     IsValueCanonical: usize,
 }
@@ -3432,7 +3432,7 @@ unsafe impl ::windows::core::Interface for IPropertyDescription2 {
 pub struct IPropertyDescription2_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetImageReferenceForValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub GetImageReferenceForValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetImageReferenceForValue: usize,
 }
@@ -3980,15 +3980,15 @@ pub struct IPropertyEnumType_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub GetEnumType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetRangeMinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarmin: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetRangeMinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarmin: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetRangeMinValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetRangeSetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarset: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetRangeSetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarset: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetRangeSetValue: usize,
     pub GetDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
@@ -4117,7 +4117,7 @@ pub struct IPropertyEnumTypeList_Vtbl {
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itype: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetConditionAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub FindMatchingIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarcmp: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pnindex: *mut u32) -> ::windows::core::HRESULT,
+    pub FindMatchingIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarcmp: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pnindex: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FindMatchingIndex: usize,
 }
@@ -4178,11 +4178,11 @@ pub struct IPropertyStore_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cprops: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     SetValue: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4260,12 +4260,12 @@ pub struct IPropertyStoreCache_Vtbl {
     pub base__: IPropertyStore_Vtbl,
     pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub GetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows::core::HRESULT,
+    pub GetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pstate: *mut PSC_STATE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetValueAndState: usize,
     pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub SetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows::core::HRESULT,
+    pub SetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, state: PSC_STATE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     SetValueAndState: usize,
 }
@@ -4449,11 +4449,11 @@ pub struct IPropertySystem_Vtbl {
     pub GetPropertyDescriptionListFromString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszproplist: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumeratePropertyDescriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filteron: PROPDESC_ENUMFILTER, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FormatForDisplay: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub FormatForDisplayAlloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub FormatForDisplayAlloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FormatForDisplayAlloc: usize,
     pub RegisterPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
@@ -4567,7 +4567,7 @@ pub struct IPropertyUI_Vtbl {
     pub GetDefaultWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pid: u32, pcxchars: *mut u32) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pid: u32, pflags: *mut PROPERTYUI_FLAGS) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pid: u32, ppropvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::StructuredStorage::PROPVARIANT>, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows::core::PWSTR, cchtext: u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FormatForDisplay: usize,
     pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pid: u32, pwszhelpfile: ::windows::core::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows::core::HRESULT,

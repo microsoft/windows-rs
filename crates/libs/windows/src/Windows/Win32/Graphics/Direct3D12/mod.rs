@@ -1485,10 +1485,10 @@ pub struct ID3D12Device_Vtbl {
     pub CreateCommandQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateGraphicsPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateGraphicsPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateGraphicsPipelineState: usize,
-    pub CreateComputePipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateComputePipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: *mut ::core::ffi::c_void, pinitialstate: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT,
     pub CreateDescriptorHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -6228,7 +6228,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub Dispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
     pub CopyBufferRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, numbytes: u64),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CopyTextureRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX),
+    pub CopyTextureRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CopyTextureRegion: usize,
     pub CopyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, psrcresource: *mut ::core::ffi::c_void),
@@ -6252,7 +6252,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub OMSetBlendFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blendfactor: *const f32),
     pub OMSetStencilRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stencilref: u32),
     pub SetPipelineState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipelinestate: *mut ::core::ffi::c_void),
-    pub ResourceBarrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER),
+    pub ResourceBarrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<D3D12_RESOURCE_BARRIER>),
     pub ExecuteBundle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommandlist: *mut ::core::ffi::c_void),
     pub SetDescriptorHeaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numdescriptorheaps: u32, ppdescriptorheaps: *const *mut ::core::ffi::c_void),
     pub SetComputeRootSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prootsignature: *mut ::core::ffi::c_void),
@@ -7724,7 +7724,7 @@ unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList4 {
 pub struct ID3D12GraphicsCommandList4_Vtbl {
     pub base__: ID3D12GraphicsCommandList3_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub BeginRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS),
+    pub BeginRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     BeginRenderPass: usize,
     pub EndRenderPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
@@ -9503,10 +9503,10 @@ pub struct ID3D12PipelineLibrary_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub StorePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, ppipeline: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub LoadGraphicsPipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadGraphicsPipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     LoadGraphicsPipeline: usize,
-    pub LoadComputePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LoadComputePipeline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSerializedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
     pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, datasizeinbytes: usize) -> ::windows::core::HRESULT,
 }

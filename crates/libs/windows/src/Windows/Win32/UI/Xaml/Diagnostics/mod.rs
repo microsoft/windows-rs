@@ -172,18 +172,18 @@ pub struct IVisualTreeService_Vtbl {
     pub AdviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnadviseVisualTreeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetEnums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::HRESULT,
+    pub GetEnums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, ppenums: *mut *mut ::core::mem::ManuallyDrop<EnumType>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEnums: usize,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, value: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetPropertyValuesChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: *mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::HRESULT,
+    pub GetPropertyValuesChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, psourcecount: *mut u32, pppropertysources: *mut *mut ::core::mem::ManuallyDrop<PropertyChainSource>, ppropertycount: *mut u32, pppropertyvalues: *mut *mut ::core::mem::ManuallyDrop<PropertyChainValue>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPropertyValuesChain: usize,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, value: u64, propertyindex: u32) -> ::windows::core::HRESULT,
     pub ClearProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, propertyindex: u32) -> ::windows::core::HRESULT,
     pub GetCollectionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, pcollectionsize: *mut u32) -> ::windows::core::HRESULT,
-    pub GetCollectionElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::HRESULT,
+    pub GetCollectionElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancehandle: u64, startindex: u32, pelementcount: *mut u32, ppelementvalues: *mut *mut ::core::mem::ManuallyDrop<CollectionElementValue>) -> ::windows::core::HRESULT,
     pub AddChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, child: u64, index: u32) -> ::windows::core::HRESULT,
     pub RemoveChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, index: u32) -> ::windows::core::HRESULT,
     pub ClearChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64) -> ::windows::core::HRESULT,

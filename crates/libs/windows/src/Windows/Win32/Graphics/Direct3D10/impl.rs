@@ -1580,17 +1580,17 @@ impl ID3D10EffectPass_Vtbl {
             let this = &*((*this).this as *const Impl);
             this.GetDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetVertexShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVertexShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.GetVertexShaderDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetGeometryShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGeometryShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.GetGeometryShaderDesc(::core::mem::transmute_copy(&pdesc)).into()
         }
-        unsafe extern "system" fn GetPixelShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D10_PASS_SHADER_DESC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPixelShaderDesc<Impl: ID3D10EffectPass_Impl>(this: *mut ::core::ffi::c_void, pdesc: *mut ::core::mem::ManuallyDrop<D3D10_PASS_SHADER_DESC>) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
             this.GetPixelShaderDesc(::core::mem::transmute_copy(&pdesc)).into()

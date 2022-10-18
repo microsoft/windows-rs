@@ -105,7 +105,7 @@ pub struct IDMLBindingTable_Vtbl {
     pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     pub BindPersistentResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::core::HRESULT,
+    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Reset: usize,
 }
@@ -400,7 +400,7 @@ pub struct IDMLDevice_Vtbl {
     pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const ::core::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateBindingTable: usize,
     pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

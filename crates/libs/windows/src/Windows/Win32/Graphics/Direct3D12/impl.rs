@@ -605,12 +605,12 @@ impl ID3D12Device_Vtbl {
             let this = (*this).get_impl();
             this.CreateCommandAllocator(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppcommandallocator)).into()
         }
-        unsafe extern "system" fn CreateGraphicsPipelineState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateGraphicsPipelineState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateGraphicsPipelineState(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pppipelinestate)).into()
         }
-        unsafe extern "system" fn CreateComputePipelineState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateComputePipelineState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateComputePipelineState(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pppipelinestate)).into()
@@ -1661,7 +1661,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
             let this = (*this).get_impl();
             this.CopyBufferRegion(::core::mem::transmute(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::core::mem::transmute(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&numbytes))
         }
-        unsafe extern "system" fn CopyTextureRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
+        unsafe extern "system" fn CopyTextureRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdst: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, dstx: u32, dsty: u32, dstz: u32, psrc: *const ::core::mem::ManuallyDrop<D3D12_TEXTURE_COPY_LOCATION>, psrcbox: *const D3D12_BOX) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyTextureRegion(::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&dstx), ::core::mem::transmute_copy(&dsty), ::core::mem::transmute_copy(&dstz), ::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&psrcbox))
@@ -1711,7 +1711,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
             let this = (*this).get_impl();
             this.SetPipelineState(::core::mem::transmute(&ppipelinestate))
         }
-        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
+        unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const ::core::mem::ManuallyDrop<D3D12_RESOURCE_BARRIER>) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ResourceBarrier(::core::mem::transmute_copy(&numbarriers), ::core::mem::transmute_copy(&pbarriers))
@@ -2058,7 +2058,7 @@ impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ID3D12GraphicsCommandList4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>() -> ID3D12GraphicsCommandList4_Vtbl {
-        unsafe extern "system" fn BeginRenderPass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
+        unsafe extern "system" fn BeginRenderPass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_RENDER_TARGET_DESC>, pdepthstencil: *const ::core::mem::ManuallyDrop<D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginRenderPass(::core::mem::transmute_copy(&numrendertargets), ::core::mem::transmute_copy(&prendertargets), ::core::mem::transmute_copy(&pdepthstencil), ::core::mem::transmute_copy(&flags))
@@ -2651,12 +2651,12 @@ impl ID3D12PipelineLibrary_Vtbl {
             let this = (*this).get_impl();
             this.StorePipeline(::core::mem::transmute(&pname), ::core::mem::transmute(&ppipeline)).into()
         }
-        unsafe extern "system" fn LoadGraphicsPipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadGraphicsPipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_GRAPHICS_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LoadGraphicsPipeline(::core::mem::transmute(&pname), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pppipelinestate)).into()
         }
-        unsafe extern "system" fn LoadComputePipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LoadComputePipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const ::core::mem::ManuallyDrop<D3D12_COMPUTE_PIPELINE_STATE_DESC>, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LoadComputePipeline(::core::mem::transmute(&pname), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&pppipelinestate)).into()

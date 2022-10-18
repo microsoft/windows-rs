@@ -503,11 +503,11 @@ pub struct IBinaryConverter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub StringToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencodedin: ::core::mem::ManuallyDrop<::windows::core::BSTR>, encodingin: EncodingType, encoding: EncodingType, pstrencoded: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VariantByteArrayToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbytearray: *const super::super::super::System::Com::VARIANT, encoding: EncodingType, pstrencoded: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub VariantByteArrayToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbytearray: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, encoding: EncodingType, pstrencoded: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     VariantByteArrayToString: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StringToVariantByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoded: ::core::mem::ManuallyDrop<::windows::core::BSTR>, encoding: EncodingType, pvarbytearray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub StringToVariantByteArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strencoded: ::core::mem::ManuallyDrop<::windows::core::BSTR>, encoding: EncodingType, pvarbytearray: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     StringToVariantByteArray: usize,
 }
@@ -582,11 +582,11 @@ unsafe impl ::windows::core::Interface for IBinaryConverter2 {
 pub struct IBinaryConverter2_Vtbl {
     pub base__: IBinaryConverter_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub StringArrayToVariantArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarstringarray: *const super::super::super::System::Com::VARIANT, pvarvariantarray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub StringArrayToVariantArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarstringarray: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pvarvariantarray: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     StringArrayToVariantArray: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub VariantArrayToStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvariantarray: *const super::super::super::System::Com::VARIANT, pvarstringarray: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub VariantArrayToStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvariantarray: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pvarstringarray: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     VariantArrayToStringArray: usize,
 }
@@ -2160,7 +2160,7 @@ pub struct ICEnroll4_Vtbl {
     pub createFilePFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpassword: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpfxfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub setPendingRequestInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrequestid: i32, strcadns: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strcaname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strfriendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub enumPendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub enumPendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ldesiredproperty: PENDING_REQUEST_DESIRED_PROPERTY, pvarproperty: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     enumPendingRequest: usize,
     pub removePendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strthumbprint: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2269,7 +2269,7 @@ pub struct ICertAdmin_Vtbl {
     pub RevokeCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strserialnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>, reason: i32, date: f64) -> ::windows::core::HRESULT,
     pub SetRequestAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, strattributes: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: CERT_PROPERTY_TYPE, flags: i32, pvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCertificateExtension: usize,
     pub DenyRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32) -> ::windows::core::HRESULT,
@@ -2407,22 +2407,22 @@ pub struct ICertAdmin2_Vtbl {
     pub base__: ICertAdmin_Vtbl,
     pub PublishCRLs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, date: f64, crlflags: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCAProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCAProperty: usize,
     pub GetCAPropertyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, ppropflags: *mut i32) -> ::windows::core::HRESULT,
     pub GetCAPropertyDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, pstrdisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetArchivedKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, flags: i32, pstrarchivedkey: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnodepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strentryname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarentry: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnodepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strentryname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarentry: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetConfigEntry: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnodepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strentryname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarentry: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetConfigEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strnodepath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strentryname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarentry: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetConfigEntry: usize,
     pub ImportKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, strcerthash: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: CERT_IMPORT_FLAGS, strkey: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -3682,11 +3682,11 @@ unsafe impl ::windows::core::Interface for ICertManageModule {
 pub struct ICertManageModule_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strstoragelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, pvarproperty: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strstoragelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, pvarproperty: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strstoragelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, pvarproperty: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strstoragelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32, pvarproperty: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetProperty: usize,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strstoragelocation: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flags: i32) -> ::windows::core::HRESULT,
@@ -5138,13 +5138,13 @@ pub struct ICertRequest2_Vtbl {
     pub GetIssuedCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, requestid: i32, strserialnumber: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pdisposition: *mut CR_DISP) -> ::windows::core::HRESULT,
     pub GetErrorMessageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrmessage: i32, flags: i32, pstrerrormessagetext: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCAProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, propindex: i32, proptype: i32, flags: i32, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCAProperty: usize,
     pub GetCAPropertyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, ppropflags: *mut i32) -> ::windows::core::HRESULT,
     pub GetCAPropertyDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strconfig: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propid: i32, pstrdisplayname: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetFullResponseProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetFullResponseProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: FULL_RESPONSE_PROPERTY_ID, propindex: i32, proptype: CERT_PROPERTY_TYPE, flags: CERT_REQUEST_OUT_TYPE, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetFullResponseProperty: usize,
 }
@@ -5499,16 +5499,16 @@ pub struct ICertServerExit_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetRequestProperty: usize,
     pub GetRequestAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strattributename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pstrattributevalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCertificateProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: i32, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: i32, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCertificateExtension: usize,
     pub GetCertificateExtensionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextflags: *mut i32) -> ::windows::core::HRESULT,
@@ -5622,25 +5622,25 @@ pub struct ICertServerPolicy_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetRequestProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetRequestProperty: usize,
     pub GetRequestAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strattributename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pstrattributevalue: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: CERT_PROPERTY_TYPE, pvarpropertyvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCertificateProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCertificateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpropertyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, propertytype: i32, pvarpropertyvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCertificateProperty: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: CERT_PROPERTY_TYPE, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCertificateExtension: usize,
     pub GetCertificateExtensionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextflags: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: i32, extflags: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetCertificateExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strextensionname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, r#type: i32, extflags: i32, pvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetCertificateExtension: usize,
     pub EnumerateExtensionsSetup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows::core::HRESULT,
@@ -5734,7 +5734,7 @@ pub struct ICertView_Vtbl {
     pub SetResultColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cresultcolumn: i32) -> ::windows::core::HRESULT,
     pub SetResultColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SetRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, columnindex: CERT_VIEW_COLUMN_INDEX, seekoperator: CERT_VIEW_SEEK_OPERATOR_FLAGS, sortorder: i32, pvarvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetRestriction: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -6244,7 +6244,7 @@ unsafe impl ::windows::core::Interface for ICertificationAuthority {
 pub struct ICertificationAuthority_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentCAProperty, pvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Property: usize,
 }
@@ -8919,7 +8919,7 @@ pub struct IEnumCERTVIEWCOLUMN_Vtbl {
     pub IsIndexed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindexed: *mut i32) -> ::windows::core::HRESULT,
     pub GetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaxlength: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: i32) -> ::windows::core::HRESULT,
@@ -9001,7 +9001,7 @@ pub struct IEnumCERTVIEWEXTENSION_Vtbl {
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: CERT_PROPERTY_TYPE, flags: ENUM_CERT_COLUMN_VALUE_FLAGS, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: i32) -> ::windows::core::HRESULT,
@@ -9282,11 +9282,11 @@ pub struct IOCSPAdmin_Vtbl {
     pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetSigningCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcacertvar: *const super::super::super::System::Com::VARIANT, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetSigningCertificates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pcacertvar: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetSigningCertificates: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetHashAlgorithms: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrcaid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetHashAlgorithms: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bstrcaid: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetHashAlgorithms: usize,
 }
@@ -9444,7 +9444,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Identifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub CACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CACertificate: usize,
     pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -9452,7 +9452,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
     pub SigningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT,
     pub SetSigningFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub SigningCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SigningCertificate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9467,7 +9467,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
     pub ProviderCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetProviderCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub ProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub ProviderProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ProviderProperties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9476,7 +9476,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
     SetProviderProperties: usize,
     pub Modified: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub LocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub LocalRevocationInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LocalRevocationInformation: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9564,12 +9564,12 @@ pub struct IOCSPCAConfigurationCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstridentifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_ItemByName: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9644,7 +9644,7 @@ pub struct IOCSPProperty_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Value: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9737,25 +9737,25 @@ pub struct IOCSPPropertyCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_ItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_ItemByName: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarpropvalue: *const super::super::super::System::Com::VARIANT, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvarpropvalue: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreateProperty: usize,
     pub DeleteProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub InitializeFromProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *const super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub InitializeFromProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *const ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     InitializeFromProperties: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAllProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetAllProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarproperties: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAllProperties: usize,
 }
@@ -15318,7 +15318,7 @@ unsafe impl ::windows::core::Interface for IX509CertificateTemplate {
 pub struct IX509CertificateTemplate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Property: usize,
 }
@@ -15401,7 +15401,7 @@ pub struct IX509CertificateTemplateWritable_Vtbl {
     Initialize: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commitflags: CommitTemplateFlags, strservercontext: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: EnrollmentTemplateProperty, pvalue: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Property: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16215,7 +16215,7 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     InitializeImport: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, exportflags: X509EnrollmentPolicyExportFlags, pval: *mut ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Export: usize,
     pub Cost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut u32) -> ::windows::core::HRESULT,

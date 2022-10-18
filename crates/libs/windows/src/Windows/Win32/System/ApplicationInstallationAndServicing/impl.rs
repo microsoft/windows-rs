@@ -1185,7 +1185,7 @@ impl IPMApplicationInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn StartAppBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblob: *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartAppBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMApplicationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblob: *mut ::core::mem::ManuallyDrop<PM_STARTAPPBLOB>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartAppBlob(::core::mem::transmute_copy(&pblob)).into()
@@ -1688,22 +1688,22 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.ReportDownloadComplete(::core::mem::transmute(&productid), ::core::mem::transmute_copy(&hrresult)).into()
         }
-        unsafe extern "system" fn BeginInstall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginInstall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginInstall(::core::mem::transmute_copy(&pinstallinfo)).into()
         }
-        unsafe extern "system" fn BeginUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginUpdate(::core::mem::transmute_copy(&pupdateinfo)).into()
         }
-        unsafe extern "system" fn BeginDeployPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginDeployPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginDeployPackage(::core::mem::transmute_copy(&pinstallinfo)).into()
         }
-        unsafe extern "system" fn BeginUpdateDeployedPackageLegacy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginUpdateDeployedPackageLegacy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO_LEGACY>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginUpdateDeployedPackageLegacy(::core::mem::transmute_copy(&pupdateinfo)).into()
@@ -1713,12 +1713,12 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             this.BeginUninstall(::core::mem::transmute(&productid)).into()
         }
-        unsafe extern "system" fn BeginEnterpriseAppInstall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const PM_INSTALLINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginEnterpriseAppInstall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstallinfo: *const ::core::mem::ManuallyDrop<PM_INSTALLINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginEnterpriseAppInstall(::core::mem::transmute_copy(&pinstallinfo)).into()
         }
-        unsafe extern "system" fn BeginEnterpriseAppUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginEnterpriseAppUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginEnterpriseAppUpdate(::core::mem::transmute_copy(&pupdateinfo)).into()
@@ -1812,7 +1812,7 @@ impl IPMDeploymentManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginUpdateDeployedPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const PM_UPDATEINFO) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginUpdateDeployedPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMDeploymentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pupdateinfo: *const ::core::mem::ManuallyDrop<PM_UPDATEINFO>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginUpdateDeployedPackage(::core::mem::transmute_copy(&pupdateinfo)).into()
@@ -2065,12 +2065,12 @@ impl IPMEnumerationManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_StartTileEnumeratorBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_StartTileEnumeratorBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pctiles: *mut u32, pptileblobs: *mut *mut ::core::mem::ManuallyDrop<PM_STARTTILEBLOB>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_StartTileEnumeratorBlob(::core::mem::transmute(&filter), ::core::mem::transmute_copy(&pctiles), ::core::mem::transmute_copy(&pptileblobs)).into()
         }
-        unsafe extern "system" fn get_StartAppEnumeratorBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_StartAppEnumeratorBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMEnumerationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filter: ::core::mem::ManuallyDrop<PM_ENUM_FILTER>, pcapps: *mut u32, ppappblobs: *mut *mut ::core::mem::ManuallyDrop<PM_STARTAPPBLOB>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.get_StartAppEnumeratorBlob(::core::mem::transmute(&filter), ::core::mem::transmute_copy(&pcapps), ::core::mem::transmute_copy(&ppappblobs)).into()
@@ -3150,7 +3150,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             this.set_InvocationInfo(::core::mem::transmute(&taskname), ::core::mem::transmute(&taskparameters)).into()
         }
-        unsafe extern "system" fn StartTileBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblob: *mut PM_STARTTILEBLOB) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartTileBlob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPMTileInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblob: *mut ::core::mem::ManuallyDrop<PM_STARTTILEBLOB>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartTileBlob(::core::mem::transmute_copy(&pblob)).into()

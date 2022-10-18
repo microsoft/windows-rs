@@ -102,7 +102,7 @@ impl IVdsAsync_Vtbl {
             let this = (*this).get_impl();
             this.Cancel().into()
         }
-        unsafe extern "system" fn Wait<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Wait<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVdsAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Wait(::core::mem::transmute_copy(&phrresult), ::core::mem::transmute_copy(&pasyncout)).into()

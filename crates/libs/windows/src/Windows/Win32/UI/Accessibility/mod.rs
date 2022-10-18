@@ -34,7 +34,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn AccessibleChildren(pacccontainer: *mut ::core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT;
+        fn AccessibleChildren(pacccontainer: *mut ::core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::core::HRESULT;
     }
     AccessibleChildren(pacccontainer.into().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), ::core::mem::transmute(pcobtained)).ok()
 }
@@ -47,7 +47,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     AccessibleObjectFromEvent(hwnd.into(), dwid, dwchildid, ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
@@ -57,7 +57,7 @@ where
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     AccessibleObjectFromPoint(::core::mem::transmute(ptscreen), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
@@ -686,7 +686,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     TextRange_GetAttributeValue(hobj.into(), attributeid, ::core::mem::transmute(pretval)).ok()
 }
@@ -979,7 +979,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     UiaGetPropertyValue(hnode.into(), propertyid, ::core::mem::transmute(pvalue)).ok()
 }
@@ -1044,7 +1044,7 @@ where
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+        fn UiaHPatternObjectFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
     UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
 }
@@ -1054,7 +1054,7 @@ pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com:
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+        fn UiaHTextRangeFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
     }
     UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
 }
@@ -1064,7 +1064,7 @@ pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VAR
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
+        fn UiaHUiaNodeFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
     UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
 }
@@ -1104,7 +1104,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
     }
     UiaIAccessibleFromProvider(pprovider.into().abi(), dwflags, ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
 }
@@ -1290,7 +1290,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
+        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut ::core::mem::ManuallyDrop<UiaChangeInfo>) -> ::windows::core::HRESULT;
     }
     UiaRaiseChangesEvent(pprovider.into().abi(), eventidcount, ::core::mem::transmute(puiachanges)).ok()
 }
@@ -1584,7 +1584,7 @@ unsafe impl ::windows::core::Interface for IAccPropServer {
 pub struct IAccPropServer_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut super::super::System::Com::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetPropValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidstring: *const u8, dwidstringlen: u32, idprop: ::windows::core::GUID, pvarvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropValue: usize,
 }
@@ -2018,11 +2018,11 @@ pub struct IAccessible_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_accDescription: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_accRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarrole: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_accRole: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub get_accState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub get_accState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varchild: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarstate: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_accState: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2038,11 +2038,11 @@ pub struct IAccessible_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_accKeyboardShortcut: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub accFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     accFocus: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchildren: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub accSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     accSelection: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2058,11 +2058,11 @@ pub struct IAccessible_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     accLocation: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navdir: i32, varstart: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarendupat: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub accNavigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, navdir: i32, varstart: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarendupat: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     accNavigate: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub accHitTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub accHitTest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xleft: i32, ytop: i32, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     accHitTest: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3497,7 +3497,7 @@ pub struct IRawElementProviderSimple_Vtbl {
     pub ProviderOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ProviderOptions) -> ::windows::core::HRESULT,
     pub GetPatternProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropertyValue: usize,
     pub HostRawElementProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -3617,7 +3617,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderSimple3 {
 pub struct IRawElementProviderSimple3_Vtbl {
     pub base__: IRawElementProviderSimple2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetMetadataValue: usize,
 }
@@ -4804,7 +4804,7 @@ pub struct ITextRangeProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: i32, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -5637,7 +5637,7 @@ pub struct IUIAutomation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     IntSafeArrayToNativeArray: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub RectToVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub RectToVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     RectToVariant: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -8270,7 +8270,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationChangesEventHandler {
 pub struct IUIAutomationChangesEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub HandleChangesEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, uiachanges: *const UiaChangeInfo, changescount: i32) -> ::windows::core::HRESULT,
+    pub HandleChangesEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, uiachanges: *const ::core::mem::ManuallyDrop<UiaChangeInfo>, changescount: i32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     HandleChangesEvent: usize,
 }
@@ -9001,19 +9001,19 @@ pub struct IUIAutomationElement_Vtbl {
     pub FindAllBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BuildUpdatedCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, updatedelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentPropertyValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentPropertyValueEx: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCachedPropertyValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCachedPropertyValueEx: usize,
     pub GetCurrentPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -12391,7 +12391,7 @@ pub struct IUIAutomationElement7_Vtbl {
     pub FindFirstWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FindAllWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentMetadataValue: usize,
 }
@@ -14700,7 +14700,7 @@ pub struct IUIAutomationPropertyCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub PropertyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     PropertyValue: usize,
     pub PropertyConditionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut PropertyConditionFlags) -> ::windows::core::HRESULT,
@@ -15148,7 +15148,7 @@ pub struct IUIAutomationRegistrar_Vtbl {
     pub RegisterProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const UIAutomationPropertyInfo, propertyid: *mut i32) -> ::windows::core::HRESULT,
     pub RegisterEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const UIAutomationEventInfo, eventid: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub RegisterPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::HRESULT,
+    pub RegisterPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattern: *const ::core::mem::ManuallyDrop<UIAutomationPatternInfo>, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, propertyidcount: u32, ppropertyids: *mut i32, eventidcount: u32, peventids: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RegisterPattern: usize,
 }
@@ -15830,7 +15830,7 @@ pub struct IUIAutomationStylesPattern_Vtbl {
     pub CurrentShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentFillPatternColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCurrentExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT,
+    pub GetCurrentExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ::core::mem::ManuallyDrop<ExtendedProperty>, propertycount: *mut i32) -> ::windows::core::HRESULT,
     pub CachedStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CachedStyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedFillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
@@ -15838,7 +15838,7 @@ pub struct IUIAutomationStylesPattern_Vtbl {
     pub CachedShape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedFillPatternColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CachedExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetCachedExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::HRESULT,
+    pub GetCachedExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ::core::mem::ManuallyDrop<ExtendedProperty>, propertycount: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -16453,7 +16453,7 @@ pub struct IUIAutomationTextRange_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: i32, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: i32, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]

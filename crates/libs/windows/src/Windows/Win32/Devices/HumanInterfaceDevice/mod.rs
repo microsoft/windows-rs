@@ -912,7 +912,7 @@ pub struct IDirectInput8A_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumDevicesBySemantics: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConfigureDevices: usize,
 }
@@ -1017,7 +1017,7 @@ pub struct IDirectInput8W_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumDevicesBySemantics: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, param1: *mut ::core::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ConfigureDevices: usize,
 }

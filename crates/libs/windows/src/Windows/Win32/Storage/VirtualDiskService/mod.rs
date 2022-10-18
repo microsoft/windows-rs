@@ -173,7 +173,7 @@ unsafe impl ::windows::core::Interface for IVdsAsync {
 pub struct IVdsAsync_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> ::windows::core::HRESULT,
+    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pasyncout: *mut ::core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT>) -> ::windows::core::HRESULT,
     pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, pulpercentcompleted: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]

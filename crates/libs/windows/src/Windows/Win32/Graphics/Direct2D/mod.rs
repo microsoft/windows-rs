@@ -1568,7 +1568,7 @@ pub struct ID2D1CommandSink_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     Clear: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT,
+    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1607,7 +1607,7 @@ pub struct ID2D1CommandSink_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     PushAxisAlignedClip: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters1: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters1: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer: usize,
     pub PopAxisAlignedClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4474,11 +4474,11 @@ unsafe impl ::windows::core::Interface for ID2D1DeviceContext {
 pub struct ID2D1DeviceContext_Vtbl {
     pub base__: ID2D1RenderTarget_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateBitmap2: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-    pub CreateBitmapFromWicBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmapFromWicBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))]
     CreateBitmapFromWicBitmap2: usize,
     pub CreateColorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32, colorcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4488,7 +4488,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     CreateColorContextFromWicColorContext: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateBitmapFromDxgiSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateBitmapFromDxgiSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, bitmapproperties: *const ::core::mem::ManuallyDrop<D2D1_BITMAP_PROPERTIES1>, bitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateBitmapFromDxgiSurface: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4522,7 +4522,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetImageWorldBounds: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub GetGlyphRunWorldBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
+    pub GetGlyphRunWorldBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     GetGlyphRunWorldBounds: usize,
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut *mut ::core::ffi::c_void),
@@ -4541,7 +4541,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub SetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unitmode: D2D1_UNIT_MODE),
     pub GetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_UNIT_MODE,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawGlyphRun2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4557,7 +4557,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     DrawBitmap2: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: *mut ::core::ffi::c_void),
+    pub PushLayer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS1>, layer: *mut ::core::ffi::c_void),
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -4570,7 +4570,7 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetEffectInvalidRectangles: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub GetEffectRequiredInputRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT,
+    pub GetEffectRequiredInputRectangles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendereffect: *mut ::core::ffi::c_void, renderimagerectangle: *const Common::D2D_RECT_F, inputdescriptions: *const ::core::mem::ManuallyDrop<D2D1_EFFECT_INPUT_DESCRIPTION>, requiredinputrects: *mut Common::D2D_RECT_F, inputcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetEffectRequiredInputRectangles: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -7344,11 +7344,11 @@ pub struct ID2D1DeviceContext4_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawTextLayout2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawColorBitmapGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION),
+    pub DrawColorBitmapGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawColorBitmapGlyphRun: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawSvgGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawSvgGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, defaultfillbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawSvgGlyphRun: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -15015,7 +15015,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawTextLayout: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const ::core::mem::ManuallyDrop<super::DirectWrite::DWRITE_GLYPH_RUN>, foregroundbrush: *mut ::core::ffi::c_void, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
     DrawGlyphRun: usize,
     #[cfg(feature = "Foundation_Numerics")]
@@ -15041,7 +15041,7 @@ pub struct ID2D1RenderTarget_Vtbl {
     pub SetTags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag1: u64, tag2: u64),
     pub GetTags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag1: *mut u64, tag2: *mut u64),
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS, layer: *mut ::core::ffi::c_void),
+    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const ::core::mem::ManuallyDrop<D2D1_LAYER_PARAMETERS>, layer: *mut ::core::ffi::c_void),
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     PushLayer: usize,
     pub PopLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
