@@ -1,4 +1,4 @@
-use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*};
+use windows::{core::*, Win32::Foundation::*, Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*, Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*};
 
 struct Reflection;
 
@@ -104,9 +104,35 @@ impl ID3D10EffectVariable_Impl for Variable {
     }
 }
 
+struct Callback;
+
+impl IXAudio2VoiceCallback_Impl for Callback {
+    fn OnVoiceProcessingPassStart(&self, _: u32) {
+        todo!()
+    }
+    fn OnVoiceProcessingPassEnd(&self) {
+        todo!()
+    }
+    fn OnStreamEnd(&self) {}
+    fn OnBufferStart(&self, _: *mut std::ffi::c_void) {
+        todo!()
+    }
+    fn OnBufferEnd(&self, _: *mut std::ffi::c_void) {
+        todo!()
+    }
+    fn OnLoopEnd(&self, _: *mut std::ffi::c_void) {
+        todo!()
+    }
+    fn OnVoiceError(&self, _: *mut std::ffi::c_void, _: HRESULT) {
+        todo!()
+    }
+}
+
 #[test]
 fn test() -> Result<()> {
     unsafe {
+        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
         let desc = reflection.GetDesc()?;
         assert_eq!("test", desc.Name.to_string().unwrap());
@@ -119,6 +145,23 @@ fn test() -> Result<()> {
         let interface_variable = ID3D10EffectBlendVariable::new(&variable);
         assert_eq!(interface_variable.IsValid(), true);
 
+        let mut audio = None;
+        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION)?;
+        let audio = audio.unwrap();
+
+        // Call the callback interface directly...
+        let callback = IXAudio2VoiceCallback::new(&Callback);
+        callback.OnStreamEnd();
+
+        // Pass the callback to a function...
+        call_callback(&callback);
+
+        // Pass the callback to another API (ignore the result)...
+        let mut source = None;
+        let _ = audio.CreateSourceVoice(&mut source, std::ptr::null(), 0, 0.0, &*callback, None, None);
+
         Ok(())
     }
 }
+
+fn call_callback(_: &IXAudio2VoiceCallback) {}

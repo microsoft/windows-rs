@@ -51,18 +51,6 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             #features
             #[repr(transparent)]
             pub struct #ident(::std::ptr::NonNull<::std::ffi::c_void>);
-            #features
-            unsafe impl ::windows::core::Abi for Option<#ident> {
-                type Abi = *mut ::std::ffi::c_void;
-            }
-            #features
-            unsafe impl ::windows::core::Abi for #ident {
-                type Abi = *mut ::std::ffi::c_void;
-
-                fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-                    !abi.is_null()
-                }
-            }
         });
     }
 

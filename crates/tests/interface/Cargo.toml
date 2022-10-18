@@ -7,11 +7,13 @@ edition = "2018"
 [dependencies.windows]
 path = "../../libs/windows"
 features = [
-    "Win32_Foundation",
-    "Win32_System_Com",
-    "interface",
     "implement",
-    "Win32_Graphics_Direct3D12",
+    "interface",
+    "Win32_Foundation",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D10",
+    "Win32_Graphics_Direct3D12",
+    "Win32_Media_Audio_XAudio2",
+    "Win32_System_Com",
+    "Win32_System_SystemInformation",
 ]
