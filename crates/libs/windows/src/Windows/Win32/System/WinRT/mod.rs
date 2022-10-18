@@ -1974,15 +1974,6 @@ pub struct IRestrictedErrorInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IRoMetaDataLocator(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IRoMetaDataLocator> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IRoMetaDataLocator {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IRoMetaDataLocator {
     pub unsafe fn Locate<'a, P0, P1>(&self, nameelement: P0, metadatadestination: P1) -> ::windows::core::Result<()>
     where
@@ -2019,15 +2010,6 @@ pub struct IRoMetaDataLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IRoSimpleMetaDataBuilder(::std::ptr::NonNull<::std::ffi::c_void>);
-unsafe impl ::windows::core::Abi for Option<IRoSimpleMetaDataBuilder> {
-    type Abi = *mut ::std::ffi::c_void;
-}
-unsafe impl ::windows::core::Abi for IRoSimpleMetaDataBuilder {
-    type Abi = *mut ::std::ffi::c_void;
-    fn abi_is_possibly_valid(abi: &Self::Abi) -> bool {
-        !abi.is_null()
-    }
-}
 impl IRoSimpleMetaDataBuilder {
     pub unsafe fn SetWinRtInterface(&self, iid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWinRtInterface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(iid)).ok()
