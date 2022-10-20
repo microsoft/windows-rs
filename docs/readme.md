@@ -33,7 +33,7 @@ use windows::{
 
 fn main() -> Result<()> {
     let doc = XmlDocument::new()?;
-    doc.LoadXml(w!("<html>hello world</html>"))?;
+    doc.LoadXml(h!("<html>hello world</html>"))?;
 
     let root = doc.DocumentElement()?;
     assert!(root.NodeName()? == "html");
