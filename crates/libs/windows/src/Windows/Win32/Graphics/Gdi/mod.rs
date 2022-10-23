@@ -7082,11 +7082,11 @@ impl ::core::ops::Not for DC_LAYOUT {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_COLLATE(pub u32);
+pub struct DEVMODE_COLLATE(pub u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0u32);
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1u32);
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1u16);
 impl ::core::marker::Copy for DEVMODE_COLLATE {}
 impl ::core::clone::Clone for DEVMODE_COLLATE {
     fn clone(&self) -> Self {
@@ -7109,11 +7109,11 @@ impl ::core::fmt::Debug for DEVMODE_COLLATE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_COLOR(pub u32);
+pub struct DEVMODE_COLOR(pub u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1u32);
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2u32);
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2u16);
 impl ::core::marker::Copy for DEVMODE_COLOR {}
 impl ::core::clone::Clone for DEVMODE_COLOR {
     fn clone(&self) -> Self {
@@ -7296,15 +7296,15 @@ impl ::core::ops::Not for DEVMODE_FIELD_FLAGS {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_TRUETYPE_OPTION(pub u32);
+pub struct DEVMODE_TRUETYPE_OPTION(pub u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1u32);
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2u32);
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3u32);
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3u16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4u32);
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4u16);
 impl ::core::marker::Copy for DEVMODE_TRUETYPE_OPTION {}
 impl ::core::clone::Clone for DEVMODE_TRUETYPE_OPTION {
     fn clone(&self) -> Self {
