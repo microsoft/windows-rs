@@ -39,7 +39,7 @@ fn main() {
         r#"
 [package]
 name = "windows"
-version = "0.42.0"
+version = "0.43.0"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -90,8 +90,8 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.42.0" }
 windows_x86_64_gnullvm = { path = "../../targets/x86_64_gnullvm", version = "0.42.0" }
 
 [dependencies]
-windows-implement = { path = "../implement",  version = "0.42.0", optional = true }
-windows-interface = { path = "../interface",  version = "0.42.0", optional = true }
+windows-implement = { path = "../implement",  version = "0.43.0", optional = true }
+windows-interface = { path = "../interface",  version = "0.43.0", optional = true }
 
 [features]
 default = []
