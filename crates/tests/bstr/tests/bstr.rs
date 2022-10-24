@@ -44,6 +44,9 @@ fn clone() {
     let a: BSTR = unsafe { SysAllocStringLen(None) };
     assert!(a.is_empty());
     assert!(a.len() == 0);
+
+    let a = BSTR::from("a");
+    assert_eq!(a, String::from("a"));
 }
 
 #[test]
