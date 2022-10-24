@@ -15,6 +15,7 @@ fn clone() {
     let b = a.clone();
     assert_eq!(a, "hello");
     assert_eq!(b, "hello");
+    assert_eq!("hello", a);
 
     let a = BSTR::default();
     assert!(a.is_empty());
@@ -44,6 +45,10 @@ fn clone() {
     let a: BSTR = unsafe { SysAllocStringLen(None) };
     assert!(a.is_empty());
     assert!(a.len() == 0);
+
+    let a = BSTR::from("a");
+    assert_eq!(a, String::from("a"));
+    assert_eq!(String::from("a"), a);
 }
 
 #[test]

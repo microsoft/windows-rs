@@ -102,27 +102,25 @@ impl std::cmp::PartialEq for BSTR {
     }
 }
 impl std::cmp::Eq for BSTR {}
-impl std::cmp::PartialEq<windows::core::alloc::string::String> for BSTR {
-    fn eq(&self, other: &windows::core::alloc::string::String) -> bool {
-        self == other.as_str()
-    }
-}
-impl std::cmp::PartialEq<str> for BSTR {
-    fn eq(&self, other: &str) -> bool {
-        self == other
-    }
-}
-impl std::cmp::PartialEq<&str> for BSTR {
-    fn eq(&self, other: &&str) -> bool {
-        self.as_wide().iter().copied().eq(other.encode_utf16())
-    }
-}
 
 impl std::cmp::PartialEq<BSTR> for &str {
     fn eq(&self, other: &BSTR) -> bool {
         other == self
     }
 }
+
+impl std::cmp::PartialEq<BSTR> for String {
+    fn eq(&self, other: &BSTR) -> bool {
+        other == self
+    }
+}
+
+impl<T: AsRef<str> + ?Sized> std::cmp::PartialEq<T> for BSTR {
+    fn eq(&self, other: &T) -> bool {
+        self.as_wide().iter().copied().eq(other.as_ref().encode_utf16())
+    }
+}
+
 impl std::ops::Drop for BSTR {
     fn drop(&mut self) {
         if !self.0.is_null() {
