@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
@@ -166,7 +166,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run cargo fmt
         run: cargo fmt --all -- --check
 
@@ -175,7 +175,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run cargo doc
         run: cargo doc --no-deps -p windows
 
@@ -187,7 +187,7 @@ jobs:
         generator: [windows, sys, yml]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run tool_${{ matrix.generator }}
         run: cargo run -p tool_${{ matrix.generator }}
       - name: Compare
@@ -205,7 +205,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Run cargo check
@@ -222,7 +222,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Run cargo check
@@ -233,7 +233,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Install clippy
