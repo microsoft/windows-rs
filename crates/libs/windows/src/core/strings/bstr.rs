@@ -109,7 +109,7 @@ impl std::cmp::PartialEq<windows::core::alloc::string::String> for BSTR {
 }
 impl std::cmp::PartialEq<str> for BSTR {
     fn eq(&self, other: &str) -> bool {
-        self == other
+        self == &other
     }
 }
 impl std::cmp::PartialEq<&str> for BSTR {
