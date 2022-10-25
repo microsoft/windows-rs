@@ -109,6 +109,8 @@ jobs:
           cargo clippy -p sample_com_uri &&
           cargo clippy -p sample_consent &&
           cargo clippy -p sample_core_app &&
+          cargo clippy -p sample_counter &&
+          cargo clippy -p sample_counter_sys &&
           cargo clippy -p sample_create_window &&
           cargo clippy -p sample_create_window_sys &&
           cargo clippy -p sample_data_protection &&
