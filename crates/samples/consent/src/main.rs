@@ -10,7 +10,7 @@ fn main() -> Result<()> {
 
         let result: UserConsentVerificationResult = operation.get()?;
 
-        println!("{:?}", result);
+        println!("{result:?}");
 
         Ok(())
     }

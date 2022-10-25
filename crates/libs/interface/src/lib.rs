@@ -280,7 +280,7 @@ impl Interface {
     /// Generates various conversions such as from and to `IUnknown`
     fn gen_conversions(&self) -> proc_macro2::TokenStream {
         let name = &self.name;
-        let name_string = format!("{}", name);
+        let name_string = format!("{name}");
         quote! {
             impl ::core::convert::From<#name> for ::windows::core::IUnknown {
                 fn from(value: #name) -> Self {
@@ -401,17 +401,17 @@ struct Guid(Option<syn::LitStr>);
 impl Guid {
     fn to_tokens(&self) -> syn::Result<proc_macro2::TokenStream> {
         fn hex_lit(num: &str) -> syn::LitInt {
-            syn::LitInt::new(&format!("0x{}", num), proc_macro2::Span::call_site())
+            syn::LitInt::new(&format!("0x{num}"), proc_macro2::Span::call_site())
         }
 
         fn ensure_length(part: Option<&str>, index: usize, length: usize, span: proc_macro2::Span) -> syn::Result<String> {
             let part = match part {
                 Some(p) => p,
-                None => return Err(syn::Error::new(span, format!("The IID missing part at index {}", index,))),
+                None => return Err(syn::Error::new(span, format!("The IID missing part at index {index}",))),
             };
 
             if part.len() != length {
-                return Err(syn::Error::new(span, format!("The IID part at index {} must be {} characters long but was {} characters", index, length, part.len())));
+                return Err(syn::Error::new(span, format!("The IID part at index {index} must be {length} characters long but was {} characters", part.len())));
             }
 
             Ok(part.to_owned())

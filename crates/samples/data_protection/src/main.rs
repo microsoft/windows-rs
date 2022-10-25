@@ -13,7 +13,7 @@ fn main() -> std::io::Result<()> {
     let unprotected = provider.UnprotectAsync(&protected)?.get()?;
 
     let message = CryptographicBuffer::ConvertBinaryToString(BinaryStringEncoding::Utf8, &unprotected)?;
-    println!("{}", message);
+    println!("{message}");
     Ok(())
 }
 

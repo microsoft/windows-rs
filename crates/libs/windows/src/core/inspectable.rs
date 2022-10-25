@@ -57,7 +57,7 @@ impl std::fmt::Debug for IInspectable {
 
         let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.GetRuntimeClassName()).unwrap_or_default();
 
-        write!(f, "{:?} {}", self.0, name)
+        write!(f, "{:?} {name}", self.0)
     }
 }
 

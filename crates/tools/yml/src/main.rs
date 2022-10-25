@@ -96,13 +96,13 @@ jobs:
     let (first, last) = crates.split_at(crates.len() / 2);
 
     for name in first {
-        write!(&mut yml, "\n          cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
+        write!(&mut yml, "\n          cargo test --target ${{{{ matrix.target }}}} -p {name} &&").unwrap();
     }
 
     write!(&mut yml, "\n          cargo clean &&").unwrap();
 
     for name in last {
-        write!(&mut yml, "\n          cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
+        write!(&mut yml, "\n          cargo test --target ${{{{ matrix.target }}}} -p {name} &&").unwrap();
     }
 
     yml.truncate(yml.len() - 3);
@@ -253,7 +253,7 @@ jobs:
         .to_string();
 
     for name in crates() {
-        write!(&mut yml, "\n          cargo clippy -p {} &&", name).unwrap();
+        write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
     }
 
     write!(&mut yml, "\n          cargo clippy -p test_debugger_visualizer\n").unwrap();
@@ -268,26 +268,26 @@ fn crates() -> Vec<String> {
         if dir == "windows" {
             crates.push("windows".to_string());
         } else {
-            crates.push(format!("windows-{}", dir));
+            crates.push(format!("windows-{dir}"));
         }
     }
 
     for dir in dirs("crates/samples") {
-        crates.push(format!("sample_{}", dir));
+        crates.push(format!("sample_{dir}"));
     }
 
     for dir in dirs("crates/targets") {
-        crates.push(format!("windows_{}", dir));
+        crates.push(format!("windows_{dir}"));
     }
 
     for dir in dirs("crates/tests") {
         if dir != "debugger_visualizer" {
-            crates.push(format!("test_{}", dir));
+            crates.push(format!("test_{dir}"));
         }
     }
 
     for dir in dirs("crates/tools") {
-        crates.push(format!("tool_{}", dir));
+        crates.push(format!("tool_{dir}"));
     }
 
     crates

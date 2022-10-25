@@ -35,7 +35,7 @@ impl TokenStream {
 
     #[must_use]
     pub fn join(&self, value: &str) -> Self {
-        Self(format!("{}{}", self.0, value))
+        Self(format!("{}{value}", self.0))
     }
 
     pub fn is_empty(&self) -> bool {

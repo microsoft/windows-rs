@@ -93,7 +93,7 @@ impl std::fmt::Display for BSTR {
 }
 impl std::fmt::Debug for BSTR {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        std::write!(f, "{}", self)
+        std::write!(f, "{self}")
     }
 }
 impl std::cmp::PartialEq for BSTR {

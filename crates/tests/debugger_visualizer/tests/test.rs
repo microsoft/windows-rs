@@ -184,7 +184,7 @@ fn test_debugger_visualizer() {
     let string = "Hello World!\0".to_string();
     let mut array = Array::<u8>::with_len(string.len());
     for (i, ch) in string.as_bytes().iter().enumerate() {
-        array[i] = ch.clone();
+        array[i] = *ch;
     }
 
     // Test debugger visualizations for PSTR

@@ -107,7 +107,7 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                 result.combine(&quote! { #name: &[#default_type], });
             } else if gen.reader.signature_param_is_convertible(param) {
                 let (position, _) = generic_params.next().unwrap();
-                let kind: TokenStream = format!("P{}", position).into();
+                let kind: TokenStream = format!("P{position}").into();
                 result.combine(&quote! { #name: #kind, });
             } else if gen.reader.type_is_blittable(&param.ty) {
                 result.combine(&quote! { #name: #kind, });
