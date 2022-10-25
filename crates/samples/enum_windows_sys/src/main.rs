@@ -13,7 +13,7 @@ extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         let text = String::from_utf16_lossy(&text[..len as usize]);
 
         if !text.is_empty() {
-            println!("{}", text);
+            println!("{text}");
         }
 
         1

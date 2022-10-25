@@ -49,7 +49,7 @@ fn generic() -> windows::core::Result<()> {
     });
 
     let port = uri.Port()?;
-    d.Invoke(&uri, &port)?;
+    d.Invoke(&uri, port)?;
 
     assert!(rx.recv().unwrap());
 

@@ -110,9 +110,9 @@ interface = ["windows-interface"]
         if let Some(pos) = feature.rfind('_') {
             let dependency = &feature[..pos];
 
-            file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
+            file.write_all(format!("{feature} = [\"{dependency}\"]\n").as_bytes()).unwrap();
         } else {
-            file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
+            file.write_all(format!("{feature} = []\n").as_bytes()).unwrap();
         }
     }
 

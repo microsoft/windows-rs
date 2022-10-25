@@ -20,7 +20,7 @@ fn in_addr() {
 
     let in_addr: IN_ADDR = IPV4_ADDR.into();
 
-    let ipv4_addr_s = format!("{}", IPV4_ADDR);
+    let ipv4_addr_s = format!("{IPV4_ADDR}");
     let in_addr_s = in_addr_to_string(&in_addr);
 
     // Compare the string values

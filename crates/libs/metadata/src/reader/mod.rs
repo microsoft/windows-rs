@@ -1076,9 +1076,9 @@ impl<'a> Reader<'a> {
     fn type_def_interface_signature(&self, row: TypeDef, generics: &[Type]) -> String {
         let guid = self.type_def_guid(row).unwrap();
         if generics.is_empty() {
-            format!("{{{:#?}}}", guid)
+            format!("{{{guid:#?}}}")
         } else {
-            let mut result = format!("pinterface({{{:#?}}}", guid);
+            let mut result = format!("pinterface({{{guid:#?}}}");
             for generic in generics {
                 result.push(';');
                 result.push_str(&self.type_signature(generic));

@@ -82,7 +82,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
     }
 
     for (index, nested_type) in gen.reader.nested_types(def).enumerate() {
-        let nested_name = format!("{}_{}", struct_name, index);
+        let nested_name = format!("{struct_name}_{index}");
         tokens.combine(&gen_struct_with_name(gen, nested_type, &nested_name, &cfg));
     }
 

@@ -7,8 +7,8 @@ fn array() {
     assert!(a.is_empty());
 
     let mut a = Array::<Uri>::with_len(2);
-    assert!(a[0] == None);
-    assert!(a[1] == None);
+    assert!(a[0].is_none());
+    assert!(a[1].is_none());
 
     a[0] = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca")).ok();
     a[1] = Uri::CreateUri(&windows::core::HSTRING::from("http://microsoft.com")).ok();

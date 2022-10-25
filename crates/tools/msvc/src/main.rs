@@ -20,7 +20,7 @@ fn main() {
     };
 
     let libraries = lib::libraries();
-    let output = std::path::PathBuf::from(format!("crates/targets/{}/lib", platform));
+    let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
@@ -34,13 +34,13 @@ fn main() {
     cmd.arg("/out:windows.lib");
 
     for library in libraries.keys() {
-        cmd.arg(format!("{}.lib", library));
+        cmd.arg(format!("{library}.lib"));
     }
 
     cmd.output().unwrap();
 
     for library in libraries.keys() {
-        std::fs::remove_file(output.join(format!("{}.lib", library))).unwrap();
+        std::fs::remove_file(output.join(format!("{library}.lib"))).unwrap();
     }
 
     // Clear out timestamps in the resulting library.
@@ -70,16 +70,16 @@ fn main() {
 }
 
 fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {
-    println!("{}", library);
+    println!("{library}");
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
     let mut path = std::path::PathBuf::from(output);
-    path.push(format!("{}.c", library));
+    path.push(format!("{library}.c"));
     let mut c = std::fs::File::create(&path).unwrap();
 
     path.pop();
-    path.push(format!("{}.def", library));
+    path.push(format!("{library}.def"));
     let mut def = std::fs::File::create(&path).unwrap();
 
     def.write_all(
@@ -97,11 +97,11 @@ EXPORTS
     for (function, calling_convention) in functions {
         let buffer = match calling_convention {
             lib::CallingConvention::Stdcall(size) => {
-                let mut buffer = format!("void __stdcall {}(", function);
+                let mut buffer = format!("void __stdcall {function}(");
 
                 for param in 0..(*size / 4) {
                     use std::fmt::Write;
-                    write!(&mut buffer, "int p{}, ", param).unwrap();
+                    write!(&mut buffer, "int p{param}, ").unwrap();
                 }
 
                 if buffer.ends_with(' ') {
@@ -112,12 +112,12 @@ EXPORTS
                 buffer
             }
             lib::CallingConvention::Cdecl => {
-                format!("void __cdecl {}() {{}}\n", function)
+                format!("void __cdecl {function}() {{}}\n")
             }
         };
 
         c.write_all(buffer.as_bytes()).unwrap();
-        def.write_all(format!("{}\n", function).as_bytes()).unwrap();
+        def.write_all(format!("{function}\n").as_bytes()).unwrap();
     }
 
     drop(c);
@@ -127,30 +127,30 @@ EXPORTS
     cmd.current_dir(output);
     cmd.arg("/nologo");
     cmd.arg("/c");
-    cmd.arg(format!("{}.c", library));
+    cmd.arg(format!("{library}.c"));
     cmd.output().unwrap();
 
     let mut cmd = std::process::Command::new("lib");
     cmd.current_dir(output);
     cmd.arg("/nologo");
-    cmd.arg(format!("/out:{}.lib", library));
-    cmd.arg(format!("/def:{}.def", library));
-    cmd.arg(format!("{}.obj", library));
+    cmd.arg(format!("/out:{library}.lib"));
+    cmd.arg(format!("/def:{library}.def"));
+    cmd.arg(format!("{library}.obj"));
     cmd.output().unwrap();
 
     path.pop();
-    path.push(format!("{}.c", library));
+    path.push(format!("{library}.c"));
     std::fs::remove_file(&path).unwrap();
 
     path.pop();
-    path.push(format!("{}.def", library));
+    path.push(format!("{library}.def"));
     std::fs::remove_file(&path).unwrap();
 
     path.pop();
-    path.push(format!("{}.exp", library));
+    path.push(format!("{library}.exp"));
     std::fs::remove_file(&path).unwrap_or_else(|_| panic!("{:?}", path));
 
     path.pop();
-    path.push(format!("{}.obj", library));
+    path.push(format!("{library}.obj"));
     std::fs::remove_file(&path).unwrap();
 }

@@ -19,7 +19,7 @@ fn main() -> Result<()> {
     let checker = unsafe { factory.CreateSpellChecker(locale)? };
 
     // Get errors enumerator for the supplied string
-    println!("Checking the text: '{}'", input);
+    println!("Checking the text: '{input}'");
     let errors = unsafe { checker.ComprehensiveCheck(PCWSTR::from(&input.clone().into()))? };
 
     // Loop through all the errors
@@ -33,17 +33,17 @@ fn main() -> Result<()> {
 
         // Get the corrective action
         let action = unsafe { error.CorrectiveAction()? };
-        println!("{:?}", action);
+        println!("{action:?}");
 
         match action {
             CORRECTIVE_ACTION_DELETE => {
-                println!("Delete '{}'", substring);
+                println!("Delete '{substring}'");
             }
             CORRECTIVE_ACTION_REPLACE => {
                 // Get the replacement as a widestring and convert to a Rust String
                 let replacement = unsafe { error.Replacement()? };
 
-                println!("Replace: {} with {}", substring, unsafe { replacement.display() });
+                println!("Replace: {substring} with {}", unsafe { replacement.display() });
 
                 unsafe { CoTaskMemFree(Some(replacement.as_ptr() as *mut _)) };
             }
@@ -62,7 +62,7 @@ fn main() -> Result<()> {
                         break;
                     }
 
-                    println!("Maybe replace: {} with {}", substring, unsafe { suggestion[0].display() });
+                    println!("Maybe replace: {substring} with {}", unsafe { suggestion[0].display() });
 
                     unsafe { CoTaskMemFree(Some(suggestion[0].as_ptr() as *mut _)) };
                 }

@@ -33,10 +33,10 @@ fn win32_error() {
     assert!(e.0 == 5);
     let h: HRESULT = ERROR_ACCESS_DENIED.into();
     assert!(h.is_err());
-    assert!("WIN32_ERROR(5)" == format!("{:?}", e));
+    assert!("WIN32_ERROR(5)" == format!("{e:?}"));
 
     let e: Error = h.into();
-    assert_eq!(r#"Error { code: HRESULT(0x80070005), message: "Access is denied." }"#, format!("{:?}", e));
+    assert_eq!(r#"Error { code: HRESULT(0x80070005), message: "Access is denied." }"#, format!("{e:?}"));
     let e = WIN32_ERROR::from_error(&e).unwrap();
     assert!(e == ERROR_ACCESS_DENIED);
 }
