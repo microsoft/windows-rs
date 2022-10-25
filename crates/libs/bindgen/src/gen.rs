@@ -250,7 +250,7 @@ impl<'a> Gen<'a> {
         let mut generics = self
             .generic_params(params)
             .map(|(position, param)| -> TokenStream {
-                let mut p = format!("P{}", position);
+                let mut p = format!("P{position}");
                 if self.reader.signature_param_is_failible_param(param) {
                     p.push_str(", E");
                     p.push_str(&position.to_string());
@@ -279,7 +279,7 @@ impl<'a> Gen<'a> {
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
         let gen_name = |position| {
-            let name: TokenStream = format!("P{}", position).into();
+            let name: TokenStream = format!("P{position}").into();
             name
         };
         for (position, param) in self.generic_params(params) {
@@ -288,7 +288,7 @@ impl<'a> Gen<'a> {
             }
             if self.reader.signature_param_is_failible_param(param) {
                 let name: TokenStream = gen_name(position);
-                let error_name: TokenStream = format!("E{}", position).into();
+                let error_name: TokenStream = format!("E{position}").into();
                 let into = self.type_name(&param.ty);
                 tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
             } else if self.reader.signature_param_is_borrowed(param) {
@@ -320,7 +320,7 @@ impl<'a> Gen<'a> {
                 write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
             }
 
-            format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
+            format!(r#"#[doc = "*Required features: {tokens}*"]"#).into()
         }
     }
 
@@ -339,7 +339,7 @@ impl<'a> Gen<'a> {
                     write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
                 }
                 tokens.truncate(tokens.len() - 2);
-                format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
+                format!(r#"#[doc = "*Required features: {tokens}*"]"#).into()
             }
         }
     }
@@ -446,7 +446,7 @@ impl<'a> Gen<'a> {
         if let Some(enclosing_type) = self.reader.type_def_enclosing_type(def) {
             for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
                 if self.reader.type_def_name(nested_type) == self.reader.type_def_name(def) {
-                    return format!("{}_{}", &self.scoped_name(enclosing_type), index);
+                    return format!("{}_{index}", &self.scoped_name(enclosing_type));
                 }
             }
         }
@@ -991,7 +991,7 @@ impl<'a> Gen<'a> {
 
             if self.reader.signature_param_is_convertible(param) {
                 let (position, _) = generic_params.next().unwrap();
-                let kind: TokenStream = format!("P{}", position).into();
+                let kind: TokenStream = format!("P{position}").into();
                 tokens.combine(&quote! { #name: #kind, });
                 continue;
             }
@@ -1105,8 +1105,8 @@ impl<'a> Gen<'a> {
 pub fn to_ident(name: &str) -> TokenStream {
     // keywords list based on https://doc.rust-lang.org/reference/keywords.html
     match name {
-        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do" | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv" | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await" | "dyn" => format!("r#{}", name).into(),
-        "Self" | "self" => format!("{}_", name).into(),
+        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do" | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv" | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type" | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield" | "try" | "async" | "await" | "dyn" => format!("r#{name}").into(),
+        "Self" | "self" => format!("{name}_").into(),
         "_" => "unused".into(),
         _ => trim_tick(name).into(),
     }

@@ -12,7 +12,7 @@ impl MethodNames {
         let overload = self.0.entry(name.to_string()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
-            format!("{}{}", name, overload).into()
+            format!("{name}{overload}").into()
         } else {
             to_ident(&name)
         }

@@ -6,7 +6,7 @@ fn main() -> std::io::Result<()> {
     let metadata_dir = format!("{}\\System32\\WinMetadata", env!("windir"));
     std::fs::create_dir_all(".windows/winmd")?;
 
-    Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{}\\Windows.Foundation.winmd", metadata_dir)).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status()?;
+    Command::new("midlrt.exe").arg("/winrt").arg("/nomidl").arg("/h").arg("nul").arg("/metadata_dir").arg(&metadata_dir).arg("/reference").arg(format!("{metadata_dir}\\Windows.Foundation.winmd")).arg("/winmd").arg(".windows/winmd/component.winmd").arg("src/component.idl").status()?;
 
     let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
     write("src/bindings.rs", bindgen::component("test_component", &files))?;

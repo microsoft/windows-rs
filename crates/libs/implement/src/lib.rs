@@ -287,7 +287,7 @@ impl UseTree2 {
                 let mut type_name = input.ident.to_string();
 
                 if !namespace.is_empty() {
-                    type_name = format!("{}::{}", namespace, type_name);
+                    type_name = format!("{namespace}::{type_name}");
                 }
 
                 let mut generics = vec![];

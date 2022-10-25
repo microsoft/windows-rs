@@ -101,13 +101,13 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         });
 
         if !vtables.is_empty() && generics.is_empty() {
-            let mut hierarchy = format!("::windows::core::interface_hierarchy!({}", ident);
+            let mut hierarchy = format!("::windows::core::interface_hierarchy!({ident}");
             let mut hierarchy_cfg = cfg.clone();
 
             for ty in &vtables {
                 let into = gen.type_name(ty);
 
-                write!(&mut hierarchy, ", {}", into).unwrap();
+                write!(&mut hierarchy, ", {into}").unwrap();
                 hierarchy_cfg = hierarchy_cfg.union(&gen.reader.type_cfg(ty));
             }
 

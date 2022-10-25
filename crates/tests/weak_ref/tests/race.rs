@@ -30,7 +30,7 @@ fn test_race() {
         let mut new_progress = [0; CONCURRENCY];
         for i in 0..CONCURRENCY {
             new_progress[i] = PROGRESS[i].load(Ordering::Relaxed);
-            eprint!("Progress {} = {}, ", i, new_progress[i]);
+            eprint!("Progress {i} = {}, ", new_progress[i]);
         }
         eprintln!();
 

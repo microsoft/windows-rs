@@ -11,7 +11,7 @@ fn main() {
         } else if platform == "all" {
             platforms.extend(ALL_PLATFORMS.iter().map(|s| s.to_string()));
         } else {
-            eprintln!("Unknown platform: {}", platform);
+            eprintln!("Unknown platform: {platform}");
             return;
         }
     }
@@ -24,7 +24,7 @@ fn main() {
         let tools = if platform.ends_with("_gnu") { &["dlltool", "ar", "objcopy"][..] } else { &["llvm-dlltool", "llvm-ar"][..] };
         for tool in tools {
             if Command::new(tool).stdout(Stdio::null()).stderr(Stdio::null()).spawn().is_err() {
-                eprintln!("Could not find {}. Is it in your $PATH?", tool);
+                eprintln!("Could not find {tool}. Is it in your $PATH?");
                 return;
             }
         }
@@ -34,10 +34,10 @@ fn main() {
 }
 
 fn build_platform(platform: &str, dlltool: &str, ar: &str) {
-    println!("Platform: {}", platform);
+    println!("Platform: {platform}");
 
     let libraries = lib::libraries();
-    let output = std::path::PathBuf::from(format!("crates/targets/{}/lib", platform));
+    let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
@@ -48,17 +48,17 @@ fn build_platform(platform: &str, dlltool: &str, ar: &str) {
     build_mri(&output, ar, &libraries);
 
     for library in libraries.keys() {
-        std::fs::remove_file(output.join(format!("lib{}.a", library))).unwrap();
+        std::fs::remove_file(output.join(format!("lib{library}.a"))).unwrap();
     }
 }
 
 fn build_library(output: &std::path::Path, dlltool: &str, library: &str, functions: &BTreeMap<String, lib::CallingConvention>, platform: &str) {
-    println!("{}", library);
+    println!("{library}");
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
-    let def_path = output.join(format!("{}.def", library));
-    let mut def = std::fs::File::create(&def_path).unwrap();
+    let def_path = output.join(format!("{library}.def"));
+    let mut def = std::fs::File::create(def_path).unwrap();
 
     def.write_all(
         format!(
@@ -74,8 +74,8 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         match calling_convention {
-            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{}@{} @ 0\n", function, params).as_bytes()).unwrap(),
-            _ => def.write_all(format!("{} @ 0\n", function).as_bytes()).unwrap(),
+            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{function}@{params} @ 0\n").as_bytes()).unwrap(),
+            _ => def.write_all(format!("{function} @ 0\n").as_bytes()).unwrap(),
         }
     }
 
@@ -89,9 +89,9 @@ EXPORTS
     }
 
     cmd.arg("-d");
-    cmd.arg(format!("{}.def", library));
+    cmd.arg(format!("{library}.def"));
     cmd.arg("-l");
-    cmd.arg(format!("lib{}.a", library));
+    cmd.arg(format!("lib{library}.a"));
     cmd.arg("-m");
     cmd.arg(match platform {
         "i686_gnu" => "i386",
@@ -109,14 +109,14 @@ EXPORTS
         });
         // Ensure consistency in the prefixes used by dlltool.
         cmd.arg("-t");
-        cmd.arg(format!("{}_", library).replace('.', "_").replace('-', "_"));
+        cmd.arg(format!("{library}_").replace('.', "_").replace('-', "_"));
     }
     cmd.output().unwrap();
 
     if dlltool == "dlltool" {
         // Work around lack of determinism in dlltool output, and at the same time remove
         // unnecessary sections and symbols.
-        std::fs::rename(output.join(format!("lib{}.a", library)), output.join("tmp.a")).unwrap();
+        std::fs::rename(output.join(format!("lib{library}.a")), output.join("tmp.a")).unwrap();
         let mut cmd = Command::new("objcopy");
         cmd.current_dir(output);
         cmd.arg("--remove-section=.bss");
@@ -131,12 +131,12 @@ EXPORTS
         cmd.arg("--strip-unneeded-symbol=.idata$5");
         cmd.arg("--strip-unneeded-symbol=.idata$4");
         cmd.arg("tmp.a");
-        cmd.arg(format!("lib{}.a", library));
+        cmd.arg(format!("lib{library}.a"));
         cmd.output().unwrap();
 
         std::fs::remove_file(output.join("tmp.a")).unwrap();
     }
-    std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
+    std::fs::remove_file(output.join(format!("{library}.def"))).unwrap();
 }
 
 fn build_mri(output: &std::path::Path, ar: &str, libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>) {
@@ -147,7 +147,7 @@ fn build_mri(output: &std::path::Path, ar: &str, libraries: &BTreeMap<String, BT
     mri.write_all(b"CREATE libwindows.a\n").unwrap();
 
     for library in libraries.keys() {
-        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes()).unwrap();
+        mri.write_all(format!("ADDLIB lib{library}.a\n").as_bytes()).unwrap();
     }
 
     mri.write_all(b"SAVE\nEND\n").unwrap();

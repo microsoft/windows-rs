@@ -50,7 +50,7 @@ fn convertible() {
     }
 
     let result = convertible_error();
-    let format = format!("{:?}", result);
+    let format = format!("{result:?}");
 
     assert_eq!(format, r#"Err(Error { code: HRESULT(0x80004002), message: "test message" })"#);
 }
