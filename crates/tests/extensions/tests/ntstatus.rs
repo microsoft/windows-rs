@@ -22,7 +22,7 @@ fn test() -> Result<()> {
         BCryptOpenAlgorithmProvider(&mut provider, w!("RNG"), None, BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default())?;
 
         let mut random = GUID::zeroed();
-        let mut bytes = std::slice::from_raw_parts_mut(&mut random as *mut _ as *mut u8, std::mem::size_of::<GUID>());
+        let bytes = std::slice::from_raw_parts_mut(&mut random as *mut _ as *mut u8, std::mem::size_of::<GUID>());
 
         BCryptGenRandom(provider, bytes, 0)?;
 
