@@ -6,7 +6,12 @@ fn main() {
         PdhOpenQueryW(None, 0, &mut query);
 
         let mut counter = 0;
-        PdhAddCounterW(query, w!("\\Processor(0)\\% Processor Time"), 0, &mut counter);
+        PdhAddCounterW(
+            query,
+            w!("\\Processor(0)\\% Processor Time"),
+            0,
+            &mut counter,
+        );
 
         loop {
             std::thread::sleep(std::time::Duration::new(1, 0));

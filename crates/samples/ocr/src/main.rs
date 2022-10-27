@@ -13,7 +13,8 @@ async fn main_async() -> Result<()> {
     let mut message = std::env::current_dir().unwrap();
     message.push("message.png");
 
-    let file = StorageFile::GetFileFromPathAsync(&HSTRING::from(message.to_str().unwrap()))?.await?;
+    let file =
+        StorageFile::GetFileFromPathAsync(&HSTRING::from(message.to_str().unwrap()))?.await?;
     let stream = file.OpenAsync(FileAccessMode::Read)?.await?;
 
     let decode = BitmapDecoder::CreateAsync(&stream)?.await?;
