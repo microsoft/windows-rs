@@ -97,6 +97,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_create_window &&
           cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
           cargo test --target ${{ matrix.target }} -p sample_data_protection &&
+          cargo test --target ${{ matrix.target }} -p sample_dcomp &&
           cargo test --target ${{ matrix.target }} -p sample_direct2d &&
           cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
           cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
@@ -127,8 +128,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_arch_feature &&
           cargo test --target ${{ matrix.target }} -p test_bcrypt &&
           cargo test --target ${{ matrix.target }} -p test_bstr &&
-          cargo test --target ${{ matrix.target }} -p test_calling_convention &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_calling_convention &&
           cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
           cargo test --target ${{ matrix.target }} -p test_component &&
           cargo test --target ${{ matrix.target }} -p test_component_client &&
