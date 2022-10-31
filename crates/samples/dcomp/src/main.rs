@@ -545,12 +545,6 @@ fn create_image() -> Result<IWICFormatConverter> {
 }
 
 fn create_device_3d() -> Result<ID3D11Device> {
-    let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
-
-    if cfg!(debug_assertions) {
-        flags |= D3D11_CREATE_DEVICE_DEBUG;
-    }
-
     let mut device = None;
 
     unsafe {
@@ -558,7 +552,7 @@ fn create_device_3d() -> Result<ID3D11Device> {
             None,
             D3D_DRIVER_TYPE_HARDWARE,
             None,
-            flags,
+            D3D11_CREATE_DEVICE_BGRA_SUPPORT,
             None,
             D3D11_SDK_VERSION,
             Some(&mut device),
@@ -571,13 +565,7 @@ fn create_device_3d() -> Result<ID3D11Device> {
 
 fn create_device_2d(device_3d: &ID3D11Device) -> Result<ID2D1Device> {
     let dxgi: IDXGIDevice3 = device_3d.cast()?;
-    let mut props = D2D1_CREATION_PROPERTIES::default();
-
-    if cfg!(debug_assertions) {
-        props.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
-    }
-
-    unsafe { D2D1CreateDevice(&dxgi, Some(&props)) }
+    unsafe { D2D1CreateDevice(&dxgi, None) }
 }
 
 fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
