@@ -37,7 +37,7 @@ enum Status {
 struct Card {
     status: Status,
     value: u8,
-    offset: (f32, f32), // TODO: use Vector2?
+    offset: (f32, f32),
     variable: IUIAnimationVariable2,
     rotation: Option<IDCompositionRotateTransform3D>,
 }
