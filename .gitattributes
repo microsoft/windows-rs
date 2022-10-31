@@ -1,6 +1,7 @@
 *       text=auto
 *       text eol=lf
 *.png   -text
+*.jpg   -text
 *.winmd -text
 *.dll   -text
 *.lib   -text
