@@ -1,7 +1,5 @@
 use super::*;
 
-// TODO: move thes into core::numerics and folds dupe types in WinRT/Win32 to the core numerics
-
 pub fn gen() -> TokenStream {
     quote! {
         impl Matrix4x4 {
