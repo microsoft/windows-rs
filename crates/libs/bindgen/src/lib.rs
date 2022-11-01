@@ -43,6 +43,9 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
     for def in gen.reader.namespace_types(tree.namespace) {
         let type_name = gen.reader.type_def_type_name(def);
+        if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
+            continue;
+        }
         if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
             continue;
         }

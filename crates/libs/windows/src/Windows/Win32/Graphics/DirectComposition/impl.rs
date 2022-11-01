@@ -1671,18 +1671,18 @@ impl IDCompositionMatrixTransform_Vtbl {
         iid == &<IDCompositionMatrixTransform as ::windows::core::Interface>::IID || iid == &<IDCompositionEffect as ::windows::core::Interface>::IID || iid == &<IDCompositionTransform3D as ::windows::core::Interface>::IID || iid == &<IDCompositionTransform as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
+#[cfg(feature = "Foundation_Numerics")]
 pub trait IDCompositionMatrixTransform3D_Impl: Sized + IDCompositionTransform3D_Impl {
-    fn SetMatrix(&self, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()>;
+    fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()>;
     fn SetMatrixElement(&self, row: i32, column: i32, animation: &::core::option::Option<IDCompositionAnimation>) -> ::windows::core::Result<()>;
     fn SetMatrixElement2(&self, row: i32, column: i32, value: f32) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D")]
+#[cfg(feature = "Foundation_Numerics")]
 impl ::windows::core::RuntimeName for IDCompositionMatrixTransform3D {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
+#[cfg(feature = "Foundation_Numerics")]
 impl IDCompositionMatrixTransform3D_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>() -> IDCompositionMatrixTransform3D_Vtbl {
-        unsafe extern "system" fn SetMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMatrix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionMatrixTransform3D_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMatrix(::core::mem::transmute_copy(&matrix)).into()

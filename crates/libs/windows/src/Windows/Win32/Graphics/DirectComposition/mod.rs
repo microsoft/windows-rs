@@ -2010,9 +2010,9 @@ pub struct IDCompositionMatrixTransform_Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionMatrixTransform3D(::windows::core::IUnknown);
 impl IDCompositionMatrixTransform3D {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn SetMatrix(&self, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[cfg(feature = "Foundation_Numerics")]
+    pub unsafe fn SetMatrix(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMatrix)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(matrix)).ok()
     }
     pub unsafe fn SetMatrixElement<'a, P0>(&self, row: i32, column: i32, animation: P0) -> ::windows::core::Result<()>
@@ -2052,9 +2052,9 @@ unsafe impl ::windows::core::Interface for IDCompositionMatrixTransform3D {
 #[doc(hidden)]
 pub struct IDCompositionMatrixTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct3D::D3DMATRIX) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
+    #[cfg(feature = "Foundation_Numerics")]
+    pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
     pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,

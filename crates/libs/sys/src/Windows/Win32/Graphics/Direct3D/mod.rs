@@ -1289,55 +1289,6 @@ pub const D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_ODD: D3D_TESSELLATOR_PARTITI
 pub const D3D11_TESSELLATOR_PARTITIONING_FRACTIONAL_EVEN: D3D_TESSELLATOR_PARTITIONING = 4i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub struct D3DMATRIX {
-    pub Anonymous: D3DMATRIX_0,
-}
-impl ::core::marker::Copy for D3DMATRIX {}
-impl ::core::clone::Clone for D3DMATRIX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub union D3DMATRIX_0 {
-    pub Anonymous: D3DMATRIX_0_0,
-    pub m: [f32; 16],
-}
-impl ::core::marker::Copy for D3DMATRIX_0 {}
-impl ::core::clone::Clone for D3DMATRIX_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub struct D3DMATRIX_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
-}
-impl ::core::marker::Copy for D3DMATRIX_0_0 {}
-impl ::core::clone::Clone for D3DMATRIX_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub struct D3DVECTOR {
     pub x: f32,
     pub y: f32,
