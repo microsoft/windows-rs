@@ -652,14 +652,13 @@ fn create_effect(
             * Matrix4x4::rotation_y(if front { 180.0 } else { 0.0 });
 
         let pre_transform = device.CreateMatrixTransform3D()?;
-        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2128
-        pre_transform.SetMatrix(&pre_matrix as *const _ as *const _)?;
+        pre_transform.SetMatrix(&pre_matrix)?;
 
         let post_matrix = Matrix4x4::perspective_projection(width * 2.0)
             * Matrix4x4::translation(width / 2.0, height / 2.0, 0.0);
 
         let post_transform = device.CreateMatrixTransform3D()?;
-        post_transform.SetMatrix(&post_matrix as *const _ as *const _)?;
+        post_transform.SetMatrix(&post_matrix)?;
 
         // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2105
         let transform = device.CreateTransform3DGroup(&[

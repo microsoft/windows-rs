@@ -229,62 +229,6 @@ impl ::core::clone::Clone for D2D_COLOR_F {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub struct D2D_MATRIX_3X2_F {
-    pub Anonymous: D2D_MATRIX_3X2_F_0,
-}
-impl ::core::marker::Copy for D2D_MATRIX_3X2_F {}
-impl ::core::clone::Clone for D2D_MATRIX_3X2_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub union D2D_MATRIX_3X2_F_0 {
-    pub Anonymous1: D2D_MATRIX_3X2_F_0_0,
-    pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
-    pub m: [f32; 6],
-}
-impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0 {}
-impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub struct D2D_MATRIX_3X2_F_0_0 {
-    pub m11: f32,
-    pub m12: f32,
-    pub m21: f32,
-    pub m22: f32,
-    pub dx: f32,
-    pub dy: f32,
-}
-impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0_0 {}
-impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub struct D2D_MATRIX_3X2_F_0_1 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
-}
-impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0_1 {}
-impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub struct D2D_MATRIX_4X3_F {
     pub Anonymous: D2D_MATRIX_4X3_F_0,
 }
