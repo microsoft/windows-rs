@@ -53,7 +53,7 @@ impl Matrix3x2 {
             pub x: f32,
             pub y: f32,
         }
-        #[link(name = "d2d1")]
+        #[link(name = "windows")]
         extern "system" {
             fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2);
         }
@@ -234,6 +234,77 @@ impl ::core::default::Default for Matrix4x4 {
     }
 }
 impl Matrix4x4 {
+    pub const fn translation(x: f32, y: f32, z: f32) -> Self {
+        Self {
+            M11: 1.0,
+            M12: 0.0,
+            M13: 0.0,
+            M14: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M23: 0.0,
+            M24: 0.0,
+            M31: 0.0,
+            M32: 0.0,
+            M33: 1.0,
+            M34: 0.0,
+            M41: x,
+            M42: y,
+            M43: z,
+            M44: 1.0,
+        }
+    }
+    pub fn rotation_y(degree: f32) -> Self {
+        #[link(name = "windows")]
+        extern "system" {
+            fn D2D1SinCos(angle: f32, sin: *mut f32, cos: *mut f32);
+        }
+        let angle = degree * (3.141592654 / 180.0);
+        let mut sin = 0.0;
+        let mut cos = 0.0;
+        unsafe {
+            D2D1SinCos(angle, &mut sin, &mut cos);
+        }
+        Self {
+            M11: cos,
+            M12: 0.0,
+            M13: -sin,
+            M14: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M23: 0.0,
+            M24: 0.0,
+            M31: sin,
+            M32: 0.0,
+            M33: cos,
+            M34: 0.0,
+            M41: 0.0,
+            M42: 0.0,
+            M43: 0.0,
+            M44: 1.0,
+        }
+    }
+    pub fn perspective_projection(depth: f32) -> Self {
+        let projection = if depth > 0.0 { -1.0 / depth } else { 0.0 };
+        Self {
+            M11: 1.0,
+            M12: 0.0,
+            M13: 0.0,
+            M14: 0.0,
+            M21: 0.0,
+            M22: 1.0,
+            M23: 0.0,
+            M24: 0.0,
+            M31: 0.0,
+            M32: 0.0,
+            M33: 1.0,
+            M34: projection,
+            M41: 0.0,
+            M42: 0.0,
+            M43: 0.0,
+            M44: 1.0,
+        }
+    }
     fn impl_add(&self, rhs: &Self) -> Self {
         Self {
             M11: self.M11 + rhs.M11,

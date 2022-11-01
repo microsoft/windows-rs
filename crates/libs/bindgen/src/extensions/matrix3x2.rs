@@ -29,7 +29,7 @@ pub fn gen() -> TokenStream {
                     pub x: f32,
                     pub y: f32,
                 }
-                #[link(name = "d2d1")]
+                #[link(name = "windows")]
                 extern "system" {
                     fn D2D1MakeRotateMatrix(
                         angle: f32,
