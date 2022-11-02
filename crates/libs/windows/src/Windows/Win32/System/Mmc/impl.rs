@@ -3320,7 +3320,7 @@ pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn ListItems(&self) -> ::windows::core::Result<Nodes>;
     fn SnapinScopeObject(&self, scopenode: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>;
     fn SnapinSelectionObject(&self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn Is(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<i16>;
+    fn Is(&self, view: &::core::option::Option<View>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Document(&self) -> ::windows::core::Result<Document>;
     fn SelectAll(&self) -> ::windows::core::Result<()>;
     fn Select(&self, node: &::core::option::Option<Node>) -> ::windows::core::Result<()>;
@@ -3422,7 +3422,7 @@ impl View_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Is<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: *mut ::core::ffi::c_void, thesame: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Is<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: View_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, view: *mut ::core::ffi::c_void, thesame: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Is(::core::mem::transmute(&view)) {

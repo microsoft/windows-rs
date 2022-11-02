@@ -33559,9 +33559,11 @@ pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
 #[repr(transparent)]
 pub struct IWebAppDiagnosticsSetup(::windows::core::IUnknown);
 impl IWebAppDiagnosticsSetup {
-    pub unsafe fn DiagnosticsSupported(&self) -> ::windows::core::Result<i16> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DiagnosticsSupported(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DiagnosticsSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).DiagnosticsSupported)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::VARIANT_BOOL>(result__)
     }
     pub unsafe fn CreateObjectWithSiteAtWebApp(&self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, hpasstoobject: usize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateObjectWithSiteAtWebApp)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(rclsid), dwclscontext, ::core::mem::transmute(riid), hpasstoobject).ok()
@@ -33594,7 +33596,10 @@ unsafe impl ::windows::core::Interface for IWebAppDiagnosticsSetup {
 #[doc(hidden)]
 pub struct IWebAppDiagnosticsSetup_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub DiagnosticsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub DiagnosticsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    DiagnosticsSupported: usize,
     pub CreateObjectWithSiteAtWebApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, hpasstoobject: usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]

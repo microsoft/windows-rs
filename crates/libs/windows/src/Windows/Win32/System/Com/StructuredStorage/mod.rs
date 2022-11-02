@@ -1791,31 +1791,39 @@ impl ::core::default::Default for BSTRBLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CABOOL {
     pub cElems: u32,
-    pub pElems: *mut i16,
+    pub pElems: *mut super::super::super::Foundation::VARIANT_BOOL,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CABOOL {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CABOOL {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CABOOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CABOOL {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABOOL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABOOL>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CABOOL {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CABOOL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2781,8 +2789,8 @@ pub union PROPVARIANT_0_0_0 {
     pub uhVal: u64,
     pub fltVal: f32,
     pub dblVal: f64,
-    pub boolVal: i16,
-    pub __OBSOLETE__VARIANT_BOOL: i16,
+    pub boolVal: super::super::super::Foundation::VARIANT_BOOL,
+    pub __OBSOLETE__VARIANT_BOOL: super::super::super::Foundation::VARIANT_BOOL,
     pub scode: i32,
     pub cyVal: super::CY,
     pub date: f64,
@@ -2832,7 +2840,7 @@ pub union PROPVARIANT_0_0_0 {
     pub puintVal: *mut u32,
     pub pfltVal: *mut f32,
     pub pdblVal: *mut f64,
-    pub pboolVal: *mut i16,
+    pub pboolVal: *mut super::super::super::Foundation::VARIANT_BOOL,
     pub pdecVal: *mut super::super::super::Foundation::DECIMAL,
     pub pscode: *mut i32,
     pub pcyVal: *mut super::CY,

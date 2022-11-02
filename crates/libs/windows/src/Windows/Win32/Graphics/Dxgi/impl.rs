@@ -355,7 +355,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice_Impl: Sized + IDXGIObject_Impl {
     fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter>;
-    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
+    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()>;
     fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()>;
     fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()>;
     fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32>;
@@ -376,7 +376,7 @@ impl IDXGIDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CreateSurface(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&numsurfaces), ::core::mem::transmute_copy(&usage), ::core::mem::transmute_copy(&psharedresource), ::core::mem::transmute_copy(&ppsurface)).into()
@@ -1752,7 +1752,7 @@ impl IDXGIOutputDuplication_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDXGIResource_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
-    fn GetUsage(&self) -> ::windows::core::Result<u32>;
+    fn GetUsage(&self) -> ::windows::core::Result<DXGI_USAGE>;
     fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
     fn GetEvictionPriority(&self) -> ::windows::core::Result<u32>;
 }
@@ -1772,7 +1772,7 @@ impl IDXGIResource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusage: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetUsage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusage: *mut DXGI_USAGE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetUsage() {

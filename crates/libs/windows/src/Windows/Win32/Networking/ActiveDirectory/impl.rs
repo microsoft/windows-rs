@@ -163,7 +163,7 @@ pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn ForestDNSName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn PDCRoleOwner(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SchemaRoleOwner(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IsNativeMode(&self) -> ::windows::core::Result<i16>;
+    fn IsNativeMode(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetAnyDCName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetDCSiteName(&self, szserver: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RefreshSchemaCache(&self) -> ::windows::core::Result<()>;
@@ -262,7 +262,7 @@ impl IADsADSystemInfo_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsNativeMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsNativeMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsADSystemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsNativeMode() {
@@ -840,10 +840,10 @@ pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn SetCLSID(&self, bstrclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetOID(&self, bstroid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Abstract(&self) -> ::windows::core::Result<i16>;
-    fn SetAbstract(&self, fabstract: i16) -> ::windows::core::Result<()>;
-    fn Auxiliary(&self) -> ::windows::core::Result<i16>;
-    fn SetAuxiliary(&self, fauxiliary: i16) -> ::windows::core::Result<()>;
+    fn Abstract(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAbstract(&self, fabstract: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Auxiliary(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAuxiliary(&self, fauxiliary: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn MandatoryProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetMandatoryProperties(&self, vmandatoryproperties: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn OptionalProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -858,8 +858,8 @@ pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn SetPossibleSuperiors(&self, vpossiblesuperiors: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Containment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetContainment(&self, vcontainment: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Container(&self) -> ::windows::core::Result<i16>;
-    fn SetContainer(&self, fcontainer: i16) -> ::windows::core::Result<()>;
+    fn Container(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetContainer(&self, fcontainer: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn HelpFileName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetHelpFileName(&self, bstrhelpfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn HelpFileContext(&self) -> ::windows::core::Result<i32>;
@@ -914,7 +914,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             this.SetOID(::core::mem::transmute(&bstroid)).into()
         }
-        unsafe extern "system" fn Abstract<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Abstract<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Abstract() {
@@ -925,12 +925,12 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAbstract<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fabstract: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAbstract<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fabstract: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAbstract(::core::mem::transmute_copy(&fabstract)).into()
         }
-        unsafe extern "system" fn Auxiliary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Auxiliary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Auxiliary() {
@@ -941,7 +941,7 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAuxiliary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fauxiliary: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAuxiliary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fauxiliary: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAuxiliary(::core::mem::transmute_copy(&fauxiliary)).into()
@@ -1058,7 +1058,7 @@ impl IADsClass_Vtbl {
             let this = (*this).get_impl();
             this.SetContainment(::core::mem::transmute(&vcontainment)).into()
         }
-        unsafe extern "system" fn Container<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Container<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Container() {
@@ -1069,7 +1069,7 @@ impl IADsClass_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetContainer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcontainer: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetContainer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcontainer: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetContainer(::core::mem::transmute_copy(&fcontainer)).into()
@@ -1556,7 +1556,7 @@ impl IADsComputer_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsComputerOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn Shutdown(&self, breboot: i16) -> ::windows::core::Result<()>;
+    fn Shutdown(&self, breboot: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IADsComputerOperations {}
@@ -1574,7 +1574,7 @@ impl IADsComputerOperations_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputerOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, breboot: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsComputerOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, breboot: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Shutdown(::core::mem::transmute_copy(&breboot)).into()
@@ -1860,7 +1860,7 @@ impl IADsDeleteOps_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IADsDomain_Impl: Sized + IADs_Impl {
-    fn IsWorkgroup(&self) -> ::windows::core::Result<i16>;
+    fn IsWorkgroup(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MinPasswordLength(&self) -> ::windows::core::Result<i32>;
     fn SetMinPasswordLength(&self, lnminpasswordlength: i32) -> ::windows::core::Result<()>;
     fn MinPasswordAge(&self) -> ::windows::core::Result<i32>;
@@ -1883,7 +1883,7 @@ impl ::windows::core::RuntimeName for IADsDomain {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IADsDomain_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDomain_Impl, const OFFSET: isize>() -> IADsDomain_Vtbl {
-        unsafe extern "system" fn IsWorkgroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsWorkgroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsDomain_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsWorkgroup() {
@@ -2414,7 +2414,7 @@ pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, bstrdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Members(&self) -> ::windows::core::Result<IADsMembers>;
-    fn IsMember(&self, bstrmember: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
+    fn IsMember(&self, bstrmember: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Add(&self, bstrnewitem: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Remove(&self, bstritemtoberemoved: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -2450,7 +2450,7 @@ impl IADsGroup_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmember: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bmember: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmember: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bmember: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsMember(::core::mem::transmute(&bstrmember)) {
@@ -4207,8 +4207,8 @@ pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn SetMaxRange(&self, lnmaxrange: i32) -> ::windows::core::Result<()>;
     fn MinRange(&self) -> ::windows::core::Result<i32>;
     fn SetMinRange(&self, lnminrange: i32) -> ::windows::core::Result<()>;
-    fn MultiValued(&self) -> ::windows::core::Result<i16>;
-    fn SetMultiValued(&self, fmultivalued: i16) -> ::windows::core::Result<()>;
+    fn MultiValued(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMultiValued(&self, fmultivalued: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4280,7 +4280,7 @@ impl IADsProperty_Vtbl {
             let this = (*this).get_impl();
             this.SetMinRange(::core::mem::transmute_copy(&lnminrange)).into()
         }
-        unsafe extern "system" fn MultiValued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MultiValued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MultiValued() {
@@ -4291,7 +4291,7 @@ impl IADsProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMultiValued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmultivalued: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMultiValued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmultivalued: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMultiValued(::core::mem::transmute_copy(&fmultivalued)).into()
@@ -5011,20 +5011,20 @@ pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispa
     fn SetControl(&self, lncontrol: i32) -> ::windows::core::Result<()>;
     fn Owner(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetOwner(&self, bstrowner: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OwnerDefaulted(&self) -> ::windows::core::Result<i16>;
-    fn SetOwnerDefaulted(&self, fownerdefaulted: i16) -> ::windows::core::Result<()>;
+    fn OwnerDefaulted(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetOwnerDefaulted(&self, fownerdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Group(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetGroup(&self, bstrgroup: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn GroupDefaulted(&self) -> ::windows::core::Result<i16>;
-    fn SetGroupDefaulted(&self, fgroupdefaulted: i16) -> ::windows::core::Result<()>;
+    fn GroupDefaulted(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetGroupDefaulted(&self, fgroupdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn DiscretionaryAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn SetDiscretionaryAcl(&self, pdiscretionaryacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn DaclDefaulted(&self) -> ::windows::core::Result<i16>;
-    fn SetDaclDefaulted(&self, fdacldefaulted: i16) -> ::windows::core::Result<()>;
+    fn DaclDefaulted(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDaclDefaulted(&self, fdacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn SystemAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn SetSystemAcl(&self, psystemacl: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn SaclDefaulted(&self) -> ::windows::core::Result<i16>;
-    fn SetSaclDefaulted(&self, fsacldefaulted: i16) -> ::windows::core::Result<()>;
+    fn SaclDefaulted(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSaclDefaulted(&self, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn CopySecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5080,7 +5080,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             this.SetOwner(::core::mem::transmute(&bstrowner)).into()
         }
-        unsafe extern "system" fn OwnerDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OwnerDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OwnerDefaulted() {
@@ -5091,7 +5091,7 @@ impl IADsSecurityDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOwnerDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fownerdefaulted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOwnerDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fownerdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOwnerDefaulted(::core::mem::transmute_copy(&fownerdefaulted)).into()
@@ -5112,7 +5112,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             this.SetGroup(::core::mem::transmute(&bstrgroup)).into()
         }
-        unsafe extern "system" fn GroupDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GroupDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GroupDefaulted() {
@@ -5123,7 +5123,7 @@ impl IADsSecurityDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetGroupDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fgroupdefaulted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetGroupDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fgroupdefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetGroupDefaulted(::core::mem::transmute_copy(&fgroupdefaulted)).into()
@@ -5144,7 +5144,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             this.SetDiscretionaryAcl(::core::mem::transmute(&pdiscretionaryacl)).into()
         }
-        unsafe extern "system" fn DaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DaclDefaulted() {
@@ -5155,7 +5155,7 @@ impl IADsSecurityDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdacldefaulted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDaclDefaulted(::core::mem::transmute_copy(&fdacldefaulted)).into()
@@ -5176,7 +5176,7 @@ impl IADsSecurityDescriptor_Vtbl {
             let this = (*this).get_impl();
             this.SetSystemAcl(::core::mem::transmute(&psystemacl)).into()
         }
-        unsafe extern "system" fn SaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SaclDefaulted() {
@@ -5187,7 +5187,7 @@ impl IADsSecurityDescriptor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsacldefaulted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSaclDefaulted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsSecurityDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsacldefaulted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSaclDefaulted(::core::mem::transmute_copy(&fsacldefaulted)).into()
@@ -5933,16 +5933,16 @@ pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn SetPostalCodes(&self, vpostalcodes: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetSeeAlso(&self, vseealso: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn AccountDisabled(&self) -> ::windows::core::Result<i16>;
-    fn SetAccountDisabled(&self, faccountdisabled: i16) -> ::windows::core::Result<()>;
+    fn AccountDisabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAccountDisabled(&self, faccountdisabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn AccountExpirationDate(&self) -> ::windows::core::Result<f64>;
     fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> ::windows::core::Result<()>;
     fn GraceLoginsAllowed(&self) -> ::windows::core::Result<i32>;
     fn SetGraceLoginsAllowed(&self, lngraceloginsallowed: i32) -> ::windows::core::Result<()>;
     fn GraceLoginsRemaining(&self) -> ::windows::core::Result<i32>;
     fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows::core::Result<()>;
-    fn IsAccountLocked(&self) -> ::windows::core::Result<i16>;
-    fn SetIsAccountLocked(&self, fisaccountlocked: i16) -> ::windows::core::Result<()>;
+    fn IsAccountLocked(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIsAccountLocked(&self, fisaccountlocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn LoginHours(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetLoginHours(&self, vloginhours: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn LoginWorkstations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -5955,10 +5955,10 @@ pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> ::windows::core::Result<()>;
     fn PasswordMinimumLength(&self) -> ::windows::core::Result<i32>;
     fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> ::windows::core::Result<()>;
-    fn PasswordRequired(&self) -> ::windows::core::Result<i16>;
-    fn SetPasswordRequired(&self, fpasswordrequired: i16) -> ::windows::core::Result<()>;
-    fn RequireUniquePassword(&self) -> ::windows::core::Result<i16>;
-    fn SetRequireUniquePassword(&self, frequireuniquepassword: i16) -> ::windows::core::Result<()>;
+    fn PasswordRequired(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPasswordRequired(&self, fpasswordrequired: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn RequireUniquePassword(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetRequireUniquePassword(&self, frequireuniquepassword: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn EmailAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetEmailAddress(&self, bstremailaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn HomeDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6384,7 +6384,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetSeeAlso(::core::mem::transmute(&vseealso)).into()
         }
-        unsafe extern "system" fn AccountDisabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AccountDisabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AccountDisabled() {
@@ -6395,7 +6395,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAccountDisabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, faccountdisabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAccountDisabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, faccountdisabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAccountDisabled(::core::mem::transmute_copy(&faccountdisabled)).into()
@@ -6448,7 +6448,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetGraceLoginsRemaining(::core::mem::transmute_copy(&lngraceloginsremaining)).into()
         }
-        unsafe extern "system" fn IsAccountLocked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAccountLocked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsAccountLocked() {
@@ -6459,7 +6459,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsAccountLocked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fisaccountlocked: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsAccountLocked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fisaccountlocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIsAccountLocked(::core::mem::transmute_copy(&fisaccountlocked)).into()
@@ -6560,7 +6560,7 @@ impl IADsUser_Vtbl {
             let this = (*this).get_impl();
             this.SetPasswordMinimumLength(::core::mem::transmute_copy(&lnpasswordminimumlength)).into()
         }
-        unsafe extern "system" fn PasswordRequired<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PasswordRequired<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PasswordRequired() {
@@ -6571,12 +6571,12 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPasswordRequired<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpasswordrequired: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPasswordRequired<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpasswordrequired: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPasswordRequired(::core::mem::transmute_copy(&fpasswordrequired)).into()
         }
-        unsafe extern "system" fn RequireUniquePassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RequireUniquePassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RequireUniquePassword() {
@@ -6587,7 +6587,7 @@ impl IADsUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRequireUniquePassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frequireuniquepassword: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRequireUniquePassword<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADsUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frequireuniquepassword: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRequireUniquePassword(::core::mem::transmute_copy(&frequireuniquepassword)).into()

@@ -4881,7 +4881,9 @@ impl IMsmMerge {
     pub unsafe fn OpenModule(&self, path: &::windows::core::BSTR, language: i16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OpenModule)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(path), language).ok()
     }
-    pub unsafe fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CloseDatabase)(::windows::core::Vtable::as_raw(self), commit).ok()
     }
     pub unsafe fn CloseModule(&self) -> ::windows::core::Result<()> {
@@ -4958,7 +4960,10 @@ pub struct IMsmMerge_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub OpenDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub OpenModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>, language: i16) -> ::windows::core::HRESULT,
-    pub CloseDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commit: i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CloseDatabase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CloseDatabase: usize,
     pub CloseModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CloseLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

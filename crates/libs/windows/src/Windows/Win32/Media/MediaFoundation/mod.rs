@@ -18501,12 +18501,14 @@ pub struct IMFNetProxyLocatorFactory_Vtbl {
 #[repr(transparent)]
 pub struct IMFNetResourceFilter(::windows::core::IUnknown);
 impl IMFNetResourceFilter {
-    pub unsafe fn OnRedirect<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<i16>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OnRedirect<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OnRedirect)(::windows::core::Vtable::as_raw(self), pszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).OnRedirect)(::windows::core::Vtable::as_raw(self), pszurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
     }
     pub unsafe fn OnSendingRequest<'a, P0>(&self, pszurl: P0) -> ::windows::core::Result<()>
     where
@@ -18542,7 +18544,10 @@ unsafe impl ::windows::core::Interface for IMFNetResourceFilter {
 #[doc(hidden)]
 pub struct IMFNetResourceFilter_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub OnRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pvbcancel: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub OnRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pvbcancel: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnRedirect: usize,
     pub OnSendingRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

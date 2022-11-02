@@ -2312,9 +2312,9 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 #[repr(transparent)]
 pub struct IAnnotationProvider(::windows::core::IUnknown);
 impl IAnnotationProvider {
-    pub unsafe fn AnnotationTypeId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn AnnotationTypeId(&self) -> ::windows::core::Result<UIA_ANNOTATIONTYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).AnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_ANNOTATIONTYPE>(result__)
     }
     pub unsafe fn AnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2360,7 +2360,7 @@ unsafe impl ::windows::core::Interface for IAnnotationProvider {
 #[doc(hidden)]
 pub struct IAnnotationProvider_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub AnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> ::windows::core::HRESULT,
     pub AnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub DateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -2757,7 +2757,7 @@ pub struct IItemContainerProvider(::windows::core::IUnknown);
 impl IItemContainerProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindItemByProperty<'a, P0, P1>(&self, pstartafter: P0, propertyid: i32, value: P1) -> ::windows::core::Result<IRawElementProviderSimple>
+    pub unsafe fn FindItemByProperty<'a, P0, P1>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: P1) -> ::windows::core::Result<IRawElementProviderSimple>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
@@ -2794,7 +2794,7 @@ unsafe impl ::windows::core::Interface for IItemContainerProvider {
 pub struct IItemContainerProvider_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindItemByProperty: usize,
 }
@@ -3058,14 +3058,14 @@ pub struct IProxyProviderWinEventSink(::windows::core::IUnknown);
 impl IProxyProviderWinEventSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn AddAutomationPropertyChangedEvent<'a, P0, P1>(&self, pprovider: P0, id: i32, newvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationPropertyChangedEvent<'a, P0, P1>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
         (::windows::core::Vtable::vtable(self).AddAutomationPropertyChangedEvent)(::windows::core::Vtable::as_raw(self), pprovider.into().abi(), id, newvalue.into().abi()).ok()
     }
-    pub unsafe fn AddAutomationEvent<'a, P0>(&self, pprovider: P0, id: i32) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEvent<'a, P0>(&self, pprovider: P0, id: UIA_EVENT_ID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
     {
@@ -3108,10 +3108,10 @@ unsafe impl ::windows::core::Interface for IProxyProviderWinEventSink {
 pub struct IProxyProviderWinEventSink_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub AddAutomationPropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     AddAutomationPropertyChangedEvent: usize,
-    pub AddAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT,
+    pub AddAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, id: UIA_EVENT_ID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddStructureChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3195,12 +3195,12 @@ pub struct IRawElementProviderAdviseEvents(::windows::core::IUnknown);
 impl IRawElementProviderAdviseEvents {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdviseEventAdded(&self, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AdviseEventAdded)(::windows::core::Vtable::as_raw(self), eventid, ::core::mem::transmute(propertyids)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AdviseEventRemoved(&self, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AdviseEventRemoved)(::windows::core::Vtable::as_raw(self), eventid, ::core::mem::transmute(propertyids)).ok()
     }
 }
@@ -3232,11 +3232,11 @@ unsafe impl ::windows::core::Interface for IRawElementProviderAdviseEvents {
 pub struct IRawElementProviderAdviseEvents_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdviseEventAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub AdviseEventAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdviseEventAdded: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AdviseEventRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub AdviseEventRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AdviseEventRemoved: usize,
 }
@@ -3584,7 +3584,7 @@ impl IRawElementProviderSimple3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -3617,7 +3617,7 @@ unsafe impl ::windows::core::Interface for IRawElementProviderSimple3 {
 pub struct IRawElementProviderSimple3_Vtbl {
     pub base__: IRawElementProviderSimple2_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetMetadataValue: usize,
 }
@@ -4166,9 +4166,9 @@ pub struct ISpreadsheetProvider_Vtbl {
 #[repr(transparent)]
 pub struct IStylesProvider(::windows::core::IUnknown);
 impl IStylesProvider {
-    pub unsafe fn StyleId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn StyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).StyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).StyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_STYLE_ID>(result__)
     }
     pub unsafe fn StyleName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4222,7 +4222,7 @@ unsafe impl ::windows::core::Interface for IStylesProvider {
 #[doc(hidden)]
 pub struct IStylesProvider_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub StyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub StyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> ::windows::core::HRESULT,
     pub StyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub FillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub FillPatternStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -4685,7 +4685,7 @@ impl ITextRangeProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attributeid: i32, val: P0, backward: P1) -> ::windows::core::Result<ITextRangeProvider>
+    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> ::windows::core::Result<ITextRangeProvider>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -4705,7 +4705,7 @@ impl ITextRangeProvider {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attributeid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), attributeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -4796,7 +4796,7 @@ pub struct ITextRangeProvider_Vtbl {
     pub CompareEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: TextPatternRangeEndpoint, targetrange: *mut ::core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextUnit) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindAttribute: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4804,7 +4804,7 @@ pub struct ITextRangeProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: i32, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeid: UIA_TEXTATTRIBUTE_ID, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -4857,7 +4857,7 @@ impl ITextRangeProvider2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attributeid: i32, val: P0, backward: P1) -> ::windows::core::Result<ITextRangeProvider>
+    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> ::windows::core::Result<ITextRangeProvider>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -4877,7 +4877,7 @@ impl ITextRangeProvider2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attributeid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAttributeValue)(::windows::core::Vtable::as_raw(self), attributeid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -5296,7 +5296,7 @@ impl IUIAutomation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -5305,7 +5305,7 @@ impl IUIAutomation {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -5355,7 +5355,7 @@ impl IUIAutomation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -5363,14 +5363,14 @@ impl IUIAutomation {
     {
         (::windows::core::Vtable::vtable(self).AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -5468,11 +5468,11 @@ impl IUIAutomation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -5595,11 +5595,11 @@ pub struct IUIAutomation_Vtbl {
     pub CreateTrueCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateFalseCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePropertyCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreatePropertyCondition: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub CreatePropertyConditionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreatePropertyConditionEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, flags: PropertyConditionFlags, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CreatePropertyConditionEx: usize,
     pub CreateAndCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition1: *mut ::core::ffi::c_void, condition2: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -5615,9 +5615,9 @@ pub struct IUIAutomation_Vtbl {
     CreateOrConditionFromArray: usize,
     pub CreateOrConditionFromNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, conditions: *const *mut ::core::ffi::c_void, conditioncount: i32, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateNotCondition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition: *mut ::core::ffi::c_void, newcondition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RemoveAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddPropertyChangedEventHandlerNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT,
+    pub AddAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemoveAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddPropertyChangedEventHandlerNativeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub AddPropertyChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5650,8 +5650,8 @@ pub struct IUIAutomation_Vtbl {
     SafeArrayToRectNativeArray: usize,
     pub CreateProxyFactoryEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::core::ffi::c_void, factoryentry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ProxyFactoryMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factorymapping: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetPropertyProgrammaticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: i32, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub GetPatternProgrammaticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattern: i32, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPropertyProgrammaticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: UIA_PROPERTY_ID, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetPatternProgrammaticName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattern: UIA_PATTERN_ID, name: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub PollForPotentialSupportedPatterns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut ::core::ffi::c_void, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -5796,7 +5796,7 @@ impl IUIAutomation2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -5805,7 +5805,7 @@ impl IUIAutomation2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -5855,7 +5855,7 @@ impl IUIAutomation2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -5863,14 +5863,14 @@ impl IUIAutomation2 {
     {
         (::windows::core::Vtable::vtable(self).base__.AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).base__.RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -5968,11 +5968,11 @@ impl IUIAutomation2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -6218,7 +6218,7 @@ impl IUIAutomation3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -6227,7 +6227,7 @@ impl IUIAutomation3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -6277,7 +6277,7 @@ impl IUIAutomation3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -6285,14 +6285,14 @@ impl IUIAutomation3 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -6390,11 +6390,11 @@ impl IUIAutomation3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -6645,7 +6645,7 @@ impl IUIAutomation4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -6654,7 +6654,7 @@ impl IUIAutomation4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -6704,7 +6704,7 @@ impl IUIAutomation4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -6712,14 +6712,14 @@ impl IUIAutomation4 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -6817,11 +6817,11 @@ impl IUIAutomation4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -7087,7 +7087,7 @@ impl IUIAutomation5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -7096,7 +7096,7 @@ impl IUIAutomation5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -7146,7 +7146,7 @@ impl IUIAutomation5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -7154,14 +7154,14 @@ impl IUIAutomation5 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -7259,11 +7259,11 @@ impl IUIAutomation5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -7544,7 +7544,7 @@ impl IUIAutomation6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: i32, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyCondition<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -7553,7 +7553,7 @@ impl IUIAutomation6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: i32, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
+    pub unsafe fn CreatePropertyConditionEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, value: P0, flags: PropertyConditionFlags) -> ::windows::core::Result<IUIAutomationCondition>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     {
@@ -7603,7 +7603,7 @@ impl IUIAutomation6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateNotCondition)(::windows::core::Vtable::as_raw(self), condition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationCondition>(result__)
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: i32, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1, P2>(&self, eventid: UIA_EVENT_ID, element: P0, scope: TreeScope, cacherequest: P1, handler: P2) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -7611,14 +7611,14 @@ impl IUIAutomation6 {
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.AddAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, element: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, element: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
     {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.RemoveAutomationEventHandler)(::windows::core::Vtable::as_raw(self), eventid, element.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandlerNativeArray<'a, P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
@@ -7716,11 +7716,11 @@ impl IUIAutomation6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.ProxyFactoryMapping)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationProxyFactoryMapping>(result__)
     }
-    pub unsafe fn GetPropertyProgrammaticName(&self, property: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPropertyProgrammaticName)(::windows::core::Vtable::as_raw(self), property, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn GetPatternProgrammaticName(&self, pattern: i32) -> ::windows::core::Result<::windows::core::BSTR> {
+    pub unsafe fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetPatternProgrammaticName)(::windows::core::Vtable::as_raw(self), pattern, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
@@ -8031,9 +8031,9 @@ pub struct IUIAutomationAndCondition_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationAnnotationPattern(::windows::core::IUnknown);
 impl IUIAutomationAnnotationPattern {
-    pub unsafe fn CurrentAnnotationTypeId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentAnnotationTypeId(&self) -> ::windows::core::Result<UIA_ANNOTATIONTYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurrentAnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CurrentAnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_ANNOTATIONTYPE>(result__)
     }
     pub unsafe fn CurrentAnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8051,9 +8051,9 @@ impl IUIAutomationAnnotationPattern {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElement>(result__)
     }
-    pub unsafe fn CachedAnnotationTypeId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedAnnotationTypeId(&self) -> ::windows::core::Result<UIA_ANNOTATIONTYPE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CachedAnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CachedAnnotationTypeId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_ANNOTATIONTYPE>(result__)
     }
     pub unsafe fn CachedAnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8099,12 +8099,12 @@ unsafe impl ::windows::core::Interface for IUIAutomationAnnotationPattern {
 #[doc(hidden)]
 pub struct IUIAutomationAnnotationPattern_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CurrentAnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CurrentAnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> ::windows::core::HRESULT,
     pub CurrentAnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentAuthor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CachedAnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CachedAnnotationTypeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_ANNOTATIONTYPE) -> ::windows::core::HRESULT,
     pub CachedAnnotationTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedAuthor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -8157,10 +8157,10 @@ pub struct IUIAutomationBoolCondition_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationCacheRequest(::windows::core::IUnknown);
 impl IUIAutomationCacheRequest {
-    pub unsafe fn AddProperty(&self, propertyid: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn AddProperty(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddProperty)(::windows::core::Vtable::as_raw(self), propertyid).ok()
     }
-    pub unsafe fn AddPattern(&self, patternid: i32) -> ::windows::core::Result<()> {
+    pub unsafe fn AddPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).AddPattern)(::windows::core::Vtable::as_raw(self), patternid).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IUIAutomationCacheRequest> {
@@ -8219,8 +8219,8 @@ unsafe impl ::windows::core::Interface for IUIAutomationCacheRequest {
 #[doc(hidden)]
 pub struct IUIAutomationCacheRequest_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32) -> ::windows::core::HRESULT,
-    pub AddPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32) -> ::windows::core::HRESULT,
+    pub AddProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID) -> ::windows::core::HRESULT,
+    pub AddPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clonedrequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TreeScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut TreeScope) -> ::windows::core::HRESULT,
     pub SetTreeScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope) -> ::windows::core::HRESULT,
@@ -8599,13 +8599,13 @@ impl IUIAutomationElement {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -8614,38 +8614,38 @@ impl IUIAutomationElement {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -8661,9 +8661,9 @@ impl IUIAutomationElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8811,9 +8811,9 @@ impl IUIAutomationElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9001,29 +9001,29 @@ pub struct IUIAutomationElement_Vtbl {
     pub FindAllBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub BuildUpdatedCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, updatedelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetCurrentPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentPropertyValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetCurrentPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentPropertyValueEx: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetCachedPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCachedPropertyValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: i32, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetCachedPropertyValueEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: super::super::Foundation::BOOL, retval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCachedPropertyValueEx: usize,
-    pub GetCurrentPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCachedPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCurrentPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetCachedPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: i32, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCurrentPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCachedPatternAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, riid: *const ::windows::core::GUID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCurrentPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetCachedPattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patternid: UIA_PATTERN_ID, patternobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCachedParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCachedChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, children: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
-    pub CurrentControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CurrentControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_CONTROLTYPE_ID) -> ::windows::core::HRESULT,
     pub CurrentLocalizedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -9088,7 +9088,7 @@ pub struct IUIAutomationElement_Vtbl {
     pub CurrentFlowsTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CurrentProviderDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
-    pub CachedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CachedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_CONTROLTYPE_ID) -> ::windows::core::HRESULT,
     pub CachedLocalizedControlType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedAcceleratorKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -9209,13 +9209,13 @@ impl IUIAutomationElement2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -9224,38 +9224,38 @@ impl IUIAutomationElement2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -9271,9 +9271,9 @@ impl IUIAutomationElement2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9421,9 +9421,9 @@ impl IUIAutomationElement2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9693,13 +9693,13 @@ impl IUIAutomationElement3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -9708,38 +9708,38 @@ impl IUIAutomationElement3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -9755,9 +9755,9 @@ impl IUIAutomationElement3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9905,9 +9905,9 @@ impl IUIAutomationElement3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10189,13 +10189,13 @@ impl IUIAutomationElement4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10204,38 +10204,38 @@ impl IUIAutomationElement4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -10251,9 +10251,9 @@ impl IUIAutomationElement4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10401,9 +10401,9 @@ impl IUIAutomationElement4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10736,13 +10736,13 @@ impl IUIAutomationElement5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -10751,38 +10751,38 @@ impl IUIAutomationElement5 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -10798,9 +10798,9 @@ impl IUIAutomationElement5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10948,9 +10948,9 @@ impl IUIAutomationElement5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11186,17 +11186,17 @@ impl IUIAutomationElement5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElementArray>(result__)
     }
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CurrentLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11230,9 +11230,9 @@ unsafe impl ::windows::core::Interface for IUIAutomationElement5 {
 #[doc(hidden)]
 pub struct IUIAutomationElement5_Vtbl {
     pub base__: IUIAutomationElement4_Vtbl,
-    pub CurrentLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CurrentLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> ::windows::core::HRESULT,
     pub CurrentLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
-    pub CachedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CachedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> ::windows::core::HRESULT,
     pub CachedLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -11287,13 +11287,13 @@ impl IUIAutomationElement6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -11302,38 +11302,38 @@ impl IUIAutomationElement6 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -11349,9 +11349,9 @@ impl IUIAutomationElement6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11499,9 +11499,9 @@ impl IUIAutomationElement6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11737,17 +11737,17 @@ impl IUIAutomationElement6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElementArray>(result__)
     }
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CurrentLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11844,13 +11844,13 @@ impl IUIAutomationElement7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -11859,38 +11859,38 @@ impl IUIAutomationElement7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -11906,9 +11906,9 @@ impl IUIAutomationElement7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12056,9 +12056,9 @@ impl IUIAutomationElement7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12294,17 +12294,17 @@ impl IUIAutomationElement7 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElementArray>(result__)
     }
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CurrentLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12354,7 +12354,7 @@ impl IUIAutomationElement7 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCurrentMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -12391,7 +12391,7 @@ pub struct IUIAutomationElement7_Vtbl {
     pub FindFirstWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FindAllWithOptionsBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, condition: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, traversaloptions: TreeTraversalOptions, root: *mut ::core::ffi::c_void, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: i32, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetCurrentMetadataValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: i32, metadataid: UIA_METADATA_ID, returnval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetCurrentMetadataValue: usize,
 }
@@ -12447,13 +12447,13 @@ impl IUIAutomationElement8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -12462,38 +12462,38 @@ impl IUIAutomationElement8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -12509,9 +12509,9 @@ impl IUIAutomationElement8 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12659,9 +12659,9 @@ impl IUIAutomationElement8 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12897,17 +12897,17 @@ impl IUIAutomationElement8 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElementArray>(result__)
     }
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CurrentLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12957,17 +12957,17 @@ impl IUIAutomationElement8 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCurrentMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<UIA_HEADINGLEVEL_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurrentHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CurrentHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_HEADINGLEVEL_ID>(result__)
     }
-    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<UIA_HEADINGLEVEL_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CachedHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CachedHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_HEADINGLEVEL_ID>(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IUIAutomationElement8, ::windows::core::IUnknown, IUIAutomationElement, IUIAutomationElement2, IUIAutomationElement3, IUIAutomationElement4, IUIAutomationElement5, IUIAutomationElement6, IUIAutomationElement7);
@@ -12997,8 +12997,8 @@ unsafe impl ::windows::core::Interface for IUIAutomationElement8 {
 #[doc(hidden)]
 pub struct IUIAutomationElement8_Vtbl {
     pub base__: IUIAutomationElement7_Vtbl,
-    pub CurrentHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
-    pub CachedHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CurrentHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> ::windows::core::HRESULT,
+    pub CachedHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -13052,13 +13052,13 @@ impl IUIAutomationElement9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCurrentPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
@@ -13067,38 +13067,38 @@ impl IUIAutomationElement9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValue(&self, propertyid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows::core::Vtable::as_raw(self), propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: i32, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
+    pub unsafe fn GetCachedPropertyValueEx<'a, P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValueEx)(::windows::core::Vtable::as_raw(self), propertyid, ignoredefaultvalue.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCurrentPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: i32) -> ::windows::core::Result<T>
+    pub unsafe fn GetCachedPatternAs<T>(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPatternAs)(::windows::core::Vtable::as_raw(self), patternid, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn GetCurrentPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCurrentPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    pub unsafe fn GetCachedPattern(&self, patternid: i32) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetCachedPattern(&self, patternid: UIA_PATTERN_ID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPattern)(::windows::core::Vtable::as_raw(self), patternid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
@@ -13114,9 +13114,9 @@ impl IUIAutomationElement9 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13264,9 +13264,9 @@ impl IUIAutomationElement9 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedProcessId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedControlType(&self) -> ::windows::core::Result<UIA_CONTROLTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedControlType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_CONTROLTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedControlType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13502,17 +13502,17 @@ impl IUIAutomationElement9 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CachedAnnotationObjects)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAutomationElementArray>(result__)
     }
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CurrentLocalizedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
     }
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<UIA_LANDMARKTYPE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CachedLandmarkType)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_LANDMARKTYPE_ID>(result__)
     }
     pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13562,17 +13562,17 @@ impl IUIAutomationElement9 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetCurrentMetadataValue)(::windows::core::Vtable::as_raw(self), targetid, metadataid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<UIA_HEADINGLEVEL_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CurrentHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CurrentHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_HEADINGLEVEL_ID>(result__)
     }
-    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<UIA_HEADINGLEVEL_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CachedHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.CachedHeadingLevel)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_HEADINGLEVEL_ID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13670,7 +13670,7 @@ pub struct IUIAutomationElementArray_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationEventHandler(::windows::core::IUnknown);
 impl IUIAutomationEventHandler {
-    pub unsafe fn HandleAutomationEvent<'a, P0>(&self, sender: P0, eventid: i32) -> ::windows::core::Result<()>
+    pub unsafe fn HandleAutomationEvent<'a, P0>(&self, sender: P0, eventid: UIA_EVENT_ID) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
     {
@@ -13704,7 +13704,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationEventHandler {
 #[doc(hidden)]
 pub struct IUIAutomationEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub HandleAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventid: i32) -> ::windows::core::HRESULT,
+    pub HandleAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
@@ -13717,7 +13717,7 @@ impl IUIAutomationEventHandlerGroup {
     {
         (::windows::core::Vtable::vtable(self).AddActiveTextPositionChangedEventHandler)(::windows::core::Vtable::as_raw(self), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddAutomationEventHandler<'a, P0, P1>(&self, eventid: i32, scope: TreeScope, cacherequest: P0, handler: P1) -> ::windows::core::Result<()>
+    pub unsafe fn AddAutomationEventHandler<'a, P0, P1>(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: P0, handler: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationEventHandler>>,
@@ -13738,7 +13738,7 @@ impl IUIAutomationEventHandlerGroup {
     {
         (::windows::core::Vtable::vtable(self).AddNotificationEventHandler)(::windows::core::Vtable::as_raw(self), scope, cacherequest.into().abi(), handler.into().abi()).ok()
     }
-    pub unsafe fn AddPropertyChangedEventHandler<'a, P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1, propertyarray: &[i32]) -> ::windows::core::Result<()>
+    pub unsafe fn AddPropertyChangedEventHandler<'a, P0, P1>(&self, scope: TreeScope, cacherequest: P0, handler: P1, propertyarray: &[UIA_PROPERTY_ID]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationCacheRequest>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationPropertyChangedEventHandler>>,
@@ -13788,10 +13788,10 @@ unsafe impl ::windows::core::Interface for IUIAutomationEventHandlerGroup {
 pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddAutomationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddChangesEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddNotificationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AddPropertyChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, propertyarray: *const i32, propertycount: i32) -> ::windows::core::HRESULT,
+    pub AddPropertyChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> ::windows::core::HRESULT,
     pub AddStructureChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -14070,7 +14070,7 @@ pub struct IUIAutomationItemContainerPattern(::windows::core::IUnknown);
 impl IUIAutomationItemContainerPattern {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindItemByProperty<'a, P0, P1>(&self, pstartafter: P0, propertyid: i32, value: P1) -> ::windows::core::Result<IUIAutomationElement>
+    pub unsafe fn FindItemByProperty<'a, P0, P1>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: P1) -> ::windows::core::Result<IUIAutomationElement>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
@@ -14107,7 +14107,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationItemContainerPattern {
 pub struct IUIAutomationItemContainerPattern_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindItemByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstartafter: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindItemByProperty: usize,
 }
@@ -14612,7 +14612,7 @@ pub struct IUIAutomationPropertyChangedEventHandler(::windows::core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn HandlePropertyChangedEvent<'a, P0, P1>(&self, sender: P0, propertyid: i32, newvalue: P1) -> ::windows::core::Result<()>
+    pub unsafe fn HandlePropertyChangedEvent<'a, P0, P1>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IUIAutomationElement>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
@@ -14648,7 +14648,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationPropertyChangedEventHand
 pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub HandlePropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: i32, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub HandlePropertyChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, propertyid: UIA_PROPERTY_ID, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     HandlePropertyChangedEvent: usize,
 }
@@ -14656,9 +14656,9 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationPropertyCondition(::windows::core::IUnknown);
 impl IUIAutomationPropertyCondition {
-    pub unsafe fn PropertyId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn PropertyId(&self) -> ::windows::core::Result<UIA_PROPERTY_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PropertyId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).PropertyId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_PROPERTY_ID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14698,7 +14698,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationPropertyCondition {
 #[doc(hidden)]
 pub struct IUIAutomationPropertyCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
-    pub PropertyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT,
+    pub PropertyId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: *mut UIA_PROPERTY_ID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub PropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -14828,12 +14828,12 @@ impl IUIAutomationProxyFactoryEntry {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: i32, propertyid: i32, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+    pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetWinEventsForAutomationEvent)(::windows::core::Vtable::as_raw(self), eventid, propertyid, ::core::mem::transmute(winevents)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: i32, propertyid: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetWinEventsForAutomationEvent)(::windows::core::Vtable::as_raw(self), eventid, propertyid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
@@ -14895,11 +14895,11 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetNeedsAdviseEvents: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetWinEventsForAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub SetWinEventsForAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWinEventsForAutomationEvent: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWinEventsForAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: i32, propertyid: i32, winevents: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub GetWinEventsForAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWinEventsForAutomationEvent: usize,
 }
@@ -15733,9 +15733,9 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationStylesPattern(::windows::core::IUnknown);
 impl IUIAutomationStylesPattern {
-    pub unsafe fn CurrentStyleId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CurrentStyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CurrentStyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CurrentStyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_STYLE_ID>(result__)
     }
     pub unsafe fn CurrentStyleName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15764,9 +15764,9 @@ impl IUIAutomationStylesPattern {
     pub unsafe fn GetCurrentExtendedPropertiesAsArray(&self, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCurrentExtendedPropertiesAsArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(propertyarray), ::core::mem::transmute(propertycount)).ok()
     }
-    pub unsafe fn CachedStyleId(&self) -> ::windows::core::Result<i32> {
+    pub unsafe fn CachedStyleId(&self) -> ::windows::core::Result<UIA_STYLE_ID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CachedStyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Vtable::vtable(self).CachedStyleId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UIA_STYLE_ID>(result__)
     }
     pub unsafe fn CachedStyleName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -15823,7 +15823,7 @@ unsafe impl ::windows::core::Interface for IUIAutomationStylesPattern {
 #[doc(hidden)]
 pub struct IUIAutomationStylesPattern_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CurrentStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CurrentStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> ::windows::core::HRESULT,
     pub CurrentStyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CurrentFillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentFillPatternStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -15831,7 +15831,7 @@ pub struct IUIAutomationStylesPattern_Vtbl {
     pub CurrentFillPatternColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CurrentExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetCurrentExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ::core::mem::ManuallyDrop<ExtendedProperty>, propertycount: *mut i32) -> ::windows::core::HRESULT,
-    pub CachedStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
+    pub CachedStyleId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_STYLE_ID) -> ::windows::core::HRESULT,
     pub CachedStyleName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub CachedFillColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT,
     pub CachedFillPatternStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
@@ -16336,7 +16336,7 @@ impl IUIAutomationTextRange {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: i32, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -16356,7 +16356,7 @@ impl IUIAutomationTextRange {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAttributeValue)(::windows::core::Vtable::as_raw(self), attr, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -16445,7 +16445,7 @@ pub struct IUIAutomationTextRange_Vtbl {
     pub CompareEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, srcendpoint: TextPatternRangeEndpoint, range: *mut ::core::ffi::c_void, targetendpoint: TextPatternRangeEndpoint, compvalue: *mut i32) -> ::windows::core::HRESULT,
     pub ExpandToEnclosingUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textunit: TextUnit) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, found: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     FindAttribute: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -16453,7 +16453,7 @@ pub struct IUIAutomationTextRange_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindText: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: i32, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
+    pub GetAttributeValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attr: UIA_TEXTATTRIBUTE_ID, value: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttributeValue: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -16503,7 +16503,7 @@ impl IUIAutomationTextRange2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: i32, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -16523,7 +16523,7 @@ impl IUIAutomationTextRange2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetAttributeValue)(::windows::core::Vtable::as_raw(self), attr, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -16638,7 +16638,7 @@ impl IUIAutomationTextRange3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: i32, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
+    pub unsafe fn FindAttribute<'a, P0, P1>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: P0, backward: P1) -> ::windows::core::Result<IUIAutomationTextRange>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
@@ -16658,7 +16658,7 @@ impl IUIAutomationTextRange3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetAttributeValue(&self, attr: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.GetAttributeValue)(::windows::core::Vtable::as_raw(self), attr, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
@@ -16730,7 +16730,7 @@ impl IUIAutomationTextRange3 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAttributeValues(&self, attributeids: &[i32]) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetAttributeValues(&self, attributeids: &[UIA_TEXTATTRIBUTE_ID]) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetAttributeValues)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(attributeids.as_ptr()), attributeids.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
@@ -16765,7 +16765,7 @@ pub struct IUIAutomationTextRange3_Vtbl {
     pub GetEnclosingElementBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, enclosingelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetChildrenBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, children: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetAttributeValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeids: *const i32, attributeidcount: i32, attributevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
+    pub GetAttributeValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32, attributevalues: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAttributeValues: usize,
 }

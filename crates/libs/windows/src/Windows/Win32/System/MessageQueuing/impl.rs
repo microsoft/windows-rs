@@ -31,7 +31,7 @@ pub trait IMSMQApplication2_Impl: Sized + IMSMQApplication_Impl {
     fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16>;
     fn MSMQVersionMinor(&self) -> ::windows::core::Result<i16>;
     fn MSMQVersionBuild(&self) -> ::windows::core::Result<i16>;
-    fn IsDsEnabled(&self) -> ::windows::core::Result<i16>;
+    fn IsDsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -88,7 +88,7 @@ impl IMSMQApplication2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisdsenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisdsenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsDsEnabled() {
@@ -130,7 +130,7 @@ pub trait IMSMQApplication3_Impl: Sized + IMSMQApplication2_Impl {
     fn ActiveQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn PrivateQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn DirectoryServiceServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn BytesInAllQueues(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetMachine(&self, bstrmachine: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Machine(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -176,7 +176,7 @@ impl IMSMQApplication3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnected() {
@@ -416,7 +416,7 @@ impl IMSMQCoordinatedTransactionDispenser3_Vtbl {
 pub trait IMSMQDestination_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn IsOpen(&self) -> ::windows::core::Result<i16>;
+    fn IsOpen(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IADs(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn putref_IADs(&self, piads: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -444,7 +444,7 @@ impl IMSMQDestination_Vtbl {
             let this = (*this).get_impl();
             this.Close().into()
         }
-        unsafe extern "system" fn IsOpen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisopen: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOpen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQDestination_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsOpen() {
@@ -628,7 +628,7 @@ pub trait IMSMQManagement_Impl: Sized + super::Com::IDispatch_Impl {
     fn MessageCount(&self) -> ::windows::core::Result<i32>;
     fn ForeignStatus(&self) -> ::windows::core::Result<i32>;
     fn QueueType(&self) -> ::windows::core::Result<i32>;
-    fn IsLocal(&self) -> ::windows::core::Result<i16>;
+    fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn TransactionalStatus(&self) -> ::windows::core::Result<i32>;
     fn BytesInQueue(&self) -> ::windows::core::Result<super::Com::VARIANT>;
 }
@@ -697,7 +697,7 @@ impl IMSMQManagement_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfislocal: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQManagement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfislocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLocal() {
@@ -2164,9 +2164,9 @@ pub trait IMSMQMessage3_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseDestination(&self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsAuthenticated2(&self) -> ::windows::core::Result<i16>;
-    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn IsAuthenticated2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsLastInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
     fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -2887,7 +2887,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAuthenticated2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAuthenticated2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsAuthenticated2() {
@@ -2898,7 +2898,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFirstInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFirstInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsFirstInTransaction2() {
@@ -2909,7 +2909,7 @@ impl IMSMQMessage3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLastInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLastInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLastInTransaction2() {
@@ -3141,9 +3141,9 @@ pub trait IMSMQMessage4_Impl: Sized + super::Com::IDispatch_Impl {
     fn putref_ResponseDestination(&self, pdestresponse: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Destination(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn LookupId(&self) -> ::windows::core::Result<super::Com::VARIANT>;
-    fn IsAuthenticated2(&self) -> ::windows::core::Result<i16>;
-    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<i16>;
-    fn IsLastInTransaction2(&self) -> ::windows::core::Result<i16>;
+    fn IsAuthenticated2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsFirstInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsLastInTransaction2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn AttachCurrentSecurityContext2(&self) -> ::windows::core::Result<()>;
     fn SoapEnvelope(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CompoundMessage(&self) -> ::windows::core::Result<super::Com::VARIANT>;
@@ -3864,7 +3864,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsAuthenticated2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisauthenticated: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAuthenticated2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisauthenticated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsAuthenticated2() {
@@ -3875,7 +3875,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFirstInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFirstInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisfirstinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsFirstInTransaction2() {
@@ -3886,7 +3886,7 @@ impl IMSMQMessage4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLastInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislastinxact: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLastInTransaction2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQMessage4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pislastinxact: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLastInTransaction2() {
@@ -4911,7 +4911,7 @@ pub trait IMSMQQueue3_Impl: Sized + super::Com::IDispatch_Impl {
     fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
     fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3>;
     fn Purge(&self) -> ::windows::core::Result<()>;
-    fn IsOpen2(&self) -> ::windows::core::Result<i16>;
+    fn IsOpen2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMSMQQueue3 {}
@@ -5235,7 +5235,7 @@ impl IMSMQQueue3_Vtbl {
             let this = (*this).get_impl();
             this.Purge().into()
         }
-        unsafe extern "system" fn IsOpen2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOpen2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsOpen2() {
@@ -5319,7 +5319,7 @@ pub trait IMSMQQueue4_Impl: Sized + super::Com::IDispatch_Impl {
     fn PeekFirstByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
     fn PeekLastByLookupId(&self, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
     fn Purge(&self) -> ::windows::core::Result<()>;
-    fn IsOpen2(&self) -> ::windows::core::Result<i16>;
+    fn IsOpen2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ReceiveByLookupIdAllowPeek(&self, lookupid: &super::Com::VARIANT, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5644,7 +5644,7 @@ impl IMSMQQueue4_Vtbl {
             let this = (*this).get_impl();
             this.Purge().into()
         }
-        unsafe extern "system" fn IsOpen2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisopen: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOpen2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueue4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisopen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsOpen2() {
@@ -6433,8 +6433,8 @@ pub trait IMSMQQueueInfo3_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
-    fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
+    fn IsTransactional2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsWorldReadable2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -6728,7 +6728,7 @@ impl IMSMQQueueInfo3_Vtbl {
             let this = (*this).get_impl();
             this.SetSecurity(::core::mem::transmute(&varsecurity)).into()
         }
-        unsafe extern "system" fn IsTransactional2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransactional2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsTransactional2() {
@@ -6739,7 +6739,7 @@ impl IMSMQQueueInfo3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWorldReadable2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsWorldReadable2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsWorldReadable2() {
@@ -6860,8 +6860,8 @@ pub trait IMSMQQueueInfo4_Impl: Sized + super::Com::IDispatch_Impl {
     fn Properties(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn Security(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetSecurity(&self, varsecurity: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsTransactional2(&self) -> ::windows::core::Result<i16>;
-    fn IsWorldReadable2(&self) -> ::windows::core::Result<i16>;
+    fn IsTransactional2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsWorldReadable2(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MulticastAddress(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetMulticastAddress(&self, bstrmulticastaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ADsPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -7155,7 +7155,7 @@ impl IMSMQQueueInfo4_Vtbl {
             let this = (*this).get_impl();
             this.SetSecurity(::core::mem::transmute(&varsecurity)).into()
         }
-        unsafe extern "system" fn IsTransactional2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistransactional: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTransactional2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pistransactional: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsTransactional2() {
@@ -7166,7 +7166,7 @@ impl IMSMQQueueInfo4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsWorldReadable2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisworldreadable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsWorldReadable2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMSMQQueueInfo4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisworldreadable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsWorldReadable2() {

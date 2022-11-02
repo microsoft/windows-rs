@@ -4873,7 +4873,7 @@ impl IPersistFile {
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).IsDirty)(::windows::core::Vtable::as_raw(self))
     }
-    pub unsafe fn Load<'a, P0>(&self, pszfilename: P0, dwmode: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Load<'a, P0>(&self, pszfilename: P0, dwmode: STGM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
@@ -4927,7 +4927,7 @@ unsafe impl ::windows::core::Interface for IPersistFile {
 pub struct IPersistFile_Vtbl {
     pub base__: IPersist_Vtbl,
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, dwmode: u32) -> ::windows::core::HRESULT,
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, dwmode: STGM) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -12862,8 +12862,8 @@ pub union VARIANT_0_0_0 {
     pub iVal: i16,
     pub fltVal: f32,
     pub dblVal: f64,
-    pub boolVal: i16,
-    pub __OBSOLETE__VARIANT_BOOL: i16,
+    pub boolVal: super::super::Foundation::VARIANT_BOOL,
+    pub __OBSOLETE__VARIANT_BOOL: super::super::Foundation::VARIANT_BOOL,
     pub scode: i32,
     pub cyVal: CY,
     pub date: f64,
@@ -12877,8 +12877,8 @@ pub union VARIANT_0_0_0 {
     pub pllVal: *mut i64,
     pub pfltVal: *mut f32,
     pub pdblVal: *mut f64,
-    pub pboolVal: *mut i16,
-    pub __OBSOLETE__VARIANT_PBOOL: *mut i16,
+    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
+    pub __OBSOLETE__VARIANT_PBOOL: *mut super::super::Foundation::VARIANT_BOOL,
     pub pscode: *mut i32,
     pub pcyVal: *mut CY,
     pub pdate: *mut f64,

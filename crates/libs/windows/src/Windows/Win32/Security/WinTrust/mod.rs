@@ -947,7 +947,7 @@ impl ::core::default::Default for CAT_MEMBERINFO2 {
 pub struct CAT_NAMEVALUE {
     pub pwszTag: ::windows::core::PWSTR,
     pub fdwFlags: u32,
-    pub Value: super::Cryptography::CRYPTOAPI_BLOB,
+    pub Value: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for CAT_NAMEVALUE {}
@@ -987,7 +987,7 @@ impl ::core::default::Default for CAT_NAMEVALUE {
 pub struct CONFIG_CI_PROV_INFO {
     pub cbSize: u32,
     pub dwPolicies: u32,
-    pub pPolicies: *mut super::Cryptography::CRYPTOAPI_BLOB,
+    pub pPolicies: *mut super::Cryptography::CRYPT_INTEGER_BLOB,
     pub result: CONFIG_CI_PROV_INFO_RESULT,
     pub dwScenario: u32,
 }
@@ -1861,7 +1861,7 @@ pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
     pub signatureAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
-    pub encryptedDigest: super::Cryptography::CRYPTOAPI_BLOB,
+    pub encryptedDigest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SEALING_SIGNATURE_ATTRIBUTE {}
@@ -1901,7 +1901,7 @@ impl ::core::default::Default for SEALING_SIGNATURE_ATTRIBUTE {
 pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
-    pub sealTimeStampToken: super::Cryptography::CRYPTOAPI_BLOB,
+    pub sealTimeStampToken: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SEALING_TIMESTAMP_ATTRIBUTE {}
@@ -1979,10 +1979,10 @@ impl ::core::default::Default for SPC_FINANCIAL_CRITERIA {
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
-    pub Bitmap: super::Cryptography::CRYPTOAPI_BLOB,
-    pub Metafile: super::Cryptography::CRYPTOAPI_BLOB,
-    pub EnhancedMetafile: super::Cryptography::CRYPTOAPI_BLOB,
-    pub GifFile: super::Cryptography::CRYPTOAPI_BLOB,
+    pub Bitmap: super::Cryptography::CRYPT_INTEGER_BLOB,
+    pub Metafile: super::Cryptography::CRYPT_INTEGER_BLOB,
+    pub EnhancedMetafile: super::Cryptography::CRYPT_INTEGER_BLOB,
+    pub GifFile: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_IMAGE {}
@@ -2022,7 +2022,7 @@ impl ::core::default::Default for SPC_IMAGE {
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::Cryptography::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::Cryptography::CRYPT_ALGORITHM_IDENTIFIER,
-    pub Digest: super::Cryptography::CRYPTOAPI_BLOB,
+    pub Digest: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_INDIRECT_DATA_CONTENT {}
@@ -2167,7 +2167,7 @@ impl ::core::default::Default for SPC_PE_IMAGE_DATA {
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_SERIALIZED_OBJECT {
     pub ClassId: [u8; 16],
-    pub SerializedData: super::Cryptography::CRYPTOAPI_BLOB,
+    pub SerializedData: super::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for SPC_SERIALIZED_OBJECT {}

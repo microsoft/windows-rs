@@ -215,24 +215,24 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWindowsMediaLibrarySharingServices_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn showShareMediaCPL(&self, device: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn userHomeMediaSharingState(&self) -> ::windows::core::Result<i16>;
-    fn SetuserHomeMediaSharingState(&self, sharingenabled: i16) -> ::windows::core::Result<()>;
+    fn userHomeMediaSharingState(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn userHomeMediaSharingLibraryName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetuserHomeMediaSharingLibraryName(&self, libraryname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn computerHomeMediaSharingAllowedState(&self) -> ::windows::core::Result<i16>;
-    fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: i16) -> ::windows::core::Result<()>;
-    fn userInternetMediaSharingState(&self) -> ::windows::core::Result<i16>;
-    fn SetuserInternetMediaSharingState(&self, sharingenabled: i16) -> ::windows::core::Result<()>;
-    fn computerInternetMediaSharingAllowedState(&self) -> ::windows::core::Result<i16>;
-    fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: i16) -> ::windows::core::Result<()>;
+    fn computerHomeMediaSharingAllowedState(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn userInternetMediaSharingState(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn computerInternetMediaSharingAllowedState(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn internetMediaSharingSecurityGroup(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetinternetMediaSharingSecurityGroup(&self, securitygroup: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn allowSharingToAllDevices(&self) -> ::windows::core::Result<i16>;
-    fn SetallowSharingToAllDevices(&self, sharingenabled: i16) -> ::windows::core::Result<()>;
-    fn setDefaultAuthorization(&self, macaddresses: &::windows::core::BSTR, friendlyname: &::windows::core::BSTR, authorization: i16) -> ::windows::core::Result<()>;
-    fn setAuthorizationState(&self, macaddress: &::windows::core::BSTR, authorizationstate: i16) -> ::windows::core::Result<()>;
+    fn allowSharingToAllDevices(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn setDefaultAuthorization(&self, macaddresses: &::windows::core::BSTR, friendlyname: &::windows::core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn setAuthorizationState(&self, macaddress: &::windows::core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn getAllDevices(&self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevices>;
-    fn customSettingsApplied(&self) -> ::windows::core::Result<i16>;
+    fn customSettingsApplied(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWindowsMediaLibrarySharingServices {}
@@ -244,7 +244,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             this.showShareMediaCPL(::core::mem::transmute(&device)).into()
         }
-        unsafe extern "system" fn userHomeMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn userHomeMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.userHomeMediaSharingState() {
@@ -255,7 +255,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetuserHomeMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetuserHomeMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetuserHomeMediaSharingState(::core::mem::transmute_copy(&sharingenabled)).into()
@@ -276,7 +276,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             this.SetuserHomeMediaSharingLibraryName(::core::mem::transmute(&libraryname)).into()
         }
-        unsafe extern "system" fn computerHomeMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn computerHomeMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.computerHomeMediaSharingAllowedState() {
@@ -287,12 +287,12 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetcomputerHomeMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetcomputerHomeMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetcomputerHomeMediaSharingAllowedState(::core::mem::transmute_copy(&sharingallowed)).into()
         }
-        unsafe extern "system" fn userInternetMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn userInternetMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.userInternetMediaSharingState() {
@@ -303,12 +303,12 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetuserInternetMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetuserInternetMediaSharingState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetuserInternetMediaSharingState(::core::mem::transmute_copy(&sharingenabled)).into()
         }
-        unsafe extern "system" fn computerInternetMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn computerInternetMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.computerInternetMediaSharingAllowedState() {
@@ -319,7 +319,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetcomputerInternetMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetcomputerInternetMediaSharingAllowedState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetcomputerInternetMediaSharingAllowedState(::core::mem::transmute_copy(&sharingallowed)).into()
@@ -340,7 +340,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
             let this = (*this).get_impl();
             this.SetinternetMediaSharingSecurityGroup(::core::mem::transmute(&securitygroup)).into()
         }
-        unsafe extern "system" fn allowSharingToAllDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn allowSharingToAllDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.allowSharingToAllDevices() {
@@ -351,17 +351,17 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetallowSharingToAllDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetallowSharingToAllDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetallowSharingToAllDevices(::core::mem::transmute_copy(&sharingenabled)).into()
         }
-        unsafe extern "system" fn setDefaultAuthorization<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, macaddresses: ::core::mem::ManuallyDrop<::windows::core::BSTR>, friendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, authorization: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setDefaultAuthorization<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, macaddresses: ::core::mem::ManuallyDrop<::windows::core::BSTR>, friendlyname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, authorization: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.setDefaultAuthorization(::core::mem::transmute(&macaddresses), ::core::mem::transmute(&friendlyname), ::core::mem::transmute_copy(&authorization)).into()
         }
-        unsafe extern "system" fn setAuthorizationState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, macaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>, authorizationstate: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn setAuthorizationState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, macaddress: ::core::mem::ManuallyDrop<::windows::core::BSTR>, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.setAuthorizationState(::core::mem::transmute(&macaddress), ::core::mem::transmute_copy(&authorizationstate)).into()
@@ -377,7 +377,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn customSettingsApplied<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customsettingsapplied: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn customSettingsApplied<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWindowsMediaLibrarySharingServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customsettingsapplied: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.customSettingsApplied() {

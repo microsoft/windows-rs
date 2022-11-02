@@ -92,42 +92,42 @@ pub trait ISWbemDateTime_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetValue(&self, strvalue: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Year(&self) -> ::windows::core::Result<i32>;
     fn SetYear(&self, iyear: i32) -> ::windows::core::Result<()>;
-    fn YearSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetYearSpecified(&self, byearspecified: i16) -> ::windows::core::Result<()>;
+    fn YearSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetYearSpecified(&self, byearspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Month(&self) -> ::windows::core::Result<i32>;
     fn SetMonth(&self, imonth: i32) -> ::windows::core::Result<()>;
-    fn MonthSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetMonthSpecified(&self, bmonthspecified: i16) -> ::windows::core::Result<()>;
+    fn MonthSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMonthSpecified(&self, bmonthspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Day(&self) -> ::windows::core::Result<i32>;
     fn SetDay(&self, iday: i32) -> ::windows::core::Result<()>;
-    fn DaySpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetDaySpecified(&self, bdayspecified: i16) -> ::windows::core::Result<()>;
+    fn DaySpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDaySpecified(&self, bdayspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Hours(&self) -> ::windows::core::Result<i32>;
     fn SetHours(&self, ihours: i32) -> ::windows::core::Result<()>;
-    fn HoursSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetHoursSpecified(&self, bhoursspecified: i16) -> ::windows::core::Result<()>;
+    fn HoursSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetHoursSpecified(&self, bhoursspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Minutes(&self) -> ::windows::core::Result<i32>;
     fn SetMinutes(&self, iminutes: i32) -> ::windows::core::Result<()>;
-    fn MinutesSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetMinutesSpecified(&self, bminutesspecified: i16) -> ::windows::core::Result<()>;
+    fn MinutesSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMinutesSpecified(&self, bminutesspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Seconds(&self) -> ::windows::core::Result<i32>;
     fn SetSeconds(&self, iseconds: i32) -> ::windows::core::Result<()>;
-    fn SecondsSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetSecondsSpecified(&self, bsecondsspecified: i16) -> ::windows::core::Result<()>;
+    fn SecondsSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSecondsSpecified(&self, bsecondsspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Microseconds(&self) -> ::windows::core::Result<i32>;
     fn SetMicroseconds(&self, imicroseconds: i32) -> ::windows::core::Result<()>;
-    fn MicrosecondsSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: i16) -> ::windows::core::Result<()>;
+    fn MicrosecondsSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMicrosecondsSpecified(&self, bmicrosecondsspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn UTC(&self) -> ::windows::core::Result<i32>;
     fn SetUTC(&self, iutc: i32) -> ::windows::core::Result<()>;
-    fn UTCSpecified(&self) -> ::windows::core::Result<i16>;
-    fn SetUTCSpecified(&self, butcspecified: i16) -> ::windows::core::Result<()>;
-    fn IsInterval(&self) -> ::windows::core::Result<i16>;
-    fn SetIsInterval(&self, bisinterval: i16) -> ::windows::core::Result<()>;
-    fn GetVarDate(&self, bislocal: i16) -> ::windows::core::Result<f64>;
-    fn SetVarDate(&self, dvardate: f64, bislocal: i16) -> ::windows::core::Result<()>;
-    fn GetFileTime(&self, bislocal: i16) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn SetFileTime(&self, strfiletime: &::windows::core::BSTR, bislocal: i16) -> ::windows::core::Result<()>;
+    fn UTCSpecified(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetUTCSpecified(&self, butcspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn IsInterval(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIsInterval(&self, bisinterval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn GetVarDate(&self, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f64>;
+    fn SetVarDate(&self, dvardate: f64, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn GetFileTime(&self, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn SetFileTime(&self, strfiletime: &::windows::core::BSTR, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISWbemDateTime {}
@@ -166,7 +166,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetYear(::core::mem::transmute_copy(&iyear)).into()
         }
-        unsafe extern "system" fn YearSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, byearspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn YearSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, byearspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.YearSpecified() {
@@ -177,7 +177,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetYearSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, byearspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetYearSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, byearspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetYearSpecified(::core::mem::transmute_copy(&byearspecified)).into()
@@ -198,7 +198,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetMonth(::core::mem::transmute_copy(&imonth)).into()
         }
-        unsafe extern "system" fn MonthSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmonthspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MonthSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmonthspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MonthSpecified() {
@@ -209,7 +209,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMonthSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmonthspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMonthSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmonthspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMonthSpecified(::core::mem::transmute_copy(&bmonthspecified)).into()
@@ -230,7 +230,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetDay(::core::mem::transmute_copy(&iday)).into()
         }
-        unsafe extern "system" fn DaySpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bdayspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DaySpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bdayspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DaySpecified() {
@@ -241,7 +241,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDaySpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bdayspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDaySpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bdayspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDaySpecified(::core::mem::transmute_copy(&bdayspecified)).into()
@@ -262,7 +262,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetHours(::core::mem::transmute_copy(&ihours)).into()
         }
-        unsafe extern "system" fn HoursSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bhoursspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HoursSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bhoursspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HoursSpecified() {
@@ -273,7 +273,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetHoursSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bhoursspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHoursSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bhoursspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHoursSpecified(::core::mem::transmute_copy(&bhoursspecified)).into()
@@ -294,7 +294,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetMinutes(::core::mem::transmute_copy(&iminutes)).into()
         }
-        unsafe extern "system" fn MinutesSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bminutesspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MinutesSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bminutesspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MinutesSpecified() {
@@ -305,7 +305,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMinutesSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bminutesspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMinutesSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bminutesspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMinutesSpecified(::core::mem::transmute_copy(&bminutesspecified)).into()
@@ -326,7 +326,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetSeconds(::core::mem::transmute_copy(&iseconds)).into()
         }
-        unsafe extern "system" fn SecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsecondsspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsecondsspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SecondsSpecified() {
@@ -337,7 +337,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsecondsspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsecondsspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSecondsSpecified(::core::mem::transmute_copy(&bsecondsspecified)).into()
@@ -358,7 +358,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetMicroseconds(::core::mem::transmute_copy(&imicroseconds)).into()
         }
-        unsafe extern "system" fn MicrosecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmicrosecondsspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MicrosecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmicrosecondsspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MicrosecondsSpecified() {
@@ -369,7 +369,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMicrosecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmicrosecondsspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMicrosecondsSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmicrosecondsspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMicrosecondsSpecified(::core::mem::transmute_copy(&bmicrosecondsspecified)).into()
@@ -390,7 +390,7 @@ impl ISWbemDateTime_Vtbl {
             let this = (*this).get_impl();
             this.SetUTC(::core::mem::transmute_copy(&iutc)).into()
         }
-        unsafe extern "system" fn UTCSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, butcspecified: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UTCSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, butcspecified: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UTCSpecified() {
@@ -401,12 +401,12 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetUTCSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, butcspecified: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUTCSpecified<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, butcspecified: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUTCSpecified(::core::mem::transmute_copy(&butcspecified)).into()
         }
-        unsafe extern "system" fn IsInterval<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisinterval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsInterval<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisinterval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsInterval() {
@@ -417,12 +417,12 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsInterval<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisinterval: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsInterval<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisinterval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIsInterval(::core::mem::transmute_copy(&bisinterval)).into()
         }
-        unsafe extern "system" fn GetVarDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: i16, dvardate: *mut f64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetVarDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: super::super::Foundation::VARIANT_BOOL, dvardate: *mut f64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVarDate(::core::mem::transmute_copy(&bislocal)) {
@@ -433,12 +433,12 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVarDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dvardate: f64, bislocal: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVarDate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dvardate: f64, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetVarDate(::core::mem::transmute_copy(&dvardate), ::core::mem::transmute_copy(&bislocal)).into()
         }
-        unsafe extern "system" fn GetFileTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: i16, strfiletime: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFileTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: super::super::Foundation::VARIANT_BOOL, strfiletime: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFileTime(::core::mem::transmute_copy(&bislocal)) {
@@ -449,7 +449,7 @@ impl ISWbemDateTime_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFileTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strfiletime: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bislocal: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFileTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemDateTime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strfiletime: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bislocal: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFileTime(::core::mem::transmute(&strfiletime), ::core::mem::transmute_copy(&bislocal)).into()
@@ -889,17 +889,17 @@ pub trait ISWbemObject_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstancesAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Subclasses_(&self, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
     fn SubclassesAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn Associators_(&self, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
-    fn AssociatorsAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn References_(&self, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
-    fn ReferencesAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Associators_(&self, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
+    fn AssociatorsAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn References_(&self, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
+    fn ReferencesAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn ExecMethod_(&self, strmethodname: &::windows::core::BSTR, objwbeminparameters: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObject>;
     fn ExecMethodAsync_(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strmethodname: &::windows::core::BSTR, objwbeminparameters: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Clone_(&self) -> ::windows::core::Result<ISWbemObject>;
     fn GetObjectText_(&self, iflags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SpawnDerivedClass_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject>;
     fn SpawnInstance_(&self, iflags: i32) -> ::windows::core::Result<ISWbemObject>;
-    fn CompareTo_(&self, objwbemobject: &::core::option::Option<super::Com::IDispatch>, iflags: i32) -> ::windows::core::Result<i16>;
+    fn CompareTo_(&self, objwbemobject: &::core::option::Option<super::Com::IDispatch>, iflags: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet>;
     fn Properties_(&self) -> ::windows::core::Result<ISWbemPropertySet>;
     fn Methods_(&self) -> ::windows::core::Result<ISWbemMethodSet>;
@@ -970,7 +970,20 @@ impl ISWbemObject_Vtbl {
             let this = (*this).get_impl();
             this.SubclassesAsync_(::core::mem::transmute(&objwbemsink), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset), ::core::mem::transmute(&objwbemasynccontext)).into()
         }
-        unsafe extern "system" fn Associators_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strassocclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: i16, bschemaonly: i16, strrequiredassocqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Associators_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(
+            this: *mut ::core::ffi::c_void,
+            strassocclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            strresultrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            bclassesonly: super::super::Foundation::VARIANT_BOOL,
+            bschemaonly: super::super::Foundation::VARIANT_BOOL,
+            strrequiredassocqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
+            iflags: i32,
+            objwbemnamedvalueset: *mut ::core::ffi::c_void,
+            objwbemobjectset: *mut *mut ::core::ffi::c_void,
+        ) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Associators_(::core::mem::transmute(&strassocclass), ::core::mem::transmute(&strresultclass), ::core::mem::transmute(&strresultrole), ::core::mem::transmute(&strrole), ::core::mem::transmute_copy(&bclassesonly), ::core::mem::transmute_copy(&bschemaonly), ::core::mem::transmute(&strrequiredassocqualifier), ::core::mem::transmute(&strrequiredqualifier), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset)) {
@@ -988,8 +1001,8 @@ impl ISWbemObject_Vtbl {
             strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strresultrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
-            bclassesonly: i16,
-            bschemaonly: i16,
+            bclassesonly: super::super::Foundation::VARIANT_BOOL,
+            bschemaonly: super::super::Foundation::VARIANT_BOOL,
             strrequiredassocqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             iflags: i32,
@@ -1014,7 +1027,7 @@ impl ISWbemObject_Vtbl {
             )
             .into()
         }
-        unsafe extern "system" fn References_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn References_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.References_(::core::mem::transmute(&strresultclass), ::core::mem::transmute(&strrole), ::core::mem::transmute_copy(&bclassesonly), ::core::mem::transmute_copy(&bschemaonly), ::core::mem::transmute(&strrequiredqualifier), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset)) {
@@ -1025,7 +1038,7 @@ impl ISWbemObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferencesAsync_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemsink: *mut ::core::ffi::c_void, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemasynccontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferencesAsync_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemsink: *mut ::core::ffi::c_void, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemasynccontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReferencesAsync_(::core::mem::transmute(&objwbemsink), ::core::mem::transmute(&strresultclass), ::core::mem::transmute(&strrole), ::core::mem::transmute_copy(&bclassesonly), ::core::mem::transmute_copy(&bschemaonly), ::core::mem::transmute(&strrequiredqualifier), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset), ::core::mem::transmute(&objwbemasynccontext)).into()
@@ -1090,7 +1103,7 @@ impl ISWbemObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CompareTo_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemobject: *mut ::core::ffi::c_void, iflags: i32, bresult: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CompareTo_<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemobject: *mut ::core::ffi::c_void, iflags: i32, bresult: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CompareTo_(::core::mem::transmute(&objwbemobject), ::core::mem::transmute_copy(&iflags)) {
@@ -1271,9 +1284,9 @@ pub trait ISWbemObjectPath_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDisplayName(&self, strdisplayname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Class(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetClass(&self, strclass: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn IsClass(&self) -> ::windows::core::Result<i16>;
+    fn IsClass(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAsClass(&self) -> ::windows::core::Result<()>;
-    fn IsSingleton(&self) -> ::windows::core::Result<i16>;
+    fn IsSingleton(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAsSingleton(&self) -> ::windows::core::Result<()>;
     fn Keys(&self) -> ::windows::core::Result<ISWbemNamedValueSet>;
     fn Security_(&self) -> ::windows::core::Result<ISWbemSecurity>;
@@ -1394,7 +1407,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             this.SetClass(::core::mem::transmute(&strclass)).into()
         }
-        unsafe extern "system" fn IsClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisclass: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisclass: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsClass() {
@@ -1410,7 +1423,7 @@ impl ISWbemObjectPath_Vtbl {
             let this = (*this).get_impl();
             this.SetAsClass().into()
         }
-        unsafe extern "system" fn IsSingleton<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bissingleton: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSingleton<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemObjectPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bissingleton: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsSingleton() {
@@ -1594,8 +1607,8 @@ impl ISWbemObjectSet_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISWbemPrivilege_Impl: Sized + super::Com::IDispatch_Impl {
-    fn IsEnabled(&self) -> ::windows::core::Result<i16>;
-    fn SetIsEnabled(&self, bisenabled: i16) -> ::windows::core::Result<()>;
+    fn IsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIsEnabled(&self, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Identifier(&self) -> ::windows::core::Result<WbemPrivilegeEnum>;
@@ -1605,7 +1618,7 @@ impl ::windows::core::RuntimeName for ISWbemPrivilege {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISWbemPrivilege_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>() -> ISWbemPrivilege_Vtbl {
-        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsEnabled() {
@@ -1616,7 +1629,7 @@ impl ISWbemPrivilege_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilege_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIsEnabled(::core::mem::transmute_copy(&bisenabled)).into()
@@ -1672,10 +1685,10 @@ pub trait ISWbemPrivilegeSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<ISWbemPrivilege>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege>;
+    fn Add(&self, iprivilege: WbemPrivilegeEnum, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<ISWbemPrivilege>;
     fn Remove(&self, iprivilege: WbemPrivilegeEnum) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
-    fn AddAsString(&self, strprivilege: &::windows::core::BSTR, bisenabled: i16) -> ::windows::core::Result<ISWbemPrivilege>;
+    fn AddAsString(&self, strprivilege: &::windows::core::BSTR, bisenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<ISWbemPrivilege>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISWbemPrivilegeSet {}
@@ -1715,7 +1728,7 @@ impl ISWbemPrivilegeSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iprivilege: WbemPrivilegeEnum, bisenabled: i16, objwbemprivilege: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iprivilege: WbemPrivilegeEnum, bisenabled: super::super::Foundation::VARIANT_BOOL, objwbemprivilege: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute_copy(&iprivilege), ::core::mem::transmute_copy(&bisenabled)) {
@@ -1736,7 +1749,7 @@ impl ISWbemPrivilegeSet_Vtbl {
             let this = (*this).get_impl();
             this.DeleteAll().into()
         }
-        unsafe extern "system" fn AddAsString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprivilege: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bisenabled: i16, objwbemprivilege: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddAsString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPrivilegeSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strprivilege: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bisenabled: super::super::Foundation::VARIANT_BOOL, objwbemprivilege: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddAsString(::core::mem::transmute(&strprivilege), ::core::mem::transmute_copy(&bisenabled)) {
@@ -1767,11 +1780,11 @@ pub trait ISWbemProperty_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IsLocal(&self) -> ::windows::core::Result<i16>;
+    fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Origin(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CIMType(&self) -> ::windows::core::Result<WbemCimtypeEnum>;
     fn Qualifiers_(&self) -> ::windows::core::Result<ISWbemQualifierSet>;
-    fn IsArray(&self) -> ::windows::core::Result<i16>;
+    fn IsArray(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISWbemProperty {}
@@ -1805,7 +1818,7 @@ impl ISWbemProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLocal() {
@@ -1849,7 +1862,7 @@ impl ISWbemProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisarray: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisarray: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsArray() {
@@ -1881,7 +1894,7 @@ pub trait ISWbemPropertySet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&self, strname: &::windows::core::BSTR, iflags: i32) -> ::windows::core::Result<ISWbemProperty>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, strname: &::windows::core::BSTR, icimtype: WbemCimtypeEnum, bisarray: i16, iflags: i32) -> ::windows::core::Result<ISWbemProperty>;
+    fn Add(&self, strname: &::windows::core::BSTR, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> ::windows::core::Result<ISWbemProperty>;
     fn Remove(&self, strname: &::windows::core::BSTR, iflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1922,7 +1935,7 @@ impl ISWbemPropertySet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, icimtype: WbemCimtypeEnum, bisarray: i16, iflags: i32, objwbemproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemPropertySet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, icimtype: WbemCimtypeEnum, bisarray: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemproperty: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&icimtype), ::core::mem::transmute_copy(&bisarray), ::core::mem::transmute_copy(&iflags)) {
@@ -1956,14 +1969,14 @@ pub trait ISWbemQualifier_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT>;
     fn SetValue(&self, varvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IsLocal(&self) -> ::windows::core::Result<i16>;
-    fn PropagatesToSubclass(&self) -> ::windows::core::Result<i16>;
-    fn SetPropagatesToSubclass(&self, bpropagatestosubclass: i16) -> ::windows::core::Result<()>;
-    fn PropagatesToInstance(&self) -> ::windows::core::Result<i16>;
-    fn SetPropagatesToInstance(&self, bpropagatestoinstance: i16) -> ::windows::core::Result<()>;
-    fn IsOverridable(&self) -> ::windows::core::Result<i16>;
-    fn SetIsOverridable(&self, bisoverridable: i16) -> ::windows::core::Result<()>;
-    fn IsAmended(&self) -> ::windows::core::Result<i16>;
+    fn IsLocal(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn PropagatesToSubclass(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPropagatesToSubclass(&self, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn PropagatesToInstance(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPropagatesToInstance(&self, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn IsOverridable(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIsOverridable(&self, bisoverridable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn IsAmended(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ISWbemQualifier {}
@@ -1997,7 +2010,7 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLocal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bislocal: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLocal() {
@@ -2008,7 +2021,7 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PropagatesToSubclass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestosubclass: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropagatesToSubclass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestosubclass: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PropagatesToSubclass() {
@@ -2019,12 +2032,12 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPropagatesToSubclass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestosubclass: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropagatesToSubclass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPropagatesToSubclass(::core::mem::transmute_copy(&bpropagatestosubclass)).into()
         }
-        unsafe extern "system" fn PropagatesToInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestoinstance: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PropagatesToInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestoinstance: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PropagatesToInstance() {
@@ -2035,12 +2048,12 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPropagatesToInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestoinstance: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPropagatesToInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPropagatesToInstance(::core::mem::transmute_copy(&bpropagatestoinstance)).into()
         }
-        unsafe extern "system" fn IsOverridable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisoverridable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsOverridable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisoverridable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsOverridable() {
@@ -2051,12 +2064,12 @@ impl ISWbemQualifier_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsOverridable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisoverridable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsOverridable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisoverridable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIsOverridable(::core::mem::transmute_copy(&bisoverridable)).into()
         }
-        unsafe extern "system" fn IsAmended<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisamended: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsAmended<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisamended: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsAmended() {
@@ -2091,7 +2104,7 @@ pub trait ISWbemQualifierSet_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&self, name: &::windows::core::BSTR, iflags: i32) -> ::windows::core::Result<ISWbemQualifier>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, strname: &::windows::core::BSTR, varval: *const super::Com::VARIANT, bpropagatestosubclass: i16, bpropagatestoinstance: i16, bisoverridable: i16, iflags: i32) -> ::windows::core::Result<ISWbemQualifier>;
+    fn Add(&self, strname: &::windows::core::BSTR, varval: *const super::Com::VARIANT, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32) -> ::windows::core::Result<ISWbemQualifier>;
     fn Remove(&self, strname: &::windows::core::BSTR, iflags: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2132,7 +2145,7 @@ impl ISWbemQualifierSet_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bpropagatestosubclass: i16, bpropagatestoinstance: i16, bisoverridable: i16, iflags: i32, objwbemqualifier: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemQualifierSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strname: ::core::mem::ManuallyDrop<::windows::core::BSTR>, varval: *const ::core::mem::ManuallyDrop<super::Com::VARIANT>, bpropagatestosubclass: super::super::Foundation::VARIANT_BOOL, bpropagatestoinstance: super::super::Foundation::VARIANT_BOOL, bisoverridable: super::super::Foundation::VARIANT_BOOL, iflags: i32, objwbemqualifier: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&strname), ::core::mem::transmute_copy(&varval), ::core::mem::transmute_copy(&bpropagatestosubclass), ::core::mem::transmute_copy(&bpropagatestoinstance), ::core::mem::transmute_copy(&bisoverridable), ::core::mem::transmute_copy(&iflags)) {
@@ -2165,7 +2178,7 @@ impl ISWbemQualifierSet_Vtbl {
 pub trait ISWbemRefreshableItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn Index(&self) -> ::windows::core::Result<i32>;
     fn Refresher(&self) -> ::windows::core::Result<ISWbemRefresher>;
-    fn IsSet(&self) -> ::windows::core::Result<i16>;
+    fn IsSet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Object(&self) -> ::windows::core::Result<ISWbemObjectEx>;
     fn ObjectSet(&self) -> ::windows::core::Result<ISWbemObjectSet>;
     fn Remove(&self, iflags: i32) -> ::windows::core::Result<()>;
@@ -2197,7 +2210,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefreshableItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisset: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefreshableItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bisset: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsSet() {
@@ -2258,8 +2271,8 @@ pub trait ISWbemRefresher_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddEnum(&self, objwbemservices: &::core::option::Option<ISWbemServicesEx>, bsclassname: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemRefreshableItem>;
     fn Remove(&self, iindex: i32, iflags: i32) -> ::windows::core::Result<()>;
     fn Refresh(&self, iflags: i32) -> ::windows::core::Result<()>;
-    fn AutoReconnect(&self) -> ::windows::core::Result<i16>;
-    fn SetAutoReconnect(&self, bcount: i16) -> ::windows::core::Result<()>;
+    fn AutoReconnect(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoReconnect(&self, bcount: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn DeleteAll(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2332,7 +2345,7 @@ impl ISWbemRefresher_Vtbl {
             let this = (*this).get_impl();
             this.Refresh(::core::mem::transmute_copy(&iflags)).into()
         }
-        unsafe extern "system" fn AutoReconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bcount: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoReconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bcount: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoReconnect() {
@@ -2343,7 +2356,7 @@ impl ISWbemRefresher_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoReconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bcount: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoReconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemRefresher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bcount: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoReconnect(::core::mem::transmute_copy(&bcount)).into()
@@ -2452,10 +2465,10 @@ pub trait ISWbemServices_Impl: Sized + super::Com::IDispatch_Impl {
     fn SubclassesOfAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strsuperclass: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn ExecQuery(&self, strquery: &::windows::core::BSTR, strquerylanguage: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
     fn ExecQueryAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strquery: &::windows::core::BSTR, strquerylanguage: &::windows::core::BSTR, lflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn AssociatorsOf(&self, strobjectpath: &::windows::core::BSTR, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
-    fn AssociatorsOfAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strobjectpath: &::windows::core::BSTR, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn ReferencesTo(&self, strobjectpath: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
-    fn ReferencesToAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strobjectpath: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn AssociatorsOf(&self, strobjectpath: &::windows::core::BSTR, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
+    fn AssociatorsOfAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strobjectpath: &::windows::core::BSTR, strassocclass: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strresultrole: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredassocqualifier: &::windows::core::BSTR, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn ReferencesTo(&self, strobjectpath: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObjectSet>;
+    fn ReferencesToAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strobjectpath: &::windows::core::BSTR, strresultclass: &::windows::core::BSTR, strrole: &::windows::core::BSTR, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn ExecNotificationQuery(&self, strquery: &::windows::core::BSTR, strquerylanguage: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemEventSource>;
     fn ExecNotificationQueryAsync(&self, objwbemsink: &::core::option::Option<super::Com::IDispatch>, strquery: &::windows::core::BSTR, strquerylanguage: &::windows::core::BSTR, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>, objwbemasynccontext: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn ExecMethod(&self, strobjectpath: &::windows::core::BSTR, strmethodname: &::windows::core::BSTR, objwbeminparameters: &::core::option::Option<super::Com::IDispatch>, iflags: i32, objwbemnamedvalueset: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<ISWbemObject>;
@@ -2548,8 +2561,8 @@ impl ISWbemServices_Vtbl {
             strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strresultrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
-            bclassesonly: i16,
-            bschemaonly: i16,
+            bclassesonly: super::super::Foundation::VARIANT_BOOL,
+            bschemaonly: super::super::Foundation::VARIANT_BOOL,
             strrequiredassocqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             iflags: i32,
@@ -2574,8 +2587,8 @@ impl ISWbemServices_Vtbl {
             strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strresultrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
-            bclassesonly: i16,
-            bschemaonly: i16,
+            bclassesonly: super::super::Foundation::VARIANT_BOOL,
+            bschemaonly: super::super::Foundation::VARIANT_BOOL,
             strrequiredassocqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>,
             iflags: i32,
@@ -2601,7 +2614,7 @@ impl ISWbemServices_Vtbl {
             )
             .into()
         }
-        unsafe extern "system" fn ReferencesTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strobjectpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferencesTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strobjectpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemobjectset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ReferencesTo(::core::mem::transmute(&strobjectpath), ::core::mem::transmute(&strresultclass), ::core::mem::transmute(&strrole), ::core::mem::transmute_copy(&bclassesonly), ::core::mem::transmute_copy(&bschemaonly), ::core::mem::transmute(&strrequiredqualifier), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset)) {
@@ -2612,7 +2625,7 @@ impl ISWbemServices_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReferencesToAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemsink: *mut ::core::ffi::c_void, strobjectpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: i16, bschemaonly: i16, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemasynccontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ReferencesToAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISWbemServices_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objwbemsink: *mut ::core::ffi::c_void, strobjectpath: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strresultclass: ::core::mem::ManuallyDrop<::windows::core::BSTR>, strrole: ::core::mem::ManuallyDrop<::windows::core::BSTR>, bclassesonly: super::super::Foundation::VARIANT_BOOL, bschemaonly: super::super::Foundation::VARIANT_BOOL, strrequiredqualifier: ::core::mem::ManuallyDrop<::windows::core::BSTR>, iflags: i32, objwbemnamedvalueset: *mut ::core::ffi::c_void, objwbemasynccontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReferencesToAsync(::core::mem::transmute(&objwbemsink), ::core::mem::transmute(&strobjectpath), ::core::mem::transmute(&strresultclass), ::core::mem::transmute(&strrole), ::core::mem::transmute_copy(&bclassesonly), ::core::mem::transmute_copy(&bschemaonly), ::core::mem::transmute(&strrequiredqualifier), ::core::mem::transmute_copy(&iflags), ::core::mem::transmute(&objwbemnamedvalueset), ::core::mem::transmute(&objwbemasynccontext)).into()

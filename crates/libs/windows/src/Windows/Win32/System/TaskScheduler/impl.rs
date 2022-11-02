@@ -586,20 +586,20 @@ impl IExecAction_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IExecAction2_Impl: Sized + IExecAction_Impl {
-    fn HideAppWindow(&self, phideappwindow: *mut i16) -> ::windows::core::Result<()>;
-    fn SetHideAppWindow(&self, hideappwindow: i16) -> ::windows::core::Result<()>;
+    fn HideAppWindow(&self, phideappwindow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetHideAppWindow(&self, hideappwindow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IExecAction2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IExecAction2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExecAction2_Impl, const OFFSET: isize>() -> IExecAction2_Vtbl {
-        unsafe extern "system" fn HideAppWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExecAction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HideAppWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExecAction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phideappwindow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HideAppWindow(::core::mem::transmute_copy(&phideappwindow)).into()
         }
-        unsafe extern "system" fn SetHideAppWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExecAction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hideappwindow: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHideAppWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExecAction2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hideappwindow: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHideAppWindow(::core::mem::transmute_copy(&hideappwindow)).into()
@@ -620,10 +620,10 @@ pub trait IIdleSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetIdleDuration(&self, delay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn WaitTimeout(&self, ptimeout: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetWaitTimeout(&self, timeout: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn StopOnIdleEnd(&self, pstop: *mut i16) -> ::windows::core::Result<()>;
-    fn SetStopOnIdleEnd(&self, stop: i16) -> ::windows::core::Result<()>;
-    fn RestartOnIdle(&self, prestart: *mut i16) -> ::windows::core::Result<()>;
-    fn SetRestartOnIdle(&self, restart: i16) -> ::windows::core::Result<()>;
+    fn StopOnIdleEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetStopOnIdleEnd(&self, stop: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn RestartOnIdle(&self, prestart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetRestartOnIdle(&self, restart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IIdleSettings {}
@@ -650,22 +650,22 @@ impl IIdleSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetWaitTimeout(::core::mem::transmute(&timeout)).into()
         }
-        unsafe extern "system" fn StopOnIdleEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstop: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopOnIdleEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StopOnIdleEnd(::core::mem::transmute_copy(&pstop)).into()
         }
-        unsafe extern "system" fn SetStopOnIdleEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopOnIdleEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStopOnIdleEnd(::core::mem::transmute_copy(&stop)).into()
         }
-        unsafe extern "system" fn RestartOnIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prestart: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RestartOnIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prestart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RestartOnIdle(::core::mem::transmute_copy(&prestart)).into()
         }
-        unsafe extern "system" fn SetRestartOnIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restart: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRestartOnIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIdleSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRestartOnIdle(::core::mem::transmute_copy(&restart)).into()
@@ -749,8 +749,8 @@ pub trait IMaintenanceSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn Period(&self, target: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDeadline(&self, value: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Deadline(&self, target: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SetExclusive(&self, value: i16) -> ::windows::core::Result<()>;
-    fn Exclusive(&self, target: *mut i16) -> ::windows::core::Result<()>;
+    fn SetExclusive(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Exclusive(&self, target: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IMaintenanceSettings {}
@@ -777,12 +777,12 @@ impl IMaintenanceSettings_Vtbl {
             let this = (*this).get_impl();
             this.Deadline(::core::mem::transmute_copy(&target)).into()
         }
-        unsafe extern "system" fn SetExclusive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMaintenanceSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExclusive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMaintenanceSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetExclusive(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn Exclusive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMaintenanceSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Exclusive<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMaintenanceSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, target: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Exclusive(::core::mem::transmute_copy(&target)).into()
@@ -809,8 +809,8 @@ pub trait IMonthlyDOWTrigger_Impl: Sized + ITrigger_Impl {
     fn SetWeeksOfMonth(&self, weeks: i16) -> ::windows::core::Result<()>;
     fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()>;
     fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()>;
-    fn RunOnLastWeekOfMonth(&self, plastweek: *mut i16) -> ::windows::core::Result<()>;
-    fn SetRunOnLastWeekOfMonth(&self, lastweek: i16) -> ::windows::core::Result<()>;
+    fn RunOnLastWeekOfMonth(&self, plastweek: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetRunOnLastWeekOfMonth(&self, lastweek: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -849,12 +849,12 @@ impl IMonthlyDOWTrigger_Vtbl {
             let this = (*this).get_impl();
             this.SetMonthsOfYear(::core::mem::transmute_copy(&months)).into()
         }
-        unsafe extern "system" fn RunOnLastWeekOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyDOWTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastweek: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnLastWeekOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyDOWTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastweek: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RunOnLastWeekOfMonth(::core::mem::transmute_copy(&plastweek)).into()
         }
-        unsafe extern "system" fn SetRunOnLastWeekOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyDOWTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastweek: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRunOnLastWeekOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyDOWTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastweek: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRunOnLastWeekOfMonth(::core::mem::transmute_copy(&lastweek)).into()
@@ -893,8 +893,8 @@ pub trait IMonthlyTrigger_Impl: Sized + ITrigger_Impl {
     fn SetDaysOfMonth(&self, days: i32) -> ::windows::core::Result<()>;
     fn MonthsOfYear(&self, pmonths: *mut i16) -> ::windows::core::Result<()>;
     fn SetMonthsOfYear(&self, months: i16) -> ::windows::core::Result<()>;
-    fn RunOnLastDayOfMonth(&self, plastday: *mut i16) -> ::windows::core::Result<()>;
-    fn SetRunOnLastDayOfMonth(&self, lastday: i16) -> ::windows::core::Result<()>;
+    fn RunOnLastDayOfMonth(&self, plastday: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetRunOnLastDayOfMonth(&self, lastday: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn RandomDelay(&self, prandomdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetRandomDelay(&self, randomdelay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -923,12 +923,12 @@ impl IMonthlyTrigger_Vtbl {
             let this = (*this).get_impl();
             this.SetMonthsOfYear(::core::mem::transmute_copy(&months)).into()
         }
-        unsafe extern "system" fn RunOnLastDayOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastday: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnLastDayOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plastday: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RunOnLastDayOfMonth(::core::mem::transmute_copy(&plastday)).into()
         }
-        unsafe extern "system" fn SetRunOnLastDayOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastday: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRunOnLastDayOfMonth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMonthlyTrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lastday: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRunOnLastDayOfMonth(::core::mem::transmute_copy(&lastday)).into()
@@ -1185,8 +1185,8 @@ pub trait IRegisteredTask_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn State(&self) -> ::windows::core::Result<TASK_STATE>;
-    fn Enabled(&self) -> ::windows::core::Result<i16>;
-    fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Run(&self, params: &super::Com::VARIANT) -> ::windows::core::Result<IRunningTask>;
     fn RunEx(&self, params: &super::Com::VARIANT, flags: i32, sessionid: i32, user: &::windows::core::BSTR) -> ::windows::core::Result<IRunningTask>;
     fn GetInstances(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection>;
@@ -1239,7 +1239,7 @@ impl IRegisteredTask_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Enabled() {
@@ -1250,7 +1250,7 @@ impl IRegisteredTask_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRegisteredTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEnabled(::core::mem::transmute_copy(&enabled)).into()
@@ -1635,8 +1635,8 @@ pub trait IRepetitionPattern_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetInterval(&self, interval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Duration(&self, pduration: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDuration(&self, duration: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn StopAtDurationEnd(&self, pstop: *mut i16) -> ::windows::core::Result<()>;
-    fn SetStopAtDurationEnd(&self, stop: i16) -> ::windows::core::Result<()>;
+    fn StopAtDurationEnd(&self, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetStopAtDurationEnd(&self, stop: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRepetitionPattern {}
@@ -1663,12 +1663,12 @@ impl IRepetitionPattern_Vtbl {
             let this = (*this).get_impl();
             this.SetDuration(::core::mem::transmute(&duration)).into()
         }
-        unsafe extern "system" fn StopAtDurationEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRepetitionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstop: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopAtDurationEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRepetitionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstop: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StopAtDurationEnd(::core::mem::transmute_copy(&pstop)).into()
         }
-        unsafe extern "system" fn SetStopAtDurationEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRepetitionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopAtDurationEnd<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRepetitionPattern_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStopAtDurationEnd(::core::mem::transmute_copy(&stop)).into()
@@ -3038,7 +3038,7 @@ pub trait ITaskService_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetRunningTasks(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection>;
     fn NewTask(&self, flags: u32) -> ::windows::core::Result<ITaskDefinition>;
     fn Connect(&self, servername: &super::Com::VARIANT, user: &super::Com::VARIANT, domain: &super::Com::VARIANT, password: &super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn Connected(&self) -> ::windows::core::Result<i16>;
+    fn Connected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn TargetServer(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ConnectedUser(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ConnectedDomain(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -3087,7 +3087,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute(&servername), ::core::mem::transmute(&user), ::core::mem::transmute(&domain), ::core::mem::transmute(&password)).into()
         }
-        unsafe extern "system" fn Connected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Connected() {
@@ -3161,44 +3161,44 @@ impl ITaskService_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings_Impl: Sized + super::Com::IDispatch_Impl {
-    fn AllowDemandStart(&self, pallowdemandstart: *mut i16) -> ::windows::core::Result<()>;
-    fn SetAllowDemandStart(&self, allowdemandstart: i16) -> ::windows::core::Result<()>;
+    fn AllowDemandStart(&self, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetAllowDemandStart(&self, allowdemandstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn RestartInterval(&self, prestartinterval: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetRestartInterval(&self, restartinterval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RestartCount(&self, prestartcount: *mut i32) -> ::windows::core::Result<()>;
     fn SetRestartCount(&self, restartcount: i32) -> ::windows::core::Result<()>;
     fn MultipleInstances(&self, ppolicy: *mut TASK_INSTANCES_POLICY) -> ::windows::core::Result<()>;
     fn SetMultipleInstances(&self, policy: TASK_INSTANCES_POLICY) -> ::windows::core::Result<()>;
-    fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut i16) -> ::windows::core::Result<()>;
-    fn SetStopIfGoingOnBatteries(&self, stopifonbatteries: i16) -> ::windows::core::Result<()>;
-    fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()>;
-    fn SetDisallowStartIfOnBatteries(&self, disallowstart: i16) -> ::windows::core::Result<()>;
-    fn AllowHardTerminate(&self, pallowhardterminate: *mut i16) -> ::windows::core::Result<()>;
-    fn SetAllowHardTerminate(&self, allowhardterminate: i16) -> ::windows::core::Result<()>;
-    fn StartWhenAvailable(&self, pstartwhenavailable: *mut i16) -> ::windows::core::Result<()>;
-    fn SetStartWhenAvailable(&self, startwhenavailable: i16) -> ::windows::core::Result<()>;
+    fn StopIfGoingOnBatteries(&self, pstopifonbatteries: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetStopIfGoingOnBatteries(&self, stopifonbatteries: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn DisallowStartIfOnBatteries(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetDisallowStartIfOnBatteries(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AllowHardTerminate(&self, pallowhardterminate: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetAllowHardTerminate(&self, allowhardterminate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn StartWhenAvailable(&self, pstartwhenavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetStartWhenAvailable(&self, startwhenavailable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn XmlText(&self, ptext: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetXmlText(&self, text: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut i16) -> ::windows::core::Result<()>;
-    fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()>;
+    fn RunOnlyIfNetworkAvailable(&self, prunonlyifnetworkavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn ExecutionTimeLimit(&self, pexecutiontimelimit: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetExecutionTimeLimit(&self, executiontimelimit: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()>;
-    fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn DeleteExpiredTaskAfter(&self, pexpirationdelay: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetDeleteExpiredTaskAfter(&self, expirationdelay: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Priority(&self, ppriority: *mut i32) -> ::windows::core::Result<()>;
     fn SetPriority(&self, priority: i32) -> ::windows::core::Result<()>;
     fn Compatibility(&self, pcompatlevel: *mut TASK_COMPATIBILITY) -> ::windows::core::Result<()>;
     fn SetCompatibility(&self, compatlevel: TASK_COMPATIBILITY) -> ::windows::core::Result<()>;
-    fn Hidden(&self, phidden: *mut i16) -> ::windows::core::Result<()>;
-    fn SetHidden(&self, hidden: i16) -> ::windows::core::Result<()>;
+    fn Hidden(&self, phidden: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetHidden(&self, hidden: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn IdleSettings(&self) -> ::windows::core::Result<IIdleSettings>;
     fn SetIdleSettings(&self, pidlesettings: &::core::option::Option<IIdleSettings>) -> ::windows::core::Result<()>;
-    fn RunOnlyIfIdle(&self, prunonlyifidle: *mut i16) -> ::windows::core::Result<()>;
-    fn SetRunOnlyIfIdle(&self, runonlyifidle: i16) -> ::windows::core::Result<()>;
-    fn WakeToRun(&self, pwake: *mut i16) -> ::windows::core::Result<()>;
-    fn SetWakeToRun(&self, wake: i16) -> ::windows::core::Result<()>;
+    fn RunOnlyIfIdle(&self, prunonlyifidle: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetRunOnlyIfIdle(&self, runonlyifidle: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn WakeToRun(&self, pwake: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetWakeToRun(&self, wake: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn NetworkSettings(&self) -> ::windows::core::Result<INetworkSettings>;
     fn SetNetworkSettings(&self, pnetworksettings: &::core::option::Option<INetworkSettings>) -> ::windows::core::Result<()>;
 }
@@ -3207,12 +3207,12 @@ impl ::windows::core::RuntimeName for ITaskSettings {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>() -> ITaskSettings_Vtbl {
-        unsafe extern "system" fn AllowDemandStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowdemandstart: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowDemandStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowdemandstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AllowDemandStart(::core::mem::transmute_copy(&pallowdemandstart)).into()
         }
-        unsafe extern "system" fn SetAllowDemandStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowdemandstart: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowDemandStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowdemandstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAllowDemandStart(::core::mem::transmute_copy(&allowdemandstart)).into()
@@ -3247,42 +3247,42 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetMultipleInstances(::core::mem::transmute_copy(&policy)).into()
         }
-        unsafe extern "system" fn StopIfGoingOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstopifonbatteries: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StopIfGoingOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstopifonbatteries: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StopIfGoingOnBatteries(::core::mem::transmute_copy(&pstopifonbatteries)).into()
         }
-        unsafe extern "system" fn SetStopIfGoingOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopifonbatteries: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStopIfGoingOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stopifonbatteries: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStopIfGoingOnBatteries(::core::mem::transmute_copy(&stopifonbatteries)).into()
         }
-        unsafe extern "system" fn DisallowStartIfOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisallowStartIfOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisallowStartIfOnBatteries(::core::mem::transmute_copy(&pdisallowstart)).into()
         }
-        unsafe extern "system" fn SetDisallowStartIfOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisallowStartIfOnBatteries<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDisallowStartIfOnBatteries(::core::mem::transmute_copy(&disallowstart)).into()
         }
-        unsafe extern "system" fn AllowHardTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowhardterminate: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowHardTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowhardterminate: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AllowHardTerminate(::core::mem::transmute_copy(&pallowhardterminate)).into()
         }
-        unsafe extern "system" fn SetAllowHardTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowhardterminate: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAllowHardTerminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowhardterminate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAllowHardTerminate(::core::mem::transmute_copy(&allowhardterminate)).into()
         }
-        unsafe extern "system" fn StartWhenAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartwhenavailable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StartWhenAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstartwhenavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.StartWhenAvailable(::core::mem::transmute_copy(&pstartwhenavailable)).into()
         }
-        unsafe extern "system" fn SetStartWhenAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startwhenavailable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStartWhenAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startwhenavailable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStartWhenAvailable(::core::mem::transmute_copy(&startwhenavailable)).into()
@@ -3297,12 +3297,12 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetXmlText(::core::mem::transmute(&text)).into()
         }
-        unsafe extern "system" fn RunOnlyIfNetworkAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prunonlyifnetworkavailable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnlyIfNetworkAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prunonlyifnetworkavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RunOnlyIfNetworkAvailable(::core::mem::transmute_copy(&prunonlyifnetworkavailable)).into()
         }
-        unsafe extern "system" fn SetRunOnlyIfNetworkAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runonlyifnetworkavailable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRunOnlyIfNetworkAvailable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runonlyifnetworkavailable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRunOnlyIfNetworkAvailable(::core::mem::transmute_copy(&runonlyifnetworkavailable)).into()
@@ -3317,12 +3317,12 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetExecutionTimeLimit(::core::mem::transmute(&executiontimelimit)).into()
         }
-        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Enabled(::core::mem::transmute_copy(&penabled)).into()
         }
-        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEnabled(::core::mem::transmute_copy(&enabled)).into()
@@ -3357,12 +3357,12 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetCompatibility(::core::mem::transmute_copy(&compatlevel)).into()
         }
-        unsafe extern "system" fn Hidden<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phidden: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Hidden<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phidden: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Hidden(::core::mem::transmute_copy(&phidden)).into()
         }
-        unsafe extern "system" fn SetHidden<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hidden: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetHidden<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hidden: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetHidden(::core::mem::transmute_copy(&hidden)).into()
@@ -3383,22 +3383,22 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             this.SetIdleSettings(::core::mem::transmute(&pidlesettings)).into()
         }
-        unsafe extern "system" fn RunOnlyIfIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prunonlyifidle: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnlyIfIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prunonlyifidle: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RunOnlyIfIdle(::core::mem::transmute_copy(&prunonlyifidle)).into()
         }
-        unsafe extern "system" fn SetRunOnlyIfIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runonlyifidle: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRunOnlyIfIdle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runonlyifidle: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRunOnlyIfIdle(::core::mem::transmute_copy(&runonlyifidle)).into()
         }
-        unsafe extern "system" fn WakeToRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwake: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn WakeToRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwake: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.WakeToRun(::core::mem::transmute_copy(&pwake)).into()
         }
-        unsafe extern "system" fn SetWakeToRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wake: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWakeToRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wake: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetWakeToRun(::core::mem::transmute_copy(&wake)).into()
@@ -3469,32 +3469,32 @@ impl ITaskSettings_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings2_Impl: Sized + super::Com::IDispatch_Impl {
-    fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()>;
-    fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: i16) -> ::windows::core::Result<()>;
-    fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()>;
-    fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()>;
+    fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITaskSettings2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>() -> ITaskSettings2_Vtbl {
-        unsafe extern "system" fn DisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisallowStartOnRemoteAppSession(::core::mem::transmute_copy(&pdisallowstart)).into()
         }
-        unsafe extern "system" fn SetDisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDisallowStartOnRemoteAppSession(::core::mem::transmute_copy(&disallowstart)).into()
         }
-        unsafe extern "system" fn UseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UseUnifiedSchedulingEngine(::core::mem::transmute_copy(&puseunifiedengine)).into()
         }
-        unsafe extern "system" fn SetUseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useunifiedengine: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUseUnifiedSchedulingEngine(::core::mem::transmute_copy(&useunifiedengine)).into()
@@ -3513,37 +3513,37 @@ impl ITaskSettings2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITaskSettings3_Impl: Sized + ITaskSettings_Impl {
-    fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut i16) -> ::windows::core::Result<()>;
-    fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: i16) -> ::windows::core::Result<()>;
-    fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut i16) -> ::windows::core::Result<()>;
-    fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()>;
+    fn DisallowStartOnRemoteAppSession(&self, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetDisallowStartOnRemoteAppSession(&self, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn UseUnifiedSchedulingEngine(&self, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn MaintenanceSettings(&self) -> ::windows::core::Result<IMaintenanceSettings>;
     fn SetMaintenanceSettings(&self, pmaintenancesettings: &::core::option::Option<IMaintenanceSettings>) -> ::windows::core::Result<()>;
     fn CreateMaintenanceSettings(&self) -> ::windows::core::Result<IMaintenanceSettings>;
-    fn Volatile(&self, pvolatile: *mut i16) -> ::windows::core::Result<()>;
-    fn SetVolatile(&self, volatile: i16) -> ::windows::core::Result<()>;
+    fn Volatile(&self, pvolatile: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetVolatile(&self, volatile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITaskSettings3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITaskSettings3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>() -> ITaskSettings3_Vtbl {
-        unsafe extern "system" fn DisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisallowstart: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.DisallowStartOnRemoteAppSession(::core::mem::transmute_copy(&pdisallowstart)).into()
         }
-        unsafe extern "system" fn SetDisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDisallowStartOnRemoteAppSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disallowstart: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDisallowStartOnRemoteAppSession(::core::mem::transmute_copy(&disallowstart)).into()
         }
-        unsafe extern "system" fn UseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UseUnifiedSchedulingEngine(::core::mem::transmute_copy(&puseunifiedengine)).into()
         }
-        unsafe extern "system" fn SetUseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useunifiedengine: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetUseUnifiedSchedulingEngine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, useunifiedengine: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetUseUnifiedSchedulingEngine(::core::mem::transmute_copy(&useunifiedengine)).into()
@@ -3575,12 +3575,12 @@ impl ITaskSettings3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Volatile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvolatile: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Volatile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvolatile: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Volatile(::core::mem::transmute_copy(&pvolatile)).into()
         }
-        unsafe extern "system" fn SetVolatile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volatile: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVolatile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITaskSettings3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volatile: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetVolatile(::core::mem::transmute_copy(&volatile)).into()
@@ -3737,8 +3737,8 @@ pub trait ITrigger_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetStartBoundary(&self, start: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn EndBoundary(&self, pend: *mut ::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SetEndBoundary(&self, end: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Enabled(&self, penabled: *mut i16) -> ::windows::core::Result<()>;
-    fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()>;
+    fn Enabled(&self, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITrigger {}
@@ -3806,12 +3806,12 @@ impl ITrigger_Vtbl {
             let this = (*this).get_impl();
             this.SetEndBoundary(::core::mem::transmute(&end)).into()
         }
-        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Enabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Enabled(::core::mem::transmute_copy(&penabled)).into()
         }
-        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITrigger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEnabled(::core::mem::transmute_copy(&enabled)).into()

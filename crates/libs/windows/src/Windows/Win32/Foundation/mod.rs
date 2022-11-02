@@ -13482,6 +13482,33 @@ impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VARIANT_BOOL(pub i16);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VARIANT_TRUE: VARIANT_BOOL = VARIANT_BOOL(-1i16);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const VARIANT_FALSE: VARIANT_BOOL = VARIANT_BOOL(0i16);
+impl ::core::marker::Copy for VARIANT_BOOL {}
+impl ::core::clone::Clone for VARIANT_BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VARIANT_BOOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VARIANT_BOOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VARIANT_BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARIANT_BOOL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN32_ERROR(pub u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NO_ERROR: WIN32_ERROR = WIN32_ERROR(0u32);

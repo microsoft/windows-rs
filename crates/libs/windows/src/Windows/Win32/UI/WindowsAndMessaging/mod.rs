@@ -124,12 +124,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
-pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> isize {
+pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> ::windows::core::Result<HDWP> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn BeginDeferWindowPos(nnumwindows: i32) -> isize;
+        fn BeginDeferWindowPos(nnumwindows: i32) -> HDWP;
     }
-    BeginDeferWindowPos(nnumwindows)
+    let result__ = BeginDeferWindowPos(nnumwindows);
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1006,16 +1007,18 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeferWindowPos<'a, P0, P1>(hwinposinfo: isize, hwnd: P0, hwndinsertafter: P1, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize
+pub unsafe fn DeferWindowPos<'a, P0, P1, P2>(hwinposinfo: P0, hwnd: P1, hwndinsertafter: P2, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> ::windows::core::Result<HDWP>
 where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P0: ::std::convert::Into<HDWP>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
+    P2: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DeferWindowPos(hwinposinfo: isize, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize;
+        fn DeferWindowPos(hwinposinfo: HDWP, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> HDWP;
     }
-    DeferWindowPos(hwinposinfo, hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags)
+    let result__ = DeferWindowPos(hwinposinfo.into(), hwnd.into(), hwndinsertafter.into(), x, y, cx, cy, uflags);
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1303,12 +1306,15 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL {
+pub unsafe fn EndDeferWindowPos<'a, P0>(hwinposinfo: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HDWP>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL;
+        fn EndDeferWindowPos(hwinposinfo: HDWP) -> super::super::Foundation::BOOL;
     }
-    EndDeferWindowPos(hwinposinfo)
+    EndDeferWindowPos(hwinposinfo.into())
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12974,6 +12980,38 @@ impl ::core::convert::From<HCURSOR> for HICON {
     fn from(item: HCURSOR) -> HICON {
         HICON(item.0)
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDWP(pub isize);
+impl HDWP {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for HDWP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDWP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDWP {}
+impl ::core::fmt::Debug for HDWP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDWP").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HDWP>> for HDWP {
+    fn from(optional: ::core::option::Option<HDWP>) -> HDWP {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HDWP {
+    type Abi = Self;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -2127,7 +2127,7 @@ impl IAVIPersistFile {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Load<'a, P0>(&self, pszfilename: P0, dwmode: u32) -> ::windows::core::Result<()>
+    pub unsafe fn Load<'a, P0>(&self, pszfilename: P0, dwmode: super::super::System::Com::STGM) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {

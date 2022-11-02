@@ -1124,7 +1124,7 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub pcChain: *mut u32,
     pub prgChain: *mut *mut *mut super::CERT_CONTEXT,
     pub prgdwErrors: *mut *mut u32,
-    pub prgpbTrustInfo: *mut *mut super::CRYPTOAPI_BLOB,
+    pub prgpbTrustInfo: *mut *mut super::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CERT_VERIFY_CERTIFICATE_TRUST {}

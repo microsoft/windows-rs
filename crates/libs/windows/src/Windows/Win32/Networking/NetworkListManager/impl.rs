@@ -134,8 +134,8 @@ pub trait INetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetDomainType(&self) -> ::windows::core::Result<NLM_DOMAIN_TYPE>;
     fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
     fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows::core::Result<()>;
-    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
     fn GetCategory(&self) -> ::windows::core::Result<NLM_NETWORK_CATEGORY>;
     fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()>;
@@ -215,7 +215,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             this.GetTimeCreatedAndConnected(::core::mem::transmute_copy(&pdwlowdatetimecreated), ::core::mem::transmute_copy(&pdwhighdatetimecreated), ::core::mem::transmute_copy(&pdwlowdatetimeconnected), ::core::mem::transmute_copy(&pdwhighdatetimeconnected)).into()
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
@@ -226,7 +226,7 @@ impl INetwork_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetwork_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnected() {
@@ -288,8 +288,8 @@ impl INetwork_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetworkConnection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetNetwork(&self) -> ::windows::core::Result<INetwork>;
-    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
     fn GetConnectionId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetAdapterId(&self) -> ::windows::core::Result<::windows::core::GUID>;
@@ -311,7 +311,7 @@ impl INetworkConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
@@ -322,7 +322,7 @@ impl INetworkConnection_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnected() {
@@ -492,7 +492,7 @@ impl INetworkConnectionEvents_Vtbl {
 pub trait INetworkCostManager_Impl: Sized {
     fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
     fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows::core::Result<()>;
-    fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::Result<()>;
+    fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for INetworkCostManager {}
@@ -509,7 +509,7 @@ impl INetworkCostManager_Vtbl {
             let this = (*this).get_impl();
             this.GetDataPlanStatus(::core::mem::transmute_copy(&pdataplanstatus), ::core::mem::transmute_copy(&pdestipaddr)).into()
         }
-        unsafe extern "system" fn SetDestinationAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDestinationAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDestinationAddresses(::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pdestipaddrlist), ::core::mem::transmute_copy(&bappend)).into()
@@ -599,8 +599,8 @@ pub trait INetworkListManager_Impl: Sized + super::super::System::Com::IDispatch
     fn GetNetwork(&self, gdnetworkid: &::windows::core::GUID) -> ::windows::core::Result<INetwork>;
     fn GetNetworkConnections(&self) -> ::windows::core::Result<IEnumNetworkConnections>;
     fn GetNetworkConnection(&self, gdnetworkconnectionid: &::windows::core::GUID) -> ::windows::core::Result<INetworkConnection>;
-    fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16>;
-    fn IsConnected(&self) -> ::windows::core::Result<i16>;
+    fn IsConnectedToInternet(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetConnectivity(&self) -> ::windows::core::Result<NLM_CONNECTIVITY>;
     fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows::core::Result<()>;
     fn ClearSimulatedProfileInfo(&self) -> ::windows::core::Result<()>;
@@ -654,7 +654,7 @@ impl INetworkListManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
@@ -665,7 +665,7 @@ impl INetworkListManager_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetworkListManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsConnected() {

@@ -33052,14 +33052,17 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
         iid == &<IWebAppDiagnosticsObjectInitialization as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IWebAppDiagnosticsSetup_Impl: Sized {
-    fn DiagnosticsSupported(&self) -> ::windows::core::Result<i16>;
+    fn DiagnosticsSupported(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn CreateObjectWithSiteAtWebApp(&self, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, hpasstoobject: usize) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWebAppDiagnosticsSetup {}
+#[cfg(feature = "Win32_Foundation")]
 impl IWebAppDiagnosticsSetup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsSetup_Impl, const OFFSET: isize>() -> IWebAppDiagnosticsSetup_Vtbl {
-        unsafe extern "system" fn DiagnosticsSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DiagnosticsSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebAppDiagnosticsSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DiagnosticsSupported() {

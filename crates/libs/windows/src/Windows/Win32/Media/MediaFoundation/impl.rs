@@ -10672,14 +10672,17 @@ impl IMFNetProxyLocatorFactory_Vtbl {
         iid == &<IMFNetProxyLocatorFactory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IMFNetResourceFilter_Impl: Sized {
-    fn OnRedirect(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<i16>;
+    fn OnRedirect(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn OnSendingRequest(&self, pszurl: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMFNetResourceFilter {}
+#[cfg(feature = "Win32_Foundation")]
 impl IMFNetResourceFilter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFNetResourceFilter_Impl, const OFFSET: isize>() -> IMFNetResourceFilter_Vtbl {
-        unsafe extern "system" fn OnRedirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFNetResourceFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pvbcancel: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnRedirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFNetResourceFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: ::windows::core::PCWSTR, pvbcancel: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OnRedirect(::core::mem::transmute(&pszurl)) {
