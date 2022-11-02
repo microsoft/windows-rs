@@ -28,25 +28,36 @@ jobs:
       - name: Run cargo doc
         run: cargo doc --no-deps -p windows
 
+  lib_generation:
+    name: Check generation of libs
+    runs-on: windows-2019
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run tool
+        shell: cmd
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
+          cargo run -p tool_msvc
+      - name: Compare
+        shell: bash
+        run: git diff --exit-code || (echo '::error::Generated target libs are out-of-date.'; exit 1)
+
   generation:
     name: Check generation of `tool_${{ matrix.generator }}`
     runs-on: windows-2019
     strategy:
       matrix:
-        generator: [windows, sys, yml, msvc]
+        generator: [windows, sys, yml]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Configure MSVC environment
-        shell: cmd
-        run: call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
-        if: matrix.generator == 'msvc'
       - name: Run tool_${{ matrix.generator }}
         run: cargo run -p tool_${{ matrix.generator }}
       - name: Compare
         shell: bash
         run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
-
+    
   cargo_sys:
     name: Check windows-sys
     strategy:
