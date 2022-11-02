@@ -3,7 +3,7 @@ use windows::{
     Win32::Foundation::{CloseHandle, BOOL, HANDLE, HWND, RECT, WAIT_OBJECT_0},
     Win32::Gaming::HasExpandedResources,
     Win32::Graphics::Direct3D::Fxc::*,
-    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*, Hlsl::*},
+    Win32::Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*},
     Win32::Networking::Ldap::LDAPSearch,
     Win32::Security::Authorization::*,
     Win32::System::Com::StructuredStorage::*,

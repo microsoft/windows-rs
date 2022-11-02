@@ -124,15 +124,7 @@ impl Window {
             let device_3d = create_device_3d()?;
             let device_2d = create_device_2d(&device_3d)?;
             self.device = Some(device_3d);
-
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1333
-            let mut desktop = std::ptr::null_mut();
-            let desktop = DCompositionCreateDevice2(
-                &device_2d,
-                &IDCompositionDesktopDevice::IID,
-                &mut desktop,
-            )
-            .map(|()| IDCompositionDesktopDevice::from_raw(desktop))?;
+            let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
 
             // First release any previous target, otherwise `CreateTargetForHwnd` will find the HWND occupied.
             self.target = None;
@@ -523,7 +515,7 @@ fn create_image() -> Result<IWICFormatConverter> {
 
         let decoder = factory.CreateDecoderFromFilename(
             w!("image.jpg"),
-            std::ptr::null(),
+            None,
             GENERIC_READ,
             WICDecodeMetadataCacheOnDemand,
         )?;
@@ -679,13 +671,8 @@ fn draw_card_front(
     dpi: (f32, f32),
 ) -> Result<()> {
     unsafe {
-        let mut dc = std::ptr::null_mut();
         let mut offset = Default::default();
-
-        let dc = surface
-            .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut offset)
-            .map(|()| ID2D1DeviceContext::from_raw(dc))?;
-
+        let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
         dc.SetDpi(dpi.0, dpi.1);
 
         dc.SetTransform(&Matrix3x2::translation(
@@ -725,13 +712,8 @@ fn draw_card_back(
     dpi: (f32, f32),
 ) -> Result<()> {
     unsafe {
-        let mut dc = std::ptr::null_mut();
         let mut dc_offset = Default::default();
-
-        let dc: ID2D1DeviceContext = surface
-            .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut dc_offset)
-            .map(|()| ID2D1DeviceContext::from_raw(dc))?;
-
+        let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
         dc.SetDpi(dpi.0, dpi.1);
 
         dc.SetTransform(&Matrix3x2::translation(
