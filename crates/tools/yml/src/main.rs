@@ -189,6 +189,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Configure MSVC environment
+        shell: cmd
         run: call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
         if: matrix.generator == 'msvc'
       - name: Run tool_${{ matrix.generator }}
