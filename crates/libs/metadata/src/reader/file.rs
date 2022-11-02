@@ -55,7 +55,14 @@ impl File {
     pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
 
-        let mut result = File { bytes: std::fs::read(path)?, ..Default::default() };
+        let buffer = std::fs::read(&path)?;
+        let name = path.file_name().unwrap().to_string_lossy().into_owned();
+
+        Self::from_buffer(buffer, name)
+    }
+
+    pub fn from_buffer(buffer: Vec<u8>, name: String) -> Result<Self> {
+        let mut result = File { bytes: buffer, name, ..Default::default() };
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0);
 
@@ -312,8 +319,6 @@ impl File {
         result.tables[TABLE_NESTEDCLASS].set_data(&mut view);
         result.tables[TABLE_GENERICPARAM].set_data(&mut view);
 
-        // Since the file was read successfully, we just assume it has a valid file name.
-        result.name = path.file_name().unwrap().to_string_lossy().to_string();
         Ok(result)
     }
 
