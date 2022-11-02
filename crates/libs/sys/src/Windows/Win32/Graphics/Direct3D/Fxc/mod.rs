@@ -57,6 +57,8 @@ extern "system" {
     pub fn D3DWriteBlobToFile(pblob: super::ID3DBlob, pfilename: ::windows_sys::core::PCWSTR, boverwrite: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
+pub const D3DCOMPILER_DLL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("d3dcompiler_47.dll");
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 pub const D3DCOMPILER_DLL_A: ::windows_sys::core::PCSTR = ::windows_sys::s!("d3dcompiler_47.dll");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 pub const D3DCOMPILER_DLL_W: ::windows_sys::core::PCWSTR = ::windows_sys::w!("d3dcompiler_47.dll");

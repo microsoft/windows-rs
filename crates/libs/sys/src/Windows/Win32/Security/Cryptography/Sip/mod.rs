@@ -208,7 +208,7 @@ impl ::core::clone::Clone for SIP_DISPATCH_INFO {
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::CRYPT_ALGORITHM_IDENTIFIER,
-    pub Digest: super::CRYPTOAPI_BLOB,
+    pub Digest: super::CRYPT_INTEGER_BLOB,
 }
 impl ::core::marker::Copy for SIP_INDIRECT_DATA {}
 impl ::core::clone::Clone for SIP_INDIRECT_DATA {

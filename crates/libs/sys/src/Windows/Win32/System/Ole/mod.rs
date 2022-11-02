@@ -174,7 +174,7 @@ extern "system" {
     pub fn OleDraw(punknown: ::windows_sys::core::IUnknown, dwaspect: u32, hdcdraw: super::super::Graphics::Gdi::HDC, lprcbounds: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
-    pub fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE;
+    pub fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: CLIPBOARD_FORMAT, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn OleFlushClipboard() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -473,46 +473,58 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn VarBoolFromDisp(pdispin: super::Com::IDispatch, lcid: u32, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
+    pub fn VarBoolFromDate(datein: f64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromStr(strin: ::windows_sys::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows_sys::core::HRESULT;
+    pub fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn VarBoolFromDisp(pdispin: super::Com::IDispatch, lcid: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromI2(sin: i16, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromI4(lin: i32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromI8(i64in: i64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromR4(fltin: f32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromR8(dblin: f64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromStr(strin: ::windows_sys::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromUI1(bin: u8, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromUI2(uiin: u16, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromUI4(ulin: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBoolFromUI8(i64in: u64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarBstrCat(bstrleft: ::windows_sys::core::BSTR, bstrright: ::windows_sys::core::BSTR, pbstrresult: *mut *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarBstrCmp(bstrleft: ::windows_sys::core::BSTR, bstrright: ::windows_sys::core::BSTR, lcid: u32, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarBstrFromBool(boolin: super::super::Foundation::VARIANT_BOOL, lcid: u32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarBstrFromCy(cyin: super::Com::CY, lcid: u32, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
@@ -566,9 +578,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarCyFix(cyin: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn VarCyFromBool(boolin: i16, pcyout: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub fn VarCyFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pcyout: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarCyFromDate(datein: f64, pcyout: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
@@ -632,8 +644,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY, pcyresult: *mut super::Com::CY) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarDateFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdateout: *mut f64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarDateFromCy(cyin: super::Com::CY, pdateout: *mut f64) -> ::windows_sys::core::HRESULT;
@@ -692,7 +705,7 @@ extern "system" {
     pub fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL, pdecresult: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn VarDecFromBool(boolin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
+    pub fn VarDecFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarDecFromCy(cyin: super::Com::CY, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows_sys::core::HRESULT;
@@ -777,8 +790,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32, iinclead: VARFORMAT_LEADING_DIGIT, iuseparens: VARFORMAT_PARENTHESES, igroup: VARFORMAT_GROUP, dwflags: u32, pbstrout: *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarI1FromBool(boolin: i16, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarI1FromCy(cyin: super::Com::CY, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
@@ -810,8 +824,9 @@ extern "system" {
     pub fn VarI1FromUI4(ulin: u32, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarI1FromUI8(i64in: u64, pcout: ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL, psout: *mut i16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarI2FromCy(cyin: super::Com::CY, psout: *mut i16) -> ::windows_sys::core::HRESULT;
@@ -844,8 +859,9 @@ extern "system" {
     pub fn VarI2FromUI4(ulin: u32, psout: *mut i16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarI2FromUI8(ui64in: u64, psout: *mut i16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, plout: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarI4FromCy(cyin: super::Com::CY, plout: *mut i32) -> ::windows_sys::core::HRESULT;
@@ -878,8 +894,9 @@ extern "system" {
     pub fn VarI4FromUI4(ulin: u32, plout: *mut i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarI4FromUI8(ui64in: u64, plout: *mut i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pi64out: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarI8FromCy(cyin: super::Com::CY, pi64out: *mut i64) -> ::windows_sys::core::HRESULT;
@@ -946,8 +963,9 @@ extern "system" {
     pub fn VarPow(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarR4CmpR8(fltleft: f32, dblright: f64) -> VARCMP;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarR4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarR4FromCy(cyin: super::Com::CY, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
@@ -980,8 +998,9 @@ extern "system" {
     pub fn VarR4FromUI4(ulin: u32, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarR4FromUI8(ui64in: u64, pfltout: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarR8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdblout: *mut f64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarR8FromCy(cyin: super::Com::CY, pdblout: *mut f64) -> ::windows_sys::core::HRESULT;
@@ -1026,8 +1045,9 @@ extern "system" {
     pub fn VarSub(pvarleft: *const super::Com::VARIANT, pvarright: *const super::Com::VARIANT, pvarresult: *mut super::Com::VARIANT) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarTokenizeFormatString(pstrformat: ::windows_sys::core::PCWSTR, rgbtok: *mut u8, cbtok: i32, ifirstday: VARFORMAT_FIRST_DAY, ifirstweek: VARFORMAT_FIRST_WEEK, lcid: u32, pcbactual: *const i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarUI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarUI1FromCy(cyin: super::Com::CY, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
@@ -1060,8 +1080,9 @@ extern "system" {
     pub fn VarUI1FromUI4(ulin: u32, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarUI1FromUI8(ui64in: u64, pbout: *mut u8) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarUI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL, puiout: *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarUI2FromCy(cyin: super::Com::CY, puiout: *mut u16) -> ::windows_sys::core::HRESULT;
@@ -1094,8 +1115,9 @@ extern "system" {
     pub fn VarUI2FromUI4(ulin: u32, puiout: *mut u16) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarUI2FromUI8(i64in: u64, puiout: *mut u16) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarUI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pulout: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarUI4FromCy(cyin: super::Com::CY, pulout: *mut u32) -> ::windows_sys::core::HRESULT;
@@ -1128,8 +1150,9 @@ extern "system" {
     pub fn VarUI4FromUI2(uiin: u16, pulout: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     pub fn VarUI4FromUI8(ui64in: u64, plout: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-    pub fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn VarUI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pi64out: *mut u64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn VarUI8FromCy(cyin: super::Com::CY, pi64out: *mut u64) -> ::windows_sys::core::HRESULT;
@@ -2286,6 +2309,62 @@ pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = 2u32;
 pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub type CLIPBOARD_FORMAT = u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TEXT: CLIPBOARD_FORMAT = 1u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_BITMAP: CLIPBOARD_FORMAT = 2u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = 3u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SYLK: CLIPBOARD_FORMAT = 4u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIF: CLIPBOARD_FORMAT = 5u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TIFF: CLIPBOARD_FORMAT = 6u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OEMTEXT: CLIPBOARD_FORMAT = 7u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIB: CLIPBOARD_FORMAT = 8u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PALETTE: CLIPBOARD_FORMAT = 9u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PENDATA: CLIPBOARD_FORMAT = 10u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_RIFF: CLIPBOARD_FORMAT = 11u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_WAVE: CLIPBOARD_FORMAT = 12u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = 13u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = 14u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_HDROP: CLIPBOARD_FORMAT = 15u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_LOCALE: CLIPBOARD_FORMAT = 16u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIBV5: CLIPBOARD_FORMAT = 17u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_MAX: CLIPBOARD_FORMAT = 18u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = 128u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPTEXT: CLIPBOARD_FORMAT = 129u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = 130u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = 131u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = 142u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = 512u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = 767u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = 768u16;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = 1023u16;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub type CTRLINFO = i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -4376,6 +4455,7 @@ impl ::core::clone::Clone for OLEVERB {
         *self
     }
 }
+pub type OLE_HANDLE = u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct PAGERANGE {
@@ -4817,7 +4897,7 @@ pub union _wireVARIANT_0 {
     pub iVal: i16,
     pub fltVal: f32,
     pub dblVal: f64,
-    pub boolVal: i16,
+    pub boolVal: super::super::Foundation::VARIANT_BOOL,
     pub scode: i32,
     pub cyVal: super::Com::CY,
     pub date: f64,
@@ -4832,7 +4912,7 @@ pub union _wireVARIANT_0 {
     pub pllVal: *mut i64,
     pub pfltVal: *mut f32,
     pub pdblVal: *mut f64,
-    pub pboolVal: *mut i16,
+    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
     pub pscode: *mut i32,
     pub pcyVal: *mut super::Com::CY,
     pub pdate: *mut f64,

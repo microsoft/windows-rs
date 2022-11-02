@@ -3009,48 +3009,6 @@ impl ::core::clone::Clone for D2D1_VERTEX_RANGE {
         *self
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub struct Matrix4x3F {
-    pub Base: Common::D2D_MATRIX_4X3_F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix4x3F {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for Matrix4x3F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub struct Matrix4x4F {
-    pub Base: Common::D2D_MATRIX_4X4_F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix4x4F {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for Matrix4x4F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-pub struct Matrix5x4F {
-    pub Base: Common::D2D_MATRIX_5X4_F,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::marker::Copy for Matrix5x4F {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for Matrix5x4F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 pub type PD2D1_EFFECT_FACTORY = ::core::option::Option<unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]

@@ -506,13 +506,16 @@ impl ::core::clone::Clone for MBN_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MBN_DEVICE_SERVICE {
     pub deviceServiceID: ::windows_sys::core::BSTR,
-    pub dataWriteSupported: i16,
-    pub dataReadSupported: i16,
+    pub dataWriteSupported: super::super::Foundation::VARIANT_BOOL,
+    pub dataReadSupported: super::super::Foundation::VARIANT_BOOL,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MBN_DEVICE_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
     fn clone(&self) -> Self {
         *self
