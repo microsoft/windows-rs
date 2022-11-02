@@ -1,0 +1,20 @@
+name: fmt
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  fmt:
+    name: Check cargo formatting
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check
+        run: cargo fmt --all -- --check
