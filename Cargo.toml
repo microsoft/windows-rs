@@ -6,3 +6,6 @@ members = [
     "crates/tests/*",
     "crates/tools/*",
 ]
+exclude = [
+    "crates/targets/baseline",
+]
