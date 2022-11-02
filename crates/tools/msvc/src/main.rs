@@ -20,7 +20,7 @@ fn main() {
     };
 
     let libraries = lib::libraries();
-    let output = std::path::PathBuf::from(format!("crates/targets/{platform}/lib"));
+    let output = std::path::PathBuf::from(format!("crates/targets/baseline"));
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
@@ -67,6 +67,8 @@ fn main() {
             break;
         }
     }
+
+    std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.lib")).unwrap();
 }
 
 fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {
@@ -140,7 +142,7 @@ EXPORTS
 
     path.pop();
     path.push(format!("{library}.c"));
-    std::fs::remove_file(&path).unwrap();
+    // Don't remove the .c file as it represents the baseline.
 
     path.pop();
     path.push(format!("{library}.def"));
