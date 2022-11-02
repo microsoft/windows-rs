@@ -184,7 +184,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        generator: [windows, sys, yml]
+        generator: [windows, sys, yml, msvc]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -277,6 +277,9 @@ fn crates() -> Vec<String> {
     }
 
     for dir in dirs("crates/targets") {
+        if dir == "baseline" {
+            continue;
+        }
         crates.push(format!("windows_{dir}"));
     }
 
