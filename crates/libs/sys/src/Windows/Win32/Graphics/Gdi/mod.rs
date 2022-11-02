@@ -48,17 +48,17 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CancelDC(hdc: HDC) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ChangeDisplaySettingsExA(lpszdevicename: ::windows_sys::core::PCSTR, lpdevmode: *const DEVMODEA, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ChangeDisplaySettingsExW(lpszdevicename: ::windows_sys::core::PCWSTR, lpdevmode: *const DEVMODEW, hwnd: super::super::Foundation::HWND, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -100,11 +100,11 @@ extern "system" {
     pub fn CreateCompatibleBitmap(hdc: HDC, cx: i32, cy: i32) -> HBITMAP;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     pub fn CreateCompatibleDC(hdc: HDC) -> CreatedHDC;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn CreateDCA(pwszdriver: ::windows_sys::core::PCSTR, pwszdevice: ::windows_sys::core::PCSTR, pszport: ::windows_sys::core::PCSTR, pdm: *const DEVMODEA) -> CreatedHDC;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn CreateDCW(pwszdriver: ::windows_sys::core::PCWSTR, pwszdevice: ::windows_sys::core::PCWSTR, pszport: ::windows_sys::core::PCWSTR, pdm: *const DEVMODEW) -> CreatedHDC;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     pub fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH;
@@ -147,11 +147,11 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: super::super::Foundation::COLORREF) -> HBRUSH;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn CreateICA(pszdriver: ::windows_sys::core::PCSTR, pszdevice: ::windows_sys::core::PCSTR, pszport: ::windows_sys::core::PCSTR, pdm: *const DEVMODEA) -> CreatedHDC;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn CreateICW(pszdriver: ::windows_sys::core::PCWSTR, pszdevice: ::windows_sys::core::PCWSTR, pszport: ::windows_sys::core::PCWSTR, pdm: *const DEVMODEW) -> CreatedHDC;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     pub fn CreateMetaFileA(pszfile: ::windows_sys::core::PCSTR) -> HdcMetdataFileHandle;
@@ -257,17 +257,17 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumDisplayMonitors(hdc: HDC, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn EnumDisplaySettingsA(lpszdevicename: ::windows_sys::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn EnumDisplaySettingsExA(lpszdevicename: ::windows_sys::core::PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn EnumDisplaySettingsExW(lpszdevicename: ::windows_sys::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn EnumDisplaySettingsW(lpszdevicename: ::windows_sys::core::PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -834,11 +834,11 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RemoveFontResourceW(lpfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ResetDCA(hdc: HDC, lpdm: *const DEVMODEA) -> HDC;
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
     pub fn ResetDCW(hdc: HDC, lpdm: *const DEVMODEW) -> HDC;
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1285,12 +1285,6 @@ pub const DMBIN_UPPER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_USER: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_CENTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_STRETCH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_COARSE: u32 = 2u32;
@@ -1314,14 +1308,6 @@ pub const DMDITHER_RESERVED8: u32 = 8u32;
 pub const DMDITHER_RESERVED9: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_180: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_270: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_90: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_DEVICE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -2899,25 +2885,25 @@ pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_RTL: DC_LAYOUT = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type DEVMODE_COLLATE = u32;
+pub type DEVMODE_COLLATE = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = 0u32;
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = 0u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = 1u32;
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = 1u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type DEVMODE_COLOR = u32;
+pub type DEVMODE_COLOR = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = 1u32;
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = 1u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_COLOR: DEVMODE_COLOR = 2u32;
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = 2u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type DEVMODE_DUPLEX = u32;
+pub type DEVMODE_DUPLEX = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = 1u32;
+pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = 1u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = 2u32;
+pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = 2u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = 3u32;
+pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = 3u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type DEVMODE_FIELD_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3001,15 +2987,15 @@ pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub type DEVMODE_TRUETYPE_OPTION = u32;
+pub type DEVMODE_TRUETYPE_OPTION = u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = 1u32;
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = 1u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = 2u32;
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = 2u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = 3u32;
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = 3u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = 4u32;
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = 4u16;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type DFCS_STATE = u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4954,8 +4940,8 @@ impl ::core::clone::Clone for DESIGNVECTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
     pub dmSpecVersion: u16,
@@ -4965,7 +4951,7 @@ pub struct DEVMODEA {
     pub dmFields: DEVMODE_FIELD_FLAGS,
     pub Anonymous1: DEVMODEA_0,
     pub dmColor: DEVMODE_COLOR,
-    pub dmDuplex: i16,
+    pub dmDuplex: DEVMODE_DUPLEX,
     pub dmYResolution: i16,
     pub dmTTOption: DEVMODE_TRUETYPE_OPTION,
     pub dmCollate: DEVMODE_COLLATE,
@@ -4985,32 +4971,32 @@ pub struct DEVMODEA {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEA {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEA_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -5021,48 +5007,48 @@ pub struct DEVMODEA_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEA_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
-    pub dmDisplayOrientation: u32,
-    pub dmDisplayFixedOutput: u32,
+    pub dmDisplayOrientation: super::super::System::SystemServices::DEVMODE_DISPLAY_ORIENTATION,
+    pub dmDisplayFixedOutput: super::super::System::SystemServices::DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEA_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEA_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEA_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
     pub dmSpecVersion: u16,
@@ -5072,7 +5058,7 @@ pub struct DEVMODEW {
     pub dmFields: DEVMODE_FIELD_FLAGS,
     pub Anonymous1: DEVMODEW_0,
     pub dmColor: DEVMODE_COLOR,
-    pub dmDuplex: i16,
+    pub dmDuplex: DEVMODE_DUPLEX,
     pub dmYResolution: i16,
     pub dmTTOption: DEVMODE_TRUETYPE_OPTION,
     pub dmCollate: DEVMODE_COLLATE,
@@ -5092,32 +5078,32 @@ pub struct DEVMODEW {
     pub dmPanningWidth: u32,
     pub dmPanningHeight: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEW {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEW_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -5128,40 +5114,40 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEW_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEW_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
-    pub dmDisplayOrientation: u32,
-    pub dmDisplayFixedOutput: u32,
+    pub dmDisplayOrientation: super::super::System::SystemServices::DEVMODE_DISPLAY_ORIENTATION,
+    pub dmDisplayFixedOutput: super::super::System::SystemServices::DEVMODE_DISPLAY_FIXED_OUTPUT,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEW_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEW_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for DEVMODEW_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for DEVMODEW_1 {
     fn clone(&self) -> Self {
         *self
@@ -7530,11 +7516,11 @@ pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::PCSTR, param1: ::windows_sys::core::PCSTR, param2: u32, param3: ::windows_sys::core::PCSTR, param4: *mut DEVMODEA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: ::windows_sys::core::PCSTR, param4: ::windows_sys::core::PCSTR, param5: *mut DEVMODEA, param6: ::windows_sys::core::PCSTR, param7: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

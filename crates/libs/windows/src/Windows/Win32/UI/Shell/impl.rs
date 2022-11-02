@@ -268,7 +268,7 @@ pub trait Folder2_Impl: Sized + Folder_Impl {
     fn Self_(&self) -> ::windows::core::Result<FolderItem>;
     fn OfflineStatus(&self) -> ::windows::core::Result<i32>;
     fn Synchronize(&self) -> ::windows::core::Result<()>;
-    fn HaveToShowWebViewBarricade(&self) -> ::windows::core::Result<i16>;
+    fn HaveToShowWebViewBarricade(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DismissedWebViewBarricade(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -303,7 +303,7 @@ impl Folder2_Vtbl {
             let this = (*this).get_impl();
             this.Synchronize().into()
         }
-        unsafe extern "system" fn HaveToShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhavetoshowwebviewbarricade: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HaveToShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhavetoshowwebviewbarricade: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HaveToShowWebViewBarricade() {
@@ -334,15 +334,15 @@ impl Folder2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait Folder3_Impl: Sized + Folder2_Impl {
-    fn ShowWebViewBarricade(&self) -> ::windows::core::Result<i16>;
-    fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: i16) -> ::windows::core::Result<()>;
+    fn ShowWebViewBarricade(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for Folder3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl Folder3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>() -> Folder3_Vtbl {
-        unsafe extern "system" fn ShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbshowwebviewbarricade: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbshowwebviewbarricade: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ShowWebViewBarricade() {
@@ -353,7 +353,7 @@ impl Folder3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bshowwebviewbarricade: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetShowWebViewBarricade<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bshowwebviewbarricade: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetShowWebViewBarricade(::core::mem::transmute_copy(&bshowwebviewbarricade)).into()
@@ -377,10 +377,10 @@ pub trait FolderItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetLink(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn GetFolder(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn IsLink(&self) -> ::windows::core::Result<i16>;
-    fn IsFolder(&self) -> ::windows::core::Result<i16>;
-    fn IsFileSystem(&self) -> ::windows::core::Result<i16>;
-    fn IsBrowsable(&self) -> ::windows::core::Result<i16>;
+    fn IsLink(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsFolder(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsFileSystem(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsBrowsable(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ModifyDate(&self) -> ::windows::core::Result<f64>;
     fn SetModifyDate(&self, dt: f64) -> ::windows::core::Result<()>;
     fn Size(&self) -> ::windows::core::Result<i32>;
@@ -464,7 +464,7 @@ impl FolderItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsLink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsLink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsLink() {
@@ -475,7 +475,7 @@ impl FolderItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFolder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsFolder() {
@@ -486,7 +486,7 @@ impl FolderItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsFileSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsFileSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsFileSystem() {
@@ -497,7 +497,7 @@ impl FolderItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsBrowsable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsBrowsable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pb: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsBrowsable() {
@@ -1704,7 +1704,7 @@ pub trait IAssocHandler_Impl: Sized {
     fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetUIName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetIconLocation(&self, ppszpath: *mut ::windows::core::PWSTR, pindex: *mut i32) -> ::windows::core::Result<()>;
-    fn IsRecommended(&self) -> ::windows::core::Result<()>;
+    fn IsRecommended(&self) -> ::windows::core::HRESULT;
     fn MakeDefault(&self, pszdescription: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Invoke(&self, pdo: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn CreateInvoker(&self, pdo: &::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<IAssocHandlerInvoker>;
@@ -1744,7 +1744,7 @@ impl IAssocHandler_Vtbl {
         unsafe extern "system" fn IsRecommended<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssocHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsRecommended().into()
+            this.IsRecommended()
         }
         unsafe extern "system" fn MakeDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssocHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdescription: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -6406,11 +6406,11 @@ impl IExpDispSupportXP_Vtbl {
         iid == &<IExpDispSupportXP as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IExplorerBrowser_Impl: Sized {
     fn Initialize(&self, hwndparent: super::super::Foundation::HWND, prc: *const super::super::Foundation::RECT, pfs: *const FOLDERSETTINGS) -> ::windows::core::Result<()>;
     fn Destroy(&self) -> ::windows::core::Result<()>;
-    fn SetRect(&self, phdwp: *mut isize, rcbrowser: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
+    fn SetRect(&self, phdwp: *mut super::WindowsAndMessaging::HDWP, rcbrowser: &super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn SetPropertyBag(&self, pszpropertybag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetEmptyText(&self, pszemptytext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetFolderSettings(&self, pfs: *const FOLDERSETTINGS) -> ::windows::core::Result<()>;
@@ -6424,9 +6424,9 @@ pub trait IExplorerBrowser_Impl: Sized {
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
     fn GetCurrentView(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IExplorerBrowser {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IExplorerBrowser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExplorerBrowser_Impl, const OFFSET: isize>() -> IExplorerBrowser_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExplorerBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, prc: *const super::super::Foundation::RECT, pfs: *const FOLDERSETTINGS) -> ::windows::core::HRESULT {
@@ -6439,7 +6439,7 @@ impl IExplorerBrowser_Vtbl {
             let this = (*this).get_impl();
             this.Destroy().into()
         }
-        unsafe extern "system" fn SetRect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExplorerBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdwp: *mut isize, rcbrowser: super::super::Foundation::RECT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IExplorerBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdwp: *mut super::WindowsAndMessaging::HDWP, rcbrowser: super::super::Foundation::RECT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRect(::core::mem::transmute_copy(&phdwp), ::core::mem::transmute(&rcbrowser)).into()
@@ -8017,7 +8017,7 @@ impl IFileSaveDialog_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFileSearchBand_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFocus(&self) -> ::windows::core::Result<()>;
-    fn SetSearchParameters(&self, pbstrsearchid: *const ::windows::core::BSTR, bnavtoresults: i16, pvarscope: *const super::super::System::Com::VARIANT, pvarqueryfile: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetSearchParameters(&self, pbstrsearchid: *const ::windows::core::BSTR, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const super::super::System::Com::VARIANT, pvarqueryfile: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SearchID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Scope(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn QueryFile(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -8032,7 +8032,7 @@ impl IFileSearchBand_Vtbl {
             let this = (*this).get_impl();
             this.SetFocus().into()
         }
-        unsafe extern "system" fn SetSearchParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, bnavtoresults: i16, pvarscope: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarqueryfile: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSearchParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::core::mem::ManuallyDrop<::windows::core::BSTR>, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarqueryfile: *const ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSearchParameters(::core::mem::transmute_copy(&pbstrsearchid), ::core::mem::transmute_copy(&bnavtoresults), ::core::mem::transmute_copy(&pvarscope), ::core::mem::transmute_copy(&pvarqueryfile)).into()
@@ -11435,14 +11435,14 @@ impl INewShortcutHookW_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INewWDEvents_Impl: Sized + IWebWizardHost_Impl {
-    fn PassportAuthenticate(&self, bstrsigninurl: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
+    fn PassportAuthenticate(&self, bstrsigninurl: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for INewWDEvents {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl INewWDEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>() -> INewWDEvents_Vtbl {
-        unsafe extern "system" fn PassportAuthenticate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsigninurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvfauthenitcated: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PassportAuthenticate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsigninurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pvfauthenitcated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PassportAuthenticate(::core::mem::transmute(&bstrsigninurl)) {
@@ -14195,7 +14195,7 @@ pub trait IShellDispatch4_Impl: Sized + IShellDispatch3_Impl {
     fn WindowsSecurity(&self) -> ::windows::core::Result<()>;
     fn ToggleDesktop(&self) -> ::windows::core::Result<()>;
     fn ExplorerPolicy(&self, bstrpolicyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn GetSetting(&self, lsetting: i32) -> ::windows::core::Result<i16>;
+    fn GetSetting(&self, lsetting: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IShellDispatch4 {}
@@ -14223,7 +14223,7 @@ impl IShellDispatch4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetSetting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsetting: i32, presult: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetSetting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsetting: i32, presult: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSetting(::core::mem::transmute_copy(&lsetting)) {
@@ -14317,9 +14317,9 @@ pub trait IShellFavoritesNameSpace_Impl: Sized + super::super::System::Com::IDis
     fn Export(&self) -> ::windows::core::Result<()>;
     fn InvokeContextMenuCommand(&self, strcommand: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn MoveSelectionTo(&self) -> ::windows::core::Result<()>;
-    fn SubscriptionsEnabled(&self) -> ::windows::core::Result<i16>;
-    fn CreateSubscriptionForSelection(&self) -> ::windows::core::Result<i16>;
-    fn DeleteSubscriptionForSelection(&self) -> ::windows::core::Result<i16>;
+    fn SubscriptionsEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CreateSubscriptionForSelection(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn DeleteSubscriptionForSelection(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetRoot(&self, bstrfullpath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14372,7 +14372,7 @@ impl IShellFavoritesNameSpace_Vtbl {
             let this = (*this).get_impl();
             this.MoveSelectionTo().into()
         }
-        unsafe extern "system" fn SubscriptionsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SubscriptionsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SubscriptionsEnabled() {
@@ -14383,7 +14383,7 @@ impl IShellFavoritesNameSpace_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateSubscriptionForSelection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSubscriptionForSelection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSubscriptionForSelection() {
@@ -14394,7 +14394,7 @@ impl IShellFavoritesNameSpace_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteSubscriptionForSelection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DeleteSubscriptionForSelection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DeleteSubscriptionForSelection() {
@@ -17366,9 +17366,9 @@ pub trait IShellUIHelper_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn AddFavorite(&self, url: &::windows::core::BSTR, title: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AddChannel(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AddDesktopComponent(&self, url: &::windows::core::BSTR, r#type: &::windows::core::BSTR, left: *const super::super::System::Com::VARIANT, top: *const super::super::System::Com::VARIANT, width: *const super::super::System::Com::VARIANT, height: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn IsSubscribed(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
+    fn IsSubscribed(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn NavigateAndFind(&self, url: &::windows::core::BSTR, strquery: &::windows::core::BSTR, vartargetframe: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ImportExportFavorites(&self, fimport: i16, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn AutoCompleteSaveForm(&self, form: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AutoScan(&self, strsearch: &::windows::core::BSTR, strfailureurl: &::windows::core::BSTR, pvartargetframe: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AutoCompleteAttach(&self, reserved: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -17409,7 +17409,7 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             this.AddDesktopComponent(::core::mem::transmute(&url), ::core::mem::transmute(&r#type), ::core::mem::transmute_copy(&left), ::core::mem::transmute_copy(&top), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)).into()
         }
-        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSubscribed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::core::mem::ManuallyDrop<::windows::core::BSTR>, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsSubscribed(::core::mem::transmute(&url)) {
@@ -17425,7 +17425,7 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             this.NavigateAndFind(::core::mem::transmute(&url), ::core::mem::transmute(&strquery), ::core::mem::transmute_copy(&vartargetframe)).into()
         }
-        unsafe extern "system" fn ImportExportFavorites<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fimport: i16, strimpexppath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImportExportFavorites<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImportExportFavorites(::core::mem::transmute_copy(&fimport), ::core::mem::transmute(&strimpexppath)).into()
@@ -17482,18 +17482,18 @@ pub trait IShellUIHelper2_Impl: Sized + IShellUIHelper_Impl {
     fn AddSearchProvider(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RunOnceShown(&self) -> ::windows::core::Result<()>;
     fn SkipRunOnce(&self) -> ::windows::core::Result<()>;
-    fn CustomizeSettings(&self, fsqm: i16, fphishing: i16, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SqmEnabled(&self) -> ::windows::core::Result<i16>;
-    fn PhishingEnabled(&self) -> ::windows::core::Result<i16>;
+    fn CustomizeSettings(&self, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn SqmEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn PhishingEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn BrandImageUri(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SkipTabsWelcome(&self) -> ::windows::core::Result<()>;
     fn DiagnoseConnection(&self) -> ::windows::core::Result<()>;
-    fn CustomizeClearType(&self, fset: i16) -> ::windows::core::Result<()>;
+    fn CustomizeClearType(&self, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn IsSearchProviderInstalled(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<u32>;
-    fn IsSearchMigrated(&self) -> ::windows::core::Result<i16>;
+    fn IsSearchMigrated(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DefaultSearchProvider(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn RunOnceRequiredSettingsComplete(&self, fcomplete: i16) -> ::windows::core::Result<()>;
-    fn RunOnceHasShown(&self) -> ::windows::core::Result<i16>;
+    fn RunOnceRequiredSettingsComplete(&self, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn RunOnceHasShown(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SearchGuideUrl(&self) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -17516,12 +17516,12 @@ impl IShellUIHelper2_Vtbl {
             let this = (*this).get_impl();
             this.SkipRunOnce().into()
         }
-        unsafe extern "system" fn CustomizeSettings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsqm: i16, fphishing: i16, bstrlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomizeSettings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsqm: super::super::Foundation::VARIANT_BOOL, fphishing: super::super::Foundation::VARIANT_BOOL, bstrlocale: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CustomizeSettings(::core::mem::transmute_copy(&fsqm), ::core::mem::transmute_copy(&fphishing), ::core::mem::transmute(&bstrlocale)).into()
         }
-        unsafe extern "system" fn SqmEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SqmEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SqmEnabled() {
@@ -17532,7 +17532,7 @@ impl IShellUIHelper2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PhishingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhishingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PhishingEnabled() {
@@ -17564,7 +17564,7 @@ impl IShellUIHelper2_Vtbl {
             let this = (*this).get_impl();
             this.DiagnoseConnection().into()
         }
-        unsafe extern "system" fn CustomizeClearType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fset: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CustomizeClearType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fset: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CustomizeClearType(::core::mem::transmute_copy(&fset)).into()
@@ -17580,7 +17580,7 @@ impl IShellUIHelper2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsSearchMigrated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfmigrated: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSearchMigrated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfmigrated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsSearchMigrated() {
@@ -17602,12 +17602,12 @@ impl IShellUIHelper2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RunOnceRequiredSettingsComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcomplete: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnceRequiredSettingsComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcomplete: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RunOnceRequiredSettingsComplete(::core::mem::transmute_copy(&fcomplete)).into()
         }
-        unsafe extern "system" fn RunOnceHasShown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfshown: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RunOnceHasShown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfshown: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RunOnceHasShown() {
@@ -17657,14 +17657,14 @@ impl IShellUIHelper2_Vtbl {
 pub trait IShellUIHelper3_Impl: Sized + IShellUIHelper2_Impl {
     fn AddService(&self, url: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsServiceInstalled(&self, url: &::windows::core::BSTR, verb: &::windows::core::BSTR) -> ::windows::core::Result<u32>;
-    fn InPrivateFilteringEnabled(&self) -> ::windows::core::Result<i16>;
+    fn InPrivateFilteringEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn AddToFavoritesBar(&self, url: &::windows::core::BSTR, title: &::windows::core::BSTR, r#type: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn BuildNewTabPage(&self) -> ::windows::core::Result<()>;
-    fn SetRecentlyClosedVisible(&self, fvisible: i16) -> ::windows::core::Result<()>;
-    fn SetActivitiesVisible(&self, fvisible: i16) -> ::windows::core::Result<()>;
+    fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn ContentDiscoveryReset(&self) -> ::windows::core::Result<()>;
-    fn IsSuggestedSitesEnabled(&self) -> ::windows::core::Result<i16>;
-    fn EnableSuggestedSites(&self, fenable: i16) -> ::windows::core::Result<()>;
+    fn IsSuggestedSitesEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn EnableSuggestedSites(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn NavigateToSuggestedSites(&self, bstrrelativeurl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ShowTabsHelp(&self) -> ::windows::core::Result<()>;
     fn ShowInPrivateHelp(&self) -> ::windows::core::Result<()>;
@@ -17690,7 +17690,7 @@ impl IShellUIHelper3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InPrivateFilteringEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InPrivateFilteringEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InPrivateFilteringEnabled() {
@@ -17711,12 +17711,12 @@ impl IShellUIHelper3_Vtbl {
             let this = (*this).get_impl();
             this.BuildNewTabPage().into()
         }
-        unsafe extern "system" fn SetRecentlyClosedVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvisible: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRecentlyClosedVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRecentlyClosedVisible(::core::mem::transmute_copy(&fvisible)).into()
         }
-        unsafe extern "system" fn SetActivitiesVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvisible: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetActivitiesVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetActivitiesVisible(::core::mem::transmute_copy(&fvisible)).into()
@@ -17726,7 +17726,7 @@ impl IShellUIHelper3_Vtbl {
             let this = (*this).get_impl();
             this.ContentDiscoveryReset().into()
         }
-        unsafe extern "system" fn IsSuggestedSitesEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsSuggestedSitesEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsSuggestedSitesEnabled() {
@@ -17737,7 +17737,7 @@ impl IShellUIHelper3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnableSuggestedSites<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableSuggestedSites<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnableSuggestedSites(::core::mem::transmute_copy(&fenable)).into()
@@ -17780,10 +17780,10 @@ impl IShellUIHelper3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IShellUIHelper4_Impl: Sized + IShellUIHelper3_Impl {
-    fn msIsSiteMode(&self) -> ::windows::core::Result<i16>;
+    fn msIsSiteMode(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn msSiteModeShowThumbBar(&self) -> ::windows::core::Result<()>;
     fn msSiteModeAddThumbBarButton(&self, bstriconurl: &::windows::core::BSTR, bstrtooltip: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn msSiteModeUpdateThumbBarButton(&self, buttonid: &super::super::System::Com::VARIANT, fenabled: i16, fvisible: i16) -> ::windows::core::Result<()>;
+    fn msSiteModeUpdateThumbBarButton(&self, buttonid: &super::super::System::Com::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn msSiteModeSetIconOverlay(&self, iconurl: &::windows::core::BSTR, pvardescription: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn msSiteModeClearIconOverlay(&self) -> ::windows::core::Result<()>;
     fn msAddSiteMode(&self) -> ::windows::core::Result<()>;
@@ -17794,17 +17794,17 @@ pub trait IShellUIHelper4_Impl: Sized + IShellUIHelper3_Impl {
     fn msSiteModeAddButtonStyle(&self, uibuttonid: &super::super::System::Com::VARIANT, bstriconurl: &::windows::core::BSTR, bstrtooltip: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn msSiteModeShowButtonStyle(&self, uibuttonid: &super::super::System::Com::VARIANT, uistyleid: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn msSiteModeActivate(&self) -> ::windows::core::Result<()>;
-    fn msIsSiteModeFirstRun(&self, fpreservestate: i16) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn msAddTrackingProtectionList(&self, url: &::windows::core::BSTR, bstrfiltername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn msTrackingProtectionEnabled(&self) -> ::windows::core::Result<i16>;
-    fn msActiveXFilteringEnabled(&self) -> ::windows::core::Result<i16>;
+    fn msTrackingProtectionEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn msActiveXFilteringEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IShellUIHelper4 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IShellUIHelper4_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>() -> IShellUIHelper4_Vtbl {
-        unsafe extern "system" fn msIsSiteMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsitemode: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msIsSiteMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsitemode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msIsSiteMode() {
@@ -17831,7 +17831,7 @@ impl IShellUIHelper4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, fenabled: i16, fvisible: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msSiteModeUpdateThumbBarButton(::core::mem::transmute(&buttonid), ::core::mem::transmute_copy(&fenabled), ::core::mem::transmute_copy(&fvisible)).into()
@@ -17892,7 +17892,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msSiteModeActivate().into()
         }
-        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpreservestate: i16, puifirstrun: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpreservestate: super::super::Foundation::VARIANT_BOOL, puifirstrun: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msIsSiteModeFirstRun(::core::mem::transmute_copy(&fpreservestate)) {
@@ -17908,7 +17908,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msAddTrackingProtectionList(::core::mem::transmute(&url), ::core::mem::transmute(&bstrfiltername)).into()
         }
-        unsafe extern "system" fn msTrackingProtectionEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msTrackingProtectionEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msTrackingProtectionEnabled() {
@@ -17919,7 +17919,7 @@ impl IShellUIHelper4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msActiveXFilteringEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msActiveXFilteringEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msActiveXFilteringEnabled() {
@@ -17964,7 +17964,7 @@ pub trait IShellUIHelper5_Impl: Sized + IShellUIHelper4_Impl {
     fn msSiteModeClearBadge(&self) -> ::windows::core::Result<()>;
     fn msDiagnoseConnectionUILess(&self) -> ::windows::core::Result<()>;
     fn msLaunchNetworkClientHelp(&self) -> ::windows::core::Result<()>;
-    fn msChangeDefaultBrowser(&self, fchange: i16) -> ::windows::core::Result<()>;
+    fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IShellUIHelper5 {}
@@ -18007,7 +18007,7 @@ impl IShellUIHelper5_Vtbl {
             let this = (*this).get_impl();
             this.msLaunchNetworkClientHelp().into()
         }
-        unsafe extern "system" fn msChangeDefaultBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msChangeDefaultBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msChangeDefaultBrowser(::core::mem::transmute_copy(&fchange)).into()
@@ -18033,11 +18033,11 @@ pub trait IShellUIHelper6_Impl: Sized + IShellUIHelper5_Impl {
     fn msStartPeriodicTileUpdate(&self, pollinguris: &super::super::System::Com::VARIANT, starttime: &super::super::System::Com::VARIANT, uiupdaterecurrence: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn msStartPeriodicTileUpdateBatch(&self, pollinguris: &super::super::System::Com::VARIANT, starttime: &super::super::System::Com::VARIANT, uiupdaterecurrence: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn msClearTile(&self) -> ::windows::core::Result<()>;
-    fn msEnableTileNotificationQueue(&self, fchange: i16) -> ::windows::core::Result<()>;
+    fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn msPinnedSiteState(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: i16) -> ::windows::core::Result<()>;
-    fn msEnableTileNotificationQueueForWide310x150(&self, fchange: i16) -> ::windows::core::Result<()>;
-    fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: i16) -> ::windows::core::Result<()>;
+    fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn msScheduledTileNotification(&self, bstrnotificationxml: &::windows::core::BSTR, bstrnotificationid: &::windows::core::BSTR, bstrnotificationtag: &::windows::core::BSTR, starttime: &super::super::System::Com::VARIANT, expirationtime: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn msRemoveScheduledTileNotification(&self, bstrnotificationid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn msStartPeriodicBadgeUpdate(&self, pollinguri: &::windows::core::BSTR, starttime: &super::super::System::Com::VARIANT, uiupdaterecurrence: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
@@ -18069,7 +18069,7 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             this.msClearTile().into()
         }
-        unsafe extern "system" fn msEnableTileNotificationQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msEnableTileNotificationQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueue(::core::mem::transmute_copy(&fchange)).into()
@@ -18085,17 +18085,17 @@ impl IShellUIHelper6_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msEnableTileNotificationQueueForSquare150x150<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msEnableTileNotificationQueueForSquare150x150<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueueForSquare150x150(::core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msEnableTileNotificationQueueForWide310x150<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msEnableTileNotificationQueueForWide310x150<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueueForWide310x150(::core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msEnableTileNotificationQueueForSquare310x310<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn msEnableTileNotificationQueueForSquare310x310<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueueForSquare310x310(::core::mem::transmute_copy(&fchange)).into()
@@ -18149,27 +18149,27 @@ impl IShellUIHelper6_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IShellUIHelper7_Impl: Sized + IShellUIHelper6_Impl {
-    fn SetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR, vfflag: i16) -> ::windows::core::Result<()>;
-    fn GetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
+    fn SetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn GetExperimentalFlag(&self, bstrflagstring: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetExperimentalValue(&self, bstrvaluestring: &::windows::core::BSTR, dwvalue: u32) -> ::windows::core::Result<()>;
     fn GetExperimentalValue(&self, bstrvaluestring: &::windows::core::BSTR) -> ::windows::core::Result<u32>;
     fn ResetAllExperimentalFlagsAndValues(&self) -> ::windows::core::Result<()>;
-    fn GetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
-    fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR, flag: i16) -> ::windows::core::Result<()>;
-    fn HasNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<i16>;
-    fn LaunchIE(&self, bstrurl: &::windows::core::BSTR, automated: i16) -> ::windows::core::Result<()>;
+    fn GetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn HasNeedIEAutoLaunchFlag(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn LaunchIE(&self, bstrurl: &::windows::core::BSTR, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IShellUIHelper7 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IShellUIHelper7_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>() -> IShellUIHelper7_Vtbl {
-        unsafe extern "system" fn SetExperimentalFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrflagstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vfflag: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetExperimentalFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrflagstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetExperimentalFlag(::core::mem::transmute(&bstrflagstring), ::core::mem::transmute_copy(&vfflag)).into()
         }
-        unsafe extern "system" fn GetExperimentalFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrflagstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vfflag: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetExperimentalFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrflagstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, vfflag: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetExperimentalFlag(::core::mem::transmute(&bstrflagstring)) {
@@ -18201,7 +18201,7 @@ impl IShellUIHelper7_Vtbl {
             let this = (*this).get_impl();
             this.ResetAllExperimentalFlagsAndValues().into()
         }
-        unsafe extern "system" fn GetNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flag: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flag: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetNeedIEAutoLaunchFlag(::core::mem::transmute(&bstrurl)) {
@@ -18212,12 +18212,12 @@ impl IShellUIHelper7_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flag: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNeedIEAutoLaunchFlag(::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&flag)).into()
         }
-        unsafe extern "system" fn HasNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, exists: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasNeedIEAutoLaunchFlag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, exists: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HasNeedIEAutoLaunchFlag(::core::mem::transmute(&bstrurl)) {
@@ -18228,7 +18228,7 @@ impl IShellUIHelper7_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn LaunchIE<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, automated: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn LaunchIE<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<::windows::core::BSTR>, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LaunchIE(::core::mem::transmute(&bstrurl), ::core::mem::transmute_copy(&automated)).into()
@@ -18549,10 +18549,10 @@ pub trait IShellWindows_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32) -> ::windows::core::Result<i32>;
     fn Revoke(&self, lcookie: i32) -> ::windows::core::Result<()>;
     fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn OnActivated(&self, lcookie: i32, factive: i16) -> ::windows::core::Result<()>;
+    fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn FindWindowSW(&self, pvarloc: *const super::super::System::Com::VARIANT, pvarlocroot: *const super::super::System::Com::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn OnCreated(&self, lcookie: i32, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn ProcessAttachDetach(&self, fattach: i16) -> ::windows::core::Result<()>;
+    fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IShellWindows {}
@@ -18624,7 +18624,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             this.OnNavigate(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute_copy(&pvarloc)).into()
         }
-        unsafe extern "system" fn OnActivated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcookie: i32, factive: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnActivated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnActivated(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute_copy(&factive)).into()
@@ -18639,7 +18639,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             this.OnCreated(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute(&punk)).into()
         }
-        unsafe extern "system" fn ProcessAttachDetach<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fattach: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ProcessAttachDetach<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ProcessAttachDetach(::core::mem::transmute_copy(&fattach)).into()
@@ -22201,7 +22201,7 @@ pub trait IWebBrowser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Container(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
     fn Document(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn TopLevelContainer(&self) -> ::windows::core::Result<i16>;
+    fn TopLevelContainer(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Type(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Left(&self) -> ::windows::core::Result<i32>;
     fn SetLeft(&self, left: i32) -> ::windows::core::Result<()>;
@@ -22213,7 +22213,7 @@ pub trait IWebBrowser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetHeight(&self, height: i32) -> ::windows::core::Result<()>;
     fn LocationName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn LocationURL(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Busy(&self) -> ::windows::core::Result<i16>;
+    fn Busy(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWebBrowser {}
@@ -22304,7 +22304,7 @@ impl IWebBrowser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TopLevelContainer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TopLevelContainer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TopLevelContainer() {
@@ -22412,7 +22412,7 @@ impl IWebBrowser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Busy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Busy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Busy() {
@@ -22463,20 +22463,20 @@ pub trait IWebBrowser2_Impl: Sized + IWebBrowserApp_Impl {
     fn ExecWB(&self, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const super::super::System::Com::VARIANT, pvaout: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ShowBrowserBar(&self, pvaclsid: *const super::super::System::Com::VARIANT, pvarshow: *const super::super::System::Com::VARIANT, pvarsize: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ReadyState(&self) -> ::windows::core::Result<super::super::System::Ole::READYSTATE>;
-    fn Offline(&self) -> ::windows::core::Result<i16>;
-    fn SetOffline(&self, boffline: i16) -> ::windows::core::Result<()>;
-    fn Silent(&self) -> ::windows::core::Result<i16>;
-    fn SetSilent(&self, bsilent: i16) -> ::windows::core::Result<()>;
-    fn RegisterAsBrowser(&self) -> ::windows::core::Result<i16>;
-    fn SetRegisterAsBrowser(&self, bregister: i16) -> ::windows::core::Result<()>;
-    fn RegisterAsDropTarget(&self) -> ::windows::core::Result<i16>;
-    fn SetRegisterAsDropTarget(&self, bregister: i16) -> ::windows::core::Result<()>;
-    fn TheaterMode(&self) -> ::windows::core::Result<i16>;
-    fn SetTheaterMode(&self, bregister: i16) -> ::windows::core::Result<()>;
-    fn AddressBar(&self) -> ::windows::core::Result<i16>;
-    fn SetAddressBar(&self, value: i16) -> ::windows::core::Result<()>;
-    fn Resizable(&self) -> ::windows::core::Result<i16>;
-    fn SetResizable(&self, value: i16) -> ::windows::core::Result<()>;
+    fn Offline(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetOffline(&self, boffline: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Silent(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSilent(&self, bsilent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn RegisterAsBrowser(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetRegisterAsBrowser(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn RegisterAsDropTarget(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetRegisterAsDropTarget(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn TheaterMode(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetTheaterMode(&self, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AddressBar(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAddressBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Resizable(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetResizable(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWebBrowser2 {}
@@ -22520,7 +22520,7 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboffline: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Offline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboffline: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Offline() {
@@ -22531,12 +22531,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetOffline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boffline: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetOffline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boffline: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOffline(::core::mem::transmute_copy(&boffline)).into()
         }
-        unsafe extern "system" fn Silent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsilent: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Silent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsilent: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Silent() {
@@ -22547,12 +22547,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSilent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsilent: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSilent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsilent: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSilent(::core::mem::transmute_copy(&bsilent)).into()
         }
-        unsafe extern "system" fn RegisterAsBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterAsBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterAsBrowser() {
@@ -22563,12 +22563,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRegisterAsBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRegisterAsBrowser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRegisterAsBrowser(::core::mem::transmute_copy(&bregister)).into()
         }
-        unsafe extern "system" fn RegisterAsDropTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterAsDropTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterAsDropTarget() {
@@ -22579,12 +22579,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRegisterAsDropTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetRegisterAsDropTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRegisterAsDropTarget(::core::mem::transmute_copy(&bregister)).into()
         }
-        unsafe extern "system" fn TheaterMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn TheaterMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbregister: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.TheaterMode() {
@@ -22595,12 +22595,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetTheaterMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTheaterMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bregister: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTheaterMode(::core::mem::transmute_copy(&bregister)).into()
         }
-        unsafe extern "system" fn AddressBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddressBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddressBar() {
@@ -22611,12 +22611,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAddressBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAddressBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAddressBar(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn Resizable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Resizable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Resizable() {
@@ -22627,7 +22627,7 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetResizable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetResizable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetResizable(::core::mem::transmute_copy(&value)).into()
@@ -22669,18 +22669,18 @@ pub trait IWebBrowserApp_Impl: Sized + IWebBrowser_Impl {
     fn HWND(&self) -> ::windows::core::Result<super::super::Foundation::SHANDLE_PTR>;
     fn FullName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn Visible(&self) -> ::windows::core::Result<i16>;
-    fn SetVisible(&self, value: i16) -> ::windows::core::Result<()>;
-    fn StatusBar(&self) -> ::windows::core::Result<i16>;
-    fn SetStatusBar(&self, value: i16) -> ::windows::core::Result<()>;
+    fn Visible(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetVisible(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn StatusBar(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetStatusBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn StatusText(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetStatusText(&self, statustext: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ToolBar(&self) -> ::windows::core::Result<i32>;
     fn SetToolBar(&self, value: i32) -> ::windows::core::Result<()>;
-    fn MenuBar(&self) -> ::windows::core::Result<i16>;
-    fn SetMenuBar(&self, value: i16) -> ::windows::core::Result<()>;
-    fn FullScreen(&self) -> ::windows::core::Result<i16>;
-    fn SetFullScreen(&self, bfullscreen: i16) -> ::windows::core::Result<()>;
+    fn MenuBar(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMenuBar(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn FullScreen(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetFullScreen(&self, bfullscreen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWebBrowserApp {}
@@ -22757,7 +22757,7 @@ impl IWebBrowserApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Visible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Visible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Visible() {
@@ -22768,12 +22768,12 @@ impl IWebBrowserApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetVisible<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetVisible(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn StatusBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StatusBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StatusBar() {
@@ -22784,7 +22784,7 @@ impl IWebBrowserApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetStatusBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetStatusBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetStatusBar(::core::mem::transmute_copy(&value)).into()
@@ -22821,7 +22821,7 @@ impl IWebBrowserApp_Vtbl {
             let this = (*this).get_impl();
             this.SetToolBar(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn MenuBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MenuBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MenuBar() {
@@ -22832,12 +22832,12 @@ impl IWebBrowserApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMenuBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMenuBar<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMenuBar(::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn FullScreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbfullscreen: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn FullScreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbfullscreen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FullScreen() {
@@ -22848,7 +22848,7 @@ impl IWebBrowserApp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetFullScreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bfullscreen: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetFullScreen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bfullscreen: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetFullScreen(::core::mem::transmute_copy(&bfullscreen)).into()
@@ -22920,7 +22920,7 @@ pub trait IWebWizardHost_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Caption(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn put_Property(&self, bstrpropertyname: &::windows::core::BSTR, pvproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn get_Property(&self, bstrpropertyname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn SetWizardButtons(&self, vfenableback: i16, vfenablenext: i16, vflastpage: i16) -> ::windows::core::Result<()>;
+    fn SetWizardButtons(&self, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn SetHeaderText(&self, bstrheadertitle: &::windows::core::BSTR, bstrheadersubtitle: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -22975,7 +22975,7 @@ impl IWebWizardHost_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetWizardButtons<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vfenableback: i16, vfenablenext: i16, vflastpage: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetWizardButtons<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetWizardButtons(::core::mem::transmute_copy(&vfenableback), ::core::mem::transmute_copy(&vfenablenext), ::core::mem::transmute_copy(&vflastpage)).into()

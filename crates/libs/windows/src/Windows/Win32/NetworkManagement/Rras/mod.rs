@@ -5863,8 +5863,8 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
@@ -5921,13 +5921,13 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwTotalEkus: u32,
     pub certificateEKUs: *mut MPR_CERT_EKU,
-    pub machineCertificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
@@ -5985,13 +5985,13 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwTotalEkus: u32,
     pub certificateEKUs: *mut MPR_CERT_EKU,
-    pub machineCertificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub machineCertificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwMmSaLifeTime: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -11110,7 +11110,7 @@ impl ::core::default::Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -11151,9 +11151,9 @@ impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
-    pub certificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
@@ -11193,9 +11193,9 @@ impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
-    pub certificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certificateHash: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
@@ -11862,7 +11862,7 @@ impl ::core::default::Default for SOURCE_GROUP_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
-    pub certBlob: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub certBlob: super::super::Security::Cryptography::CRYPT_INTEGER_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for SSTP_CERT_INFO {}

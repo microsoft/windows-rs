@@ -693,8 +693,8 @@ pub struct CRYPTCATMEMBER {
     pub dwCertVersion: u32,
     pub dwReserved: u32,
     pub hReserved: super::super::super::Foundation::HANDLE,
-    pub sEncodedIndirectData: super::CRYPTOAPI_BLOB,
-    pub sEncodedMemberInfo: super::CRYPTOAPI_BLOB,
+    pub sEncodedIndirectData: super::CRYPT_INTEGER_BLOB,
+    pub sEncodedMemberInfo: super::CRYPT_INTEGER_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::core::marker::Copy for CRYPTCATMEMBER {}

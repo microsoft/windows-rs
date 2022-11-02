@@ -32,7 +32,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn ArrangeIconicWindows(hwnd: super::super::Foundation::HWND) -> u32;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-    pub fn BeginDeferWindowPos(nnumwindows: i32) -> isize;
+    pub fn BeginDeferWindowPos(nnumwindows: i32) -> HDWP;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BringWindowToTop(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
@@ -216,7 +216,7 @@ extern "system" {
     pub fn DefWindowProcW(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn DeferWindowPos(hwinposinfo: isize, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> isize;
+    pub fn DeferWindowPos(hwinposinfo: HDWP, hwnd: super::super::Foundation::HWND, hwndinsertafter: super::super::Foundation::HWND, x: i32, y: i32, cx: i32, cy: i32, uflags: SET_WINDOW_POS_FLAGS) -> HDWP;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DeleteMenu(hmenu: HMENU, uposition: u32, uflags: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
@@ -282,7 +282,7 @@ extern "system" {
     pub fn EnableMenuItem(hmenu: HMENU, uidenableitem: u32, uenable: MENU_ITEM_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn EndDeferWindowPos(hwinposinfo: isize) -> super::super::Foundation::BOOL;
+    pub fn EndDeferWindowPos(hwinposinfo: HDWP) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EndDialog(hdlg: super::super::Foundation::HWND, nresult: isize) -> super::super::Foundation::BOOL;
@@ -6031,6 +6031,7 @@ impl ::core::clone::Clone for HARDWAREHOOKSTRUCT {
     }
 }
 pub type HCURSOR = isize;
+pub type HDWP = isize;
 pub type HHOOK = isize;
 pub type HICON = isize;
 pub type HMENU = isize;

@@ -15,222 +15,222 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadPerfCounterTextStringsW(lpcommandline: ::windows_sys::core::PCWSTR, bquietmodearg: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhAddCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    pub fn PdhAddCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhAddCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    pub fn PdhAddCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhAddEnglishCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    pub fn PdhAddEnglishCounterA(hquery: isize, szfullcounterpath: ::windows_sys::core::PCSTR, dwuserdata: usize, phcounter: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhAddEnglishCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> i32;
+    pub fn PdhAddEnglishCounterW(hquery: isize, szfullcounterpath: ::windows_sys::core::PCWSTR, dwuserdata: usize, phcounter: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhBindInputDataSourceA(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhBindInputDataSourceA(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhBindInputDataSourceW(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhBindInputDataSourceW(phdatasource: *mut isize, logfilenamelist: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32;
+    pub fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32;
+    pub fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32;
+    pub fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32;
+    pub fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
+    pub fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32;
+    pub fn PdhCloseLog(hlog: isize, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCloseQuery(hquery: isize) -> i32;
+    pub fn PdhCloseQuery(hquery: isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCollectQueryData(hquery: isize) -> i32;
+    pub fn PdhCollectQueryData(hquery: isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhCollectQueryDataEx(hquery: isize, dwintervaltime: u32, hnewdataevent: super::super::Foundation::HANDLE) -> i32;
+    pub fn PdhCollectQueryDataEx(hquery: isize, dwintervaltime: u32, hnewdataevent: super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32;
+    pub fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32;
+    pub fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhConnectMachineA(szmachinename: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhConnectMachineA(szmachinename: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhConnectMachineW(szmachinename: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhConnectMachineW(szmachinename: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCreateSQLTablesA(szdatasource: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhCreateSQLTablesA(szdatasource: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhCreateSQLTablesW(szdatasource: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhCreateSQLTablesW(szdatasource: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumLogSetNamesA(szdatasource: ::windows_sys::core::PCSTR, mszdatasetnamelist: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhEnumLogSetNamesA(szdatasource: ::windows_sys::core::PCSTR, mszdatasetnamelist: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumLogSetNamesW(szdatasource: ::windows_sys::core::PCWSTR, mszdatasetnamelist: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhEnumLogSetNamesW(szdatasource: ::windows_sys::core::PCWSTR, mszdatasetnamelist: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumMachinesA(szdatasource: ::windows_sys::core::PCSTR, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhEnumMachinesA(szdatasource: ::windows_sys::core::PCSTR, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumMachinesW(szdatasource: ::windows_sys::core::PCWSTR, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhEnumMachinesW(szdatasource: ::windows_sys::core::PCWSTR, mszmachinelist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumObjectItemsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    pub fn PdhEnumObjectItemsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    pub fn PdhEnumObjectItemsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, mszcounterlist: ::windows_sys::core::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    pub fn PdhEnumObjectItemsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhEnumObjectItemsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32;
+    pub fn PdhEnumObjectItemsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, mszcounterlist: ::windows_sys::core::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: ::windows_sys::core::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
+    pub fn PdhEnumObjectsA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
+    pub fn PdhEnumObjectsHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, mszobjectlist: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
+    pub fn PdhEnumObjectsHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhEnumObjectsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> i32;
+    pub fn PdhEnumObjectsW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, mszobjectlist: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: super::super::Foundation::BOOL) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandCounterPathA(szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32) -> i32;
+    pub fn PdhExpandCounterPathA(szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandCounterPathW(szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32) -> i32;
+    pub fn PdhExpandCounterPathW(szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandWildCardPathA(szdatasource: ::windows_sys::core::PCSTR, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhExpandWildCardPathA(szdatasource: ::windows_sys::core::PCSTR, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandWildCardPathHA(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhExpandWildCardPathHA(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCSTR, mszexpandedpathlist: ::windows_sys::core::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandWildCardPathHW(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhExpandWildCardPathHW(hdatasource: isize, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhExpandWildCardPathW(szdatasource: ::windows_sys::core::PCWSTR, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhExpandWildCardPathW(szdatasource: ::windows_sys::core::PCWSTR, szwildcardpath: ::windows_sys::core::PCWSTR, mszexpandedpathlist: ::windows_sys::core::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
+    pub fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetCounterInfoA(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> i32;
+    pub fn PdhGetCounterInfoA(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetCounterInfoW(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32;
+    pub fn PdhGetCounterInfoW(hcounter: isize, bretrieveexplaintext: super::super::Foundation::BOOLEAN, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32;
+    pub fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDataSourceTimeRangeA(szdatasource: ::windows_sys::core::PCSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDataSourceTimeRangeA(szdatasource: ::windows_sys::core::PCSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDataSourceTimeRangeW(szdatasource: ::windows_sys::core::PCWSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDataSourceTimeRangeW(szdatasource: ::windows_sys::core::PCWSTR, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfCounterA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfCounterA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfCounterHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfCounterHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szobjectname: ::windows_sys::core::PCSTR, szdefaultcountername: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfCounterHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfCounterHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfCounterW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfCounterW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szobjectname: ::windows_sys::core::PCWSTR, szdefaultcountername: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfObjectA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfObjectA(szdatasource: ::windows_sys::core::PCSTR, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfObjectHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfObjectHA(hdatasource: isize, szmachinename: ::windows_sys::core::PCSTR, szdefaultobjectname: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfObjectHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfObjectHW(hdatasource: isize, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDefaultPerfObjectW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> i32;
+    pub fn PdhGetDefaultPerfObjectW(szdatasource: ::windows_sys::core::PCWSTR, szmachinename: ::windows_sys::core::PCWSTR, szdefaultobjectname: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32;
+    pub fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32;
+    pub fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32;
+    pub fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32;
+    pub fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32;
+    pub fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows_sys::core::GUID, prunid: *mut i32) -> i32;
+    pub fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows_sys::core::GUID, prunid: *mut i32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> i32;
+    pub fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> i32;
+    pub fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> i32;
+    pub fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhLookupPerfIndexByNameA(szmachinename: ::windows_sys::core::PCSTR, sznamebuffer: ::windows_sys::core::PCSTR, pdwindex: *mut u32) -> i32;
+    pub fn PdhLookupPerfIndexByNameA(szmachinename: ::windows_sys::core::PCSTR, sznamebuffer: ::windows_sys::core::PCSTR, pdwindex: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhLookupPerfIndexByNameW(szmachinename: ::windows_sys::core::PCWSTR, sznamebuffer: ::windows_sys::core::PCWSTR, pdwindex: *mut u32) -> i32;
+    pub fn PdhLookupPerfIndexByNameW(szmachinename: ::windows_sys::core::PCWSTR, sznamebuffer: ::windows_sys::core::PCWSTR, pdwindex: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhLookupPerfNameByIndexA(szmachinename: ::windows_sys::core::PCSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PSTR, pcchnamebuffersize: *mut u32) -> i32;
+    pub fn PdhLookupPerfNameByIndexA(szmachinename: ::windows_sys::core::PCSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PSTR, pcchnamebuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhLookupPerfNameByIndexW(szmachinename: ::windows_sys::core::PCWSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PWSTR, pcchnamebuffersize: *mut u32) -> i32;
+    pub fn PdhLookupPerfNameByIndexW(szmachinename: ::windows_sys::core::PCWSTR, dwnameindex: u32, sznamebuffer: ::windows_sys::core::PWSTR, pcchnamebuffersize: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
+    pub fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: ::windows_sys::core::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32;
+    pub fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: ::windows_sys::core::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhOpenLogA(szlogfilename: ::windows_sys::core::PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCSTR, phlog: *mut isize) -> i32;
+    pub fn PdhOpenLogA(szlogfilename: ::windows_sys::core::PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCSTR, phlog: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhOpenLogW(szlogfilename: ::windows_sys::core::PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCWSTR, phlog: *mut isize) -> i32;
+    pub fn PdhOpenLogW(szlogfilename: ::windows_sys::core::PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: ::windows_sys::core::PCWSTR, phlog: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhOpenQueryA(szdatasource: ::windows_sys::core::PCSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
+    pub fn PdhOpenQueryA(szdatasource: ::windows_sys::core::PCSTR, dwuserdata: usize, phquery: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32;
+    pub fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhOpenQueryW(szdatasource: ::windows_sys::core::PCWSTR, dwuserdata: usize, phquery: *mut isize) -> i32;
+    pub fn PdhOpenQueryW(szdatasource: ::windows_sys::core::PCWSTR, dwuserdata: usize, phquery: *mut isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhParseCounterPathA(szfullpathbuffer: ::windows_sys::core::PCSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhParseCounterPathA(szfullpathbuffer: ::windows_sys::core::PCSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhParseCounterPathW(szfullpathbuffer: ::windows_sys::core::PCWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32;
+    pub fn PdhParseCounterPathW(szfullpathbuffer: ::windows_sys::core::PCWSTR, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhParseInstanceNameA(szinstancestring: ::windows_sys::core::PCSTR, szinstancename: ::windows_sys::core::PSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
+    pub fn PdhParseInstanceNameA(szinstancestring: ::windows_sys::core::PCSTR, szinstancename: ::windows_sys::core::PSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhParseInstanceNameW(szinstancestring: ::windows_sys::core::PCWSTR, szinstancename: ::windows_sys::core::PWSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32;
+    pub fn PdhParseInstanceNameW(szinstancestring: ::windows_sys::core::PCWSTR, szinstancename: ::windows_sys::core::PWSTR, pcchinstancenamelength: *mut u32, szparentname: ::windows_sys::core::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32;
+    pub fn PdhReadRawLogRecord(hlog: isize, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhRemoveCounter(hcounter: isize) -> i32;
+    pub fn PdhRemoveCounter(hcounter: isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PSTR, pcchbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> i32;
+    pub fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: ::windows_sys::core::PWSTR, pcchbufferlength: *mut u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32;
+    pub fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> i32;
+    pub fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32;
+    pub fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32;
+    pub fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhUpdateLogA(hlog: isize, szuserstring: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhUpdateLogA(hlog: isize, szuserstring: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhUpdateLogFileCatalog(hlog: isize) -> i32;
+    pub fn PdhUpdateLogFileCatalog(hlog: isize) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhUpdateLogW(hlog: isize, szuserstring: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhUpdateLogW(hlog: isize, szuserstring: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhValidatePathA(szfullpathbuffer: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhValidatePathA(szfullpathbuffer: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhValidatePathExA(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhValidatePathExA(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhValidatePathExW(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhValidatePathExW(hdatasource: isize, szfullpathbuffer: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhValidatePathW(szfullpathbuffer: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhValidatePathW(szfullpathbuffer: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhVerifySQLDBA(szdatasource: ::windows_sys::core::PCSTR) -> i32;
+    pub fn PdhVerifySQLDBA(szdatasource: ::windows_sys::core::PCSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PdhVerifySQLDBW(szdatasource: ::windows_sys::core::PCWSTR) -> i32;
+    pub fn PdhVerifySQLDBW(szdatasource: ::windows_sys::core::PCWSTR) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
@@ -374,99 +374,99 @@ pub const MAX_COUNTER_PATH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const MAX_PERF_OBJECTS_IN_QUERY_FUNCTION: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
+pub const PDH_ACCESS_DENIED: u32 = 3221228507u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
+pub const PDH_ASYNC_QUERY_TIMEOUT: u32 = 2147485659u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
+pub const PDH_BINARY_LOG_CORRUPT: u32 = 3221228535u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CALC_NEGATIVE_DENOMINATOR: i32 = -2147481642i32;
+pub const PDH_CALC_NEGATIVE_DENOMINATOR: u32 = 2147485654u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CALC_NEGATIVE_TIMEBASE: i32 = -2147481641i32;
+pub const PDH_CALC_NEGATIVE_TIMEBASE: u32 = 2147485655u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CALC_NEGATIVE_VALUE: i32 = -2147481640i32;
+pub const PDH_CALC_NEGATIVE_VALUE: u32 = 2147485656u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CANNOT_CONNECT_MACHINE: i32 = -1073738813i32;
+pub const PDH_CANNOT_CONNECT_MACHINE: u32 = 3221228483u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CANNOT_CONNECT_WMI_SERVER: i32 = -1073738776i32;
+pub const PDH_CANNOT_CONNECT_WMI_SERVER: u32 = 3221228520u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
+pub const PDH_CANNOT_READ_NAME_STRINGS: u32 = 3221228488u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
+pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: u32 = 2147485660u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
+pub const PDH_COUNTER_ALREADY_IN_QUERY: u32 = 3221228534u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_BAD_COUNTERNAME: i32 = -1073738816i32;
+pub const PDH_CSTATUS_BAD_COUNTERNAME: u32 = 3221228480u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_INVALID_DATA: i32 = -1073738822i32;
+pub const PDH_CSTATUS_INVALID_DATA: u32 = 3221228474u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: i32 = -2147481645i32;
+pub const PDH_CSTATUS_ITEM_NOT_VALIDATED: u32 = 2147485651u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NEW_DATA: i32 = 1i32;
+pub const PDH_CSTATUS_NEW_DATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NO_COUNTER: i32 = -1073738823i32;
+pub const PDH_CSTATUS_NO_COUNTER: u32 = 3221228473u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NO_COUNTERNAME: i32 = -1073738817i32;
+pub const PDH_CSTATUS_NO_COUNTERNAME: u32 = 3221228479u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NO_INSTANCE: i32 = -2147481647i32;
+pub const PDH_CSTATUS_NO_INSTANCE: u32 = 2147485649u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
+pub const PDH_CSTATUS_NO_MACHINE: u32 = 2147485648u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
+pub const PDH_CSTATUS_NO_OBJECT: u32 = 3221228472u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
+pub const PDH_CSTATUS_VALID_DATA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
+pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
+pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
+pub const PDH_DIALOG_CANCELLED: u32 = 2147485657u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
+pub const PDH_END_OF_LOG_FILE: u32 = 2147485658u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
+pub const PDH_ENTRY_NOT_IN_LOG_FILE: u32 = 3221228493u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
+pub const PDH_FILE_ALREADY_EXISTS: u32 = 3221228498u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
+pub const PDH_FILE_NOT_FOUND: u32 = 3221228497u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FUNCTION_NOT_FOUND: i32 = -1073738818i32;
+pub const PDH_FUNCTION_NOT_FOUND: u32 = 3221228478u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INCORRECT_APPEND_TIME: i32 = -1073738757i32;
+pub const PDH_INCORRECT_APPEND_TIME: u32 = 3221228539u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INSUFFICIENT_BUFFER: i32 = -1073738814i32;
+pub const PDH_INSUFFICIENT_BUFFER: u32 = 3221228482u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_ARGUMENT: i32 = -1073738819i32;
+pub const PDH_INVALID_ARGUMENT: u32 = 3221228477u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_BUFFER: i32 = -1073738815i32;
+pub const PDH_INVALID_BUFFER: u32 = 3221228481u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_DATA: i32 = -1073738810i32;
+pub const PDH_INVALID_DATA: u32 = 3221228486u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_DATASOURCE: i32 = -1073738787i32;
+pub const PDH_INVALID_DATASOURCE: u32 = 3221228509u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_HANDLE: i32 = -1073738820i32;
+pub const PDH_INVALID_HANDLE: u32 = 3221228476u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
+pub const PDH_INVALID_INSTANCE: u32 = 3221228485u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_PATH: i32 = -1073738812i32;
+pub const PDH_INVALID_PATH: u32 = 3221228484u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
+pub const PDH_INVALID_SQLDB: u32 = 3221228510u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
+pub const PDH_INVALID_SQL_LOG_FORMAT: u32 = 3221228533u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
+pub const PDH_LOGSVC_NOT_OPENED: u32 = 3221228505u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
+pub const PDH_LOGSVC_QUERY_NOT_FOUND: u32 = 3221228504u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_FILE_CREATE_ERROR: i32 = -1073738807i32;
+pub const PDH_LOG_FILE_CREATE_ERROR: u32 = 3221228489u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
+pub const PDH_LOG_FILE_OPEN_ERROR: u32 = 3221228490u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
+pub const PDH_LOG_FILE_TOO_SMALL: u32 = 3221228508u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
+pub const PDH_LOG_SAMPLE_TOO_SMALL: u32 = 3221228536u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
+pub const PDH_LOG_TYPE_NOT_FOUND: u32 = 3221228491u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -484,91 +484,91 @@ pub const PDH_MAX_INSTANCE_NAME: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_MAX_SCALE: i32 = 7i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_MEMORY_ALLOCATION_FAILURE: i32 = -1073738821i32;
+pub const PDH_MEMORY_ALLOCATION_FAILURE: u32 = 3221228475u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_MIN_SCALE: i32 = -7i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_MORE_DATA: i32 = -2147481646i32;
+pub const PDH_MORE_DATA: u32 = 2147485650u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_NOEXPANDCOUNTERS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_NOEXPANDINSTANCES: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_NOT_IMPLEMENTED: i32 = -1073738797i32;
+pub const PDH_NOT_IMPLEMENTED: u32 = 3221228499u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_NO_COUNTERS: i32 = -1073738785i32;
+pub const PDH_NO_COUNTERS: u32 = 3221228511u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_NO_DATA: i32 = -2147481643i32;
+pub const PDH_NO_DATA: u32 = 2147485653u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
+pub const PDH_NO_DIALOG_DATA: u32 = 3221228487u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
+pub const PDH_NO_MORE_DATA: u32 = 3221228492u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
+pub const PDH_OS_EARLIER_VERSION: u32 = 3221228538u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
+pub const PDH_OS_LATER_VERSION: u32 = 3221228537u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
+pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: u32 = 3221228521u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
+pub const PDH_PLA_COLLECTION_NOT_FOUND: u32 = 3221228523u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_ALREADY_EXISTS: i32 = -1073738770i32;
+pub const PDH_PLA_ERROR_ALREADY_EXISTS: u32 = 3221228526u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_FILEPATH: i32 = -1073738768i32;
+pub const PDH_PLA_ERROR_FILEPATH: u32 = 3221228528u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_NAME_TOO_LONG: i32 = -1073738764i32;
+pub const PDH_PLA_ERROR_NAME_TOO_LONG: u32 = 3221228532u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_NOSTART: i32 = -1073738771i32;
+pub const PDH_PLA_ERROR_NOSTART: u32 = 3221228525u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: i32 = -1073738772i32;
+pub const PDH_PLA_ERROR_SCHEDULE_ELAPSED: u32 = 3221228524u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: i32 = -1073738774i32;
+pub const PDH_PLA_ERROR_SCHEDULE_OVERLAP: u32 = 3221228522u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_ERROR_TYPE_MISMATCH: i32 = -1073738769i32;
+pub const PDH_PLA_ERROR_TYPE_MISMATCH: u32 = 3221228527u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_SERVICE_ERROR: i32 = -1073738767i32;
+pub const PDH_PLA_SERVICE_ERROR: u32 = 3221228529u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
+pub const PDH_PLA_VALIDATION_ERROR: u32 = 3221228530u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
+pub const PDH_PLA_VALIDATION_WARNING: u32 = 2147486707u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
+pub const PDH_QUERY_PERF_DATA_TIMEOUT: u32 = 3221228542u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_RETRY: i32 = -2147481644i32;
+pub const PDH_RETRY: u32 = 2147485652u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
+pub const PDH_SQL_ALLOCCON_FAILED: u32 = 3221228513u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
+pub const PDH_SQL_ALLOC_FAILED: u32 = 3221228512u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_ALTER_DETAIL_FAILED: i32 = -1073738755i32;
+pub const PDH_SQL_ALTER_DETAIL_FAILED: u32 = 3221228541u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_BIND_FAILED: i32 = -1073738777i32;
+pub const PDH_SQL_BIND_FAILED: u32 = 3221228519u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_CONNECT_FAILED: i32 = -1073738778i32;
+pub const PDH_SQL_CONNECT_FAILED: u32 = 3221228518u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_EXEC_DIRECT_FAILED: i32 = -1073738782i32;
+pub const PDH_SQL_EXEC_DIRECT_FAILED: u32 = 3221228514u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
+pub const PDH_SQL_FETCH_FAILED: u32 = 3221228515u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
+pub const PDH_SQL_MORE_RESULTS_FAILED: u32 = 3221228517u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
+pub const PDH_SQL_ROWCOUNT_FAILED: u32 = 3221228516u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
+pub const PDH_STRING_NOT_FOUND: u32 = 3221228500u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_UNABLE_MAP_NAME_FILES: i32 = -2147480619i32;
+pub const PDH_UNABLE_MAP_NAME_FILES: u32 = 2147486677u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_UNABLE_READ_LOG_HEADER: i32 = -1073738800i32;
+pub const PDH_UNABLE_READ_LOG_HEADER: u32 = 3221228496u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
+pub const PDH_UNKNOWN_LOGSVC_COMMAND: u32 = 3221228503u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
+pub const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
+pub const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
+pub const PDH_WBEM_ERROR: u32 = 3221228506u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

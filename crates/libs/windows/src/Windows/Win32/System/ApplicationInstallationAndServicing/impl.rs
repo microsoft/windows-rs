@@ -560,7 +560,7 @@ impl IMsmGetFiles_Vtbl {
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn OpenDatabase(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn OpenModule(&self, path: &::windows::core::BSTR, language: i16) -> ::windows::core::Result<()>;
-    fn CloseDatabase(&self, commit: i16) -> ::windows::core::Result<()>;
+    fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn CloseModule(&self) -> ::windows::core::Result<()>;
     fn OpenLog(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn CloseLog(&self) -> ::windows::core::Result<()>;
@@ -587,7 +587,7 @@ impl IMsmMerge_Vtbl {
             let this = (*this).get_impl();
             this.OpenModule(::core::mem::transmute(&path), ::core::mem::transmute_copy(&language)).into()
         }
-        unsafe extern "system" fn CloseDatabase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commit: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseDatabase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMsmMerge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commit: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CloseDatabase(::core::mem::transmute_copy(&commit)).into()

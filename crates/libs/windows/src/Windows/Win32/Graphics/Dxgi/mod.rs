@@ -741,7 +741,7 @@ impl IDXGIDevice {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CreateSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, usage, ::core::mem::transmute(psharedresource.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppsurface.as_ptr())).ok()
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
@@ -784,7 +784,7 @@ pub struct IDXGIDevice_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateSurface: usize,
     pub QueryResourceResidency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::HRESULT,
@@ -820,7 +820,7 @@ impl IDXGIDevice1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CreateSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, usage, ::core::mem::transmute(psharedresource.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppsurface.as_ptr())).ok()
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
@@ -900,7 +900,7 @@ impl IDXGIDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.CreateSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, usage, ::core::mem::transmute(psharedresource.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppsurface.as_ptr())).ok()
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
@@ -1004,7 +1004,7 @@ impl IDXGIDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, usage, ::core::mem::transmute(psharedresource.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppsurface.as_ptr())).ok()
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
@@ -1103,7 +1103,7 @@ impl IDXGIDevice4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: u32, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: ::core::option::Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [::core::option::Option<IDXGISurface>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateSurface)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdesc), ppsurface.len() as _, usage, ::core::mem::transmute(psharedresource.unwrap_or(::std::ptr::null())), ::core::mem::transmute(ppsurface.as_ptr())).ok()
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
@@ -4510,9 +4510,9 @@ impl IDXGIResource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
-    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<DXGI_USAGE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUsage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).GetUsage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_USAGE>(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority).ok()
@@ -4553,7 +4553,7 @@ pub struct IDXGIResource_Vtbl {
     pub GetSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSharedHandle: usize,
-    pub GetUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusage: *mut u32) -> ::windows::core::HRESULT,
+    pub GetUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusage: *mut DXGI_USAGE) -> ::windows::core::HRESULT,
     pub SetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::HRESULT,
     pub GetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevictionpriority: *mut u32) -> ::windows::core::HRESULT,
 }
@@ -4593,9 +4593,9 @@ impl IDXGIResource1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetSharedHandle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
-    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<DXGI_USAGE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUsage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).base__.GetUsage)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DXGI_USAGE>(result__)
     }
     pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetEvictionPriority)(::windows::core::Vtable::as_raw(self), evictionpriority).ok()
@@ -6103,20 +6103,6 @@ pub const DXGI_PRESENT_USE_DURATION: u32 = 256u32;
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_BACK_BUFFER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_DISCARD_ON_PRESENT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_READ_ONLY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_SHADER_INPUT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_SHARED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -7743,6 +7729,71 @@ impl ::core::fmt::Debug for DXGI_SWAP_EFFECT {
         f.debug_tuple("DXGI_SWAP_EFFECT").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DXGI_USAGE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_SHADER_INPUT: DXGI_USAGE = DXGI_USAGE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: DXGI_USAGE = DXGI_USAGE(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_BACK_BUFFER: DXGI_USAGE = DXGI_USAGE(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_SHARED: DXGI_USAGE = DXGI_USAGE(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_READ_ONLY: DXGI_USAGE = DXGI_USAGE(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_DISCARD_ON_PRESENT: DXGI_USAGE = DXGI_USAGE(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_UNORDERED_ACCESS: DXGI_USAGE = DXGI_USAGE(1024u32);
+impl ::core::marker::Copy for DXGI_USAGE {}
+impl ::core::clone::Clone for DXGI_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DXGI_USAGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DXGI_USAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXGI_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXGI_USAGE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXGI_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXGI_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXGI_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXGI_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXGI_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8883,7 +8934,7 @@ impl ::core::default::Default for DXGI_SURFACE_DESC {
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: Common::DXGI_MODE_DESC,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
-    pub BufferUsage: u32,
+    pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
     pub OutputWindow: super::super::Foundation::HWND,
     pub Windowed: super::super::Foundation::BOOL,
@@ -8931,7 +8982,7 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Format: Common::DXGI_FORMAT,
     pub Stereo: super::super::Foundation::BOOL,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
-    pub BufferUsage: u32,
+    pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
     pub Scaling: DXGI_SCALING,
     pub SwapEffect: DXGI_SWAP_EFFECT,

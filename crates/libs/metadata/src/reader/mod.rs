@@ -491,6 +491,9 @@ impl<'a> Reader<'a> {
     pub fn method_def_does_not_return(&self, row: MethodDef) -> bool {
         self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DoesNotReturnAttribute")
     }
+    pub fn method_def_can_return_multiple_success_values(&self, row: MethodDef) -> bool {
+        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "CanReturnMultipleSuccessValuesAttribute")
+    }
     pub fn method_def_special_name(&self, row: MethodDef) -> String {
         let name = self.method_def_name(row);
         if self.method_def_flags(row).special() {
@@ -1262,7 +1265,7 @@ impl<'a> Reader<'a> {
         !self.type_is_callback(&param.ty)
     }
     pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
-        if self.method_def_impl_flags(signature.def).preserve_sig() {
+        if self.method_def_can_return_multiple_success_values(signature.def) {
             return SignatureKind::PreserveSig;
         }
         if let Some(return_type) = &signature.return_type {

@@ -2982,9 +2982,11 @@ pub struct IClipServiceNotificationHelper_Vtbl {
 #[repr(transparent)]
 pub struct IContainerActivationHelper(::windows::core::IUnknown);
 impl IContainerActivationHelper {
-    pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<i16> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContainerActivationHelper, ::windows::core::IUnknown);
@@ -3014,7 +3016,10 @@ unsafe impl ::windows::core::Interface for IContainerActivationHelper {
 #[doc(hidden)]
 pub struct IContainerActivationHelper_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub CanActivateClientVM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    CanActivateClientVM: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -3099,8 +3104,13 @@ pub struct IDeleteBrowsingHistory_Vtbl {
 #[repr(transparent)]
 pub struct IEditionUpgradeBroker(::windows::core::IUnknown);
 impl IEditionUpgradeBroker {
-    pub unsafe fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).InitializeParentWindow)(::windows::core::Vtable::as_raw(self), parenthandle).ok()
+    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[cfg(feature = "Win32_System_Ole")]
+    pub unsafe fn InitializeParentWindow<'a, P0>(&self, parenthandle: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::Ole::OLE_HANDLE>,
+    {
+        (::windows::core::Vtable::vtable(self).InitializeParentWindow)(::windows::core::Vtable::as_raw(self), parenthandle.into()).ok()
     }
     pub unsafe fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UpdateOperatingSystem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(parameter)).ok()
@@ -3139,7 +3149,10 @@ unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
 #[doc(hidden)]
 pub struct IEditionUpgradeBroker_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")]
+    pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Ole"))]
+    InitializeParentWindow: usize,
     pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

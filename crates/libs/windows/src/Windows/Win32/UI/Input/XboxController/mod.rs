@@ -78,11 +78,11 @@ pub const XUSER_MAX_COUNT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BATTERY_DEVTYPE(pub u32);
+pub struct BATTERY_DEVTYPE(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = BATTERY_DEVTYPE(0u32);
+pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = BATTERY_DEVTYPE(0u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_DEVTYPE_HEADSET: BATTERY_DEVTYPE = BATTERY_DEVTYPE(1u32);
+pub const BATTERY_DEVTYPE_HEADSET: BATTERY_DEVTYPE = BATTERY_DEVTYPE(1u8);
 impl ::core::marker::Copy for BATTERY_DEVTYPE {}
 impl ::core::clone::Clone for BATTERY_DEVTYPE {
     fn clone(&self) -> Self {
@@ -105,15 +105,15 @@ impl ::core::fmt::Debug for BATTERY_DEVTYPE {
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BATTERY_LEVEL(pub u32);
+pub struct BATTERY_LEVEL(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_LEVEL_EMPTY: BATTERY_LEVEL = BATTERY_LEVEL(0u32);
+pub const BATTERY_LEVEL_EMPTY: BATTERY_LEVEL = BATTERY_LEVEL(0u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_LEVEL_LOW: BATTERY_LEVEL = BATTERY_LEVEL(1u32);
+pub const BATTERY_LEVEL_LOW: BATTERY_LEVEL = BATTERY_LEVEL(1u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_LEVEL_MEDIUM: BATTERY_LEVEL = BATTERY_LEVEL(2u32);
+pub const BATTERY_LEVEL_MEDIUM: BATTERY_LEVEL = BATTERY_LEVEL(2u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_LEVEL_FULL: BATTERY_LEVEL = BATTERY_LEVEL(3u32);
+pub const BATTERY_LEVEL_FULL: BATTERY_LEVEL = BATTERY_LEVEL(3u8);
 impl ::core::marker::Copy for BATTERY_LEVEL {}
 impl ::core::clone::Clone for BATTERY_LEVEL {
     fn clone(&self) -> Self {
@@ -136,17 +136,17 @@ impl ::core::fmt::Debug for BATTERY_LEVEL {
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BATTERY_TYPE(pub u32);
+pub struct BATTERY_TYPE(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_TYPE_DISCONNECTED: BATTERY_TYPE = BATTERY_TYPE(0u32);
+pub const BATTERY_TYPE_DISCONNECTED: BATTERY_TYPE = BATTERY_TYPE(0u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_TYPE_WIRED: BATTERY_TYPE = BATTERY_TYPE(1u32);
+pub const BATTERY_TYPE_WIRED: BATTERY_TYPE = BATTERY_TYPE(1u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_TYPE_ALKALINE: BATTERY_TYPE = BATTERY_TYPE(2u32);
+pub const BATTERY_TYPE_ALKALINE: BATTERY_TYPE = BATTERY_TYPE(2u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_TYPE_NIMH: BATTERY_TYPE = BATTERY_TYPE(3u32);
+pub const BATTERY_TYPE_NIMH: BATTERY_TYPE = BATTERY_TYPE(3u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const BATTERY_TYPE_UNKNOWN: BATTERY_TYPE = BATTERY_TYPE(255u32);
+pub const BATTERY_TYPE_UNKNOWN: BATTERY_TYPE = BATTERY_TYPE(255u8);
 impl ::core::marker::Copy for BATTERY_TYPE {}
 impl ::core::clone::Clone for BATTERY_TYPE {
     fn clone(&self) -> Self {
@@ -230,29 +230,29 @@ impl ::core::ops::Not for XINPUT_CAPABILITIES_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XINPUT_DEVSUBTYPE(pub u32);
+pub struct XINPUT_DEVSUBTYPE(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_GAMEPAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(1u32);
+pub const XINPUT_DEVSUBTYPE_GAMEPAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(1u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_UNKNOWN: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(0u32);
+pub const XINPUT_DEVSUBTYPE_UNKNOWN: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(0u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_WHEEL: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(2u32);
+pub const XINPUT_DEVSUBTYPE_WHEEL: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(2u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_ARCADE_STICK: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(3u32);
+pub const XINPUT_DEVSUBTYPE_ARCADE_STICK: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(3u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_FLIGHT_STICK: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(4u32);
+pub const XINPUT_DEVSUBTYPE_FLIGHT_STICK: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(4u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_DANCE_PAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(5u32);
+pub const XINPUT_DEVSUBTYPE_DANCE_PAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(5u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_GUITAR: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(6u32);
+pub const XINPUT_DEVSUBTYPE_GUITAR: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(6u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(7u32);
+pub const XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(7u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_DRUM_KIT: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(8u32);
+pub const XINPUT_DEVSUBTYPE_DRUM_KIT: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(8u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(11u32);
+pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(11u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVSUBTYPE_ARCADE_PAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(19u32);
+pub const XINPUT_DEVSUBTYPE_ARCADE_PAD: XINPUT_DEVSUBTYPE = XINPUT_DEVSUBTYPE(19u8);
 impl ::core::marker::Copy for XINPUT_DEVSUBTYPE {}
 impl ::core::clone::Clone for XINPUT_DEVSUBTYPE {
     fn clone(&self) -> Self {
@@ -275,9 +275,9 @@ impl ::core::fmt::Debug for XINPUT_DEVSUBTYPE {
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XINPUT_DEVTYPE(pub u32);
+pub struct XINPUT_DEVTYPE(pub u8);
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-pub const XINPUT_DEVTYPE_GAMEPAD: XINPUT_DEVTYPE = XINPUT_DEVTYPE(1u32);
+pub const XINPUT_DEVTYPE_GAMEPAD: XINPUT_DEVTYPE = XINPUT_DEVTYPE(1u8);
 impl ::core::marker::Copy for XINPUT_DEVTYPE {}
 impl ::core::clone::Clone for XINPUT_DEVTYPE {
     fn clone(&self) -> Self {

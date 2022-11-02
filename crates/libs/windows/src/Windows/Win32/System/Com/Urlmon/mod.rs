@@ -912,12 +912,14 @@ pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::
 #[repr(transparent)]
 pub struct IBindCallbackRedirect(::windows::core::IUnknown);
 impl IBindCallbackRedirect {
-    pub unsafe fn Redirect<'a, P0>(&self, lpcurl: P0) -> ::windows::core::Result<i16>
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Redirect<'a, P0>(&self, lpcurl: P0) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Redirect)(::windows::core::Vtable::as_raw(self), lpcurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Vtable::vtable(self).Redirect)(::windows::core::Vtable::as_raw(self), lpcurl.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::VARIANT_BOOL>(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBindCallbackRedirect, ::windows::core::IUnknown);
@@ -947,7 +949,10 @@ unsafe impl ::windows::core::Interface for IBindCallbackRedirect {
 #[doc(hidden)]
 pub struct IBindCallbackRedirect_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Redirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcurl: ::windows::core::PCWSTR, vbcancel: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub Redirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcurl: ::windows::core::PCWSTR, vbcancel: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    Redirect: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]

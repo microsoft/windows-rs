@@ -114,10 +114,10 @@ extern "system" {
     pub fn RegGetKeySecurity(hkey: HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows_sys::core::PCSTR, lpvalue: ::windows_sys::core::PCSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+    pub fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows_sys::core::PCSTR, lpvalue: ::windows_sys::core::PCSTR, dwflags: REG_ROUTINE_FLAGS, pdwtype: *mut REG_VALUE_TYPE, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn RegGetValueW(hkey: HKEY, lpsubkey: ::windows_sys::core::PCWSTR, lpvalue: ::windows_sys::core::PCWSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+    pub fn RegGetValueW(hkey: HKEY, lpsubkey: ::windows_sys::core::PCWSTR, lpvalue: ::windows_sys::core::PCWSTR, dwflags: REG_ROUTINE_FLAGS, pdwtype: *mut REG_VALUE_TYPE, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegLoadAppKeyA(lpfile: ::windows_sys::core::PCSTR, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::WIN32_ERROR;
@@ -2035,16 +2035,6 @@ pub const REG_SECURE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_NOEXPAND: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_WOW64_MASK: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_ZEROONFAILURE: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const SUF_BATCHINF: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const SUF_CLEAN: i32 = 8i32;
@@ -2115,6 +2105,38 @@ pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = 1i32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub type REG_ROUTINE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_DWORD: REG_ROUTINE_FLAGS = 24u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_QWORD: REG_ROUTINE_FLAGS = 72u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_NONE: REG_ROUTINE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_SZ: REG_ROUTINE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_EXPAND_SZ: REG_ROUTINE_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_BINARY: REG_ROUTINE_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_DWORD: REG_ROUTINE_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_MULTI_SZ: REG_ROUTINE_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_QWORD: REG_ROUTINE_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_ANY: REG_ROUTINE_FLAGS = 65535u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_SUBKEY_WOW6464KEY: REG_ROUTINE_FLAGS = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_SUBKEY_WOW6432KEY: REG_ROUTINE_FLAGS = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_WOW64_MASK: REG_ROUTINE_FLAGS = 196608u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_NOEXPAND: REG_ROUTINE_FLAGS = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_ZEROONFAILURE: REG_ROUTINE_FLAGS = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub type REG_SAM_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = 1u32;
@@ -2180,28 +2202,6 @@ pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = 10u32;
 pub const REG_QWORD: REG_VALUE_TYPE = 11u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 11u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub type RRF_RT = u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_ANY: RRF_RT = 65535u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_DWORD: RRF_RT = 24u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_QWORD: RRF_RT = 72u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_BINARY: RRF_RT = 8u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_DWORD: RRF_RT = 16u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = 4u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_MULTI_SZ: RRF_RT = 32u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_NONE: RRF_RT = 1u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_QWORD: RRF_RT = 64u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_SZ: RRF_RT = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub struct DSKTLSYSTEMTIME {

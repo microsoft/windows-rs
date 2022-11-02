@@ -156,10 +156,10 @@ impl IUPnPDescriptionDocumentCallback_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn IsRootDevice(&self) -> ::windows::core::Result<i16>;
+    fn IsRootDevice(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
     fn ParentDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
-    fn HasChildren(&self) -> ::windows::core::Result<i16>;
+    fn HasChildren(&self) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn Children(&self) -> ::windows::core::Result<IUPnPDevices>;
     fn UniqueDeviceName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -181,7 +181,7 @@ impl ::windows::core::RuntimeName for IUPnPDevice {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IUPnPDevice_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDevice_Impl, const OFFSET: isize>() -> IUPnPDevice_Vtbl {
-        unsafe extern "system" fn IsRootDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsRootDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsRootDevice() {
@@ -214,7 +214,7 @@ impl IUPnPDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HasChildren<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn HasChildren<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.HasChildren() {

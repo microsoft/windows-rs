@@ -1657,7 +1657,7 @@ pub trait IDataSourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn SethWnd(&self, hwndparent: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn PromptNew(&self) -> ::windows::core::Result<super::Com::IDispatch>;
-    fn PromptEdit(&self, ppadoconnection: *mut ::core::option::Option<super::Com::IDispatch>, pbsuccess: *mut i16) -> ::windows::core::Result<()>;
+    fn PromptEdit(&self, ppadoconnection: *mut ::core::option::Option<super::Com::IDispatch>, pbsuccess: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDataSourceLocator {}
@@ -1691,7 +1691,7 @@ impl IDataSourceLocator_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PromptEdit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppadoconnection: *mut *mut ::core::ffi::c_void, pbsuccess: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PromptEdit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataSourceLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppadoconnection: *mut *mut ::core::ffi::c_void, pbsuccess: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PromptEdit(::core::mem::transmute_copy(&ppadoconnection), ::core::mem::transmute_copy(&pbsuccess)).into()

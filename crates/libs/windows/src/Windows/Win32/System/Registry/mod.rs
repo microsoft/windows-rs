@@ -527,7 +527,7 @@ where
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegGetValueA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: RRF_RT, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegGetValueA<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: REG_ROUTINE_FLAGS, pdwtype: ::core::option::Option<*mut REG_VALUE_TYPE>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
@@ -535,14 +535,14 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, lpvalue: ::windows::core::PCSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+        fn RegGetValueA(hkey: HKEY, lpsubkey: ::windows::core::PCSTR, lpvalue: ::windows::core::PCSTR, dwflags: REG_ROUTINE_FLAGS, pdwtype: *mut REG_VALUE_TYPE, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
     RegGetValueA(hkey.into(), lpsubkey.into(), lpvalue.into(), dwflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegGetValueW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: RRF_RT, pdwtype: ::core::option::Option<*mut u32>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn RegGetValueW<'a, P0, P1, P2>(hkey: P0, lpsubkey: P1, lpvalue: P2, dwflags: REG_ROUTINE_FLAGS, pdwtype: ::core::option::Option<*mut REG_VALUE_TYPE>, pvdata: ::core::option::Option<*mut ::core::ffi::c_void>, pcbdata: ::core::option::Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -550,7 +550,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn RegGetValueW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, lpvalue: ::windows::core::PCWSTR, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+        fn RegGetValueW(hkey: HKEY, lpsubkey: ::windows::core::PCWSTR, lpvalue: ::windows::core::PCWSTR, dwflags: REG_ROUTINE_FLAGS, pdwtype: *mut REG_VALUE_TYPE, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
     RegGetValueW(hkey.into(), lpsubkey.into(), lpvalue.into(), dwflags, ::core::mem::transmute(pdwtype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbdata.unwrap_or(::std::ptr::null_mut())))
 }
@@ -2973,16 +2973,6 @@ pub const REG_SECURE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_NOEXPAND: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_WOW64_MASK: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_ZEROONFAILURE: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const SUF_BATCHINF: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const SUF_CLEAN: i32 = 8i32;
@@ -3195,6 +3185,87 @@ impl ::core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct REG_ROUTINE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(24u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(72u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_NONE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_EXPAND_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_BINARY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_DWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_MULTI_SZ: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_REG_QWORD: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_RT_ANY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65535u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_SUBKEY_WOW6464KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_SUBKEY_WOW6432KEY: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_WOW64_MASK: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(196608u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_NOEXPAND: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+pub const RRF_ZEROONFAILURE: REG_ROUTINE_FLAGS = REG_ROUTINE_FLAGS(536870912u32);
+impl ::core::marker::Copy for REG_ROUTINE_FLAGS {}
+impl ::core::clone::Clone for REG_ROUTINE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REG_ROUTINE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REG_ROUTINE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_ROUTINE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_ROUTINE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_ROUTINE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_ROUTINE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_ROUTINE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_SAM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
@@ -3347,77 +3418,6 @@ unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
 impl ::core::fmt::Debug for REG_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REG_VALUE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RRF_RT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_ANY: RRF_RT = RRF_RT(65535u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_DWORD: RRF_RT = RRF_RT(24u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_QWORD: RRF_RT = RRF_RT(72u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_BINARY: RRF_RT = RRF_RT(8u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_DWORD: RRF_RT = RRF_RT(16u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = RRF_RT(4u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_MULTI_SZ: RRF_RT = RRF_RT(32u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_NONE: RRF_RT = RRF_RT(1u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_QWORD: RRF_RT = RRF_RT(64u32);
-#[doc = "*Required features: `\"Win32_System_Registry\"`*"]
-pub const RRF_RT_REG_SZ: RRF_RT = RRF_RT(2u32);
-impl ::core::marker::Copy for RRF_RT {}
-impl ::core::clone::Clone for RRF_RT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RRF_RT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RRF_RT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RRF_RT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RRF_RT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RRF_RT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RRF_RT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RRF_RT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RRF_RT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RRF_RT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
     }
 }
 #[repr(C)]

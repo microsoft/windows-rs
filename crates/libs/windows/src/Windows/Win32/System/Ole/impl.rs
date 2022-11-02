@@ -3725,15 +3725,15 @@ impl IPersistPropertyBag2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPicture_Impl: Sized {
-    fn Handle(&self) -> ::windows::core::Result<u32>;
-    fn hPal(&self) -> ::windows::core::Result<u32>;
+    fn Handle(&self) -> ::windows::core::Result<OLE_HANDLE>;
+    fn hPal(&self) -> ::windows::core::Result<OLE_HANDLE>;
     fn Type(&self) -> ::windows::core::Result<i16>;
     fn Width(&self) -> ::windows::core::Result<i32>;
     fn Height(&self) -> ::windows::core::Result<i32>;
     fn Render(&self, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn set_hPal(&self, hpal: u32) -> ::windows::core::Result<()>;
+    fn set_hPal(&self, hpal: OLE_HANDLE) -> ::windows::core::Result<()>;
     fn CurDC(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HDC>;
-    fn SelectPicture(&self, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::Result<()>;
+    fn SelectPicture(&self, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut OLE_HANDLE) -> ::windows::core::Result<()>;
     fn KeepOriginalFormat(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetKeepOriginalFormat(&self, keep: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn PictureChanged(&self) -> ::windows::core::Result<()>;
@@ -3745,7 +3745,7 @@ impl ::windows::core::RuntimeName for IPicture {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl IPicture_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>() -> IPicture_Vtbl {
-        unsafe extern "system" fn Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Handle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut OLE_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Handle() {
@@ -3756,7 +3756,7 @@ impl IPicture_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn hPal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phpal: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn hPal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phpal: *mut OLE_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.hPal() {
@@ -3805,7 +3805,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             this.Render(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&cx), ::core::mem::transmute_copy(&cy), ::core::mem::transmute_copy(&xsrc), ::core::mem::transmute_copy(&ysrc), ::core::mem::transmute_copy(&cxsrc), ::core::mem::transmute_copy(&cysrc), ::core::mem::transmute_copy(&prcwbounds)).into()
         }
-        unsafe extern "system" fn set_hPal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hpal: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn set_hPal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hpal: OLE_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.set_hPal(::core::mem::transmute_copy(&hpal)).into()
@@ -3821,7 +3821,7 @@ impl IPicture_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectPicture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectPicture<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut OLE_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SelectPicture(::core::mem::transmute_copy(&hdcin), ::core::mem::transmute_copy(&phdcout), ::core::mem::transmute_copy(&phbmpout)).into()
@@ -4523,13 +4523,16 @@ impl IProvideMultipleClassInfo_Vtbl {
         iid == &<IProvideMultipleClassInfo as ::windows::core::Interface>::IID || iid == &<IProvideClassInfo as ::windows::core::Interface>::IID || iid == &<IProvideClassInfo2 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IProvideRuntimeContext_Impl: Sized {
-    fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::Result<()>;
+    fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IProvideRuntimeContext {}
+#[cfg(feature = "Win32_Foundation")]
 impl IProvideRuntimeContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideRuntimeContext_Impl, const OFFSET: isize>() -> IProvideRuntimeContext_Vtbl {
-        unsafe extern "system" fn GetCurrentSourceContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideRuntimeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetCurrentSourceContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProvideRuntimeContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetCurrentSourceContext(::core::mem::transmute_copy(&pdwcontext), ::core::mem::transmute_copy(&pfexecutingglobalcode)).into()

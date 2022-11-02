@@ -159,13 +159,16 @@ impl IClipServiceNotificationHelper_Vtbl {
         iid == &<IClipServiceNotificationHelper as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IContainerActivationHelper_Impl: Sized {
-    fn CanActivateClientVM(&self) -> ::windows::core::Result<i16>;
+    fn CanActivateClientVM(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IContainerActivationHelper {}
+#[cfg(feature = "Win32_Foundation")]
 impl IContainerActivationHelper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>() -> IContainerActivationHelper_Vtbl {
-        unsafe extern "system" fn CanActivateClientVM<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isallowed: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanActivateClientVM<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContainerActivationHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanActivateClientVM() {
@@ -219,16 +222,19 @@ impl IDeleteBrowsingHistory_Vtbl {
         iid == &<IDeleteBrowsingHistory as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Ole")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
-    fn InitializeParentWindow(&self, parenthandle: u32) -> ::windows::core::Result<()>;
+    fn InitializeParentWindow(&self, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::Result<()>;
     fn UpdateOperatingSystem(&self, parameter: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ShowProductKeyUI(&self) -> ::windows::core::Result<()>;
     fn CanUpgrade(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Ole")]
 impl ::windows::core::RuntimeName for IEditionUpgradeBroker {}
+#[cfg(feature = "Win32_System_Ole")]
 impl IEditionUpgradeBroker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>() -> IEditionUpgradeBroker_Vtbl {
-        unsafe extern "system" fn InitializeParentWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parenthandle: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InitializeParentWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEditionUpgradeBroker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InitializeParentWindow(::core::mem::transmute_copy(&parenthandle)).into()

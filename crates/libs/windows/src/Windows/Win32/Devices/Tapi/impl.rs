@@ -1606,10 +1606,10 @@ pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateForwardInfoObject(&self) -> ::windows::core::Result<ITForwardInformation>;
     fn Forward(&self, pforwardinfo: &::core::option::Option<ITForwardInformation>, pcall: &::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
     fn CurrentForwardInfo(&self) -> ::windows::core::Result<ITForwardInformation>;
-    fn SetMessageWaiting(&self, fmessagewaiting: i16) -> ::windows::core::Result<()>;
-    fn MessageWaiting(&self) -> ::windows::core::Result<i16>;
-    fn SetDoNotDisturb(&self, fdonotdisturb: i16) -> ::windows::core::Result<()>;
-    fn DoNotDisturb(&self) -> ::windows::core::Result<i16>;
+    fn SetMessageWaiting(&self, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn MessageWaiting(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDoNotDisturb(&self, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn DoNotDisturb(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITAddress {}
@@ -1731,12 +1731,12 @@ impl ITAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetMessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmessagewaiting: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetMessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmessagewaiting: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetMessageWaiting(::core::mem::transmute_copy(&fmessagewaiting)).into()
         }
-        unsafe extern "system" fn MessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfmessagewaiting: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn MessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfmessagewaiting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.MessageWaiting() {
@@ -1747,12 +1747,12 @@ impl ITAddress_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdonotdisturb: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetDoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdonotdisturb: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDoNotDisturb(::core::mem::transmute_copy(&fdonotdisturb)).into()
         }
-        unsafe extern "system" fn DoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdonotdisturb: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn DoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdonotdisturb: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DoNotDisturb() {
@@ -1793,8 +1793,8 @@ pub trait ITAddress2_Impl: Sized + ITAddress_Impl {
     fn GetPhoneFromTerminal(&self, pterminal: &::core::option::Option<ITTerminal>) -> ::windows::core::Result<ITPhone>;
     fn PreferredPhones(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumeratePreferredPhones(&self) -> ::windows::core::Result<IEnumPhone>;
-    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
-    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
+    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn DeviceSpecific(&self, pcall: &::core::option::Option<ITCallInfo>, pparams: *const u8, dwsize: u32) -> ::windows::core::Result<()>;
     fn DeviceSpecificVariant(&self, pcall: &::core::option::Option<ITCallInfo>, vardevspecificbytearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn NegotiateExtVersion(&self, llowversion: i32, lhighversion: i32) -> ::windows::core::Result<i32>;
@@ -1859,7 +1859,7 @@ impl ITAddress2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
@@ -1870,7 +1870,7 @@ impl ITAddress2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
@@ -3111,30 +3111,30 @@ pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDisp
     fn Tone(&self) -> ::windows::core::Result<PHONE_TONE>;
     fn StartRinger(&self, lringmode: i32, lduration: i32) -> ::windows::core::Result<()>;
     fn StopRinger(&self) -> ::windows::core::Result<()>;
-    fn Ringer(&self) -> ::windows::core::Result<i16>;
-    fn SetPhoneHandlingEnabled(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn PhoneHandlingEnabled(&self) -> ::windows::core::Result<i16>;
+    fn Ringer(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPhoneHandlingEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn PhoneHandlingEnabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoEndOfNumberTimeout(&self, ltimeout: i32) -> ::windows::core::Result<()>;
     fn AutoEndOfNumberTimeout(&self) -> ::windows::core::Result<i32>;
-    fn SetAutoDialtone(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn AutoDialtone(&self) -> ::windows::core::Result<i16>;
-    fn SetAutoStopTonesOnOnHook(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn AutoStopTonesOnOnHook(&self) -> ::windows::core::Result<i16>;
-    fn SetAutoStopRingOnOffHook(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn AutoStopRingOnOffHook(&self) -> ::windows::core::Result<i16>;
-    fn SetAutoKeypadTones(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn AutoKeypadTones(&self) -> ::windows::core::Result<i16>;
+    fn SetAutoDialtone(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AutoDialtone(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoStopTonesOnOnHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AutoStopTonesOnOnHook(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoStopRingOnOffHook(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AutoStopRingOnOffHook(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoKeypadTones(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AutoKeypadTones(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoKeypadTonesMinimumDuration(&self, lduration: i32) -> ::windows::core::Result<()>;
     fn AutoKeypadTonesMinimumDuration(&self) -> ::windows::core::Result<i32>;
-    fn SetAutoVolumeControl(&self, fenabled: i16) -> ::windows::core::Result<()>;
-    fn AutoVolumeControl(&self) -> ::windows::core::Result<i16>;
+    fn SetAutoVolumeControl(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn AutoVolumeControl(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAutoVolumeControlStep(&self, lstepsize: i32) -> ::windows::core::Result<()>;
     fn AutoVolumeControlStep(&self) -> ::windows::core::Result<i32>;
     fn SetAutoVolumeControlRepeatDelay(&self, ldelay: i32) -> ::windows::core::Result<()>;
     fn AutoVolumeControlRepeatDelay(&self) -> ::windows::core::Result<i32>;
     fn SetAutoVolumeControlRepeatPeriod(&self, lperiod: i32) -> ::windows::core::Result<()>;
     fn AutoVolumeControlRepeatPeriod(&self) -> ::windows::core::Result<i32>;
-    fn SelectCall(&self, pcall: &::core::option::Option<ITCallInfo>, fselectdefaultterminals: i16) -> ::windows::core::Result<()>;
+    fn SelectCall(&self, pcall: &::core::option::Option<ITCallInfo>, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn UnselectCall(&self, pcall: &::core::option::Option<ITCallInfo>) -> ::windows::core::Result<()>;
     fn EnumerateSelectedCalls(&self) -> ::windows::core::Result<IEnumCall>;
     fn SelectedCalls(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
@@ -3175,7 +3175,7 @@ impl ITAutomatedPhoneControl_Vtbl {
             let this = (*this).get_impl();
             this.StopRinger().into()
         }
-        unsafe extern "system" fn Ringer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfringing: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Ringer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfringing: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Ringer() {
@@ -3186,12 +3186,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetPhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetPhoneHandlingEnabled(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn PhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PhoneHandlingEnabled() {
@@ -3218,12 +3218,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoDialtone(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn AutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoDialtone() {
@@ -3234,12 +3234,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoStopTonesOnOnHook(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn AutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoStopTonesOnOnHook() {
@@ -3250,12 +3250,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoStopRingOnOffHook(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn AutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoStopRingOnOffHook() {
@@ -3266,12 +3266,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoKeypadTones(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn AutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoKeypadTones() {
@@ -3298,12 +3298,12 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetAutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAutoVolumeControl(::core::mem::transmute_copy(&fenabled)).into()
         }
-        unsafe extern "system" fn AutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AutoVolumeControl() {
@@ -3362,7 +3362,7 @@ impl ITAutomatedPhoneControl_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fselectdefaultterminals: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SelectCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fselectdefaultterminals: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SelectCall(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fselectdefaultterminals)).into()
@@ -3492,14 +3492,14 @@ impl ITBasicAudioTerminal_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Connect(&self, fsync: i16) -> ::windows::core::Result<()>;
+    fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Answer(&self) -> ::windows::core::Result<()>;
     fn Disconnect(&self, code: DISCONNECT_CODE) -> ::windows::core::Result<()>;
-    fn Hold(&self, fhold: i16) -> ::windows::core::Result<()>;
+    fn Hold(&self, fhold: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn HandoffDirect(&self, papplicationname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn HandoffIndirect(&self, lmediatype: i32) -> ::windows::core::Result<()>;
-    fn Conference(&self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
-    fn Transfer(&self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: i16) -> ::windows::core::Result<()>;
+    fn Conference(&self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Transfer(&self, pcall: &::core::option::Option<ITBasicCallControl>, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn BlindTransfer(&self, pdestaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SwapHold(&self, pcall: &::core::option::Option<ITBasicCallControl>) -> ::windows::core::Result<()>;
     fn ParkDirect(&self, pparkaddress: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3516,7 +3516,7 @@ impl ::windows::core::RuntimeName for ITBasicCallControl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITBasicCallControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>() -> ITBasicCallControl_Vtbl {
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsync: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute_copy(&fsync)).into()
@@ -3531,7 +3531,7 @@ impl ITBasicCallControl_Vtbl {
             let this = (*this).get_impl();
             this.Disconnect(::core::mem::transmute_copy(&code)).into()
         }
-        unsafe extern "system" fn Hold<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fhold: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Hold<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fhold: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Hold(::core::mem::transmute_copy(&fhold)).into()
@@ -3546,12 +3546,12 @@ impl ITBasicCallControl_Vtbl {
             let this = (*this).get_impl();
             this.HandoffIndirect(::core::mem::transmute_copy(&lmediatype)).into()
         }
-        unsafe extern "system" fn Conference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fsync: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Conference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Conference(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fsync)).into()
         }
-        unsafe extern "system" fn Transfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fsync: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Transfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Transfer(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fsync)).into()
@@ -3962,15 +3962,15 @@ impl ITCallInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITCallInfo2_Impl: Sized + ITCallInfo_Impl {
-    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<i16>;
-    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::Result<()>;
+    fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn put_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITCallInfo2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ITCallInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>() -> ITCallInfo2_Vtbl {
-        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
@@ -3981,7 +3981,7 @@ impl ITCallInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
@@ -4862,11 +4862,11 @@ impl ITDigitsGatheredEvent_Vtbl {
 pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DirectoryType(&self) -> ::windows::core::Result<DIRECTORY_TYPE>;
     fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IsDynamic(&self) -> ::windows::core::Result<i16>;
+    fn IsDynamic(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DefaultObjectTTL(&self) -> ::windows::core::Result<i32>;
     fn SetDefaultObjectTTL(&self, ttl: i32) -> ::windows::core::Result<()>;
-    fn EnableAutoRefresh(&self, fenable: i16) -> ::windows::core::Result<()>;
-    fn Connect(&self, fsecure: i16) -> ::windows::core::Result<()>;
+    fn EnableAutoRefresh(&self, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn Connect(&self, fsecure: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn Bind(&self, pdomainname: &::windows::core::BSTR, pusername: &::windows::core::BSTR, ppassword: &::windows::core::BSTR, lflags: i32) -> ::windows::core::Result<()>;
     fn AddDirectoryObject(&self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
     fn ModifyDirectoryObject(&self, pdirectoryobject: &::core::option::Option<ITDirectoryObject>) -> ::windows::core::Result<()>;
@@ -4902,7 +4902,7 @@ impl ITDirectory_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsDynamic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdynamic: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsDynamic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdynamic: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsDynamic() {
@@ -4929,12 +4929,12 @@ impl ITDirectory_Vtbl {
             let this = (*this).get_impl();
             this.SetDefaultObjectTTL(::core::mem::transmute_copy(&ttl)).into()
         }
-        unsafe extern "system" fn EnableAutoRefresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EnableAutoRefresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EnableAutoRefresh(::core::mem::transmute_copy(&fenable)).into()
         }
-        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsecure: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsecure: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute_copy(&fsecure)).into()
@@ -5114,8 +5114,8 @@ pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::I
     fn SetUrl(&self, purl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Description(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetDescription(&self, pdescription: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn IsEncrypted(&self) -> ::windows::core::Result<i16>;
-    fn SetIsEncrypted(&self, fencrypted: i16) -> ::windows::core::Result<()>;
+    fn IsEncrypted(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIsEncrypted(&self, fencrypted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn StartTime(&self) -> ::windows::core::Result<f64>;
     fn SetStartTime(&self, date: f64) -> ::windows::core::Result<()>;
     fn StopTime(&self) -> ::windows::core::Result<f64>;
@@ -5201,7 +5201,7 @@ impl ITDirectoryObjectConference_Vtbl {
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&pdescription)).into()
         }
-        unsafe extern "system" fn IsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfencrypted: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfencrypted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsEncrypted() {
@@ -5212,7 +5212,7 @@ impl ITDirectoryObjectConference_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetIsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fencrypted: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetIsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fencrypted: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetIsEncrypted(::core::mem::transmute_copy(&fencrypted)).into()
@@ -6278,7 +6278,7 @@ impl ITMediaRecord_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITMediaSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaTypes(&self) -> ::windows::core::Result<i32>;
-    fn QueryMediaType(&self, lmediatype: i32) -> ::windows::core::Result<i16>;
+    fn QueryMediaType(&self, lmediatype: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITMediaSupport {}
@@ -6296,7 +6296,7 @@ impl ITMediaSupport_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, pfsupport: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn QueryMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, pfsupport: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueryMediaType(::core::mem::transmute_copy(&lmediatype)) {
@@ -8193,16 +8193,16 @@ pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Shutdown(&self) -> ::windows::core::Result<()>;
     fn Addresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateAddresses(&self) -> ::windows::core::Result<IEnumAddress>;
-    fn RegisterCallNotifications(&self, paddress: &::core::option::Option<ITAddress>, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>;
+    fn RegisterCallNotifications(&self, paddress: &::core::option::Option<ITAddress>, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32) -> ::windows::core::Result<i32>;
     fn UnregisterNotifications(&self, lregister: i32) -> ::windows::core::Result<()>;
     fn CallHubs(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn EnumerateCallHubs(&self) -> ::windows::core::Result<IEnumCallHub>;
-    fn SetCallHubTracking(&self, paddresses: &super::super::System::Com::VARIANT, btracking: i16) -> ::windows::core::Result<()>;
+    fn SetCallHubTracking(&self, paddresses: &super::super::System::Com::VARIANT, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn EnumeratePrivateTAPIObjects(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown>;
     fn PrivateTAPIObjects(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::core::Result<()>;
-    fn SetAssistedTelephonyPriority(&self, pappfilename: &::windows::core::BSTR, fpriority: i16) -> ::windows::core::Result<()>;
-    fn SetApplicationPriority(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: i16) -> ::windows::core::Result<()>;
+    fn RegisterRequestRecipient(&self, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetAssistedTelephonyPriority(&self, pappfilename: &::windows::core::BSTR, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn SetApplicationPriority(&self, pappfilename: &::windows::core::BSTR, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn SetEventFilter(&self, lfiltermask: i32) -> ::windows::core::Result<()>;
     fn EventFilter(&self) -> ::windows::core::Result<i32>;
 }
@@ -8243,7 +8243,7 @@ impl ITTAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterCallNotifications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterCallNotifications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void, fmonitor: super::super::Foundation::VARIANT_BOOL, fowner: super::super::Foundation::VARIANT_BOOL, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterCallNotifications(::core::mem::transmute(&paddress), ::core::mem::transmute_copy(&fmonitor), ::core::mem::transmute_copy(&fowner), ::core::mem::transmute_copy(&lmediatypes), ::core::mem::transmute_copy(&lcallbackinstance)) {
@@ -8281,7 +8281,7 @@ impl ITTAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCallHubTracking<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCallHubTracking<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCallHubTracking(::core::mem::transmute(&paddresses), ::core::mem::transmute_copy(&btracking)).into()
@@ -8308,17 +8308,17 @@ impl ITTAPI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterRequestRecipient<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RegisterRequestRecipient<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lregistrationinstance: i32, lrequestmode: i32, fenable: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RegisterRequestRecipient(::core::mem::transmute_copy(&lregistrationinstance), ::core::mem::transmute_copy(&lrequestmode), ::core::mem::transmute_copy(&fenable)).into()
         }
-        unsafe extern "system" fn SetAssistedTelephonyPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fpriority: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetAssistedTelephonyPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetAssistedTelephonyPriority(::core::mem::transmute(&pappfilename), ::core::mem::transmute_copy(&fpriority)).into()
         }
-        unsafe extern "system" fn SetApplicationPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lmediatype: i32, fpriority: i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetApplicationPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<::windows::core::BSTR>, lmediatype: i32, fpriority: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetApplicationPriority(::core::mem::transmute(&pappfilename), ::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&fpriority)).into()

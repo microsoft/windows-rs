@@ -6699,83 +6699,6 @@ impl ::core::ops::Not for CFE_UNDERLINE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CLIPBOARD_FORMATS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_TEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_BITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_METAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_SYLK: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DIF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(5u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_TIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(6u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_OEMTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(7u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DIB: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_PALETTE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(9u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_PENDATA: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(10u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_RIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(11u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_WAVE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(12u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_UNICODETEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(13u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_ENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(14u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_HDROP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(15u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_LOCALE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DIBV5: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(17u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_MAX: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(18u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_OWNERDISPLAY: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(128u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DSPTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(129u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DSPBITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(130u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(131u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(142u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_PRIVATEFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(512u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_PRIVATELAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(767u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_GDIOBJFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(768u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CF_GDIOBJLAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1023u32);
-impl ::core::marker::Copy for CLIPBOARD_FORMATS {}
-impl ::core::clone::Clone for CLIPBOARD_FORMATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLIPBOARD_FORMATS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CLIPBOARD_FORMATS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CLIPBOARD_FORMATS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CLIPBOARD_FORMATS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESKTOP_ACCESS_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
@@ -6812,6 +6735,66 @@ unsafe impl ::windows::core::Abi for DESKTOP_ACCESS_FLAGS {
 impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DESKTOP_ACCESS_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
+impl ::core::marker::Copy for DEVMODE_DISPLAY_FIXED_OUTPUT {}
+impl ::core::clone::Clone for DEVMODE_DISPLAY_FIXED_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVMODE_DISPLAY_FIXED_OUTPUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_FIXED_OUTPUT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVMODE_DISPLAY_FIXED_OUTPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVMODE_DISPLAY_FIXED_OUTPUT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
+impl ::core::marker::Copy for DEVMODE_DISPLAY_ORIENTATION {}
+impl ::core::clone::Clone for DEVMODE_DISPLAY_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVMODE_DISPLAY_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DEVMODE_DISPLAY_ORIENTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVMODE_DISPLAY_ORIENTATION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -8120,79 +8103,79 @@ impl ::core::fmt::Debug for SE_LEARNING_MODE_DATA_TYPE {
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SFGAO_FLAGS(pub u64);
+pub struct SFGAO_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANCOPY: SFGAO_FLAGS = SFGAO_FLAGS(1u64);
+pub const SFGAO_CANCOPY: SFGAO_FLAGS = SFGAO_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANMOVE: SFGAO_FLAGS = SFGAO_FLAGS(2u64);
+pub const SFGAO_CANMOVE: SFGAO_FLAGS = SFGAO_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANLINK: SFGAO_FLAGS = SFGAO_FLAGS(4u64);
+pub const SFGAO_CANLINK: SFGAO_FLAGS = SFGAO_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGE: SFGAO_FLAGS = SFGAO_FLAGS(8u64);
+pub const SFGAO_STORAGE: SFGAO_FLAGS = SFGAO_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANRENAME: SFGAO_FLAGS = SFGAO_FLAGS(16u64);
+pub const SFGAO_CANRENAME: SFGAO_FLAGS = SFGAO_FLAGS(16u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANDELETE: SFGAO_FLAGS = SFGAO_FLAGS(32u64);
+pub const SFGAO_CANDELETE: SFGAO_FLAGS = SFGAO_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASPROPSHEET: SFGAO_FLAGS = SFGAO_FLAGS(64u64);
+pub const SFGAO_HASPROPSHEET: SFGAO_FLAGS = SFGAO_FLAGS(64u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_DROPTARGET: SFGAO_FLAGS = SFGAO_FLAGS(256u64);
+pub const SFGAO_DROPTARGET: SFGAO_FLAGS = SFGAO_FLAGS(256u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CAPABILITYMASK: SFGAO_FLAGS = SFGAO_FLAGS(375u64);
+pub const SFGAO_CAPABILITYMASK: SFGAO_FLAGS = SFGAO_FLAGS(375u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_PLACEHOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2048u64);
+pub const SFGAO_PLACEHOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2048u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_SYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(4096u64);
+pub const SFGAO_SYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(4096u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_ENCRYPTED: SFGAO_FLAGS = SFGAO_FLAGS(8192u64);
+pub const SFGAO_ENCRYPTED: SFGAO_FLAGS = SFGAO_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_ISSLOW: SFGAO_FLAGS = SFGAO_FLAGS(16384u64);
+pub const SFGAO_ISSLOW: SFGAO_FLAGS = SFGAO_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_GHOSTED: SFGAO_FLAGS = SFGAO_FLAGS(32768u64);
+pub const SFGAO_GHOSTED: SFGAO_FLAGS = SFGAO_FLAGS(32768u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_LINK: SFGAO_FLAGS = SFGAO_FLAGS(65536u64);
+pub const SFGAO_LINK: SFGAO_FLAGS = SFGAO_FLAGS(65536u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_SHARE: SFGAO_FLAGS = SFGAO_FLAGS(131072u64);
+pub const SFGAO_SHARE: SFGAO_FLAGS = SFGAO_FLAGS(131072u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_READONLY: SFGAO_FLAGS = SFGAO_FLAGS(262144u64);
+pub const SFGAO_READONLY: SFGAO_FLAGS = SFGAO_FLAGS(262144u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HIDDEN: SFGAO_FLAGS = SFGAO_FLAGS(524288u64);
+pub const SFGAO_HIDDEN: SFGAO_FLAGS = SFGAO_FLAGS(524288u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = SFGAO_FLAGS(1032192u64);
+pub const SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = SFGAO_FLAGS(1032192u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(268435456u64);
+pub const SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(268435456u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FOLDER: SFGAO_FLAGS = SFGAO_FLAGS(536870912u64);
+pub const SFGAO_FOLDER: SFGAO_FLAGS = SFGAO_FLAGS(536870912u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FILESYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(1073741824u64);
+pub const SFGAO_FILESYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(1073741824u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASSUBFOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u64);
+pub const SFGAO_HASSUBFOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CONTENTSMASK: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u64);
+pub const SFGAO_CONTENTSMASK: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_VALIDATE: SFGAO_FLAGS = SFGAO_FLAGS(16777216u64);
+pub const SFGAO_VALIDATE: SFGAO_FLAGS = SFGAO_FLAGS(16777216u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_REMOVABLE: SFGAO_FLAGS = SFGAO_FLAGS(33554432u64);
+pub const SFGAO_REMOVABLE: SFGAO_FLAGS = SFGAO_FLAGS(33554432u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_COMPRESSED: SFGAO_FLAGS = SFGAO_FLAGS(67108864u64);
+pub const SFGAO_COMPRESSED: SFGAO_FLAGS = SFGAO_FLAGS(67108864u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_BROWSABLE: SFGAO_FLAGS = SFGAO_FLAGS(134217728u64);
+pub const SFGAO_BROWSABLE: SFGAO_FLAGS = SFGAO_FLAGS(134217728u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_NONENUMERATED: SFGAO_FLAGS = SFGAO_FLAGS(1048576u64);
+pub const SFGAO_NONENUMERATED: SFGAO_FLAGS = SFGAO_FLAGS(1048576u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_NEWCONTENT: SFGAO_FLAGS = SFGAO_FLAGS(2097152u64);
+pub const SFGAO_NEWCONTENT: SFGAO_FLAGS = SFGAO_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANMONIKER: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+pub const SFGAO_CANMONIKER: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASSTORAGE: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+pub const SFGAO_HASSTORAGE: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STREAM: SFGAO_FLAGS = SFGAO_FLAGS(4194304u64);
+pub const SFGAO_STREAM: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(8388608u64);
+pub const SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(8388608u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGECAPMASK: SFGAO_FLAGS = SFGAO_FLAGS(1891958792u64);
+pub const SFGAO_STORAGECAPMASK: SFGAO_FLAGS = SFGAO_FLAGS(1891958792u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = SFGAO_FLAGS(2164539392u64);
+pub const SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = SFGAO_FLAGS(2164539392u32);
 impl ::core::marker::Copy for SFGAO_FLAGS {}
 impl ::core::clone::Clone for SFGAO_FLAGS {
     fn clone(&self) -> Self {

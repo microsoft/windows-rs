@@ -270,8 +270,8 @@ pub struct IPrintDialogCallback_Vtbl {
 #[repr(transparent)]
 pub struct IPrintDialogServices(::windows::core::IUnknown);
 impl IPrintDialogServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCurrentDevMode)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
     }
@@ -309,9 +309,9 @@ unsafe impl ::windows::core::Interface for IPrintDialogServices {
 #[doc(hidden)]
 pub struct IPrintDialogServices_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
     pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices")))]
     GetCurrentDevMode: usize,
     pub GetCurrentPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
     pub GetCurrentPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
@@ -747,6 +747,49 @@ impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMMON_DIALOG_NOTIFICATION(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_FIRST: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-601i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_LAST: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-699i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_INITDONE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-601i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_SELCHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-602i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_FOLDERCHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-603i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_SHAREVIOLATION: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-604i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_HELP: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-605i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_FILEOK: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-606i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_TYPECHANGE: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-607i32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CDN_INCLUDEITEM: COMMON_DIALOG_NOTIFICATION = COMMON_DIALOG_NOTIFICATION(-608i32);
+impl ::core::marker::Copy for COMMON_DIALOG_NOTIFICATION {}
+impl ::core::clone::Clone for COMMON_DIALOG_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMMON_DIALOG_NOTIFICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMMON_DIALOG_NOTIFICATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMMON_DIALOG_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMMON_DIALOG_NOTIFICATION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]

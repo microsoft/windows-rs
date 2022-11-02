@@ -1,10 +1,13 @@
+#[cfg(feature = "Win32_Foundation")]
 pub trait IBindCallbackRedirect_Impl: Sized {
-    fn Redirect(&self, lpcurl: &::windows::core::PCWSTR) -> ::windows::core::Result<i16>;
+    fn Redirect(&self, lpcurl: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IBindCallbackRedirect {}
+#[cfg(feature = "Win32_Foundation")]
 impl IBindCallbackRedirect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindCallbackRedirect_Impl, const OFFSET: isize>() -> IBindCallbackRedirect_Vtbl {
-        unsafe extern "system" fn Redirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindCallbackRedirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcurl: ::windows::core::PCWSTR, vbcancel: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Redirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindCallbackRedirect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcurl: ::windows::core::PCWSTR, vbcancel: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Redirect(::core::mem::transmute(&lpcurl)) {

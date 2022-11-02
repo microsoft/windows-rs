@@ -8758,7 +8758,7 @@ impl ::core::clone::Clone for SecPkgContext_Flags {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SecPkgContext_IssuerListInfoEx {
-    pub aIssuers: *mut super::super::Cryptography::CRYPTOAPI_BLOB,
+    pub aIssuers: *mut super::super::Cryptography::CRYPT_INTEGER_BLOB,
     pub cIssuers: u32,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]

@@ -741,13 +741,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Memory\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 #[inline]
-pub unsafe fn OleDuplicateData<'a, P0>(hsrc: P0, cfformat: u16, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE
+pub unsafe fn OleDuplicateData<'a, P0>(hsrc: P0, cfformat: CLIPBOARD_FORMAT, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: u16, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE;
+        fn OleDuplicateData(hsrc: super::super::Foundation::HANDLE, cfformat: CLIPBOARD_FORMAT, uiflags: super::Memory::GLOBAL_ALLOC_FLAGS) -> super::super::Foundation::HANDLE;
     }
     OleDuplicateData(hsrc.into(), cfformat, uiflags)
 }
@@ -1943,168 +1943,179 @@ pub unsafe fn VarAnd(pvarleft: *const super::Com::VARIANT, pvarright: *const sup
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarAnd(::core::mem::transmute(pvarleft), ::core::mem::transmute(pvarright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn VarBoolFromCy(cyin: super::Com::CY) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromCy(cyin: super::Com::CY) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromCy(cyin: super::Com::CY, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-#[inline]
-pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::core::Result<i16> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VarBoolFromDate(datein: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromCy(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromDate(datein: f64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromDate(datein: f64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromDate(datein, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromDisp<'a, P0>(pdispin: P0, lcid: u32) -> ::windows::core::Result<i16>
+pub unsafe fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VarBoolFromDec(pdecin: *const super::super::Foundation::DECIMAL, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    VarBoolFromDec(::core::mem::transmute(pdecin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn VarBoolFromDisp<'a, P0>(pdispin: P0, lcid: u32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromDisp(pdispin: *mut ::core::ffi::c_void, lcid: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromDisp(pdispin.into().abi(), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromI1<'a, P0>(cin: P0) -> ::windows::core::Result<i16>
+pub unsafe fn VarBoolFromI1<'a, P0>(cin: P0) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
 where
     P0: ::std::convert::Into<super::super::Foundation::CHAR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromI1(cin: super::super::Foundation::CHAR, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromI1(cin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromI2(sin: i16) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromI2(sin: i16, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromI2(sin: i16, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromI2(sin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromI4(lin: i32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromI4(lin: i32, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromI4(lin: i32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromI4(lin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromI8(i64in: i64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromI8(i64in: i64, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromI8(i64in: i64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromR4(fltin: f32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromR4(fltin: f32, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromR4(fltin: f32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromR4(fltin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromR8(dblin: f64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromR8(dblin: f64, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromR8(dblin: f64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromR8(dblin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromStr<'a, P0>(strin: P0, lcid: u32, dwflags: u32) -> ::windows::core::Result<i16>
+pub unsafe fn VarBoolFromStr<'a, P0>(strin: P0, lcid: u32, dwflags: u32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromStr(strin: ::windows::core::PCWSTR, lcid: u32, dwflags: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromStr(strin.into(), lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromUI1(bin: u8) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromUI1(bin: u8, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromUI1(bin: u8, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromUI1(bin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromUI2(uiin: u16) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromUI2(uiin: u16, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromUI2(uiin: u16, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromUI2(uiin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromUI4(ulin: u32) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromUI4(ulin: u32, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromUI4(ulin: u32, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromUI4(ulin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<i16> {
+pub unsafe fn VarBoolFromUI8(i64in: u64) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBoolFromUI8(i64in: u64, pboolout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarBoolFromUI8(i64in: u64, pboolout: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VarBoolFromUI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+    VarBoolFromUI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::VARIANT_BOOL>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[inline]
@@ -2125,12 +2136,13 @@ pub unsafe fn VarBstrCmp(bstrleft: &::windows::core::BSTR, bstrright: &::windows
     }
     VarBstrCmp(::core::mem::transmute_copy(bstrleft), ::core::mem::transmute_copy(bstrright), lcid, dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
+pub unsafe fn VarBstrFromBool(boolin: super::super::Foundation::VARIANT_BOOL, lcid: u32, dwflags: u32) -> ::windows::core::Result<::windows::core::BSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarBstrFromBool(boolin: i16, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
+        fn VarBstrFromBool(boolin: super::super::Foundation::VARIANT_BOOL, lcid: u32, dwflags: u32, pbstrout: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarBstrFromBool(boolin, lcid, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
@@ -2359,13 +2371,13 @@ pub unsafe fn VarCyFix(cyin: super::Com::CY) -> ::windows::core::Result<super::C
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarCyFix(::core::mem::transmute(cyin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn VarCyFromBool(boolin: i16) -> ::windows::core::Result<super::Com::CY> {
+pub unsafe fn VarCyFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::Com::CY> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarCyFromBool(boolin: i16, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
+        fn VarCyFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pcyout: *mut super::Com::CY) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarCyFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
@@ -2610,12 +2622,13 @@ pub unsafe fn VarCySub(cyleft: super::Com::CY, cyright: super::Com::CY) -> ::win
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarCySub(::core::mem::transmute(cyleft), ::core::mem::transmute(cyright), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::CY>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarDateFromBool(boolin: i16) -> ::windows::core::Result<f64> {
+pub unsafe fn VarDateFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarDateFromBool(boolin: i16, pdateout: *mut f64) -> ::windows::core::HRESULT;
+        fn VarDateFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdateout: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarDateFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -2862,10 +2875,10 @@ pub unsafe fn VarDecFix(pdecin: *const super::super::Foundation::DECIMAL) -> ::w
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarDecFromBool(boolin: i16) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
+pub unsafe fn VarDecFromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<super::super::Foundation::DECIMAL> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarDecFromBool(boolin: i16, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
+        fn VarDecFromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdecout: *mut super::super::Foundation::DECIMAL) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarDecFromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::DECIMAL>(result__)
@@ -3192,12 +3205,13 @@ pub unsafe fn VarFormatPercent(pvarin: *const super::Com::VARIANT, inumdig: i32,
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarFormatPercent(::core::mem::transmute(pvarin), inumdig, iinclead, iuseparens, igroup, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::BSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarI1FromBool(boolin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
+pub unsafe fn VarI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pcout: ::windows::core::PSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarI1FromBool(boolin: i16, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
+        fn VarI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pcout: ::windows::core::PSTR) -> ::windows::core::HRESULT;
     }
     VarI1FromBool(boolin, ::core::mem::transmute(pcout)).ok()
 }
@@ -3336,12 +3350,13 @@ pub unsafe fn VarI1FromUI8(i64in: u64, pcout: ::windows::core::PSTR) -> ::window
     }
     VarI1FromUI8(i64in, ::core::mem::transmute(pcout)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarI2FromBool(boolin: i16) -> ::windows::core::Result<i16> {
+pub unsafe fn VarI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarI2FromBool(boolin: i16, psout: *mut i16) -> ::windows::core::HRESULT;
+        fn VarI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL, psout: *mut i16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarI2FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
@@ -3498,12 +3513,13 @@ pub unsafe fn VarI2FromUI8(ui64in: u64) -> ::windows::core::Result<i16> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarI2FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarI4FromBool(boolin: i16) -> ::windows::core::Result<i32> {
+pub unsafe fn VarI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarI4FromBool(boolin: i16, plout: *mut i32) -> ::windows::core::HRESULT;
+        fn VarI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, plout: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarI4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -3661,12 +3677,13 @@ pub unsafe fn VarI4FromUI8(ui64in: u64) -> ::windows::core::Result<i32> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarI4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarI8FromBool(boolin: i16) -> ::windows::core::Result<i64> {
+pub unsafe fn VarI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<i64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarI8FromBool(boolin: i16, pi64out: *mut i64) -> ::windows::core::HRESULT;
+        fn VarI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pi64out: *mut i64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarI8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
@@ -3955,12 +3972,13 @@ pub unsafe fn VarR4CmpR8(fltleft: f32, dblright: f64) -> VARCMP {
     }
     VarR4CmpR8(fltleft, dblright)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarR4FromBool(boolin: i16) -> ::windows::core::Result<f32> {
+pub unsafe fn VarR4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarR4FromBool(boolin: i16, pfltout: *mut f32) -> ::windows::core::HRESULT;
+        fn VarR4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pfltout: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarR4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
@@ -4117,12 +4135,13 @@ pub unsafe fn VarR4FromUI8(ui64in: u64) -> ::windows::core::Result<f32> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarR4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarR8FromBool(boolin: i16) -> ::windows::core::Result<f64> {
+pub unsafe fn VarR8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<f64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarR8FromBool(boolin: i16, pdblout: *mut f64) -> ::windows::core::HRESULT;
+        fn VarR8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pdblout: *mut f64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarR8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
@@ -4332,12 +4351,13 @@ where
     }
     VarTokenizeFormatString(pstrformat.into(), ::core::mem::transmute(rgbtok.as_ptr()), rgbtok.len() as _, ifirstday, ifirstweek, lcid, ::core::mem::transmute(pcbactual.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarUI1FromBool(boolin: i16) -> ::windows::core::Result<u8> {
+pub unsafe fn VarUI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u8> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarUI1FromBool(boolin: i16, pbout: *mut u8) -> ::windows::core::HRESULT;
+        fn VarUI1FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pbout: *mut u8) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI1FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
@@ -4495,12 +4515,13 @@ pub unsafe fn VarUI1FromUI8(ui64in: u64) -> ::windows::core::Result<u8> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI1FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u8>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarUI2FromBool(boolin: i16) -> ::windows::core::Result<u16> {
+pub unsafe fn VarUI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u16> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarUI2FromBool(boolin: i16, puiout: *mut u16) -> ::windows::core::HRESULT;
+        fn VarUI2FromBool(boolin: super::super::Foundation::VARIANT_BOOL, puiout: *mut u16) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI2FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
@@ -4657,12 +4678,13 @@ pub unsafe fn VarUI2FromUI8(i64in: u64) -> ::windows::core::Result<u16> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI2FromUI8(i64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarUI4FromBool(boolin: i16) -> ::windows::core::Result<u32> {
+pub unsafe fn VarUI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarUI4FromBool(boolin: i16, pulout: *mut u32) -> ::windows::core::HRESULT;
+        fn VarUI4FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pulout: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI4FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
@@ -4820,12 +4842,13 @@ pub unsafe fn VarUI4FromUI8(ui64in: u64) -> ::windows::core::Result<u32> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI4FromUI8(ui64in, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VarUI8FromBool(boolin: i16) -> ::windows::core::Result<u64> {
+pub unsafe fn VarUI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn VarUI8FromBool(boolin: i16, pi64out: *mut u64) -> ::windows::core::HRESULT;
+        fn VarUI8FromBool(boolin: super::super::Foundation::VARIANT_BOOL, pi64out: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VarUI8FromBool(boolin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
@@ -10339,13 +10362,13 @@ pub struct IPersistPropertyBag2_Vtbl {
 #[repr(transparent)]
 pub struct IPicture(::windows::core::IUnknown);
 impl IPicture {
-    pub unsafe fn Handle(&self) -> ::windows::core::Result<u32> {
+    pub unsafe fn Handle(&self) -> ::windows::core::Result<OLE_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLE_HANDLE>(result__)
     }
-    pub unsafe fn hPal(&self) -> ::windows::core::Result<u32> {
+    pub unsafe fn hPal(&self) -> ::windows::core::Result<OLE_HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Vtable::vtable(self).hPal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLE_HANDLE>(result__)
     }
     pub unsafe fn Type(&self) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10367,8 +10390,11 @@ impl IPicture {
     {
         (::windows::core::Vtable::vtable(self).Render)(::windows::core::Vtable::as_raw(self), hdc.into(), x, y, cx, cy, xsrc, ysrc, cxsrc, cysrc, ::core::mem::transmute(prcwbounds)).ok()
     }
-    pub unsafe fn set_hPal(&self, hpal: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).set_hPal)(::windows::core::Vtable::as_raw(self), hpal).ok()
+    pub unsafe fn set_hPal<'a, P0>(&self, hpal: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<OLE_HANDLE>,
+    {
+        (::windows::core::Vtable::vtable(self).set_hPal)(::windows::core::Vtable::as_raw(self), hpal.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -10378,7 +10404,7 @@ impl IPicture {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SelectPicture<'a, P0>(&self, hdcin: P0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::Result<()>
+    pub unsafe fn SelectPicture<'a, P0>(&self, hdcin: P0, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut OLE_HANDLE) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
@@ -10443,8 +10469,8 @@ unsafe impl ::windows::core::Interface for IPicture {
 #[doc(hidden)]
 pub struct IPicture_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut u32) -> ::windows::core::HRESULT,
-    pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut u32) -> ::windows::core::HRESULT,
+    pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut OLE_HANDLE) -> ::windows::core::HRESULT,
+    pub hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phpal: *mut OLE_HANDLE) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut i16) -> ::windows::core::HRESULT,
     pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwidth: *mut i32) -> ::windows::core::HRESULT,
     pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheight: *mut i32) -> ::windows::core::HRESULT,
@@ -10452,13 +10478,13 @@ pub struct IPicture_Vtbl {
     pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, x: i32, y: i32, cx: i32, cy: i32, xsrc: i32, ysrc: i32, cxsrc: i32, cysrc: i32, prcwbounds: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     Render: usize,
-    pub set_hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: u32) -> ::windows::core::HRESULT,
+    pub set_hPal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpal: OLE_HANDLE) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub CurDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdc: *mut super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CurDC: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub SelectPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut u32) -> ::windows::core::HRESULT,
+    pub SelectPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcin: super::super::Graphics::Gdi::HDC, phdcout: *mut super::super::Graphics::Gdi::HDC, phbmpout: *mut OLE_HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SelectPicture: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -11326,7 +11352,9 @@ pub struct IProvideMultipleClassInfo_Vtbl {
 #[repr(transparent)]
 pub struct IProvideRuntimeContext(::windows::core::IUnknown);
 impl IProvideRuntimeContext {
-    pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetCurrentSourceContext(&self, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCurrentSourceContext)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdwcontext), ::core::mem::transmute(pfexecutingglobalcode)).ok()
     }
 }
@@ -11357,7 +11385,10 @@ unsafe impl ::windows::core::Interface for IProvideRuntimeContext {
 #[doc(hidden)]
 pub struct IProvideRuntimeContext_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetCurrentSourceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut i16) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetCurrentSourceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcontext: *mut usize, pfexecutingglobalcode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetCurrentSourceContext: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
@@ -13539,6 +13570,83 @@ impl ::core::ops::Not for CHANGE_SOURCE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CLIPBOARD_FORMAT(pub u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(3u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SYLK: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(4u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(5u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(6u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OEMTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(7u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIB: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(8u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PALETTE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(9u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PENDATA: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(10u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_RIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(11u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_WAVE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(12u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(13u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(14u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_HDROP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(15u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_LOCALE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(16u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIBV5: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(17u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_MAX: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(18u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(128u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(129u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(130u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(131u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(142u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(512u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(767u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(768u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1023u16);
+impl ::core::marker::Copy for CLIPBOARD_FORMAT {}
+impl ::core::clone::Clone for CLIPBOARD_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLIPBOARD_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLIPBOARD_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLIPBOARD_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLIPBOARD_FORMAT").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -19008,6 +19116,38 @@ impl ::core::default::Default for OLEVERB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OLE_HANDLE(pub u32);
+impl OLE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for OLE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for OLE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for OLE_HANDLE {}
+impl ::core::fmt::Debug for OLE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OLE_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<OLE_HANDLE>> for OLE_HANDLE {
+    fn from(optional: ::core::option::Option<OLE_HANDLE>) -> OLE_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for OLE_HANDLE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub struct PAGERANGE {
@@ -20055,7 +20195,7 @@ pub union _wireVARIANT_0 {
     pub iVal: i16,
     pub fltVal: f32,
     pub dblVal: f64,
-    pub boolVal: i16,
+    pub boolVal: super::super::Foundation::VARIANT_BOOL,
     pub scode: i32,
     pub cyVal: super::Com::CY,
     pub date: f64,
@@ -20070,7 +20210,7 @@ pub union _wireVARIANT_0 {
     pub pllVal: *mut i64,
     pub pfltVal: *mut f32,
     pub pdblVal: *mut f64,
-    pub pboolVal: *mut i16,
+    pub pboolVal: *mut super::super::Foundation::VARIANT_BOOL,
     pub pscode: *mut i32,
     pub pcyVal: *mut super::Com::CY,
     pub pdate: *mut f64,

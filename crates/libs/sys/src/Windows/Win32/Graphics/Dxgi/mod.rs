@@ -183,20 +183,6 @@ pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_BACK_BUFFER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_DISCARD_ON_PRESENT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_READ_ONLY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_SHADER_INPUT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_SHARED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub type DXGI_ADAPTER_FLAG = u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ADAPTER_FLAG_NONE: DXGI_ADAPTER_FLAG = 0u32;
@@ -1122,6 +1108,22 @@ pub const DXGI_SWAP_EFFECT_SEQUENTIAL: DXGI_SWAP_EFFECT = 1i32;
 pub const DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: DXGI_SWAP_EFFECT = 3i32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SWAP_EFFECT_FLIP_DISCARD: DXGI_SWAP_EFFECT = 4i32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub type DXGI_USAGE = u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_SHADER_INPUT: DXGI_USAGE = 16u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: DXGI_USAGE = 32u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_BACK_BUFFER: DXGI_USAGE = 64u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_SHARED: DXGI_USAGE = 128u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_READ_ONLY: DXGI_USAGE = 256u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_DISCARD_ON_PRESENT: DXGI_USAGE = 512u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_USAGE_UNORDERED_ACCESS: DXGI_USAGE = 1024u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1605,7 +1607,7 @@ impl ::core::clone::Clone for DXGI_SURFACE_DESC {
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: Common::DXGI_MODE_DESC,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
-    pub BufferUsage: u32,
+    pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
     pub OutputWindow: super::super::Foundation::HWND,
     pub Windowed: super::super::Foundation::BOOL,
@@ -1629,7 +1631,7 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Format: Common::DXGI_FORMAT,
     pub Stereo: super::super::Foundation::BOOL,
     pub SampleDesc: Common::DXGI_SAMPLE_DESC,
-    pub BufferUsage: u32,
+    pub BufferUsage: DXGI_USAGE,
     pub BufferCount: u32,
     pub Scaling: DXGI_SCALING,
     pub SwapEffect: DXGI_SWAP_EFFECT,

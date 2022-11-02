@@ -794,13 +794,13 @@ impl IMbnDeviceServicesManager_Vtbl {
         iid == &<IMbnDeviceServicesManager as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnInterface_Impl: Sized {
     fn InterfaceID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetInterfaceCapability(&self) -> ::windows::core::Result<MBN_INTERFACE_CAPS>;
     fn GetSubscriberInformation(&self) -> ::windows::core::Result<IMbnSubscriberInformation>;
     fn GetReadyState(&self) -> ::windows::core::Result<MBN_READY_STATE>;
-    fn InEmergencyMode(&self) -> ::windows::core::Result<i16>;
+    fn InEmergencyMode(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetHomeProvider(&self) -> ::windows::core::Result<MBN_PROVIDER>;
     fn GetPreferredProviders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetPreferredProviders(&self, preferredproviders: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<u32>;
@@ -808,9 +808,9 @@ pub trait IMbnInterface_Impl: Sized {
     fn ScanNetwork(&self) -> ::windows::core::Result<u32>;
     fn GetConnection(&self) -> ::windows::core::Result<IMbnConnection>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IMbnInterface {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMbnInterface_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>() -> IMbnInterface_Vtbl {
         unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interfaceid: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT {
@@ -857,7 +857,7 @@ impl IMbnInterface_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InEmergencyMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emergencymode: *mut i16) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn InEmergencyMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emergencymode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.InEmergencyMode() {
@@ -2071,19 +2071,19 @@ impl IMbnSmsConfiguration_Vtbl {
         iid == &<IMbnSmsConfiguration as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMbnSmsEvents_Impl: Sized {
     fn OnSmsConfigurationChange(&self, sms: &::core::option::Option<IMbnSms>) -> ::windows::core::Result<()>;
     fn OnSetSmsConfigurationComplete(&self, sms: &::core::option::Option<IMbnSms>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnSmsSendComplete(&self, sms: &::core::option::Option<IMbnSms>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
-    fn OnSmsReadComplete(&self, sms: &::core::option::Option<IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: i16, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
+    fn OnSmsReadComplete(&self, sms: &::core::option::Option<IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnSmsNewClass0Message(&self, sms: &::core::option::Option<IMbnSms>, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn OnSmsDeleteComplete(&self, sms: &::core::option::Option<IMbnSms>, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
     fn OnSmsStatusChange(&self, sms: &::core::option::Option<IMbnSms>) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IMbnSmsEvents {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl IMbnSmsEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsEvents_Impl, const OFFSET: isize>() -> IMbnSmsEvents_Vtbl {
         unsafe extern "system" fn OnSmsConfigurationChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -2101,7 +2101,7 @@ impl IMbnSmsEvents_Vtbl {
             let this = (*this).get_impl();
             this.OnSmsSendComplete(::core::mem::transmute(&sms), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()
         }
-        unsafe extern "system" fn OnSmsReadComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: i16, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnSmsReadComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMbnSmsEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: super::super::Foundation::VARIANT_BOOL, requestid: u32, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnSmsReadComplete(::core::mem::transmute(&sms), ::core::mem::transmute_copy(&smsformat), ::core::mem::transmute_copy(&readmsgs), ::core::mem::transmute_copy(&moremsgs), ::core::mem::transmute_copy(&requestid), ::core::mem::transmute_copy(&status)).into()

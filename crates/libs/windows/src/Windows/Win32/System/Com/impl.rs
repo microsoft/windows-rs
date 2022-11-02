@@ -2834,7 +2834,7 @@ impl IPersist_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistFile_Impl: Sized + IPersist_Impl {
     fn IsDirty(&self) -> ::windows::core::HRESULT;
-    fn Load(&self, pszfilename: &::windows::core::PCWSTR, dwmode: u32) -> ::windows::core::Result<()>;
+    fn Load(&self, pszfilename: &::windows::core::PCWSTR, dwmode: STGM) -> ::windows::core::Result<()>;
     fn Save(&self, pszfilename: &::windows::core::PCWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SaveCompleted(&self, pszfilename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetCurFile(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
@@ -2849,7 +2849,7 @@ impl IPersistFile_Vtbl {
             let this = (*this).get_impl();
             this.IsDirty()
         }
-        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, dwmode: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: ::windows::core::PCWSTR, dwmode: STGM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Load(::core::mem::transmute(&pszfilename), ::core::mem::transmute_copy(&dwmode)).into()
