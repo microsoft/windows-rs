@@ -192,7 +192,7 @@ jobs:
           cargo run -p tool_msvc
       - name: Compare
         shell: bash
-        run: git diff crates/targets/baseline --exit-code || (echo '::error::Generated target libs are out-of-date.'; exit 1)
+        run: git diff --exit-code crates/targets/baseline || (echo '::error::Generated target libs are out-of-date.'; exit 1)
 
   generation:
     name: Check generation of `tool_${{ matrix.generator }}`
