@@ -20,7 +20,7 @@ fn main() {
     };
 
     let libraries = lib::libraries();
-    let output = std::path::PathBuf::from(format!("crates/targets/baseline"));
+    let output = std::path::PathBuf::from("crates/targets/baseline");
     let _ = std::fs::remove_dir_all(&output);
     std::fs::create_dir_all(&output).unwrap();
 
