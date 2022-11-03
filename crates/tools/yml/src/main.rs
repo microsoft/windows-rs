@@ -162,7 +162,7 @@ env:
 
 jobs:
   cargo_clippy:
-    name: Check clippy
+    name: Check
     runs-on: windows-2019
     steps:
       - name: Checkout
