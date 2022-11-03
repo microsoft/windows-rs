@@ -55,7 +55,7 @@ impl File {
     pub fn new(path: &str) -> Result<Self> {
         let path = std::path::Path::new(path);
 
-        let buffer = std::fs::read(&path)?;
+        let buffer = std::fs::read(path)?;
         let name = path.file_name().unwrap().to_string_lossy().into_owned();
 
         Self::from_buffer(buffer, name)
