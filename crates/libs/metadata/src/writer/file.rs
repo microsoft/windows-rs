@@ -1,6 +1,11 @@
 use super::*;
 
 pub fn write(filename: &str, tables: Tables) {
+    let buffer = write_to_buffer(tables);
+    std::fs::write(filename, buffer).unwrap();
+}
+
+pub fn write_to_buffer(tables: Tables) -> Vec<u8> {
     let mut dos: IMAGE_DOS_HEADER = unsafe { zeroed() };
     dos.e_magic = IMAGE_DOS_SIGNATURE as _;
     dos.e_lfarlc = 64;
@@ -108,7 +113,7 @@ pub fn write(filename: &str, tables: Tables) {
     assert_eq!(clr.MetaData.Size as usize, buffer.len() - metadata_offset);
     assert_eq!(size_of_image, buffer.len());
 
-    std::fs::write(filename, buffer).unwrap();
+    buffer
 }
 
 const SECTION_ALIGNMENT: u32 = 4096;
