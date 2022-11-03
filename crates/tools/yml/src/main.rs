@@ -6,7 +6,7 @@ fn main() {
 }
 
 fn test_yml() {
-    let mut yml = r#"name: Test
+    let mut yml = r#"name: test
 
 on:
   pull_request:
@@ -149,7 +149,7 @@ jobs:
 }
 
 fn build_yml() {
-    let mut yml = r#"name: Build
+    let mut yml = r#"name: clippy
 
 on:
   pull_request:
@@ -161,92 +161,8 @@ env:
   RUSTFLAGS: -Dwarnings
 
 jobs:
-  cargo_fmt:
-    name: Check cargo formatting
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run cargo fmt
-        run: cargo fmt --all -- --check
-
-  cargo_doc:
-    name: Check cargo docs
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run cargo doc
-        run: cargo doc --no-deps -p windows
-
-  lib_generation:
-    name: Check generation of libs
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run tool
-        shell: cmd
-        run: |
-          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars32.bat" x86
-          cargo run -p tool_msvc
-      - name: Compare
-        shell: bash
-        run: |
-          git add -N .
-          git diff --exit-code crates/targets/baseline || (echo '::error::Generated target libs are out-of-date.'; exit 1)
-
-  generation:
-    name: Check generation of `tool_${{ matrix.generator }}`
-    runs-on: windows-2019
-    strategy:
-      matrix:
-        generator: [windows, sys, yml]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Run tool_${{ matrix.generator }}
-        run: cargo run -p tool_${{ matrix.generator }}
-      - name: Compare
-        shell: bash
-        run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.generator }}` are out-of-date. Please run `cargo run -p tool_${{ matrix.generator }}`'; exit 1)
-    
-  cargo_sys:
-    name: Check windows-sys
-    strategy:
-      matrix:
-        rust: [1.49.0, stable, nightly]
-        runs-on:
-          - windows-2019
-          - ubuntu-latest
-    runs-on: ${{ matrix.runs-on }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-      - name: Run cargo check
-        run: cargo check -p windows-sys --all-features
-
-  cargo_windows:
-    name: Check windows
-    strategy:
-      matrix:
-        rust: [1.64.0, stable, nightly]
-        runs-on:
-          - windows-2019
-          - ubuntu-latest
-    runs-on: ${{ matrix.runs-on }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Update toolchain
-        run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-      - name: Run cargo check
-        run: cargo check -p windows --features Foundation,Win32_Foundation,Win32_Graphics_Direct2D
-
   cargo_clippy:
-    name: Check clippy
+    name: Check
     runs-on: windows-2019
     steps:
       - name: Checkout
@@ -275,7 +191,7 @@ jobs:
 
     write!(&mut yml, "\n          cargo clippy -p test_debugger_visualizer\n").unwrap();
 
-    std::fs::write(".github/workflows/build.yml", yml.as_bytes()).unwrap();
+    std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
 }
 
 fn crates() -> Vec<String> {

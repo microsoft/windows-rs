@@ -1,4 +1,4 @@
-name: Test (cross-compilation)
+name: cross
 
 on:
   pull_request:

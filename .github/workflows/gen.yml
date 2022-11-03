@@ -1,0 +1,26 @@
+name: gen
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  generation:
+    name: tool_${{ matrix.tool }}
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        tool: [windows, sys, yml]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run
+        run: cargo run -p tool_${{ matrix.tool }}
+      - name: Check
+        shell: bash
+        run: git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool_${{ matrix.tool }}`'; exit 1)
