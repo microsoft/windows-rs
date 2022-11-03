@@ -11,7 +11,7 @@ env:
 
 jobs:
   fmt:
-    name: Check cargo formatting
+    name: Check
     runs-on: windows-latest
     steps:
       - name: Checkout

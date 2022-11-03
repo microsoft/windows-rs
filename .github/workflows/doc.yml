@@ -11,7 +11,7 @@ env:
 
 jobs:
   windows:
-    name: Check cargo docs
+    name: Check
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
         run: cargo doc --no-deps -p windows
 
   windows-sys:
-    name: Check cargo docs
+    name: Check
     runs-on: windows-latest
     steps:
       - name: Checkout

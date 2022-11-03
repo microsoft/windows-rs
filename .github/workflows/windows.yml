@@ -11,7 +11,7 @@ env:
 
 jobs:
   cargo_windows:
-    name: Check windows
+    name: Check
     strategy:
       matrix:
         rust: [1.64.0, stable, nightly]

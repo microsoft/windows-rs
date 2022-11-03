@@ -1,4 +1,4 @@
-name: libs
+name: lib
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ env:
 
 jobs:
   lib_generation:
-    name: Check generation of libs
+    name: Check
     runs-on: windows-2019
     steps:
       - name: Checkout

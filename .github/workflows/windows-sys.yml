@@ -11,7 +11,7 @@ env:
 
 jobs:
   cargo_sys:
-    name: Check windows-sys
+    name: Check
     strategy:
       matrix:
         rust: [1.49.0, stable, nightly]
