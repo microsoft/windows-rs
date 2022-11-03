@@ -6,7 +6,7 @@ fn main() {
 }
 
 fn test_yml() {
-    let mut yml = r#"name: Test
+    let mut yml = r#"name: test
 
 on:
   pull_request:
