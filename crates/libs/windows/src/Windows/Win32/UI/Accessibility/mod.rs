@@ -6,10 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccNotifyTouchInteraction ( hwndapp : super::super::Foundation:: HWND , hwndtarget : super::super::Foundation:: HWND , pttarget : super::super::Foundation:: POINT ) -> :: windows::core::HRESULT );
     AccNotifyTouchInteraction(hwndapp.into(), hwndtarget.into(), ::core::mem::transmute(pttarget)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -19,10 +16,7 @@ pub unsafe fn AccSetRunningUtilityState<'a, P0>(hwndapp: P0, dwutilitystatemask:
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccSetRunningUtilityState ( hwndapp : super::super::Foundation:: HWND , dwutilitystatemask : u32 , dwutilitystate : ACC_UTILITY_STATE_FLAGS ) -> :: windows::core::HRESULT );
     AccSetRunningUtilityState(hwndapp.into(), dwutilitystatemask, dwutilitystate).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -32,10 +26,7 @@ pub unsafe fn AccessibleChildren<'a, P0>(pacccontainer: P0, ichildstart: i32, rg
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccessibleChildren(pacccontainer: *mut ::core::ffi::c_void, ichildstart: i32, cchildren: i32, rgvarchildren: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pcobtained: *mut i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccessibleChildren ( pacccontainer : * mut::core::ffi::c_void , ichildstart : i32 , cchildren : i32 , rgvarchildren : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , pcobtained : *mut i32 ) -> :: windows::core::HRESULT );
     AccessibleChildren(pacccontainer.into().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), ::core::mem::transmute(pcobtained)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -45,20 +36,14 @@ pub unsafe fn AccessibleObjectFromEvent<'a, P0>(hwnd: P0, dwid: u32, dwchildid: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccessibleObjectFromEvent ( hwnd : super::super::Foundation:: HWND , dwid : u32 , dwchildid : u32 , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     AccessibleObjectFromEvent(hwnd.into(), dwid, dwchildid, ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccessibleObjectFromPoint ( ptscreen : super::super::Foundation:: POINT , ppacc : *mut * mut::core::ffi::c_void , pvarchild : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     AccessibleObjectFromPoint(::core::mem::transmute(ptscreen), ::core::mem::transmute(ppacc), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -68,10 +53,7 @@ pub unsafe fn AccessibleObjectFromWindow<'a, P0>(hwnd: P0, dwid: u32, riid: *con
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn AccessibleObjectFromWindow ( hwnd : super::super::Foundation:: HWND , dwid : u32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     AccessibleObjectFromWindow(hwnd.into(), dwid, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -81,10 +63,7 @@ pub unsafe fn CreateStdAccessibleObject<'a, P0>(hwnd: P0, idobject: i32, riid: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn CreateStdAccessibleObject ( hwnd : super::super::Foundation:: HWND , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleObject(hwnd.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -95,10 +74,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CreateStdAccessibleProxyA(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn CreateStdAccessibleProxyA ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleProxyA(hwnd.into(), pclassname.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -109,10 +85,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CreateStdAccessibleProxyW(hwnd: super::super::Foundation::HWND, pclassname: ::windows::core::PCWSTR, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn CreateStdAccessibleProxyW ( hwnd : super::super::Foundation:: HWND , pclassname : :: windows::core::PCWSTR , idobject : i32 , riid : *const :: windows::core::GUID , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -121,10 +94,7 @@ pub unsafe fn DockPattern_SetDockPosition<'a, P0>(hobj: P0, dockposition: DockPo
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn DockPattern_SetDockPosition ( hobj : HUIAPATTERNOBJECT , dockposition : DockPosition ) -> :: windows::core::HRESULT );
     DockPattern_SetDockPosition(hobj.into(), dockposition).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -133,10 +103,7 @@ pub unsafe fn ExpandCollapsePattern_Collapse<'a, P0>(hobj: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ExpandCollapsePattern_Collapse ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ExpandCollapsePattern_Collapse(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -145,55 +112,37 @@ pub unsafe fn ExpandCollapsePattern_Expand<'a, P0>(hobj: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ExpandCollapsePattern_Expand ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ExpandCollapsePattern_Expand(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32);
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn GetOleaccVersionInfo ( pver : *mut u32 , pbuild : *mut u32 ) -> ( ) );
     GetOleaccVersionInfo(::core::mem::transmute(pver), ::core::mem::transmute(pbuild))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: ::core::option::Option<&mut [u8]>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetRoleTextA(lrole: u32, lpszrole: ::windows::core::PSTR, cchrolemax: u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn GetRoleTextA ( lrole : u32 , lpszrole : :: windows::core::PSTR , cchrolemax : u32 ) -> u32 );
     GetRoleTextA(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: ::core::option::Option<&mut [u16]>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetRoleTextW(lrole: u32, lpszrole: ::windows::core::PWSTR, cchrolemax: u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn GetRoleTextW ( lrole : u32 , lpszrole : :: windows::core::PWSTR , cchrolemax : u32 ) -> u32 );
     GetRoleTextW(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u8]>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetStateTextA(lstatebit: u32, lpszstate: ::windows::core::PSTR, cchstate: u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn GetStateTextA ( lstatebit : u32 , lpszstate : :: windows::core::PSTR , cchstate : u32 ) -> u32 );
     GetStateTextA(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u16]>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetStateTextW(lstatebit: u32, lpszstate: ::windows::core::PWSTR, cchstate: u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn GetStateTextW ( lstatebit : u32 , lpszstate : :: windows::core::PWSTR , cchstate : u32 ) -> u32 );
     GetStateTextW(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -202,10 +151,7 @@ pub unsafe fn GridPattern_GetItem<'a, P0>(hobj: P0, row: i32, column: i32, presu
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn GridPattern_GetItem ( hobj : HUIAPATTERNOBJECT , row : i32 , column : i32 , presult : *mut HUIANODE ) -> :: windows::core::HRESULT );
     GridPattern_GetItem(hobj.into(), row, column, ::core::mem::transmute(presult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -214,20 +160,14 @@ pub unsafe fn InvokePattern_Invoke<'a, P0>(hobj: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn InvokePattern_Invoke ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     InvokePattern_Invoke(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn IsWinEventHookInstalled ( event : u32 ) -> super::super::Foundation:: BOOL );
     IsWinEventHookInstalled(event)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -239,10 +179,7 @@ where
     P1: ::std::convert::Into<HUIANODE>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ItemContainerPattern_FindItemByProperty ( hobj : HUIAPATTERNOBJECT , hnodestartafter : HUIANODE , propertyid : i32 , value : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , pfound : *mut HUIANODE ) -> :: windows::core::HRESULT );
     ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, value.into().abi(), ::core::mem::transmute(pfound)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -251,10 +188,7 @@ pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, P0>(hobj: P0) -> ::wi
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn LegacyIAccessiblePattern_DoDefaultAction ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_DoDefaultAction(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -264,10 +198,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, P0>(hobj: P0) -> ::win
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn LegacyIAccessiblePattern_GetIAccessible ( hobj : HUIAPATTERNOBJECT , paccessible : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     LegacyIAccessiblePattern_GetIAccessible(hobj.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAccessible>(result__)
 }
@@ -277,10 +208,7 @@ pub unsafe fn LegacyIAccessiblePattern_Select<'a, P0>(hobj: P0, flagsselect: i32
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn LegacyIAccessiblePattern_Select ( hobj : HUIAPATTERNOBJECT , flagsselect : i32 ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_Select(hobj.into(), flagsselect).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -290,10 +218,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn LegacyIAccessiblePattern_SetValue ( hobj : HUIAPATTERNOBJECT , szvalue : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -304,10 +229,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn LresultFromObject ( riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , punk : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
     LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -316,10 +238,7 @@ pub unsafe fn MultipleViewPattern_GetViewName<'a, P0>(hobj: P0, viewid: i32, pps
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn MultipleViewPattern_GetViewName ( hobj : HUIAPATTERNOBJECT , viewid : i32 , ppstr : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     MultipleViewPattern_GetViewName(hobj.into(), viewid, ::core::mem::transmute(ppstr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -328,10 +247,7 @@ pub unsafe fn MultipleViewPattern_SetCurrentView<'a, P0>(hobj: P0, viewid: i32) 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn MultipleViewPattern_SetCurrentView ( hobj : HUIAPATTERNOBJECT , viewid : i32 ) -> :: windows::core::HRESULT );
     MultipleViewPattern_SetCurrentView(hobj.into(), viewid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -341,10 +257,7 @@ pub unsafe fn NotifyWinEvent<'a, P0>(event: u32, hwnd: P0, idobject: i32, idchil
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn NotifyWinEvent ( event : u32 , hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 ) -> ( ) );
     NotifyWinEvent(event, hwnd.into(), idobject, idchild)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -355,10 +268,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::LRESULT>,
     P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn ObjectFromLresult ( lresult : super::super::Foundation:: LRESULT , riid : *const :: windows::core::GUID , wparam : super::super::Foundation:: WPARAM , ppvobject : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     ObjectFromLresult(lresult.into(), ::core::mem::transmute(riid), wparam.into(), ::core::mem::transmute(ppvobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -367,10 +277,7 @@ pub unsafe fn RangeValuePattern_SetValue<'a, P0>(hobj: P0, val: f64) -> ::window
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn RangeValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , val : f64 ) -> :: windows::core::HRESULT );
     RangeValuePattern_SetValue(hobj.into(), val).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -380,10 +287,7 @@ pub unsafe fn RegisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super::W
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn RegisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     RegisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -394,10 +298,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn RegisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE , fobserve : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -406,10 +307,7 @@ pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, P0>(hobj: P0) -> ::windows::c
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ScrollItemPattern_ScrollIntoView ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     ScrollItemPattern_ScrollIntoView(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -418,10 +316,7 @@ pub unsafe fn ScrollPattern_Scroll<'a, P0>(hobj: P0, horizontalamount: ScrollAmo
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ScrollPattern_Scroll ( hobj : HUIAPATTERNOBJECT , horizontalamount : ScrollAmount , verticalamount : ScrollAmount ) -> :: windows::core::HRESULT );
     ScrollPattern_Scroll(hobj.into(), horizontalamount, verticalamount).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -430,10 +325,7 @@ pub unsafe fn ScrollPattern_SetScrollPercent<'a, P0>(hobj: P0, horizontalpercent
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ScrollPattern_SetScrollPercent ( hobj : HUIAPATTERNOBJECT , horizontalpercent : f64 , verticalpercent : f64 ) -> :: windows::core::HRESULT );
     ScrollPattern_SetScrollPercent(hobj.into(), horizontalpercent, verticalpercent).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -442,10 +334,7 @@ pub unsafe fn SelectionItemPattern_AddToSelection<'a, P0>(hobj: P0) -> ::windows
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn SelectionItemPattern_AddToSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_AddToSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -454,10 +343,7 @@ pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, P0>(hobj: P0) -> ::wi
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn SelectionItemPattern_RemoveFromSelection ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_RemoveFromSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -466,10 +352,7 @@ pub unsafe fn SelectionItemPattern_Select<'a, P0>(hobj: P0) -> ::windows::core::
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn SelectionItemPattern_Select ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SelectionItemPattern_Select(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -479,10 +362,7 @@ pub unsafe fn SetWinEventHook<'a, P0>(eventmin: u32, eventmax: u32, hmodwinevent
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetWinEventHook ( eventmin : u32 , eventmax : u32 , hmodwineventproc : super::super::Foundation:: HINSTANCE , pfnwineventproc : * mut::core::ffi::c_void , idprocess : u32 , idthread : u32 , dwflags : u32 ) -> HWINEVENTHOOK );
     SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -491,10 +371,7 @@ pub unsafe fn SynchronizedInputPattern_Cancel<'a, P0>(hobj: P0) -> ::windows::co
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn SynchronizedInputPattern_Cancel ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     SynchronizedInputPattern_Cancel(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -503,10 +380,7 @@ pub unsafe fn SynchronizedInputPattern_StartListening<'a, P0>(hobj: P0, inputtyp
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn SynchronizedInputPattern_StartListening ( hobj : HUIAPATTERNOBJECT , inputtype : SynchronizedInputType ) -> :: windows::core::HRESULT );
     SynchronizedInputPattern_StartListening(hobj.into(), inputtype).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -516,10 +390,7 @@ pub unsafe fn TextPattern_GetSelection<'a, P0>(hobj: P0, pretval: *mut *mut supe
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_GetSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextPattern_GetSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -529,10 +400,7 @@ pub unsafe fn TextPattern_GetVisibleRanges<'a, P0>(hobj: P0, pretval: *mut *mut 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_GetVisibleRanges ( hobj : HUIAPATTERNOBJECT , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextPattern_GetVisibleRanges(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -542,10 +410,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_RangeFromChild ( hobj : HUIAPATTERNOBJECT , hnodechild : HUIANODE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -554,10 +419,7 @@ pub unsafe fn TextPattern_RangeFromPoint<'a, P0>(hobj: P0, point: UiaPoint, pret
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_RangeFromPoint ( hobj : HUIAPATTERNOBJECT , point : UiaPoint , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -566,10 +428,7 @@ pub unsafe fn TextPattern_get_DocumentRange<'a, P0>(hobj: P0, pretval: *mut HUIA
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_get_DocumentRange ( hobj : HUIAPATTERNOBJECT , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextPattern_get_DocumentRange(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -578,10 +437,7 @@ pub unsafe fn TextPattern_get_SupportedTextSelection<'a, P0>(hobj: P0, pretval: 
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextPattern_get_SupportedTextSelection ( hobj : HUIAPATTERNOBJECT , pretval : *mut SupportedTextSelection ) -> :: windows::core::HRESULT );
     TextPattern_get_SupportedTextSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -590,10 +446,7 @@ pub unsafe fn TextRange_AddToSelection<'a, P0>(hobj: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_AddToSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_AddToSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -602,10 +455,7 @@ pub unsafe fn TextRange_Clone<'a, P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> 
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_Clone ( hobj : HUIATEXTRANGE , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_Clone(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -616,10 +466,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_Compare ( hobj : HUIATEXTRANGE , range : HUIATEXTRANGE , pretval : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     TextRange_Compare(hobj.into(), range.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -629,10 +476,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_CompareEndpoints ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -641,10 +485,7 @@ pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, P0>(hobj: P0, unit: TextUnit) 
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_ExpandToEnclosingUnit ( hobj : HUIATEXTRANGE , unit : TextUnit ) -> :: windows::core::HRESULT );
     TextRange_ExpandToEnclosingUnit(hobj.into(), unit).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -656,10 +497,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_FindAttribute ( hobj : HUIATEXTRANGE , attributeid : i32 , val : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , backward : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_FindAttribute(hobj.into(), attributeid, val.into().abi(), backward.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -671,10 +509,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<::windows::core::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_FindText ( hobj : HUIATEXTRANGE , text : ::core::mem::ManuallyDrop <::windows::core::BSTR > , backward : super::super::Foundation:: BOOL , ignorecase : super::super::Foundation:: BOOL , pretval : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_FindText(hobj.into(), ::core::mem::transmute_copy(text), backward.into(), ignorecase.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -684,10 +519,7 @@ pub unsafe fn TextRange_GetAttributeValue<'a, P0>(hobj: P0, attributeid: i32, pr
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_GetAttributeValue ( hobj : HUIATEXTRANGE , attributeid : i32 , pretval : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     TextRange_GetAttributeValue(hobj.into(), attributeid, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -697,10 +529,7 @@ pub unsafe fn TextRange_GetBoundingRectangles<'a, P0>(hobj: P0, pretval: *mut *m
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_GetBoundingRectangles ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextRange_GetBoundingRectangles(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -710,10 +539,7 @@ pub unsafe fn TextRange_GetChildren<'a, P0>(hobj: P0, pretval: *mut *mut super::
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_GetChildren ( hobj : HUIATEXTRANGE , pretval : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     TextRange_GetChildren(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -722,10 +548,7 @@ pub unsafe fn TextRange_GetEnclosingElement<'a, P0>(hobj: P0, pretval: *mut HUIA
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_GetEnclosingElement ( hobj : HUIATEXTRANGE , pretval : *mut HUIANODE ) -> :: windows::core::HRESULT );
     TextRange_GetEnclosingElement(hobj.into(), ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -734,10 +557,7 @@ pub unsafe fn TextRange_GetText<'a, P0>(hobj: P0, maxlength: i32, pretval: *mut 
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_GetText ( hobj : HUIATEXTRANGE , maxlength : i32 , pretval : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     TextRange_GetText(hobj.into(), maxlength, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -746,10 +566,7 @@ pub unsafe fn TextRange_Move<'a, P0>(hobj: P0, unit: TextUnit, count: i32, pretv
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_Move ( hobj : HUIATEXTRANGE , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_Move(hobj.into(), unit, count, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -759,10 +576,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_MoveEndpointByRange ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , targetrange : HUIATEXTRANGE , targetendpoint : TextPatternRangeEndpoint ) -> :: windows::core::HRESULT );
     TextRange_MoveEndpointByRange(hobj.into(), endpoint, targetrange.into(), targetendpoint).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -771,10 +585,7 @@ pub unsafe fn TextRange_MoveEndpointByUnit<'a, P0>(hobj: P0, endpoint: TextPatte
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_MoveEndpointByUnit ( hobj : HUIATEXTRANGE , endpoint : TextPatternRangeEndpoint , unit : TextUnit , count : i32 , pretval : *mut i32 ) -> :: windows::core::HRESULT );
     TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, ::core::mem::transmute(pretval)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -783,10 +594,7 @@ pub unsafe fn TextRange_RemoveFromSelection<'a, P0>(hobj: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_RemoveFromSelection ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_RemoveFromSelection(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -797,10 +605,7 @@ where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_ScrollIntoView ( hobj : HUIATEXTRANGE , aligntotop : super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     TextRange_ScrollIntoView(hobj.into(), aligntotop.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -809,10 +614,7 @@ pub unsafe fn TextRange_Select<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TextRange_Select ( hobj : HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     TextRange_Select(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -821,10 +623,7 @@ pub unsafe fn TogglePattern_Toggle<'a, P0>(hobj: P0) -> ::windows::core::Result<
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TogglePattern_Toggle ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     TogglePattern_Toggle(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -833,10 +632,7 @@ pub unsafe fn TransformPattern_Move<'a, P0>(hobj: P0, x: f64, y: f64) -> ::windo
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TransformPattern_Move ( hobj : HUIAPATTERNOBJECT , x : f64 , y : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Move(hobj.into(), x, y).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -845,10 +641,7 @@ pub unsafe fn TransformPattern_Resize<'a, P0>(hobj: P0, width: f64, height: f64)
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TransformPattern_Resize ( hobj : HUIAPATTERNOBJECT , width : f64 , height : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Resize(hobj.into(), width, height).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -857,10 +650,7 @@ pub unsafe fn TransformPattern_Rotate<'a, P0>(hobj: P0, degrees: f64) -> ::windo
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn TransformPattern_Rotate ( hobj : HUIAPATTERNOBJECT , degrees : f64 ) -> :: windows::core::HRESULT );
     TransformPattern_Rotate(hobj.into(), degrees).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -870,29 +660,20 @@ pub unsafe fn UiaAddEvent<'a, P0>(hnode: P0, eventid: i32, pcallback: *mut UiaEv
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut *mut ::core::ffi::c_void, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaAddEvent ( hnode : HUIANODE , eventid : i32 , pcallback : *mut * mut::core::ffi::c_void , scope : TreeScope , pproperties : *mut i32 , cproperties : i32 , prequest : *mut UiaCacheRequest , phevent : *mut HUIAEVENT ) -> :: windows::core::HRESULT );
     UiaAddEvent(hnode.into(), eventid, ::core::mem::transmute(pcallback), scope, ::core::mem::transmute(pproperties), cproperties, ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaClientsAreListening ( ) -> super::super::Foundation:: BOOL );
     UiaClientsAreListening()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaDisconnectAllProviders ( ) -> :: windows::core::HRESULT );
     UiaDisconnectAllProviders().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -901,10 +682,7 @@ pub unsafe fn UiaDisconnectProvider<'a, P0>(pprovider: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaDisconnectProvider(pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaDisconnectProvider ( pprovider : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     UiaDisconnectProvider(pprovider.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -915,10 +693,7 @@ where
     P0: ::std::convert::Into<HUIAEVENT>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaEventAddWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     UiaEventAddWindow(hevent.into(), hwnd.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -929,10 +704,7 @@ where
     P0: ::std::convert::Into<HUIAEVENT>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaEventRemoveWindow ( hevent : HUIAEVENT , hwnd : super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     UiaEventRemoveWindow(hevent.into(), hwnd.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -942,20 +714,14 @@ pub unsafe fn UiaFind<'a, P0>(hnode: P0, pparams: *mut UiaFindParams, prequest: 
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaFind ( hnode : HUIANODE , pparams : *mut UiaFindParams , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaFind(hnode.into(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut ::windows::core::BSTR) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetErrorDescription(pdescription: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetErrorDescription ( pdescription : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> super::super::Foundation:: BOOL );
     UiaGetErrorDescription(::core::mem::transmute(pdescription))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -964,10 +730,7 @@ pub unsafe fn UiaGetPatternProvider<'a, P0>(hnode: P0, patternid: i32, phobj: *m
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetPatternProvider ( hnode : HUIANODE , patternid : i32 , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     UiaGetPatternProvider(hnode.into(), patternid, ::core::mem::transmute(phobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -977,39 +740,27 @@ pub unsafe fn UiaGetPropertyValue<'a, P0>(hnode: P0, propertyid: i32, pvalue: *m
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetPropertyValue ( hnode : HUIANODE , propertyid : i32 , pvalue : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     UiaGetPropertyValue(hnode.into(), propertyid, ::core::mem::transmute(pvalue)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetReservedMixedAttributeValue ( punkmixedattributevalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     UiaGetReservedMixedAttributeValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetReservedNotSupportedValue ( punknotsupportedvalue : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     UiaGetReservedNotSupportedValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetRootNode ( phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaGetRootNode(::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -1019,10 +770,7 @@ pub unsafe fn UiaGetRuntimeId<'a, P0>(hnode: P0, pruntimeid: *mut *mut super::su
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetRuntimeId ( hnode : HUIANODE , pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaGetRuntimeId(hnode.into(), ::core::mem::transmute(pruntimeid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -1032,40 +780,28 @@ pub unsafe fn UiaGetUpdatedCache<'a, P0>(hnode: P0, prequest: *mut UiaCacheReque
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaGetUpdatedCache ( hnode : HUIANODE , prequest : *mut UiaCacheRequest , normalizestate : NormalizeState , pnormalizecondition : *mut UiaCondition , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaGetUpdatedCache(hnode.into(), ::core::mem::transmute(prequest), normalizestate, ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHPatternObjectFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaHPatternObjectFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phobj : *mut HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHTextRangeFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaHTextRangeFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phtextrange : *mut HUIATEXTRANGE ) -> :: windows::core::HRESULT );
     UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHUiaNodeFromVariant(pvar: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaHUiaNodeFromVariant ( pvar : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1075,10 +811,7 @@ pub unsafe fn UiaHasServerSideProvider<'a, P0>(hwnd: P0) -> super::super::Founda
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaHasServerSideProvider ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     UiaHasServerSideProvider(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1088,10 +821,7 @@ pub unsafe fn UiaHostProviderFromHwnd<'a, P0>(hwnd: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaHostProviderFromHwnd ( hwnd : super::super::Foundation:: HWND , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     UiaHostProviderFromHwnd(hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
@@ -1102,19 +832,13 @@ pub unsafe fn UiaIAccessibleFromProvider<'a, P0>(pprovider: P0, dwflags: u32, pp
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaIAccessibleFromProvider ( pprovider : * mut::core::ffi::c_void , dwflags : u32 , ppaccessible : *mut * mut::core::ffi::c_void , pvarchild : *mut ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     UiaIAccessibleFromProvider(pprovider.into().abi(), dwflags, ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaLookupId ( r#type : AutomationIdentifierType , pguid : *const :: windows::core::GUID ) -> i32 );
     UiaLookupId(r#type, ::core::mem::transmute(pguid))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -1124,20 +848,14 @@ pub unsafe fn UiaNavigate<'a, P0>(hnode: P0, direction: NavigateDirection, pcond
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNavigate ( hnode : HUIANODE , direction : NavigateDirection , pcondition : *mut UiaCondition , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNavigate(hnode.into(), direction, ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNodeFromFocus ( prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1147,20 +865,14 @@ pub unsafe fn UiaNodeFromHandle<'a, P0>(hwnd: P0, phnode: *mut HUIANODE) -> ::wi
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNodeFromHandle ( hwnd : super::super::Foundation:: HWND , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaNodeFromHandle(hwnd.into(), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows::core::BSTR) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNodeFromPoint ( x : f64 , y : f64 , prequest : *mut UiaCacheRequest , pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY , pptreestructure : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaNodeFromPoint(x, y, ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1169,10 +881,7 @@ pub unsafe fn UiaNodeFromProvider<'a, P0>(pprovider: P0, phnode: *mut HUIANODE) 
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromProvider(pprovider: *mut ::core::ffi::c_void, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNodeFromProvider ( pprovider : * mut::core::ffi::c_void , phnode : *mut HUIANODE ) -> :: windows::core::HRESULT );
     UiaNodeFromProvider(pprovider.into().abi(), ::core::mem::transmute(phnode)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1182,10 +891,7 @@ pub unsafe fn UiaNodeRelease<'a, P0>(hnode: P0) -> super::super::Foundation::BOO
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaNodeRelease ( hnode : HUIANODE ) -> super::super::Foundation:: BOOL );
     UiaNodeRelease(hnode.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1195,10 +901,7 @@ pub unsafe fn UiaPatternRelease<'a, P0>(hobj: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaPatternRelease ( hobj : HUIAPATTERNOBJECT ) -> super::super::Foundation:: BOOL );
     UiaPatternRelease(hobj.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1208,10 +911,7 @@ pub unsafe fn UiaProviderForNonClient<'a, P0>(hwnd: P0, idobject: i32, idchild: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaProviderForNonClient ( hwnd : super::super::Foundation:: HWND , idobject : i32 , idchild : i32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     UiaProviderForNonClient(hwnd.into(), idobject, idchild, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
@@ -1222,10 +922,7 @@ pub unsafe fn UiaProviderFromIAccessible<'a, P0>(paccessible: P0, idchild: i32, 
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaProviderFromIAccessible(paccessible: *mut ::core::ffi::c_void, idchild: i32, dwflags: u32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaProviderFromIAccessible ( paccessible : * mut::core::ffi::c_void , idchild : i32 , dwflags : u32 , ppprovider : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     UiaProviderFromIAccessible(paccessible.into().abi(), idchild, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
 }
@@ -1236,10 +933,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, ITextRangeProvider>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseActiveTextPositionChangedEvent(provider: *mut ::core::ffi::c_void, textrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseActiveTextPositionChangedEvent ( provider : * mut::core::ffi::c_void , textrange : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     UiaRaiseActiveTextPositionChangedEvent(provider.into().abi(), textrange.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1248,10 +942,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, P0>(pprovider: P0, asyncconten
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAsyncContentLoadedEvent(pprovider: *mut ::core::ffi::c_void, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseAsyncContentLoadedEvent ( pprovider : * mut::core::ffi::c_void , asynccontentloadedstate : AsyncContentLoadedState , percentcomplete : f64 ) -> :: windows::core::HRESULT );
     UiaRaiseAsyncContentLoadedEvent(pprovider.into().abi(), asynccontentloadedstate, percentcomplete).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1260,10 +951,7 @@ pub unsafe fn UiaRaiseAutomationEvent<'a, P0>(pprovider: P0, id: UIA_EVENT_ID) -
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: UIA_EVENT_ID) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseAutomationEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_EVENT_ID ) -> :: windows::core::HRESULT );
     UiaRaiseAutomationEvent(pprovider.into().abi(), id).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1275,10 +963,7 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
     P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: UIA_PROPERTY_ID, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseAutomationPropertyChangedEvent ( pprovider : * mut::core::ffi::c_void , id : UIA_PROPERTY_ID , oldvalue : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > , newvalue : ::core::mem::ManuallyDrop < super::super::System::Com:: VARIANT > ) -> :: windows::core::HRESULT );
     UiaRaiseAutomationPropertyChangedEvent(pprovider.into().abi(), id, oldvalue.into().abi(), newvalue.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1288,10 +973,7 @@ pub unsafe fn UiaRaiseChangesEvent<'a, P0>(pprovider: P0, eventidcount: i32, pui
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut ::core::mem::ManuallyDrop<UiaChangeInfo>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseChangesEvent ( pprovider : * mut::core::ffi::c_void , eventidcount : i32 , puiachanges : *mut ::core::mem::ManuallyDrop < UiaChangeInfo > ) -> :: windows::core::HRESULT );
     UiaRaiseChangesEvent(pprovider.into().abi(), eventidcount, ::core::mem::transmute(puiachanges)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1300,10 +982,7 @@ pub unsafe fn UiaRaiseNotificationEvent<'a, P0>(provider: P0, notificationkind: 
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseNotificationEvent(provider: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<::windows::core::BSTR>, activityid: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseNotificationEvent ( provider : * mut::core::ffi::c_void , notificationkind : NotificationKind , notificationprocessing : NotificationProcessing , displaystring : ::core::mem::ManuallyDrop <::windows::core::BSTR > , activityid : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     UiaRaiseNotificationEvent(provider.into().abi(), notificationkind, notificationprocessing, ::core::mem::transmute_copy(displaystring), ::core::mem::transmute_copy(activityid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1312,10 +991,7 @@ pub unsafe fn UiaRaiseStructureChangedEvent<'a, P0>(pprovider: P0, structurechan
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseStructureChangedEvent(pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseStructureChangedEvent ( pprovider : * mut::core::ffi::c_void , structurechangetype : StructureChangeType , pruntimeid : *mut i32 , cruntimeidlen : i32 ) -> :: windows::core::HRESULT );
     UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, ::core::mem::transmute(pruntimeid), cruntimeidlen).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
@@ -1325,20 +1001,14 @@ pub unsafe fn UiaRaiseTextEditTextChangedEvent<'a, P0>(pprovider: P0, texteditch
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseTextEditTextChangedEvent(pprovider: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRaiseTextEditTextChangedEvent ( pprovider : * mut::core::ffi::c_void , texteditchangetype : TextEditChangeType , pchangeddata : *mut super::super::System::Com:: SAFEARRAY ) -> :: windows::core::HRESULT );
     UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, ::core::mem::transmute(pchangeddata)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRegisterProviderCallback(pcallback: *mut *mut ::core::ffi::c_void);
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRegisterProviderCallback ( pcallback : *mut * mut::core::ffi::c_void ) -> ( ) );
     UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1347,10 +1017,7 @@ pub unsafe fn UiaRemoveEvent<'a, P0>(hevent: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIAEVENT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaRemoveEvent ( hevent : HUIAEVENT ) -> :: windows::core::HRESULT );
     UiaRemoveEvent(hevent.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1363,10 +1030,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P3: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaReturnRawElementProvider ( hwnd : super::super::Foundation:: HWND , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , el : * mut::core::ffi::c_void ) -> super::super::Foundation:: LRESULT );
     UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1375,10 +1039,7 @@ pub unsafe fn UiaSetFocus<'a, P0>(hnode: P0) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<HUIANODE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaSetFocus ( hnode : HUIANODE ) -> :: windows::core::HRESULT );
     UiaSetFocus(hnode.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1388,10 +1049,7 @@ pub unsafe fn UiaTextRangeRelease<'a, P0>(hobj: P0) -> super::super::Foundation:
 where
     P0: ::std::convert::Into<HUIATEXTRANGE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn UiaTextRangeRelease ( hobj : HUIATEXTRANGE ) -> super::super::Foundation:: BOOL );
     UiaTextRangeRelease(hobj.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1401,10 +1059,7 @@ pub unsafe fn UnhookWinEvent<'a, P0>(hwineventhook: P0) -> super::super::Foundat
 where
     P0: ::std::convert::Into<HWINEVENTHOOK>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn UnhookWinEvent ( hwineventhook : HWINEVENTHOOK ) -> super::super::Foundation:: BOOL );
     UnhookWinEvent(hwineventhook.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1414,10 +1069,7 @@ pub unsafe fn UnregisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super:
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn UnregisterPointerInputTarget ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     UnregisterPointerInputTarget(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -1427,10 +1079,7 @@ pub unsafe fn UnregisterPointerInputTargetEx<'a, P0>(hwnd: P0, pointertype: supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn UnregisterPointerInputTargetEx ( hwnd : super::super::Foundation:: HWND , pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE ) -> super::super::Foundation:: BOOL );
     UnregisterPointerInputTargetEx(hwnd.into(), pointertype)
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1440,10 +1089,7 @@ where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn ValuePattern_SetValue ( hobj : HUIAPATTERNOBJECT , pval : :: windows::core::PCWSTR ) -> :: windows::core::HRESULT );
     ValuePattern_SetValue(hobj.into(), pval.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1452,10 +1098,7 @@ pub unsafe fn VirtualizedItemPattern_Realize<'a, P0>(hobj: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn VirtualizedItemPattern_Realize ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     VirtualizedItemPattern_Realize(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1465,10 +1108,7 @@ pub unsafe fn WindowFromAccessibleObject<'a, P0>(param0: P0) -> ::windows::core:
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowFromAccessibleObject(param0: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "oleacc.dll" ,"system" fn WindowFromAccessibleObject ( param0 : * mut::core::ffi::c_void , phwnd : *mut super::super::Foundation:: HWND ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowFromAccessibleObject(param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
 }
@@ -1478,10 +1118,7 @@ pub unsafe fn WindowPattern_Close<'a, P0>(hobj: P0) -> ::windows::core::Result<(
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn WindowPattern_Close ( hobj : HUIAPATTERNOBJECT ) -> :: windows::core::HRESULT );
     WindowPattern_Close(hobj.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -1490,10 +1127,7 @@ pub unsafe fn WindowPattern_SetWindowVisualState<'a, P0>(hobj: P0, state: Window
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn WindowPattern_SetWindowVisualState ( hobj : HUIAPATTERNOBJECT , state : WindowVisualState ) -> :: windows::core::HRESULT );
     WindowPattern_SetWindowVisualState(hobj.into(), state).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -1503,10 +1137,7 @@ pub unsafe fn WindowPattern_WaitForInputIdle<'a, P0>(hobj: P0, milliseconds: i32
 where
     P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "uiautomationcore.dll" ,"system" fn WindowPattern_WaitForInputIdle ( hobj : HUIAPATTERNOBJECT , milliseconds : i32 , presult : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, ::core::mem::transmute(presult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -22851,12 +22482,12 @@ pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" f
 pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
-pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows::core::BSTR)>;
+pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows::core::BSTR) -> ()>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
+pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

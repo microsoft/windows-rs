@@ -6,10 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn HtmlHelpA(hwndcaller: super::super::Foundation::HWND, pszfile: ::windows::core::PCSTR, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "htmlhelp.dll" ,"system" fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpA(hwndcaller.into(), pszfile.into(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
@@ -20,10 +17,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn HtmlHelpW(hwndcaller: super::super::Foundation::HWND, pszfile: ::windows::core::PCWSTR, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "htmlhelp.dll" ,"system" fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows::core::PCWSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: HWND );
     HtmlHelpW(hwndcaller.into(), pszfile.into(), ucommand, dwdata)
 }
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`*"]

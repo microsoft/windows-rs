@@ -1,10 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
 #[inline]
 pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::core::Result<IVssExpressWriter> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CreateVssExpressWriterInternal(ppwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "vssapi.dll" ,"system" fn CreateVssExpressWriterInternal ( ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateVssExpressWriterInternal(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVssExpressWriter>(result__)
 }

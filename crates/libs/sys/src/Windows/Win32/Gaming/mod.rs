@@ -1,71 +1,38 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckGamingPrivilegeSilently(privilegeid: u32, scope: ::windows_sys::core::HSTRING, policy: ::windows_sys::core::HSTRING, hasprivilege: *mut super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CheckGamingPrivilegeSilentlyForUser(user: ::windows_sys::core::IInspectable, privilegeid: u32, scope: ::windows_sys::core::HSTRING, policy: ::windows_sys::core::HSTRING, hasprivilege: *mut super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: ::windows_sys::core::HSTRING, policy: ::windows_sys::core::HSTRING, friendlymessage: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn CheckGamingPrivilegeWithUIForUser(user: ::windows_sys::core::IInspectable, privilegeid: u32, scope: ::windows_sys::core::HSTRING, policy: ::windows_sys::core::HSTRING, friendlymessage: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn GetExpandedResourceExclusiveCpuCount(exclusivecpucount: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn GetGamingDeviceModelInformation(information: *mut GAMING_DEVICE_MODEL_INFORMATION) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HasExpandedResources(hasexpandedresources: *mut super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ProcessPendingGameUI(waitforcompletion: super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ReleaseExclusiveCpuSets() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowChangeFriendRelationshipUI(targetuserxuid: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowChangeFriendRelationshipUIForUser(user: ::windows_sys::core::IInspectable, targetuserxuid: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowCustomizeUserProfileUIForUser(user: ::windows_sys::core::IInspectable, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowFindFriendsUIForUser(user: ::windows_sys::core::IInspectable, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInfoUIForUser(user: ::windows_sys::core::IInspectable, titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInviteUI(serviceconfigurationid: ::windows_sys::core::HSTRING, sessiontemplatename: ::windows_sys::core::HSTRING, sessionid: ::windows_sys::core::HSTRING, invitationdisplaytext: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInviteUIForUser(user: ::windows_sys::core::IInspectable, serviceconfigurationid: ::windows_sys::core::HSTRING, sessiontemplatename: ::windows_sys::core::HSTRING, sessionid: ::windows_sys::core::HSTRING, invitationdisplaytext: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInviteUIWithContext(serviceconfigurationid: ::windows_sys::core::HSTRING, sessiontemplatename: ::windows_sys::core::HSTRING, sessionid: ::windows_sys::core::HSTRING, invitationdisplaytext: ::windows_sys::core::HSTRING, customactivationcontext: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowGameInviteUIWithContextForUser(user: ::windows_sys::core::IInspectable, serviceconfigurationid: ::windows_sys::core::HSTRING, sessiontemplatename: ::windows_sys::core::HSTRING, sessionid: ::windows_sys::core::HSTRING, invitationdisplaytext: ::windows_sys::core::HSTRING, customactivationcontext: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowPlayerPickerUI(promptdisplaytext: ::windows_sys::core::HSTRING, xuids: *const ::windows_sys::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows_sys::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowPlayerPickerUIForUser(user: ::windows_sys::core::IInspectable, promptdisplaytext: ::windows_sys::core::HSTRING, xuids: *const ::windows_sys::core::HSTRING, xuidscount: usize, preselectedxuids: *const ::windows_sys::core::HSTRING, preselectedxuidscount: usize, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowProfileCardUI(targetuserxuid: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowProfileCardUIForUser(user: ::windows_sys::core::IInspectable, targetuserxuid: ::windows_sys::core::HSTRING, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowTitleAchievementsUIForUser(user: ::windows_sys::core::IInspectable, titleid: u32, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-    pub fn ShowUserSettingsUIForUser(user: ::windows_sys::core::IInspectable, completionroutine: GameUICompletionRoutine, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-1.dll" ,"system" fn CheckGamingPrivilegeSilently ( privilegeid : u32 , scope : :: windows_sys::core::HSTRING , policy : :: windows_sys::core::HSTRING , hasprivilege : *mut super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn CheckGamingPrivilegeSilentlyForUser ( user : :: windows_sys::core::IInspectable , privilegeid : u32 , scope : :: windows_sys::core::HSTRING , policy : :: windows_sys::core::HSTRING , hasprivilege : *mut super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-1.dll" ,"system" fn CheckGamingPrivilegeWithUI ( privilegeid : u32 , scope : :: windows_sys::core::HSTRING , policy : :: windows_sys::core::HSTRING , friendlymessage : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn CheckGamingPrivilegeWithUIForUser ( user : :: windows_sys::core::IInspectable , privilegeid : u32 , scope : :: windows_sys::core::HSTRING , policy : :: windows_sys::core::HSTRING , friendlymessage : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-expandedresources-l1-1-0.dll" ,"system" fn GetExpandedResourceExclusiveCpuCount ( exclusivecpucount : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-deviceinformation-l1-1-0.dll" ,"system" fn GetGamingDeviceModelInformation ( information : *mut GAMING_DEVICE_MODEL_INFORMATION ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-expandedresources-l1-1-0.dll" ,"system" fn HasExpandedResources ( hasexpandedresources : *mut super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ProcessPendingGameUI ( waitforcompletion : super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-expandedresources-l1-1-0.dll" ,"system" fn ReleaseExclusiveCpuSets ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ShowChangeFriendRelationshipUI ( targetuserxuid : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn ShowChangeFriendRelationshipUIForUser ( user : :: windows_sys::core::IInspectable , targetuserxuid : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowCustomizeUserProfileUI ( completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowCustomizeUserProfileUIForUser ( user : :: windows_sys::core::IInspectable , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowFindFriendsUI ( completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowFindFriendsUIForUser ( user : :: windows_sys::core::IInspectable , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowGameInfoUI ( titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowGameInfoUIForUser ( user : :: windows_sys::core::IInspectable , titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ShowGameInviteUI ( serviceconfigurationid : :: windows_sys::core::HSTRING , sessiontemplatename : :: windows_sys::core::HSTRING , sessionid : :: windows_sys::core::HSTRING , invitationdisplaytext : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn ShowGameInviteUIForUser ( user : :: windows_sys::core::IInspectable , serviceconfigurationid : :: windows_sys::core::HSTRING , sessiontemplatename : :: windows_sys::core::HSTRING , sessionid : :: windows_sys::core::HSTRING , invitationdisplaytext : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-3.dll" ,"system" fn ShowGameInviteUIWithContext ( serviceconfigurationid : :: windows_sys::core::HSTRING , sessiontemplatename : :: windows_sys::core::HSTRING , sessionid : :: windows_sys::core::HSTRING , invitationdisplaytext : :: windows_sys::core::HSTRING , customactivationcontext : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-3.dll" ,"system" fn ShowGameInviteUIWithContextForUser ( user : :: windows_sys::core::IInspectable , serviceconfigurationid : :: windows_sys::core::HSTRING , sessiontemplatename : :: windows_sys::core::HSTRING , sessionid : :: windows_sys::core::HSTRING , invitationdisplaytext : :: windows_sys::core::HSTRING , customactivationcontext : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ShowPlayerPickerUI ( promptdisplaytext : :: windows_sys::core::HSTRING , xuids : *const :: windows_sys::core::HSTRING , xuidscount : usize , preselectedxuids : *const :: windows_sys::core::HSTRING , preselectedxuidscount : usize , minselectioncount : usize , maxselectioncount : usize , completionroutine : PlayerPickerUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn ShowPlayerPickerUIForUser ( user : :: windows_sys::core::IInspectable , promptdisplaytext : :: windows_sys::core::HSTRING , xuids : *const :: windows_sys::core::HSTRING , xuidscount : usize , preselectedxuids : *const :: windows_sys::core::HSTRING , preselectedxuidscount : usize , minselectioncount : usize , maxselectioncount : usize , completionroutine : PlayerPickerUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ShowProfileCardUI ( targetuserxuid : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn ShowProfileCardUIForUser ( user : :: windows_sys::core::IInspectable , targetuserxuid : :: windows_sys::core::HSTRING , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn ShowTitleAchievementsUI ( titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-2.dll" ,"system" fn ShowTitleAchievementsUIForUser ( user : :: windows_sys::core::IInspectable , titleid : u32 , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowUserSettingsUI ( completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-4.dll" ,"system" fn ShowUserSettingsUIForUser ( user : :: windows_sys::core::IInspectable , completionroutine : GameUICompletionRoutine , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-gaming-tcui-l1-1-0.dll" ,"system" fn TryCancelPendingGameUI ( ) -> super::Foundation:: BOOL );
 pub type IGameExplorer = *mut ::core::ffi::c_void;
 pub type IGameExplorer2 = *mut ::core::ffi::c_void;
 pub type IGameStatistics = *mut ::core::ffi::c_void;
@@ -198,6 +165,6 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void)>;
+pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_sys::core::HSTRING, selectedxuidscount: usize)>;
+pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_sys::core::HSTRING, selectedxuidscount: usize) -> ()>;

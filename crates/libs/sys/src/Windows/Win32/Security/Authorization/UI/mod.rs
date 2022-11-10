@@ -1,15 +1,9 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(feature = "Win32_UI_Controls")]
-    pub fn CreateSecurityPage(psi: ISecurityInformation) -> super::super::super::UI::Controls::HPROPSHEETPAGE;
-    #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditSecurity(hwndowner: super::super::super::Foundation::HWND, psi: ISecurityInformation) -> super::super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EditSecurityAdvanced(hwndowner: super::super::super::Foundation::HWND, psi: ISecurityInformation, usipage: SI_PAGE_TYPE) -> ::windows_sys::core::HRESULT;
-}
+#[cfg(feature = "Win32_UI_Controls")]
+::windows_sys::core::windows_link ! ( "aclui.dll" ,"system" fn CreateSecurityPage ( psi : ISecurityInformation ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "aclui.dll" ,"system" fn EditSecurity ( hwndowner : super::super::super::Foundation:: HWND , psi : ISecurityInformation ) -> super::super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "aclui.dll" ,"system" fn EditSecurityAdvanced ( hwndowner : super::super::super::Foundation:: HWND , psi : ISecurityInformation , usipage : SI_PAGE_TYPE ) -> :: windows_sys::core::HRESULT );
 pub type IEffectivePermission = *mut ::core::ffi::c_void;
 pub type IEffectivePermission2 = *mut ::core::ffi::c_void;
 pub type ISecurityInformation = *mut ::core::ffi::c_void;

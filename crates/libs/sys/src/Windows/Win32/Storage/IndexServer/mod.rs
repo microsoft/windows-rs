@@ -1,16 +1,9 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub fn BindIFilterFromStorage(pstg: super::super::System::Com::StructuredStorage::IStorage, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-    pub fn LoadIFilter(pwcspath: ::windows_sys::core::PCWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
-    pub fn LoadIFilterEx(pwcspath: ::windows_sys::core::PCWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+::windows_sys::core::windows_link ! ( "query.dll" ,"system" fn BindIFilterFromStorage ( pstg : super::super::System::Com::StructuredStorage:: IStorage , punkouter : :: windows_sys::core::IUnknown , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_System_Com")]
+::windows_sys::core::windows_link ! ( "query.dll" ,"system" fn BindIFilterFromStream ( pstm : super::super::System::Com:: IStream , punkouter : :: windows_sys::core::IUnknown , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "query.dll" ,"system" fn LoadIFilter ( pwcspath : :: windows_sys::core::PCWSTR , punkouter : :: windows_sys::core::IUnknown , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "query.dll" ,"system" fn LoadIFilterEx ( pwcspath : :: windows_sys::core::PCWSTR , dwflags : u32 , riid : *const :: windows_sys::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IFilter = *mut ::core::ffi::c_void;
 pub type IPhraseSink = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]

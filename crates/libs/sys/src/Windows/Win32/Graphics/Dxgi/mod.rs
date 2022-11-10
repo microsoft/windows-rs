@@ -1,18 +1,10 @@
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub mod Common;
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub fn CreateDXGIFactory(riid: *const ::windows_sys::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub fn CreateDXGIFactory1(riid: *const ::windows_sys::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub fn CreateDXGIFactory2(flags: u32, riid: *const ::windows_sys::core::GUID, ppfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub fn DXGIDeclareAdapterRemovalSupport() -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-    pub fn DXGIGetDebugInterface1(flags: u32, riid: *const ::windows_sys::core::GUID, pdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory ( riid : *const :: windows_sys::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory1 ( riid : *const :: windows_sys::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows_sys::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "dxgi.dll" ,"system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "dxgi.dll" ,"system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows_sys::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDXGIAdapter = *mut ::core::ffi::c_void;
 pub type IDXGIAdapter1 = *mut ::core::ffi::c_void;
 pub type IDXGIAdapter2 = *mut ::core::ffi::c_void;

@@ -5,10 +5,7 @@ pub unsafe fn IsDestinationReachableA<'a, P0>(lpszdestination: P0, lpqocinfo: *m
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableA ( lpszdestination : :: windows::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
     IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
@@ -18,20 +15,14 @@ pub unsafe fn IsDestinationReachableW<'a, P0>(lpszdestination: P0, lpqocinfo: *m
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableW ( lpszdestination : :: windows::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
     IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "sensapi.dll" ,"system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     IsNetworkAlive(::core::mem::transmute(lpdwflags))
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]

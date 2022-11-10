@@ -1,8 +1,4 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
-    pub fn CreateDeviceAccessInstance(deviceinterfacepath: ::windows_sys::core::PCWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "deviceaccess.dll" ,"system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows_sys::core::PCWSTR , desiredaccess : u32 , createasync : *mut ICreateDeviceAccessAsync ) -> :: windows_sys::core::HRESULT );
 pub type ICreateDeviceAccessAsync = *mut ::core::ffi::c_void;
 pub type IDeviceIoControl = *mut ::core::ffi::c_void;
 pub type IDeviceRequestCompletionCallback = *mut ::core::ffi::c_void;

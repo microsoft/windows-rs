@@ -5,10 +5,7 @@ pub unsafe fn VerifierEnumerateResource<'a, P0>(process: P0, flags: VERIFIER_ENU
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "verifier.dll" ,"system" fn VerifierEnumerateResource ( process : super::super::Foundation:: HANDLE , flags : VERIFIER_ENUM_RESOURCE_FLAGS , resourcetype : eAvrfResourceTypes , resourcecallback : * mut::core::ffi::c_void , enumerationcontext : *mut ::core::ffi::c_void ) -> u32 );
     VerifierEnumerateResource(process.into(), flags, resourcetype, ::core::mem::transmute(resourcecallback), ::core::mem::transmute(enumerationcontext))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationVerifier\"`*"]

@@ -1,53 +1,12 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintError<'a, P0>(hmodule: P0, dwerrid: u32) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
-    }
-    PrintError(hmodule.into(), dwerrid)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-#[inline]
-pub unsafe fn PrintMessage<'a, P0>(pwszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
-    }
-    PrintMessage(pwszformat.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PrintMessageFromModule<'a, P0>(hmodule: P0, dwmsgid: u32) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
-    }
-    PrintMessageFromModule(hmodule.into(), dwmsgid)
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn MatchEnumTag<'a, P0, P1>(hmodule: P0, pwcarg: P1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: ::windows::core::PCWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "netsh.dll" ,"system" fn MatchEnumTag ( hmodule : super::super::Foundation:: HANDLE , pwcarg : :: windows::core::PCWSTR , dwnumarg : u32 , penumtable : *const TOKEN_VALUE , pdwvalue : *mut u32 ) -> u32 );
     MatchEnumTag(hmodule.into(), pwcarg.into(), dwnumarg, ::core::mem::transmute(penumtable), ::core::mem::transmute(pdwvalue))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -58,10 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MatchToken(pwszusertoken: ::windows::core::PCWSTR, pwszcmdtoken: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "netsh.dll" ,"system" fn MatchToken ( pwszusertoken : :: windows::core::PCWSTR , pwszcmdtoken : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     MatchToken(pwszusertoken.into(), pwszcmdtoken.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -71,29 +27,49 @@ pub unsafe fn PreprocessCommand<'a, P0>(hmodule: P0, ppwcarguments: &mut [::wind
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut ::windows::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
-    }
+    ::windows::core::windows_link ! ( "netsh.dll" ,"system" fn PreprocessCommand ( hmodule : super::super::Foundation:: HANDLE , ppwcarguments : *mut :: windows::core::PWSTR , dwcurrentindex : u32 , dwargcount : u32 , ptttags : *mut TAG_TYPE , dwtagcount : u32 , dwminargs : u32 , dwmaxargs : u32 , pdwtagtype : *mut u32 ) -> u32 );
     PreprocessCommand(hmodule.into(), ::core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len() as _, ::core::mem::transmute(ptttags.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len() as _), dwminargs, dwmaxargs, ::core::mem::transmute(pdwtagtype.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn PrintError<'a, P0>(hmodule: P0, dwerrid: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    ::windows::core::windows_link ! ( "netsh.dll" ,"cdecl" fn PrintError ( hmodule : super::super::Foundation:: HANDLE , dwerrid : u32 ) -> u32 );
+    PrintError(hmodule.into(), dwerrid)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+#[inline]
+pub unsafe fn PrintMessage<'a, P0>(pwszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    ::windows::core::windows_link ! ( "netsh.dll" ,"cdecl" fn PrintMessage ( pwszformat : :: windows::core::PCWSTR ) -> u32 );
+    PrintMessage(pwszformat.into())
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PrintMessageFromModule<'a, P0>(hmodule: P0, dwmsgid: u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    ::windows::core::windows_link ! ( "netsh.dll" ,"cdecl" fn PrintMessageFromModule ( hmodule : super::super::Foundation:: HANDLE , dwmsgid : u32 ) -> u32 );
+    PrintMessageFromModule(hmodule.into(), dwmsgid)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
-    }
+    ::windows::core::windows_link ! ( "netsh.dll" ,"system" fn RegisterContext ( pchildcontext : *const NS_CONTEXT_ATTRIBUTES ) -> u32 );
     RegisterContext(::core::mem::transmute(pchildcontext))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
-    }
+    ::windows::core::windows_link ! ( "netsh.dll" ,"system" fn RegisterHelper ( pguidparentcontext : *const :: windows::core::GUID , pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES ) -> u32 );
     RegisterHelper(::core::mem::transmute(pguidparentcontext), ::core::mem::transmute(pfnregistersubcontext))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]

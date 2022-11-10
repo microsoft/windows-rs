@@ -3070,7 +3070,7 @@ impl ::core::default::Default for RADIUS_VSA_FORMAT {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE)>;
+pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub type PRADIUS_EXTENSION_INIT = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
@@ -3080,6 +3080,6 @@ pub type PRADIUS_EXTENSION_PROCESS_2 = ::core::option::Option<unsafe extern "sys
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
 pub type PRADIUS_EXTENSION_PROCESS_EX = ::core::option::Option<unsafe extern "system" fn(pinattrs: *const RADIUS_ATTRIBUTE, poutattrs: *mut *mut RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkPolicyServer\"`*"]
-pub type PRADIUS_EXTENSION_TERM = ::core::option::Option<unsafe extern "system" fn()>;
+pub type PRADIUS_EXTENSION_TERM = ::core::option::Option<unsafe extern "system" fn() -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

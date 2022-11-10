@@ -1,12 +1,7 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OperationEnd ( operationendparams : *const OPERATION_END_PARAMETERS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OperationStart ( operationstartparams : *const OPERATION_START_PARAMETERS ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 pub type OPERATION_END_PARAMETERS_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]

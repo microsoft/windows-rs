@@ -1,168 +1,103 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsHostnameToComputerNameExW(hostname: ::windows_sys::core::PCWSTR, computername: ::windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: *mut FIRMWARE_TABLE_ID, buffersize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetIntegratedDisplaySize(sizeininches: *mut f64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemCpuSetInformation(information: *mut SYSTEM_CPU_SET_INFORMATION, bufferlength: u32, returnedlength: *mut u32, process: super::super::Foundation::HANDLE, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: FIRMWARE_TABLE_ID, pfirmwaretablebuffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-    pub fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWindowsDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWindowsDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64Directory2A(lpbuffer: ::windows_sys::core::PSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64Directory2W(lpbuffer: ::windows_sys::core::PWSTR, usize: u32, imagefilemachinetype: IMAGE_FILE_MACHINE) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64DirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetSystemWow64DirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetTickCount() -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetTickCount64() -> u64;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetVersion() -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetWindowsDirectoryA(lpbuffer: ::windows_sys::core::PSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GetWindowsDirectoryW(lpbuffer: ::windows_sys::core::PWSTR, usize: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE, machineissupported: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: ::windows_sys::core::PWSTR, deviceform: ::windows_sys::core::PWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut DEVICEFAMILYINFOENUM, puldeviceform: *mut DEVICEFAMILYDEVICEFORM);
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::core::ffi::c_void, size: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameA(lpcomputername: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameEx2W(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetComputerNameW(lpcomputername: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
-    pub fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condition: u8) -> u64;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn DnsHostnameToComputerNameExW ( hostname : :: windows_sys::core::PCWSTR , computername : :: windows_sys::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumSystemFirmwareTables ( firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER , pfirmwaretableenumbuffer : *mut FIRMWARE_TABLE_ID , buffersize : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows_sys::core::PSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows_sys::core::PWSTR , nsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetFirmwareType ( firmwaretype : *mut FIRMWARE_TYPE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "api-ms-win-core-sysinfo-l1-2-3.dll" ,"system" fn GetIntegratedDisplaySize ( sizeininches : *mut f64 ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetLocalTime ( lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetLogicalProcessorInformation ( buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION , returnedlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetLogicalProcessorInformationEx ( relationshiptype : LOGICAL_PROCESSOR_RELATIONSHIP , buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX , returnedlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetNativeSystemInfo ( lpsysteminfo : *mut SYSTEM_INFO ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-core-sysinfo-l1-2-3.dll" ,"system" fn GetOsManufacturingMode ( pbenabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-core-sysinfo-l1-2-0.dll" ,"system" fn GetOsSafeBootMode ( flags : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPhysicallyInstalledSystemMemory ( totalmemoryinkilobytes : *mut u64 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetProcessorSystemCycleTime ( group : u16 , buffer : *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION , returnedlength : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetProductInfo ( dwosmajorversion : u32 , dwosminorversion : u32 , dwspmajorversion : u32 , dwspminorversion : u32 , pdwreturnedproducttype : *mut OS_PRODUCT_TYPE ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemCpuSetInformation ( information : *mut SYSTEM_CPU_SET_INFORMATION , bufferlength : u32 , returnedlength : *mut u32 , process : super::super::Foundation:: HANDLE , flags : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemDEPPolicy ( ) -> DEP_SYSTEM_POLICY_TYPE );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemDirectoryA ( lpbuffer : :: windows_sys::core::PSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemDirectoryW ( lpbuffer : :: windows_sys::core::PWSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemFirmwareTable ( firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER , firmwaretableid : FIRMWARE_TABLE_ID , pfirmwaretablebuffer : *mut ::core::ffi::c_void , buffersize : u32 ) -> u32 );
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemInfo ( lpsysteminfo : *mut SYSTEM_INFO ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemLeapSecondInformation ( enabled : *mut super::super::Foundation:: BOOL , flags : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemTime ( lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemTimeAdjustment ( lptimeadjustment : *mut u32 , lptimeincrement : *mut u32 , lptimeadjustmentdisabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-core-sysinfo-l1-2-4.dll" ,"system" fn GetSystemTimeAdjustmentPrecise ( lptimeadjustment : *mut u64 , lptimeincrement : *mut u64 , lptimeadjustmentdisabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemTimeAsFileTime ( lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemTimePreciseAsFileTime ( lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME ) -> ( ) );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemWindowsDirectoryA ( lpbuffer : :: windows_sys::core::PSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemWindowsDirectoryW ( lpbuffer : :: windows_sys::core::PWSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "api-ms-win-core-wow64-l1-1-1.dll" ,"system" fn GetSystemWow64Directory2A ( lpbuffer : :: windows_sys::core::PSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
+::windows_sys::core::windows_link ! ( "api-ms-win-core-wow64-l1-1-1.dll" ,"system" fn GetSystemWow64Directory2W ( lpbuffer : :: windows_sys::core::PWSTR , usize : u32 , imagefilemachinetype : IMAGE_FILE_MACHINE ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemWow64DirectoryA ( lpbuffer : :: windows_sys::core::PSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetSystemWow64DirectoryW ( lpbuffer : :: windows_sys::core::PWSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetTickCount ( ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetTickCount64 ( ) -> u64 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetVersion ( ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetVersionExA ( lpversioninformation : *mut OSVERSIONINFOA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetVersionExW ( lpversioninformation : *mut OSVERSIONINFOW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetWindowsDirectoryA ( lpbuffer : :: windows_sys::core::PSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetWindowsDirectoryW ( lpbuffer : :: windows_sys::core::PWSTR , usize : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalMemoryStatus ( lpbuffer : *mut MEMORYSTATUS ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalMemoryStatusEx ( lpbuffer : *mut MEMORYSTATUSEX ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn IsUserCetAvailableInEnvironment ( usercetenvironment : USER_CET_ENVIRONMENT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn IsWow64GuestMachineSupported ( wowguestmachine : IMAGE_FILE_MACHINE , machineissupported : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlConvertDeviceFamilyInfoToString ( puldevicefamilybuffersize : *mut u32 , puldeviceformbuffersize : *mut u32 , devicefamily : :: windows_sys::core::PWSTR , deviceform : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlGetDeviceFamilyInfoEnum ( pulluapinfo : *mut u64 , puldevicefamily : *mut DEVICEFAMILYINFOENUM , puldeviceform : *mut DEVICEFAMILYDEVICEFORM ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlGetProductInfo ( osmajorversion : u32 , osminorversion : u32 , spmajorversion : u32 , spminorversion : u32 , returnedproducttype : *mut u32 ) -> super::super::Foundation:: BOOLEAN );
+::windows_sys::core::windows_link ! ( "ntdllk.dll" ,"system" fn RtlGetSystemGlobalData ( dataid : RTL_SYSTEM_GLOBAL_DATA_ID , buffer : *mut ::core::ffi::c_void , size : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlOsDeploymentState ( flags : u32 ) -> OS_DEPLOYEMENT_STATE_VALUES );
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlSwitchedVVI ( versioninfo : *const OSVERSIONINFOEXW , typemask : u32 , conditionmask : u64 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetComputerNameA ( lpcomputername : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetComputerNameEx2W ( nametype : COMPUTER_NAME_FORMAT , flags : u32 , lpbuffer : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetComputerNameExA ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetComputerNameExW ( nametype : COMPUTER_NAME_FORMAT , lpbuffer : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetComputerNameW ( lpcomputername : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetLocalTime ( lpsystemtime : *const super::super::Foundation:: SYSTEMTIME ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetSystemTime ( lpsystemtime : *const super::super::Foundation:: SYSTEMTIME ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetSystemTimeAdjustment ( dwtimeadjustment : u32 , btimeadjustmentdisabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "api-ms-win-core-sysinfo-l1-2-4.dll" ,"system" fn SetSystemTimeAdjustmentPrecise ( dwtimeadjustment : u64 , btimeadjustmentdisabled : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn VerSetConditionMask ( conditionmask : u64 , typemask : VER_FLAGS , condition : u8 ) -> u64 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn VerifyVersionInfoA ( lpversioninformation : *mut OSVERSIONINFOEXA , dwtypemask : VER_FLAGS , dwlconditionmask : u64 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn VerifyVersionInfoW ( lpversioninformation : *mut OSVERSIONINFOEXW , dwtypemask : VER_FLAGS , dwlconditionmask : u64 ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]

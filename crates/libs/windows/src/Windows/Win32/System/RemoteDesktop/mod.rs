@@ -2,10 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn ProcessIdToSessionId ( dwprocessid : u32 , psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
     ProcessIdToSessionId(dwprocessid, ::core::mem::transmute(psessionid))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -15,10 +12,7 @@ pub unsafe fn WTSCloseServer<'a, P0>(hserver: P0)
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSCloseServer ( hserver : super::super::Foundation:: HANDLE ) -> ( ) );
     WTSCloseServer(hserver.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -29,10 +23,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSConnectSessionA(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSConnectSessionA ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -43,10 +34,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSConnectSessionW(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCWSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSConnectSessionW ( logonid : u32 , targetlogonid : u32 , ppassword : :: windows::core::PCWSTR , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -57,10 +45,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCreateListenerA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSCreateListenerA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *const WTSLISTENERCONFIGA , flag : u32 ) -> super::super::Foundation:: BOOL );
     WTSCreateListenerA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -71,10 +56,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCreateListenerW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSCreateListenerW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *const WTSLISTENERCONFIGW , flag : u32 ) -> super::super::Foundation:: BOOL );
     WTSCreateListenerW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -85,10 +67,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSDisconnectSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -98,10 +77,7 @@ pub unsafe fn WTSEnableChildSessions<'a, P0>(benable: P0) -> super::super::Found
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnableChildSessions ( benable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSEnableChildSessions(benable.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -111,10 +87,7 @@ pub unsafe fn WTSEnumerateListenersA<'a, P0>(hserver: P0, preserved: *const ::co
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateListenersA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateListenersA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut i8 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateListenersA(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -124,10 +97,7 @@ pub unsafe fn WTSEnumerateListenersW<'a, P0>(hserver: P0, preserved: *const ::co
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateListenersW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateListenersW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plisteners : *mut *mut u16 , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateListenersW(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -137,10 +107,7 @@ pub unsafe fn WTSEnumerateProcessesA<'a, P0>(hserver: P0, reserved: u32, version
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateProcessesA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesA(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -150,10 +117,7 @@ pub unsafe fn WTSEnumerateProcessesExA<'a, P0>(hserver: P0, plevel: *mut u32, se
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateProcessesExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesExA(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -163,10 +127,7 @@ pub unsafe fn WTSEnumerateProcessesExW<'a, P0>(hserver: P0, plevel: *mut u32, se
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateProcessesExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , sessionid : u32 , ppprocessinfo : *mut :: windows::core::PWSTR , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesExW(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -176,10 +137,7 @@ pub unsafe fn WTSEnumerateProcessesW<'a, P0>(hserver: P0, reserved: u32, version
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateProcessesW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppprocessinfo : *mut *mut WTS_PROCESS_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateProcessesW(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -189,10 +147,7 @@ pub unsafe fn WTSEnumerateServersA<'a, P0>(pdomainname: P0, reserved: u32, versi
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateServersA(pdomainname: ::windows::core::PCSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateServersA ( pdomainname : :: windows::core::PCSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateServersA(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -202,10 +157,7 @@ pub unsafe fn WTSEnumerateServersW<'a, P0>(pdomainname: P0, reserved: u32, versi
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateServersW(pdomainname: ::windows::core::PCWSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateServersW ( pdomainname : :: windows::core::PCWSTR , reserved : u32 , version : u32 , ppserverinfo : *mut *mut WTS_SERVER_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateServersW(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -215,10 +167,7 @@ pub unsafe fn WTSEnumerateSessionsA<'a, P0>(hserver: P0, reserved: u32, version:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateSessionsA ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOA , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsA(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -228,10 +177,7 @@ pub unsafe fn WTSEnumerateSessionsExA<'a, P0>(hserver: P0, plevel: *mut u32, fil
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateSessionsExA ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsExA(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -241,10 +187,7 @@ pub unsafe fn WTSEnumerateSessionsExW<'a, P0>(hserver: P0, plevel: *mut u32, fil
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateSessionsExW ( hserver : super::super::Foundation:: HANDLE , plevel : *mut u32 , filter : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsExW(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -254,58 +197,40 @@ pub unsafe fn WTSEnumerateSessionsW<'a, P0>(hserver: P0, reserved: u32, version:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSEnumerateSessionsW ( hserver : super::super::Foundation:: HANDLE , reserved : u32 , version : u32 , ppsessioninfo : *mut *mut WTS_SESSION_INFOW , pcount : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSEnumerateSessionsW(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
 pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void);
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSFreeMemory ( pmemory : *mut ::core::ffi::c_void ) -> ( ) );
     WTSFreeMemory(::core::mem::transmute(pmemory))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSFreeMemoryExA ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
     WTSFreeMemoryExA(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSFreeMemoryExW ( wtstypeclass : WTS_TYPE_CLASS , pmemory : *const ::core::ffi::c_void , numberofentries : u32 ) -> super::super::Foundation:: BOOL );
     WTSFreeMemoryExW(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
 pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetActiveConsoleSessionId() -> u32;
-    }
+    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn WTSGetActiveConsoleSessionId ( ) -> u32 );
     WTSGetActiveConsoleSessionId()
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSGetChildSessionId ( psessionid : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetChildSessionId(::core::mem::transmute(psessionid))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -316,10 +241,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSGetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -330,20 +252,14 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSGetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , nlength : u32 , lpnlengthneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSIsChildSessionsEnabled ( pbenabled : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -354,10 +270,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSLogoffSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSLogoffSession ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSLogoffSession(hserver.into(), sessionid, bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -367,10 +280,7 @@ pub unsafe fn WTSOpenServerA<'a, P0>(pservername: P0) -> super::super::Foundatio
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSOpenServerA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerA(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -380,10 +290,7 @@ pub unsafe fn WTSOpenServerExA<'a, P0>(pservername: P0) -> super::super::Foundat
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerExA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSOpenServerExA ( pservername : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerExA(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -393,10 +300,7 @@ pub unsafe fn WTSOpenServerExW<'a, P0>(pservername: P0) -> super::super::Foundat
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerExW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSOpenServerExW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerExW(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -406,10 +310,7 @@ pub unsafe fn WTSOpenServerW<'a, P0>(pservername: P0) -> super::super::Foundatio
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSOpenServerW ( pservername : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     WTSOpenServerW(pservername.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -420,10 +321,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryListenerConfigA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQueryListenerConfigA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , pbuffer : *mut WTSLISTENERCONFIGA ) -> super::super::Foundation:: BOOL );
     WTSQueryListenerConfigA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -434,10 +332,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryListenerConfigW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQueryListenerConfigW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , pbuffer : *mut WTSLISTENERCONFIGW ) -> super::super::Foundation:: BOOL );
     WTSQueryListenerConfigW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -447,10 +342,7 @@ pub unsafe fn WTSQuerySessionInformationA<'a, P0>(hserver: P0, sessionid: u32, w
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQuerySessionInformationA(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQuerySessionInformationA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -460,10 +352,7 @@ pub unsafe fn WTSQuerySessionInformationW<'a, P0>(hserver: P0, sessionid: u32, w
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQuerySessionInformationW(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQuerySessionInformationW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , wtsinfoclass : WTS_INFO_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -474,10 +363,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQueryUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -488,20 +374,14 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQueryUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , ppbuffer : *mut :: windows::core::PWSTR , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSQueryUserToken ( sessionid : u32 , phtoken : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSQueryUserToken(sessionid, ::core::mem::transmute(phtoken))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -511,10 +391,7 @@ pub unsafe fn WTSRegisterSessionNotification<'a, P0>(hwnd: P0, dwflags: u32) -> 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSRegisterSessionNotification(hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     WTSRegisterSessionNotification(hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -525,10 +402,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND , dwflags : u32 ) -> super::super::Foundation:: BOOL );
     WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -539,10 +413,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSendMessageA(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCSTR, titlelength: u32, pmessage: ::windows::core::PCSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSendMessageA ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCSTR , titlelength : u32 , pmessage : :: windows::core::PCSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSSendMessageA(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, ::core::mem::transmute(presponse), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -555,10 +426,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
     P3: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSendMessageW(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCWSTR, titlelength: u32, pmessage: ::windows::core::PCWSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSendMessageW ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , ptitle : :: windows::core::PCWSTR , titlelength : u32 , pmessage : :: windows::core::PCWSTR , messagelength : u32 , style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE , timeout : u32 , presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     WTSSendMessageW(hserver.into(), sessionid, ptitle.into(), titlelength, pmessage.into(), messagelength, style, timeout, ::core::mem::transmute(presponse), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -570,10 +438,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSetListenerSecurityA ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
     WTSSetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -585,10 +450,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSetListenerSecurityW ( hserver : super::super::Foundation:: HANDLE , preserved : *const ::core::ffi::c_void , reserved : u32 , plistenername : :: windows::core::PCWSTR , securityinformation : u32 , psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR ) -> super::super::Foundation:: BOOL );
     WTSSetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -598,10 +460,7 @@ pub unsafe fn WTSSetRenderHint<'a, P0>(prenderhintid: *mut u64, hwndowner: P0, r
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetRenderHint(prenderhintid: *mut u64, hwndowner: super::super::Foundation::HWND, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSetRenderHint ( prenderhintid : *mut u64 , hwndowner : super::super::Foundation:: HWND , renderhinttype : u32 , cbhintdatalength : u32 , phintdata : *const u8 ) -> :: windows::core::HRESULT );
     WTSSetRenderHint(::core::mem::transmute(prenderhintid), hwndowner.into(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -612,10 +471,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCSTR, datalength: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSetUserConfigA ( pservername : :: windows::core::PCSTR , pusername : :: windows::core::PCSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
     WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -627,10 +483,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCWSTR, datalength: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSSetUserConfigW ( pservername : :: windows::core::PCWSTR , pusername : :: windows::core::PCWSTR , wtsconfigclass : WTS_CONFIG_CLASS , pbuffer : :: windows::core::PCWSTR , datalength : u32 ) -> super::super::Foundation:: BOOL );
     WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, pbuffer.into(), datalength)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -640,10 +493,7 @@ pub unsafe fn WTSShutdownSystem<'a, P0>(hserver: P0, shutdownflag: u32) -> super
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSShutdownSystem(hserver: super::super::Foundation::HANDLE, shutdownflag: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSShutdownSystem ( hserver : super::super::Foundation:: HANDLE , shutdownflag : u32 ) -> super::super::Foundation:: BOOL );
     WTSShutdownSystem(hserver.into(), shutdownflag)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -653,10 +503,7 @@ pub unsafe fn WTSStartRemoteControlSessionA<'a, P0>(ptargetservername: P0, targe
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStartRemoteControlSessionA(ptargetservername: ::windows::core::PCSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSStartRemoteControlSessionA ( ptargetservername : :: windows::core::PCSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
     WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -666,20 +513,14 @@ pub unsafe fn WTSStartRemoteControlSessionW<'a, P0>(ptargetservername: P0, targe
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStartRemoteControlSessionW(ptargetservername: ::windows::core::PCWSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSStartRemoteControlSessionW ( ptargetservername : :: windows::core::PCWSTR , targetlogonid : u32 , hotkeyvk : u8 , hotkeymodifiers : u16 ) -> super::super::Foundation:: BOOL );
     WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSStopRemoteControlSession ( logonid : u32 ) -> super::super::Foundation:: BOOL );
     WTSStopRemoteControlSession(logonid)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -689,10 +530,7 @@ pub unsafe fn WTSTerminateProcess<'a, P0>(hserver: P0, processid: u32, exitcode:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSTerminateProcess(hserver: super::super::Foundation::HANDLE, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSTerminateProcess ( hserver : super::super::Foundation:: HANDLE , processid : u32 , exitcode : u32 ) -> super::super::Foundation:: BOOL );
     WTSTerminateProcess(hserver.into(), processid, exitcode)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -702,10 +540,7 @@ pub unsafe fn WTSUnRegisterSessionNotification<'a, P0>(hwnd: P0) -> super::super
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSUnRegisterSessionNotification(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSUnRegisterSessionNotification ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     WTSUnRegisterSessionNotification(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -716,10 +551,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSUnRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSUnRegisterSessionNotificationEx ( hserver : super::super::Foundation:: HANDLE , hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -729,10 +561,7 @@ pub unsafe fn WTSVirtualChannelClose<'a, P0>(hchannelhandle: P0) -> super::super
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelClose(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelClose ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelClose(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -743,10 +572,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelOpen(hserver: super::super::Foundation::HANDLE, sessionid: u32, pvirtualname: ::windows::core::PCSTR) -> HwtsVirtualChannelHandle;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows::core::PCSTR ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -756,10 +582,7 @@ pub unsafe fn WTSVirtualChannelOpenEx<'a, P0>(sessionid: u32, pvirtualname: P0, 
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelOpenEx(sessionid: u32, pvirtualname: ::windows::core::PCSTR, flags: u32) -> HwtsVirtualChannelHandle;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -770,10 +593,7 @@ pub unsafe fn WTSVirtualChannelPurgeInput<'a, P0>(hchannelhandle: P0) -> super::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelPurgeInput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelPurgeInput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelPurgeInput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -783,10 +603,7 @@ pub unsafe fn WTSVirtualChannelPurgeOutput<'a, P0>(hchannelhandle: P0) -> super:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelPurgeOutput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelPurgeOutput ( hchannelhandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelPurgeOutput(hchannelhandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -796,10 +613,7 @@ pub unsafe fn WTSVirtualChannelQuery<'a, P0>(hchannelhandle: P0, param1: WTS_VIR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelQuery(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelQuery ( hchannelhandle : super::super::Foundation:: HANDLE , param1 : WTS_VIRTUAL_CLASS , ppbuffer : *mut *mut ::core::ffi::c_void , pbytesreturned : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelQuery(hchannelhandle.into(), param1, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -809,10 +623,7 @@ pub unsafe fn WTSVirtualChannelRead<'a, P0>(hchannelhandle: P0, timeout: u32, bu
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelRead(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: ::windows::core::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelRead ( hchannelhandle : super::super::Foundation:: HANDLE , timeout : u32 , buffer : :: windows::core::PSTR , buffersize : u32 , pbytesread : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbytesread))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -822,10 +633,7 @@ pub unsafe fn WTSVirtualChannelWrite<'a, P0>(hchannelhandle: P0, buffer: &[u8], 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelWrite(hchannelhandle: super::super::Foundation::HANDLE, buffer: ::windows::core::PCSTR, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSVirtualChannelWrite ( hchannelhandle : super::super::Foundation:: HANDLE , buffer : :: windows::core::PCSTR , length : u32 , pbyteswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSVirtualChannelWrite(hchannelhandle.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbyteswritten))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -835,10 +643,7 @@ pub unsafe fn WTSWaitSystemEvent<'a, P0>(hserver: P0, eventmask: u32, peventflag
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "wtsapi32.dll" ,"system" fn WTSWaitSystemEvent ( hserver : super::super::Foundation:: HANDLE , eventmask : u32 , peventflags : *mut u32 ) -> super::super::Foundation:: BOOL );
     WTSWaitSystemEvent(hserver.into(), eventmask, ::core::mem::transmute(peventflags))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
@@ -13533,9 +13338,9 @@ impl ::core::default::Default for pluginResource2FileAssociation {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
+pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
+pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]

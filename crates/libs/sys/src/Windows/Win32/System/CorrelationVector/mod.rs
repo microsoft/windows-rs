@@ -1,18 +1,11 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
-    #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
-    #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows_sys::core::GUID) -> u32;
-    #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlExtendCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIncrementCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlInitializeCorrelationVector ( correlationvector : *mut CORRELATION_VECTOR , version : i32 , guid : *const :: windows_sys::core::GUID ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlValidateCorrelationVector ( vector : *const CORRELATION_VECTOR ) -> u32 );
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 #[doc = "*Required features: `\"Win32_System_CorrelationVector\"`*"]

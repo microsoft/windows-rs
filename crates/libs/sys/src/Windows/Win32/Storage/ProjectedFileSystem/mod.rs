@@ -1,52 +1,30 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: ::windows_sys::core::HRESULT, extendedparameters: *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjDoesNameContainWildCards(filename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjFileNameCompare(filename1: ::windows_sys::core::PCWSTR, filename2: ::windows_sys::core::PCWSTR) -> i32;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjFileNameMatch(filenametocheck: ::windows_sys::core::PCWSTR, pattern: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOLEAN;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjFillDirEntryBuffer(filename: ::windows_sys::core::PCWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: ::windows_sys::core::PCWSTR, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjFreeAlignedBuffer(buffer: *const ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjGetOnDiskFileState(destinationfilename: ::windows_sys::core::PCWSTR, filestate: *mut PRJ_FILE_STATE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjMarkDirectoryAsPlaceholder(rootpathname: ::windows_sys::core::PCWSTR, targetpathname: ::windows_sys::core::PCWSTR, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjStartVirtualizing(virtualizationrootpath: ::windows_sys::core::PCWSTR, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::core::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext: *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT);
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES, failurereason: *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-    pub fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const ::windows_sys::core::GUID, buffer: *const ::core::ffi::c_void, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: ::windows_sys::core::PCWSTR, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjAllocateAlignedBuffer ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , size : usize ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjClearNegativePathCache ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , totalentrynumber : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjCompleteCommand ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , commandid : i32 , completionresult : :: windows_sys::core::HRESULT , extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjDeleteFile ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows_sys::core::PCWSTR , updateflags : PRJ_UPDATE_TYPES , failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjDoesNameContainWildCards ( filename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOLEAN );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjFileNameCompare ( filename1 : :: windows_sys::core::PCWSTR , filename2 : :: windows_sys::core::PCWSTR ) -> i32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjFileNameMatch ( filenametocheck : :: windows_sys::core::PCWSTR , pattern : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOLEAN );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjFillDirEntryBuffer ( filename : :: windows_sys::core::PCWSTR , filebasicinfo : *const PRJ_FILE_BASIC_INFO , direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjFillDirEntryBuffer2 ( direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE , filename : :: windows_sys::core::PCWSTR , filebasicinfo : *const PRJ_FILE_BASIC_INFO , extendedinfo : *const PRJ_EXTENDED_INFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjFreeAlignedBuffer ( buffer : *const ::core::ffi::c_void ) -> ( ) );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjGetOnDiskFileState ( destinationfilename : :: windows_sys::core::PCWSTR , filestate : *mut PRJ_FILE_STATE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjGetVirtualizationInstanceInfo ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjMarkDirectoryAsPlaceholder ( rootpathname : :: windows_sys::core::PCWSTR , targetpathname : :: windows_sys::core::PCWSTR , versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO , virtualizationinstanceid : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjStartVirtualizing ( virtualizationrootpath : :: windows_sys::core::PCWSTR , callbacks : *const PRJ_CALLBACKS , instancecontext : *const ::core::ffi::c_void , options : *const PRJ_STARTVIRTUALIZING_OPTIONS , namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjStopVirtualizing ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjUpdateFileIfNeeded ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows_sys::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 , updateflags : PRJ_UPDATE_TYPES , failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjWriteFileData ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , datastreamid : *const :: windows_sys::core::GUID , buffer : *const ::core::ffi::c_void , byteoffset : u64 , length : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjWritePlaceholderInfo ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows_sys::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "projectedfslib.dll" ,"system" fn PrjWritePlaceholderInfo2 ( namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT , destinationfilename : :: windows_sys::core::PCWSTR , placeholderinfo : *const PRJ_PLACEHOLDER_INFO , placeholderinfosize : u32 , extendedinfo : *const PRJ_EXTENDED_INFO ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_CALLBACK_DATA_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
@@ -492,7 +470,7 @@ impl ::core::clone::Clone for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
-pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
+pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ()>;
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]

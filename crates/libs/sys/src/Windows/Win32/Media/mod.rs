@@ -24,23 +24,13 @@ pub mod Speech;
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeBeginPeriod(uperiod: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeEndPeriod(uperiod: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeGetTime() -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeKillEvent(utimerid: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media\"`*"]
-    pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
-}
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeBeginPeriod ( uperiod : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeEndPeriod ( uperiod : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeGetDevCaps ( ptc : *mut TIMECAPS , cbtc : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeGetSystemTime ( pmmt : *mut MMTIME , cbmmt : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeGetTime ( ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeKillEvent ( utimerid : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "winmm.dll" ,"system" fn timeSetEvent ( udelay : u32 , uresolution : u32 , fptc : LPTIMECALLBACK , dwuser : usize , fuevent : u32 ) -> u32 );
 pub type IReferenceClock = *mut ::core::ffi::c_void;
 pub type IReferenceClock2 = *mut ::core::ffi::c_void;
 pub type IReferenceClockTimerControl = *mut ::core::ffi::c_void;
@@ -364,6 +354,6 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE {
 }
 #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Media_Multimedia\"`*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
-pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
-pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;

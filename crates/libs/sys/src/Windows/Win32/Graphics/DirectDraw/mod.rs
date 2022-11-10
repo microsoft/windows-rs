@@ -1,24 +1,14 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-    pub fn DirectDrawCreate(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut IDirectDraw, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-    pub fn DirectDrawCreateClipper(dwflags: u32, lplpddclipper: *mut IDirectDrawClipper, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-    pub fn DirectDrawCreateEx(lpguid: *mut ::windows_sys::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreate ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut IDirectDraw , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut IDirectDrawClipper , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateEx ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDDVideoPortContainer = *mut ::core::ffi::c_void;
 pub type IDirectDraw = *mut ::core::ffi::c_void;
 pub type IDirectDraw2 = *mut ::core::ffi::c_void;
@@ -8084,7 +8074,7 @@ pub type LPDDHAL_UPDATENONLOCALHEAP = ::core::option::Option<unsafe extern "syst
 pub type LPDDHAL_VIDMEMALLOC = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, dwwidth: u32, dwheight: u32) -> usize>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type LPDDHAL_VIDMEMFREE = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, fpmem: usize)>;
+pub type LPDDHAL_VIDMEMFREE = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, fpmem: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVERTICALBLANKDATA) -> u32>;
@@ -8279,7 +8269,7 @@ pub type PDX_GETPREVIOUSAUTOFLIP = ::core::option::Option<unsafe extern "system"
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETTRANSFERSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: *mut DDGETTRANSFERSTATUSOUTINFO) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
-pub type PDX_IRQCALLBACK = ::core::option::Option<unsafe extern "system" fn(pirqdata: *mut DX_IRQDATA)>;
+pub type PDX_IRQCALLBACK = ::core::option::Option<unsafe extern "system" fn(pirqdata: *mut DX_IRQDATA) -> ()>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDLOCKININFO, param2: *mut DDLOCKOUTINFO) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]

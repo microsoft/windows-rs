@@ -1,8 +1,4 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
-    pub fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows_sys::core::GUID, factory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "dwrite.dll" ,"system" fn DWriteCreateFactory ( factorytype : DWRITE_FACTORY_TYPE , iid : *const :: windows_sys::core::GUID , factory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDWriteAsyncResult = *mut ::core::ffi::c_void;
 pub type IDWriteBitmapRenderTarget = *mut ::core::ffi::c_void;
 pub type IDWriteBitmapRenderTarget1 = *mut ::core::ffi::c_void;

@@ -1,44 +1,22 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn CloseHandle(hobject: HANDLE) -> BOOL;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn GetLastError() -> WIN32_ERROR;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SetLastError(dwerrcode: WIN32_ERROR);
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAddRefString(bstrstring: ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocString(psz: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::BSTR;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocStringByteLen(psz: ::windows_sys::core::PCSTR, len: u32) -> ::windows_sys::core::BSTR;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysAllocStringLen(strin: ::windows_sys::core::PCWSTR, ui: u32) -> ::windows_sys::core::BSTR;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysFreeString(bstrstring: ::windows_sys::core::BSTR);
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReAllocString(pbstr: *mut ::windows_sys::core::BSTR, psz: ::windows_sys::core::PCWSTR) -> i32;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReAllocStringLen(pbstr: *mut ::windows_sys::core::BSTR, psz: ::windows_sys::core::PCWSTR, len: u32) -> i32;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysReleaseString(bstrstring: ::windows_sys::core::BSTR);
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysStringByteLen(bstr: ::windows_sys::core::BSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    pub fn SysStringLen(pbstr: ::windows_sys::core::BSTR) -> u32;
-}
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CloseHandle ( hobject : HANDLE ) -> BOOL );
+::windows_sys::core::windows_link ! ( "api-ms-win-core-handle-l1-1-0.dll" ,"system" fn CompareObjectHandles ( hfirstobjecthandle : HANDLE , hsecondobjecthandle : HANDLE ) -> BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn DuplicateHandle ( hsourceprocesshandle : HANDLE , hsourcehandle : HANDLE , htargetprocesshandle : HANDLE , lptargethandle : *mut HANDLE , dwdesiredaccess : u32 , binherithandle : BOOL , dwoptions : DUPLICATE_HANDLE_OPTIONS ) -> BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetHandleInformation ( hobject : HANDLE , lpdwflags : *mut u32 ) -> BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetLastError ( ) -> WIN32_ERROR );
+::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlNtStatusToDosError ( status : NTSTATUS ) -> u32 );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetHandleInformation ( hobject : HANDLE , dwmask : u32 , dwflags : HANDLE_FLAGS ) -> BOOL );
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetLastError ( dwerrcode : WIN32_ERROR ) -> ( ) );
+::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn SetLastErrorEx ( dwerrcode : WIN32_ERROR , dwtype : u32 ) -> ( ) );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysAddRefString ( bstrstring : :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysAllocString ( psz : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::BSTR );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysAllocStringByteLen ( psz : :: windows_sys::core::PCSTR , len : u32 ) -> :: windows_sys::core::BSTR );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysAllocStringLen ( strin : :: windows_sys::core::PCWSTR , ui : u32 ) -> :: windows_sys::core::BSTR );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysFreeString ( bstrstring : :: windows_sys::core::BSTR ) -> ( ) );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysReAllocString ( pbstr : *mut :: windows_sys::core::BSTR , psz : :: windows_sys::core::PCWSTR ) -> i32 );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysReAllocStringLen ( pbstr : *mut :: windows_sys::core::BSTR , psz : :: windows_sys::core::PCWSTR , len : u32 ) -> i32 );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysReleaseString ( bstrstring : :: windows_sys::core::BSTR ) -> ( ) );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysStringByteLen ( bstr : :: windows_sys::core::BSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "oleaut32.dll" ,"system" fn SysStringLen ( pbstr : :: windows_sys::core::BSTR ) -> u32 );
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: i32 = 15705i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -19887,6 +19865,6 @@ pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;

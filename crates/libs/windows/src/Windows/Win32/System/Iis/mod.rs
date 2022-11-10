@@ -2,40 +2,28 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "rpcproxy.dll" ,"system" fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
     GetExtensionVersion(::core::mem::transmute(pver))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "rpcproxy.dll" ,"system" fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
     GetFilterVersion(::core::mem::transmute(pver))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
-    }
+    ::windows::core::windows_link ! ( "rpcproxy.dll" ,"system" fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
     HttpExtensionProc(::core::mem::transmute(pecb))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "rpcproxy.dll" ,"system" fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
     HttpFilterProc(::core::mem::transmute(pfc), notificationtype, ::core::mem::transmute(pvnotification))
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -5433,7 +5421,7 @@ pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe ext
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: ::windows::core::PCWSTR, pszprotocolmanagerdllinitfunction: ::windows::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32)>;
+pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Iis\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;

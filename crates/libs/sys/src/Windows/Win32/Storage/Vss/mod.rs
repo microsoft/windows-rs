@@ -1,8 +1,4 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Storage_Vss\"`*"]
-    pub fn CreateVssExpressWriterInternal(ppwriter: *mut IVssExpressWriter) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "vssapi.dll" ,"system" fn CreateVssExpressWriterInternal ( ppwriter : *mut IVssExpressWriter ) -> :: windows_sys::core::HRESULT );
 pub type IVssAdmin = *mut ::core::ffi::c_void;
 pub type IVssAdminEx = *mut ::core::ffi::c_void;
 pub type IVssAsync = *mut ::core::ffi::c_void;

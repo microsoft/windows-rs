@@ -6,10 +6,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSAddSocketToFlow ( qoshandle : super::super::Foundation:: HANDLE , socket : super::super::Networking::WinSock:: SOCKET , destaddr : *const super::super::Networking::WinSock:: SOCKADDR , traffictype : QOS_TRAFFIC_TYPE , flags : u32 , flowid : *mut u32 ) -> super::super::Foundation:: BOOL );
     QOSAddSocketToFlow(qoshandle.into(), socket.into(), ::core::mem::transmute(destaddr.unwrap_or(::std::ptr::null())), traffictype, flags, ::core::mem::transmute(flowid))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -19,10 +16,7 @@ pub unsafe fn QOSCancel<'a, P0>(qoshandle: P0, overlapped: *const super::super::
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSCancel(qoshandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSCancel ( qoshandle : super::super::Foundation:: HANDLE , overlapped : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     QOSCancel(qoshandle.into(), ::core::mem::transmute(overlapped))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -32,20 +26,14 @@ pub unsafe fn QOSCloseHandle<'a, P0>(qoshandle: P0) -> super::super::Foundation:
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSCloseHandle(qoshandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSCloseHandle ( qoshandle : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     QOSCloseHandle(qoshandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSCreateHandle ( version : *const QOS_VERSION , qoshandle : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     QOSCreateHandle(::core::mem::transmute(version), ::core::mem::transmute(qoshandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -55,10 +43,7 @@ pub unsafe fn QOSEnumerateFlows<'a, P0>(qoshandle: P0, size: *mut u32, buffer: *
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSEnumerateFlows ( qoshandle : super::super::Foundation:: HANDLE , size : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     QOSEnumerateFlows(qoshandle.into(), ::core::mem::transmute(size), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -68,10 +53,7 @@ pub unsafe fn QOSNotifyFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_N
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSNotifyFlow ( qoshandle : super::super::Foundation:: HANDLE , flowid : u32 , operation : QOS_NOTIFY_FLOW , size : *mut u32 , buffer : *mut ::core::ffi::c_void , flags : u32 , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     QOSNotifyFlow(qoshandle.into(), flowid, operation, ::core::mem::transmute(size.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -81,10 +63,7 @@ pub unsafe fn QOSQueryFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_QU
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSQueryFlow ( qoshandle : super::super::Foundation:: HANDLE , flowid : u32 , operation : QOS_QUERY_FLOW , size : *mut u32 , buffer : *mut ::core::ffi::c_void , flags : u32 , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     QOSQueryFlow(qoshandle.into(), flowid, operation, ::core::mem::transmute(size), ::core::mem::transmute(buffer), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -95,10 +74,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, flowid: u32, flags: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSRemoveSocketFromFlow ( qoshandle : super::super::Foundation:: HANDLE , socket : super::super::Networking::WinSock:: SOCKET , flowid : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
     QOSRemoveSocketFromFlow(qoshandle.into(), socket.into(), flowid, flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -108,10 +84,7 @@ pub unsafe fn QOSSetFlow<'a, P0>(qoshandle: P0, flowid: u32, operation: QOS_SET_
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSSetFlow ( qoshandle : super::super::Foundation:: HANDLE , flowid : u32 , operation : QOS_SET_FLOW , size : u32 , buffer : *const ::core::ffi::c_void , flags : u32 , overlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     QOSSetFlow(qoshandle.into(), flowid, operation, size, ::core::mem::transmute(buffer), flags, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -121,10 +94,7 @@ pub unsafe fn QOSStartTrackingClient<'a, P0>(qoshandle: P0, destaddr: *const sup
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSStartTrackingClient ( qoshandle : super::super::Foundation:: HANDLE , destaddr : *const super::super::Networking::WinSock:: SOCKADDR , flags : u32 ) -> super::super::Foundation:: BOOL );
     QOSStartTrackingClient(qoshandle.into(), ::core::mem::transmute(destaddr), flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -134,10 +104,7 @@ pub unsafe fn QOSStopTrackingClient<'a, P0>(qoshandle: P0, destaddr: *const supe
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "qwave.dll" ,"system" fn QOSStopTrackingClient ( qoshandle : super::super::Foundation:: HANDLE , destaddr : *const super::super::Networking::WinSock:: SOCKADDR , flags : u32 ) -> super::super::Foundation:: BOOL );
     QOSStopTrackingClient(qoshandle.into(), ::core::mem::transmute(destaddr), flags)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -147,10 +114,7 @@ pub unsafe fn TcAddFilter<'a, P0>(flowhandle: P0, pgenericfilter: *const TC_GEN_
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcAddFilter ( flowhandle : super::super::Foundation:: HANDLE , pgenericfilter : *const TC_GEN_FILTER , pfilterhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcAddFilter(flowhandle.into(), ::core::mem::transmute(pgenericfilter), ::core::mem::transmute(pfilterhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -161,10 +125,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcAddFlow ( ifchandle : super::super::Foundation:: HANDLE , clflowctx : super::super::Foundation:: HANDLE , flags : u32 , pgenericflow : *const TC_GEN_FLOW , pflowhandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcAddFlow(ifchandle.into(), clflowctx.into(), flags, ::core::mem::transmute(pgenericflow), ::core::mem::transmute(pflowhandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -174,10 +135,7 @@ pub unsafe fn TcCloseInterface<'a, P0>(ifchandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcCloseInterface ( ifchandle : super::super::Foundation:: HANDLE ) -> u32 );
     TcCloseInterface(ifchandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -187,10 +145,7 @@ pub unsafe fn TcDeleteFilter<'a, P0>(filterhandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcDeleteFilter ( filterhandle : super::super::Foundation:: HANDLE ) -> u32 );
     TcDeleteFilter(filterhandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -200,10 +155,7 @@ pub unsafe fn TcDeleteFlow<'a, P0>(flowhandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcDeleteFlow ( flowhandle : super::super::Foundation:: HANDLE ) -> u32 );
     TcDeleteFlow(flowhandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -213,10 +165,7 @@ pub unsafe fn TcDeregisterClient<'a, P0>(clienthandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcDeregisterClient ( clienthandle : super::super::Foundation:: HANDLE ) -> u32 );
     TcDeregisterClient(clienthandle.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -226,10 +175,7 @@ pub unsafe fn TcEnumerateFlows<'a, P0>(ifchandle: P0, penumhandle: *mut super::s
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcEnumerateFlows ( ifchandle : super::super::Foundation:: HANDLE , penumhandle : *mut super::super::Foundation:: HANDLE , pflowcount : *mut u32 , pbufsize : *mut u32 , buffer : *mut ENUMERATION_BUFFER ) -> u32 );
     TcEnumerateFlows(ifchandle.into(), ::core::mem::transmute(penumhandle), ::core::mem::transmute(pflowcount), ::core::mem::transmute(pbufsize), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -239,10 +185,7 @@ pub unsafe fn TcEnumerateInterfaces<'a, P0>(clienthandle: P0, pbuffersize: *mut 
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcEnumerateInterfaces ( clienthandle : super::super::Foundation:: HANDLE , pbuffersize : *mut u32 , interfacebuffer : *mut TC_IFC_DESCRIPTOR ) -> u32 );
     TcEnumerateInterfaces(clienthandle.into(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(interfacebuffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -252,10 +195,7 @@ pub unsafe fn TcGetFlowNameA<'a, P0>(flowhandle: P0, pflowname: &mut [u8]) -> u3
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PSTR) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcGetFlowNameA ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : :: windows::core::PSTR ) -> u32 );
     TcGetFlowNameA(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -265,10 +205,7 @@ pub unsafe fn TcGetFlowNameW<'a, P0>(flowhandle: P0, pflowname: &mut [u16]) -> u
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows::core::PWSTR) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcGetFlowNameW ( flowhandle : super::super::Foundation:: HANDLE , strsize : u32 , pflowname : :: windows::core::PWSTR ) -> u32 );
     TcGetFlowNameW(flowhandle.into(), pflowname.len() as _, ::core::mem::transmute(pflowname.as_ptr()))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -278,10 +215,7 @@ pub unsafe fn TcModifyFlow<'a, P0>(flowhandle: P0, pgenericflow: *const TC_GEN_F
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcModifyFlow ( flowhandle : super::super::Foundation:: HANDLE , pgenericflow : *const TC_GEN_FLOW ) -> u32 );
     TcModifyFlow(flowhandle.into(), ::core::mem::transmute(pgenericflow))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -293,10 +227,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcOpenInterfaceA(pinterfacename: ::windows::core::PCSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcOpenInterfaceA ( pinterfacename : :: windows::core::PCSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcOpenInterfaceA(pinterfacename.into(), clienthandle.into(), clifcctx.into(), ::core::mem::transmute(pifchandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -308,10 +239,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P2: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcOpenInterfaceW(pinterfacename: ::windows::core::PCWSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcOpenInterfaceW ( pinterfacename : :: windows::core::PCWSTR , clienthandle : super::super::Foundation:: HANDLE , clifcctx : super::super::Foundation:: HANDLE , pifchandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcOpenInterfaceW(pinterfacename.into(), clienthandle.into(), clifcctx.into(), ::core::mem::transmute(pifchandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -320,10 +248,7 @@ pub unsafe fn TcQueryFlowA<'a, P0>(pflowname: P0, pguidparam: *const ::windows::
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcQueryFlowA(pflowname: ::windows::core::PCSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcQueryFlowA ( pflowname : :: windows::core::PCSTR , pguidparam : *const :: windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -332,10 +257,7 @@ pub unsafe fn TcQueryFlowW<'a, P0>(pflowname: P0, pguidparam: *const ::windows::
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcQueryFlowW(pflowname: ::windows::core::PCWSTR, pguidparam: *const ::windows::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcQueryFlowW ( pflowname : :: windows::core::PCWSTR , pguidparam : *const :: windows::core::GUID , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryFlowW(pflowname.into(), ::core::mem::transmute(pguidparam), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -346,10 +268,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcQueryInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const :: windows::core::GUID , notifychange : super::super::Foundation:: BOOLEAN , pbuffersize : *mut u32 , buffer : *mut ::core::ffi::c_void ) -> u32 );
     TcQueryInterface(ifchandle.into(), ::core::mem::transmute(pguidparam), notifychange.into(), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -359,10 +278,7 @@ pub unsafe fn TcRegisterClient<'a, P0>(tciversion: u32, clregctx: P0, clienthand
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcRegisterClient ( tciversion : u32 , clregctx : super::super::Foundation:: HANDLE , clienthandlerlist : *const TCI_CLIENT_FUNC_LIST , pclienthandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
     TcRegisterClient(tciversion, clregctx.into(), ::core::mem::transmute(clienthandlerlist), ::core::mem::transmute(pclienthandle))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -371,10 +287,7 @@ pub unsafe fn TcSetFlowA<'a, P0>(pflowname: P0, pguidparam: *const ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcSetFlowA(pflowname: ::windows::core::PCSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcSetFlowA ( pflowname : :: windows::core::PCSTR , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetFlowA(pflowname.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -383,10 +296,7 @@ pub unsafe fn TcSetFlowW<'a, P0>(pflowname: P0, pguidparam: *const ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcSetFlowW(pflowname: ::windows::core::PCWSTR, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcSetFlowW ( pflowname : :: windows::core::PCWSTR , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetFlowW(pflowname.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
@@ -396,10 +306,7 @@ pub unsafe fn TcSetInterface<'a, P0>(ifchandle: P0, pguidparam: *const ::windows
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
-    }
+    ::windows::core::windows_link ! ( "traffic.dll" ,"system" fn TcSetInterface ( ifchandle : super::super::Foundation:: HANDLE , pguidparam : *const :: windows::core::GUID , buffersize : u32 , buffer : *const ::core::ffi::c_void ) -> u32 );
     TcSetInterface(ifchandle.into(), ::core::mem::transmute(pguidparam), buffersize, ::core::mem::transmute(buffer))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -5259,18 +5166,18 @@ pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpm
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub type PALLOCMEM = ::core::option::Option<unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
+pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void)>;
+pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,6 +1,2 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_Diagnostics_Ceip\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CeipIsOptedIn ( ) -> super::super::super::Foundation:: BOOL );

@@ -1,33 +1,18 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
-    pub fn D3D11CreateDevice(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub fn D3D11CreateDeviceAndSwapChain(padapter: super::Dxgi::IDXGIAdapter, drivertype: super::Direct3D::D3D_DRIVER_TYPE, software: super::super::Foundation::HINSTANCE, flags: D3D11_CREATE_DEVICE_FLAG, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, pswapchaindesc: *const super::Dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain: *mut super::Dxgi::IDXGISwapChain, ppdevice: *mut ID3D11Device, pfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppimmediatecontext: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D\"`*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3DDisassemble11Trace(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, ptrace: ID3D11ShaderTrace, startstep: u32, numsteps: u32, flags: u32, ppdisassembly: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT(pdevicecontext: ID3D11DeviceContext, pdesc: *const D3DX11_FFT_DESC, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT1DComplex(pdevicecontext: ID3D11DeviceContext, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT1DReal(pdevicecontext: ID3D11DeviceContext, x: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT2DComplex(pdevicecontext: ID3D11DeviceContext, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT2DReal(pdevicecontext: ID3D11DeviceContext, x: u32, y: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT3DComplex(pdevicecontext: ID3D11DeviceContext, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateFFT3DReal(pdevicecontext: ID3D11DeviceContext, x: u32, y: u32, z: u32, flags: u32, pbufferinfo: *mut D3DX11_FFT_BUFFER_INFO, ppfft: *mut ID3DX11FFT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateScan(pdevicecontext: ID3D11DeviceContext, maxelementscansize: u32, maxscancount: u32, ppscan: *mut ID3DX11Scan) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
-    pub fn D3DX11CreateSegmentedScan(pdevicecontext: ID3D11DeviceContext, maxelementscansize: u32, ppscan: *mut ID3DX11SegmentedScan) -> ::windows_sys::core::HRESULT;
-}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
+::windows_sys::core::windows_link ! ( "d3d11.dll" ,"system" fn D3D11CreateDevice ( padapter : super::Dxgi:: IDXGIAdapter , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , ppdevice : *mut ID3D11Device , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut ID3D11DeviceContext ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+::windows_sys::core::windows_link ! ( "d3d11.dll" ,"system" fn D3D11CreateDeviceAndSwapChain ( padapter : super::Dxgi:: IDXGIAdapter , drivertype : super::Direct3D:: D3D_DRIVER_TYPE , software : super::super::Foundation:: HINSTANCE , flags : D3D11_CREATE_DEVICE_FLAG , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , sdkversion : u32 , pswapchaindesc : *const super::Dxgi:: DXGI_SWAP_CHAIN_DESC , ppswapchain : *mut super::Dxgi:: IDXGISwapChain , ppdevice : *mut ID3D11Device , pfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL , ppimmediatecontext : *mut ID3D11DeviceContext ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+::windows_sys::core::windows_link ! ( "d3dcompiler_47.dll" ,"system" fn D3DDisassemble11Trace ( psrcdata : *const ::core::ffi::c_void , srcdatasize : usize , ptrace : ID3D11ShaderTrace , startstep : u32 , numsteps : u32 , flags : u32 , ppdisassembly : *mut super::Direct3D:: ID3DBlob ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT ( pdevicecontext : ID3D11DeviceContext , pdesc : *const D3DX11_FFT_DESC , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT1DComplex ( pdevicecontext : ID3D11DeviceContext , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT1DReal ( pdevicecontext : ID3D11DeviceContext , x : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT2DComplex ( pdevicecontext : ID3D11DeviceContext , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT2DReal ( pdevicecontext : ID3D11DeviceContext , x : u32 , y : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT3DComplex ( pdevicecontext : ID3D11DeviceContext , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateFFT3DReal ( pdevicecontext : ID3D11DeviceContext , x : u32 , y : u32 , z : u32 , flags : u32 , pbufferinfo : *mut D3DX11_FFT_BUFFER_INFO , ppfft : *mut ID3DX11FFT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateScan ( pdevicecontext : ID3D11DeviceContext , maxelementscansize : u32 , maxscancount : u32 , ppscan : *mut ID3DX11Scan ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3dcsx.dll" ,"system" fn D3DX11CreateSegmentedScan ( pdevicecontext : ID3D11DeviceContext , maxelementscansize : u32 , ppscan : *mut ID3DX11SegmentedScan ) -> :: windows_sys::core::HRESULT );
 pub type ID3D11Asynchronous = *mut ::core::ffi::c_void;
 pub type ID3D11AuthenticatedChannel = *mut ::core::ffi::c_void;
 pub type ID3D11BlendState = *mut ::core::ffi::c_void;

@@ -1,11 +1,6 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-    pub fn DxcCreateInstance(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn DxcCreateInstance2(pmalloc: super::super::super::System::Com::IMalloc, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "dxcompiler.dll" ,"system" fn DxcCreateInstance ( rclsid : *const :: windows_sys::core::GUID , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_System_Com")]
+::windows_sys::core::windows_link ! ( "dxcompiler.dll" ,"system" fn DxcCreateInstance2 ( pmalloc : super::super::super::System::Com:: IMalloc , rclsid : *const :: windows_sys::core::GUID , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDxcAssembler = *mut ::core::ffi::c_void;
 pub type IDxcBlob = *mut ::core::ffi::c_void;
 pub type IDxcBlobEncoding = *mut ::core::ffi::c_void;

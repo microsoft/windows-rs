@@ -4,10 +4,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: *mut u32) ->
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBClaimNextFreePort ( hcomdb : HCOMDB , comnumber : *mut u32 ) -> i32 );
     ComDBClaimNextFreePort(hcomdb.into(), ::core::mem::transmute(comnumber))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
@@ -18,10 +15,7 @@ where
     P0: ::std::convert::Into<HCOMDB>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBClaimPort(hcomdb: HCOMDB, comnumber: u32, forceclaim: super::super::Foundation::BOOL, forced: *mut super::super::Foundation::BOOL) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBClaimPort ( hcomdb : HCOMDB , comnumber : u32 , forceclaim : super::super::Foundation:: BOOL , forced : *mut super::super::Foundation:: BOOL ) -> i32 );
     ComDBClaimPort(hcomdb.into(), comnumber, forceclaim.into(), ::core::mem::transmute(forced.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
@@ -30,10 +24,7 @@ pub unsafe fn ComDBClose<'a, P0>(hcomdb: P0) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBClose(hcomdb: HCOMDB) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBClose ( hcomdb : HCOMDB ) -> i32 );
     ComDBClose(hcomdb.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
@@ -42,19 +33,13 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::optio
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBGetCurrentPortUsage ( hcomdb : HCOMDB , buffer : *mut u8 , buffersize : u32 , reporttype : u32 , maxportsreported : *mut u32 ) -> i32 );
     ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), reporttype, ::core::mem::transmute(maxportsreported.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBOpen(phcomdb: *mut isize) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBOpen ( phcomdb : *mut isize ) -> i32 );
     ComDBOpen(::core::mem::transmute(phcomdb))
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
@@ -63,10 +48,7 @@ pub unsafe fn ComDBReleasePort<'a, P0>(hcomdb: P0, comnumber: u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBReleasePort(hcomdb: HCOMDB, comnumber: u32) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBReleasePort ( hcomdb : HCOMDB , comnumber : u32 ) -> i32 );
     ComDBReleasePort(hcomdb.into(), comnumber)
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
@@ -75,10 +57,7 @@ pub unsafe fn ComDBResizeDatabase<'a, P0>(hcomdb: P0, newsize: u32) -> i32
 where
     P0: ::std::convert::Into<HCOMDB>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ComDBResizeDatabase(hcomdb: HCOMDB, newsize: u32) -> i32;
-    }
+    ::windows::core::windows_link ! ( "msports.dll" ,"system" fn ComDBResizeDatabase ( hcomdb : HCOMDB , newsize : u32 ) -> i32 );
     ComDBResizeDatabase(hcomdb.into(), newsize)
 }
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]

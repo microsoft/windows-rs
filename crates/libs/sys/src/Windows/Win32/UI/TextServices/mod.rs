@@ -1,13 +1,7 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-    pub fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "msctfmonitor.dll" ,"system" fn DoMsCtfMonitor ( dwflags : u32 , heventforservicestop : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "msctfmonitor.dll" ,"system" fn InitLocalMsCtfMonitor ( dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "msctfmonitor.dll" ,"system" fn UninitLocalMsCtfMonitor ( ) -> :: windows_sys::core::HRESULT );
 pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
 pub type IAccDictionary = *mut ::core::ffi::c_void;
 pub type IAccServerDocMgr = *mut ::core::ffi::c_void;

@@ -2,69 +2,48 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ChooseColorA ( param0 : *mut CHOOSECOLORA ) -> super::super::super::Foundation:: BOOL );
     ChooseColorA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ChooseColorW ( param0 : *mut CHOOSECOLORW ) -> super::super::super::Foundation:: BOOL );
     ChooseColorW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ChooseFontA ( param0 : *mut CHOOSEFONTA ) -> super::super::super::Foundation:: BOOL );
     ChooseFontA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ChooseFontW ( param0 : *mut CHOOSEFONTW ) -> super::super::super::Foundation:: BOOL );
     ChooseFontW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[inline]
 pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn CommDlgExtendedError ( ) -> COMMON_DLG_ERRORS );
     CommDlgExtendedError()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn FindTextA ( param0 : *mut FINDREPLACEA ) -> super::super::super::Foundation:: HWND );
     FindTextA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn FindTextW ( param0 : *mut FINDREPLACEW ) -> super::super::super::Foundation:: HWND );
     FindTextW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -73,10 +52,7 @@ pub unsafe fn GetFileTitleA<'a, P0>(param0: P0, buf: &mut [u8]) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetFileTitleA ( param0 : :: windows::core::PCSTR , buf : :: windows::core::PSTR , cchsize : u16 ) -> i16 );
     GetFileTitleA(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -85,130 +61,91 @@ pub unsafe fn GetFileTitleW<'a, P0>(param0: P0, buf: &mut [u16]) -> i16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetFileTitleW ( param0 : :: windows::core::PCWSTR , buf : :: windows::core::PWSTR , cchsize : u16 ) -> i16 );
     GetFileTitleW(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetOpenFileNameA ( param0 : *mut OPENFILENAMEA ) -> super::super::super::Foundation:: BOOL );
     GetOpenFileNameA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetOpenFileNameW ( param0 : *mut OPENFILENAMEW ) -> super::super::super::Foundation:: BOOL );
     GetOpenFileNameW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetSaveFileNameA ( param0 : *mut OPENFILENAMEA ) -> super::super::super::Foundation:: BOOL );
     GetSaveFileNameA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn GetSaveFileNameW ( param0 : *mut OPENFILENAMEW ) -> super::super::super::Foundation:: BOOL );
     GetSaveFileNameW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PageSetupDlgA ( param0 : *mut PAGESETUPDLGA ) -> super::super::super::Foundation:: BOOL );
     PageSetupDlgA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PageSetupDlgW ( param0 : *mut PAGESETUPDLGW ) -> super::super::super::Foundation:: BOOL );
     PageSetupDlgW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PrintDlgA ( ppd : *mut PRINTDLGA ) -> super::super::super::Foundation:: BOOL );
     PrintDlgA(::core::mem::transmute(ppd))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgExA(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PrintDlgExA ( ppd : *mut ::core::mem::ManuallyDrop < PRINTDLGEXA > ) -> :: windows::core::HRESULT );
     PrintDlgExA(::core::mem::transmute(ppd)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgExW(ppd: *mut ::core::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PrintDlgExW ( ppd : *mut ::core::mem::ManuallyDrop < PRINTDLGEXW > ) -> :: windows::core::HRESULT );
     PrintDlgExW(::core::mem::transmute(ppd)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn PrintDlgW ( ppd : *mut PRINTDLGW ) -> super::super::super::Foundation:: BOOL );
     PrintDlgW(::core::mem::transmute(ppd))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ReplaceTextA ( param0 : *mut FINDREPLACEA ) -> super::super::super::Foundation:: HWND );
     ReplaceTextA(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
-    }
+    ::windows::core::windows_link ! ( "comdlg32.dll" ,"system" fn ReplaceTextW ( param0 : *mut FINDREPLACEW ) -> super::super::super::Foundation:: HWND );
     ReplaceTextW(::core::mem::transmute(param0))
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]

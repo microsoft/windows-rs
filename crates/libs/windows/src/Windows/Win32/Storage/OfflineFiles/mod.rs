@@ -5,39 +5,27 @@ pub unsafe fn OfflineFilesEnable<'a, P0>(benable: P0, pbrebootrequired: *mut sup
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
-    }
+    ::windows::core::windows_link ! ( "cscapi.dll" ,"system" fn OfflineFilesEnable ( benable : super::super::Foundation:: BOOL , pbrebootrequired : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
-    }
+    ::windows::core::windows_link ! ( "cscapi.dll" ,"system" fn OfflineFilesQueryStatus ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesQueryStatus(::core::mem::transmute(pbactive.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbenabled.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<*mut super::super::Foundation::BOOL>, pbavailable: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
-    }
+    ::windows::core::windows_link ! ( "cscapi.dll" ,"system" fn OfflineFilesQueryStatusEx ( pbactive : *mut super::super::Foundation:: BOOL , pbenabled : *mut super::super::Foundation:: BOOL , pbavailable : *mut super::super::Foundation:: BOOL ) -> u32 );
     OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbenabled.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbavailable.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesStart() -> u32;
-    }
+    ::windows::core::windows_link ! ( "cscapi.dll" ,"system" fn OfflineFilesStart ( ) -> u32 );
     OfflineFilesStart()
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]

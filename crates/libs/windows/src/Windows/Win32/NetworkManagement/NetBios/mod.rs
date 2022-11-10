@@ -2,10 +2,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn Netbios(pncb: *mut NCB) -> u8;
-    }
+    ::windows::core::windows_link ! ( "netapi32.dll" ,"system" fn Netbios ( pncb : *mut NCB ) -> u8 );
     Netbios(::core::mem::transmute(pncb))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetBios\"`*"]

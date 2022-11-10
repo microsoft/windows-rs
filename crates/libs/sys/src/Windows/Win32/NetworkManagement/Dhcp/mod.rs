@@ -1,497 +1,284 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpAddFilterV4(serveripaddress: ::windows_sys::core::PCWSTR, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddSecurityGroup(pserver: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddSubnetElement(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddSubnetElementV4(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddSubnetElementV5(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAddSubnetElementV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAuditLogGetParams(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, auditlogdir: *mut ::windows_sys::core::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpAuditLogSetParams(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, auditlogdir: ::windows_sys::core::PCWSTR, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCApiCleanup();
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCApiInitialize(version: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpCreateClass(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpCreateClassV6(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateClientInfoV4(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpCreateClientInfoVQ(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateOption(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateOptionV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateOptionV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateSubnet(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateSubnetV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpCreateSubnetVQ(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteClass(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteClassV6(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_SEARCH_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteClientInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpDeleteFilterV4(serveripaddress: ::windows_sys::core::PCWSTR, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteServer(flags: u32, idinfo: *mut ::core::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteSubnet(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteSubnetV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDeleteSuperScopeV4(serveripaddress: ::windows_sys::core::PCWSTR, superscopename: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDsCleanup();
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpDsInit() -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpEnumClasses(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpEnumClassesV6(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpEnumFilterV4(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptionValues(serveripaddress: ::windows_sys::core::PCWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptionValuesV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptionValuesV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptions(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptionsV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumOptionsV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumServers(flags: u32, idinfo: *mut ::core::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut ::core::ffi::c_void, callbackdata: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetClients(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetClientsV4(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetClientsV5(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetClientsV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpEnumSubnetClientsVQ(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetElements(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetElementsV4(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetElementsV5(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetElementsV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnets(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpEnumSubnetsV6(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetAllOptionValues(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetAllOptionValuesV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetAllOptions(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetAllOptionsV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetClassInfo(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetClientInfoV4(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetClientInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetClientInfoVQ(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetClientOptions(serveripaddress: ::windows_sys::core::PCWSTR, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetFilterV4(serveripaddress: ::windows_sys::core::PCWSTR, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetMibInfo(serveripaddress: ::windows_sys::core::PCWSTR, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetMibInfoV5(serveripaddress: ::windows_sys::core::PCWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetMibInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionInfo(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionInfoV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionValueV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOptionValueV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetOriginalSubnetMask(sadaptername: ::windows_sys::core::PCWSTR, dwsubnetmask: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetServerBindingInfo(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpGetServerBindingInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetServerSpecificStrings(serveripaddress: ::windows_sys::core::PCWSTR, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetSubnetDelayOffer(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetSubnetInfo(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetSubnetInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetSubnetInfoVQ(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetSuperScopeInfoV4(serveripaddress: ::windows_sys::core::PCWSTR, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpGetVersion(serveripaddress: ::windows_sys::core::PCWSTR, majorversion: *mut u32, minorversion: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprAddV4PolicyCondition(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: ::windows_sys::core::PCWSTR, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprCreateV4Policy(policyname: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: ::windows_sys::core::PCWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprCreateV4PolicyEx(policyname: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: ::windows_sys::core::PCWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpHlprFreeV4DhcpProperty(property: *mut DHCP_PROPERTY);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprFreeV4Policy(policy: *mut DHCP_POLICY);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprFreeV4PolicyEx(policyex: *mut DHCP_POLICY_EX);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpModifyClass(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpModifyClassV6(serveripaddress: ::windows_sys::core::PCWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: ::windows_sys::core::PCWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveDNSRegistrations() -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOption(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOptionV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOptionV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOptionValueV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveOptionValueV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveSubnetElement(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveSubnetElementV4(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveSubnetElementV5(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRemoveSubnetElementV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: ::windows_sys::core::PCWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpRpcFreeMemory(bufferpointer: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpScanDatabase(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerBackupDatabase(serveripaddress: ::windows_sys::core::PCWSTR, path: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerGetConfig(serveripaddress: ::windows_sys::core::PCWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerGetConfigV4(serveripaddress: ::windows_sys::core::PCWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerGetConfigV6(serveripaddress: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerGetConfigVQ(serveripaddress: ::windows_sys::core::PCWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerQueryAttribute(serveripaddr: ::windows_sys::core::PCWSTR, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerQueryAttributes(serveripaddr: ::windows_sys::core::PCWSTR, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerQueryDnsRegCredentials(serveripaddress: ::windows_sys::core::PCWSTR, unamesize: u32, uname: ::windows_sys::core::PWSTR, domainsize: u32, domain: ::windows_sys::core::PWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerRedoAuthorization(serveripaddr: ::windows_sys::core::PCWSTR, dwreserved: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerRestoreDatabase(serveripaddress: ::windows_sys::core::PCWSTR, path: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerSetConfig(serveripaddress: ::windows_sys::core::PCWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerSetConfigV4(serveripaddress: ::windows_sys::core::PCWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerSetConfigV6(serveripaddress: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpServerSetConfigVQ(serveripaddress: ::windows_sys::core::PCWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerSetDnsRegCredentials(serveripaddress: ::windows_sys::core::PCWSTR, uname: ::windows_sys::core::PCWSTR, domain: ::windows_sys::core::PCWSTR, passwd: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpServerSetDnsRegCredentialsV5(serveripaddress: ::windows_sys::core::PCWSTR, uname: ::windows_sys::core::PCWSTR, domain: ::windows_sys::core::PCWSTR, passwd: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetClientInfoV4(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetClientInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpSetClientInfoVQ(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpSetFilterV4(serveripaddress: ::windows_sys::core::PCWSTR, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionInfo(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionInfoV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionValueV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionValueV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionValues(serveripaddress: ::windows_sys::core::PCWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetOptionValuesV5(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, classname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpSetServerBindingInfo(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpSetServerBindingInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetSubnetDelayOffer(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetSubnetInfo(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetSubnetInfoV6(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetSubnetInfoVQ(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpSetSuperScopeV4(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, superscopename: ::windows_sys::core::PCWSTR, changeexisting: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::core::ffi::c_void) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::core::ffi::c_void, adaptername: ::windows_sys::core::PCWSTR, requestidstr: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4AddPolicyRange(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, range: *const DHCP_IP_RANGE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4CreateClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4CreateClientInfoEx(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4CreatePolicy(serveripaddress: ::windows_sys::core::PCWSTR, ppolicy: *const DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4CreatePolicyEx(serveripaddress: ::windows_sys::core::PCWSTR, policyex: *const DHCP_POLICY_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4DeletePolicy(serveripaddress: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4EnumPolicies(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4EnumPoliciesEx(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4EnumSubnetClients(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4EnumSubnetClientsEx(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4EnumSubnetReservations(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverAddScopeToRelationship(serveripaddress: ::windows_sys::core::PCWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverCreateRelationship(serveripaddress: ::windows_sys::core::PCWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverDeleteRelationship(serveripaddress: ::windows_sys::core::PCWSTR, prelationshipname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: ::windows_sys::core::PCWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverEnumRelationship(serveripaddress: ::windows_sys::core::PCWSTR, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverGetAddressStatus(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, pstatus: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4FailoverGetClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverGetRelationship(serveripaddress: ::windows_sys::core::PCWSTR, prelationshipname: ::windows_sys::core::PCWSTR, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverGetScopeRelationship(serveripaddress: ::windows_sys::core::PCWSTR, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverGetScopeStatistics(serveripaddress: ::windows_sys::core::PCWSTR, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverGetSystemTime(serveripaddress: ::windows_sys::core::PCWSTR, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverSetRelationship(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4FailoverTriggerAddrAllocation(serveripaddress: ::windows_sys::core::PCWSTR, pfailrelname: ::windows_sys::core::PCWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4GetAllOptionValues(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4GetClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4GetClientInfoEx(serveripaddress: ::windows_sys::core::PCWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4GetFreeIPAddress(serveripaddress: ::windows_sys::core::PCWSTR, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4GetOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, policyname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4GetPolicy(serveripaddress: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, policy: *mut *mut DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4GetPolicyEx(serveripaddress: ::windows_sys::core::PCWSTR, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, policy: *mut *mut DHCP_POLICY_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4QueryPolicyEnforcement(serveripaddress: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4RemoveOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, policyname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4RemovePolicyRange(serveripaddress: ::windows_sys::core::PCWSTR, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, range: *const DHCP_IP_RANGE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4SetOptionValue(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, optionid: u32, policyname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV4SetOptionValues(serveripaddress: ::windows_sys::core::PCWSTR, flags: u32, policyname: ::windows_sys::core::PCWSTR, vendorname: ::windows_sys::core::PCWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4SetPolicy(serveripaddress: ::windows_sys::core::PCWSTR, fieldsmodified: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, policy: *const DHCP_POLICY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4SetPolicyEnforcement(serveripaddress: ::windows_sys::core::PCWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enable: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV4SetPolicyEx(serveripaddress: ::windows_sys::core::PCWSTR, fieldsmodified: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: ::windows_sys::core::PCWSTR, policy: *const DHCP_POLICY_EX) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV6CreateClientInfo(serveripaddress: ::windows_sys::core::PCWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV6GetFreeIPAddress(serveripaddress: ::windows_sys::core::PCWSTR, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn DhcpV6GetStatelessStatistics(serveripaddress: ::windows_sys::core::PCWSTR, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV6GetStatelessStoreParams(serveripaddress: ::windows_sys::core::PCWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DhcpV6SetStatelessStoreParams(serveripaddress: ::windows_sys::core::PCWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn Dhcpv6CApiCleanup();
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn Dhcpv6CApiInitialize(version: *mut u32);
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn Dhcpv6ReleasePrefix(adaptername: ::windows_sys::core::PCWSTR, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn Dhcpv6RenewPrefix(adaptername: ::windows_sys::core::PCWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn Dhcpv6RequestParams(forcenewinform: super::super::Foundation::BOOL, reserved: *mut ::core::ffi::c_void, adaptername: ::windows_sys::core::PCWSTR, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-    pub fn Dhcpv6RequestPrefix(adaptername: ::windows_sys::core::PCWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddFilterV4 ( serveripaddress : :: windows_sys::core::PCWSTR , addfilterinfo : *const DHCP_FILTER_ADD_INFO , forceflag : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddSecurityGroup ( pserver : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddServer ( flags : u32 , idinfo : *mut ::core::ffi::c_void , newserver : *mut DHCPDS_SERVER , callbackfn : *mut ::core::ffi::c_void , callbackdata : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddSubnetElement ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddSubnetElementV4 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V4 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddSubnetElementV5 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , addelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V5 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAddSubnetElementV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , addelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAuditLogGetParams ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , auditlogdir : *mut :: windows_sys::core::PWSTR , diskcheckinterval : *mut u32 , maxlogfilessize : *mut u32 , minspaceondisk : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpAuditLogSetParams ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , auditlogdir : :: windows_sys::core::PCWSTR , diskcheckinterval : u32 , maxlogfilessize : u32 , minspaceondisk : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpCApiCleanup ( ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpCApiInitialize ( version : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateClass ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classinfo : *mut DHCP_CLASS_INFO ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateClassV6 ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classinfo : *mut DHCP_CLASS_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateClientInfoV4 ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_V4 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateClientInfoVQ ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_VQ ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateOption ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , optioninfo : *const DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateOptionV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateOptionV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateSubnet ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *const DHCP_SUBNET_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateSubnetV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , subnetinfo : *mut DHCP_SUBNET_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpCreateSubnetVQ ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *const DHCP_SUBNET_INFO_VQ ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpDeRegisterParamChange ( flags : u32 , reserved : *mut ::core::ffi::c_void , event : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteClass ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteClassV6 ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_SEARCH_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteClientInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_SEARCH_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteFilterV4 ( serveripaddress : :: windows_sys::core::PCWSTR , deletefilterinfo : *const DHCP_ADDR_PATTERN ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteServer ( flags : u32 , idinfo : *mut ::core::ffi::c_void , newserver : *mut DHCPDS_SERVER , callbackfn : *mut ::core::ffi::c_void , callbackdata : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteSubnet ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteSubnetV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDeleteSuperScopeV4 ( serveripaddress : :: windows_sys::core::PCWSTR , superscopename : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDsCleanup ( ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpDsInit ( ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumClasses ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , classinfoarray : *mut *mut DHCP_CLASS_INFO_ARRAY , nread : *mut u32 , ntotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumClassesV6 ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , classinfoarray : *mut *mut DHCP_CLASS_INFO_ARRAY_V6 , nread : *mut u32 , ntotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumFilterV4 ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut DHCP_ADDR_PATTERN , preferredmaximum : u32 , listtype : DHCP_FILTER_LIST_TYPE , enumfilterinfo : *mut *mut DHCP_FILTER_ENUM_INFO , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptionValues ( serveripaddress : :: windows_sys::core::PCWSTR , scopeinfo : *const DHCP_OPTION_SCOPE_INFO , resumehandle : *mut u32 , preferredmaximum : u32 , optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptionValuesV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , resumehandle : *mut u32 , preferredmaximum : u32 , optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptionValuesV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , resumehandle : *mut u32 , preferredmaximum : u32 , optionvalues : *mut *mut DHCP_OPTION_VALUE_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptions ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , options : *mut *mut DHCP_OPTION_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptionsV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , options : *mut *mut DHCP_OPTION_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumOptionsV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , options : *mut *mut DHCP_OPTION_ARRAY , optionsread : *mut u32 , optionstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumServers ( flags : u32 , idinfo : *mut ::core::ffi::c_void , servers : *mut *mut DHCPDS_SERVERS , callbackfn : *mut ::core::ffi::c_void , callbackdata : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClients ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClientsFilterStatusInfo ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClientsV4 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V4 , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClientsV5 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V5 , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClientsV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , resumehandle : *mut DHCP_IPV6_ADDRESS , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_V6 , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetClientsVQ ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetElements ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , enumelementtype : DHCP_SUBNET_ELEMENT_TYPE , resumehandle : *mut u32 , preferredmaximum : u32 , enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetElementsV4 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , enumelementtype : DHCP_SUBNET_ELEMENT_TYPE , resumehandle : *mut u32 , preferredmaximum : u32 , enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetElementsV5 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , enumelementtype : DHCP_SUBNET_ELEMENT_TYPE , resumehandle : *mut u32 , preferredmaximum : u32 , enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetElementsV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , enumelementtype : DHCP_SUBNET_ELEMENT_TYPE_V6 , resumehandle : *mut u32 , preferredmaximum : u32 , enumelementinfo : *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnets ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , enuminfo : *mut *mut DHCP_IP_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpEnumSubnetsV6 ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , enuminfo : *mut *mut DHCPV6_IP_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetAllOptionValues ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , values : *mut *mut DHCP_ALL_OPTION_VALUES ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetAllOptionValuesV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , values : *mut *mut DHCP_ALL_OPTION_VALUES ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetAllOptions ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionstruct : *mut *mut DHCP_ALL_OPTIONS ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetAllOptionsV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionstruct : *mut *mut DHCP_ALL_OPTIONS ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClassInfo ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , partialclassinfo : *mut DHCP_CLASS_INFO , filledclassinfo : *mut *mut DHCP_CLASS_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCP_CLIENT_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClientInfoV4 ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCP_CLIENT_INFO_V4 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClientInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO_V6 , clientinfo : *mut *mut DHCP_CLIENT_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClientInfoVQ ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCP_CLIENT_INFO_VQ ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetClientOptions ( serveripaddress : :: windows_sys::core::PCWSTR , clientipaddress : u32 , clientsubnetmask : u32 , clientoptions : *mut *mut DHCP_OPTION_LIST ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetFilterV4 ( serveripaddress : :: windows_sys::core::PCWSTR , globalfilterinfo : *mut DHCP_FILTER_GLOBAL_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetMibInfo ( serveripaddress : :: windows_sys::core::PCWSTR , mibinfo : *mut *mut DHCP_MIB_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetMibInfoV5 ( serveripaddress : :: windows_sys::core::PCWSTR , mibinfo : *mut *mut DHCP_MIB_INFO_V5 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetMibInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , mibinfo : *mut *mut DHCP_MIB_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionInfo ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , optioninfo : *mut *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionInfoV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , scopeinfo : *const DHCP_OPTION_SCOPE_INFO , optionvalue : *mut *mut DHCP_OPTION_VALUE ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionValueV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalue : *mut *mut DHCP_OPTION_VALUE ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetOptionValueV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , optionvalue : *mut *mut DHCP_OPTION_VALUE ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpGetOriginalSubnetMask ( sadaptername : :: windows_sys::core::PCWSTR , dwsubnetmask : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetServerBindingInfo ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , bindelementsinfo : *mut *mut DHCP_BIND_ELEMENT_ARRAY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetServerBindingInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , bindelementsinfo : *mut *mut DHCPV6_BIND_ELEMENT_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetServerSpecificStrings ( serveripaddress : :: windows_sys::core::PCWSTR , serverspecificstrings : *mut *mut DHCP_SERVER_SPECIFIC_STRINGS ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetSubnetDelayOffer ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , timedelayinmilliseconds : *mut u16 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetSubnetInfo ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *mut *mut DHCP_SUBNET_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetSubnetInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , subnetinfo : *mut *mut DHCP_SUBNET_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetSubnetInfoVQ ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *mut *mut DHCP_SUBNET_INFO_VQ ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetSuperScopeInfoV4 ( serveripaddress : :: windows_sys::core::PCWSTR , superscopetable : *mut *mut DHCP_SUPER_SCOPE_TABLE ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetThreadOptions ( pflags : *mut u32 , reserved : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpGetVersion ( serveripaddress : :: windows_sys::core::PCWSTR , majorversion : *mut u32 , minorversion : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprAddV4PolicyCondition ( policy : *mut DHCP_POLICY , parentexpr : u32 , r#type : DHCP_POL_ATTR_TYPE , optionid : u32 , suboptionid : u32 , vendorname : :: windows_sys::core::PCWSTR , operator : DHCP_POL_COMPARATOR , value : *const u8 , valuelength : u32 , conditionindex : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprAddV4PolicyExpr ( policy : *mut DHCP_POLICY , parentexpr : u32 , operator : DHCP_POL_LOGIC_OPER , exprindex : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprAddV4PolicyRange ( policy : *mut DHCP_POLICY , range : *const DHCP_IP_RANGE ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprCreateV4Policy ( policyname : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnet : u32 , processingorder : u32 , rootoperator : DHCP_POL_LOGIC_OPER , description : :: windows_sys::core::PCWSTR , enabled : super::super::Foundation:: BOOL , policy : *mut *mut DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprCreateV4PolicyEx ( policyname : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnet : u32 , processingorder : u32 , rootoperator : DHCP_POL_LOGIC_OPER , description : :: windows_sys::core::PCWSTR , enabled : super::super::Foundation:: BOOL , policy : *mut *mut DHCP_POLICY_EX ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFindV4DhcpProperty ( propertyarray : *const DHCP_PROPERTY_ARRAY , id : DHCP_PROPERTY_ID , r#type : DHCP_PROPERTY_TYPE ) -> *mut DHCP_PROPERTY );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4DhcpProperty ( property : *mut DHCP_PROPERTY ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4DhcpPropertyArray ( propertyarray : *mut DHCP_PROPERTY_ARRAY ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4Policy ( policy : *mut DHCP_POLICY ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4PolicyArray ( policyarray : *mut DHCP_POLICY_ARRAY ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4PolicyEx ( policyex : *mut DHCP_POLICY_EX ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprFreeV4PolicyExArray ( policyexarray : *mut DHCP_POLICY_EX_ARRAY ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprIsV4PolicySingleUC ( policy : *const DHCP_POLICY ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprIsV4PolicyValid ( ppolicy : *const DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprIsV4PolicyWellFormed ( ppolicy : *const DHCP_POLICY ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprModifyV4PolicyExpr ( policy : *mut DHCP_POLICY , operator : DHCP_POL_LOGIC_OPER ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpHlprResetV4PolicyExpr ( policy : *mut DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpModifyClass ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classinfo : *mut DHCP_CLASS_INFO ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpModifyClassV6 ( serveripaddress : :: windows_sys::core::PCWSTR , reservedmustbezero : u32 , classinfo : *mut DHCP_CLASS_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpRegisterParamChange ( flags : u32 , reserved : *mut ::core::ffi::c_void , adaptername : :: windows_sys::core::PCWSTR , classid : *mut DHCPCAPI_CLASSID , params : DHCPCAPI_PARAMS_ARRAY , handle : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpRemoveDNSRegistrations ( ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOption ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOptionV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOptionV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , scopeinfo : *const DHCP_OPTION_SCOPE_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOptionValueV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveOptionValueV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveSubnetElement ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveSubnetElementV4 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V4 , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveSubnetElementV5 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , removeelementinfo : *const DHCP_SUBNET_ELEMENT_DATA_V5 , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRemoveSubnetElementV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , removeelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6 , forceflag : DHCP_FORCE_FLAG ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpRequestParams ( flags : u32 , reserved : *mut ::core::ffi::c_void , adaptername : :: windows_sys::core::PCWSTR , classid : *mut DHCPCAPI_CLASSID , sendparams : DHCPCAPI_PARAMS_ARRAY , recdparams : DHCPCAPI_PARAMS_ARRAY , buffer : *mut u8 , psize : *mut u32 , requestidstr : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpRpcFreeMemory ( bufferpointer : *mut ::core::ffi::c_void ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpScanDatabase ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , fixflag : u32 , scanlist : *mut *mut DHCP_SCAN_LIST ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerAuditlogParamsFree ( configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerBackupDatabase ( serveripaddress : :: windows_sys::core::PCWSTR , path : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerGetConfig ( serveripaddress : :: windows_sys::core::PCWSTR , configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerGetConfigV4 ( serveripaddress : :: windows_sys::core::PCWSTR , configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_V4 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerGetConfigV6 ( serveripaddress : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerGetConfigVQ ( serveripaddress : :: windows_sys::core::PCWSTR , configinfo : *mut *mut DHCP_SERVER_CONFIG_INFO_VQ ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerQueryAttribute ( serveripaddr : :: windows_sys::core::PCWSTR , dwreserved : u32 , dhcpattribid : u32 , pdhcpattrib : *mut *mut DHCP_ATTRIB ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerQueryAttributes ( serveripaddr : :: windows_sys::core::PCWSTR , dwreserved : u32 , dwattribcount : u32 , pdhcpattribs : *mut u32 , pdhcpattribarr : *mut *mut DHCP_ATTRIB_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerQueryDnsRegCredentials ( serveripaddress : :: windows_sys::core::PCWSTR , unamesize : u32 , uname : :: windows_sys::core::PWSTR , domainsize : u32 , domain : :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerRedoAuthorization ( serveripaddr : :: windows_sys::core::PCWSTR , dwreserved : u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerRestoreDatabase ( serveripaddress : :: windows_sys::core::PCWSTR , path : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetConfig ( serveripaddress : :: windows_sys::core::PCWSTR , fieldstoset : u32 , configinfo : *mut DHCP_SERVER_CONFIG_INFO ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetConfigV4 ( serveripaddress : :: windows_sys::core::PCWSTR , fieldstoset : u32 , configinfo : *mut DHCP_SERVER_CONFIG_INFO_V4 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetConfigV6 ( serveripaddress : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , fieldstoset : u32 , configinfo : *mut DHCP_SERVER_CONFIG_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetConfigVQ ( serveripaddress : :: windows_sys::core::PCWSTR , fieldstoset : u32 , configinfo : *mut DHCP_SERVER_CONFIG_INFO_VQ ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetDnsRegCredentials ( serveripaddress : :: windows_sys::core::PCWSTR , uname : :: windows_sys::core::PCWSTR , domain : :: windows_sys::core::PCWSTR , passwd : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpServerSetDnsRegCredentialsV5 ( serveripaddress : :: windows_sys::core::PCWSTR , uname : :: windows_sys::core::PCWSTR , domain : :: windows_sys::core::PCWSTR , passwd : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetClientInfoV4 ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_V4 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetClientInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_V6 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetClientInfoVQ ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_VQ ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetFilterV4 ( serveripaddress : :: windows_sys::core::PCWSTR , globalfilterinfo : *const DHCP_FILTER_GLOBAL_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionInfo ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , optioninfo : *const DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionInfoV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , optioninfo : *mut DHCP_OPTION ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , optionid : u32 , scopeinfo : *const DHCP_OPTION_SCOPE_INFO , optionvalue : *const DHCP_OPTION_DATA ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionValueV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalue : *mut DHCP_OPTION_DATA ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionValueV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO6 , optionvalue : *mut DHCP_OPTION_DATA ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionValues ( serveripaddress : :: windows_sys::core::PCWSTR , scopeinfo : *const DHCP_OPTION_SCOPE_INFO , optionvalues : *const DHCP_OPTION_VALUE_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetOptionValuesV5 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , classname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalues : *mut DHCP_OPTION_VALUE_ARRAY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetServerBindingInfo ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , bindelementinfo : *mut DHCP_BIND_ELEMENT_ARRAY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetServerBindingInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , bindelementinfo : *mut DHCPV6_BIND_ELEMENT_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetSubnetDelayOffer ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , timedelayinmilliseconds : u16 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetSubnetInfo ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *const DHCP_SUBNET_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetSubnetInfoV6 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : DHCP_IPV6_ADDRESS , subnetinfo : *mut DHCP_SUBNET_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetSubnetInfoVQ ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , subnetinfo : *const DHCP_SUBNET_INFO_VQ ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetSuperScopeV4 ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , superscopename : :: windows_sys::core::PCWSTR , changeexisting : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpSetThreadOptions ( flags : u32 , reserved : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc.dll" ,"system" fn DhcpUndoRequestParams ( flags : u32 , reserved : *mut ::core::ffi::c_void , adaptername : :: windows_sys::core::PCWSTR , requestidstr : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4AddPolicyRange ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , range : *const DHCP_IP_RANGE ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4CreateClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_PB ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4CreateClientInfoEx ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_EX ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4CreatePolicy ( serveripaddress : :: windows_sys::core::PCWSTR , ppolicy : *const DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4CreatePolicyEx ( serveripaddress : :: windows_sys::core::PCWSTR , policyex : *const DHCP_POLICY_EX ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4DeletePolicy ( serveripaddress : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4EnumPolicies ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , enuminfo : *mut *mut DHCP_POLICY_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4EnumPoliciesEx ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , globalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , enuminfo : *mut *mut DHCP_POLICY_EX_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4EnumSubnetClients ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_PB_ARRAY , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4EnumSubnetClientsEx ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , clientinfo : *mut *mut DHCP_CLIENT_INFO_EX_ARRAY , clientsread : *mut u32 , clientstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4EnumSubnetReservations ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , resumehandle : *mut u32 , preferredmaximum : u32 , enumelementinfo : *mut *mut DHCP_RESERVATION_INFO_ARRAY , elementsread : *mut u32 , elementstotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverAddScopeToRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , prelationship : *const DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverCreateRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , prelationship : *const DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverDeleteRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , prelationshipname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverDeleteScopeFromRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , prelationship : *const DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverEnumRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , resumehandle : *mut u32 , preferredmaximum : u32 , prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY , relationshipread : *mut u32 , relationshiptotal : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetAddressStatus ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , pstatus : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCPV4_FAILOVER_CLIENT_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , prelationshipname : :: windows_sys::core::PCWSTR , prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetScopeRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , scopeid : u32 , prelationship : *mut *mut DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetScopeStatistics ( serveripaddress : :: windows_sys::core::PCWSTR , scopeid : u32 , pstats : *mut *mut DHCP_FAILOVER_STATISTICS ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverGetSystemTime ( serveripaddress : :: windows_sys::core::PCWSTR , ptime : *mut u32 , pmaxalloweddeltatime : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverSetRelationship ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , prelationship : *const DHCP_FAILOVER_RELATIONSHIP ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4FailoverTriggerAddrAllocation ( serveripaddress : :: windows_sys::core::PCWSTR , pfailrelname : :: windows_sys::core::PCWSTR ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetAllOptionValues ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , values : *mut *mut DHCP_ALL_OPTION_VALUES_PB ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCP_CLIENT_INFO_PB ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetClientInfoEx ( serveripaddress : :: windows_sys::core::PCWSTR , searchinfo : *const DHCP_SEARCH_INFO , clientinfo : *mut *mut DHCP_CLIENT_INFO_EX ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetFreeIPAddress ( serveripaddress : :: windows_sys::core::PCWSTR , scopeid : u32 , startip : u32 , endip : u32 , numfreeaddrreq : u32 , ipaddrlist : *mut *mut DHCP_IP_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , policyname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalue : *mut *mut DHCP_OPTION_VALUE ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetPolicy ( serveripaddress : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , policy : *mut *mut DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4GetPolicyEx ( serveripaddress : :: windows_sys::core::PCWSTR , globalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , policy : *mut *mut DHCP_POLICY_EX ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4QueryPolicyEnforcement ( serveripaddress : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , enabled : *mut super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4RemoveOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , policyname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4RemovePolicyRange ( serveripaddress : :: windows_sys::core::PCWSTR , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , range : *const DHCP_IP_RANGE ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4SetOptionValue ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , optionid : u32 , policyname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalue : *mut DHCP_OPTION_DATA ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4SetOptionValues ( serveripaddress : :: windows_sys::core::PCWSTR , flags : u32 , policyname : :: windows_sys::core::PCWSTR , vendorname : :: windows_sys::core::PCWSTR , scopeinfo : *mut DHCP_OPTION_SCOPE_INFO , optionvalues : *mut DHCP_OPTION_VALUE_ARRAY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4SetPolicy ( serveripaddress : :: windows_sys::core::PCWSTR , fieldsmodified : u32 , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , policy : *const DHCP_POLICY ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4SetPolicyEnforcement ( serveripaddress : :: windows_sys::core::PCWSTR , fglobalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , enable : super::super::Foundation:: BOOL ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV4SetPolicyEx ( serveripaddress : :: windows_sys::core::PCWSTR , fieldsmodified : u32 , globalpolicy : super::super::Foundation:: BOOL , subnetaddress : u32 , policyname : :: windows_sys::core::PCWSTR , policy : *const DHCP_POLICY_EX ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV6CreateClientInfo ( serveripaddress : :: windows_sys::core::PCWSTR , clientinfo : *const DHCP_CLIENT_INFO_V6 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV6GetFreeIPAddress ( serveripaddress : :: windows_sys::core::PCWSTR , scopeid : DHCP_IPV6_ADDRESS , startip : DHCP_IPV6_ADDRESS , endip : DHCP_IPV6_ADDRESS , numfreeaddrreq : u32 , ipaddrlist : *mut *mut DHCPV6_IP_ARRAY ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV6GetStatelessStatistics ( serveripaddress : :: windows_sys::core::PCWSTR , statelessstats : *mut *mut DHCPV6_STATELESS_STATS ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV6GetStatelessStoreParams ( serveripaddress : :: windows_sys::core::PCWSTR , fserverlevel : super::super::Foundation:: BOOL , subnetaddress : DHCP_IPV6_ADDRESS , params : *mut *mut DHCPV6_STATELESS_PARAMS ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpsapi.dll" ,"system" fn DhcpV6SetStatelessStoreParams ( serveripaddress : :: windows_sys::core::PCWSTR , fserverlevel : super::super::Foundation:: BOOL , subnetaddress : DHCP_IPV6_ADDRESS , fieldmodified : u32 , params : *const DHCPV6_STATELESS_PARAMS ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6CApiCleanup ( ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6CApiInitialize ( version : *mut u32 ) -> ( ) );
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6ReleasePrefix ( adaptername : :: windows_sys::core::PCWSTR , classid : *mut DHCPV6CAPI_CLASSID , leaseinfo : *mut DHCPV6PrefixLeaseInformation ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6RenewPrefix ( adaptername : :: windows_sys::core::PCWSTR , pclassid : *mut DHCPV6CAPI_CLASSID , prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation , pdwtimetowait : *mut u32 , bvalidateprefix : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6RequestParams ( forcenewinform : super::super::Foundation:: BOOL , reserved : *mut ::core::ffi::c_void , adaptername : :: windows_sys::core::PCWSTR , classid : *mut DHCPV6CAPI_CLASSID , recdparams : DHCPV6CAPI_PARAMS_ARRAY , buffer : *mut u8 , psize : *mut u32 ) -> u32 );
+::windows_sys::core::windows_link ! ( "dhcpcsvc6.dll" ,"system" fn Dhcpv6RequestPrefix ( adaptername : :: windows_sys::core::PCWSTR , pclassid : *mut DHCPV6CAPI_CLASSID , prefixleaseinfo : *mut DHCPV6PrefixLeaseInformation , pdwtimetowait : *mut u32 ) -> u32 );
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]

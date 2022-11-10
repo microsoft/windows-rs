@@ -1,25 +1,14 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12CreateDevice(padapter: ::windows_sys::core::IUnknown, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const ::windows_sys::core::GUID, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub fn D3D12CreateRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const ::core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows_sys::core::GUID, pprootsignaturedeserializer: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const ::windows_sys::core::GUID, pconfigurationstructs: *const ::core::ffi::c_void, pconfigurationstructsizes: *const u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub fn D3D12GetDebugInterface(riid: *const ::windows_sys::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-    pub fn D3D12GetInterface(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppvdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut super::Direct3D::ID3DBlob, pperrorblob: *mut super::Direct3D::ID3DBlob) -> ::windows_sys::core::HRESULT;
-}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12CreateDevice ( padapter : :: windows_sys::core::IUnknown , minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL , riid : *const :: windows_sys::core::GUID , ppdevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12CreateRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows_sys::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12CreateVersionedRootSignatureDeserializer ( psrcdata : *const ::core::ffi::c_void , srcdatasizeinbytes : usize , prootsignaturedeserializerinterface : *const :: windows_sys::core::GUID , pprootsignaturedeserializer : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12EnableExperimentalFeatures ( numfeatures : u32 , piids : *const :: windows_sys::core::GUID , pconfigurationstructs : *const ::core::ffi::c_void , pconfigurationstructsizes : *const u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12GetDebugInterface ( riid : *const :: windows_sys::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12GetInterface ( rclsid : *const :: windows_sys::core::GUID , riid : *const :: windows_sys::core::GUID , ppvdebug : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12SerializeRootSignature ( prootsignature : *const D3D12_ROOT_SIGNATURE_DESC , version : D3D_ROOT_SIGNATURE_VERSION , ppblob : *mut super::Direct3D:: ID3DBlob , pperrorblob : *mut super::Direct3D:: ID3DBlob ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+::windows_sys::core::windows_link ! ( "d3d12.dll" ,"system" fn D3D12SerializeVersionedRootSignature ( prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC , ppblob : *mut super::Direct3D:: ID3DBlob , pperrorblob : *mut super::Direct3D:: ID3DBlob ) -> :: windows_sys::core::HRESULT );
 pub type ID3D12CommandAllocator = *mut ::core::ffi::c_void;
 pub type ID3D12CommandList = *mut ::core::ffi::c_void;
 pub type ID3D12CommandQueue = *mut ::core::ffi::c_void;
@@ -8470,7 +8459,7 @@ impl ::core::clone::Clone for D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
-pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows_sys::core::PCSTR, pcontext: *mut ::core::ffi::c_void)>;
+pub type D3D12MessageFunc = ::core::option::Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: ::windows_sys::core::PCSTR, pcontext: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub type PFN_D3D12_CREATE_DEVICE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: super::Direct3D::D3D_FEATURE_LEVEL, param2: *const ::windows_sys::core::GUID, param3: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;

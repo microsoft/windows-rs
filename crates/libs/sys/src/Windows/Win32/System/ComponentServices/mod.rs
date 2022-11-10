@@ -1,28 +1,13 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn GetDispenserManager(param0: *mut IDispenserManager) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn CoCreateActivity(piunknown: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn CoEnterServiceDomain(pconfigobject: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn CoLeaveServiceDomain(punkstatus: ::windows_sys::core::IUnknown);
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn GetManagedExtensions(dwexts: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-    pub fn MTSCreateActivity(riid: *const ::windows_sys::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoCreateActivity ( piunknown : :: windows_sys::core::IUnknown , riid : *const :: windows_sys::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoEnterServiceDomain ( pconfigobject : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_System_Com")]
+::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CoGetDefaultContext ( apttype : super::Com:: APTTYPE , riid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoLeaveServiceDomain ( punkstatus : :: windows_sys::core::IUnknown ) -> ( ) );
+::windows_sys::core::windows_link ! ( "mtxdm.dll" ,"cdecl" fn GetDispenserManager ( param0 : *mut IDispenserManager ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"system" fn GetManagedExtensions ( dwexts : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"system" fn MTSCreateActivity ( riid : *const :: windows_sys::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"cdecl" fn RecycleSurrogate ( lreasoncode : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::windows_link ! ( "comsvcs.dll" ,"cdecl" fn SafeRef ( rid : *const :: windows_sys::core::GUID , punk : :: windows_sys::core::IUnknown ) -> *mut ::core::ffi::c_void );
 pub type ContextInfo = *mut ::core::ffi::c_void;
 pub type ContextInfo2 = *mut ::core::ffi::c_void;
 pub type IAppDomainHelper = *mut ::core::ffi::c_void;

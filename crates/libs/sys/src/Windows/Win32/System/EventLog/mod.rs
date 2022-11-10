@@ -1,153 +1,95 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn BackupEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClearEventLogA(heventlog: EventLogHandle, lpbackupfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ClearEventLogW(heventlog: EventLogHandle, lpbackupfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CloseEventLog(heventlog: EventLogHandle) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DeregisterEventSource(heventlog: EventSourceHandle) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtArchiveExportedLog(session: EVT_HANDLE, logfilepath: ::windows_sys::core::PCWSTR, locale: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtCancel(object: EVT_HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtClearLog(session: EVT_HANDLE, channelpath: ::windows_sys::core::PCWSTR, targetfilepath: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtClose(object: EVT_HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtCreateBookmark(bookmarkxml: ::windows_sys::core::PCWSTR) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtCreateRenderContext(valuepathscount: u32, valuepaths: *const ::windows_sys::core::PWSTR, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtExportLog(session: EVT_HANDLE, path: ::windows_sys::core::PCWSTR, query: ::windows_sys::core::PCWSTR, targetfilepath: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtFormatMessage(publishermetadata: EVT_HANDLE, event: EVT_HANDLE, messageid: u32, valuecount: u32, values: *const EVT_VARIANT, flags: u32, buffersize: u32, buffer: ::windows_sys::core::PWSTR, bufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetEventInfo(event: EVT_HANDLE, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: *mut EVT_VARIANT, eventmetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtGetExtendedStatus(buffersize: u32, buffer: ::windows_sys::core::PWSTR, bufferused: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetLogInfo(log: EVT_HANDLE, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetPublisherMetadataProperty(publishermetadata: EVT_HANDLE, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: *mut EVT_VARIANT, publishermetadatapropertybufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: *mut EVT_VARIANT, propertyvaluebufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtNext(resultset: EVT_HANDLE, eventssize: u32, events: *mut isize, timeout: u32, flags: u32, returned: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: u32, channelpathbuffer: ::windows_sys::core::PWSTR, channelpathbufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: u32, publisheridbuffer: ::windows_sys::core::PWSTR, publisheridbufferused: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenChannelConfig(session: EVT_HANDLE, channelpath: ::windows_sys::core::PCWSTR, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenChannelEnum(session: EVT_HANDLE, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenEventMetadataEnum(publishermetadata: EVT_HANDLE, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenLog(session: EVT_HANDLE, path: ::windows_sys::core::PCWSTR, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenPublisherEnum(session: EVT_HANDLE, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenPublisherMetadata(session: EVT_HANDLE, publisherid: ::windows_sys::core::PCWSTR, logfilepath: ::windows_sys::core::PCWSTR, locale: u32, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn EvtQuery(session: EVT_HANDLE, path: ::windows_sys::core::PCWSTR, query: ::windows_sys::core::PCWSTR, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtRender(context: EVT_HANDLE, fragment: EVT_HANDLE, flags: u32, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32, propertycount: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtSaveChannelConfig(channelconfig: EVT_HANDLE, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtSeek(resultset: EVT_HANDLE, position: i64, bookmark: EVT_HANDLE, timeout: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtSubscribe(session: EVT_HANDLE, signalevent: super::super::Foundation::HANDLE, channelpath: ::windows_sys::core::PCWSTR, query: ::windows_sys::core::PCWSTR, bookmark: EVT_HANDLE, context: *const ::core::ffi::c_void, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> EVT_HANDLE;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetEventLogInformation(heventlog: EventLogHandle, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetNumberOfEventLogRecords(heventlog: EventLogHandle, numberofrecords: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn GetOldestEventLogRecord(heventlog: EventLogHandle, oldestrecord: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn NotifyChangeEventLog(heventlog: EventLogHandle, hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn OpenBackupEventLogA(lpuncservername: ::windows_sys::core::PCSTR, lpfilename: ::windows_sys::core::PCSTR) -> EventLogHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn OpenBackupEventLogW(lpuncservername: ::windows_sys::core::PCWSTR, lpfilename: ::windows_sys::core::PCWSTR) -> EventLogHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn OpenEventLogA(lpuncservername: ::windows_sys::core::PCSTR, lpsourcename: ::windows_sys::core::PCSTR) -> EventLogHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn OpenEventLogW(lpuncservername: ::windows_sys::core::PCWSTR, lpsourcename: ::windows_sys::core::PCWSTR) -> EventLogHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadEventLogA(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReadEventLogW(heventlog: EventLogHandle, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn RegisterEventSourceA(lpuncservername: ::windows_sys::core::PCSTR, lpsourcename: ::windows_sys::core::PCSTR) -> EventSourceHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
-    pub fn RegisterEventSourceW(lpuncservername: ::windows_sys::core::PCWSTR, lpsourcename: ::windows_sys::core::PCWSTR) -> EventSourceHandle;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportEventA(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows_sys::core::PSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn ReportEventW(heventlog: EventSourceHandle, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const ::windows_sys::core::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn BackupEventLogA ( heventlog : EventLogHandle , lpbackupfilename : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn BackupEventLogW ( heventlog : EventLogHandle , lpbackupfilename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ClearEventLogA ( heventlog : EventLogHandle , lpbackupfilename : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ClearEventLogW ( heventlog : EventLogHandle , lpbackupfilename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn CloseEventLog ( heventlog : EventLogHandle ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn DeregisterEventSource ( heventlog : EventSourceHandle ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtArchiveExportedLog ( session : EVT_HANDLE , logfilepath : :: windows_sys::core::PCWSTR , locale : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtCancel ( object : EVT_HANDLE ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtClearLog ( session : EVT_HANDLE , channelpath : :: windows_sys::core::PCWSTR , targetfilepath : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtClose ( object : EVT_HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtCreateBookmark ( bookmarkxml : :: windows_sys::core::PCWSTR ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtCreateRenderContext ( valuepathscount : u32 , valuepaths : *const :: windows_sys::core::PWSTR , flags : u32 ) -> EVT_HANDLE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtExportLog ( session : EVT_HANDLE , path : :: windows_sys::core::PCWSTR , query : :: windows_sys::core::PCWSTR , targetfilepath : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtFormatMessage ( publishermetadata : EVT_HANDLE , event : EVT_HANDLE , messageid : u32 , valuecount : u32 , values : *const EVT_VARIANT , flags : u32 , buffersize : u32 , buffer : :: windows_sys::core::PWSTR , bufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetChannelConfigProperty ( channelconfig : EVT_HANDLE , propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetEventInfo ( event : EVT_HANDLE , propertyid : EVT_EVENT_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetEventMetadataProperty ( eventmetadata : EVT_HANDLE , propertyid : EVT_EVENT_METADATA_PROPERTY_ID , flags : u32 , eventmetadatapropertybuffersize : u32 , eventmetadatapropertybuffer : *mut EVT_VARIANT , eventmetadatapropertybufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetExtendedStatus ( buffersize : u32 , buffer : :: windows_sys::core::PWSTR , bufferused : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetLogInfo ( log : EVT_HANDLE , propertyid : EVT_LOG_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetObjectArrayProperty ( objectarray : isize , propertyid : u32 , arrayindex : u32 , flags : u32 , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetObjectArraySize ( objectarray : isize , objectarraysize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetPublisherMetadataProperty ( publishermetadata : EVT_HANDLE , propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID , flags : u32 , publishermetadatapropertybuffersize : u32 , publishermetadatapropertybuffer : *mut EVT_VARIANT , publishermetadatapropertybufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtGetQueryInfo ( queryorsubscription : EVT_HANDLE , propertyid : EVT_QUERY_PROPERTY_ID , propertyvaluebuffersize : u32 , propertyvaluebuffer : *mut EVT_VARIANT , propertyvaluebufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtNext ( resultset : EVT_HANDLE , eventssize : u32 , events : *mut isize , timeout : u32 , flags : u32 , returned : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtNextChannelPath ( channelenum : EVT_HANDLE , channelpathbuffersize : u32 , channelpathbuffer : :: windows_sys::core::PWSTR , channelpathbufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtNextEventMetadata ( eventmetadataenum : EVT_HANDLE , flags : u32 ) -> EVT_HANDLE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtNextPublisherId ( publisherenum : EVT_HANDLE , publisheridbuffersize : u32 , publisheridbuffer : :: windows_sys::core::PWSTR , publisheridbufferused : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenChannelConfig ( session : EVT_HANDLE , channelpath : :: windows_sys::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenChannelEnum ( session : EVT_HANDLE , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenEventMetadataEnum ( publishermetadata : EVT_HANDLE , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenLog ( session : EVT_HANDLE , path : :: windows_sys::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenPublisherEnum ( session : EVT_HANDLE , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenPublisherMetadata ( session : EVT_HANDLE , publisherid : :: windows_sys::core::PCWSTR , logfilepath : :: windows_sys::core::PCWSTR , locale : u32 , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtOpenSession ( loginclass : EVT_LOGIN_CLASS , login : *const ::core::ffi::c_void , timeout : u32 , flags : u32 ) -> EVT_HANDLE );
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtQuery ( session : EVT_HANDLE , path : :: windows_sys::core::PCWSTR , query : :: windows_sys::core::PCWSTR , flags : u32 ) -> EVT_HANDLE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtRender ( context : EVT_HANDLE , fragment : EVT_HANDLE , flags : u32 , buffersize : u32 , buffer : *mut ::core::ffi::c_void , bufferused : *mut u32 , propertycount : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtSaveChannelConfig ( channelconfig : EVT_HANDLE , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtSeek ( resultset : EVT_HANDLE , position : i64 , bookmark : EVT_HANDLE , timeout : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtSetChannelConfigProperty ( channelconfig : EVT_HANDLE , propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID , flags : u32 , propertyvalue : *const EVT_VARIANT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtSubscribe ( session : EVT_HANDLE , signalevent : super::super::Foundation:: HANDLE , channelpath : :: windows_sys::core::PCWSTR , query : :: windows_sys::core::PCWSTR , bookmark : EVT_HANDLE , context : *const ::core::ffi::c_void , callback : EVT_SUBSCRIBE_CALLBACK , flags : u32 ) -> EVT_HANDLE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "wevtapi.dll" ,"system" fn EvtUpdateBookmark ( bookmark : EVT_HANDLE , event : EVT_HANDLE ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetEventLogInformation ( heventlog : EventLogHandle , dwinfolevel : u32 , lpbuffer : *mut ::core::ffi::c_void , cbbufsize : u32 , pcbbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetNumberOfEventLogRecords ( heventlog : EventLogHandle , numberofrecords : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetOldestEventLogRecord ( heventlog : EventLogHandle , oldestrecord : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn NotifyChangeEventLog ( heventlog : EventLogHandle , hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OpenBackupEventLogA ( lpuncservername : :: windows_sys::core::PCSTR , lpfilename : :: windows_sys::core::PCSTR ) -> EventLogHandle );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OpenBackupEventLogW ( lpuncservername : :: windows_sys::core::PCWSTR , lpfilename : :: windows_sys::core::PCWSTR ) -> EventLogHandle );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OpenEventLogA ( lpuncservername : :: windows_sys::core::PCSTR , lpsourcename : :: windows_sys::core::PCSTR ) -> EventLogHandle );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn OpenEventLogW ( lpuncservername : :: windows_sys::core::PCWSTR , lpsourcename : :: windows_sys::core::PCWSTR ) -> EventLogHandle );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ReadEventLogA ( heventlog : EventLogHandle , dwreadflags : READ_EVENT_LOG_READ_FLAGS , dwrecordoffset : u32 , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , pnbytesread : *mut u32 , pnminnumberofbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ReadEventLogW ( heventlog : EventLogHandle , dwreadflags : READ_EVENT_LOG_READ_FLAGS , dwrecordoffset : u32 , lpbuffer : *mut ::core::ffi::c_void , nnumberofbytestoread : u32 , pnbytesread : *mut u32 , pnminnumberofbytesneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn RegisterEventSourceA ( lpuncservername : :: windows_sys::core::PCSTR , lpsourcename : :: windows_sys::core::PCSTR ) -> EventSourceHandle );
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn RegisterEventSourceW ( lpuncservername : :: windows_sys::core::PCWSTR , lpsourcename : :: windows_sys::core::PCWSTR ) -> EventSourceHandle );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ReportEventA ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn ReportEventW ( heventlog : EventSourceHandle , wtype : REPORT_EVENT_TYPE , wcategory : u16 , dweventid : u32 , lpusersid : super::super::Foundation:: PSID , wnumstrings : u16 , dwdatasize : u32 , lpstrings : *const :: windows_sys::core::PWSTR , lprawdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
