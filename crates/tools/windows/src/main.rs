@@ -118,8 +118,7 @@ interface = ["windows-interface"]
 
     file.write_all(
         r#"
-# UNSTABLE FEATURES (requires Rust nightly)
-# Enable to use the #[debugger_visualizer] attribute.
+# These features are unstable and require Rust nightly:
 debugger_visualizer = []
 
 "#

@@ -47,22 +47,28 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let link = if let Some(link) = gen.reader.method_def_static_lib(def) {
         quote! {
             #[link(name = #link, kind = "static")]
+            extern #extern_abi {
+                fn #name(#(#abi_params),*) #abi_return_type;
+            }
         }
     } else {
         if gen.namespace.starts_with("Windows.") {
-            quote! { #[cfg_attr(windows, link(name = "windows"))] }
+            quote! {
+                #[cfg_attr(windows, link(name = "windows"))]
+                extern #extern_abi {
+                    fn #name(#(#abi_params),*) #abi_return_type;
+                }
+            }
         } else {
             let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
             let scope = gen.reader.impl_map_scope(impl_map);
             let link = gen.reader.module_ref_name(scope).to_lowercase();
-            quote! { #[link(name = #link)] }
-        }
-    };
-
-    let link = quote! {
-        #link
-        extern #extern_abi {
-            fn #name(#(#abi_params),*) #abi_return_type;
+            quote! {
+                #[link(name = #link)]
+                extern #extern_abi {
+                    fn #name(#(#abi_params),*) #abi_return_type;
+                }
+            }
         }
     };
 
