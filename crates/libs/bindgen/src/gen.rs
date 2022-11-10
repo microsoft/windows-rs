@@ -851,6 +851,8 @@ impl<'a> Gen<'a> {
         if let Some(return_type) = &signature.return_type {
             let tokens = self.type_default_name(return_type);
             quote! { -> #tokens }
+        } else if self.reader.method_def_does_not_return(signature.def) {
+            quote! { -> ! }
         } else {
             quote! {}
         }
