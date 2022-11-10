@@ -29,14 +29,7 @@ pub fn gen() -> TokenStream {
                     pub x: f32,
                     pub y: f32,
                 }
-                #[link(name = "windows")]
-                extern "system" {
-                    fn D2D1MakeRotateMatrix(
-                        angle: f32,
-                        center: D2D_POINT_2F,
-                        matrix: *mut Matrix3x2,
-                    );
-                }
+                ::windows::core::windows_link!("d2d1.dll", "stdcall" fn D2D1MakeRotateMatrix(angle: f32, center: D2D_POINT_2F, matrix: *mut Matrix3x2) -> ());
                 let mut matrix = Self::default();
                 unsafe {
                     D2D1MakeRotateMatrix(angle, D2D_POINT_2F{x, y}, &mut matrix);

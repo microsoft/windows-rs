@@ -112,6 +112,16 @@ deprecated = []
         }
     }
 
+    file.write_all(
+        r#"
+# These features are unstable and require the nightly Rust compiler:
+raw_dylib = []
+
+"#
+        .as_bytes(),
+    )
+    .unwrap();
+
     std::fs::copy("license-mit", "crates/libs/sys/license-mit").unwrap();
     std::fs::copy("license-apache-2.0", "crates/libs/sys/license-apache-2.0").unwrap();
 }

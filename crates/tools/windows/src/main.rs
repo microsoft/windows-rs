@@ -118,8 +118,9 @@ interface = ["windows-interface"]
 
     file.write_all(
         r#"
-# These features are unstable and require Rust nightly:
+# These features are unstable and require the nightly Rust compiler:
 debugger_visualizer = []
+raw_dylib = []
 
 "#
         .as_bytes(),
