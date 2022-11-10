@@ -121,3 +121,6 @@ macro_rules! interface_hierarchy {
         $crate::core::interface_hierarchy!($child, $($rest),+);
     };
 }
+
+#[doc(hidden)]
+pub use interface_hierarchy;
