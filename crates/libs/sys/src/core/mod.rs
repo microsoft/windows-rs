@@ -34,3 +34,23 @@ impl GUID {
         Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
     }
 }
+
+#[doc(hidden)]
+#[macro_export]
+macro_rules! windows_link {
+    ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[cfg(target_arch = "x86")]
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+        #[cfg(not(target_arch = "x86"))]
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
+        extern "system" {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[doc(hidden)]
+pub use windows_link;
