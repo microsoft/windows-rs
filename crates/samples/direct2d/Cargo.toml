@@ -20,3 +20,7 @@ features = [
     "Win32_UI_Animation",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[features]
+default = []
+raw_dylib = ["windows/raw_dylib"]

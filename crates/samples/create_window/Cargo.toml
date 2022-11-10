@@ -11,3 +11,7 @@ features = [
     "Win32_System_LibraryLoader",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[features]
+default = []
+raw_dylib = ["windows/raw_dylib"]
