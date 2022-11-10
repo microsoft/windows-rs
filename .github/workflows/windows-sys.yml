@@ -25,4 +25,4 @@ jobs:
       - name: Prepare
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Check
-        run: cargo check -p windows-sys --features Win32_Foundation,Win32_Graphics_Direct2D
+        run: cargo check -p windows-sys
