@@ -189,6 +189,8 @@ fn crates() -> Vec<String> {
     for dir in dirs("crates/libs") {
         if dir == "windows" {
             crates.push("windows".to_string());
+        } else if dir == "targets" {
+            crates.push("windows_targets".to_string());
         } else {
             crates.push(format!("windows-{dir}"));
         }
