@@ -1,4 +1,4 @@
-name: raw_dylib
+name: delay_load & raw_dylib
 
 on:
   pull_request:
