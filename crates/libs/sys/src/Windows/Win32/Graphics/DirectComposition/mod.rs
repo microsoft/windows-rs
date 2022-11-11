@@ -1,22 +1,22 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionAttachMouseDragToHwnd ( visual : IDCompositionVisual , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionAttachMouseDragToHwnd ( visual : IDCompositionVisual , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionAttachMouseWheelToHwnd ( visual : IDCompositionVisual , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionAttachMouseWheelToHwnd ( visual : IDCompositionVisual , hwnd : super::super::Foundation:: HWND , enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionBoostCompositorClock ( enable : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice ( dxgidevice : super::Dxgi:: IDXGIDevice , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice2 ( renderingdevice : :: windows_sys::core::IUnknown , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice3 ( renderingdevice : :: windows_sys::core::IUnknown , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice ( dxgidevice : super::Dxgi:: IDXGIDevice , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice2 ( renderingdevice : :: windows_sys::core::IUnknown , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionCreateDevice3 ( renderingdevice : :: windows_sys::core::IUnknown , iid : *const :: windows_sys::core::GUID , dcompositiondevice : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionCreateSurfaceHandle ( desiredaccess : u32 , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , surfacehandle : *mut super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionGetFrameId ( frameidtype : COMPOSITION_FRAME_ID_TYPE , frameid : *mut u64 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionGetStatistics ( frameid : u64 , framestats : *mut COMPOSITION_FRAME_STATS , targetidcount : u32 , targetids : *mut COMPOSITION_TARGET_ID , actualtargetidcount : *mut u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionGetTargetStatistics ( frameid : u64 , targetid : *const COMPOSITION_TARGET_ID , targetstats : *mut COMPOSITION_TARGET_STATS ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn DCompositionWaitForCompositorClock ( count : u32 , handles : *const super::super::Foundation:: HANDLE , timeoutinms : u32 ) -> u32 );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn DCompositionWaitForCompositorClock ( count : u32 , handles : *const super::super::Foundation:: HANDLE , timeoutinms : u32 ) -> u32 );
 pub type IDCompositionAffineTransform2DEffect = *mut ::core::ffi::c_void;
 pub type IDCompositionAnimation = *mut ::core::ffi::c_void;
 pub type IDCompositionArithmeticCompositeEffect = *mut ::core::ffi::c_void;

@@ -1,13 +1,13 @@
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn CloseIMsgSession ( lpmsgsess : *mut _MSGSESS ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn CloseIMsgSession ( lpmsgsess : *mut _MSGSESS ) -> ( ) );
 #[cfg(feature = "Win32_System_AddressBook")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn MapStorageSCode ( stgscode : i32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn GetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray , lpppropattrarray : *mut *mut SPropAttrArray ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn MapStorageSCode ( stgscode : i32 ) -> i32 );
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn OpenIMsgOnIStg ( lpmsgsess : *mut _MSGSESS , lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER , lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE , lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER , lpmalloc : super::super::System::Com:: IMalloc , lpmapisup : *mut ::core::ffi::c_void , lpstg : super::super::System::Com::StructuredStorage:: IStorage , lpfmsgcallrelease : *mut MSGCALLRELEASE , ulcallerdata : u32 , ulflags : u32 , lppmsg : *mut super::super::System::AddressBook:: IMessage ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn OpenIMsgOnIStg ( lpmsgsess : *mut _MSGSESS , lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER , lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE , lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER , lpmalloc : super::super::System::Com:: IMalloc , lpmapisup : *mut ::core::ffi::c_void , lpstg : super::super::System::Com::StructuredStorage:: IStorage , lpfmsgcallrelease : *mut MSGCALLRELEASE , ulcallerdata : u32 , ulflags : u32 , lppmsg : *mut super::super::System::AddressBook:: IMessage ) -> i32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn OpenIMsgSession ( lpmalloc : super::super::System::Com:: IMalloc , ulflags : u32 , lppmsgsess : *mut *mut _MSGSESS ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn OpenIMsgSession ( lpmalloc : super::super::System::Com:: IMalloc , ulflags : u32 , lppmsgsess : *mut *mut _MSGSESS ) -> i32 );
 #[cfg(feature = "Win32_System_AddressBook")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn SetAttribIMsgOnIStg ( lpobject : *mut ::core::ffi::c_void , lpproptags : *mut super::super::System::AddressBook:: SPropTagArray , lppropattrs : *mut SPropAttrArray , lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray ) -> :: windows_sys::core::HRESULT );
 pub type DDiscFormat2DataEvents = *mut ::core::ffi::c_void;
 pub type DDiscFormat2EraseEvents = *mut ::core::ffi::c_void;
 pub type DDiscFormat2RawCDEvents = *mut ::core::ffi::c_void;

@@ -1,15 +1,15 @@
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateBackupRestorer ( pcallback : :: windows_sys::core::IUnknown , ppbackup : *mut IWMLicenseBackup ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateEditor ( ppeditor : *mut IWMMetadataEditor ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateIndexer ( ppindexer : *mut IWMIndexer ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateProfileManager ( ppprofilemanager : *mut IWMProfileManager ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateReader ( punkcert : :: windows_sys::core::IUnknown , dwrights : u32 , ppreader : *mut IWMReader ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateSyncReader ( punkcert : :: windows_sys::core::IUnknown , dwrights : u32 , ppsyncreader : *mut IWMSyncReader ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateWriter ( punkcert : :: windows_sys::core::IUnknown , ppwriter : *mut IWMWriter ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterFileSink ( ppsink : *mut IWMWriterFileSink ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterNetworkSink ( ppsink : *mut IWMWriterNetworkSink ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterPushSink ( ppsink : *mut IWMWriterPushSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateBackupRestorer ( pcallback : :: windows_sys::core::IUnknown , ppbackup : *mut IWMLicenseBackup ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateEditor ( ppeditor : *mut IWMMetadataEditor ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateIndexer ( ppindexer : *mut IWMIndexer ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateProfileManager ( ppprofilemanager : *mut IWMProfileManager ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateReader ( punkcert : :: windows_sys::core::IUnknown , dwrights : u32 , ppreader : *mut IWMReader ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateSyncReader ( punkcert : :: windows_sys::core::IUnknown , dwrights : u32 , ppsyncreader : *mut IWMSyncReader ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateWriter ( punkcert : :: windows_sys::core::IUnknown , ppwriter : *mut IWMWriter ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterFileSink ( ppsink : *mut IWMWriterFileSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterNetworkSink ( ppsink : *mut IWMWriterNetworkSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMCreateWriterPushSink ( ppsink : *mut IWMWriterPushSink ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wmvcore.dll" ,"system" fn WMIsContentProtected ( pwszfilename : :: windows_sys::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wmvcore.dll" ,"system" fn WMIsContentProtected ( pwszfilename : :: windows_sys::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 pub type INSNetSourceCreator = *mut ::core::ffi::c_void;
 pub type INSSBuffer = *mut ::core::ffi::c_void;
 pub type INSSBuffer2 = *mut ::core::ffi::c_void;

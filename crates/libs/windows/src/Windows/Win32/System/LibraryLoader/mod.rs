@@ -4,7 +4,7 @@ pub unsafe fn AddDllDirectory<'a, P0>(newdirectory: P0) -> *mut ::core::ffi::c_v
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn AddDllDirectory ( newdirectory : :: windows::core::PCWSTR ) -> *mut ::core::ffi::c_void );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn AddDllDirectory ( newdirectory : :: windows::core::PCWSTR ) -> *mut ::core::ffi::c_void );
     AddDllDirectory(newdirectory.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn BeginUpdateResourceA ( pfilename : :: windows::core::PCSTR , bdeleteexistingresources : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn BeginUpdateResourceA ( pfilename : :: windows::core::PCSTR , bdeleteexistingresources : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
     let result__ = BeginUpdateResourceA(pfilename.into(), bdeleteexistingresources.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -27,7 +27,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn BeginUpdateResourceW ( pfilename : :: windows::core::PCWSTR , bdeleteexistingresources : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn BeginUpdateResourceW ( pfilename : :: windows::core::PCWSTR , bdeleteexistingresources : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
     let result__ = BeginUpdateResourceW(pfilename.into(), bdeleteexistingresources.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -38,7 +38,7 @@ pub unsafe fn DisableThreadLibraryCalls<'a, P0>(hlibmodule: P0) -> super::super:
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn DisableThreadLibraryCalls ( hlibmodule : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn DisableThreadLibraryCalls ( hlibmodule : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
     DisableThreadLibraryCalls(hlibmodule.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -49,7 +49,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EndUpdateResourceA ( hupdate : super::super::Foundation:: HANDLE , fdiscard : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EndUpdateResourceA ( hupdate : super::super::Foundation:: HANDLE , fdiscard : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     EndUpdateResourceA(hupdate.into(), fdiscard.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -60,7 +60,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EndUpdateResourceW ( hupdate : super::super::Foundation:: HANDLE , fdiscard : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EndUpdateResourceW ( hupdate : super::super::Foundation:: HANDLE , fdiscard : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     EndUpdateResourceW(hupdate.into(), fdiscard.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -72,7 +72,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceLanguagesA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -84,7 +84,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceLanguagesExA(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -96,7 +96,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceLanguagesExW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -108,7 +108,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceLanguagesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceLanguagesW(hmodule.into(), lptype.into(), lpname.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -119,7 +119,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceNamesA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -130,7 +130,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceNamesExA(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -141,7 +141,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceNamesExW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -152,7 +152,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceNamesW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceNamesW(hmodule.into(), lptype.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -162,7 +162,7 @@ pub unsafe fn EnumResourceTypesA<'a, P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPRO
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceTypesA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -172,7 +172,7 @@ pub unsafe fn EnumResourceTypesExA<'a, P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesExA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesExA ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceTypesExA(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -182,7 +182,7 @@ pub unsafe fn EnumResourceTypesExW<'a, P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEP
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesExW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesExW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize , dwflags : u32 , langid : u16 ) -> super::super::Foundation:: BOOL );
     EnumResourceTypesExW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam, dwflags, langid)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -192,7 +192,7 @@ pub unsafe fn EnumResourceTypesW<'a, P0>(hmodule: P0, lpenumfunc: ENUMRESTYPEPRO
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnumResourceTypesW ( hmodule : super::super::Foundation:: HINSTANCE , lpenumfunc : * mut::core::ffi::c_void , lparam : isize ) -> super::super::Foundation:: BOOL );
     EnumResourceTypesW(hmodule.into(), ::core::mem::transmute(lpenumfunc), lparam)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -204,7 +204,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindResourceA ( hmodule : super::super::Foundation:: HINSTANCE , lpname : :: windows::core::PCSTR , lptype : :: windows::core::PCSTR ) -> super::super::Foundation:: HRSRC );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindResourceA ( hmodule : super::super::Foundation:: HINSTANCE , lpname : :: windows::core::PCSTR , lptype : :: windows::core::PCSTR ) -> super::super::Foundation:: HRSRC );
     let result__ = FindResourceA(hmodule.into(), lpname.into(), lptype.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -217,7 +217,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindResourceExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , wlanguage : u16 ) -> super::super::Foundation:: HRSRC );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindResourceExA ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , wlanguage : u16 ) -> super::super::Foundation:: HRSRC );
     let result__ = FindResourceExA(hmodule.into(), lptype.into(), lpname.into(), wlanguage);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -230,7 +230,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindResourceExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , wlanguage : u16 ) -> super::super::Foundation:: HRSRC );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindResourceExW ( hmodule : super::super::Foundation:: HINSTANCE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , wlanguage : u16 ) -> super::super::Foundation:: HRSRC );
     FindResourceExW(hmodule.into(), lptype.into(), lpname.into(), wlanguage)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -242,7 +242,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindResourceW ( hmodule : super::super::Foundation:: HINSTANCE , lpname : :: windows::core::PCWSTR , lptype : :: windows::core::PCWSTR ) -> super::super::Foundation:: HRSRC );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindResourceW ( hmodule : super::super::Foundation:: HINSTANCE , lpname : :: windows::core::PCWSTR , lptype : :: windows::core::PCWSTR ) -> super::super::Foundation:: HRSRC );
     FindResourceW(hmodule.into(), lpname.into(), lptype.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -252,7 +252,7 @@ pub unsafe fn FreeLibrary<'a, P0>(hlibmodule: P0) -> super::super::Foundation::B
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FreeLibrary ( hlibmodule : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FreeLibrary ( hlibmodule : super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
     FreeLibrary(hlibmodule.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -262,26 +262,26 @@ pub unsafe fn FreeLibraryAndExitThread<'a, P0>(hlibmodule: P0, dwexitcode: u32) 
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FreeLibraryAndExitThread ( hlibmodule : super::super::Foundation:: HINSTANCE , dwexitcode : u32 ) -> ! );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FreeLibraryAndExitThread ( hlibmodule : super::super::Foundation:: HINSTANCE , dwexitcode : u32 ) -> ! );
     FreeLibraryAndExitThread(hlibmodule.into(), dwexitcode)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FreeResource ( hresdata : isize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FreeResource ( hresdata : isize ) -> super::super::Foundation:: BOOL );
     FreeResource(hresdata)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 #[inline]
 pub unsafe fn GetDllDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetDllDirectoryA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetDllDirectoryA ( nbufferlength : u32 , lpbuffer : :: windows::core::PSTR ) -> u32 );
     GetDllDirectoryA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 #[inline]
 pub unsafe fn GetDllDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetDllDirectoryW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetDllDirectoryW ( nbufferlength : u32 , lpbuffer : :: windows::core::PWSTR ) -> u32 );
     GetDllDirectoryW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -291,7 +291,7 @@ pub unsafe fn GetModuleFileNameA<'a, P0>(hmodule: P0, lpfilename: &mut [u8]) -> 
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleFileNameA ( hmodule : super::super::Foundation:: HINSTANCE , lpfilename : :: windows::core::PSTR , nsize : u32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleFileNameA ( hmodule : super::super::Foundation:: HINSTANCE , lpfilename : :: windows::core::PSTR , nsize : u32 ) -> u32 );
     GetModuleFileNameA(hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -301,7 +301,7 @@ pub unsafe fn GetModuleFileNameW<'a, P0>(hmodule: P0, lpfilename: &mut [u16]) ->
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleFileNameW ( hmodule : super::super::Foundation:: HINSTANCE , lpfilename : :: windows::core::PWSTR , nsize : u32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleFileNameW ( hmodule : super::super::Foundation:: HINSTANCE , lpfilename : :: windows::core::PWSTR , nsize : u32 ) -> u32 );
     GetModuleFileNameW(hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -311,7 +311,7 @@ pub unsafe fn GetModuleHandleA<'a, P0>(lpmodulename: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleHandleA ( lpmodulename : :: windows::core::PCSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleHandleA ( lpmodulename : :: windows::core::PCSTR ) -> super::super::Foundation:: HINSTANCE );
     let result__ = GetModuleHandleA(lpmodulename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -322,7 +322,7 @@ pub unsafe fn GetModuleHandleExA<'a, P0>(dwflags: u32, lpmodulename: P0, phmodul
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleHandleExA ( dwflags : u32 , lpmodulename : :: windows::core::PCSTR , phmodule : *mut super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleHandleExA ( dwflags : u32 , lpmodulename : :: windows::core::PCSTR , phmodule : *mut super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
     GetModuleHandleExA(dwflags, lpmodulename.into(), ::core::mem::transmute(phmodule))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -332,7 +332,7 @@ pub unsafe fn GetModuleHandleExW<'a, P0>(dwflags: u32, lpmodulename: P0, phmodul
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleHandleExW ( dwflags : u32 , lpmodulename : :: windows::core::PCWSTR , phmodule : *mut super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleHandleExW ( dwflags : u32 , lpmodulename : :: windows::core::PCWSTR , phmodule : *mut super::super::Foundation:: HINSTANCE ) -> super::super::Foundation:: BOOL );
     GetModuleHandleExW(dwflags, lpmodulename.into(), ::core::mem::transmute(phmodule))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn GetModuleHandleW<'a, P0>(lpmodulename: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetModuleHandleW ( lpmodulename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetModuleHandleW ( lpmodulename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HINSTANCE );
     let result__ = GetModuleHandleW(lpmodulename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -354,7 +354,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetProcAddress ( hmodule : super::super::Foundation:: HINSTANCE , lpprocname : :: windows::core::PCSTR ) -> super::super::Foundation:: FARPROC );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetProcAddress ( hmodule : super::super::Foundation:: HINSTANCE , lpprocname : :: windows::core::PCSTR ) -> super::super::Foundation:: FARPROC );
     GetProcAddress(hmodule.into(), lpprocname.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -364,7 +364,7 @@ pub unsafe fn LoadLibraryA<'a, P0>(lplibfilename: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadLibraryA ( lplibfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadLibraryA ( lplibfilename : :: windows::core::PCSTR ) -> super::super::Foundation:: HINSTANCE );
     let result__ = LoadLibraryA(lplibfilename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -376,7 +376,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadLibraryExA ( lplibfilename : :: windows::core::PCSTR , hfile : super::super::Foundation:: HANDLE , dwflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadLibraryExA ( lplibfilename : :: windows::core::PCSTR , hfile : super::super::Foundation:: HANDLE , dwflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: HINSTANCE );
     let result__ = LoadLibraryExA(lplibfilename.into(), hfile.into(), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -388,7 +388,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadLibraryExW ( lplibfilename : :: windows::core::PCWSTR , hfile : super::super::Foundation:: HANDLE , dwflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadLibraryExW ( lplibfilename : :: windows::core::PCWSTR , hfile : super::super::Foundation:: HANDLE , dwflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: HINSTANCE );
     let result__ = LoadLibraryExW(lplibfilename.into(), hfile.into(), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -399,7 +399,7 @@ pub unsafe fn LoadLibraryW<'a, P0>(lplibfilename: P0) -> ::windows::core::Result
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadLibraryW ( lplibfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadLibraryW ( lplibfilename : :: windows::core::PCWSTR ) -> super::super::Foundation:: HINSTANCE );
     let result__ = LoadLibraryW(lplibfilename.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -409,7 +409,7 @@ pub unsafe fn LoadModule<'a, P0>(lpmodulename: P0, lpparameterblock: *const ::co
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadModule ( lpmodulename : :: windows::core::PCSTR , lpparameterblock : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadModule ( lpmodulename : :: windows::core::PCSTR , lpparameterblock : *const ::core::ffi::c_void ) -> u32 );
     LoadModule(lpmodulename.into(), ::core::mem::transmute(lpparameterblock))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -419,7 +419,7 @@ pub unsafe fn LoadPackagedLibrary<'a, P0>(lpwlibfilename: P0, reserved: u32) -> 
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadPackagedLibrary ( lpwlibfilename : :: windows::core::PCWSTR , reserved : u32 ) -> super::super::Foundation:: HINSTANCE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadPackagedLibrary ( lpwlibfilename : :: windows::core::PCWSTR , reserved : u32 ) -> super::super::Foundation:: HINSTANCE );
     let result__ = LoadPackagedLibrary(lpwlibfilename.into(), reserved);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -431,27 +431,27 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::HRSRC>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LoadResource ( hmodule : super::super::Foundation:: HINSTANCE , hresinfo : super::super::Foundation:: HRSRC ) -> isize );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LoadResource ( hmodule : super::super::Foundation:: HINSTANCE , hresinfo : super::super::Foundation:: HRSRC ) -> isize );
     LoadResource(hmodule.into(), hresinfo.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 #[inline]
 pub unsafe fn LockResource(hresdata: isize) -> *mut ::core::ffi::c_void {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn LockResource ( hresdata : isize ) -> *mut ::core::ffi::c_void );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn LockResource ( hresdata : isize ) -> *mut ::core::ffi::c_void );
     LockResource(hresdata)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDllDirectory(cookie: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn RemoveDllDirectory ( cookie : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn RemoveDllDirectory ( cookie : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
     RemoveDllDirectory(::core::mem::transmute(cookie))
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn SetDefaultDllDirectories ( directoryflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn SetDefaultDllDirectories ( directoryflags : LOAD_LIBRARY_FLAGS ) -> super::super::Foundation:: BOOL );
     SetDefaultDllDirectories(directoryflags)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -461,7 +461,7 @@ pub unsafe fn SetDllDirectoryA<'a, P0>(lppathname: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn SetDllDirectoryA ( lppathname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn SetDllDirectoryA ( lppathname : :: windows::core::PCSTR ) -> super::super::Foundation:: BOOL );
     SetDllDirectoryA(lppathname.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -471,7 +471,7 @@ pub unsafe fn SetDllDirectoryW<'a, P0>(lppathname: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn SetDllDirectoryW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn SetDllDirectoryW ( lppathname : :: windows::core::PCWSTR ) -> super::super::Foundation:: BOOL );
     SetDllDirectoryW(lppathname.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -482,7 +482,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::HRSRC>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn SizeofResource ( hmodule : super::super::Foundation:: HINSTANCE , hresinfo : super::super::Foundation:: HRSRC ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn SizeofResource ( hmodule : super::super::Foundation:: HINSTANCE , hresinfo : super::super::Foundation:: HRSRC ) -> u32 );
     SizeofResource(hmodule.into(), hresinfo.into())
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -494,7 +494,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn UpdateResourceA ( hupdate : super::super::Foundation:: HANDLE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , wlanguage : u16 , lpdata : *const ::core::ffi::c_void , cb : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn UpdateResourceA ( hupdate : super::super::Foundation:: HANDLE , lptype : :: windows::core::PCSTR , lpname : :: windows::core::PCSTR , wlanguage : u16 , lpdata : *const ::core::ffi::c_void , cb : u32 ) -> super::super::Foundation:: BOOL );
     UpdateResourceA(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -506,7 +506,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn UpdateResourceW ( hupdate : super::super::Foundation:: HANDLE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , wlanguage : u16 , lpdata : *const ::core::ffi::c_void , cb : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn UpdateResourceW ( hupdate : super::super::Foundation:: HANDLE , lptype : :: windows::core::PCWSTR , lpname : :: windows::core::PCWSTR , wlanguage : u16 , lpdata : *const ::core::ffi::c_void , cb : u32 ) -> super::super::Foundation:: BOOL );
     UpdateResourceW(hupdate.into(), lptype.into(), lpname.into(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]

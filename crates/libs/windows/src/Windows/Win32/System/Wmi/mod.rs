@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::option::Option<*const u16>, extendederror: ::core::option::Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
-    ::windows::core::windows_link ! ( "mi.dll" ,"cdecl" fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
+    ::windows::core::link ! ( "mi.dll" ,"cdecl" fn MI_Application_InitializeV1 ( flags : u32 , applicationid : *const u16 , extendederror : *mut *mut MI_Instance , application : *mut MI_Application ) -> MI_Result );
     MI_Application_InitializeV1(flags, ::core::mem::transmute(applicationid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(extendederror.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(application))
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]

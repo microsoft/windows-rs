@@ -1,63 +1,63 @@
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CoGetInstanceFromFile ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , dwclsctx : super:: CLSCTX , grfmode : u32 , pwszname : :: windows_sys::core::PCWSTR , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CoGetInstanceFromIStorage ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , dwclsctx : super:: CLSCTX , pstg : IStorage , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CoGetInterfaceAndReleaseStream ( pstm : super:: IStream , iid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn CoGetInstanceFromFile ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , dwclsctx : super:: CLSCTX , grfmode : u32 , pwszname : :: windows_sys::core::PCWSTR , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn CoGetInstanceFromIStorage ( pserverinfo : *const super:: COSERVERINFO , pclsid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , dwclsctx : super:: CLSCTX , pstg : IStorage , dwcount : u32 , presults : *mut super:: MULTI_QI ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn CoGetInterfaceAndReleaseStream ( pstm : super:: IStream , iid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CreateILockBytesOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut ILockBytes ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn CreateILockBytesOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut ILockBytes ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn CreateStreamOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut super:: IStream ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn FmtIdToPropStgName ( pfmtid : *const :: windows_sys::core::GUID , oszname : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn CreateStreamOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut super:: IStream ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn FmtIdToPropStgName ( pfmtid : *const :: windows_sys::core::GUID , oszname : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn FreePropVariantArray ( cvariants : u32 , rgvars : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn GetConvertStg ( pstg : IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn GetHGlobalFromILockBytes ( plkbyt : ILockBytes , phglobal : *mut isize ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn GetHGlobalFromStream ( pstm : super:: IStream , phglobal : *mut isize ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn OleConvertIStorageToOLESTREAM ( pstg : IStorage , lpolestream : *mut OLESTREAM ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn FreePropVariantArray ( cvariants : u32 , rgvars : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn GetConvertStg ( pstg : IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn GetHGlobalFromILockBytes ( plkbyt : ILockBytes , phglobal : *mut isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn GetHGlobalFromStream ( pstm : super:: IStream , phglobal : *mut isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn OleConvertIStorageToOLESTREAM ( pstg : IStorage , lpolestream : *mut OLESTREAM ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn OleConvertIStorageToOLESTREAMEx ( pstg : IStorage , cfformat : u16 , lwidth : i32 , lheight : i32 , dwsize : u32 , pmedium : *const super:: STGMEDIUM , polestm : *mut OLESTREAM ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn OleConvertOLESTREAMToIStorage ( lpolestream : *const OLESTREAM , pstg : IStorage , ptd : *const super:: DVTARGETDEVICE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn OleConvertIStorageToOLESTREAMEx ( pstg : IStorage , cfformat : u16 , lwidth : i32 , lheight : i32 , dwsize : u32 , pmedium : *const super:: STGMEDIUM , polestm : *mut OLESTREAM ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn OleConvertOLESTREAMToIStorage ( lpolestream : *const OLESTREAM , pstg : IStorage , ptd : *const super:: DVTARGETDEVICE ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn OleConvertOLESTREAMToIStorageEx ( polestm : *const OLESTREAM , pstg : IStorage , pcfformat : *mut u16 , plwwidth : *mut i32 , plheight : *mut i32 , pdwsize : *mut u32 , pmedium : *mut super:: STGMEDIUM ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn PropStgNameToFmtId ( oszname : :: windows_sys::core::PCWSTR , pfmtid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn OleConvertOLESTREAMToIStorageEx ( polestm : *const OLESTREAM , pstg : IStorage , pcfformat : *mut u16 , plwwidth : *mut i32 , plheight : *mut i32 , pdwsize : *mut u32 , pmedium : *mut super:: STGMEDIUM ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn PropStgNameToFmtId ( oszname : :: windows_sys::core::PCWSTR , pfmtid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn PropVariantClear ( pvar : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn PropVariantClear ( pvar : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn PropVariantCopy ( pvardest : *mut PROPVARIANT , pvarsrc : *const PROPVARIANT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn ReadClassStg ( pstg : IStorage , pclsid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn ReadClassStm ( pstm : super:: IStream , pclsid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn ReadFmtUserTypeStg ( pstg : IStorage , pcf : *mut u16 , lplpszusertype : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn PropVariantCopy ( pvardest : *mut PROPVARIANT , pvarsrc : *const PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn ReadClassStg ( pstg : IStorage , pclsid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn ReadClassStm ( pstm : super:: IStream , pclsid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn ReadFmtUserTypeStg ( pstg : IStorage , pcf : *mut u16 , lplpszusertype : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn SetConvertStg ( pstg : IStorage , fconvert : super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn SetConvertStg ( pstg : IStorage , fconvert : super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgConvertPropertyToVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , codepage : u16 , pvar : *mut PROPVARIANT , pma : *const PMemoryAllocator ) -> super::super::super::Foundation:: BOOLEAN );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgConvertPropertyToVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , codepage : u16 , pvar : *mut PROPVARIANT , pma : *const PMemoryAllocator ) -> super::super::super::Foundation:: BOOLEAN );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgConvertVariantToProperty ( pvar : *const PROPVARIANT , codepage : u16 , pprop : *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 , pid : u32 , freserved : super::super::super::Foundation:: BOOLEAN , pcindirect : *mut u32 ) -> *mut SERIALIZEDPROPERTYVALUE );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgCreateDocfile ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgCreateDocfileOnILockBytes ( plkbyt : ILockBytes , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgCreatePropSetStg ( pstorage : IStorage , dwreserved : u32 , pppropsetstg : *mut IPropertySetStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgCreatePropStg ( punk : :: windows_sys::core::IUnknown , fmtid : *const :: windows_sys::core::GUID , pclsid : *const :: windows_sys::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut IPropertyStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgConvertVariantToProperty ( pvar : *const PROPVARIANT , codepage : u16 , pprop : *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 , pid : u32 , freserved : super::super::super::Foundation:: BOOLEAN , pcindirect : *mut u32 ) -> *mut SERIALIZEDPROPERTYVALUE );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgCreateDocfile ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgCreateDocfileOnILockBytes ( plkbyt : ILockBytes , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgCreatePropSetStg ( pstorage : IStorage , dwreserved : u32 , pppropsetstg : *mut IPropertySetStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgCreatePropStg ( punk : :: windows_sys::core::IUnknown , fmtid : *const :: windows_sys::core::GUID , pclsid : *const :: windows_sys::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut IPropertyStorage ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Security")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgCreateStorageEx ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const :: windows_sys::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgCreateStorageEx ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const :: windows_sys::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "propsys.dll" ,"system" fn StgDeserializePropVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbmax : u32 , ppropvar : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgGetIFillLockBytesOnFile ( pwcsname : :: windows_sys::core::PCWSTR , ppflb : *mut IFillLockBytes ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgGetIFillLockBytesOnILockBytes ( pilb : ILockBytes , ppflb : *mut IFillLockBytes ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgIsStorageFile ( pwcsname : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgIsStorageILockBytes ( plkbyt : ILockBytes ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgOpenAsyncDocfileOnIFillLockBytes ( pflb : IFillLockBytes , grfmode : u32 , asyncflags : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dflayout.dll" ,"system" fn StgOpenLayoutDocfile ( pwcsdfname : :: windows_sys::core::PCWSTR , grfmode : u32 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgOpenPropStg ( punk : :: windows_sys::core::IUnknown , fmtid : *const :: windows_sys::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut IPropertyStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgOpenStorage ( pwcsname : :: windows_sys::core::PCWSTR , pstgpriority : IStorage , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "propsys.dll" ,"system" fn StgDeserializePropVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbmax : u32 , ppropvar : *mut PROPVARIANT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgGetIFillLockBytesOnFile ( pwcsname : :: windows_sys::core::PCWSTR , ppflb : *mut IFillLockBytes ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgGetIFillLockBytesOnILockBytes ( pilb : ILockBytes , ppflb : *mut IFillLockBytes ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgIsStorageFile ( pwcsname : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgIsStorageILockBytes ( plkbyt : ILockBytes ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgOpenAsyncDocfileOnIFillLockBytes ( pflb : IFillLockBytes , grfmode : u32 , asyncflags : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dflayout.dll" ,"system" fn StgOpenLayoutDocfile ( pwcsdfname : :: windows_sys::core::PCWSTR , grfmode : u32 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgOpenPropStg ( punk : :: windows_sys::core::IUnknown , fmtid : *const :: windows_sys::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut IPropertyStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgOpenStorage ( pwcsname : :: windows_sys::core::PCWSTR , pstgpriority : IStorage , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Security")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgOpenStorageEx ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const :: windows_sys::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgOpenStorageOnILockBytes ( plkbyt : ILockBytes , pstgpriority : IStorage , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgPropertyLengthAsVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbprop : u32 , codepage : u16 , breserved : u8 ) -> u32 );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgOpenStorageEx ( pwcsname : :: windows_sys::core::PCWSTR , grfmode : super:: STGM , stgfmt : STGFMT , grfattrs : u32 , pstgoptions : *mut STGOPTIONS , psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR , riid : *const :: windows_sys::core::GUID , ppobjectopen : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgOpenStorageOnILockBytes ( plkbyt : ILockBytes , pstgpriority : IStorage , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgPropertyLengthAsVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbprop : u32 , codepage : u16 , breserved : u8 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "propsys.dll" ,"system" fn StgSerializePropVariant ( ppropvar : *const PROPVARIANT , ppprop : *mut *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "propsys.dll" ,"system" fn StgSerializePropVariant ( ppropvar : *const PROPVARIANT , ppprop : *mut *mut SERIALIZEDPROPERTYVALUE , pcb : *mut u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn StgSetTimes ( lpszname : :: windows_sys::core::PCWSTR , pctime : *const super::super::super::Foundation:: FILETIME , patime : *const super::super::super::Foundation:: FILETIME , pmtime : *const super::super::super::Foundation:: FILETIME ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn WriteClassStg ( pstg : IStorage , rclsid : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn WriteClassStm ( pstm : super:: IStream , rclsid : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ole32.dll" ,"system" fn WriteFmtUserTypeStg ( pstg : IStorage , cf : u16 , lpszusertype : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn StgSetTimes ( lpszname : :: windows_sys::core::PCWSTR , pctime : *const super::super::super::Foundation:: FILETIME , patime : *const super::super::super::Foundation:: FILETIME , pmtime : *const super::super::super::Foundation:: FILETIME ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn WriteClassStg ( pstg : IStorage , rclsid : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn WriteClassStm ( pstm : super:: IStream , rclsid : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll" ,"system" fn WriteFmtUserTypeStg ( pstg : IStorage , cf : u16 , lpszusertype : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 pub type IDirectWriterLock = *mut ::core::ffi::c_void;
 pub type IEnumSTATPROPSETSTG = *mut ::core::ffi::c_void;
 pub type IEnumSTATPROPSTG = *mut ::core::ffi::c_void;

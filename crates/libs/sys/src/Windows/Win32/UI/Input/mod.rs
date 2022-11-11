@@ -13,24 +13,24 @@ pub mod Touch;
 #[cfg(feature = "Win32_UI_Input_XboxController")]
 pub mod XboxController;
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn DefRawInputProc ( parawinput : *const *const RAWINPUT , ninput : i32 , cbsizeheader : u32 ) -> super::super::Foundation:: LRESULT );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn DefRawInputProc ( parawinput : *const *const RAWINPUT , ninput : i32 , cbsizeheader : u32 ) -> super::super::Foundation:: LRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetCIMSSM ( inputmessagesource : *mut INPUT_MESSAGE_SOURCE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetCIMSSM ( inputmessagesource : *mut INPUT_MESSAGE_SOURCE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetCurrentInputMessageSource ( inputmessagesource : *mut INPUT_MESSAGE_SOURCE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetCurrentInputMessageSource ( inputmessagesource : *mut INPUT_MESSAGE_SOURCE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRawInputBuffer ( pdata : *mut RAWINPUT , pcbsize : *mut u32 , cbsizeheader : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRawInputData ( hrawinput : HRAWINPUT , uicommand : RAW_INPUT_DATA_COMMAND_FLAGS , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 , cbsizeheader : u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRawInputBuffer ( pdata : *mut RAWINPUT , pcbsize : *mut u32 , cbsizeheader : u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRawInputData ( hrawinput : HRAWINPUT , uicommand : RAW_INPUT_DATA_COMMAND_FLAGS , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 , cbsizeheader : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRawInputDeviceInfoA ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRawInputDeviceInfoA ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRawInputDeviceInfoW ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRawInputDeviceInfoW ( hdevice : super::super::Foundation:: HANDLE , uicommand : RAW_INPUT_DEVICE_INFO_COMMAND , pdata : *mut ::core::ffi::c_void , pcbsize : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRawInputDeviceList ( prawinputdevicelist : *mut RAWINPUTDEVICELIST , puinumdevices : *mut u32 , cbsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRawInputDeviceList ( prawinputdevicelist : *mut RAWINPUTDEVICELIST , puinumdevices : *mut u32 , cbsize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetRegisteredRawInputDevices ( prawinputdevices : *mut RAWINPUTDEVICE , puinumdevices : *mut u32 , cbsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetRegisteredRawInputDevices ( prawinputdevices : *mut RAWINPUTDEVICE , puinumdevices : *mut u32 , cbsize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn RegisterRawInputDevices ( prawinputdevices : *const RAWINPUTDEVICE , uinumdevices : u32 , cbsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn RegisterRawInputDevices ( prawinputdevices : *const RAWINPUTDEVICE , uinumdevices : u32 , cbsize : u32 ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub type INPUT_MESSAGE_DEVICE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]

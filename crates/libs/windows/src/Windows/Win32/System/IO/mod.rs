@@ -5,7 +5,7 @@ pub unsafe fn BindIoCompletionCallback<'a, P0>(filehandle: P0, function: LPOVERL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn BindIoCompletionCallback ( filehandle : super::super::Foundation:: HANDLE , function : * mut::core::ffi::c_void , flags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn BindIoCompletionCallback ( filehandle : super::super::Foundation:: HANDLE , function : * mut::core::ffi::c_void , flags : u32 ) -> super::super::Foundation:: BOOL );
     BindIoCompletionCallback(filehandle.into(), ::core::mem::transmute(function), flags)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn CancelIo<'a, P0>(hfile: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn CancelIo ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn CancelIo ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CancelIo(hfile.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -25,7 +25,7 @@ pub unsafe fn CancelIoEx<'a, P0>(hfile: P0, lpoverlapped: ::core::option::Option
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn CancelIoEx ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn CancelIoEx ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED ) -> super::super::Foundation:: BOOL );
     CancelIoEx(hfile.into(), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn CancelSynchronousIo<'a, P0>(hthread: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn CancelSynchronousIo ( hthread : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn CancelSynchronousIo ( hthread : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
     CancelSynchronousIo(hthread.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -46,7 +46,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn CreateIoCompletionPort ( filehandle : super::super::Foundation:: HANDLE , existingcompletionport : super::super::Foundation:: HANDLE , completionkey : usize , numberofconcurrentthreads : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn CreateIoCompletionPort ( filehandle : super::super::Foundation:: HANDLE , existingcompletionport : super::super::Foundation:: HANDLE , completionkey : usize , numberofconcurrentthreads : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateIoCompletionPort(filehandle.into(), existingcompletionport.into(), completionkey, numberofconcurrentthreads);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -57,7 +57,7 @@ pub unsafe fn DeviceIoControl<'a, P0>(hdevice: P0, dwiocontrolcode: u32, lpinbuf
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn DeviceIoControl ( hdevice : super::super::Foundation:: HANDLE , dwiocontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 , lpoverlapped : *mut OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn DeviceIoControl ( hdevice : super::super::Foundation:: HANDLE , dwiocontrolcode : u32 , lpinbuffer : *const ::core::ffi::c_void , ninbuffersize : u32 , lpoutbuffer : *mut ::core::ffi::c_void , noutbuffersize : u32 , lpbytesreturned : *mut u32 , lpoverlapped : *mut OVERLAPPED ) -> super::super::Foundation:: BOOL );
     DeviceIoControl(hdevice.into(), dwiocontrolcode, ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -68,7 +68,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetOverlappedResult ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetOverlappedResult ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , bwait : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     GetOverlappedResult(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -79,7 +79,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetOverlappedResultEx ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , dwmilliseconds : u32 , balertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetOverlappedResultEx ( hfile : super::super::Foundation:: HANDLE , lpoverlapped : *const OVERLAPPED , lpnumberofbytestransferred : *mut u32 , dwmilliseconds : u32 , balertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     GetOverlappedResultEx(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), dwmilliseconds, balertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -89,7 +89,7 @@ pub unsafe fn GetQueuedCompletionStatus<'a, P0>(completionport: P0, lpnumberofby
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetQueuedCompletionStatus ( completionport : super::super::Foundation:: HANDLE , lpnumberofbytestransferred : *mut u32 , lpcompletionkey : *mut usize , lpoverlapped : *mut *mut OVERLAPPED , dwmilliseconds : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetQueuedCompletionStatus ( completionport : super::super::Foundation:: HANDLE , lpnumberofbytestransferred : *mut u32 , lpcompletionkey : *mut usize , lpoverlapped : *mut *mut OVERLAPPED , dwmilliseconds : u32 ) -> super::super::Foundation:: BOOL );
     GetQueuedCompletionStatus(completionport.into(), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(lpcompletionkey), ::core::mem::transmute(lpoverlapped), dwmilliseconds)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -100,7 +100,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetQueuedCompletionStatusEx ( completionport : super::super::Foundation:: HANDLE , lpcompletionportentries : *mut OVERLAPPED_ENTRY , ulcount : u32 , ulnumentriesremoved : *mut u32 , dwmilliseconds : u32 , falertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetQueuedCompletionStatusEx ( completionport : super::super::Foundation:: HANDLE , lpcompletionportentries : *mut OVERLAPPED_ENTRY , ulcount : u32 , ulnumentriesremoved : *mut u32 , dwmilliseconds : u32 , falertable : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
     GetQueuedCompletionStatusEx(completionport.into(), ::core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), dwmilliseconds, falertable.into())
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn PostQueuedCompletionStatus<'a, P0>(completionport: P0, dwnumberofb
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn PostQueuedCompletionStatus ( completionport : super::super::Foundation:: HANDLE , dwnumberofbytestransferred : u32 , dwcompletionkey : usize , lpoverlapped : *const OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn PostQueuedCompletionStatus ( completionport : super::super::Foundation:: HANDLE , dwnumberofbytestransferred : u32 , dwcompletionkey : usize , lpoverlapped : *const OVERLAPPED ) -> super::super::Foundation:: BOOL );
     PostQueuedCompletionStatus(completionport.into(), dwnumberofbytestransferred, dwcompletionkey, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null())))
 }
 #[repr(C)]

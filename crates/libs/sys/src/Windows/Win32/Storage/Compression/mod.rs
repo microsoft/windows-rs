@@ -1,27 +1,27 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn CloseCompressor ( compressorhandle : COMPRESSOR_HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn CloseCompressor ( compressorhandle : COMPRESSOR_HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn CloseDecompressor ( decompressorhandle : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn CloseDecompressor ( decompressorhandle : isize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn Compress ( compressorhandle : COMPRESSOR_HANDLE , uncompresseddata : *const ::core::ffi::c_void , uncompresseddatasize : usize , compressedbuffer : *mut ::core::ffi::c_void , compressedbuffersize : usize , compresseddatasize : *mut usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn Compress ( compressorhandle : COMPRESSOR_HANDLE , uncompresseddata : *const ::core::ffi::c_void , uncompresseddatasize : usize , compressedbuffer : *mut ::core::ffi::c_void , compressedbuffersize : usize , compresseddatasize : *mut usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn CreateCompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , compressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn CreateCompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , compressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn CreateDecompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , decompressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn CreateDecompressor ( algorithm : COMPRESS_ALGORITHM , allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES , decompressorhandle : *mut isize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn Decompress ( decompressorhandle : isize , compresseddata : *const ::core::ffi::c_void , compresseddatasize : usize , uncompressedbuffer : *mut ::core::ffi::c_void , uncompressedbuffersize : usize , uncompresseddatasize : *mut usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn Decompress ( decompressorhandle : isize , compresseddata : *const ::core::ffi::c_void , compresseddatasize : usize , uncompressedbuffer : *mut ::core::ffi::c_void , uncompressedbuffersize : usize , uncompresseddatasize : *mut usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn QueryCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn QueryCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn QueryDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn QueryDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *mut ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn ResetCompressor ( compressorhandle : COMPRESSOR_HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn ResetCompressor ( compressorhandle : COMPRESSOR_HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn ResetDecompressor ( decompressorhandle : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn ResetDecompressor ( decompressorhandle : isize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn SetCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn SetCompressorInformation ( compressorhandle : COMPRESSOR_HANDLE , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cabinet.dll" ,"system" fn SetDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cabinet.dll" ,"system" fn SetDecompressorInformation ( decompressorhandle : isize , compressinformationclass : COMPRESS_INFORMATION_CLASS , compressinformation : *const ::core::ffi::c_void , compressinformationsize : usize ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]

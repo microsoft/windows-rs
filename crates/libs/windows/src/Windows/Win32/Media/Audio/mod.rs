@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, IActivateAudioInterfaceCompletionHandler>>,
 {
-    ::windows::core::windows_link ! ( "mmdevapi.dll" ,"system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const ::core::mem::ManuallyDrop < super::super::System::Com::StructuredStorage:: PROPVARIANT > , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mmdevapi.dll" ,"system" fn ActivateAudioInterfaceAsync ( deviceinterfacepath : :: windows::core::PCWSTR , riid : *const :: windows::core::GUID , activationparams : *const ::core::mem::ManuallyDrop < super::super::System::Com::StructuredStorage:: PROPVARIANT > , completionhandler : * mut::core::ffi::c_void , activationoperation : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     ActivateAudioInterfaceAsync(deviceinterfacepath.into(), ::core::mem::transmute(riid), ::core::mem::transmute(activationparams.unwrap_or(::std::ptr::null())), completionhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IActivateAudioInterfaceAsyncOperation>(result__)
 }
@@ -26,21 +26,21 @@ pub unsafe fn CoRegisterMessageFilter<'a, P0>(lpmessagefilter: P0) -> ::windows:
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMessageFilter>>,
 {
-    ::windows::core::windows_link ! ( "ole32.dll" ,"system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "ole32.dll" ,"system" fn CoRegisterMessageFilter ( lpmessagefilter : * mut::core::ffi::c_void , lplpmessagefilter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoRegisterMessageFilter(lpmessagefilter.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMessageFilter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateCaptureAudioStateMonitor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateCaptureAudioStateMonitorForCategory(category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
@@ -50,28 +50,28 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, P0>(categ
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitor ( audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateRenderAudioStateMonitor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategory ( category : AUDIO_STREAM_CATEGORY , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateRenderAudioStateMonitorForCategory(category, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
@@ -81,14 +81,14 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, P0>(catego
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId ( category : AUDIO_STREAM_CATEGORY , deviceid : :: windows::core::PCWSTR , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
-    ::windows::core::windows_link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "windows.media.mediacontrol.dll" ,"system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole ( category : AUDIO_STREAM_CATEGORY , role : ERole , audiostatemonitor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
@@ -100,7 +100,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn PlaySoundA ( pszsound : :: windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn PlaySoundA ( pszsound : :: windows::core::PCSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundA(pszsound.into(), hmod.into(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -111,7 +111,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn PlaySoundW ( pszsound : :: windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn PlaySoundW ( pszsound : :: windows::core::PCWSTR , hmod : super::super::Foundation:: HINSTANCE , fdwsound : SND_FLAGS ) -> super::super::Foundation:: BOOL );
     PlaySoundW(pszsound.into(), hmod.into(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -122,7 +122,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverAddA ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -133,7 +133,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverAddW ( phadid : *mut isize , hinstmodule : super::super::Foundation:: HINSTANCE , lparam : super::super::Foundation:: LPARAM , dwpriority : u32 , fdwadd : u32 ) -> u32 );
     acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), dwpriority, fdwadd)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -142,7 +142,7 @@ pub unsafe fn acmDriverClose<'a, P0>(had: P0, fdwclose: u32) -> u32
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverClose ( had : HACMDRIVER , fdwclose : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverClose ( had : HACMDRIVER , fdwclose : u32 ) -> u32 );
     acmDriverClose(had.into(), fdwclose)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -152,7 +152,7 @@ pub unsafe fn acmDriverDetailsA<'a, P0>(hadid: P0, padd: *mut ACMDRIVERDETAILSA,
 where
     P0: ::std::convert::Into<HACMDRIVERID>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverDetailsA ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSA , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverDetailsA ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSA , fdwdetails : u32 ) -> u32 );
     acmDriverDetailsA(hadid.into(), ::core::mem::transmute(padd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -162,14 +162,14 @@ pub unsafe fn acmDriverDetailsW<'a, P0>(hadid: P0, padd: *mut ACMDRIVERDETAILSW,
 where
     P0: ::std::convert::Into<HACMDRIVERID>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverDetailsW ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSW , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverDetailsW ( hadid : HACMDRIVERID , padd : *mut ACMDRIVERDETAILSW , fdwdetails : u32 ) -> u32 );
     acmDriverDetailsW(hadid.into(), ::core::mem::transmute(padd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverEnum ( fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverEnum ( fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmDriverEnum(::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -178,7 +178,7 @@ pub unsafe fn acmDriverID<'a, P0>(hao: P0, phadid: *mut isize, fdwdriverid: u32)
 where
     P0: ::std::convert::Into<HACMOBJ>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverID ( hao : HACMOBJ , phadid : *mut isize , fdwdriverid : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverID ( hao : HACMOBJ , phadid : *mut isize , fdwdriverid : u32 ) -> u32 );
     acmDriverID(hao.into(), ::core::mem::transmute(phadid), fdwdriverid)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -190,7 +190,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverMessage ( had : HACMDRIVER , umsg : u32 , lparam1 : super::super::Foundation:: LPARAM , lparam2 : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverMessage ( had : HACMDRIVER , umsg : u32 , lparam1 : super::super::Foundation:: LPARAM , lparam2 : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: LRESULT );
     acmDriverMessage(had.into(), umsg, lparam1.into(), lparam2.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -199,7 +199,7 @@ pub unsafe fn acmDriverOpen<'a, P0>(phad: *mut isize, hadid: P0, fdwopen: u32) -
 where
     P0: ::std::convert::Into<HACMDRIVERID>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverOpen ( phad : *mut isize , hadid : HACMDRIVERID , fdwopen : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverOpen ( phad : *mut isize , hadid : HACMDRIVERID , fdwopen : u32 ) -> u32 );
     acmDriverOpen(::core::mem::transmute(phad), hadid.into(), fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -208,7 +208,7 @@ pub unsafe fn acmDriverPriority<'a, P0>(hadid: P0, dwpriority: u32, fdwpriority:
 where
     P0: ::std::convert::Into<HACMDRIVERID>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverPriority ( hadid : HACMDRIVERID , dwpriority : u32 , fdwpriority : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverPriority ( hadid : HACMDRIVERID , dwpriority : u32 , fdwpriority : u32 ) -> u32 );
     acmDriverPriority(hadid.into(), dwpriority, fdwpriority)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -217,21 +217,21 @@ pub unsafe fn acmDriverRemove<'a, P0>(hadid: P0, fdwremove: u32) -> u32
 where
     P0: ::std::convert::Into<HACMDRIVERID>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmDriverRemove ( hadid : HACMDRIVERID , fdwremove : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmDriverRemove ( hadid : HACMDRIVERID , fdwremove : u32 ) -> u32 );
     acmDriverRemove(hadid.into(), fdwremove)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterChooseA ( pafltrc : *mut ACMFILTERCHOOSEA ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterChooseA ( pafltrc : *mut ACMFILTERCHOOSEA ) -> u32 );
     acmFilterChooseA(::core::mem::transmute(pafltrc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterChooseW ( pafltrc : *mut ACMFILTERCHOOSEW ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterChooseW ( pafltrc : *mut ACMFILTERCHOOSEW ) -> u32 );
     acmFilterChooseW(::core::mem::transmute(pafltrc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -241,7 +241,7 @@ pub unsafe fn acmFilterDetailsA<'a, P0>(had: P0, pafd: *mut ACMFILTERDETAILSA, f
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterDetailsA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterDetailsA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fdwdetails : u32 ) -> u32 );
     acmFilterDetailsA(had.into(), ::core::mem::transmute(pafd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -250,7 +250,7 @@ pub unsafe fn acmFilterDetailsW<'a, P0>(had: P0, pafd: *mut ACMFILTERDETAILSW, f
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterDetailsW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterDetailsW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fdwdetails : u32 ) -> u32 );
     acmFilterDetailsW(had.into(), ::core::mem::transmute(pafd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -260,7 +260,7 @@ pub unsafe fn acmFilterEnumA<'a, P0>(had: P0, pafd: *mut ACMFILTERDETAILSA, fnca
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterEnumA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterEnumA ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFilterEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -270,7 +270,7 @@ pub unsafe fn acmFilterEnumW<'a, P0>(had: P0, pafd: *mut ACMFILTERDETAILSW, fnca
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterEnumW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterEnumW ( had : HACMDRIVER , pafd : *mut ACMFILTERDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFilterEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -280,7 +280,7 @@ pub unsafe fn acmFilterTagDetailsA<'a, P0>(had: P0, paftd: *mut ACMFILTERTAGDETA
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fdwdetails : u32 ) -> u32 );
     acmFilterTagDetailsA(had.into(), ::core::mem::transmute(paftd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -289,7 +289,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, P0>(had: P0, paftd: *mut ACMFILTERTAGDETA
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fdwdetails : u32 ) -> u32 );
     acmFilterTagDetailsW(had.into(), ::core::mem::transmute(paftd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -299,7 +299,7 @@ pub unsafe fn acmFilterTagEnumA<'a, P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILS
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFilterTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -309,21 +309,21 @@ pub unsafe fn acmFilterTagEnumW<'a, P0>(had: P0, paftd: *mut ACMFILTERTAGDETAILS
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFilterTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFilterTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFILTERTAGDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFilterTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatChooseA ( pafmtc : *mut ACMFORMATCHOOSEA ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatChooseA ( pafmtc : *mut ACMFORMATCHOOSEA ) -> u32 );
     acmFormatChooseA(::core::mem::transmute(pafmtc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatChooseW ( pafmtc : *mut ACMFORMATCHOOSEW ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatChooseW ( pafmtc : *mut ACMFORMATCHOOSEW ) -> u32 );
     acmFormatChooseW(::core::mem::transmute(pafmtc))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -333,7 +333,7 @@ pub unsafe fn acmFormatDetailsA<'a, P0>(had: P0, pafd: *mut ACMFORMATDETAILSA, f
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatDetailsA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatDetailsA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fdwdetails : u32 ) -> u32 );
     acmFormatDetailsA(had.into(), ::core::mem::transmute(pafd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -342,7 +342,7 @@ pub unsafe fn acmFormatDetailsW<'a, P0>(had: P0, pafd: *mut tACMFORMATDETAILSW, 
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatDetailsW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatDetailsW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fdwdetails : u32 ) -> u32 );
     acmFormatDetailsW(had.into(), ::core::mem::transmute(pafd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -352,7 +352,7 @@ pub unsafe fn acmFormatEnumA<'a, P0>(had: P0, pafd: *mut ACMFORMATDETAILSA, fnca
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatEnumA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatEnumA ( had : HACMDRIVER , pafd : *mut ACMFORMATDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFormatEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -362,7 +362,7 @@ pub unsafe fn acmFormatEnumW<'a, P0>(had: P0, pafd: *mut tACMFORMATDETAILSW, fnc
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatEnumW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatEnumW ( had : HACMDRIVER , pafd : *mut tACMFORMATDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFormatEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -371,7 +371,7 @@ pub unsafe fn acmFormatSuggest<'a, P0>(had: P0, pwfxsrc: *mut WAVEFORMATEX, pwfx
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatSuggest ( had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , cbwfxdst : u32 , fdwsuggest : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatSuggest ( had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , cbwfxdst : u32 , fdwsuggest : u32 ) -> u32 );
     acmFormatSuggest(had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), cbwfxdst, fdwsuggest)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -381,7 +381,7 @@ pub unsafe fn acmFormatTagDetailsA<'a, P0>(had: P0, paftd: *mut ACMFORMATTAGDETA
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatTagDetailsA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fdwdetails : u32 ) -> u32 );
     acmFormatTagDetailsA(had.into(), ::core::mem::transmute(paftd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -390,7 +390,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, P0>(had: P0, paftd: *mut ACMFORMATTAGDETA
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatTagDetailsW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fdwdetails : u32 ) -> u32 );
     acmFormatTagDetailsW(had.into(), ::core::mem::transmute(paftd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -400,7 +400,7 @@ pub unsafe fn acmFormatTagEnumA<'a, P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILS
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatTagEnumA ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSA , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFormatTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -410,13 +410,13 @@ pub unsafe fn acmFormatTagEnumW<'a, P0>(had: P0, paftd: *mut ACMFORMATTAGDETAILS
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmFormatTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmFormatTagEnumW ( had : HACMDRIVER , paftd : *mut ACMFORMATTAGDETAILSW , fncallback : * mut::core::ffi::c_void , dwinstance : usize , fdwenum : u32 ) -> u32 );
     acmFormatTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), dwinstance, fdwenum)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn acmGetVersion() -> u32 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmGetVersion ( ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmGetVersion ( ) -> u32 );
     acmGetVersion()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -425,7 +425,7 @@ pub unsafe fn acmMetrics<'a, P0>(hao: P0, umetric: u32, pmetric: *mut ::core::ff
 where
     P0: ::std::convert::Into<HACMOBJ>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmMetrics ( hao : HACMOBJ , umetric : u32 , pmetric : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmMetrics ( hao : HACMOBJ , umetric : u32 , pmetric : *mut ::core::ffi::c_void ) -> u32 );
     acmMetrics(hao.into(), umetric, ::core::mem::transmute(pmetric))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -434,7 +434,7 @@ pub unsafe fn acmStreamClose<'a, P0>(has: P0, fdwclose: u32) -> u32
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamClose ( has : HACMSTREAM , fdwclose : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamClose ( has : HACMSTREAM , fdwclose : u32 ) -> u32 );
     acmStreamClose(has.into(), fdwclose)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -443,7 +443,7 @@ pub unsafe fn acmStreamConvert<'a, P0>(has: P0, pash: *mut ACMSTREAMHEADER, fdwc
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamConvert ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwconvert : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamConvert ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwconvert : u32 ) -> u32 );
     acmStreamConvert(has.into(), ::core::mem::transmute(pash), fdwconvert)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -455,7 +455,7 @@ where
     P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
     P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamMessage ( has : HACMSTREAM , umsg : u32 , lparam1 : super::super::Foundation:: LPARAM , lparam2 : super::super::Foundation:: LPARAM ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamMessage ( has : HACMSTREAM , umsg : u32 , lparam1 : super::super::Foundation:: LPARAM , lparam2 : super::super::Foundation:: LPARAM ) -> u32 );
     acmStreamMessage(has.into(), umsg, lparam1.into(), lparam2.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -464,7 +464,7 @@ pub unsafe fn acmStreamOpen<'a, P0>(phas: *mut isize, had: P0, pwfxsrc: *mut WAV
 where
     P0: ::std::convert::Into<HACMDRIVER>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamOpen ( phas : *mut isize , had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , pwfltr : *mut WAVEFILTER , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamOpen ( phas : *mut isize , had : HACMDRIVER , pwfxsrc : *mut WAVEFORMATEX , pwfxdst : *mut WAVEFORMATEX , pwfltr : *mut WAVEFILTER , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
     acmStreamOpen(::core::mem::transmute(phas), had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -473,7 +473,7 @@ pub unsafe fn acmStreamPrepareHeader<'a, P0>(has: P0, pash: *mut ACMSTREAMHEADER
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamPrepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwprepare : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamPrepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwprepare : u32 ) -> u32 );
     acmStreamPrepareHeader(has.into(), ::core::mem::transmute(pash), fdwprepare)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -482,7 +482,7 @@ pub unsafe fn acmStreamReset<'a, P0>(has: P0, fdwreset: u32) -> u32
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamReset ( has : HACMSTREAM , fdwreset : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamReset ( has : HACMSTREAM , fdwreset : u32 ) -> u32 );
     acmStreamReset(has.into(), fdwreset)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -491,7 +491,7 @@ pub unsafe fn acmStreamSize<'a, P0>(has: P0, cbinput: u32, pdwoutputbytes: *mut 
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamSize ( has : HACMSTREAM , cbinput : u32 , pdwoutputbytes : *mut u32 , fdwsize : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamSize ( has : HACMSTREAM , cbinput : u32 , pdwoutputbytes : *mut u32 , fdwsize : u32 ) -> u32 );
     acmStreamSize(has.into(), cbinput, ::core::mem::transmute(pdwoutputbytes), fdwsize)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -500,44 +500,44 @@ pub unsafe fn acmStreamUnprepareHeader<'a, P0>(has: P0, pash: *mut ACMSTREAMHEAD
 where
     P0: ::std::convert::Into<HACMSTREAM>,
 {
-    ::windows::core::windows_link ! ( "msacm32.dll" ,"system" fn acmStreamUnprepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwunprepare : u32 ) -> u32 );
+    ::windows::core::link ! ( "msacm32.dll" ,"system" fn acmStreamUnprepareHeader ( has : HACMSTREAM , pash : *mut ACMSTREAMHEADER , fdwunprepare : u32 ) -> u32 );
     acmStreamUnprepareHeader(has.into(), ::core::mem::transmute(pash), fdwunprepare)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxGetDevCapsA ( udeviceid : usize , pac : *mut AUXCAPSA , cbac : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxGetDevCapsA ( udeviceid : usize , pac : *mut AUXCAPSA , cbac : u32 ) -> u32 );
     auxGetDevCapsA(udeviceid, ::core::mem::transmute(pac), cbac)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxGetDevCapsW ( udeviceid : usize , pac : *mut AUXCAPSW , cbac : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxGetDevCapsW ( udeviceid : usize , pac : *mut AUXCAPSW , cbac : u32 ) -> u32 );
     auxGetDevCapsW(udeviceid, ::core::mem::transmute(pac), cbac)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxGetNumDevs ( ) -> u32 );
     auxGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxGetVolume ( udeviceid : u32 , pdwvolume : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxGetVolume ( udeviceid : u32 , pdwvolume : *mut u32 ) -> u32 );
     auxGetVolume(udeviceid, ::core::mem::transmute(pdwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxOutMessage ( udeviceid : u32 , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxOutMessage ( udeviceid : u32 , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
     auxOutMessage(udeviceid, umsg, dw1, dw2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn auxSetVolume ( udeviceid : u32 , dwvolume : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn auxSetVolume ( udeviceid : u32 , dwvolume : u32 ) -> u32 );
     auxSetVolume(udeviceid, dwvolume)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -547,7 +547,7 @@ where
     P0: ::std::convert::Into<HMIDI>,
     P1: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiConnect ( hmi : HMIDI , hmo : HMIDIOUT , preserved : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiConnect ( hmi : HMIDI , hmo : HMIDIOUT , preserved : *const ::core::ffi::c_void ) -> u32 );
     midiConnect(hmi.into(), hmo.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -557,7 +557,7 @@ where
     P0: ::std::convert::Into<HMIDI>,
     P1: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiDisconnect ( hmi : HMIDI , hmo : HMIDIOUT , preserved : *const ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiDisconnect ( hmi : HMIDI , hmo : HMIDIOUT , preserved : *const ::core::ffi::c_void ) -> u32 );
     midiDisconnect(hmi.into(), hmo.into(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -566,7 +566,7 @@ pub unsafe fn midiInAddBuffer<'a, P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u32) -> 
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInAddBuffer ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInAddBuffer ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiInAddBuffer(hmi.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -575,32 +575,32 @@ pub unsafe fn midiInClose<'a, P0>(hmi: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInClose ( hmi : HMIDIIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInClose ( hmi : HMIDIIN ) -> u32 );
     midiInClose(hmi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetDevCapsA ( udeviceid : usize , pmic : *mut MIDIINCAPSA , cbmic : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetDevCapsA ( udeviceid : usize , pmic : *mut MIDIINCAPSA , cbmic : u32 ) -> u32 );
     midiInGetDevCapsA(udeviceid, ::core::mem::transmute(pmic), cbmic)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetDevCapsW ( udeviceid : usize , pmic : *mut MIDIINCAPSW , cbmic : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetDevCapsW ( udeviceid : usize , pmic : *mut MIDIINCAPSW , cbmic : u32 ) -> u32 );
     midiInGetDevCapsW(udeviceid, ::core::mem::transmute(pmic), cbmic)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -609,13 +609,13 @@ pub unsafe fn midiInGetID<'a, P0>(hmi: P0, pudeviceid: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetID ( hmi : HMIDIIN , pudeviceid : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetID ( hmi : HMIDIIN , pudeviceid : *mut u32 ) -> u32 );
     midiInGetID(hmi.into(), ::core::mem::transmute(pudeviceid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInGetNumDevs ( ) -> u32 );
     midiInGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -624,13 +624,13 @@ pub unsafe fn midiInMessage<'a, P0>(hmi: P0, umsg: u32, dw1: usize, dw2: usize) 
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInMessage ( hmi : HMIDIIN , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInMessage ( hmi : HMIDIIN , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
     midiInMessage(hmi.into(), umsg, dw1, dw2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInOpen ( phmi : *mut HMIDIIN , udeviceid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInOpen ( phmi : *mut HMIDIIN , udeviceid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
     midiInOpen(::core::mem::transmute(phmi), udeviceid, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -639,7 +639,7 @@ pub unsafe fn midiInPrepareHeader<'a, P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u32)
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInPrepareHeader ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInPrepareHeader ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiInPrepareHeader(hmi.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -648,7 +648,7 @@ pub unsafe fn midiInReset<'a, P0>(hmi: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInReset ( hmi : HMIDIIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInReset ( hmi : HMIDIIN ) -> u32 );
     midiInReset(hmi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -657,7 +657,7 @@ pub unsafe fn midiInStart<'a, P0>(hmi: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInStart ( hmi : HMIDIIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInStart ( hmi : HMIDIIN ) -> u32 );
     midiInStart(hmi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -666,7 +666,7 @@ pub unsafe fn midiInStop<'a, P0>(hmi: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInStop ( hmi : HMIDIIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInStop ( hmi : HMIDIIN ) -> u32 );
     midiInStop(hmi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -675,7 +675,7 @@ pub unsafe fn midiInUnprepareHeader<'a, P0>(hmi: P0, pmh: *mut MIDIHDR, cbmh: u3
 where
     P0: ::std::convert::Into<HMIDIIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiInUnprepareHeader ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiInUnprepareHeader ( hmi : HMIDIIN , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiInUnprepareHeader(hmi.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -684,7 +684,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, P0>(hmo: P0, upatch: u32, pwkya: &[u16
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutCacheDrumPatches ( hmo : HMIDIOUT , upatch : u32 , pwkya : *const u16 , fucache : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutCacheDrumPatches ( hmo : HMIDIOUT , upatch : u32 , pwkya : *const u16 , fucache : u32 ) -> u32 );
     midiOutCacheDrumPatches(hmo.into(), upatch, ::core::mem::transmute(pwkya.as_ptr()), fucache)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -693,7 +693,7 @@ pub unsafe fn midiOutCachePatches<'a, P0>(hmo: P0, ubank: u32, pwpa: &[u16; 128]
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutCachePatches ( hmo : HMIDIOUT , ubank : u32 , pwpa : *const u16 , fucache : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutCachePatches ( hmo : HMIDIOUT , ubank : u32 , pwpa : *const u16 , fucache : u32 ) -> u32 );
     midiOutCachePatches(hmo.into(), ubank, ::core::mem::transmute(pwpa.as_ptr()), fucache)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -702,32 +702,32 @@ pub unsafe fn midiOutClose<'a, P0>(hmo: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutClose ( hmo : HMIDIOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutClose ( hmo : HMIDIOUT ) -> u32 );
     midiOutClose(hmo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetDevCapsA ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSA , cbmoc : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetDevCapsA ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSA , cbmoc : u32 ) -> u32 );
     midiOutGetDevCapsA(udeviceid, ::core::mem::transmute(pmoc), cbmoc)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetDevCapsW ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSW , cbmoc : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetDevCapsW ( udeviceid : usize , pmoc : *mut MIDIOUTCAPSW , cbmoc : u32 ) -> u32 );
     midiOutGetDevCapsW(udeviceid, ::core::mem::transmute(pmoc), cbmoc)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
     midiOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -736,13 +736,13 @@ pub unsafe fn midiOutGetID<'a, P0>(hmo: P0, pudeviceid: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetID ( hmo : HMIDIOUT , pudeviceid : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetID ( hmo : HMIDIOUT , pudeviceid : *mut u32 ) -> u32 );
     midiOutGetID(hmo.into(), ::core::mem::transmute(pudeviceid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetNumDevs ( ) -> u32 );
     midiOutGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -751,7 +751,7 @@ pub unsafe fn midiOutGetVolume<'a, P0>(hmo: P0, pdwvolume: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutGetVolume ( hmo : HMIDIOUT , pdwvolume : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutGetVolume ( hmo : HMIDIOUT , pdwvolume : *mut u32 ) -> u32 );
     midiOutGetVolume(hmo.into(), ::core::mem::transmute(pdwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -760,7 +760,7 @@ pub unsafe fn midiOutLongMsg<'a, P0>(hmo: P0, pmh: *const MIDIHDR, cbmh: u32) ->
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutLongMsg ( hmo : HMIDIOUT , pmh : *const MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutLongMsg ( hmo : HMIDIOUT , pmh : *const MIDIHDR , cbmh : u32 ) -> u32 );
     midiOutLongMsg(hmo.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -769,13 +769,13 @@ pub unsafe fn midiOutMessage<'a, P0>(hmo: P0, umsg: u32, dw1: usize, dw2: usize)
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutMessage ( hmo : HMIDIOUT , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutMessage ( hmo : HMIDIOUT , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
     midiOutMessage(hmo.into(), umsg, dw1, dw2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutOpen ( phmo : *mut HMIDIOUT , udeviceid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutOpen ( phmo : *mut HMIDIOUT , udeviceid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
     midiOutOpen(::core::mem::transmute(phmo), udeviceid, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -784,7 +784,7 @@ pub unsafe fn midiOutPrepareHeader<'a, P0>(hmo: P0, pmh: *mut MIDIHDR, cbmh: u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutPrepareHeader ( hmo : HMIDIOUT , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutPrepareHeader ( hmo : HMIDIOUT , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiOutPrepareHeader(hmo.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -793,7 +793,7 @@ pub unsafe fn midiOutReset<'a, P0>(hmo: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutReset ( hmo : HMIDIOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutReset ( hmo : HMIDIOUT ) -> u32 );
     midiOutReset(hmo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -802,7 +802,7 @@ pub unsafe fn midiOutSetVolume<'a, P0>(hmo: P0, dwvolume: u32) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutSetVolume ( hmo : HMIDIOUT , dwvolume : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutSetVolume ( hmo : HMIDIOUT , dwvolume : u32 ) -> u32 );
     midiOutSetVolume(hmo.into(), dwvolume)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -811,7 +811,7 @@ pub unsafe fn midiOutShortMsg<'a, P0>(hmo: P0, dwmsg: u32) -> u32
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutShortMsg ( hmo : HMIDIOUT , dwmsg : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutShortMsg ( hmo : HMIDIOUT , dwmsg : u32 ) -> u32 );
     midiOutShortMsg(hmo.into(), dwmsg)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -820,7 +820,7 @@ pub unsafe fn midiOutUnprepareHeader<'a, P0>(hmo: P0, pmh: *mut MIDIHDR, cbmh: u
 where
     P0: ::std::convert::Into<HMIDIOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiOutUnprepareHeader ( hmo : HMIDIOUT , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiOutUnprepareHeader ( hmo : HMIDIOUT , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiOutUnprepareHeader(hmo.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -829,13 +829,13 @@ pub unsafe fn midiStreamClose<'a, P0>(hms: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamClose ( hms : HMIDISTRM ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamClose ( hms : HMIDISTRM ) -> u32 );
     midiStreamClose(hms.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamOpen ( phms : *mut HMIDISTRM , pudeviceid : *mut u32 , cmidi : u32 , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamOpen ( phms : *mut HMIDISTRM , pudeviceid : *mut u32 , cmidi : u32 , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
     midiStreamOpen(::core::mem::transmute(phms), ::core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len() as _, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -844,7 +844,7 @@ pub unsafe fn midiStreamOut<'a, P0>(hms: P0, pmh: *mut MIDIHDR, cbmh: u32) -> u3
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamOut ( hms : HMIDISTRM , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamOut ( hms : HMIDISTRM , pmh : *mut MIDIHDR , cbmh : u32 ) -> u32 );
     midiStreamOut(hms.into(), ::core::mem::transmute(pmh), cbmh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -853,7 +853,7 @@ pub unsafe fn midiStreamPause<'a, P0>(hms: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamPause ( hms : HMIDISTRM ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamPause ( hms : HMIDISTRM ) -> u32 );
     midiStreamPause(hms.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -862,7 +862,7 @@ pub unsafe fn midiStreamPosition<'a, P0>(hms: P0, lpmmt: *mut super::MMTIME, cbm
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamPosition ( hms : HMIDISTRM , lpmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamPosition ( hms : HMIDISTRM , lpmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
     midiStreamPosition(hms.into(), ::core::mem::transmute(lpmmt), cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -871,7 +871,7 @@ pub unsafe fn midiStreamProperty<'a, P0>(hms: P0, lppropdata: *mut u8, dwpropert
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamProperty ( hms : HMIDISTRM , lppropdata : *mut u8 , dwproperty : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamProperty ( hms : HMIDISTRM , lppropdata : *mut u8 , dwproperty : u32 ) -> u32 );
     midiStreamProperty(hms.into(), ::core::mem::transmute(lppropdata), dwproperty)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -880,7 +880,7 @@ pub unsafe fn midiStreamRestart<'a, P0>(hms: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamRestart ( hms : HMIDISTRM ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamRestart ( hms : HMIDISTRM ) -> u32 );
     midiStreamRestart(hms.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -889,7 +889,7 @@ pub unsafe fn midiStreamStop<'a, P0>(hms: P0) -> u32
 where
     P0: ::std::convert::Into<HMIDISTRM>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn midiStreamStop ( hms : HMIDISTRM ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn midiStreamStop ( hms : HMIDISTRM ) -> u32 );
     midiStreamStop(hms.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -898,7 +898,7 @@ pub unsafe fn mixerClose<'a, P0>(hmx: P0) -> u32
 where
     P0: ::std::convert::Into<HMIXER>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerClose ( hmx : HMIXER ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerClose ( hmx : HMIXER ) -> u32 );
     mixerClose(hmx.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -908,7 +908,7 @@ pub unsafe fn mixerGetControlDetailsA<'a, P0>(hmxobj: P0, pmxcd: *mut MIXERCONTR
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetControlDetailsA ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetControlDetailsA ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
     mixerGetControlDetailsA(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -918,20 +918,20 @@ pub unsafe fn mixerGetControlDetailsW<'a, P0>(hmxobj: P0, pmxcd: *mut MIXERCONTR
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetControlDetailsW ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetControlDetailsW ( hmxobj : HMIXEROBJ , pmxcd : *mut MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
     mixerGetControlDetailsW(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetDevCapsA ( umxid : usize , pmxcaps : *mut MIXERCAPSA , cbmxcaps : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetDevCapsA ( umxid : usize , pmxcaps : *mut MIXERCAPSA , cbmxcaps : u32 ) -> u32 );
     mixerGetDevCapsA(umxid, ::core::mem::transmute(pmxcaps), cbmxcaps)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetDevCapsW ( umxid : usize , pmxcaps : *mut MIXERCAPSW , cbmxcaps : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetDevCapsW ( umxid : usize , pmxcaps : *mut MIXERCAPSW , cbmxcaps : u32 ) -> u32 );
     mixerGetDevCapsW(umxid, ::core::mem::transmute(pmxcaps), cbmxcaps)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -940,7 +940,7 @@ pub unsafe fn mixerGetID<'a, P0>(hmxobj: P0, pumxid: *mut u32, fdwid: u32) -> u3
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetID ( hmxobj : HMIXEROBJ , pumxid : *mut u32 , fdwid : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetID ( hmxobj : HMIXEROBJ , pumxid : *mut u32 , fdwid : u32 ) -> u32 );
     mixerGetID(hmxobj.into(), ::core::mem::transmute(pumxid), fdwid)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -950,7 +950,7 @@ pub unsafe fn mixerGetLineControlsA<'a, P0>(hmxobj: P0, pmxlc: *mut MIXERLINECON
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetLineControlsA ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSA , fdwcontrols : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetLineControlsA ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSA , fdwcontrols : u32 ) -> u32 );
     mixerGetLineControlsA(hmxobj.into(), ::core::mem::transmute(pmxlc), fdwcontrols)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -959,7 +959,7 @@ pub unsafe fn mixerGetLineControlsW<'a, P0>(hmxobj: P0, pmxlc: *mut MIXERLINECON
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetLineControlsW ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSW , fdwcontrols : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetLineControlsW ( hmxobj : HMIXEROBJ , pmxlc : *mut MIXERLINECONTROLSW , fdwcontrols : u32 ) -> u32 );
     mixerGetLineControlsW(hmxobj.into(), ::core::mem::transmute(pmxlc), fdwcontrols)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -969,7 +969,7 @@ pub unsafe fn mixerGetLineInfoA<'a, P0>(hmxobj: P0, pmxl: *mut MIXERLINEA, fdwin
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetLineInfoA ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEA , fdwinfo : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetLineInfoA ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEA , fdwinfo : u32 ) -> u32 );
     mixerGetLineInfoA(hmxobj.into(), ::core::mem::transmute(pmxl), fdwinfo)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -978,13 +978,13 @@ pub unsafe fn mixerGetLineInfoW<'a, P0>(hmxobj: P0, pmxl: *mut MIXERLINEW, fdwin
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetLineInfoW ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEW , fdwinfo : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetLineInfoW ( hmxobj : HMIXEROBJ , pmxl : *mut MIXERLINEW , fdwinfo : u32 ) -> u32 );
     mixerGetLineInfoW(hmxobj.into(), ::core::mem::transmute(pmxl), fdwinfo)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerGetNumDevs ( ) -> u32 );
     mixerGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -993,13 +993,13 @@ pub unsafe fn mixerMessage<'a, P0>(hmx: P0, umsg: u32, dwparam1: usize, dwparam2
 where
     P0: ::std::convert::Into<HMIXER>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerMessage ( hmx : HMIXER , umsg : u32 , dwparam1 : usize , dwparam2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerMessage ( hmx : HMIXER , umsg : u32 , dwparam1 : usize , dwparam2 : usize ) -> u32 );
     mixerMessage(hmx.into(), umsg, dwparam1, dwparam2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn mixerOpen(phmx: ::core::option::Option<*mut isize>, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerOpen ( phmx : *mut isize , umxid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerOpen ( phmx : *mut isize , umxid : u32 , dwcallback : usize , dwinstance : usize , fdwopen : u32 ) -> u32 );
     mixerOpen(::core::mem::transmute(phmx.unwrap_or(::std::ptr::null_mut())), umxid, dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -1009,7 +1009,7 @@ pub unsafe fn mixerSetControlDetails<'a, P0>(hmxobj: P0, pmxcd: *const MIXERCONT
 where
     P0: ::std::convert::Into<HMIXEROBJ>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn mixerSetControlDetails ( hmxobj : HMIXEROBJ , pmxcd : *const MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn mixerSetControlDetails ( hmxobj : HMIXEROBJ , pmxcd : *const MIXERCONTROLDETAILS , fdwdetails : u32 ) -> u32 );
     mixerSetControlDetails(hmxobj.into(), ::core::mem::transmute(pmxcd), fdwdetails)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -1019,7 +1019,7 @@ pub unsafe fn sndPlaySoundA<'a, P0>(pszsound: P0, fusound: u32) -> super::super:
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn sndPlaySoundA ( pszsound : :: windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn sndPlaySoundA ( pszsound : :: windows::core::PCSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundA(pszsound.into(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
@@ -1029,7 +1029,7 @@ pub unsafe fn sndPlaySoundW<'a, P0>(pszsound: P0, fusound: u32) -> super::super:
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn sndPlaySoundW ( pszsound : :: windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn sndPlaySoundW ( pszsound : :: windows::core::PCWSTR , fusound : u32 ) -> super::super::Foundation:: BOOL );
     sndPlaySoundW(pszsound.into(), fusound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1038,7 +1038,7 @@ pub unsafe fn waveInAddBuffer<'a, P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u32) -> 
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInAddBuffer ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInAddBuffer ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveInAddBuffer(hwi.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1047,32 +1047,32 @@ pub unsafe fn waveInClose<'a, P0>(hwi: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInClose ( hwi : HWAVEIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInClose ( hwi : HWAVEIN ) -> u32 );
     waveInClose(hwi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetDevCapsA ( udeviceid : usize , pwic : *mut WAVEINCAPSA , cbwic : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetDevCapsA ( udeviceid : usize , pwic : *mut WAVEINCAPSA , cbwic : u32 ) -> u32 );
     waveInGetDevCapsA(udeviceid, ::core::mem::transmute(pwic), cbwic)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetDevCapsW ( udeviceid : usize , pwic : *mut WAVEINCAPSW , cbwic : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetDevCapsW ( udeviceid : usize , pwic : *mut WAVEINCAPSW , cbwic : u32 ) -> u32 );
     waveInGetDevCapsW(udeviceid, ::core::mem::transmute(pwic), cbwic)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveInGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1081,13 +1081,13 @@ pub unsafe fn waveInGetID<'a, P0>(hwi: P0, pudeviceid: *const u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetID ( hwi : HWAVEIN , pudeviceid : *const u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetID ( hwi : HWAVEIN , pudeviceid : *const u32 ) -> u32 );
     waveInGetID(hwi.into(), ::core::mem::transmute(pudeviceid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetNumDevs ( ) -> u32 );
     waveInGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1096,7 +1096,7 @@ pub unsafe fn waveInGetPosition<'a, P0>(hwi: P0, pmmt: *mut super::MMTIME, cbmmt
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInGetPosition ( hwi : HWAVEIN , pmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInGetPosition ( hwi : HWAVEIN , pmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
     waveInGetPosition(hwi.into(), ::core::mem::transmute(pmmt), cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1105,13 +1105,13 @@ pub unsafe fn waveInMessage<'a, P0>(hwi: P0, umsg: u32, dw1: usize, dw2: usize) 
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInMessage ( hwi : HWAVEIN , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInMessage ( hwi : HWAVEIN , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
     waveInMessage(hwi.into(), umsg, dw1, dw2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveInOpen(phwi: ::core::option::Option<*mut HWAVEIN>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInOpen ( phwi : *mut HWAVEIN , udeviceid : u32 , pwfx : *const WAVEFORMATEX , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInOpen ( phwi : *mut HWAVEIN , udeviceid : u32 , pwfx : *const WAVEFORMATEX , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
     waveInOpen(::core::mem::transmute(phwi.unwrap_or(::std::ptr::null_mut())), udeviceid, ::core::mem::transmute(pwfx), dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1120,7 +1120,7 @@ pub unsafe fn waveInPrepareHeader<'a, P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u32)
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInPrepareHeader ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInPrepareHeader ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveInPrepareHeader(hwi.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1129,7 +1129,7 @@ pub unsafe fn waveInReset<'a, P0>(hwi: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInReset ( hwi : HWAVEIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInReset ( hwi : HWAVEIN ) -> u32 );
     waveInReset(hwi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1138,7 +1138,7 @@ pub unsafe fn waveInStart<'a, P0>(hwi: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInStart ( hwi : HWAVEIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInStart ( hwi : HWAVEIN ) -> u32 );
     waveInStart(hwi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1147,7 +1147,7 @@ pub unsafe fn waveInStop<'a, P0>(hwi: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInStop ( hwi : HWAVEIN ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInStop ( hwi : HWAVEIN ) -> u32 );
     waveInStop(hwi.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1156,7 +1156,7 @@ pub unsafe fn waveInUnprepareHeader<'a, P0>(hwi: P0, pwh: *mut WAVEHDR, cbwh: u3
 where
     P0: ::std::convert::Into<HWAVEIN>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveInUnprepareHeader ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveInUnprepareHeader ( hwi : HWAVEIN , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveInUnprepareHeader(hwi.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1165,7 +1165,7 @@ pub unsafe fn waveOutBreakLoop<'a, P0>(hwo: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutBreakLoop ( hwo : HWAVEOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutBreakLoop ( hwo : HWAVEOUT ) -> u32 );
     waveOutBreakLoop(hwo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1174,32 +1174,32 @@ pub unsafe fn waveOutClose<'a, P0>(hwo: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutClose ( hwo : HWAVEOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutClose ( hwo : HWAVEOUT ) -> u32 );
     waveOutClose(hwo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetDevCapsA ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSA , cbwoc : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetDevCapsA ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSA , cbwoc : u32 ) -> u32 );
     waveOutGetDevCapsA(udeviceid, ::core::mem::transmute(pwoc), cbwoc)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetDevCapsW ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSW , cbwoc : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetDevCapsW ( udeviceid : usize , pwoc : *mut WAVEOUTCAPSW , cbwoc : u32 ) -> u32 );
     waveOutGetDevCapsW(udeviceid, ::core::mem::transmute(pwoc), cbwoc)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetErrorTextA ( mmrerror : u32 , psztext : :: windows::core::PSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextA(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetErrorTextW ( mmrerror : u32 , psztext : :: windows::core::PWSTR , cchtext : u32 ) -> u32 );
     waveOutGetErrorTextW(mmrerror, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1208,13 +1208,13 @@ pub unsafe fn waveOutGetID<'a, P0>(hwo: P0, pudeviceid: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetID ( hwo : HWAVEOUT , pudeviceid : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetID ( hwo : HWAVEOUT , pudeviceid : *mut u32 ) -> u32 );
     waveOutGetID(hwo.into(), ::core::mem::transmute(pudeviceid))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutGetNumDevs() -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetNumDevs ( ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetNumDevs ( ) -> u32 );
     waveOutGetNumDevs()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1223,7 +1223,7 @@ pub unsafe fn waveOutGetPitch<'a, P0>(hwo: P0, pdwpitch: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetPitch ( hwo : HWAVEOUT , pdwpitch : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetPitch ( hwo : HWAVEOUT , pdwpitch : *mut u32 ) -> u32 );
     waveOutGetPitch(hwo.into(), ::core::mem::transmute(pdwpitch))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1232,7 +1232,7 @@ pub unsafe fn waveOutGetPlaybackRate<'a, P0>(hwo: P0, pdwrate: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetPlaybackRate ( hwo : HWAVEOUT , pdwrate : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetPlaybackRate ( hwo : HWAVEOUT , pdwrate : *mut u32 ) -> u32 );
     waveOutGetPlaybackRate(hwo.into(), ::core::mem::transmute(pdwrate))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1241,7 +1241,7 @@ pub unsafe fn waveOutGetPosition<'a, P0>(hwo: P0, pmmt: *mut super::MMTIME, cbmm
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetPosition ( hwo : HWAVEOUT , pmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetPosition ( hwo : HWAVEOUT , pmmt : *mut super:: MMTIME , cbmmt : u32 ) -> u32 );
     waveOutGetPosition(hwo.into(), ::core::mem::transmute(pmmt), cbmmt)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1250,7 +1250,7 @@ pub unsafe fn waveOutGetVolume<'a, P0>(hwo: P0, pdwvolume: *mut u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutGetVolume ( hwo : HWAVEOUT , pdwvolume : *mut u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutGetVolume ( hwo : HWAVEOUT , pdwvolume : *mut u32 ) -> u32 );
     waveOutGetVolume(hwo.into(), ::core::mem::transmute(pdwvolume))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1259,13 +1259,13 @@ pub unsafe fn waveOutMessage<'a, P0>(hwo: P0, umsg: u32, dw1: usize, dw2: usize)
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutMessage ( hwo : HWAVEOUT , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutMessage ( hwo : HWAVEOUT , umsg : u32 , dw1 : usize , dw2 : usize ) -> u32 );
     waveOutMessage(hwo.into(), umsg, dw1, dw2)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
 pub unsafe fn waveOutOpen(phwo: ::core::option::Option<*mut HWAVEOUT>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutOpen ( phwo : *mut HWAVEOUT , udeviceid : u32 , pwfx : *const WAVEFORMATEX , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutOpen ( phwo : *mut HWAVEOUT , udeviceid : u32 , pwfx : *const WAVEFORMATEX , dwcallback : usize , dwinstance : usize , fdwopen : MIDI_WAVE_OPEN_TYPE ) -> u32 );
     waveOutOpen(::core::mem::transmute(phwo.unwrap_or(::std::ptr::null_mut())), udeviceid, ::core::mem::transmute(pwfx), dwcallback, dwinstance, fdwopen)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1274,7 +1274,7 @@ pub unsafe fn waveOutPause<'a, P0>(hwo: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutPause ( hwo : HWAVEOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutPause ( hwo : HWAVEOUT ) -> u32 );
     waveOutPause(hwo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1283,7 +1283,7 @@ pub unsafe fn waveOutPrepareHeader<'a, P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutPrepareHeader ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutPrepareHeader ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveOutPrepareHeader(hwo.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1292,7 +1292,7 @@ pub unsafe fn waveOutReset<'a, P0>(hwo: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutReset ( hwo : HWAVEOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutReset ( hwo : HWAVEOUT ) -> u32 );
     waveOutReset(hwo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1301,7 +1301,7 @@ pub unsafe fn waveOutRestart<'a, P0>(hwo: P0) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutRestart ( hwo : HWAVEOUT ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutRestart ( hwo : HWAVEOUT ) -> u32 );
     waveOutRestart(hwo.into())
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1310,7 +1310,7 @@ pub unsafe fn waveOutSetPitch<'a, P0>(hwo: P0, dwpitch: u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutSetPitch ( hwo : HWAVEOUT , dwpitch : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutSetPitch ( hwo : HWAVEOUT , dwpitch : u32 ) -> u32 );
     waveOutSetPitch(hwo.into(), dwpitch)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1319,7 +1319,7 @@ pub unsafe fn waveOutSetPlaybackRate<'a, P0>(hwo: P0, dwrate: u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutSetPlaybackRate ( hwo : HWAVEOUT , dwrate : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutSetPlaybackRate ( hwo : HWAVEOUT , dwrate : u32 ) -> u32 );
     waveOutSetPlaybackRate(hwo.into(), dwrate)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1328,7 +1328,7 @@ pub unsafe fn waveOutSetVolume<'a, P0>(hwo: P0, dwvolume: u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutSetVolume ( hwo : HWAVEOUT , dwvolume : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutSetVolume ( hwo : HWAVEOUT , dwvolume : u32 ) -> u32 );
     waveOutSetVolume(hwo.into(), dwvolume)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1337,7 +1337,7 @@ pub unsafe fn waveOutUnprepareHeader<'a, P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutUnprepareHeader ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutUnprepareHeader ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveOutUnprepareHeader(hwo.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -1346,7 +1346,7 @@ pub unsafe fn waveOutWrite<'a, P0>(hwo: P0, pwh: *mut WAVEHDR, cbwh: u32) -> u32
 where
     P0: ::std::convert::Into<HWAVEOUT>,
 {
-    ::windows::core::windows_link ! ( "winmm.dll" ,"system" fn waveOutWrite ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
+    ::windows::core::link ! ( "winmm.dll" ,"system" fn waveOutWrite ( hwo : HWAVEOUT , pwh : *mut WAVEHDR , cbwh : u32 ) -> u32 );
     waveOutWrite(hwo.into(), ::core::mem::transmute(pwh), cbwh)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]

@@ -4,7 +4,7 @@ pub unsafe fn DXCoreCreateAdapterFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::windows_link ! ( "dxcore.dll" ,"system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxcore.dll" ,"system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::option::Option::None;
     DXCoreCreateAdapterFactory(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }

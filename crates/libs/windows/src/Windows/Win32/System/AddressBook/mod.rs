@@ -6,38 +6,38 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IMalloc>>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn BuildDisplayTable ( lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn BuildDisplayTable ( lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpmalloc : * mut::core::ffi::c_void , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut * mut::core::ffi::c_void , lpptbldata : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     BuildDisplayTable(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), lpmalloc.into().abi(), hinstance.into(), cpages, ::core::mem::transmute(lppage), ulflags, ::core::mem::transmute(lpptable), ::core::mem::transmute(lpptbldata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeIdleRoutine(ftg: *mut ::core::ffi::c_void, lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16, ircidle: u16) {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
     ChangeIdleRoutine(::core::mem::transmute(ftg), ::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle, ircidle)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn CreateIProp(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, lpppropdata: *mut ::core::option::Option<IPropData>) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn CreateIProp ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut * mut::core::ffi::c_void ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn CreateIProp ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut * mut::core::ffi::c_void ) -> i32 );
     CreateIProp(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ::core::mem::transmute(lpppropdata))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn CreateTable(lpinterface: *mut ::windows::core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut ::core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut ::core::option::Option<ITableData>) -> i32 {
-    ::windows::core::windows_link ! ( "rtm.dll" ,"system" fn CreateTable ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut * mut::core::ffi::c_void ) -> i32 );
+    ::windows::core::link ! ( "rtm.dll" ,"system" fn CreateTable ( lpinterface : *mut :: windows::core::GUID , lpallocatebuffer : * mut::core::ffi::c_void , lpallocatemore : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut * mut::core::ffi::c_void ) -> i32 );
     CreateTable(::core::mem::transmute(lpinterface), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpallocatemore), ::core::mem::transmute(lpfreebuffer), ::core::mem::transmute(lpvreserved), ultabletype, ulproptagindexcolumn, ::core::mem::transmute(lpsproptagarraycolumns), ::core::mem::transmute(lpptabledata))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn DeinitMapiUtil() {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn DeinitMapiUtil ( ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn DeinitMapiUtil ( ) -> ( ) );
     DeinitMapiUtil()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn DeregisterIdleRoutine(ftg: *mut ::core::ffi::c_void) {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
     DeregisterIdleRoutine(::core::mem::transmute(ftg))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
@@ -47,28 +47,28 @@ pub unsafe fn EnableIdleRoutine<'a, P0>(ftg: *mut ::core::ffi::c_void, fenable: 
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn EnableIdleRoutine ( ftg : *mut ::core::ffi::c_void , fenable : super::super::Foundation:: BOOL ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn EnableIdleRoutine ( ftg : *mut ::core::ffi::c_void , fenable : super::super::Foundation:: BOOL ) -> ( ) );
     EnableIdleRoutine(::core::mem::transmute(ftg), fenable.into())
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FEqualNames(lpname1: *mut MAPINAMEID, lpname2: *mut MAPINAMEID) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FEqualNames ( lpname1 : *mut MAPINAMEID , lpname2 : *mut MAPINAMEID ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FEqualNames ( lpname1 : *mut MAPINAMEID , lpname2 : *mut MAPINAMEID ) -> super::super::Foundation:: BOOL );
     FEqualNames(::core::mem::transmute(lpname1), ::core::mem::transmute(lpname2))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropCompareProp(lpspropvalue1: *mut SPropValue, ulrelop: u32, lpspropvalue2: *mut SPropValue) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropCompareProp ( lpspropvalue1 : *mut SPropValue , ulrelop : u32 , lpspropvalue2 : *mut SPropValue ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FPropCompareProp ( lpspropvalue1 : *mut SPropValue , ulrelop : u32 , lpspropvalue2 : *mut SPropValue ) -> super::super::Foundation:: BOOL );
     FPropCompareProp(::core::mem::transmute(lpspropvalue1), ulrelop, ::core::mem::transmute(lpspropvalue2))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FPropContainsProp(lpspropvaluedst: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, ulfuzzylevel: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropContainsProp ( lpspropvaluedst : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , ulfuzzylevel : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FPropContainsProp ( lpspropvaluedst : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , ulfuzzylevel : u32 ) -> super::super::Foundation:: BOOL );
     FPropContainsProp(::core::mem::transmute(lpspropvaluedst), ::core::mem::transmute(lpspropvaluesrc), ulfuzzylevel)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
@@ -78,63 +78,63 @@ pub unsafe fn FPropExists<'a, P0>(lpmapiprop: P0, ulproptag: u32) -> super::supe
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProp>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropExists ( lpmapiprop : * mut::core::ffi::c_void , ulproptag : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FPropExists ( lpmapiprop : * mut::core::ffi::c_void , ulproptag : u32 ) -> super::super::Foundation:: BOOL );
     FPropExists(lpmapiprop.into().abi(), ulproptag)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreePadrlist(lpadrlist: *mut ADRLIST) {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FreePadrlist ( lpadrlist : *mut ADRLIST ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FreePadrlist ( lpadrlist : *mut ADRLIST ) -> ( ) );
     FreePadrlist(::core::mem::transmute(lpadrlist))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn FreeProws(lprows: *mut SRowSet) {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FreeProws ( lprows : *mut SRowSet ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FreeProws ( lprows : *mut SRowSet ) -> ( ) );
     FreeProws(::core::mem::transmute(lprows))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtAddFt(ftaddend1: super::super::Foundation::FILETIME, ftaddend2: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtAddFt ( ftaddend1 : super::super::Foundation:: FILETIME , ftaddend2 : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtAddFt ( ftaddend1 : super::super::Foundation:: FILETIME , ftaddend2 : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
     FtAddFt(::core::mem::transmute(ftaddend1), ::core::mem::transmute(ftaddend2))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtMulDw(ftmultiplier: u32, ftmultiplicand: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtMulDw ( ftmultiplier : u32 , ftmultiplicand : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtMulDw ( ftmultiplier : u32 , ftmultiplicand : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
     FtMulDw(ftmultiplier, ::core::mem::transmute(ftmultiplicand))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtMulDwDw ( ftmultiplicand : u32 , ftmultiplier : u32 ) -> super::super::Foundation:: FILETIME );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtMulDwDw ( ftmultiplicand : u32 , ftmultiplier : u32 ) -> super::super::Foundation:: FILETIME );
     FtMulDwDw(ftmultiplicand, ftmultiplier)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtNegFt(ft: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtNegFt ( ft : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtNegFt ( ft : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
     FtNegFt(::core::mem::transmute(ft))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahend: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtSubFt ( ftminuend : super::super::Foundation:: FILETIME , ftsubtrahend : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtSubFt ( ftminuend : super::super::Foundation:: FILETIME , ftsubtrahend : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
     FtSubFt(::core::mem::transmute(ftminuend), ::core::mem::transmute(ftsubtrahend))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::core::ffi::c_void, priidle: i16, csecidle: u32, iroidle: u16) -> *mut ::core::ffi::c_void {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn FtgRegisterIdleRoutine ( lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn FtgRegisterIdleRoutine ( lpfnidle : * mut::core::ffi::c_void , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
     FtgRegisterIdleRoutine(::core::mem::transmute(lpfnidle), ::core::mem::transmute(lpvidleparam), priidle, csecidle, iroidle)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -143,7 +143,7 @@ pub unsafe fn HrAddColumns<'a, P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropTag
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAddColumns ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrAddColumns ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HrAddColumns(lptbl.into().abi(), ::core::mem::transmute(lpproptagcolumnsnew), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -152,20 +152,20 @@ pub unsafe fn HrAddColumnsEx<'a, P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropT
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAddColumnsEx ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpfnfiltercolumns : isize ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrAddColumnsEx ( lptbl : * mut::core::ffi::c_void , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , lpfnfiltercolumns : isize ) -> :: windows::core::HRESULT );
     HrAddColumnsEx(lptbl.into().abi(), ::core::mem::transmute(lpproptagcolumnsnew), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), lpfnfiltercolumns).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut ::core::ffi::c_void, lppadvisesink: *mut ::core::option::Option<IMAPIAdviseSink>) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAllocAdviseSink ( lpfncallback : * mut::core::ffi::c_void , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrAllocAdviseSink ( lpfncallback : * mut::core::ffi::c_void , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HrAllocAdviseSink(::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpvcontext), ::core::mem::transmute(lppadvisesink)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn HrDispatchNotifications(ulflags: u32) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrDispatchNotifications ( ulflags : u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrDispatchNotifications ( ulflags : u32 ) -> :: windows::core::HRESULT );
     HrDispatchNotifications(ulflags).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -175,7 +175,7 @@ pub unsafe fn HrGetOneProp<'a, P0>(lpmapiprop: P0, ulproptag: u32, lppprop: *mut
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProp>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrGetOneProp ( lpmapiprop : * mut::core::ffi::c_void , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrGetOneProp ( lpmapiprop : * mut::core::ffi::c_void , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows::core::HRESULT );
     HrGetOneProp(lpmapiprop.into().abi(), ulproptag, ::core::mem::transmute(lppprop)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -185,7 +185,7 @@ pub unsafe fn HrIStorageFromStream<'a, P0>(lpunkin: P0, lpinterface: *mut ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrIStorageFromStream ( lpunkin : * mut::core::ffi::c_void , lpinterface : *mut :: windows::core::GUID , ulflags : u32 , lppstorageout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrIStorageFromStream ( lpunkin : * mut::core::ffi::c_void , lpinterface : *mut :: windows::core::GUID , ulflags : u32 , lppstorageout : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     HrIStorageFromStream(lpunkin.into().abi(), ::core::mem::transmute(lpinterface), ulflags, ::core::mem::transmute(lppstorageout)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -195,7 +195,7 @@ pub unsafe fn HrQueryAllRows<'a, P0>(lptable: P0, lpproptags: *mut SPropTagArray
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPITable>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrQueryAllRows ( lptable : * mut::core::ffi::c_void , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrQueryAllRows ( lptable : * mut::core::ffi::c_void , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows::core::HRESULT );
     HrQueryAllRows(lptable.into().abi(), ::core::mem::transmute(lpproptags), ::core::mem::transmute(lprestriction), ::core::mem::transmute(lpsortorderset), crowsmax, ::core::mem::transmute(lpprows)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -205,7 +205,7 @@ pub unsafe fn HrSetOneProp<'a, P0>(lpmapiprop: P0, lpprop: *mut SPropValue) -> :
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIProp>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrSetOneProp ( lpmapiprop : * mut::core::ffi::c_void , lpprop : *mut SPropValue ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrSetOneProp ( lpmapiprop : * mut::core::ffi::c_void , lpprop : *mut SPropValue ) -> :: windows::core::HRESULT );
     HrSetOneProp(lpmapiprop.into().abi(), ::core::mem::transmute(lpprop)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -214,7 +214,7 @@ pub unsafe fn HrThisThreadAdviseSink<'a, P0>(lpadvisesink: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMAPIAdviseSink>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn HrThisThreadAdviseSink ( lpadvisesink : * mut::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn HrThisThreadAdviseSink ( lpadvisesink : * mut::core::ffi::c_void , lppadvisesink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     HrThisThreadAdviseSink(lpadvisesink.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMAPIAdviseSink>(result__)
 }
@@ -222,40 +222,40 @@ where
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LPropCompareProp(lpspropvaluea: *mut SPropValue, lpspropvalueb: *mut SPropValue) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
     LPropCompareProp(::core::mem::transmute(lpspropvaluea), ::core::mem::transmute(lpspropvalueb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn LpValFindProp(ulproptag: u32, cvalues: u32, lpproparray: *mut SPropValue) -> *mut SPropValue {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn LpValFindProp ( ulproptag : u32 , cvalues : u32 , lpproparray : *mut SPropValue ) -> *mut SPropValue );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn LpValFindProp ( ulproptag : u32 , cvalues : u32 , lpproparray : *mut SPropValue ) -> *mut SPropValue );
     LpValFindProp(ulproptag, cvalues, ::core::mem::transmute(lpproparray))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn MAPIDeinitIdle() {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIDeinitIdle ( ) -> ( ) );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn MAPIDeinitIdle ( ) -> ( ) );
     MAPIDeinitIdle()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MAPIGetDefaultMalloc() -> ::core::option::Option<super::Com::IMalloc> {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIGetDefaultMalloc ( ) -> ::core::option::Option < super::Com:: IMalloc > );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn MAPIGetDefaultMalloc ( ) -> ::core::option::Option < super::Com:: IMalloc > );
     MAPIGetDefaultMalloc()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn MAPIInitIdle(lpvreserved: *mut ::core::ffi::c_void) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
     MAPIInitIdle(::core::mem::transmute(lpvreserved))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: ::core::option::Option<*const i8>) -> ::windows::core::Result<super::Com::IStream> {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn OpenStreamOnFile ( lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn OpenStreamOnFile ( lpallocatebuffer : * mut::core::ffi::c_void , lpfreebuffer : * mut::core::ffi::c_void , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     OpenStreamOnFile(::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lpfreebuffer), ulflags, ::core::mem::transmute(lpszfilename), ::core::mem::transmute(lpszprefix.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IStream>(result__)
 }
@@ -263,14 +263,14 @@ pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer:
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PpropFindProp(lpproparray: *mut SPropValue, cvalues: u32, ulproptag: u32) -> *mut SPropValue {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
     PpropFindProp(::core::mem::transmute(lpproparray), cvalues, ulproptag)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn PropCopyMore(lpspropvaluedest: *mut SPropValue, lpspropvaluesrc: *mut SPropValue, lpfallocmore: LPALLOCATEMORE, lpvobject: *mut ::core::ffi::c_void) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : * mut::core::ffi::c_void , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : * mut::core::ffi::c_void , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
     PropCopyMore(::core::mem::transmute(lpspropvaluedest), ::core::mem::transmute(lpspropvaluesrc), ::core::mem::transmute(lpfallocmore), ::core::mem::transmute(lpvobject))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
@@ -280,54 +280,54 @@ pub unsafe fn RTFSync<'a, P0>(lpmessage: P0, ulflags: u32, lpfmessageupdated: *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IMessage>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn RTFSync ( lpmessage : * mut::core::ffi::c_void , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn RTFSync ( lpmessage : * mut::core::ffi::c_void , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     RTFSync(lpmessage.into().abi(), ulflags, ::core::mem::transmute(lpfmessageupdated)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
     ScCopyNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCopyProps(cvalues: i32, lpproparray: *mut SPropValue, lpvdst: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCopyProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScCopyProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
     ScCopyProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvdst), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountNotifications(cnotifications: i32, lpnotifications: *mut NOTIFICATION, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCountNotifications ( cnotifications : i32 , lpnotifications : *mut NOTIFICATION , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScCountNotifications ( cnotifications : i32 , lpnotifications : *mut NOTIFICATION , lpcb : *mut u32 ) -> i32 );
     ScCountNotifications(cnotifications, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScCountProps(cvalues: i32, lpproparray: *mut SPropValue, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCountProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScCountProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpcb : *mut u32 ) -> i32 );
     ScCountProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn ScCreateConversationIndex(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCreateConversationIndex ( cbparent : u32 , lpbparent : *mut u8 , lpcbconvindex : *mut u32 , lppbconvindex : *mut *mut u8 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScCreateConversationIndex ( cbparent : u32 , lpbparent : *mut u8 , lpcbconvindex : *mut u32 , lppbconvindex : *mut *mut u8 ) -> i32 );
     ScCreateConversationIndex(cbparent, ::core::mem::transmute(lpbparent), ::core::mem::transmute(lpcbconvindex), ::core::mem::transmute(lppbconvindex))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScDupPropset(cvalues: i32, lpproparray: *mut SPropValue, lpallocatebuffer: LPALLOCATEBUFFER, lppproparray: *mut *mut SPropValue) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : * mut::core::ffi::c_void , lppproparray : *mut *mut SPropValue ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : * mut::core::ffi::c_void , lppproparray : *mut *mut SPropValue ) -> i32 );
     ScDupPropset(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpallocatebuffer), ::core::mem::transmute(lppproparray))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn ScInitMapiUtil(ulflags: u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScInitMapiUtil ( ulflags : u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScInitMapiUtil ( ulflags : u32 ) -> i32 );
     ScInitMapiUtil(ulflags)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -336,21 +336,21 @@ pub unsafe fn ScLocalPathFromUNC<'a, P0>(lpszunc: P0, lpszlocal: &[u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScLocalPathFromUNC ( lpszunc : :: windows::core::PCSTR , lpszlocal : :: windows::core::PCSTR , cchlocal : u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScLocalPathFromUNC ( lpszunc : :: windows::core::PCSTR , lpszlocal : :: windows::core::PCSTR , cchlocal : u32 ) -> i32 );
     ScLocalPathFromUNC(lpszunc.into(), ::core::mem::transmute(lpszlocal.as_ptr()), lpszlocal.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocNotifications(cnotification: i32, lpnotifications: *mut NOTIFICATION, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
     ScRelocNotifications(cnotification, ::core::mem::transmute(lpnotifications), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ScRelocProps(cvalues: i32, lpproparray: *mut SPropValue, lpvbaseold: *mut ::core::ffi::c_void, lpvbasenew: *mut ::core::ffi::c_void, lpcb: *mut u32) -> i32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
     ScRelocProps(cvalues, ::core::mem::transmute(lpproparray), ::core::mem::transmute(lpvbaseold), ::core::mem::transmute(lpvbasenew), ::core::mem::transmute(lpcb))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
@@ -359,50 +359,50 @@ pub unsafe fn ScUNCFromLocalPath<'a, P0>(lpszlocal: P0, lpszunc: &[u8]) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn ScUNCFromLocalPath ( lpszlocal : :: windows::core::PCSTR , lpszunc : :: windows::core::PCSTR , cchunc : u32 ) -> i32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn ScUNCFromLocalPath ( lpszlocal : :: windows::core::PCSTR , lpszunc : :: windows::core::PCSTR , cchunc : u32 ) -> i32 );
     ScUNCFromLocalPath(lpszlocal.into(), ::core::mem::transmute(lpszunc.as_ptr()), lpszunc.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn SzFindCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
     SzFindCh(::core::mem::transmute(lpsz), ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn SzFindLastCh(lpsz: *mut i8, ch: u16) -> *mut i8 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
     SzFindLastCh(::core::mem::transmute(lpsz), ch)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
     SzFindSz(::core::mem::transmute(lpsz), ::core::mem::transmute(lpszkey))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn UFromSz ( lpsz : *mut i8 ) -> u32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn UFromSz ( lpsz : *mut i8 ) -> u32 );
     UFromSz(::core::mem::transmute(lpsz))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UlAddRef(lpunk: *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn UlAddRef ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn UlAddRef ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
     UlAddRef(::core::mem::transmute(lpunk))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UlPropSize(lpspropvalue: *mut SPropValue) -> u32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
     UlPropSize(::core::mem::transmute(lpspropvalue))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn UlRelease(lpunk: *mut ::core::ffi::c_void) -> u32 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
     UlRelease(::core::mem::transmute(lpunk))
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`*"]
@@ -412,14 +412,14 @@ pub unsafe fn WrapCompressedRTFStream<'a, P0>(lpcompressedrtfstream: P0, ulflags
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IStream>>,
 {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : * mut::core::ffi::c_void , ulflags : u32 , lpuncompressedrtfstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : * mut::core::ffi::c_void , ulflags : u32 , lpuncompressedrtfstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WrapCompressedRTFStream(lpcompressedrtfstream.into().abi(), ulflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IStream>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[inline]
 pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "mapi32.dll" ,"system" fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mapi32.dll" ,"system" fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows::core::HRESULT );
     WrapStoreEntryID(ulflags, ::core::mem::transmute(lpszdllname), cborigentry, ::core::mem::transmute(lporigentry), ::core::mem::transmute(lpcbwrappedentry), ::core::mem::transmute(lppwrappedentry)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]

@@ -1,6 +1,6 @@
-::windows_sys::core::windows_link ! ( "licenseprotection.dll" ,"system" fn RegisterLicenseKeyWithExpiration ( licensekey : :: windows_sys::core::PCWSTR , validityindays : u32 , status : *mut LicenseProtectionStatus ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "licenseprotection.dll" ,"system" fn RegisterLicenseKeyWithExpiration ( licensekey : :: windows_sys::core::PCWSTR , validityindays : u32 , status : *mut LicenseProtectionStatus ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "licenseprotection.dll" ,"system" fn ValidateLicenseKeyProtection ( licensekey : :: windows_sys::core::PCWSTR , notvalidbefore : *mut super::super::Foundation:: FILETIME , notvalidafter : *mut super::super::Foundation:: FILETIME , status : *mut LicenseProtectionStatus ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "licenseprotection.dll" ,"system" fn ValidateLicenseKeyProtection ( licensekey : :: windows_sys::core::PCWSTR , notvalidbefore : *mut super::super::Foundation:: FILETIME , notvalidafter : *mut super::super::Foundation:: FILETIME , status : *mut LicenseProtectionStatus ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub type LicenseProtectionStatus = i32;
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]

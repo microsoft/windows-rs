@@ -1,17 +1,17 @@
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceCreate ( pszenumeratorname : :: windows_sys::core::PCWSTR , pszparentdeviceinstance : :: windows_sys::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : SW_DEVICE_CREATE_CALLBACK , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceCreate ( pszenumeratorname : :: windows_sys::core::PCWSTR , pszparentdeviceinstance : :: windows_sys::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : SW_DEVICE_CREATE_CALLBACK , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Devices_Properties")]
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows_sys::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows_sys::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows_sys::core::GUID , pszreferencestring : :: windows_sys::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows_sys::core::GUID , pszreferencestring : :: windows_sys::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows_sys::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows_sys::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Devices_Properties")]
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "cfgmgr32.dll" ,"system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
 pub type IUPnPAddressFamilyControl = *mut ::core::ffi::c_void;
 pub type IUPnPAsyncResult = *mut ::core::ffi::c_void;
 pub type IUPnPDescriptionDocument = *mut ::core::ffi::c_void;

@@ -2,7 +2,7 @@ use std::fmt::Write;
 
 fn main() {
     test_yml();
-    build_yml();
+    clippy_yml();
 }
 
 fn test_yml() {
@@ -107,17 +107,6 @@ jobs:
 
     yml.truncate(yml.len() - 3);
 
-    // Enable running the debugger_visualizer tests against nightly only
-    // since it requires the unstable debugger_visualizer feature.
-    // https://github.com/rust-lang/rust/issues/95939
-    yml.push_str(
-        r#"
-
-      - name: Test debugger_visualizer feature
-        run: cargo test --target ${{ matrix.target }} -p test_debugger_visualizer -- --test-threads=1
-        if: matrix.version == 'nightly' && endsWith(matrix.target, '-msvc')"#,
-    );
-
     yml.push_str(
         r#"
 
@@ -148,7 +137,7 @@ jobs:
     std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 
-fn build_yml() {
+fn clippy_yml() {
     let mut yml = r#"name: clippy
 
 on:

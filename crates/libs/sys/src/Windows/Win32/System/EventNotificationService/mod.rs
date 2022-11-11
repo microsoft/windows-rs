@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableA ( lpszdestination : :: windows_sys::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableA ( lpszdestination : :: windows_sys::core::PCSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableW ( lpszdestination : :: windows_sys::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "sensapi.dll" ,"system" fn IsDestinationReachableW ( lpszdestination : :: windows_sys::core::PCWSTR , lpqocinfo : *mut QOCINFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "sensapi.dll" ,"system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "sensapi.dll" ,"system" fn IsNetworkAlive ( lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
 pub type ISensLogon = *mut ::core::ffi::c_void;
 pub type ISensLogon2 = *mut ::core::ffi::c_void;
 pub type ISensNetwork = *mut ::core::ffi::c_void;

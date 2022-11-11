@@ -1,5 +1,5 @@
-::windows_sys::core::windows_link ! ( "windows.ai.machinelearning.dll" ,"system" fn MLCreateOperatorRegistry ( registry : *mut IMLOperatorRegistry ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "winml.dll" ,"system" fn WinMLCreateRuntime ( runtime : *mut IWinMLRuntime ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windows.ai.machinelearning.dll" ,"system" fn MLCreateOperatorRegistry ( registry : *mut IMLOperatorRegistry ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "winml.dll" ,"system" fn WinMLCreateRuntime ( runtime : *mut IWinMLRuntime ) -> :: windows_sys::core::HRESULT );
 pub type IMLOperatorAttributes = *mut ::core::ffi::c_void;
 pub type IMLOperatorKernel = *mut ::core::ffi::c_void;
 pub type IMLOperatorKernelContext = *mut ::core::ffi::c_void;

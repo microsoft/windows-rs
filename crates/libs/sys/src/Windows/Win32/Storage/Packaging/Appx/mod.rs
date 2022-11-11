@@ -1,118 +1,118 @@
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn AddPackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ActivatePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , cookie : *mut usize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn AddPackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR , rank : i32 , options : AddPackageDependencyOptions , packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__ , packagefullname : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetClrCompat ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyClrCompat ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetClrCompat ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyClrCompat ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetCreateFileAccess ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyCreateFileAccess ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetCreateFileAccess ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyCreateFileAccess ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetLifecycleManagement ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyLifecycleManagement ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetLifecycleManagement ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyLifecycleManagement ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetMediaFoundationCodecLoading ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyMediaFoundationCodecLoading ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetMediaFoundationCodecLoading ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyMediaFoundationCodecLoading ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetProcessTerminationMethod ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyProcessTerminationMethod ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetProcessTerminationMethod ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyProcessTerminationMethod ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetShowDeveloperDiagnostic ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyShowDeveloperDiagnostic ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetShowDeveloperDiagnostic ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyShowDeveloperDiagnostic ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetThreadInitializationType ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyThreadInitializationType ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetThreadInitializationType ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyThreadInitializationType ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn AppPolicyGetWindowingModel ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyWindowingModel ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn AppPolicyGetWindowingModel ( processtoken : super::super::super::Foundation:: HANDLE , policy : *mut AppPolicyWindowingModel ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CheckIsMSIXPackage ( packagefullname : :: windows_sys::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn CheckIsMSIXPackage ( packagefullname : :: windows_sys::core::PCWSTR , ismsixpackage : *mut super::super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ClosePackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows_sys::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn DeactivatePackageVirtualizationContext ( cookie : usize ) -> ( ) );
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn DeletePackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ClosePackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn CreatePackageVirtualizationContext ( packagefamilyname : :: windows_sys::core::PCWSTR , context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn DeactivatePackageVirtualizationContext ( cookie : usize ) -> ( ) );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn DeletePackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn DuplicatePackageVirtualizationContext ( sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ , destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn FindPackagesByPackageFamily ( packagefamilyname : :: windows_sys::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut :: windows_sys::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows_sys::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn FindPackagesByPackageFamily ( packagefamilyname : :: windows_sys::core::PCWSTR , packagefilters : u32 , count : *mut u32 , packagefullnames : *mut :: windows_sys::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows_sys::core::PWSTR , packageproperties : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn FormatApplicationUserModelId ( packagefamilyname : :: windows_sys::core::PCWSTR , packagerelativeapplicationid : :: windows_sys::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn FormatApplicationUserModelId ( packagefamilyname : :: windows_sys::core::PCWSTR , packagerelativeapplicationid : :: windows_sys::core::PCWSTR , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetApplicationUserModelId ( hprocess : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetApplicationUserModelIdFromToken ( token : super::super::super::Foundation:: HANDLE , applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentApplicationUserModelId ( applicationusermodelidlength : *mut u32 , applicationusermodelid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageFamilyName ( packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageFullName ( packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageId ( bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageId ( bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageInfo ( flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageInfo ( flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetCurrentPackageInfo2 ( flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetCurrentPackageInfo2 ( flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackagePath ( pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageVirtualizationContext ( ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ );
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetCurrentPackagePath2 ( packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCurrentPackageVirtualizationContext ( ) -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn GetIdForPackageDependencyContext ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ , packagedependencyid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackageApplicationIds ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackageApplicationIds ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackageFamilyName ( hprocess : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetPackageFamilyNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackageFullName ( hprocess : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetPackageFullNameFromToken ( token : super::super::super::Foundation:: HANDLE , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackageId ( hprocess : super::super::super::Foundation:: HANDLE , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackageId ( hprocess : super::super::super::Foundation:: HANDLE , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackageInfo ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetPackageInfo2 ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetPackageInfo2 ( packageinforeference : *const _PACKAGE_INFO_REFERENCE , flags : u32 , packagepathtype : PackagePathType , bufferlength : *mut u32 , buffer : *mut u8 , count : *mut u32 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackagePath ( packageid : *const PACKAGE_ID , reserved : u32 , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackagePathByFullName ( packagefullname : :: windows_sys::core::PCWSTR , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackagePathByFullName ( packagefullname : :: windows_sys::core::PCWSTR , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetPackagePathByFullName2 ( packagefullname : :: windows_sys::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetPackagePathByFullName2 ( packagefullname : :: windows_sys::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetPackagesByPackageFamily ( packagefamilyname : :: windows_sys::core::PCWSTR , count : *mut u32 , packagefullnames : *mut :: windows_sys::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetPackagesByPackageFamily ( packagefamilyname : :: windows_sys::core::PCWSTR , count : *mut u32 , packagefullnames : *mut :: windows_sys::core::PWSTR , bufferlength : *mut u32 , buffer : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetProcessesInVirtualizationContext ( packagefamilyname : :: windows_sys::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR , packagefullname : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetProcessesInVirtualizationContext ( packagefamilyname : :: windows_sys::core::PCWSTR , count : *mut u32 , processes : *mut *mut super::super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn GetResolvedPackageFullNameForPackageDependency ( packagedependencyid : :: windows_sys::core::PCWSTR , packagefullname : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetStagedPackageOrigin ( packagefullname : :: windows_sys::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn GetStagedPackageOrigin ( packagefullname : :: windows_sys::core::PCWSTR , origin : *mut PackageOrigin ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetStagedPackagePathByFullName ( packagefullname : :: windows_sys::core::PCWSTR , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetStagedPackagePathByFullName ( packagefullname : :: windows_sys::core::PCWSTR , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetStagedPackagePathByFullName2 ( packagefullname : :: windows_sys::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-3.dll" ,"system" fn GetStagedPackagePathByFullName2 ( packagefullname : :: windows_sys::core::PCWSTR , packagepathtype : PackagePathType , pathlength : *mut u32 , path : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn OpenPackageInfoByFullName ( packagefullname : :: windows_sys::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn OpenPackageInfoByFullName ( packagefullname : :: windows_sys::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : :: windows_sys::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn OpenPackageInfoByFullNameForUser ( usersid : super::super::super::Foundation:: PSID , packagefullname : :: windows_sys::core::PCWSTR , reserved : u32 , packageinforeference : *mut *mut _PACKAGE_INFO_REFERENCE ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PackageFamilyNameFromFullName ( packagefullname : :: windows_sys::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PackageFamilyNameFromFullName ( packagefullname : :: windows_sys::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PackageFamilyNameFromId ( packageid : *const PACKAGE_ID , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PackageFullNameFromId ( packageid : *const PACKAGE_ID , packagefullnamelength : *mut u32 , packagefullname : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PackageIdFromFullName ( packagefullname : :: windows_sys::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PackageIdFromFullName ( packagefullname : :: windows_sys::core::PCWSTR , flags : u32 , bufferlength : *mut u32 , buffer : *mut u8 ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : :: windows_sys::core::PCWSTR , packagenamelength : *mut u32 , packagename : :: windows_sys::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PackageNameAndPublisherIdFromFamilyName ( packagefamilyname : :: windows_sys::core::PCWSTR , packagenamelength : *mut u32 , packagename : :: windows_sys::core::PWSTR , packagepublisheridlength : *mut u32 , packagepublisherid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ParseApplicationUserModelId ( applicationusermodelid : :: windows_sys::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ReleasePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ( ) );
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ParseApplicationUserModelId ( applicationusermodelid : :: windows_sys::core::PCWSTR , packagefamilynamelength : *mut u32 , packagefamilyname : :: windows_sys::core::PWSTR , packagerelativeapplicationidlength : *mut u32 , packagerelativeapplicationid : :: windows_sys::core::PWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ReleasePackageVirtualizationContext ( context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ ) -> ( ) );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn RemovePackageDependency ( packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__ ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernelbase.dll" ,"system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows_sys::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows_sys::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernelbase.dll" ,"system" fn TryCreatePackageDependency ( user : super::super::super::Foundation:: PSID , packagefamilyname : :: windows_sys::core::PCWSTR , minversion : PACKAGE_VERSION , packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures , lifetimekind : PackageDependencyLifetimeKind , lifetimeartifact : :: windows_sys::core::PCWSTR , options : CreatePackageDependencyOptions , packagedependencyid : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyApplicationUserModelId ( applicationusermodelid : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyApplicationUserModelId ( applicationusermodelid : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageFamilyName ( packagefamilyname : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageFamilyName ( packagefamilyname : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageFullName ( packagefullname : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageFullName ( packagefullname : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageId ( packageid : *const PACKAGE_ID ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageId ( packageid : *const PACKAGE_ID ) -> super::super::super::Foundation:: WIN32_ERROR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
+::windows_sys::core::link ! ( "api-ms-win-appmodel-runtime-l1-1-1.dll" ,"system" fn VerifyPackageRelativeApplicationId ( packagerelativeapplicationid : :: windows_sys::core::PCWSTR ) -> super::super::super::Foundation:: WIN32_ERROR );
 pub type IAppxBlockMapBlock = *mut ::core::ffi::c_void;
 pub type IAppxBlockMapBlocksEnumerator = *mut ::core::ffi::c_void;
 pub type IAppxBlockMapFile = *mut ::core::ffi::c_void;

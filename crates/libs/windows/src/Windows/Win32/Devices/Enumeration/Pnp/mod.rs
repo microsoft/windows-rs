@@ -4,7 +4,7 @@ pub unsafe fn SwDeviceClose<'a, P0>(hswdevice: P0)
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceClose ( hswdevice : HSWDEVICE ) -> ( ) );
     SwDeviceClose(hswdevice.into())
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -15,7 +15,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceCreate ( pszenumeratorname : :: windows::core::PCWSTR , pszparentdeviceinstance : :: windows::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : * mut::core::ffi::c_void , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceCreate ( pszenumeratorname : :: windows::core::PCWSTR , pszparentdeviceinstance : :: windows::core::PCWSTR , pcreateinfo : *const SW_DEVICE_CREATE_INFO , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , pcallback : * mut::core::ffi::c_void , pcontext : *const ::core::ffi::c_void , phswdevice : *mut isize ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SwDeviceCreate(pszenumeratorname.into(), pszparentdeviceinstance.into(), ::core::mem::transmute(pcreateinfo), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
 }
@@ -25,7 +25,7 @@ pub unsafe fn SwDeviceGetLifetime<'a, P0>(hswdevice: P0) -> ::windows::core::Res
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceGetLifetime ( hswdevice : HSWDEVICE , plifetime : *mut SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SwDeviceGetLifetime(hswdevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SW_DEVICE_LIFETIME>(result__)
 }
@@ -37,7 +37,7 @@ where
     P0: ::std::convert::Into<HSWDEVICE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfacePropertySet ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
     SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
@@ -49,7 +49,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceRegister ( hswdevice : HSWDEVICE , pinterfaceclassguid : *const :: windows::core::GUID , pszreferencestring : :: windows::core::PCWSTR , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY , fenabled : super::super::super::Foundation:: BOOL , ppszdeviceinterfaceid : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SwDeviceInterfaceRegister(hswdevice.into(), ::core::mem::transmute(pinterfaceclassguid), pszreferencestring.into(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
@@ -62,7 +62,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
     P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceInterfaceSetState ( hswdevice : HSWDEVICE , pszdeviceinterfaceid : :: windows::core::PCWSTR , fenabled : super::super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into(), fenabled.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
@@ -72,7 +72,7 @@ pub unsafe fn SwDevicePropertySet<'a, P0>(hswdevice: P0, pproperties: &[super::s
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDevicePropertySet ( hswdevice : HSWDEVICE , cpropertycount : u32 , pproperties : *const super::super::Properties:: DEVPROPERTY ) -> :: windows::core::HRESULT );
     SwDevicePropertySet(hswdevice.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -81,13 +81,13 @@ pub unsafe fn SwDeviceSetLifetime<'a, P0>(hswdevice: P0, lifetime: SW_DEVICE_LIF
 where
     P0: ::std::convert::Into<HSWDEVICE>,
 {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwDeviceSetLifetime ( hswdevice : HSWDEVICE , lifetime : SW_DEVICE_LIFETIME ) -> :: windows::core::HRESULT );
     SwDeviceSetLifetime(hswdevice.into(), lifetime).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[inline]
 pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
-    ::windows::core::windows_link ! ( "cfgmgr32.dll" ,"system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "cfgmgr32.dll" ,"system" fn SwMemFree ( pmem : *const ::core::ffi::c_void ) -> ( ) );
     SwMemFree(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]

@@ -1,59 +1,59 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmAttachMilContent ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmAttachMilContent ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmDefWindowProc ( hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , plresult : *mut super::super::Foundation:: LRESULT ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmDefWindowProc ( hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , plresult : *mut super::super::Foundation:: LRESULT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmDetachMilContent ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmDetachMilContent ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmEnableBlurBehindWindow ( hwnd : super::super::Foundation:: HWND , pblurbehind : *const DWM_BLURBEHIND ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmEnableComposition ( ucompositionaction : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmEnableBlurBehindWindow ( hwnd : super::super::Foundation:: HWND , pblurbehind : *const DWM_BLURBEHIND ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmEnableComposition ( ucompositionaction : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmEnableMMCSS ( fenablemmcss : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmEnableMMCSS ( fenablemmcss : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmExtendFrameIntoClientArea ( hwnd : super::super::Foundation:: HWND , pmarinset : *const super::super::UI::Controls:: MARGINS ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmFlush ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmExtendFrameIntoClientArea ( hwnd : super::super::Foundation:: HWND , pmarinset : *const super::super::UI::Controls:: MARGINS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmFlush ( ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetColorizationColor ( pcrcolorization : *mut u32 , pfopaqueblend : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetColorizationColor ( pcrcolorization : *mut u32 , pfopaqueblend : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetCompositionTimingInfo ( hwnd : super::super::Foundation:: HWND , ptiminginfo : *mut DWM_TIMING_INFO ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetGraphicsStreamClient ( uindex : u32 , pclientuuid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetGraphicsStreamTransformHint ( uindex : u32 , ptransform : *mut MilMatrix3x2D ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetCompositionTimingInfo ( hwnd : super::super::Foundation:: HWND , ptiminginfo : *mut DWM_TIMING_INFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetGraphicsStreamClient ( uindex : u32 , pclientuuid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetGraphicsStreamTransformHint ( uindex : u32 , ptransform : *mut MilMatrix3x2D ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetTransportAttributes ( pfisremoting : *mut super::super::Foundation:: BOOL , pfisconnected : *mut super::super::Foundation:: BOOL , pdwgeneration : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetTransportAttributes ( pfisremoting : *mut super::super::Foundation:: BOOL , pfisconnected : *mut super::super::Foundation:: BOOL , pdwgeneration : *mut u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetUnmetTabRequirements ( appwindow : super::super::Foundation:: HWND , value : *mut DWM_TAB_WINDOW_REQUIREMENTS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetUnmetTabRequirements ( appwindow : super::super::Foundation:: HWND , value : *mut DWM_TAB_WINDOW_REQUIREMENTS ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmGetWindowAttribute ( hwnd : super::super::Foundation:: HWND , dwattribute : DWMWINDOWATTRIBUTE , pvattribute : *mut ::core::ffi::c_void , cbattribute : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmGetWindowAttribute ( hwnd : super::super::Foundation:: HWND , dwattribute : DWMWINDOWATTRIBUTE , pvattribute : *mut ::core::ffi::c_void , cbattribute : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmInvalidateIconicBitmaps ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmInvalidateIconicBitmaps ( hwnd : super::super::Foundation:: HWND ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmIsCompositionEnabled ( pfenabled : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmIsCompositionEnabled ( pfenabled : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmModifyPreviousDxFrameDuration ( hwnd : super::super::Foundation:: HWND , crefreshes : i32 , frelative : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmModifyPreviousDxFrameDuration ( hwnd : super::super::Foundation:: HWND , crefreshes : i32 , frelative : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmQueryThumbnailSourceSize ( hthumbnail : isize , psize : *mut super::super::Foundation:: SIZE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmQueryThumbnailSourceSize ( hthumbnail : isize , psize : *mut super::super::Foundation:: SIZE ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmRegisterThumbnail ( hwnddestination : super::super::Foundation:: HWND , hwndsource : super::super::Foundation:: HWND , phthumbnailid : *mut isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmRegisterThumbnail ( hwnddestination : super::super::Foundation:: HWND , hwndsource : super::super::Foundation:: HWND , phthumbnailid : *mut isize ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmRenderGesture ( gt : GESTURE_TYPE , ccontacts : u32 , pdwpointerid : *const u32 , ppoints : *const super::super::Foundation:: POINT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmRenderGesture ( gt : GESTURE_TYPE , ccontacts : u32 , pdwpointerid : *const u32 , ppoints : *const super::super::Foundation:: POINT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmSetDxFrameDuration ( hwnd : super::super::Foundation:: HWND , crefreshes : i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmSetDxFrameDuration ( hwnd : super::super::Foundation:: HWND , crefreshes : i32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmSetIconicLivePreviewBitmap ( hwnd : super::super::Foundation:: HWND , hbmp : super::Gdi:: HBITMAP , pptclient : *const super::super::Foundation:: POINT , dwsitflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmSetIconicLivePreviewBitmap ( hwnd : super::super::Foundation:: HWND , hbmp : super::Gdi:: HBITMAP , pptclient : *const super::super::Foundation:: POINT , dwsitflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmSetIconicThumbnail ( hwnd : super::super::Foundation:: HWND , hbmp : super::Gdi:: HBITMAP , dwsitflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmSetIconicThumbnail ( hwnd : super::super::Foundation:: HWND , hbmp : super::Gdi:: HBITMAP , dwsitflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmSetPresentParameters ( hwnd : super::super::Foundation:: HWND , ppresentparams : *mut DWM_PRESENT_PARAMETERS ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmSetPresentParameters ( hwnd : super::super::Foundation:: HWND , ppresentparams : *mut DWM_PRESENT_PARAMETERS ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmSetWindowAttribute ( hwnd : super::super::Foundation:: HWND , dwattribute : DWMWINDOWATTRIBUTE , pvattribute : *const ::core::ffi::c_void , cbattribute : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmShowContact ( dwpointerid : u32 , eshowcontact : DWM_SHOWCONTACT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmSetWindowAttribute ( hwnd : super::super::Foundation:: HWND , dwattribute : DWMWINDOWATTRIBUTE , pvattribute : *const ::core::ffi::c_void , cbattribute : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmShowContact ( dwpointerid : u32 , eshowcontact : DWM_SHOWCONTACT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmTetherContact ( dwpointerid : u32 , fenable : super::super::Foundation:: BOOL , pttether : super::super::Foundation:: POINT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmTetherContact ( dwpointerid : u32 , fenable : super::super::Foundation:: BOOL , pttether : super::super::Foundation:: POINT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmTransitionOwnedWindow ( hwnd : super::super::Foundation:: HWND , target : DWMTRANSITION_OWNEDWINDOW_TARGET ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmUnregisterThumbnail ( hthumbnailid : isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmTransitionOwnedWindow ( hwnd : super::super::Foundation:: HWND , target : DWMTRANSITION_OWNEDWINDOW_TARGET ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmUnregisterThumbnail ( hthumbnailid : isize ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dwmapi.dll" ,"system" fn DwmUpdateThumbnailProperties ( hthumbnailid : isize , ptnproperties : *const DWM_THUMBNAIL_PROPERTIES ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dwmapi.dll" ,"system" fn DwmUpdateThumbnailProperties ( hthumbnailid : isize , ptnproperties : *const DWM_THUMBNAIL_PROPERTIES ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]

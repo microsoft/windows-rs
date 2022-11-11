@@ -1,23 +1,23 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn CloseGestureInfoHandle ( hgestureinfo : HGESTUREINFO ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn CloseGestureInfoHandle ( hgestureinfo : HGESTUREINFO ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn CloseTouchInputHandle ( htouchinput : HTOUCHINPUT ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn CloseTouchInputHandle ( htouchinput : HTOUCHINPUT ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , dwflags : u32 , pcids : *const u32 , pgestureconfig : *mut GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , dwflags : u32 , pcids : *const u32 , pgestureconfig : *mut GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetGestureExtraArgs ( hgestureinfo : HGESTUREINFO , cbextraargs : u32 , pextraargs : *mut u8 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetGestureExtraArgs ( hgestureinfo : HGESTUREINFO , cbextraargs : u32 , pextraargs : *mut u8 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetGestureInfo ( hgestureinfo : HGESTUREINFO , pgestureinfo : *mut GESTUREINFO ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetGestureInfo ( hgestureinfo : HGESTUREINFO , pgestureinfo : *mut GESTUREINFO ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn GetTouchInputInfo ( htouchinput : HTOUCHINPUT , cinputs : u32 , pinputs : *mut TOUCHINPUT , cbsize : i32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn GetTouchInputInfo ( htouchinput : HTOUCHINPUT , cinputs : u32 , pinputs : *mut TOUCHINPUT , cbsize : i32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn IsTouchWindow ( hwnd : super::super::super::Foundation:: HWND , pulflags : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn IsTouchWindow ( hwnd : super::super::super::Foundation:: HWND , pulflags : *mut u32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn RegisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND , ulflags : REGISTER_TOUCH_WINDOW_FLAGS ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn RegisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND , ulflags : REGISTER_TOUCH_WINDOW_FLAGS ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn SetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , cids : u32 , pgestureconfig : *const GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn SetGestureConfig ( hwnd : super::super::super::Foundation:: HWND , dwreserved : u32 , cids : u32 , pgestureconfig : *const GESTURECONFIG , cbsize : u32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "user32.dll" ,"system" fn UnregisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "user32.dll" ,"system" fn UnregisterTouchWindow ( hwnd : super::super::super::Foundation:: HWND ) -> super::super::super::Foundation:: BOOL );
 pub type IInertiaProcessor = *mut ::core::ffi::c_void;
 pub type IManipulationProcessor = *mut ::core::ffi::c_void;
 pub type _IManipulationEvents = *mut ::core::ffi::c_void;

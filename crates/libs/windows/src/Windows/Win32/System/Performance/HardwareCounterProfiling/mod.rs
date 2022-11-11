@@ -5,7 +5,7 @@ pub unsafe fn DisableThreadProfiling<'a, P0>(performancedatahandle: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn DisableThreadProfiling ( performancedatahandle : super::super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn DisableThreadProfiling ( performancedatahandle : super::super::super::Foundation:: HANDLE ) -> u32 );
     DisableThreadProfiling(performancedatahandle.into())
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
@@ -15,7 +15,7 @@ pub unsafe fn EnableThreadProfiling<'a, P0>(threadhandle: P0, flags: u32, hardwa
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn EnableThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , flags : u32 , hardwarecounters : u64 , performancedatahandle : *mut super::super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn EnableThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , flags : u32 , hardwarecounters : u64 , performancedatahandle : *mut super::super::super::Foundation:: HANDLE ) -> u32 );
     EnableThreadProfiling(threadhandle.into(), flags, hardwarecounters, ::core::mem::transmute(performancedatahandle))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
@@ -25,7 +25,7 @@ pub unsafe fn QueryThreadProfiling<'a, P0>(threadhandle: P0, enabled: *mut super
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn QueryThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , enabled : *mut super::super::super::Foundation:: BOOLEAN ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn QueryThreadProfiling ( threadhandle : super::super::super::Foundation:: HANDLE , enabled : *mut super::super::super::Foundation:: BOOLEAN ) -> u32 );
     QueryThreadProfiling(threadhandle.into(), ::core::mem::transmute(enabled))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`, `\"Win32_Foundation\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn ReadThreadProfilingData<'a, P0>(performancedatahandle: P0, flags: 
 where
     P0: ::std::convert::Into<super::super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn ReadThreadProfilingData ( performancedatahandle : super::super::super::Foundation:: HANDLE , flags : u32 , performancedata : *mut PERFORMANCE_DATA ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn ReadThreadProfilingData ( performancedatahandle : super::super::super::Foundation:: HANDLE , flags : u32 , performancedata : *mut PERFORMANCE_DATA ) -> u32 );
     ReadThreadProfilingData(performancedatahandle.into(), flags, ::core::mem::transmute(performancedata))
 }
 #[doc = "*Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`*"]

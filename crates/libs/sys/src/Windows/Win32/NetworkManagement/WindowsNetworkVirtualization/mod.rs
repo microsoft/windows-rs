@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wnvapi.dll" ,"system" fn WnvOpen ( ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "wnvapi.dll" ,"system" fn WnvOpen ( ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "wnvapi.dll" ,"system" fn WnvRequestNotification ( wnvhandle : super::super::Foundation:: HANDLE , notificationparam : *mut WNV_NOTIFICATION_PARAM , overlapped : *mut super::super::System::IO:: OVERLAPPED , bytestransferred : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "wnvapi.dll" ,"system" fn WnvRequestNotification ( wnvhandle : super::super::Foundation:: HANDLE , notificationparam : *mut WNV_NOTIFICATION_PARAM , overlapped : *mut super::super::System::IO:: OVERLAPPED , bytestransferred : *mut u32 ) -> u32 );
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]

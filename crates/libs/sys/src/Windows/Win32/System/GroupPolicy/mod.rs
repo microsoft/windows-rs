@@ -1,56 +1,56 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn BrowseForGPO ( lpbrowseinfo : *mut GPOBROWSEINFO ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn CommandLineFromMsiDescriptor ( descriptor : :: windows_sys::core::PCWSTR , commandline : :: windows_sys::core::PWSTR , commandlinelength : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn BrowseForGPO ( lpbrowseinfo : *mut GPOBROWSEINFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn CommandLineFromMsiDescriptor ( descriptor : :: windows_sys::core::PCWSTR , commandline : :: windows_sys::core::PWSTR , commandlinelength : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn CreateGPOLink ( lpgpo : :: windows_sys::core::PCWSTR , lpcontainer : :: windows_sys::core::PCWSTR , fhighpriority : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn DeleteAllGPOLinks ( lpcontainer : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn DeleteGPOLink ( lpgpo : :: windows_sys::core::PCWSTR , lpcontainer : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn CreateGPOLink ( lpgpo : :: windows_sys::core::PCWSTR , lpcontainer : :: windows_sys::core::PCWSTR , fhighpriority : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn DeleteAllGPOLinks ( lpcontainer : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn DeleteGPOLink ( lpgpo : :: windows_sys::core::PCWSTR , lpcontainer : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn EnterCriticalPolicySection ( bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn ExportRSoPData ( lpnamespace : :: windows_sys::core::PCWSTR , lpfilename : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn EnterCriticalPolicySection ( bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn ExportRSoPData ( lpnamespace : :: windows_sys::core::PCWSTR , lpfilename : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn FreeGPOListA ( pgpolist : *const GROUP_POLICY_OBJECTA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn FreeGPOListA ( pgpolist : *const GROUP_POLICY_OBJECTA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn FreeGPOListW ( pgpolist : *const GROUP_POLICY_OBJECTW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn FreeGPOListW ( pgpolist : *const GROUP_POLICY_OBJECTW ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn GenerateGPNotification ( bmachine : super::super::Foundation:: BOOL , lpwszmgmtproduct : :: windows_sys::core::PCWSTR , dwmgmtproductoptions : u32 ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn GenerateGPNotification ( bmachine : super::super::Foundation:: BOOL , lpwszmgmtproduct : :: windows_sys::core::PCWSTR , dwmgmtproductoptions : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn GetAppliedGPOListA ( dwflags : u32 , pmachinename : :: windows_sys::core::PCSTR , psiduser : super::super::Foundation:: PSID , pguidextension : *const :: windows_sys::core::GUID , ppgpolist : *mut *mut GROUP_POLICY_OBJECTA ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn GetAppliedGPOListA ( dwflags : u32 , pmachinename : :: windows_sys::core::PCSTR , psiduser : super::super::Foundation:: PSID , pguidextension : *const :: windows_sys::core::GUID , ppgpolist : *mut *mut GROUP_POLICY_OBJECTA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn GetAppliedGPOListW ( dwflags : u32 , pmachinename : :: windows_sys::core::PCWSTR , psiduser : super::super::Foundation:: PSID , pguidextension : *const :: windows_sys::core::GUID , ppgpolist : *mut *mut GROUP_POLICY_OBJECTW ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn GetAppliedGPOListW ( dwflags : u32 , pmachinename : :: windows_sys::core::PCWSTR , psiduser : super::super::Foundation:: PSID , pguidextension : *const :: windows_sys::core::GUID , ppgpolist : *mut *mut GROUP_POLICY_OBJECTW ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn GetGPOListA ( htoken : super::super::Foundation:: HANDLE , lpname : :: windows_sys::core::PCSTR , lphostname : :: windows_sys::core::PCSTR , lpcomputername : :: windows_sys::core::PCSTR , dwflags : u32 , pgpolist : *mut *mut GROUP_POLICY_OBJECTA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn GetGPOListA ( htoken : super::super::Foundation:: HANDLE , lpname : :: windows_sys::core::PCSTR , lphostname : :: windows_sys::core::PCSTR , lpcomputername : :: windows_sys::core::PCSTR , dwflags : u32 , pgpolist : *mut *mut GROUP_POLICY_OBJECTA ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn GetGPOListW ( htoken : super::super::Foundation:: HANDLE , lpname : :: windows_sys::core::PCWSTR , lphostname : :: windows_sys::core::PCWSTR , lpcomputername : :: windows_sys::core::PCWSTR , dwflags : u32 , pgpolist : *mut *mut GROUP_POLICY_OBJECTW ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetLocalManagedApplicationData ( productcode : :: windows_sys::core::PCWSTR , displayname : *mut :: windows_sys::core::PWSTR , supporturl : *mut :: windows_sys::core::PWSTR ) -> ( ) );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn GetGPOListW ( htoken : super::super::Foundation:: HANDLE , lpname : :: windows_sys::core::PCWSTR , lphostname : :: windows_sys::core::PCWSTR , lpcomputername : :: windows_sys::core::PCWSTR , dwflags : u32 , pgpolist : *mut *mut GROUP_POLICY_OBJECTW ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn GetLocalManagedApplicationData ( productcode : :: windows_sys::core::PCWSTR , displayname : *mut :: windows_sys::core::PWSTR , supporturl : *mut :: windows_sys::core::PWSTR ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetLocalManagedApplications ( buserapps : super::super::Foundation:: BOOL , pdwapps : *mut u32 , prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn GetLocalManagedApplications ( buserapps : super::super::Foundation:: BOOL , pdwapps : *mut u32 , prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION ) -> u32 );
 #[cfg(feature = "Win32_UI_Shell")]
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetManagedApplicationCategories ( dwreserved : u32 , pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn GetManagedApplicationCategories ( dwreserved : u32 , pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn GetManagedApplications ( pcategory : *const :: windows_sys::core::GUID , dwqueryflags : u32 , dwinfolevel : u32 , pdwapps : *mut u32 , prgmanagedapps : *mut *mut MANAGEDAPPLICATION ) -> u32 );
-::windows_sys::core::windows_link ! ( "gpedit.dll" ,"system" fn ImportRSoPData ( lpnamespace : :: windows_sys::core::PCWSTR , lpfilename : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn InstallApplication ( pinstallinfo : *const INSTALLDATA ) -> u32 );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn GetManagedApplications ( pcategory : *const :: windows_sys::core::GUID , dwqueryflags : u32 , dwinfolevel : u32 , pdwapps : *mut u32 , prgmanagedapps : *mut *mut MANAGEDAPPLICATION ) -> u32 );
+::windows_sys::core::link ! ( "gpedit.dll" ,"system" fn ImportRSoPData ( lpnamespace : :: windows_sys::core::PCWSTR , lpfilename : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn InstallApplication ( pinstallinfo : *const INSTALLDATA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn LeaveCriticalPolicySection ( hsection : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn ProcessGroupPolicyCompleted ( extensionid : *const :: windows_sys::core::GUID , pasynchandle : usize , dwstatus : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn ProcessGroupPolicyCompletedEx ( extensionid : *const :: windows_sys::core::GUID , pasynchandle : usize , dwstatus : u32 , rsopstatus : :: windows_sys::core::HRESULT ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn LeaveCriticalPolicySection ( hsection : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn ProcessGroupPolicyCompleted ( extensionid : *const :: windows_sys::core::GUID , pasynchandle : usize , dwstatus : u32 ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn ProcessGroupPolicyCompletedEx ( extensionid : *const :: windows_sys::core::GUID , pasynchandle : usize , dwstatus : u32 , rsopstatus : :: windows_sys::core::HRESULT ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RefreshPolicy ( bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RefreshPolicy ( bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RefreshPolicyEx ( bmachine : super::super::Foundation:: BOOL , dwoptions : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RefreshPolicyEx ( bmachine : super::super::Foundation:: BOOL , dwoptions : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RegisterGPNotification ( hevent : super::super::Foundation:: HANDLE , bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RegisterGPNotification ( hevent : super::super::Foundation:: HANDLE , bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RsopAccessCheckByType ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pprincipalselfsid : super::super::Foundation:: PSID , prsoptoken : *const ::core::ffi::c_void , dwdesiredaccessmask : u32 , pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST , objecttypelistlength : u32 , pgenericmapping : *const super::super::Security:: GENERIC_MAPPING , pprivilegeset : *const super::super::Security:: PRIVILEGE_SET , pdwprivilegesetlength : *const u32 , pdwgrantedaccessmask : *mut u32 , pbaccessstatus : *mut i32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RsopFileAccessCheck ( pszfilename : :: windows_sys::core::PCWSTR , prsoptoken : *const ::core::ffi::c_void , dwdesiredaccessmask : u32 , pdwgrantedaccessmask : *mut u32 , pbaccessstatus : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RsopAccessCheckByType ( psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR , pprincipalselfsid : super::super::Foundation:: PSID , prsoptoken : *const ::core::ffi::c_void , dwdesiredaccessmask : u32 , pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST , objecttypelistlength : u32 , pgenericmapping : *const super::super::Security:: GENERIC_MAPPING , pprivilegeset : *const super::super::Security:: PRIVILEGE_SET , pdwprivilegesetlength : *const u32 , pdwgrantedaccessmask : *mut u32 , pbaccessstatus : *mut i32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RsopFileAccessCheck ( pszfilename : :: windows_sys::core::PCWSTR , prsoptoken : *const ::core::ffi::c_void , dwdesiredaccessmask : u32 , pdwgrantedaccessmask : *mut u32 , pbaccessstatus : *mut i32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Wmi")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RsopResetPolicySettingStatus ( dwflags : u32 , pservices : super::Wmi:: IWbemServices , psettinginstance : super::Wmi:: IWbemClassObject ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RsopResetPolicySettingStatus ( dwflags : u32 , pservices : super::Wmi:: IWbemServices , psettinginstance : super::Wmi:: IWbemClassObject ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn RsopSetPolicySettingStatus ( dwflags : u32 , pservices : super::Wmi:: IWbemServices , psettinginstance : super::Wmi:: IWbemClassObject , ninfo : u32 , pstatus : *const POLICYSETTINGSTATUSINFO ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "advapi32.dll" ,"system" fn UninstallApplication ( productcode : :: windows_sys::core::PCWSTR , dwstatus : u32 ) -> u32 );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn RsopSetPolicySettingStatus ( dwflags : u32 , pservices : super::Wmi:: IWbemServices , psettinginstance : super::Wmi:: IWbemClassObject , ninfo : u32 , pstatus : *const POLICYSETTINGSTATUSINFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "advapi32.dll" ,"system" fn UninstallApplication ( productcode : :: windows_sys::core::PCWSTR , dwstatus : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "userenv.dll" ,"system" fn UnregisterGPNotification ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "userenv.dll" ,"system" fn UnregisterGPNotification ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 pub type IGPEInformation = *mut ::core::ffi::c_void;
 pub type IGPM = *mut ::core::ffi::c_void;
 pub type IGPM2 = *mut ::core::ffi::c_void;

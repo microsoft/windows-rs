@@ -1,98 +1,98 @@
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn MultinetGetConnectionPerformanceA ( lpnetresource : *const NETRESOURCEA , lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn MultinetGetConnectionPerformanceW ( lpnetresource : *const NETRESOURCEW , lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPAddConnection ( lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn MultinetGetConnectionPerformanceA ( lpnetresource : *const NETRESOURCEA , lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn MultinetGetConnectionPerformanceW ( lpnetresource : *const NETRESOURCEW , lpnetconnectinfostruct : *mut NETCONNECTINFOSTRUCT ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPAddConnection ( lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPAddConnection3 ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : NET_USE_CONNECT_FLAGS ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPAddConnection3 ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : NET_USE_CONNECT_FLAGS ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntlanman.dll" ,"system" fn NPAddConnection4 ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lpauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
+::windows_sys::core::link ! ( "ntlanman.dll" ,"system" fn NPAddConnection4 ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lpauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPCancelConnection ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPCancelConnection ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntlanman.dll" ,"system" fn NPCancelConnection2 ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "ntlanman.dll" ,"system" fn NPCancelConnection2 ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL , dwflags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPCloseEnum ( henum : super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPCloseEnum ( henum : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPEnumResource ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPFormatNetworkName ( lpremotename : :: windows_sys::core::PCWSTR , lpformattedname : :: windows_sys::core::PWSTR , lpnlength : *mut u32 , dwflags : NETWORK_NAME_FORMAT_FLAGS , dwavecharperline : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetCaps ( ndex : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetConnection ( lplocalname : :: windows_sys::core::PCWSTR , lpremotename : :: windows_sys::core::PWSTR , lpnbufferlen : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "ntlanman.dll" ,"system" fn NPGetConnection3 ( lplocalname : :: windows_sys::core::PCWSTR , dwlevel : u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "ntlanman.dll" ,"system" fn NPGetConnectionPerformance ( lpremotename : :: windows_sys::core::PCWSTR , lpnetconnectinfo : *mut NETCONNECTINFOSTRUCT ) -> u32 );
-::windows_sys::core::windows_link ! ( "ntlanman.dll" ,"system" fn NPGetPersistentUseOptionsForConnection ( lpremotepath : :: windows_sys::core::PCWSTR , lpreaduseoptions : *const u8 , cbreaduseoptions : u32 , lpwriteuseoptions : *mut u8 , lpsizewriteuseoptions : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetResourceInformation ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 , lplpsystem : *mut :: windows_sys::core::PWSTR ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetResourceParent ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetUniversalName ( lplocalpath : :: windows_sys::core::PCWSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPGetUser ( lpname : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PWSTR , lpnbufferlen : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPEnumResource ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPFormatNetworkName ( lpremotename : :: windows_sys::core::PCWSTR , lpformattedname : :: windows_sys::core::PWSTR , lpnlength : *mut u32 , dwflags : NETWORK_NAME_FORMAT_FLAGS , dwavecharperline : u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetCaps ( ndex : u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetConnection ( lplocalname : :: windows_sys::core::PCWSTR , lpremotename : :: windows_sys::core::PWSTR , lpnbufferlen : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "ntlanman.dll" ,"system" fn NPGetConnection3 ( lplocalname : :: windows_sys::core::PCWSTR , dwlevel : u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "ntlanman.dll" ,"system" fn NPGetConnectionPerformance ( lpremotename : :: windows_sys::core::PCWSTR , lpnetconnectinfo : *mut NETCONNECTINFOSTRUCT ) -> u32 );
+::windows_sys::core::link ! ( "ntlanman.dll" ,"system" fn NPGetPersistentUseOptionsForConnection ( lpremotepath : :: windows_sys::core::PCWSTR , lpreaduseoptions : *const u8 , cbreaduseoptions : u32 , lpwriteuseoptions : *mut u8 , lpsizewriteuseoptions : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetResourceInformation ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 , lplpsystem : *mut :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetResourceParent ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetUniversalName ( lplocalpath : :: windows_sys::core::PCWSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPGetUser ( lpname : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PWSTR , lpnbufferlen : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "davclnt.dll" ,"system" fn NPOpenEnum ( dwscope : u32 , dwtype : u32 , dwusage : u32 , lpnetresource : *const NETRESOURCEW , lphenum : *mut super::super::Foundation:: HANDLE ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection2A ( lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PCSTR , dwflags : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection2W ( lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "davclnt.dll" ,"system" fn NPOpenEnum ( dwscope : u32 , dwtype : u32 , dwusage : u32 , lpnetresource : *const NETRESOURCEW , lphenum : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection2A ( lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PCSTR , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection2W ( lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection3A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PCSTR , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection3A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PCSTR , dwflags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection3W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection3W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PCWSTR , dwflags : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection4A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection4A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnection4W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnectionA ( lpremotename : :: windows_sys::core::PCSTR , lppassword : :: windows_sys::core::PCSTR , lplocalname : :: windows_sys::core::PCSTR ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetAddConnectionW ( lpremotename : :: windows_sys::core::PCWSTR , lppassword : :: windows_sys::core::PCWSTR , lplocalname : :: windows_sys::core::PCWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnection4W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnectionA ( lpremotename : :: windows_sys::core::PCSTR , lppassword : :: windows_sys::core::PCSTR , lplocalname : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetAddConnectionW ( lpremotename : :: windows_sys::core::PCWSTR , lppassword : :: windows_sys::core::PCWSTR , lplocalname : :: windows_sys::core::PCWSTR ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetCancelConnection2A ( lpname : :: windows_sys::core::PCSTR , dwflags : u32 , fforce : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetCancelConnection2A ( lpname : :: windows_sys::core::PCSTR , dwflags : u32 , fforce : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetCancelConnection2W ( lpname : :: windows_sys::core::PCWSTR , dwflags : u32 , fforce : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetCancelConnection2W ( lpname : :: windows_sys::core::PCWSTR , dwflags : u32 , fforce : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetCancelConnectionA ( lpname : :: windows_sys::core::PCSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetCancelConnectionA ( lpname : :: windows_sys::core::PCSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetCancelConnectionW ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetCancelConnectionW ( lpname : :: windows_sys::core::PCWSTR , fforce : super::super::Foundation:: BOOL ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetCloseEnum ( henum : super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetCloseEnum ( henum : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog ( hwnd : super::super::Foundation:: HWND , dwtype : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog ( hwnd : super::super::Foundation:: HWND , dwtype : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog1A ( lpconndlgstruct : *mut CONNECTDLGSTRUCTA ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog1A ( lpconndlgstruct : *mut CONNECTDLGSTRUCTA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog1W ( lpconndlgstruct : *mut CONNECTDLGSTRUCTW ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetConnectionDialog1W ( lpconndlgstruct : *mut CONNECTDLGSTRUCTW ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog ( hwnd : super::super::Foundation:: HWND , dwtype : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog ( hwnd : super::super::Foundation:: HWND , dwtype : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog1A ( lpconndlgstruct : *const DISCDLGSTRUCTA ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog1A ( lpconndlgstruct : *const DISCDLGSTRUCTA ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog1W ( lpconndlgstruct : *const DISCDLGSTRUCTW ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetDisconnectDialog1W ( lpconndlgstruct : *const DISCDLGSTRUCTW ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetEnumResourceA ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetEnumResourceA ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetEnumResourceW ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetConnectionA ( lplocalname : :: windows_sys::core::PCSTR , lpremotename : :: windows_sys::core::PSTR , lpnlength : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetConnectionW ( lplocalname : :: windows_sys::core::PCWSTR , lpremotename : :: windows_sys::core::PWSTR , lpnlength : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetLastErrorA ( lperror : *mut u32 , lperrorbuf : :: windows_sys::core::PSTR , nerrorbufsize : u32 , lpnamebuf : :: windows_sys::core::PSTR , nnamebufsize : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetLastErrorW ( lperror : *mut u32 , lperrorbuf : :: windows_sys::core::PWSTR , nerrorbufsize : u32 , lpnamebuf : :: windows_sys::core::PWSTR , nnamebufsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetEnumResourceW ( henum : super::super::Foundation:: HANDLE , lpccount : *mut u32 , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetConnectionA ( lplocalname : :: windows_sys::core::PCSTR , lpremotename : :: windows_sys::core::PSTR , lpnlength : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetConnectionW ( lplocalname : :: windows_sys::core::PCWSTR , lpremotename : :: windows_sys::core::PWSTR , lpnlength : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetLastErrorA ( lperror : *mut u32 , lperrorbuf : :: windows_sys::core::PSTR , nerrorbufsize : u32 , lpnamebuf : :: windows_sys::core::PSTR , nnamebufsize : u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetLastErrorW ( lperror : *mut u32 , lperrorbuf : :: windows_sys::core::PWSTR , nerrorbufsize : u32 , lpnamebuf : :: windows_sys::core::PWSTR , nnamebufsize : u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetNetworkInformationA ( lpprovider : :: windows_sys::core::PCSTR , lpnetinfostruct : *mut NETINFOSTRUCT ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetNetworkInformationA ( lpprovider : :: windows_sys::core::PCSTR , lpnetinfostruct : *mut NETINFOSTRUCT ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetNetworkInformationW ( lpprovider : :: windows_sys::core::PCWSTR , lpnetinfostruct : *mut NETINFOSTRUCT ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetProviderNameA ( dwnettype : u32 , lpprovidername : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetProviderNameW ( dwnettype : u32 , lpprovidername : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetResourceInformationA ( lpnetresource : *const NETRESOURCEA , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 , lplpsystem : *mut :: windows_sys::core::PSTR ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetResourceInformationW ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 , lplpsystem : *mut :: windows_sys::core::PWSTR ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetResourceParentA ( lpnetresource : *const NETRESOURCEA , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetResourceParentW ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetUniversalNameA ( lplocalpath : :: windows_sys::core::PCSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetUniversalNameW ( lplocalpath : :: windows_sys::core::PCWSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetUserA ( lpname : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PSTR , lpnlength : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetGetUserW ( lpname : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PWSTR , lpnlength : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetOpenEnumA ( dwscope : NET_RESOURCE_SCOPE , dwtype : NET_RESOURCE_TYPE , dwusage : WNET_OPEN_ENUM_USAGE , lpnetresource : *const NETRESOURCEA , lphenum : *mut NetEnumHandle ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetOpenEnumW ( dwscope : NET_RESOURCE_SCOPE , dwtype : NET_RESOURCE_TYPE , dwusage : WNET_OPEN_ENUM_USAGE , lpnetresource : *const NETRESOURCEW , lphenum : *mut NetEnumHandle ) -> u32 );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetSetLastErrorA ( err : u32 , lperror : :: windows_sys::core::PCSTR , lpproviders : :: windows_sys::core::PCSTR ) -> ( ) );
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetSetLastErrorW ( err : u32 , lperror : :: windows_sys::core::PCWSTR , lpproviders : :: windows_sys::core::PCWSTR ) -> ( ) );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetNetworkInformationW ( lpprovider : :: windows_sys::core::PCWSTR , lpnetinfostruct : *mut NETINFOSTRUCT ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetProviderNameA ( dwnettype : u32 , lpprovidername : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetProviderNameW ( dwnettype : u32 , lpprovidername : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetResourceInformationA ( lpnetresource : *const NETRESOURCEA , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 , lplpsystem : *mut :: windows_sys::core::PSTR ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetResourceInformationW ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 , lplpsystem : *mut :: windows_sys::core::PWSTR ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetResourceParentA ( lpnetresource : *const NETRESOURCEA , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetResourceParentW ( lpnetresource : *const NETRESOURCEW , lpbuffer : *mut ::core::ffi::c_void , lpcbbuffer : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetUniversalNameA ( lplocalpath : :: windows_sys::core::PCSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetUniversalNameW ( lplocalpath : :: windows_sys::core::PCWSTR , dwinfolevel : UNC_INFO_LEVEL , lpbuffer : *mut ::core::ffi::c_void , lpbuffersize : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetUserA ( lpname : :: windows_sys::core::PCSTR , lpusername : :: windows_sys::core::PSTR , lpnlength : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetGetUserW ( lpname : :: windows_sys::core::PCWSTR , lpusername : :: windows_sys::core::PWSTR , lpnlength : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetOpenEnumA ( dwscope : NET_RESOURCE_SCOPE , dwtype : NET_RESOURCE_TYPE , dwusage : WNET_OPEN_ENUM_USAGE , lpnetresource : *const NETRESOURCEA , lphenum : *mut NetEnumHandle ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetOpenEnumW ( dwscope : NET_RESOURCE_SCOPE , dwtype : NET_RESOURCE_TYPE , dwusage : WNET_OPEN_ENUM_USAGE , lpnetresource : *const NETRESOURCEW , lphenum : *mut NetEnumHandle ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetSetLastErrorA ( err : u32 , lperror : :: windows_sys::core::PCSTR , lpproviders : :: windows_sys::core::PCSTR ) -> ( ) );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetSetLastErrorW ( err : u32 , lperror : :: windows_sys::core::PCWSTR , lpproviders : :: windows_sys::core::PCWSTR ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetUseConnection4A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 , lpaccessname : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetUseConnection4A ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 , lpaccessname : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetUseConnection4W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 , lpaccessname : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetUseConnection4W ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , pauthbuffer : *const ::core::ffi::c_void , cbauthbuffer : u32 , dwflags : u32 , lpuseoptions : *const u8 , cbuseoptions : u32 , lpaccessname : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetUseConnectionA ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpuserid : :: windows_sys::core::PCSTR , dwflags : NET_USE_CONNECT_FLAGS , lpaccessname : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetUseConnectionA ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEA , lppassword : :: windows_sys::core::PCSTR , lpuserid : :: windows_sys::core::PCSTR , dwflags : NET_USE_CONNECT_FLAGS , lpaccessname : :: windows_sys::core::PSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mpr.dll" ,"system" fn WNetUseConnectionW ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpuserid : :: windows_sys::core::PCWSTR , dwflags : NET_USE_CONNECT_FLAGS , lpaccessname : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "mpr.dll" ,"system" fn WNetUseConnectionW ( hwndowner : super::super::Foundation:: HWND , lpnetresource : *const NETRESOURCEW , lppassword : :: windows_sys::core::PCWSTR , lpuserid : :: windows_sys::core::PCWSTR , dwflags : NET_USE_CONNECT_FLAGS , lpaccessname : :: windows_sys::core::PWSTR , lpbuffersize : *mut u32 , lpresult : *mut u32 ) -> u32 );
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_CRED_RESET: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]

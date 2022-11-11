@@ -5,7 +5,7 @@ pub unsafe fn AdjustWindowRectExForDpi<'a, P0>(lprect: *mut super::super::Founda
 where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn AdjustWindowRectExForDpi ( lprect : *mut super::super::Foundation:: RECT , dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE , bmenu : super::super::Foundation:: BOOL , dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE , dpi : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn AdjustWindowRectExForDpi ( lprect : *mut super::super::Foundation:: RECT , dwstyle : super::WindowsAndMessaging:: WINDOW_STYLE , bmenu : super::super::Foundation:: BOOL , dwexstyle : super::WindowsAndMessaging:: WINDOW_EX_STYLE , dpi : u32 ) -> super::super::Foundation:: BOOL );
     AdjustWindowRectExForDpi(::core::mem::transmute(lprect), dwstyle, bmenu.into(), dwexstyle, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -16,7 +16,7 @@ where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
     P1: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn AreDpiAwarenessContextsEqual ( dpicontexta : DPI_AWARENESS_CONTEXT , dpicontextb : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn AreDpiAwarenessContextsEqual ( dpicontexta : DPI_AWARENESS_CONTEXT , dpicontextb : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
     AreDpiAwarenessContextsEqual(dpicontexta.into(), dpicontextb.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -26,7 +26,7 @@ pub unsafe fn EnableNonClientDpiScaling<'a, P0>(hwnd: P0) -> super::super::Found
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn EnableNonClientDpiScaling ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn EnableNonClientDpiScaling ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     EnableNonClientDpiScaling(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
@@ -35,7 +35,7 @@ pub unsafe fn GetAwarenessFromDpiAwarenessContext<'a, P0>(value: P0) -> DPI_AWAR
 where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetAwarenessFromDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetAwarenessFromDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS );
     GetAwarenessFromDpiAwarenessContext(value.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -45,7 +45,7 @@ pub unsafe fn GetDialogControlDpiChangeBehavior<'a, P0>(hwnd: P0) -> DIALOG_CONT
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDialogControlDpiChangeBehavior ( hwnd : super::super::Foundation:: HWND ) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDialogControlDpiChangeBehavior ( hwnd : super::super::Foundation:: HWND ) -> DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS );
     GetDialogControlDpiChangeBehavior(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -55,7 +55,7 @@ pub unsafe fn GetDialogDpiChangeBehavior<'a, P0>(hdlg: P0) -> DIALOG_DPI_CHANGE_
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDialogDpiChangeBehavior ( hdlg : super::super::Foundation:: HWND ) -> DIALOG_DPI_CHANGE_BEHAVIORS );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDialogDpiChangeBehavior ( hdlg : super::super::Foundation:: HWND ) -> DIALOG_DPI_CHANGE_BEHAVIORS );
     GetDialogDpiChangeBehavior(hdlg.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -65,7 +65,7 @@ pub unsafe fn GetDpiAwarenessContextForProcess<'a, P0>(hprocess: P0) -> DPI_AWAR
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDpiAwarenessContextForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> DPI_AWARENESS_CONTEXT );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDpiAwarenessContextForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> DPI_AWARENESS_CONTEXT );
     GetDpiAwarenessContextForProcess(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -75,13 +75,13 @@ pub unsafe fn GetDpiForMonitor<'a, P0>(hmonitor: P0, dpitype: MONITOR_DPI_TYPE, 
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HMONITOR>,
 {
-    ::windows::core::windows_link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn GetDpiForMonitor ( hmonitor : super::super::Graphics::Gdi:: HMONITOR , dpitype : MONITOR_DPI_TYPE , dpix : *mut u32 , dpiy : *mut u32 ) -> :: windows::core::HRESULT );
     GetDpiForMonitor(hmonitor.into(), dpitype, ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn GetDpiForSystem() -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDpiForSystem ( ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDpiForSystem ( ) -> u32 );
     GetDpiForSystem()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -91,7 +91,7 @@ pub unsafe fn GetDpiForWindow<'a, P0>(hwnd: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDpiForWindow ( hwnd : super::super::Foundation:: HWND ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDpiForWindow ( hwnd : super::super::Foundation:: HWND ) -> u32 );
     GetDpiForWindow(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
@@ -100,7 +100,7 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<'a, P0>(value: P0) -> u32
 where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetDpiFromDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetDpiFromDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> u32 );
     GetDpiFromDpiAwarenessContext(value.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -110,7 +110,7 @@ pub unsafe fn GetProcessDpiAwareness<'a, P0>(hprocess: P0) -> ::windows::core::R
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetProcessDpiAwareness(hprocess.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROCESS_DPI_AWARENESS>(result__)
 }
@@ -121,26 +121,26 @@ pub unsafe fn GetSystemDpiForProcess<'a, P0>(hprocess: P0) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetSystemDpiForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetSystemDpiForProcess ( hprocess : super::super::Foundation:: HANDLE ) -> u32 );
     GetSystemDpiForProcess(hprocess.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GetSystemMetricsForDpi(nindex: super::WindowsAndMessaging::SYSTEM_METRICS_INDEX, dpi: u32) -> i32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetSystemMetricsForDpi ( nindex : super::WindowsAndMessaging:: SYSTEM_METRICS_INDEX , dpi : u32 ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetSystemMetricsForDpi ( nindex : super::WindowsAndMessaging:: SYSTEM_METRICS_INDEX , dpi : u32 ) -> i32 );
     GetSystemMetricsForDpi(nindex, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetThreadDpiAwarenessContext ( ) -> DPI_AWARENESS_CONTEXT );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetThreadDpiAwarenessContext ( ) -> DPI_AWARENESS_CONTEXT );
     GetThreadDpiAwarenessContext()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetThreadDpiHostingBehavior ( ) -> DPI_HOSTING_BEHAVIOR );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetThreadDpiHostingBehavior ( ) -> DPI_HOSTING_BEHAVIOR );
     GetThreadDpiHostingBehavior()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -150,7 +150,7 @@ pub unsafe fn GetWindowDpiAwarenessContext<'a, P0>(hwnd: P0) -> DPI_AWARENESS_CO
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetWindowDpiAwarenessContext ( hwnd : super::super::Foundation:: HWND ) -> DPI_AWARENESS_CONTEXT );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetWindowDpiAwarenessContext ( hwnd : super::super::Foundation:: HWND ) -> DPI_AWARENESS_CONTEXT );
     GetWindowDpiAwarenessContext(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -160,7 +160,7 @@ pub unsafe fn GetWindowDpiHostingBehavior<'a, P0>(hwnd: P0) -> DPI_HOSTING_BEHAV
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetWindowDpiHostingBehavior ( hwnd : super::super::Foundation:: HWND ) -> DPI_HOSTING_BEHAVIOR );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetWindowDpiHostingBehavior ( hwnd : super::super::Foundation:: HWND ) -> DPI_HOSTING_BEHAVIOR );
     GetWindowDpiHostingBehavior(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -170,7 +170,7 @@ pub unsafe fn IsValidDpiAwarenessContext<'a, P0>(value: P0) -> super::super::Fou
 where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn IsValidDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn IsValidDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
     IsValidDpiAwarenessContext(value.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -180,7 +180,7 @@ pub unsafe fn LogicalToPhysicalPointForPerMonitorDPI<'a, P0>(hwnd: P0, lppoint: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn LogicalToPhysicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn LogicalToPhysicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     LogicalToPhysicalPointForPerMonitorDPI(hwnd.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -191,7 +191,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "uxtheme.dll" ,"system" fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
+    ::windows::core::link ! ( "uxtheme.dll" ,"system" fn OpenThemeDataForDpi ( hwnd : super::super::Foundation:: HWND , pszclasslist : :: windows::core::PCWSTR , dpi : u32 ) -> super::Controls:: HTHEME );
     OpenThemeDataForDpi(hwnd.into(), pszclasslist.into(), dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -201,7 +201,7 @@ pub unsafe fn PhysicalToLogicalPointForPerMonitorDPI<'a, P0>(hwnd: P0, lppoint: 
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn PhysicalToLogicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn PhysicalToLogicalPointForPerMonitorDPI ( hwnd : super::super::Foundation:: HWND , lppoint : *mut super::super::Foundation:: POINT ) -> super::super::Foundation:: BOOL );
     PhysicalToLogicalPointForPerMonitorDPI(hwnd.into(), ::core::mem::transmute(lppoint))
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -211,7 +211,7 @@ pub unsafe fn SetDialogControlDpiChangeBehavior<'a, P0>(hwnd: P0, mask: DIALOG_C
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetDialogControlDpiChangeBehavior ( hwnd : super::super::Foundation:: HWND , mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS , values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetDialogControlDpiChangeBehavior ( hwnd : super::super::Foundation:: HWND , mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS , values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
     SetDialogControlDpiChangeBehavior(hwnd.into(), mask, values)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -221,13 +221,13 @@ pub unsafe fn SetDialogDpiChangeBehavior<'a, P0>(hdlg: P0, mask: DIALOG_DPI_CHAN
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetDialogDpiChangeBehavior ( hdlg : super::super::Foundation:: HWND , mask : DIALOG_DPI_CHANGE_BEHAVIORS , values : DIALOG_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetDialogDpiChangeBehavior ( hdlg : super::super::Foundation:: HWND , mask : DIALOG_DPI_CHANGE_BEHAVIORS , values : DIALOG_DPI_CHANGE_BEHAVIORS ) -> super::super::Foundation:: BOOL );
     SetDialogDpiChangeBehavior(hdlg.into(), mask, values)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn SetProcessDpiAwareness(value: PROCESS_DPI_AWARENESS) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll" ,"system" fn SetProcessDpiAwareness ( value : PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
     SetProcessDpiAwareness(value).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
@@ -237,7 +237,7 @@ pub unsafe fn SetProcessDpiAwarenessContext<'a, P0>(value: P0) -> super::super::
 where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetProcessDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetProcessDpiAwarenessContext ( value : DPI_AWARENESS_CONTEXT ) -> super::super::Foundation:: BOOL );
     SetProcessDpiAwarenessContext(value.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
@@ -246,20 +246,20 @@ pub unsafe fn SetThreadDpiAwarenessContext<'a, P0>(dpicontext: P0) -> DPI_AWAREN
 where
     P0: ::std::convert::Into<DPI_AWARENESS_CONTEXT>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetThreadDpiAwarenessContext ( dpicontext : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS_CONTEXT );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetThreadDpiAwarenessContext ( dpicontext : DPI_AWARENESS_CONTEXT ) -> DPI_AWARENESS_CONTEXT );
     SetThreadDpiAwarenessContext(dpicontext.into())
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[inline]
 pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HOSTING_BEHAVIOR {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetThreadDpiHostingBehavior ( value : DPI_HOSTING_BEHAVIOR ) -> DPI_HOSTING_BEHAVIOR );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetThreadDpiHostingBehavior ( value : DPI_HOSTING_BEHAVIOR ) -> DPI_HOSTING_BEHAVIOR );
     SetThreadDpiHostingBehavior(value)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: ::core::option::Option<*mut ::core::ffi::c_void>, fwinini: u32, dpi: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SystemParametersInfoForDpi ( uiaction : u32 , uiparam : u32 , pvparam : *mut ::core::ffi::c_void , fwinini : u32 , dpi : u32 ) -> super::super::Foundation:: BOOL );
     SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini, dpi)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]

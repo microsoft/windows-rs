@@ -1,324 +1,324 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn AcceptEx ( slistensocket : SOCKET , sacceptsocket : SOCKET , lpoutputbuffer : *mut ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , lpdwbytesreceived : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn EnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn EnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn AcceptEx ( slistensocket : SOCKET , sacceptsocket : SOCKET , lpoutputbuffer : *mut ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , lpdwbytesreceived : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn EnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn EnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoEx ( paddrinfoex : *const ADDRINFOEXA ) -> ( ) );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoEx ( paddrinfoex : *const ADDRINFOEXA ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoExW ( paddrinfoex : *const ADDRINFOEXW ) -> ( ) );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoExW ( paddrinfoex : *const ADDRINFOEXW ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoW ( paddrinfo : *const ADDRINFOW ) -> ( ) );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn FreeAddrInfoW ( paddrinfo : *const ADDRINFOW ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetAcceptExSockaddrs ( lpoutputbuffer : *const ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , localsockaddr : *mut *mut SOCKADDR , localsockaddrlength : *mut i32 , remotesockaddr : *mut *mut SOCKADDR , remotesockaddrlength : *mut i32 ) -> ( ) );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetAcceptExSockaddrs ( lpoutputbuffer : *const ::core::ffi::c_void , dwreceivedatalength : u32 , dwlocaladdresslength : u32 , dwremoteaddresslength : u32 , localsockaddr : *mut *mut SOCKADDR , localsockaddrlength : *mut i32 , remotesockaddr : *mut *mut SOCKADDR , remotesockaddrlength : *mut i32 ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExA ( pname : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , hints : *const ADDRINFOEXA , ppresult : *mut *mut ADDRINFOEXA , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExA ( pname : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , hints : *const ADDRINFOEXA , ppresult : *mut *mut ADDRINFOEXA , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExCancel ( lphandle : *const super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExCancel ( lphandle : *const super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExOverlappedResult ( lpoverlapped : *const super::super::System::IO:: OVERLAPPED ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExOverlappedResult ( lpoverlapped : *const super::super::System::IO:: OVERLAPPED ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExW ( pname : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , hints : *const ADDRINFOEXW , ppresult : *mut *mut ADDRINFOEXW , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lphandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoExW ( pname : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , hints : *const ADDRINFOEXW , ppresult : *mut *mut ADDRINFOEXW , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lphandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoW ( pnodename : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , phints : *const ADDRINFOW , ppresult : *mut *mut ADDRINFOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetAddrInfoW ( pnodename : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , phints : *const ADDRINFOW , ppresult : *mut *mut ADDRINFOW ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetAddressByNameA ( dwnamespace : u32 , lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : :: windows_sys::core::PSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetAddressByNameA ( dwnamespace : u32 , lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : :: windows_sys::core::PSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetAddressByNameW ( dwnamespace : u32 , lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCWSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : :: windows_sys::core::PWSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetHostNameW ( name : :: windows_sys::core::PWSTR , namelen : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetNameByTypeA ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PSTR , dwnamelength : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetNameByTypeW ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PWSTR , dwnamelength : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetAddressByNameW ( dwnamespace : u32 , lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCWSTR , lpiprotocols : *const i32 , dwresolution : u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpcsaddrbuffer : *mut ::core::ffi::c_void , lpdwbufferlength : *mut u32 , lpaliasbuffer : :: windows_sys::core::PWSTR , lpdwaliasbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetHostNameW ( name : :: windows_sys::core::PWSTR , namelen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetNameByTypeA ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PSTR , dwnamelength : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetNameByTypeW ( lpservicetype : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PWSTR , dwnamelength : u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn GetNameInfoW ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PWSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PWSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetServiceA ( dwnamespace : u32 , lpguid : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetServiceA ( dwnamespace : u32 , lpguid : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetServiceW ( dwnamespace : u32 , lpguid : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCWSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetTypeByNameA ( lpservicename : :: windows_sys::core::PCSTR , lpservicetype : *mut :: windows_sys::core::GUID ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn GetTypeByNameW ( lpservicename : :: windows_sys::core::PCWSTR , lpservicetype : *mut :: windows_sys::core::GUID ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows_sys::core::PWSTR , stringbufsize : usize ) -> :: windows_sys::core::PWSTR );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn InetPtonW ( family : i32 , pszaddrstring : :: windows_sys::core::PCWSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetServiceW ( dwnamespace : u32 , lpguid : *const :: windows_sys::core::GUID , lpservicename : :: windows_sys::core::PCWSTR , dwproperties : u32 , lpbuffer : *mut ::core::ffi::c_void , lpdwbuffersize : *mut u32 , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetTypeByNameA ( lpservicename : :: windows_sys::core::PCSTR , lpservicetype : *mut :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn GetTypeByNameW ( lpservicename : :: windows_sys::core::PCWSTR , lpservicetype : *mut :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn InetNtopW ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows_sys::core::PWSTR , stringbufsize : usize ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn InetPtonW ( family : i32 , pszaddrstring : :: windows_sys::core::PCWSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn ProcessSocketNotifications ( completionport : super::super::Foundation:: HANDLE , registrationcount : u32 , registrationinfos : *mut SOCK_NOTIFY_REGISTRATION , timeoutms : u32 , completioncount : u32 , completionportentries : *mut super::super::System::IO:: OVERLAPPED_ENTRY , receivedentrycount : *mut u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlEthernetAddressToStringA ( addr : *const DL_EUI48 , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlEthernetAddressToStringW ( addr : *const DL_EUI48 , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlEthernetStringToAddressA ( s : :: windows_sys::core::PCSTR , terminator : *mut :: windows_sys::core::PSTR , addr : *mut DL_EUI48 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlEthernetStringToAddressW ( s : :: windows_sys::core::PCWSTR , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut DL_EUI48 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringA ( addr : *const IN_ADDR , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringExA ( address : *const IN_ADDR , port : u16 , addressstring : :: windows_sys::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringExW ( address : *const IN_ADDR , port : u16 , addressstring : :: windows_sys::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringW ( addr : *const IN_ADDR , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn ProcessSocketNotifications ( completionport : super::super::Foundation:: HANDLE , registrationcount : u32 , registrationinfos : *mut SOCK_NOTIFY_REGISTRATION , timeoutms : u32 , completioncount : u32 , completionportentries : *mut super::super::System::IO:: OVERLAPPED_ENTRY , receivedentrycount : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlEthernetAddressToStringA ( addr : *const DL_EUI48 , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlEthernetAddressToStringW ( addr : *const DL_EUI48 , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlEthernetStringToAddressA ( s : :: windows_sys::core::PCSTR , terminator : *mut :: windows_sys::core::PSTR , addr : *mut DL_EUI48 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlEthernetStringToAddressW ( s : :: windows_sys::core::PCWSTR , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut DL_EUI48 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringA ( addr : *const IN_ADDR , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringExA ( address : *const IN_ADDR , port : u16 , addressstring : :: windows_sys::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringExW ( address : *const IN_ADDR , port : u16 , addressstring : :: windows_sys::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4AddressToStringW ( addr : *const IN_ADDR , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressA ( s : :: windows_sys::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows_sys::core::PSTR , addr : *mut IN_ADDR ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressA ( s : :: windows_sys::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows_sys::core::PSTR , addr : *mut IN_ADDR ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressExA ( addressstring : :: windows_sys::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressExA ( addressstring : :: windows_sys::core::PCSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressExW ( addressstring : :: windows_sys::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressExW ( addressstring : :: windows_sys::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , address : *mut IN_ADDR , port : *mut u16 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressW ( s : :: windows_sys::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut IN_ADDR ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringA ( addr : *const IN6_ADDR , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringExA ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : :: windows_sys::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringExW ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : :: windows_sys::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringW ( addr : *const IN6_ADDR , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressA ( s : :: windows_sys::core::PCSTR , terminator : *mut :: windows_sys::core::PSTR , addr : *mut IN6_ADDR ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressExA ( addressstring : :: windows_sys::core::PCSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressExW ( addressstring : :: windows_sys::core::PCWSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressW ( s : :: windows_sys::core::PCWSTR , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut IN6_ADDR ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv4StringToAddressW ( s : :: windows_sys::core::PCWSTR , strict : super::super::Foundation:: BOOLEAN , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut IN_ADDR ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringA ( addr : *const IN6_ADDR , s : :: windows_sys::core::PSTR ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringExA ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : :: windows_sys::core::PSTR , addressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringExW ( address : *const IN6_ADDR , scopeid : u32 , port : u16 , addressstring : :: windows_sys::core::PWSTR , addressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6AddressToStringW ( addr : *const IN6_ADDR , s : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::PWSTR );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressA ( s : :: windows_sys::core::PCSTR , terminator : *mut :: windows_sys::core::PSTR , addr : *mut IN6_ADDR ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressExA ( addressstring : :: windows_sys::core::PCSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressExW ( addressstring : :: windows_sys::core::PCWSTR , address : *mut IN6_ADDR , scopeid : *mut u32 , port : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ntdll.dll" ,"system" fn RtlIpv6StringToAddressW ( s : :: windows_sys::core::PCWSTR , terminator : *mut :: windows_sys::core::PWSTR , addr : *mut IN6_ADDR ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn SetAddrInfoExA ( pname : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn SetAddrInfoExA ( pname : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn SetAddrInfoExW ( pname : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn SetAddrInfoExW ( pname : :: windows_sys::core::PCWSTR , pservicename : :: windows_sys::core::PCWSTR , paddresses : *const SOCKET_ADDRESS , dwaddresscount : u32 , lpblob : *const super::super::System::Com:: BLOB , dwflags : u32 , dwnamespace : u32 , lpnspid : *const :: windows_sys::core::GUID , timeout : *const TIMEVAL , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPLOOKUPSERVICE_COMPLETION_ROUTINE , lpnamehandle : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn SetServiceA ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOA , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn SetServiceA ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOA , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn SetServiceW ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOW , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn SetServiceW ( dwnamespace : u32 , dwoperation : SET_SERVICE_OPERATION , dwflags : u32 , lpserviceinfo : *const SERVICE_INFOW , lpserviceasyncinfo : *const SERVICE_ASYNC_INFO , lpdwstatusflags : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "windows.networking.dll" ,"system" fn SetSocketMediaStreamingMode ( value : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windows.networking.dll" ,"system" fn SetSocketMediaStreamingMode ( value : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn TransmitFile ( hsocket : SOCKET , hfile : super::super::Foundation:: HANDLE , nnumberofbytestowrite : u32 , nnumberofbytespersend : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn TransmitFile ( hsocket : SOCKET , hfile : super::super::Foundation:: HANDLE , nnumberofbytestowrite : u32 , nnumberofbytespersend : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS , dwreserved : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WPUCompleteOverlappedRequest ( s : SOCKET , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , dwerror : u32 , cbtransferred : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WPUCompleteOverlappedRequest ( s : SOCKET , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , dwerror : u32 , cbtransferred : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAccept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 , lpfncondition : LPCONDITIONPROC , dwcallbackdata : usize ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAccept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 , lpfncondition : LPCONDITIONPROC , dwcallbackdata : usize ) -> SOCKET );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAddressToStringA ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpszaddressstring : :: windows_sys::core::PSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAddressToStringA ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpszaddressstring : :: windows_sys::core::PSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAddressToStringW ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpszaddressstring : :: windows_sys::core::PWSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAddressToStringW ( lpsaaddress : *const SOCKADDR , dwaddresslength : u32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpszaddressstring : :: windows_sys::core::PWSTR , lpdwaddressstringlength : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAdvertiseProvider ( puuidproviderid : *const :: windows_sys::core::GUID , pnspv2routine : *const NSPV2_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAdvertiseProvider ( puuidproviderid : *const :: windows_sys::core::GUID , pnspv2routine : *const NSPV2_ROUTINE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetHostByAddr ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , addr : :: windows_sys::core::PCSTR , len : i32 , r#type : i32 , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetHostByAddr ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , addr : :: windows_sys::core::PCSTR , len : i32 , r#type : i32 , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetHostByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetHostByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetProtoByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetProtoByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetProtoByNumber ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , number : i32 , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetProtoByNumber ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , number : i32 , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetServByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , proto : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetServByName ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , name : :: windows_sys::core::PCSTR , proto : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetServByPort ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , port : i32 , proto : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncGetServByPort ( hwnd : super::super::Foundation:: HWND , wmsg : u32 , port : i32 , proto : :: windows_sys::core::PCSTR , buf : :: windows_sys::core::PSTR , buflen : i32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAAsyncSelect ( s : SOCKET , hwnd : super::super::Foundation:: HWND , wmsg : u32 , levent : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAAsyncSelect ( s : SOCKET , hwnd : super::super::Foundation:: HWND , wmsg : u32 , levent : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSACancelAsyncRequest ( hasynctaskhandle : super::super::Foundation:: HANDLE ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSACancelBlockingCall ( ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSACleanup ( ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSACancelAsyncRequest ( hasynctaskhandle : super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSACancelBlockingCall ( ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSACleanup ( ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSACloseEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSACloseEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAConnect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAConnect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows_sys::core::PCSTR , servicename : :: windows_sys::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows_sys::core::PCSTR , servicename : :: windows_sys::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows_sys::core::PCWSTR , servicename : :: windows_sys::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows_sys::core::PCWSTR , servicename : :: windows_sys::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSACreateEvent ( ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSACreateEvent ( ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSADeleteSocketPeerTargetName ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSADeleteSocketPeerTargetName ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSADuplicateSocketA ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOA ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSADuplicateSocketW ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSADuplicateSocketA ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSADuplicateSocketW ( s : SOCKET , dwprocessid : u32 , lpprotocolinfo : *mut WSAPROTOCOL_INFOW ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOA ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersExA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersExA ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXA ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersExW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersExW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumNameSpaceProvidersW ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumNetworkEvents ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lpnetworkevents : *mut WSANETWORKEVENTS ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumNetworkEvents ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lpnetworkevents : *mut WSANETWORKEVENTS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOA , lpdwbufferlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumProtocolsA ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOA , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEnumProtocolsW ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAEventSelect ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lnetworkevents : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetLastError ( ) -> WSA_ERROR );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAEventSelect ( s : SOCKET , heventobject : super::super::Foundation:: HANDLE , lnetworkevents : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetLastError ( ) -> WSA_ERROR );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetOverlappedResult ( s : SOCKET , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcbtransfer : *mut u32 , fwait : super::super::Foundation:: BOOL , lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetOverlappedResult ( s : SOCKET , lpoverlapped : *const super::super::System::IO:: OVERLAPPED , lpcbtransfer : *mut u32 , fwait : super::super::Foundation:: BOOL , lpdwflags : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetQOSByName ( s : SOCKET , lpqosname : *const WSABUF , lpqos : *mut QOS ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassInfoA ( lpproviderid : *const :: windows_sys::core::GUID , lpserviceclassid : *const :: windows_sys::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOA ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassInfoW ( lpproviderid : *const :: windows_sys::core::GUID , lpserviceclassid : *const :: windows_sys::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOW ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassNameByClassIdA ( lpserviceclassid : *const :: windows_sys::core::GUID , lpszserviceclassname : :: windows_sys::core::PSTR , lpdwbufferlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassNameByClassIdW ( lpserviceclassid : *const :: windows_sys::core::GUID , lpszserviceclassname : :: windows_sys::core::PWSTR , lpdwbufferlength : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAHtonl ( s : SOCKET , hostlong : u32 , lpnetlong : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAHtons ( s : SOCKET , hostshort : u16 , lpnetshort : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetQOSByName ( s : SOCKET , lpqosname : *const WSABUF , lpqos : *mut QOS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassInfoA ( lpproviderid : *const :: windows_sys::core::GUID , lpserviceclassid : *const :: windows_sys::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassInfoW ( lpproviderid : *const :: windows_sys::core::GUID , lpserviceclassid : *const :: windows_sys::core::GUID , lpdwbufsize : *mut u32 , lpserviceclassinfo : *mut WSASERVICECLASSINFOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassNameByClassIdA ( lpserviceclassid : *const :: windows_sys::core::GUID , lpszserviceclassname : :: windows_sys::core::PSTR , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAGetServiceClassNameByClassIdW ( lpserviceclassid : *const :: windows_sys::core::GUID , lpszserviceclassname : :: windows_sys::core::PWSTR , lpdwbufferlength : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAHtonl ( s : SOCKET , hostlong : u32 , lpnetlong : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAHtons ( s : SOCKET , hostshort : u16 , lpnetshort : *mut u16 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSAImpersonateSocketPeer ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAInstallServiceClassA ( lpserviceclassinfo : *const WSASERVICECLASSINFOA ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAInstallServiceClassW ( lpserviceclassinfo : *const WSASERVICECLASSINFOW ) -> i32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSAImpersonateSocketPeer ( socket : SOCKET , peeraddr : *const SOCKADDR , peeraddrlen : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAInstallServiceClassA ( lpserviceclassinfo : *const WSASERVICECLASSINFOA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAInstallServiceClassW ( lpserviceclassinfo : *const WSASERVICECLASSINFOW ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAIoctl ( s : SOCKET , dwiocontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAIoctl ( s : SOCKET , dwiocontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAIsBlocking ( ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAIsBlocking ( ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAJoinLeaf ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS , dwflags : u32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAJoinLeaf ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS , dwflags : u32 ) -> SOCKET );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceBeginA ( lpqsrestrictions : *const WSAQUERYSETA , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceBeginA ( lpqsrestrictions : *const WSAQUERYSETA , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceBeginW ( lpqsrestrictions : *const WSAQUERYSETW , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceBeginW ( lpqsrestrictions : *const WSAQUERYSETW , dwcontrolflags : u32 , lphlookup : *mut super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceEnd ( hlookup : super::super::Foundation:: HANDLE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceEnd ( hlookup : super::super::Foundation:: HANDLE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceNextA ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceNextA ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETA ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceNextW ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSALookupServiceNextW ( hlookup : super::super::Foundation:: HANDLE , dwcontrolflags : u32 , lpdwbufferlength : *mut u32 , lpqsresults : *mut WSAQUERYSETW ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSANSPIoctl ( hlookup : super::super::Foundation:: HANDLE , dwcontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpcompletion : *const WSACOMPLETION ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSANtohl ( s : SOCKET , netlong : u32 , lphostlong : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSANtohs ( s : SOCKET , netshort : u16 , lphostshort : *mut u16 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAPoll ( fdarray : *mut WSAPOLLFD , fds : u32 , timeout : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSANSPIoctl ( hlookup : super::super::Foundation:: HANDLE , dwcontrolcode : u32 , lpvinbuffer : *const ::core::ffi::c_void , cbinbuffer : u32 , lpvoutbuffer : *mut ::core::ffi::c_void , cboutbuffer : u32 , lpcbbytesreturned : *mut u32 , lpcompletion : *const WSACOMPLETION ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSANtohl ( s : SOCKET , netlong : u32 , lphostlong : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSANtohs ( s : SOCKET , netshort : u16 , lphostshort : *mut u16 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAPoll ( fdarray : *mut WSAPOLLFD , fds : u32 , timeout : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAProviderCompleteAsyncCall ( hasynccall : super::super::Foundation:: HANDLE , iretcode : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAProviderCompleteAsyncCall ( hasynccall : super::super::Foundation:: HANDLE , iretcode : i32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAProviderConfigChange ( lpnotificationhandle : *mut super::super::Foundation:: HANDLE , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAProviderConfigChange ( lpnotificationhandle : *mut super::super::Foundation:: HANDLE , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSAQuerySocketSecurity ( socket : SOCKET , securityquerytemplate : *const SOCKET_SECURITY_QUERY_TEMPLATE , securityquerytemplatelen : u32 , securityqueryinfo : *mut SOCKET_SECURITY_QUERY_INFO , securityqueryinfolen : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSAQuerySocketSecurity ( socket : SOCKET , securityquerytemplate : *const SOCKET_SECURITY_QUERY_TEMPLATE , securityquerytemplatelen : u32 , securityqueryinfo : *mut SOCKET_SECURITY_QUERY_INFO , securityqueryinfolen : *mut u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSARecv ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSARecvDisconnect ( s : SOCKET , lpinbounddisconnectdata : *const WSABUF ) -> i32 );
-::windows_sys::core::windows_link ! ( "mswsock.dll" ,"system" fn WSARecvEx ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSARecv ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSARecvDisconnect ( s : SOCKET , lpinbounddisconnectdata : *const WSABUF ) -> i32 );
+::windows_sys::core::link ! ( "mswsock.dll" ,"system" fn WSARecvEx ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : *mut i32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSARecvFrom ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpfrom : *mut SOCKADDR , lpfromlen : *mut i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSARemoveServiceClass ( lpserviceclassid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSARecvFrom ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytesrecvd : *mut u32 , lpflags : *mut u32 , lpfrom : *mut SOCKADDR , lpfromlen : *mut i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSARemoveServiceClass ( lpserviceclassid : *const :: windows_sys::core::GUID ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAResetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSARevertImpersonation ( ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAResetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSARevertImpersonation ( ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASend ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASendDisconnect ( s : SOCKET , lpoutbounddisconnectdata : *const WSABUF ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASend ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASendDisconnect ( s : SOCKET , lpoutbounddisconnectdata : *const WSABUF ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASendMsg ( handle : SOCKET , lpmsg : *const WSAMSG , dwflags : u32 , lpnumberofbytessent : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASendMsg ( handle : SOCKET , lpmsg : *const WSAMSG , dwflags : u32 , lpnumberofbytessent : *mut u32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASendTo ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpto : *const SOCKADDR , itolen : i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASendTo ( s : SOCKET , lpbuffers : *const WSABUF , dwbuffercount : u32 , lpnumberofbytessent : *mut u32 , dwflags : u32 , lpto : *const SOCKADDR , itolen : i32 , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED , lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASetBlockingHook ( lpblockfunc : super::super::Foundation:: FARPROC ) -> super::super::Foundation:: FARPROC );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASetBlockingHook ( lpblockfunc : super::super::Foundation:: FARPROC ) -> super::super::Foundation:: FARPROC );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASetLastError ( ierror : i32 ) -> ( ) );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASetEvent ( hevent : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASetLastError ( ierror : i32 ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASetServiceA ( lpqsreginfo : *const WSAQUERYSETA , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASetServiceA ( lpqsreginfo : *const WSAQUERYSETA , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASetServiceW ( lpqsreginfo : *const WSAQUERYSETW , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASetServiceW ( lpqsreginfo : *const WSAQUERYSETW , essoperation : WSAESETSERVICEOP , dwcontrolflags : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSASetSocketPeerTargetName ( socket : SOCKET , peertargetname : *const SOCKET_PEER_TARGET_NAME , peertargetnamelen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSASetSocketPeerTargetName ( socket : SOCKET , peertargetname : *const SOCKET_PEER_TARGET_NAME , peertargetnamelen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "fwpuclnt.dll" ,"system" fn WSASetSocketSecurity ( socket : SOCKET , securitysettings : *const SOCKET_SECURITY_SETTINGS , securitysettingslen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll" ,"system" fn WSASetSocketSecurity ( socket : SOCKET , securitysettings : *const SOCKET_SECURITY_SETTINGS , securitysettingslen : u32 , overlapped : *const super::super::System::IO:: OVERLAPPED , completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASocketA ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , g : u32 , dwflags : u32 ) -> SOCKET );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSASocketW ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , g : u32 , dwflags : u32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASocketA ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , g : u32 , dwflags : u32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSASocketW ( af : i32 , r#type : i32 , protocol : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , g : u32 , dwflags : u32 ) -> SOCKET );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAStartup ( wversionrequested : u16 , lpwsadata : *mut WSADATA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAStartup ( wversionrequested : u16 , lpwsadata : *mut WSADATA ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAStringToAddressA ( addressstring : :: windows_sys::core::PCSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAStringToAddressA ( addressstring : :: windows_sys::core::PCSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOA , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAStringToAddressW ( addressstring : :: windows_sys::core::PCWSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAUnadvertiseProvider ( puuidproviderid : *const :: windows_sys::core::GUID ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAUnhookBlockingHook ( ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAStringToAddressW ( addressstring : :: windows_sys::core::PCWSTR , addressfamily : i32 , lpprotocolinfo : *const WSAPROTOCOL_INFOW , lpaddress : *mut SOCKADDR , lpaddresslength : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAUnadvertiseProvider ( puuidproviderid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAUnhookBlockingHook ( ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSAWaitForMultipleEvents ( cevents : u32 , lphevents : *const super::super::Foundation:: HANDLE , fwaitall : super::super::Foundation:: BOOL , dwtimeout : u32 , falertable : super::super::Foundation:: BOOL ) -> u32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCDeinstallProvider ( lpproviderid : *const :: windows_sys::core::GUID , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSAWaitForMultipleEvents ( cevents : u32 , lphevents : *const super::super::Foundation:: HANDLE , fwaitall : super::super::Foundation:: BOOL , dwtimeout : u32 , falertable : super::super::Foundation:: BOOL ) -> u32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCDeinstallProvider ( lpproviderid : *const :: windows_sys::core::GUID , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCDeinstallProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCDeinstallProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , lperrno : *mut i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnableNSProvider ( lpproviderid : *const :: windows_sys::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnableNSProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnableNSProvider ( lpproviderid : *const :: windows_sys::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnumNameSpaceProviders32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnableNSProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , fenable : super::super::Foundation:: BOOL ) -> i32 );
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnumNameSpaceProviders32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOW ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnumNameSpaceProvidersEx32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnumProtocols ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnumNameSpaceProvidersEx32 ( lpdwbufferlength : *mut u32 , lpnspbuffer : *mut WSANAMESPACE_INFOEXW ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnumProtocols ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCEnumProtocols32 ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCGetApplicationCategory ( path : :: windows_sys::core::PCWSTR , pathlength : u32 , extra : :: windows_sys::core::PCWSTR , extralength : u32 , ppermittedlspcategories : *mut u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderInfo ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCEnumProtocols32 ( lpiprotocols : *const i32 , lpprotocolbuffer : *mut WSAPROTOCOL_INFOW , lpdwbufferlength : *mut u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCGetApplicationCategory ( path : :: windows_sys::core::PCWSTR , pathlength : u32 , extra : :: windows_sys::core::PCWSTR , extralength : u32 , ppermittedlspcategories : *mut u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderInfo ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderInfo32 ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderPath ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderInfo32 ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *mut u8 , infosize : *mut usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderPath ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderPath32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpace ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCGetProviderPath32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PWSTR , lpproviderdllpathlen : *mut i32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpace ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpace32 ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpace32 ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpaceEx ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpaceEx ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpaceEx32 ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallProvider ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallNameSpaceEx32 ( lpszidentifier : :: windows_sys::core::PCWSTR , lpszpathname : :: windows_sys::core::PCWSTR , dwnamespace : u32 , dwversion : u32 , lpproviderid : *const :: windows_sys::core::GUID , lpproviderspecific : *const super::super::System::Com:: BLOB ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallProvider ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallProvider64_32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallProvider64_32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCInstallProviderAndChains64_32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpszproviderdllpath32 : :: windows_sys::core::PCWSTR , lpszlspname : :: windows_sys::core::PCWSTR , dwserviceflags : u32 , lpprotocolinfolist : *mut WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lpdwcatalogentryid : *mut u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCSetApplicationCategory ( path : :: windows_sys::core::PCWSTR , pathlength : u32 , extra : :: windows_sys::core::PCWSTR , extralength : u32 , permittedlspcategories : u32 , pprevpermlspcat : *mut u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCSetProviderInfo ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCInstallProviderAndChains64_32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpszproviderdllpath32 : :: windows_sys::core::PCWSTR , lpszlspname : :: windows_sys::core::PCWSTR , dwserviceflags : u32 , lpprotocolinfolist : *mut WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lpdwcatalogentryid : *mut u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCSetApplicationCategory ( path : :: windows_sys::core::PCWSTR , pathlength : u32 , extra : :: windows_sys::core::PCWSTR , extralength : u32 , permittedlspcategories : u32 , pprevpermlspcat : *mut u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCSetProviderInfo ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCSetProviderInfo32 ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCUnInstallNameSpace ( lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCSetProviderInfo32 ( lpproviderid : *const :: windows_sys::core::GUID , infotype : WSC_PROVIDER_INFO_TYPE , info : *const u8 , infosize : usize , flags : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCUnInstallNameSpace ( lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCUnInstallNameSpace32 ( lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCUpdateProvider ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCUnInstallNameSpace32 ( lpproviderid : *const :: windows_sys::core::GUID ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCUpdateProvider ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCUpdateProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCWriteNameSpaceOrder ( lpproviderid : *mut :: windows_sys::core::GUID , dwnumberofentries : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCUpdateProvider32 ( lpproviderid : *const :: windows_sys::core::GUID , lpszproviderdllpath : :: windows_sys::core::PCWSTR , lpprotocolinfolist : *const WSAPROTOCOL_INFOW , dwnumberofentries : u32 , lperrno : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCWriteNameSpaceOrder ( lpproviderid : *mut :: windows_sys::core::GUID , dwnumberofentries : u32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCWriteNameSpaceOrder32 ( lpproviderid : *mut :: windows_sys::core::GUID , dwnumberofentries : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCWriteProviderOrder ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCWriteNameSpaceOrder32 ( lpproviderid : *mut :: windows_sys::core::GUID , dwnumberofentries : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCWriteProviderOrder ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn WSCWriteProviderOrder32 ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn __WSAFDIsSet ( fd : SOCKET , param1 : *mut FD_SET ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn WSCWriteProviderOrder32 ( lpwdcatalogentryid : *mut u32 , dwnumberofentries : u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn __WSAFDIsSet ( fd : SOCKET , param1 : *mut FD_SET ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn accept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn accept ( s : SOCKET , addr : *mut SOCKADDR , addrlen : *mut i32 ) -> SOCKET );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn bind ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn closesocket ( s : SOCKET ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn bind ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn closesocket ( s : SOCKET ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn connect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn connect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn freeaddrinfo ( paddrinfo : *const ADDRINFOA ) -> ( ) );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn freeaddrinfo ( paddrinfo : *const ADDRINFOA ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getaddrinfo ( pnodename : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , phints : *const ADDRINFOA , ppresult : *mut *mut ADDRINFOA ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn gethostbyaddr ( addr : :: windows_sys::core::PCSTR , len : i32 , r#type : i32 ) -> *mut HOSTENT );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn gethostbyname ( name : :: windows_sys::core::PCSTR ) -> *mut HOSTENT );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn gethostname ( name : :: windows_sys::core::PSTR , namelen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getaddrinfo ( pnodename : :: windows_sys::core::PCSTR , pservicename : :: windows_sys::core::PCSTR , phints : *const ADDRINFOA , ppresult : *mut *mut ADDRINFOA ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn gethostbyaddr ( addr : :: windows_sys::core::PCSTR , len : i32 , r#type : i32 ) -> *mut HOSTENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn gethostbyname ( name : :: windows_sys::core::PCSTR ) -> *mut HOSTENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn gethostname ( name : :: windows_sys::core::PSTR , namelen : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getnameinfo ( psockaddr : *const SOCKADDR , sockaddrlength : i32 , pnodebuffer : :: windows_sys::core::PSTR , nodebuffersize : u32 , pservicebuffer : :: windows_sys::core::PSTR , servicebuffersize : u32 , flags : i32 ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getpeername ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getprotobyname ( name : :: windows_sys::core::PCSTR ) -> *mut PROTOENT );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getprotobynumber ( number : i32 ) -> *mut PROTOENT );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getservbyname ( name : :: windows_sys::core::PCSTR , proto : :: windows_sys::core::PCSTR ) -> *mut SERVENT );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getservbyport ( port : i32 , proto : :: windows_sys::core::PCSTR ) -> *mut SERVENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getpeername ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getprotobyname ( name : :: windows_sys::core::PCSTR ) -> *mut PROTOENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getprotobynumber ( number : i32 ) -> *mut PROTOENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getservbyname ( name : :: windows_sys::core::PCSTR , proto : :: windows_sys::core::PCSTR ) -> *mut SERVENT );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getservbyport ( port : i32 , proto : :: windows_sys::core::PCSTR ) -> *mut SERVENT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getsockname ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn getsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : :: windows_sys::core::PSTR , optlen : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn htonl ( hostlong : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn htons ( hostshort : u16 ) -> u16 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn inet_addr ( cp : :: windows_sys::core::PCSTR ) -> u32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn inet_ntoa ( r#in : IN_ADDR ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows_sys::core::PSTR , stringbufsize : usize ) -> :: windows_sys::core::PSTR );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn inet_pton ( family : i32 , pszaddrstring : :: windows_sys::core::PCSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn ioctlsocket ( s : SOCKET , cmd : i32 , argp : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn listen ( s : SOCKET , backlog : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn ntohl ( netlong : u32 ) -> u32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn ntohs ( netshort : u16 ) -> u16 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn recv ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getsockname ( s : SOCKET , name : *mut SOCKADDR , namelen : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn getsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : :: windows_sys::core::PSTR , optlen : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn htonl ( hostlong : u32 ) -> u32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn htons ( hostshort : u16 ) -> u16 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn inet_addr ( cp : :: windows_sys::core::PCSTR ) -> u32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn inet_ntoa ( r#in : IN_ADDR ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn inet_ntop ( family : i32 , paddr : *const ::core::ffi::c_void , pstringbuf : :: windows_sys::core::PSTR , stringbufsize : usize ) -> :: windows_sys::core::PSTR );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn inet_pton ( family : i32 , pszaddrstring : :: windows_sys::core::PCSTR , paddrbuf : *mut ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn ioctlsocket ( s : SOCKET , cmd : i32 , argp : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn listen ( s : SOCKET , backlog : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn ntohl ( netlong : u32 ) -> u32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn ntohs ( netshort : u16 ) -> u16 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn recv ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn recvfrom ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : i32 , from : *mut SOCKADDR , fromlen : *mut i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn select ( nfds : i32 , readfds : *mut FD_SET , writefds : *mut FD_SET , exceptfds : *mut FD_SET , timeout : *const TIMEVAL ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn send ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn recvfrom ( s : SOCKET , buf : :: windows_sys::core::PSTR , len : i32 , flags : i32 , from : *mut SOCKADDR , fromlen : *mut i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn select ( nfds : i32 , readfds : *mut FD_SET , writefds : *mut FD_SET , exceptfds : *mut FD_SET , timeout : *const TIMEVAL ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn send ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : SEND_RECV_FLAGS ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn sendto ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : i32 , to : *const SOCKADDR , tolen : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn setsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : :: windows_sys::core::PCSTR , optlen : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn shutdown ( s : SOCKET , how : i32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "ws2_32.dll" ,"system" fn socket ( af : i32 , r#type : i32 , protocol : i32 ) -> SOCKET );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn sendto ( s : SOCKET , buf : :: windows_sys::core::PCSTR , len : i32 , flags : i32 , to : *const SOCKADDR , tolen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn setsockopt ( s : SOCKET , level : i32 , optname : i32 , optval : :: windows_sys::core::PCSTR , optlen : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn shutdown ( s : SOCKET , how : i32 ) -> i32 );
+::windows_sys::core::link ! ( "ws2_32.dll" ,"system" fn socket ( af : i32 , r#type : i32 , protocol : i32 ) -> SOCKET );
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const AAL5_MODE_MESSAGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

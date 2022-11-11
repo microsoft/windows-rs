@@ -6,7 +6,7 @@ pub unsafe fn CreateDXGIFactory<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::option::Option::None;
     CreateDXGIFactory(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
@@ -16,7 +16,7 @@ pub unsafe fn CreateDXGIFactory1<T>() -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory1 ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory1 ( riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::option::Option::None;
     CreateDXGIFactory1(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
@@ -26,14 +26,14 @@ pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> ::windows::core::Result<T>
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::windows_link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxgi.dll" ,"system" fn CreateDXGIFactory2 ( flags : u32 , riid : *const :: windows::core::GUID , ppfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::option::Option::None;
     CreateDXGIFactory2(flags, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "dxgi.dll" ,"system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxgi.dll" ,"system" fn DXGIDeclareAdapterRemovalSupport ( ) -> :: windows::core::HRESULT );
     DXGIDeclareAdapterRemovalSupport().ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -42,7 +42,7 @@ pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows::core::Result<T
 where
     T: ::windows::core::Interface,
 {
-    ::windows::core::windows_link ! ( "dxgi.dll" ,"system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "dxgi.dll" ,"system" fn DXGIGetDebugInterface1 ( flags : u32 , riid : *const :: windows::core::GUID , pdebug : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::option::Option::None;
     DXGIGetDebugInterface1(flags, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }

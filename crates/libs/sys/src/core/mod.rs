@@ -36,31 +36,113 @@ impl GUID {
 }
 
 #[doc(hidden)]
+pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
+    let library = LoadLibraryA(library);
+
+    if library == 0 {
+        return None;
+    }
+
+    let address = GetProcAddress(library, function);
+
+    if !address.is_null() {
+        return Some(core::mem::transmute_copy(&address));
+    }
+
+    FreeLibrary(library);
+    None
+}
+
+#[cfg(all(windows_raw_dylib, target_arch = "x86"))]
+#[link(name = "kernel32.dll", kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const core::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
+}
+
+#[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
+#[link(name = "kernel32.dll", kind = "raw-dylib", modifiers = "+verbatim")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const core::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
+}
+
+#[cfg(not(windows_raw_dylib))]
+#[link(name = "windows")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const core::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
+}
+
+
+#[cfg(all(windows_raw_dylib,  not(windows_delay_load), target_arch = "x86"))]
 #[macro_export]
-macro_rules! windows_link {
+macro_rules! link {
     ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
-        #[cfg(all(feature = "raw_dylib", target_arch = "x86"))]
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
         extern $abi {
             pub fn $name($($arg: $argty),*) -> $ret;
         }
-        #[cfg(all(feature = "raw_dylib", not(target_arch = "x86")))]
+    )
+}
+
+#[cfg(all(windows_raw_dylib,  not(windows_delay_load), not(target_arch = "x86")))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
-        extern "system" {
-            pub fn $name($($arg: $argty),*) -> $ret;
-        }
-        #[cfg(all(not(feature = "raw_dylib"), target_arch = "x86"))]
-        #[link(name = "windows")]
-        extern $abi {
-            pub fn $name($($arg: $argty),*) -> $ret;
-        }
-        #[cfg(all(not(feature = "raw_dylib"), not(target_arch = "x86")))]
-        #[link(name = "windows")]
         extern "system" {
             pub fn $name($($arg: $argty),*) -> $ret;
         }
     )
 }
 
+#[cfg(all(not(windows_raw_dylib), not(windows_delay_load), target_arch = "x86"))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = "windows")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(all(not(windows_raw_dylib), not(windows_delay_load), not(target_arch = "x86")))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = "windows")]
+        extern "system" {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+
+    )
+}
+
+#[cfg(windows_delay_load)]
+#[macro_export]
+macro_rules! link {
+    ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[cfg(target_arch = "x86")]
+        pub type $name = ::core::option::Option<unsafe extern $abi fn($($argty),*) -> $ret>;
+        #[cfg(not(target_arch = "x86"))]
+        pub type $name = ::core::option::Option<unsafe extern "system" fn($($argty),*) -> $ret>;
+        pub unsafe fn $name($($arg: $argty),*) -> $ret {
+            static mut CACHE: $name = None;
+            unsafe {
+                if CACHE.is_none() {
+                    let name = ::core::concat!(::core::stringify!($name), "\0");
+                    CACHE = $crate::core::delay_load($crate::core::s!($library), name.as_ptr());
+                }
+                CACHE.unwrap()($($arg),*)
+            }
+        }
+    )
+}
+
 #[doc(hidden)]
-pub use windows_link;
+pub use crate::link;

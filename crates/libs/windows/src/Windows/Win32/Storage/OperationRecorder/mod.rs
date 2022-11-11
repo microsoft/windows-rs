@@ -2,14 +2,14 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "advapi32.dll" ,"system" fn OperationEnd ( operationendparams : *const OPERATION_END_PARAMETERS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "advapi32.dll" ,"system" fn OperationEnd ( operationendparams : *const OPERATION_END_PARAMETERS ) -> super::super::Foundation:: BOOL );
     OperationEnd(::core::mem::transmute(operationendparams))
 }
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "advapi32.dll" ,"system" fn OperationStart ( operationstartparams : *const OPERATION_START_PARAMETERS ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "advapi32.dll" ,"system" fn OperationStart ( operationstartparams : *const OPERATION_START_PARAMETERS ) -> super::super::Foundation:: BOOL );
     OperationStart(::core::mem::transmute(operationstartparams))
 }
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]

@@ -1,13 +1,13 @@
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> i32 );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_EndEvent ( ) -> i32 );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_GetStatus ( ) -> u32 );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_BeginEvent ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> i32 );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_EndEvent ( ) -> i32 );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_GetStatus ( ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_QueryRepeatFrame ( ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> ( ) );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetOptions ( dwoptions : u32 ) -> ( ) );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> ( ) );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn Direct3DCreate9 ( sdkversion : u32 ) -> IDirect3D9 );
-::windows_sys::core::windows_link ! ( "d3d9.dll" ,"system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut IDirect3D9Ex ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_QueryRepeatFrame ( ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetMarker ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> ( ) );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetOptions ( dwoptions : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn D3DPERF_SetRegion ( col : u32 , wszname : :: windows_sys::core::PCWSTR ) -> ( ) );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn Direct3DCreate9 ( sdkversion : u32 ) -> IDirect3D9 );
+::windows_sys::core::link ! ( "d3d9.dll" ,"system" fn Direct3DCreate9Ex ( sdkversion : u32 , param1 : *mut IDirect3D9Ex ) -> :: windows_sys::core::HRESULT );
 pub type IDirect3D9 = *mut ::core::ffi::c_void;
 pub type IDirect3D9Ex = *mut ::core::ffi::c_void;
 pub type IDirect3DBaseTexture9 = *mut ::core::ffi::c_void;

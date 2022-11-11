@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-::windows_sys::core::windows_link ! ( "windows.data.pdf.dll" ,"system" fn PdfCreateRenderer ( pdevice : super::super::super::Graphics::Dxgi:: IDXGIDevice , pprenderer : *mut IPdfRendererNative ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windows.data.pdf.dll" ,"system" fn PdfCreateRenderer ( pdevice : super::super::super::Graphics::Dxgi:: IDXGIDevice , pprenderer : *mut IPdfRendererNative ) -> :: windows_sys::core::HRESULT );
 pub type IPdfRendererNative = *mut ::core::ffi::c_void;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]

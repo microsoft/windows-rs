@@ -1,17 +1,17 @@
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceBlockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceBlockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceClosePipe ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceClosePipe ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceOpenPipe ( startserviceifstopped : super::super::Foundation:: BOOL , pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceOpenPipe ( startserviceifstopped : super::super::Foundation:: BOOL , pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceReloadConfiguration ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceReloadConfiguration ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceStartBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , lowpriorityio : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceStartBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , lowpriorityio : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceStopBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , stoptracking : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceStopBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE , stoptracking : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_WindowsProgramming")]
-::windows_sys::core::windows_link ! ( "fhsvcctl.dll" ,"system" fn FhServiceUnblockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "fhsvcctl.dll" ,"system" fn FhServiceUnblockBackup ( pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows_sys::core::HRESULT );
 pub type IFhConfigMgr = *mut ::core::ffi::c_void;
 pub type IFhReassociation = *mut ::core::ffi::c_void;
 pub type IFhScopeIterator = *mut ::core::ffi::c_void;

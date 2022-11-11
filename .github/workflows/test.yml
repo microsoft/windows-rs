@@ -87,6 +87,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p windows-interface &&
           cargo test --target ${{ matrix.target }} -p windows-metadata &&
           cargo test --target ${{ matrix.target }} -p windows-sys &&
+          cargo test --target ${{ matrix.target }} -p windows-targets &&
           cargo test --target ${{ matrix.target }} -p windows-tokens &&
           cargo test --target ${{ matrix.target }} -p windows &&
           cargo test --target ${{ matrix.target }} -p sample_com_uri &&

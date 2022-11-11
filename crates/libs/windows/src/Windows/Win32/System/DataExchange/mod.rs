@@ -4,7 +4,7 @@ pub unsafe fn AddAtomA<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn AddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn AddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
     AddAtomA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -13,7 +13,7 @@ pub unsafe fn AddAtomW<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn AddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn AddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
     AddAtomW(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -23,7 +23,7 @@ pub unsafe fn AddClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::Foun
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn AddClipboardFormatListener ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn AddClipboardFormatListener ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     AddClipboardFormatListener(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -34,20 +34,20 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn ChangeClipboardChain ( hwndremove : super::super::Foundation:: HWND , hwndnewnext : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn ChangeClipboardChain ( hwndremove : super::super::Foundation:: HWND , hwndnewnext : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     ChangeClipboardChain(hwndremove.into(), hwndnewnext.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn CloseClipboard ( ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn CloseClipboard ( ) -> super::super::Foundation:: BOOL );
     CloseClipboard()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn CountClipboardFormats() -> i32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn CountClipboardFormats ( ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn CountClipboardFormats ( ) -> i32 );
     CountClipboardFormats()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -57,7 +57,7 @@ pub unsafe fn DdeAbandonTransaction<'a, P0>(idinst: u32, hconv: P0, idtransactio
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeAbandonTransaction ( idinst : u32 , hconv : HCONV , idtransaction : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeAbandonTransaction ( idinst : u32 , hconv : HCONV , idtransaction : u32 ) -> super::super::Foundation:: BOOL );
     DdeAbandonTransaction(idinst, hconv.into(), idtransaction)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -66,7 +66,7 @@ pub unsafe fn DdeAccessData<'a, P0>(hdata: P0, pcbdatasize: ::core::option::Opti
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeAccessData ( hdata : HDDEDATA , pcbdatasize : *mut u32 ) -> *mut u8 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeAccessData ( hdata : HDDEDATA , pcbdatasize : *mut u32 ) -> *mut u8 );
     DdeAccessData(hdata.into(), ::core::mem::transmute(pcbdatasize.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -75,7 +75,7 @@ pub unsafe fn DdeAddData<'a, P0>(hdata: P0, psrc: &[u8], cboff: u32) -> HDDEDATA
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeAddData ( hdata : HDDEDATA , psrc : *const u8 , cb : u32 , cboff : u32 ) -> HDDEDATA );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeAddData ( hdata : HDDEDATA , psrc : *const u8 , cb : u32 , cboff : u32 ) -> HDDEDATA );
     DdeAddData(hdata.into(), ::core::mem::transmute(psrc.as_ptr()), psrc.len() as _, cboff)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -85,7 +85,7 @@ where
     P0: ::std::convert::Into<HCONV>,
     P1: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeClientTransaction ( pdata : *const u8 , cbdata : u32 , hconv : HCONV , hszitem : HSZ , wfmt : u32 , wtype : DDE_CLIENT_TRANSACTION_TYPE , dwtimeout : u32 , pdwresult : *mut u32 ) -> HDDEDATA );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeClientTransaction ( pdata : *const u8 , cbdata : u32 , hconv : HCONV , hszitem : HSZ , wfmt : u32 , wtype : DDE_CLIENT_TRANSACTION_TYPE , dwtimeout : u32 , pdwresult : *mut u32 ) -> HDDEDATA );
     DdeClientTransaction(::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), cbdata, hconv.into(), hszitem.into(), wfmt, wtype, dwtimeout, ::core::mem::transmute(pdwresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -95,7 +95,7 @@ where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeCmpStringHandles ( hsz1 : HSZ , hsz2 : HSZ ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeCmpStringHandles ( hsz1 : HSZ , hsz2 : HSZ ) -> i32 );
     DdeCmpStringHandles(hsz1.into(), hsz2.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -106,7 +106,7 @@ where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeConnect ( idinst : u32 , hszservice : HSZ , hsztopic : HSZ , pcc : *const CONVCONTEXT ) -> HCONV );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeConnect ( idinst : u32 , hszservice : HSZ , hsztopic : HSZ , pcc : *const CONVCONTEXT ) -> HCONV );
     DdeConnect(idinst, hszservice.into(), hsztopic.into(), ::core::mem::transmute(pcc.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -118,7 +118,7 @@ where
     P1: ::std::convert::Into<HSZ>,
     P2: ::std::convert::Into<HCONVLIST>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeConnectList ( idinst : u32 , hszservice : HSZ , hsztopic : HSZ , hconvlist : HCONVLIST , pcc : *const CONVCONTEXT ) -> HCONVLIST );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeConnectList ( idinst : u32 , hszservice : HSZ , hsztopic : HSZ , hconvlist : HCONVLIST , pcc : *const CONVCONTEXT ) -> HCONVLIST );
     DdeConnectList(idinst, hszservice.into(), hsztopic.into(), hconvlist.into(), ::core::mem::transmute(pcc.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -127,7 +127,7 @@ pub unsafe fn DdeCreateDataHandle<'a, P0>(idinst: u32, psrc: ::core::option::Opt
 where
     P0: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeCreateDataHandle ( idinst : u32 , psrc : *const u8 , cb : u32 , cboff : u32 , hszitem : HSZ , wfmt : u32 , afcmd : u32 ) -> HDDEDATA );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeCreateDataHandle ( idinst : u32 , psrc : *const u8 , cb : u32 , cboff : u32 , hszitem : HSZ , wfmt : u32 , afcmd : u32 ) -> HDDEDATA );
     DdeCreateDataHandle(idinst, ::core::mem::transmute(psrc.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psrc.as_deref().map_or(0, |slice| slice.len() as _), cboff, hszitem.into(), wfmt, afcmd)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -136,7 +136,7 @@ pub unsafe fn DdeCreateStringHandleA<'a, P0>(idinst: u32, psz: P0, icodepage: i3
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeCreateStringHandleA ( idinst : u32 , psz : :: windows::core::PCSTR , icodepage : i32 ) -> HSZ );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeCreateStringHandleA ( idinst : u32 , psz : :: windows::core::PCSTR , icodepage : i32 ) -> HSZ );
     DdeCreateStringHandleA(idinst, psz.into(), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -145,7 +145,7 @@ pub unsafe fn DdeCreateStringHandleW<'a, P0>(idinst: u32, psz: P0, icodepage: i3
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeCreateStringHandleW ( idinst : u32 , psz : :: windows::core::PCWSTR , icodepage : i32 ) -> HSZ );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeCreateStringHandleW ( idinst : u32 , psz : :: windows::core::PCWSTR , icodepage : i32 ) -> HSZ );
     DdeCreateStringHandleW(idinst, psz.into(), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -155,7 +155,7 @@ pub unsafe fn DdeDisconnect<'a, P0>(hconv: P0) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeDisconnect ( hconv : HCONV ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeDisconnect ( hconv : HCONV ) -> super::super::Foundation:: BOOL );
     DdeDisconnect(hconv.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -165,7 +165,7 @@ pub unsafe fn DdeDisconnectList<'a, P0>(hconvlist: P0) -> super::super::Foundati
 where
     P0: ::std::convert::Into<HCONVLIST>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeDisconnectList ( hconvlist : HCONVLIST ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeDisconnectList ( hconvlist : HCONVLIST ) -> super::super::Foundation:: BOOL );
     DdeDisconnectList(hconvlist.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -175,7 +175,7 @@ pub unsafe fn DdeEnableCallback<'a, P0>(idinst: u32, hconv: P0, wcmd: DDE_ENABLE
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeEnableCallback ( idinst : u32 , hconv : HCONV , wcmd : DDE_ENABLE_CALLBACK_CMD ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeEnableCallback ( idinst : u32 , hconv : HCONV , wcmd : DDE_ENABLE_CALLBACK_CMD ) -> super::super::Foundation:: BOOL );
     DdeEnableCallback(idinst, hconv.into(), wcmd)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -185,7 +185,7 @@ pub unsafe fn DdeFreeDataHandle<'a, P0>(hdata: P0) -> super::super::Foundation::
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeFreeDataHandle ( hdata : HDDEDATA ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeFreeDataHandle ( hdata : HDDEDATA ) -> super::super::Foundation:: BOOL );
     DdeFreeDataHandle(hdata.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -195,7 +195,7 @@ pub unsafe fn DdeFreeStringHandle<'a, P0>(idinst: u32, hsz: P0) -> super::super:
 where
     P0: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeFreeStringHandle ( idinst : u32 , hsz : HSZ ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeFreeStringHandle ( idinst : u32 , hsz : HSZ ) -> super::super::Foundation:: BOOL );
     DdeFreeStringHandle(idinst, hsz.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -204,13 +204,13 @@ pub unsafe fn DdeGetData<'a, P0>(hdata: P0, pdst: ::core::option::Option<&mut [u
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeGetData ( hdata : HDDEDATA , pdst : *mut u8 , cbmax : u32 , cboff : u32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeGetData ( hdata : HDDEDATA , pdst : *mut u8 , cbmax : u32 , cboff : u32 ) -> u32 );
     DdeGetData(hdata.into(), ::core::mem::transmute(pdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdst.as_deref().map_or(0, |slice| slice.len() as _), cboff)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeGetLastError ( idinst : u32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeGetLastError ( idinst : u32 ) -> u32 );
     DdeGetLastError(idinst)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -220,19 +220,19 @@ pub unsafe fn DdeImpersonateClient<'a, P0>(hconv: P0) -> super::super::Foundatio
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeImpersonateClient ( hconv : HCONV ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeImpersonateClient ( hconv : HCONV ) -> super::super::Foundation:: BOOL );
     DdeImpersonateClient(hconv.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeInitializeA ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeInitializeA ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
     DdeInitializeA(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeInitializeW ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeInitializeW ( pidinst : *mut u32 , pfncallback : * mut::core::ffi::c_void , afcmd : DDE_INITIALIZE_COMMAND , ulres : u32 ) -> u32 );
     DdeInitializeW(::core::mem::transmute(pidinst), ::core::mem::transmute(pfncallback), afcmd, ulres)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -242,7 +242,7 @@ pub unsafe fn DdeKeepStringHandle<'a, P0>(idinst: u32, hsz: P0) -> super::super:
 where
     P0: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeKeepStringHandle ( idinst : u32 , hsz : HSZ ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeKeepStringHandle ( idinst : u32 , hsz : HSZ ) -> super::super::Foundation:: BOOL );
     DdeKeepStringHandle(idinst, hsz.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -252,7 +252,7 @@ where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeNameService ( idinst : u32 , hsz1 : HSZ , hsz2 : HSZ , afcmd : DDE_NAME_SERVICE_CMD ) -> HDDEDATA );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeNameService ( idinst : u32 , hsz1 : HSZ , hsz2 : HSZ , afcmd : DDE_NAME_SERVICE_CMD ) -> HDDEDATA );
     DdeNameService(idinst, hsz1.into(), hsz2.into(), afcmd)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -263,7 +263,7 @@ where
     P0: ::std::convert::Into<HSZ>,
     P1: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdePostAdvise ( idinst : u32 , hsztopic : HSZ , hszitem : HSZ ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdePostAdvise ( idinst : u32 , hsztopic : HSZ , hszitem : HSZ ) -> super::super::Foundation:: BOOL );
     DdePostAdvise(idinst, hsztopic.into(), hszitem.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -273,7 +273,7 @@ pub unsafe fn DdeQueryConvInfo<'a, P0>(hconv: P0, idtransaction: u32, pconvinfo:
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeQueryConvInfo ( hconv : HCONV , idtransaction : u32 , pconvinfo : *mut CONVINFO ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeQueryConvInfo ( hconv : HCONV , idtransaction : u32 , pconvinfo : *mut CONVINFO ) -> u32 );
     DdeQueryConvInfo(hconv.into(), idtransaction, ::core::mem::transmute(pconvinfo))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -283,7 +283,7 @@ where
     P0: ::std::convert::Into<HCONVLIST>,
     P1: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeQueryNextServer ( hconvlist : HCONVLIST , hconvprev : HCONV ) -> HCONV );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeQueryNextServer ( hconvlist : HCONVLIST , hconvprev : HCONV ) -> HCONV );
     DdeQueryNextServer(hconvlist.into(), hconvprev.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -292,7 +292,7 @@ pub unsafe fn DdeQueryStringA<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option:
 where
     P0: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeQueryStringA ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeQueryStringA ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
     DdeQueryStringA(idinst, hsz.into(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -301,7 +301,7 @@ pub unsafe fn DdeQueryStringW<'a, P0>(idinst: u32, hsz: P0, psz: ::core::option:
 where
     P0: ::std::convert::Into<HSZ>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeQueryStringW ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PWSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeQueryStringW ( idinst : u32 , hsz : HSZ , psz : :: windows::core::PWSTR , cchmax : u32 , icodepage : i32 ) -> u32 );
     DdeQueryStringW(idinst, hsz.into(), ::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _), icodepage)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -310,7 +310,7 @@ pub unsafe fn DdeReconnect<'a, P0>(hconv: P0) -> HCONV
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeReconnect ( hconv : HCONV ) -> HCONV );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeReconnect ( hconv : HCONV ) -> HCONV );
     DdeReconnect(hconv.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -320,7 +320,7 @@ pub unsafe fn DdeSetQualityOfService<'a, P0>(hwndclient: P0, pqosnew: *const sup
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeSetQualityOfService ( hwndclient : super::super::Foundation:: HWND , pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE , pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeSetQualityOfService ( hwndclient : super::super::Foundation:: HWND , pqosnew : *const super::super::Security:: SECURITY_QUALITY_OF_SERVICE , pqosprev : *mut super::super::Security:: SECURITY_QUALITY_OF_SERVICE ) -> super::super::Foundation:: BOOL );
     DdeSetQualityOfService(hwndclient.into(), ::core::mem::transmute(pqosnew), ::core::mem::transmute(pqosprev))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -330,7 +330,7 @@ pub unsafe fn DdeSetUserHandle<'a, P0>(hconv: P0, id: u32, huser: usize) -> supe
 where
     P0: ::std::convert::Into<HCONV>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeSetUserHandle ( hconv : HCONV , id : u32 , huser : usize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeSetUserHandle ( hconv : HCONV , id : u32 , huser : usize ) -> super::super::Foundation:: BOOL );
     DdeSetUserHandle(hconv.into(), id, huser)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -340,33 +340,33 @@ pub unsafe fn DdeUnaccessData<'a, P0>(hdata: P0) -> super::super::Foundation::BO
 where
     P0: ::std::convert::Into<HDDEDATA>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeUnaccessData ( hdata : HDDEDATA ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeUnaccessData ( hdata : HDDEDATA ) -> super::super::Foundation:: BOOL );
     DdeUnaccessData(hdata.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn DdeUninitialize ( idinst : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn DdeUninitialize ( idinst : u32 ) -> super::super::Foundation:: BOOL );
     DdeUninitialize(idinst)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn DeleteAtom(natom: u16) -> u16 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn DeleteAtom ( natom : u16 ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn DeleteAtom ( natom : u16 ) -> u16 );
     DeleteAtom(natom)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn EmptyClipboard ( ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn EmptyClipboard ( ) -> super::super::Foundation:: BOOL );
     EmptyClipboard()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn EnumClipboardFormats ( format : u32 ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn EnumClipboardFormats ( format : u32 ) -> u32 );
     EnumClipboardFormats(format)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -375,7 +375,7 @@ pub unsafe fn FindAtomA<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
     FindAtomA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -384,7 +384,7 @@ pub unsafe fn FindAtomW<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn FindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn FindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
     FindAtomW(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -394,79 +394,79 @@ pub unsafe fn FreeDDElParam<'a, P0>(msg: u32, lparam: P0) -> super::super::Found
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn FreeDDElParam ( msg : u32 , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn FreeDDElParam ( msg : u32 , lparam : super::super::Foundation:: LPARAM ) -> super::super::Foundation:: BOOL );
     FreeDDElParam(msg, lparam.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
     GetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
     GetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipboardData(uformat: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardData ( uformat : u32 ) -> super::super::Foundation:: HANDLE );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardData ( uformat : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = GetClipboardData(uformat);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: &mut [u8]) -> i32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardFormatNameA ( format : u32 , lpszformatname : :: windows::core::PSTR , cchmaxcount : i32 ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardFormatNameA ( format : u32 , lpszformatname : :: windows::core::PSTR , cchmaxcount : i32 ) -> i32 );
     GetClipboardFormatNameA(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: &mut [u16]) -> i32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardFormatNameW ( format : u32 , lpszformatname : :: windows::core::PWSTR , cchmaxcount : i32 ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardFormatNameW ( format : u32 , lpszformatname : :: windows::core::PWSTR , cchmaxcount : i32 ) -> i32 );
     GetClipboardFormatNameW(format, ::core::mem::transmute(lpszformatname.as_ptr()), lpszformatname.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardOwner ( ) -> super::super::Foundation:: HWND );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardOwner ( ) -> super::super::Foundation:: HWND );
     GetClipboardOwner()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetClipboardSequenceNumber() -> u32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardSequenceNumber ( ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardSequenceNumber ( ) -> u32 );
     GetClipboardSequenceNumber()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetClipboardViewer ( ) -> super::super::Foundation:: HWND );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetClipboardViewer ( ) -> super::super::Foundation:: HWND );
     GetClipboardViewer()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetOpenClipboardWindow ( ) -> super::super::Foundation:: HWND );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetOpenClipboardWindow ( ) -> super::super::Foundation:: HWND );
     GetOpenClipboardWindow()
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: &[u32]) -> i32 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetPriorityClipboardFormat ( paformatprioritylist : *const u32 , cformats : i32 ) -> i32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetPriorityClipboardFormat ( paformatprioritylist : *const u32 , cformats : i32 ) -> i32 );
     GetPriorityClipboardFormat(::core::mem::transmute(paformatprioritylist.as_ptr()), paformatprioritylist.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: &mut [u32], pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn GetUpdatedClipboardFormats ( lpuiformats : *mut u32 , cformats : u32 , pcformatsout : *mut u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn GetUpdatedClipboardFormats ( lpuiformats : *mut u32 , cformats : u32 , pcformatsout : *mut u32 ) -> super::super::Foundation:: BOOL );
     GetUpdatedClipboardFormats(::core::mem::transmute(lpuiformats.as_ptr()), lpuiformats.len() as _, ::core::mem::transmute(pcformatsout))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -475,7 +475,7 @@ pub unsafe fn GlobalAddAtomA<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
     GlobalAddAtomA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -484,7 +484,7 @@ pub unsafe fn GlobalAddAtomExA<'a, P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomExA ( lpstring : :: windows::core::PCSTR , flags : u32 ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomExA ( lpstring : :: windows::core::PCSTR , flags : u32 ) -> u16 );
     GlobalAddAtomExA(lpstring.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -493,7 +493,7 @@ pub unsafe fn GlobalAddAtomExW<'a, P0>(lpstring: P0, flags: u32) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomExW ( lpstring : :: windows::core::PCWSTR , flags : u32 ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomExW ( lpstring : :: windows::core::PCWSTR , flags : u32 ) -> u16 );
     GlobalAddAtomExW(lpstring.into(), flags)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -502,13 +502,13 @@ pub unsafe fn GlobalAddAtomW<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalAddAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
     GlobalAddAtomW(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalDeleteAtom ( natom : u16 ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalDeleteAtom ( natom : u16 ) -> u16 );
     GlobalDeleteAtom(natom)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -517,7 +517,7 @@ pub unsafe fn GlobalFindAtomA<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalFindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalFindAtomA ( lpstring : :: windows::core::PCSTR ) -> u16 );
     GlobalFindAtomA(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -526,19 +526,19 @@ pub unsafe fn GlobalFindAtomW<'a, P0>(lpstring: P0) -> u16
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalFindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalFindAtomW ( lpstring : :: windows::core::PCWSTR ) -> u16 );
     GlobalFindAtomW(lpstring.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: &mut [u8]) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalGetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalGetAtomNameA ( natom : u16 , lpbuffer : :: windows::core::PSTR , nsize : i32 ) -> u32 );
     GlobalGetAtomNameA(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn GlobalGetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn GlobalGetAtomNameW ( natom : u16 , lpbuffer : :: windows::core::PWSTR , nsize : i32 ) -> u32 );
     GlobalGetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -549,21 +549,21 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn ImpersonateDdeClientWindow ( hwndclient : super::super::Foundation:: HWND , hwndserver : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn ImpersonateDdeClientWindow ( hwndclient : super::super::Foundation:: HWND , hwndserver : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     ImpersonateDdeClientWindow(hwndclient.into(), hwndserver.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "kernel32.dll" ,"system" fn InitAtomTable ( nsize : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "kernel32.dll" ,"system" fn InitAtomTable ( nsize : u32 ) -> super::super::Foundation:: BOOL );
     InitAtomTable(nsize)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn IsClipboardFormatAvailable ( format : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn IsClipboardFormatAvailable ( format : u32 ) -> super::super::Foundation:: BOOL );
     IsClipboardFormatAvailable(format)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -573,14 +573,14 @@ pub unsafe fn OpenClipboard<'a, P0>(hwndnewowner: P0) -> super::super::Foundatio
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn OpenClipboard ( hwndnewowner : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn OpenClipboard ( hwndnewowner : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     OpenClipboard(hwndnewowner.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn PackDDElParam ( msg : u32 , uilo : usize , uihi : usize ) -> super::super::Foundation:: LPARAM );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn PackDDElParam ( msg : u32 , uilo : usize , uihi : usize ) -> super::super::Foundation:: LPARAM );
     PackDDElParam(msg, uilo, uihi)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -589,7 +589,7 @@ pub unsafe fn RegisterClipboardFormatA<'a, P0>(lpszformat: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn RegisterClipboardFormatA ( lpszformat : :: windows::core::PCSTR ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn RegisterClipboardFormatA ( lpszformat : :: windows::core::PCSTR ) -> u32 );
     RegisterClipboardFormatA(lpszformat.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -598,7 +598,7 @@ pub unsafe fn RegisterClipboardFormatW<'a, P0>(lpszformat: P0) -> u32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn RegisterClipboardFormatW ( lpszformat : :: windows::core::PCWSTR ) -> u32 );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn RegisterClipboardFormatW ( lpszformat : :: windows::core::PCWSTR ) -> u32 );
     RegisterClipboardFormatW(lpszformat.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -608,7 +608,7 @@ pub unsafe fn RemoveClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::F
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn RemoveClipboardFormatListener ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn RemoveClipboardFormatListener ( hwnd : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
     RemoveClipboardFormatListener(hwnd.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -618,7 +618,7 @@ pub unsafe fn ReuseDDElParam<'a, P0>(lparam: P0, msgin: u32, msgout: u32, uilo: 
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn ReuseDDElParam ( lparam : super::super::Foundation:: LPARAM , msgin : u32 , msgout : u32 , uilo : usize , uihi : usize ) -> super::super::Foundation:: LPARAM );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn ReuseDDElParam ( lparam : super::super::Foundation:: LPARAM , msgin : u32 , msgout : u32 , uilo : usize , uihi : usize ) -> super::super::Foundation:: LPARAM );
     ReuseDDElParam(lparam.into(), msgin, msgout, uilo, uihi)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -628,7 +628,7 @@ pub unsafe fn SetClipboardData<'a, P0>(uformat: u32, hmem: P0) -> ::windows::cor
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetClipboardData ( uformat : u32 , hmem : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetClipboardData ( uformat : u32 , hmem : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     let result__ = SetClipboardData(uformat, hmem.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
@@ -639,7 +639,7 @@ pub unsafe fn SetClipboardViewer<'a, P0>(hwndnewviewer: P0) -> super::super::Fou
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn SetClipboardViewer ( hwndnewviewer : super::super::Foundation:: HWND ) -> super::super::Foundation:: HWND );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn SetClipboardViewer ( hwndnewviewer : super::super::Foundation:: HWND ) -> super::super::Foundation:: HWND );
     SetClipboardViewer(hwndnewviewer.into())
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -649,7 +649,7 @@ pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp:
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
-    ::windows::core::windows_link ! ( "gdi32.dll" ,"system" fn SetWinMetaFileBits ( nsize : u32 , lpmeta16data : *const u8 , hdcref : super::super::Graphics::Gdi:: HDC , lpmfp : *const METAFILEPICT ) -> super::super::Graphics::Gdi:: HENHMETAFILE );
+    ::windows::core::link ! ( "gdi32.dll" ,"system" fn SetWinMetaFileBits ( nsize : u32 , lpmeta16data : *const u8 , hdcref : super::super::Graphics::Gdi:: HDC , lpmfp : *const METAFILEPICT ) -> super::super::Graphics::Gdi:: HENHMETAFILE );
     SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
@@ -659,7 +659,7 @@ pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: *mut usize, p
 where
     P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
 {
-    ::windows::core::windows_link ! ( "user32.dll" ,"system" fn UnpackDDElParam ( msg : u32 , lparam : super::super::Foundation:: LPARAM , puilo : *mut usize , puihi : *mut usize ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll" ,"system" fn UnpackDDElParam ( msg : u32 , lparam : super::super::Foundation:: LPARAM , puilo : *mut usize , puihi : *mut usize ) -> super::super::Foundation:: BOOL );
     UnpackDDElParam(msg, lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi))
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]

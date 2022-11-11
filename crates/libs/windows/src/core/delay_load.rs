@@ -1,5 +1,4 @@
 use super::*;
-use bindings::*;
 
 /// Load a function from a given library.
 ///
@@ -7,21 +6,44 @@ use bindings::*;
 ///
 /// # Safety
 ///
-/// * Both the library and function names must be valid PCSTR representations
-pub unsafe fn delay_load(library: PCSTR, function: PCSTR) -> Result<*const std::ffi::c_void> {
+/// * Both the library and function names must be valid null-terminated strings.
+pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
     let library = LoadLibraryA(library);
 
     if library == 0 {
-        return Err(Error::from_win32());
+        return None;
     }
 
     let address = GetProcAddress(library, function);
 
     if !address.is_null() {
-        return Ok(address);
+        return Some(std::mem::transmute_copy(&address));
     }
 
-    let result = Err(Error::from_win32());
     FreeLibrary(library);
-    result
+    None
+}
+
+#[cfg(all(windows_raw_dylib, target_arch = "x86"))]
+#[link(name = "kernel32.dll", kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
+}
+
+#[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
+#[link(name = "kernel32.dll", kind = "raw-dylib", modifiers = "+verbatim")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
+}
+
+#[cfg(not(windows_raw_dylib))]
+#[link(name = "windows")]
+extern "system" {
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void;
+    fn LoadLibraryA(name: PCSTR) -> isize;
+    fn FreeLibrary(library: isize) -> i32;
 }

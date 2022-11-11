@@ -1,4 +1,4 @@
-::windows_sys::core::windows_link ! ( "dxcore.dll" ,"system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows_sys::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dxcore.dll" ,"system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows_sys::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDXCoreAdapter = *mut ::core::ffi::c_void;
 pub type IDXCoreAdapterFactory = *mut ::core::ffi::c_void;
 pub type IDXCoreAdapterList = *mut ::core::ffi::c_void;

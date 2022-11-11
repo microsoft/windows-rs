@@ -53,41 +53,8 @@ rust-version = "1.64"
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
-[target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.42.0" }
-
-[target.i686-uwp-windows-msvc.dependencies]
-windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.42.0" }
-
-[target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.42.0" }
-
-[target.x86_64-uwp-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.42.0" }
-
-[target.aarch64-pc-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.42.0" }
-
-[target.aarch64-uwp-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.42.0" }
-
-[target.aarch64-pc-windows-gnullvm.dependencies]
-windows_aarch64_gnullvm = { path = "../../targets/aarch64_gnullvm", version = "0.42.0" }
-
-[target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.42.0" }
-
-[target.i686-uwp-windows-gnu.dependencies]
-windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.42.0" }
-
-[target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.42.0" }
-
-[target.x86_64-uwp-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.42.0" }
-
-[target.x86_64-pc-windows-gnullvm.dependencies]
-windows_x86_64_gnullvm = { path = "../../targets/x86_64_gnullvm", version = "0.42.0" }
+[target.'cfg(not(windows_raw_dylib))'.dependencies]
+windows_targets = { path = "../targets",  version = "0.43.0" }
 
 [dependencies]
 windows-implement = { path = "../implement",  version = "0.43.0", optional = true }
@@ -95,7 +62,6 @@ windows-interface = { path = "../interface",  version = "0.43.0", optional = tru
 
 [features]
 default = []
-deprecated = []
 implement = ["windows-implement"]
 interface = ["windows-interface"]
 "#
@@ -115,17 +81,6 @@ interface = ["windows-interface"]
             file.write_all(format!("{feature} = []\n").as_bytes()).unwrap();
         }
     }
-
-    file.write_all(
-        r#"
-# These features are unstable and require the nightly Rust compiler:
-debugger_visualizer = []
-raw_dylib = []
-
-"#
-        .as_bytes(),
-    )
-    .unwrap();
 
     std::fs::copy("license-mit", "crates/libs/windows/license-mit").unwrap();
     std::fs::copy("license-apache-2.0", "crates/libs/windows/license-apache-2.0").unwrap();

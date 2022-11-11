@@ -1,4 +1,4 @@
-::windows_sys::core::windows_link ! ( "dcomp.dll" ,"system" fn CreatePresentationFactory ( d3ddevice : :: windows_sys::core::IUnknown , riid : *const :: windows_sys::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dcomp.dll" ,"system" fn CreatePresentationFactory ( d3ddevice : :: windows_sys::core::IUnknown , riid : *const :: windows_sys::core::GUID , presentationfactory : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type ICompositionFramePresentStatistics = *mut ::core::ffi::c_void;
 pub type IIndependentFlipFramePresentStatistics = *mut ::core::ffi::c_void;
 pub type IPresentStatistics = *mut ::core::ffi::c_void;

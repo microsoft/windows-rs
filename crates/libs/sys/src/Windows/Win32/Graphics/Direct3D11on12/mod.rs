@@ -1,5 +1,5 @@
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D11"))]
-::windows_sys::core::windows_link ! ( "d3d11.dll" ,"system" fn D3D11On12CreateDevice ( pdevice : :: windows_sys::core::IUnknown , flags : u32 , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , ppcommandqueues : *const :: windows_sys::core::IUnknown , numqueues : u32 , nodemask : u32 , ppdevice : *mut super::Direct3D11:: ID3D11Device , ppimmediatecontext : *mut super::Direct3D11:: ID3D11DeviceContext , pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "d3d11.dll" ,"system" fn D3D11On12CreateDevice ( pdevice : :: windows_sys::core::IUnknown , flags : u32 , pfeaturelevels : *const super::Direct3D:: D3D_FEATURE_LEVEL , featurelevels : u32 , ppcommandqueues : *const :: windows_sys::core::IUnknown , numqueues : u32 , nodemask : u32 , ppdevice : *mut super::Direct3D11:: ID3D11Device , ppimmediatecontext : *mut super::Direct3D11:: ID3D11DeviceContext , pchosenfeaturelevel : *mut super::Direct3D:: D3D_FEATURE_LEVEL ) -> :: windows_sys::core::HRESULT );
 pub type ID3D11On12Device = *mut ::core::ffi::c_void;
 pub type ID3D11On12Device1 = *mut ::core::ffi::c_void;
 pub type ID3D11On12Device2 = *mut ::core::ffi::c_void;

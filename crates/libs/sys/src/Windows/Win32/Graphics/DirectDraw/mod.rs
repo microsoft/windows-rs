@@ -1,14 +1,14 @@
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreate ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut IDirectDraw , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut IDirectDrawClipper , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateEx ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawCreate ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut IDirectDraw , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateClipper ( dwflags : u32 , lplpddclipper : *mut IDirectDrawClipper , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawCreateEx ( lpguid : *mut :: windows_sys::core::GUID , lplpdd : *mut *mut ::core::ffi::c_void , iid : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateA ( lpcallback : LPDDENUMCALLBACKA , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExA ( lpcallback : LPDDENUMCALLBACKEXA , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateExW ( lpcallback : LPDDENUMCALLBACKEXW , lpcontext : *mut ::core::ffi::c_void , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ddraw.dll" ,"system" fn DirectDrawEnumerateW ( lpcallback : LPDDENUMCALLBACKW , lpcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type IDDVideoPortContainer = *mut ::core::ffi::c_void;
 pub type IDirectDraw = *mut ::core::ffi::c_void;
 pub type IDirectDraw2 = *mut ::core::ffi::c_void;

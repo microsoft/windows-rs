@@ -1,96 +1,96 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : super::Com:: IMalloc , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut IMAPITable , lpptbldata : *mut ITableData ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn BuildDisplayTable ( lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpmalloc : super::Com:: IMalloc , hinstance : super::super::Foundation:: HINSTANCE , cpages : u32 , lppage : *mut DTPAGE , ulflags : u32 , lpptable : *mut IMAPITable , lpptbldata : *mut ITableData ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn CreateIProp ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut IPropData ) -> i32 );
-::windows_sys::core::windows_link ! ( "rtm.dll" ,"system" fn CreateTable ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut ITableData ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn DeinitMapiUtil ( ) -> ( ) );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ChangeIdleRoutine ( ftg : *mut ::core::ffi::c_void , lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 , ircidle : u16 ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn CreateIProp ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , lpppropdata : *mut IPropData ) -> i32 );
+::windows_sys::core::link ! ( "rtm.dll" ,"system" fn CreateTable ( lpinterface : *mut :: windows_sys::core::GUID , lpallocatebuffer : LPALLOCATEBUFFER , lpallocatemore : LPALLOCATEMORE , lpfreebuffer : LPFREEBUFFER , lpvreserved : *mut ::core::ffi::c_void , ultabletype : u32 , ulproptagindexcolumn : u32 , lpsproptagarraycolumns : *mut SPropTagArray , lpptabledata : *mut ITableData ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn DeinitMapiUtil ( ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn DeregisterIdleRoutine ( ftg : *mut ::core::ffi::c_void ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn EnableIdleRoutine ( ftg : *mut ::core::ffi::c_void , fenable : super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn EnableIdleRoutine ( ftg : *mut ::core::ffi::c_void , fenable : super::super::Foundation:: BOOL ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FEqualNames ( lpname1 : *mut MAPINAMEID , lpname2 : *mut MAPINAMEID ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FEqualNames ( lpname1 : *mut MAPINAMEID , lpname2 : *mut MAPINAMEID ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropCompareProp ( lpspropvalue1 : *mut SPropValue , ulrelop : u32 , lpspropvalue2 : *mut SPropValue ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FPropCompareProp ( lpspropvalue1 : *mut SPropValue , ulrelop : u32 , lpspropvalue2 : *mut SPropValue ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropContainsProp ( lpspropvaluedst : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , ulfuzzylevel : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FPropContainsProp ( lpspropvaluedst : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , ulfuzzylevel : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FPropExists ( lpmapiprop : IMAPIProp , ulproptag : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FPropExists ( lpmapiprop : IMAPIProp , ulproptag : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FreePadrlist ( lpadrlist : *mut ADRLIST ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FreePadrlist ( lpadrlist : *mut ADRLIST ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FreeProws ( lprows : *mut SRowSet ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FreeProws ( lprows : *mut SRowSet ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtAddFt ( ftaddend1 : super::super::Foundation:: FILETIME , ftaddend2 : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtAddFt ( ftaddend1 : super::super::Foundation:: FILETIME , ftaddend2 : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtMulDw ( ftmultiplier : u32 , ftmultiplicand : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtMulDw ( ftmultiplier : u32 , ftmultiplicand : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtMulDwDw ( ftmultiplicand : u32 , ftmultiplier : u32 ) -> super::super::Foundation:: FILETIME );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtMulDwDw ( ftmultiplicand : u32 , ftmultiplier : u32 ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtNegFt ( ft : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtNegFt ( ft : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtSubFt ( ftminuend : super::super::Foundation:: FILETIME , ftsubtrahend : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtSubFt ( ftminuend : super::super::Foundation:: FILETIME , ftsubtrahend : super::super::Foundation:: FILETIME ) -> super::super::Foundation:: FILETIME );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn FtgRegisterIdleRoutine ( lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAddColumns ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAddColumnsEx ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , lpfnfiltercolumns : isize ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn FtgRegisterIdleRoutine ( lpfnidle : PFNIDLE , lpvidleparam : *mut ::core::ffi::c_void , priidle : i16 , csecidle : u32 , iroidle : u16 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrAddColumns ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrAddColumnsEx ( lptbl : IMAPITable , lpproptagcolumnsnew : *mut SPropTagArray , lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , lpfnfiltercolumns : isize ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrAllocAdviseSink ( lpfncallback : LPNOTIFCALLBACK , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrDispatchNotifications ( ulflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrAllocAdviseSink ( lpfncallback : LPNOTIFCALLBACK , lpvcontext : *mut ::core::ffi::c_void , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrDispatchNotifications ( ulflags : u32 ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrGetOneProp ( lpmapiprop : IMAPIProp , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrGetOneProp ( lpmapiprop : IMAPIProp , ulproptag : u32 , lppprop : *mut *mut SPropValue ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrIStorageFromStream ( lpunkin : :: windows_sys::core::IUnknown , lpinterface : *mut :: windows_sys::core::GUID , ulflags : u32 , lppstorageout : *mut super::Com::StructuredStorage:: IStorage ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrIStorageFromStream ( lpunkin : :: windows_sys::core::IUnknown , lpinterface : *mut :: windows_sys::core::GUID , ulflags : u32 , lppstorageout : *mut super::Com::StructuredStorage:: IStorage ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrQueryAllRows ( lptable : IMAPITable , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrQueryAllRows ( lptable : IMAPITable , lpproptags : *mut SPropTagArray , lprestriction : *mut SRestriction , lpsortorderset : *mut SSortOrderSet , crowsmax : i32 , lpprows : *mut *mut SRowSet ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrSetOneProp ( lpmapiprop : IMAPIProp , lpprop : *mut SPropValue ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn HrThisThreadAdviseSink ( lpadvisesink : IMAPIAdviseSink , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrSetOneProp ( lpmapiprop : IMAPIProp , lpprop : *mut SPropValue ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn HrThisThreadAdviseSink ( lpadvisesink : IMAPIAdviseSink , lppadvisesink : *mut IMAPIAdviseSink ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn LPropCompareProp ( lpspropvaluea : *mut SPropValue , lpspropvalueb : *mut SPropValue ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn LpValFindProp ( ulproptag : u32 , cvalues : u32 , lpproparray : *mut SPropValue ) -> *mut SPropValue );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIDeinitIdle ( ) -> ( ) );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn LpValFindProp ( ulproptag : u32 , cvalues : u32 , lpproparray : *mut SPropValue ) -> *mut SPropValue );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn MAPIDeinitIdle ( ) -> ( ) );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIGetDefaultMalloc ( ) -> super::Com:: IMalloc );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn MAPIGetDefaultMalloc ( ) -> super::Com:: IMalloc );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn MAPIInitIdle ( lpvreserved : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn OpenStreamOnFile ( lpallocatebuffer : LPALLOCATEBUFFER , lpfreebuffer : LPFREEBUFFER , ulflags : u32 , lpszfilename : *const i8 , lpszprefix : *const i8 , lppstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn PpropFindProp ( lpproparray : *mut SPropValue , cvalues : u32 , ulproptag : u32 ) -> *mut SPropValue );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : LPALLOCATEMORE , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn PropCopyMore ( lpspropvaluedest : *mut SPropValue , lpspropvaluesrc : *mut SPropValue , lpfallocmore : LPALLOCATEMORE , lpvobject : *mut ::core::ffi::c_void ) -> i32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn RTFSync ( lpmessage : IMessage , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn RTFSync ( lpmessage : IMessage , ulflags : u32 , lpfmessageupdated : *mut super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScCopyNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCopyProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScCopyProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvdst : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCountNotifications ( cnotifications : i32 , lpnotifications : *mut NOTIFICATION , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScCountNotifications ( cnotifications : i32 , lpnotifications : *mut NOTIFICATION , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCountProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpcb : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScCreateConversationIndex ( cbparent : u32 , lpbparent : *mut u8 , lpcbconvindex : *mut u32 , lppbconvindex : *mut *mut u8 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScCountProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScCreateConversationIndex ( cbparent : u32 , lpbparent : *mut u8 , lpcbconvindex : *mut u32 , lppbconvindex : *mut *mut u8 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : LPALLOCATEBUFFER , lppproparray : *mut *mut SPropValue ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScInitMapiUtil ( ulflags : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScLocalPathFromUNC ( lpszunc : :: windows_sys::core::PCSTR , lpszlocal : :: windows_sys::core::PCSTR , cchlocal : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScDupPropset ( cvalues : i32 , lpproparray : *mut SPropValue , lpallocatebuffer : LPALLOCATEBUFFER , lppproparray : *mut *mut SPropValue ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScInitMapiUtil ( ulflags : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScLocalPathFromUNC ( lpszunc : :: windows_sys::core::PCSTR , lpszlocal : :: windows_sys::core::PCSTR , cchlocal : u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScRelocNotifications ( cnotification : i32 , lpnotifications : *mut NOTIFICATION , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn ScUNCFromLocalPath ( lpszlocal : :: windows_sys::core::PCSTR , lpszunc : :: windows_sys::core::PCSTR , cchunc : u32 ) -> i32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn UFromSz ( lpsz : *mut i8 ) -> u32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn UlAddRef ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScRelocProps ( cvalues : i32 , lpproparray : *mut SPropValue , lpvbaseold : *mut ::core::ffi::c_void , lpvbasenew : *mut ::core::ffi::c_void , lpcb : *mut u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn ScUNCFromLocalPath ( lpszlocal : :: windows_sys::core::PCSTR , lpszunc : :: windows_sys::core::PCSTR , cchunc : u32 ) -> i32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn SzFindCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn SzFindLastCh ( lpsz : *mut i8 , ch : u16 ) -> *mut i8 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn SzFindSz ( lpsz : *mut i8 , lpszkey : *mut i8 ) -> *mut i8 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn UFromSz ( lpsz : *mut i8 ) -> u32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn UlAddRef ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn UlPropSize ( lpspropvalue : *mut SPropValue ) -> u32 );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn UlRelease ( lpunk : *mut ::core::ffi::c_void ) -> u32 );
 #[cfg(feature = "Win32_System_Com")]
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : super::Com:: IStream , ulflags : u32 , lpuncompressedrtfstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "mapi32.dll" ,"system" fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn WrapCompressedRTFStream ( lpcompressedrtfstream : super::Com:: IStream , ulflags : u32 , lpuncompressedrtfstream : *mut super::Com:: IStream ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "mapi32.dll" ,"system" fn WrapStoreEntryID ( ulflags : u32 , lpszdllname : *const i8 , cborigentry : u32 , lporigentry : *const ENTRYID , lpcbwrappedentry : *mut u32 , lppwrappedentry : *mut *mut ENTRYID ) -> :: windows_sys::core::HRESULT );
 pub type IABContainer = *mut ::core::ffi::c_void;
 pub type IAddrBook = *mut ::core::ffi::c_void;
 pub type IAttach = *mut ::core::ffi::c_void;

@@ -1,4 +1,4 @@
-::windows_sys::core::windows_link ! ( "dmprocessxmlfiltered.dll" ,"system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows_sys::core::PCWSTR , rgszallowedcspnodes : *const :: windows_sys::core::PWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dmprocessxmlfiltered.dll" ,"system" fn DMProcessConfigXMLFiltered ( pszxmlin : :: windows_sys::core::PCWSTR , rgszallowedcspnodes : *const :: windows_sys::core::PWSTR , dwnumallowedcspnodes : u32 , pbstrxmlout : *mut :: windows_sys::core::BSTR ) -> :: windows_sys::core::HRESULT );
 pub type IConnectionRequestCallback = *mut ::core::ffi::c_void;
 pub type IEnumPortableDeviceConnectors = *mut ::core::ffi::c_void;
 pub type IEnumPortableDeviceObjectIDs = *mut ::core::ffi::c_void;

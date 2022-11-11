@@ -1,10 +1,10 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::windows_link ! ( "ualapi.dll" ,"system" fn UalInstrument ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "ualapi.dll" ,"system" fn UalRegisterProduct ( wszproductname : :: windows_sys::core::PCWSTR , wszrolename : :: windows_sys::core::PCWSTR , wszguid : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ualapi.dll" ,"system" fn UalInstrument ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ualapi.dll" ,"system" fn UalRegisterProduct ( wszproductname : :: windows_sys::core::PCWSTR , wszrolename : :: windows_sys::core::PCWSTR , wszguid : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::windows_link ! ( "ualapi.dll" ,"system" fn UalStart ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ualapi.dll" ,"system" fn UalStart ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::windows_link ! ( "ualapi.dll" ,"system" fn UalStop ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ualapi.dll" ,"system" fn UalStop ( data : *const UAL_DATA_BLOB ) -> :: windows_sys::core::HRESULT );
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

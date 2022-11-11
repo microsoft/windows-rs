@@ -6,7 +6,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "query.dll" ,"system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "query.dll" ,"system" fn BindIFilterFromStorage ( pstg : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     BindIFilterFromStorage(pstg.into().abi(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
@@ -17,7 +17,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "query.dll" ,"system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "query.dll" ,"system" fn BindIFilterFromStream ( pstm : * mut::core::ffi::c_void , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     BindIFilterFromStream(pstm.into().abi(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -27,7 +27,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "query.dll" ,"system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "query.dll" ,"system" fn LoadIFilter ( pwcspath : :: windows::core::PCWSTR , punkouter : * mut::core::ffi::c_void , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     LoadIFilter(pwcspath.into(), punkouter.into().abi(), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -36,7 +36,7 @@ pub unsafe fn LoadIFilterEx<'a, P0>(pwcspath: P0, dwflags: u32, riid: *const ::w
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    ::windows::core::windows_link ! ( "query.dll" ,"system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "query.dll" ,"system" fn LoadIFilterEx ( pwcspath : :: windows::core::PCWSTR , dwflags : u32 , riid : *const :: windows::core::GUID , ppiunk : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     LoadIFilterEx(pwcspath.into(), dwflags, ::core::mem::transmute(riid), ::core::mem::transmute(ppiunk)).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]

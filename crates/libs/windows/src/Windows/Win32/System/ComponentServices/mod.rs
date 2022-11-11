@@ -4,7 +4,7 @@ pub unsafe fn CoCreateActivity<'a, P0>(piunknown: P0, riid: *const ::windows::co
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoCreateActivity ( piunknown : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "comsvcs.dll" ,"system" fn CoCreateActivity ( piunknown : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoCreateActivity(piunknown.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -13,14 +13,14 @@ pub unsafe fn CoEnterServiceDomain<'a, P0>(pconfigobject: P0) -> ::windows::core
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoEnterServiceDomain ( pconfigobject : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "comsvcs.dll" ,"system" fn CoEnterServiceDomain ( pconfigobject : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoEnterServiceDomain(pconfigobject.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "ole32.dll" ,"system" fn CoGetDefaultContext ( apttype : super::Com:: APTTYPE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "ole32.dll" ,"system" fn CoGetDefaultContext ( apttype : super::Com:: APTTYPE , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     CoGetDefaultContext(apttype, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -29,32 +29,32 @@ pub unsafe fn CoLeaveServiceDomain<'a, P0>(punkstatus: P0)
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"system" fn CoLeaveServiceDomain ( punkstatus : * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "comsvcs.dll" ,"system" fn CoLeaveServiceDomain ( punkstatus : * mut::core::ffi::c_void ) -> ( ) );
     CoLeaveServiceDomain(punkstatus.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
-    ::windows::core::windows_link ! ( "mtxdm.dll" ,"cdecl" fn GetDispenserManager ( param0 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "mtxdm.dll" ,"cdecl" fn GetDispenserManager ( param0 : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetDispenserManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispenserManager>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"system" fn GetManagedExtensions ( dwexts : *mut u32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "comsvcs.dll" ,"system" fn GetManagedExtensions ( dwexts : *mut u32 ) -> :: windows::core::HRESULT );
     GetManagedExtensions(::core::mem::transmute(dwexts)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"system" fn MTSCreateActivity ( riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "comsvcs.dll" ,"system" fn MTSCreateActivity ( riid : *const :: windows::core::GUID , ppobj : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     MTSCreateActivity(::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"cdecl" fn RecycleSurrogate ( lreasoncode : i32 ) -> :: windows::core::HRESULT );
+    ::windows::core::link ! ( "comsvcs.dll" ,"cdecl" fn RecycleSurrogate ( lreasoncode : i32 ) -> :: windows::core::HRESULT );
     RecycleSurrogate(lreasoncode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -63,7 +63,7 @@ pub unsafe fn SafeRef<'a, P0>(rid: *const ::windows::core::GUID, punk: P0) -> *m
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    ::windows::core::windows_link ! ( "comsvcs.dll" ,"cdecl" fn SafeRef ( rid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+    ::windows::core::link ! ( "comsvcs.dll" ,"cdecl" fn SafeRef ( rid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
     SafeRef(::core::mem::transmute(rid), punk.into().abi())
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]

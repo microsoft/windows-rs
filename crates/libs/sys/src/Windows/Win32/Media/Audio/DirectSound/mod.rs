@@ -1,18 +1,18 @@
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureCreate ( pcguiddevice : *const :: windows_sys::core::GUID , ppdsc : *mut IDirectSoundCapture , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const :: windows_sys::core::GUID , ppdsc8 : *mut IDirectSoundCapture , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureCreate ( pcguiddevice : *const :: windows_sys::core::GUID , ppdsc : *mut IDirectSoundCapture , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureCreate8 ( pcguiddevice : *const :: windows_sys::core::GUID , ppdsc8 : *mut IDirectSoundCapture , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCreate ( pcguiddevice : *const :: windows_sys::core::GUID , ppds : *mut IDirectSound , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundCreate8 ( pcguiddevice : *const :: windows_sys::core::GUID , ppds8 : *mut IDirectSound8 , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCaptureEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCreate ( pcguiddevice : *const :: windows_sys::core::GUID , ppds : *mut IDirectSound , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundCreate8 ( pcguiddevice : *const :: windows_sys::core::GUID , ppds8 : *mut IDirectSound8 , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundEnumerateA ( pdsenumcallback : LPDSENUMCALLBACKA , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundEnumerateW ( pdsenumcallback : LPDSENUMCALLBACKW , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const :: windows_sys::core::GUID , pcguidrenderdevice : *const :: windows_sys::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut IDirectSoundFullDuplex , ppdscbuffer8 : *mut IDirectSoundCaptureBuffer8 , ppdsbuffer8 : *mut IDirectSoundBuffer8 , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "dsound.dll" ,"system" fn GetDeviceID ( pguidsrc : *const :: windows_sys::core::GUID , pguiddest : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn DirectSoundFullDuplexCreate ( pcguidcapturedevice : *const :: windows_sys::core::GUID , pcguidrenderdevice : *const :: windows_sys::core::GUID , pcdscbufferdesc : *const DSCBUFFERDESC , pcdsbufferdesc : *const DSBUFFERDESC , hwnd : super::super::super::Foundation:: HWND , dwlevel : u32 , ppdsfd : *mut IDirectSoundFullDuplex , ppdscbuffer8 : *mut IDirectSoundCaptureBuffer8 , ppdsbuffer8 : *mut IDirectSoundBuffer8 , punkouter : :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "dsound.dll" ,"system" fn GetDeviceID ( pguidsrc : *const :: windows_sys::core::GUID , pguiddest : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
 pub type IDirectSound = *mut ::core::ffi::c_void;
 pub type IDirectSound3DBuffer = *mut ::core::ffi::c_void;
 pub type IDirectSound3DListener = *mut ::core::ffi::c_void;

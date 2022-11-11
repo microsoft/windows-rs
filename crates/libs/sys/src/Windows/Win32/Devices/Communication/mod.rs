@@ -1,62 +1,62 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn BuildCommDCBA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn BuildCommDCBA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn BuildCommDCBAndTimeoutsA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn BuildCommDCBAndTimeoutsA ( lpdef : :: windows_sys::core::PCSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn BuildCommDCBAndTimeoutsW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn BuildCommDCBAndTimeoutsW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn BuildCommDCBW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn BuildCommDCBW ( lpdef : :: windows_sys::core::PCWSTR , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ClearCommBreak ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ClearCommBreak ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn ClearCommError ( hfile : super::super::Foundation:: HANDLE , lperrors : *mut CLEAR_COMM_ERROR_FLAGS , lpstat : *mut COMSTAT ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn ClearCommError ( hfile : super::super::Foundation:: HANDLE , lperrors : *mut CLEAR_COMM_ERROR_FLAGS , lpstat : *mut COMSTAT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CommConfigDialogA ( lpszname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn CommConfigDialogA ( lpszname : :: windows_sys::core::PCSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn CommConfigDialogW ( lpszname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn CommConfigDialogW ( lpszname : :: windows_sys::core::PCWSTR , hwnd : super::super::Foundation:: HWND , lpcc : *mut COMMCONFIG ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn EscapeCommFunction ( hfile : super::super::Foundation:: HANDLE , dwfunc : ESCAPE_COMM_FUNCTION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn EscapeCommFunction ( hfile : super::super::Foundation:: HANDLE , dwfunc : ESCAPE_COMM_FUNCTION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommMask ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommMask ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommModemStatus ( hfile : super::super::Foundation:: HANDLE , lpmodemstat : *mut MODEM_STATUS_FLAGS ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::windows_link ! ( "api-ms-win-core-comm-l1-1-2.dll" ,"system" fn GetCommPorts ( lpportnumbers : *mut u32 , uportnumberscount : u32 , puportnumbersfound : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommModemStatus ( hfile : super::super::Foundation:: HANDLE , lpmodemstat : *mut MODEM_STATUS_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "api-ms-win-core-comm-l1-1-2.dll" ,"system" fn GetCommPorts ( lpportnumbers : *mut u32 , uportnumberscount : u32 , puportnumbersfound : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommProperties ( hfile : super::super::Foundation:: HANDLE , lpcommprop : *mut COMMPROP ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommProperties ( hfile : super::super::Foundation:: HANDLE , lpcommprop : *mut COMMPROP ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *mut DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *mut COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn GetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn GetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *mut COMMCONFIG , lpdwsize : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "api-ms-win-core-comm-l1-1-1.dll" ,"system" fn OpenCommPort ( uportnumber : u32 , dwdesiredaccess : u32 , dwflagsandattributes : u32 ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "api-ms-win-core-comm-l1-1-1.dll" ,"system" fn OpenCommPort ( uportnumber : u32 , dwdesiredaccess : u32 , dwflagsandattributes : u32 ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn PurgeComm ( hfile : super::super::Foundation:: HANDLE , dwflags : PURGE_COMM_FLAGS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn PurgeComm ( hfile : super::super::Foundation:: HANDLE , dwflags : PURGE_COMM_FLAGS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetCommBreak ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetCommBreak ( hfile : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetCommConfig ( hcommdev : super::super::Foundation:: HANDLE , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetCommMask ( hfile : super::super::Foundation:: HANDLE , dwevtmask : COMM_EVENT_MASK ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetCommMask ( hfile : super::super::Foundation:: HANDLE , dwevtmask : COMM_EVENT_MASK ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *const DCB ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetCommState ( hfile : super::super::Foundation:: HANDLE , lpdcb : *const DCB ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *const COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetCommTimeouts ( hfile : super::super::Foundation:: HANDLE , lpcommtimeouts : *const COMMTIMEOUTS ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetDefaultCommConfigA ( lpszname : :: windows_sys::core::PCSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetDefaultCommConfigW ( lpszname : :: windows_sys::core::PCWSTR , lpcc : *const COMMCONFIG , dwsize : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn SetupComm ( hfile : super::super::Foundation:: HANDLE , dwinqueue : u32 , dwoutqueue : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn SetupComm ( hfile : super::super::Foundation:: HANDLE , dwinqueue : u32 , dwoutqueue : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn TransmitCommChar ( hfile : super::super::Foundation:: HANDLE , cchar : super::super::Foundation:: CHAR ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WaitCommEvent ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WaitCommEvent ( hfile : super::super::Foundation:: HANDLE , lpevtmask : *mut COMM_EVENT_MASK , lpoverlapped : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]
 pub const MAXLENGTH_NAI: u32 = 72u32;
 #[doc = "*Required features: `\"Win32_Devices_Communication\"`*"]

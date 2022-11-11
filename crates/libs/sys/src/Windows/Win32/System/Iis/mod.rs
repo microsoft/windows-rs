@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "rpcproxy.dll" ,"system" fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rpcproxy.dll" ,"system" fn GetExtensionVersion ( pver : *mut HSE_VERSION_INFO ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "rpcproxy.dll" ,"system" fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "rpcproxy.dll" ,"system" fn GetFilterVersion ( pver : *mut HTTP_FILTER_VERSION ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "rpcproxy.dll" ,"system" fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
+::windows_sys::core::link ! ( "rpcproxy.dll" ,"system" fn HttpExtensionProc ( pecb : *const EXTENSION_CONTROL_BLOCK ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "rpcproxy.dll" ,"system" fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "rpcproxy.dll" ,"system" fn HttpFilterProc ( pfc : *mut HTTP_FILTER_CONTEXT , notificationtype : u32 , pvnotification : *mut ::core::ffi::c_void ) -> u32 );
 pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpAuthorizationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpHomeDirectoryProvider = *mut ::core::ffi::c_void;

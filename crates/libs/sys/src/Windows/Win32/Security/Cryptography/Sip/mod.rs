@@ -1,27 +1,27 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "crypt32.dll" ,"system" fn CryptSIPAddProvider ( psnewprov : *mut SIP_ADD_NEWPROVIDER ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "crypt32.dll" ,"system" fn CryptSIPAddProvider ( psnewprov : *mut SIP_ADD_NEWPROVIDER ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPCreateIndirectData ( psubjectinfo : *mut SIP_SUBJECTINFO , pcbindirectdata : *mut u32 , pindirectdata : *mut SIP_INDIRECT_DATA ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPCreateIndirectData ( psubjectinfo : *mut SIP_SUBJECTINFO , pcbindirectdata : *mut u32 , pindirectdata : *mut SIP_INDIRECT_DATA ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPGetCaps ( psubjinfo : *const SIP_SUBJECTINFO , pcaps : *mut SIP_CAP_SET_V3 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPGetCaps ( psubjinfo : *const SIP_SUBJECTINFO , pcaps : *mut SIP_CAP_SET_V3 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPGetSealedDigest ( psubjectinfo : *const SIP_SUBJECTINFO , psig : *const u8 , dwsig : u32 , pbdigest : *mut u8 , pcbdigest : *mut u32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPGetSealedDigest ( psubjectinfo : *const SIP_SUBJECTINFO , psig : *const u8 , dwsig : u32 , pbdigest : *mut u8 , pcbdigest : *mut u32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPGetSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE , dwindex : u32 , pcbsigneddatamsg : *mut u32 , pbsigneddatamsg : *mut u8 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPGetSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , pdwencodingtype : *mut super:: CERT_QUERY_ENCODING_TYPE , dwindex : u32 , pcbsigneddatamsg : *mut u32 , pbsigneddatamsg : *mut u8 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "crypt32.dll" ,"system" fn CryptSIPLoad ( pgsubject : *const :: windows_sys::core::GUID , dwflags : u32 , psipdispatch : *mut SIP_DISPATCH_INFO ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "crypt32.dll" ,"system" fn CryptSIPLoad ( pgsubject : *const :: windows_sys::core::GUID , dwflags : u32 , psipdispatch : *mut SIP_DISPATCH_INFO ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPPutSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE , pdwindex : *mut u32 , cbsigneddatamsg : u32 , pbsigneddatamsg : *mut u8 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPPutSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , dwencodingtype : super:: CERT_QUERY_ENCODING_TYPE , pdwindex : *mut u32 , cbsigneddatamsg : u32 , pbsigneddatamsg : *mut u8 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "crypt32.dll" ,"system" fn CryptSIPRemoveProvider ( pgprov : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "crypt32.dll" ,"system" fn CryptSIPRemoveProvider ( pgprov : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPRemoveSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , dwindex : u32 ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPRemoveSignedDataMsg ( psubjectinfo : *mut SIP_SUBJECTINFO , dwindex : u32 ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "crypt32.dll" ,"system" fn CryptSIPRetrieveSubjectGuid ( filename : :: windows_sys::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "crypt32.dll" ,"system" fn CryptSIPRetrieveSubjectGuid ( filename : :: windows_sys::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "crypt32.dll" ,"system" fn CryptSIPRetrieveSubjectGuidForCatalogFile ( filename : :: windows_sys::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "crypt32.dll" ,"system" fn CryptSIPRetrieveSubjectGuidForCatalogFile ( filename : :: windows_sys::core::PCWSTR , hfilein : super::super::super::Foundation:: HANDLE , pgsubject : *mut :: windows_sys::core::GUID ) -> super::super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-::windows_sys::core::windows_link ! ( "wintrust.dll" ,"system" fn CryptSIPVerifyIndirectData ( psubjectinfo : *mut SIP_SUBJECTINFO , pindirectdata : *mut SIP_INDIRECT_DATA ) -> super::super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "wintrust.dll" ,"system" fn CryptSIPVerifyIndirectData ( psubjectinfo : *mut SIP_SUBJECTINFO , pindirectdata : *mut SIP_INDIRECT_DATA ) -> super::super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]
 pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]

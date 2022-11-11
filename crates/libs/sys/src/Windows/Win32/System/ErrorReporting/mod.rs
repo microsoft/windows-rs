@@ -1,56 +1,56 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "faultrep.dll" ,"system" fn AddERExcludedApplicationA ( szapplication : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "faultrep.dll" ,"system" fn AddERExcludedApplicationA ( szapplication : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "faultrep.dll" ,"system" fn AddERExcludedApplicationW ( wszapplication : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "faultrep.dll" ,"system" fn AddERExcludedApplicationW ( wszapplication : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-::windows_sys::core::windows_link ! ( "faultrep.dll" ,"system" fn ReportFault ( pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS , dwopt : u32 ) -> EFaultRepRetVal );
+::windows_sys::core::link ! ( "faultrep.dll" ,"system" fn ReportFault ( pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS , dwopt : u32 ) -> EFaultRepRetVal );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerAddExcludedApplication ( pwzexename : :: windows_sys::core::PCWSTR , ballusers : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerFreeString ( pwszstr : :: windows_sys::core::PCWSTR ) -> ( ) );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerAddExcludedApplication ( pwzexename : :: windows_sys::core::PCWSTR , ballusers : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerFreeString ( pwszstr : :: windows_sys::core::PCWSTR ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerGetFlags ( hprocess : super::super::Foundation:: HANDLE , pdwflags : *mut WER_FAULT_REPORTING ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterAdditionalProcess ( processid : u32 , captureextrainfoforthreadid : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterAppLocalDump ( localappdatarelativepath : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterCustomMetadata ( key : :: windows_sys::core::PCWSTR , value : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void , size : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterFile ( pwzfile : :: windows_sys::core::PCWSTR , regfiletype : WER_REGISTER_FILE_TYPE , dwflags : WER_FILE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void , dwsize : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerRegisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows_sys::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerGetFlags ( hprocess : super::super::Foundation:: HANDLE , pdwflags : *mut WER_FAULT_REPORTING ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterAdditionalProcess ( processid : u32 , captureextrainfoforthreadid : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterAppLocalDump ( localappdatarelativepath : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterCustomMetadata ( key : :: windows_sys::core::PCWSTR , value : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void , size : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterFile ( pwzfile : :: windows_sys::core::PCWSTR , regfiletype : WER_REGISTER_FILE_TYPE , dwflags : WER_FILE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void , dwsize : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerRegisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows_sys::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerRemoveExcludedApplication ( pwzexename : :: windows_sys::core::PCWSTR , ballusers : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerRemoveExcludedApplication ( pwzexename : :: windows_sys::core::PCWSTR , ballusers : super::super::Foundation:: BOOL ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportAddDump ( hreporthandle : HREPORT , hprocess : super::super::Foundation:: HANDLE , hthread : super::super::Foundation:: HANDLE , dumptype : WER_DUMP_TYPE , pexceptionparam : *const WER_EXCEPTION_INFORMATION , pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportAddFile ( hreporthandle : HREPORT , pwzpath : :: windows_sys::core::PCWSTR , repfiletype : WER_FILE_TYPE , dwfileflags : WER_FILE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportCloseHandle ( hreporthandle : HREPORT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportAddDump ( hreporthandle : HREPORT , hprocess : super::super::Foundation:: HANDLE , hthread : super::super::Foundation:: HANDLE , dumptype : WER_DUMP_TYPE , pexceptionparam : *const WER_EXCEPTION_INFORMATION , pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS , dwflags : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportAddFile ( hreporthandle : HREPORT , pwzpath : :: windows_sys::core::PCWSTR , repfiletype : WER_FILE_TYPE , dwfileflags : WER_FILE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportCloseHandle ( hreporthandle : HREPORT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportCreate ( pwzeventtype : :: windows_sys::core::PCWSTR , reptype : WER_REPORT_TYPE , preportinformation : *const WER_REPORT_INFORMATION , phreporthandle : *mut HREPORT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportCreate ( pwzeventtype : :: windows_sys::core::PCWSTR , reptype : WER_REPORT_TYPE , preportinformation : *const WER_REPORT_INFORMATION , phreporthandle : *mut HREPORT ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "faultrep.dll" ,"system" fn WerReportHang ( hwndhungapp : super::super::Foundation:: HWND , pwzhungapplicationname : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportSetParameter ( hreporthandle : HREPORT , dwparamid : u32 , pwzname : :: windows_sys::core::PCWSTR , pwzvalue : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportSetUIOption ( hreporthandle : HREPORT , repuitypeid : WER_REPORT_UI , pwzvalue : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerReportSubmit ( hreporthandle : HREPORT , consent : WER_CONSENT , dwflags : WER_SUBMIT_FLAGS , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerSetFlags ( dwflags : WER_FAULT_REPORTING ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreClose ( hreportstore : HREPORTSTORE ) -> ( ) );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreGetFirstReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreGetNextReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreGetReportCount ( hreportstore : HREPORTSTORE , pdwreportcount : *mut u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreGetSizeOnDisk ( hreportstore : HREPORTSTORE , pqwsizeinbytes : *mut u64 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreOpen ( repstoretype : REPORT_STORE_TYPES , phreportstore : *mut HREPORTSTORE ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStorePurge ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "faultrep.dll" ,"system" fn WerReportHang ( hwndhungapp : super::super::Foundation:: HWND , pwzhungapplicationname : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportSetParameter ( hreporthandle : HREPORT , dwparamid : u32 , pwzname : :: windows_sys::core::PCWSTR , pwzvalue : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportSetUIOption ( hreporthandle : HREPORT , repuitypeid : WER_REPORT_UI , pwzvalue : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerReportSubmit ( hreporthandle : HREPORT , consent : WER_CONSENT , dwflags : WER_SUBMIT_FLAGS , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerSetFlags ( dwflags : WER_FAULT_REPORTING ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreClose ( hreportstore : HREPORTSTORE ) -> ( ) );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreGetFirstReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreGetNextReportKey ( hreportstore : HREPORTSTORE , ppszreportkey : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreGetReportCount ( hreportstore : HREPORTSTORE , pdwreportcount : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreGetSizeOnDisk ( hreportstore : HREPORTSTORE , pqwsizeinbytes : *mut u64 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreOpen ( repstoretype : REPORT_STORE_TYPES , phreportstore : *mut HREPORTSTORE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStorePurge ( ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV1 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V1 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV1 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V1 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV2 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V2 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV2 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V2 ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV3 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V3 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wer.dll" ,"system" fn WerStoreUploadReport ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , dwflags : u32 , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterAdditionalProcess ( processid : u32 ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterAppLocalDump ( ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterCustomMetadata ( key : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterFile ( pwzfilepath : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "kernel32.dll" ,"system" fn WerUnregisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows_sys::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreQueryReportMetadataV3 ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , preportmetadata : *mut WER_REPORT_METADATA_V3 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wer.dll" ,"system" fn WerStoreUploadReport ( hreportstore : HREPORTSTORE , pszreportkey : :: windows_sys::core::PCWSTR , dwflags : u32 , psubmitresult : *mut WER_SUBMIT_RESULT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterAdditionalProcess ( processid : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterAppLocalDump ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterCustomMetadata ( key : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterExcludedMemoryBlock ( address : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterFile ( pwzfilepath : :: windows_sys::core::PCWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterMemoryBlock ( pvaddress : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "kernel32.dll" ,"system" fn WerUnregisterRuntimeExceptionModule ( pwszoutofprocesscallbackdll : :: windows_sys::core::PCWSTR , pcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 pub const APPCRASH_EVENT: ::windows_sys::core::PCWSTR = ::windows_sys::w!("APPCRASH");
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]

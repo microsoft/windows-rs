@@ -1,11 +1,11 @@
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscGetAntiMalwareUri ( ppszuri : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscQueryAntiMalwareUri ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscGetAntiMalwareUri ( ppszuri : *mut :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscGetSecurityProviderHealth ( providers : u32 , phealth : *mut WSC_SECURITY_PROVIDER_HEALTH ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscQueryAntiMalwareUri ( ) -> :: windows_sys::core::HRESULT );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscRegisterForUserNotifications ( ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscRegisterForChanges ( reserved : *mut ::core::ffi::c_void , phcallbackregistration : *mut super::super::Foundation:: HANDLE , lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE , pcontext : *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscRegisterForUserNotifications ( ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::windows_link ! ( "wscapi.dll" ,"system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "wscapi.dll" ,"system" fn WscUnRegisterChanges ( hregistrationhandle : super::super::Foundation:: HANDLE ) -> :: windows_sys::core::HRESULT );
 pub type IWSCDefaultProduct = *mut ::core::ffi::c_void;
 pub type IWSCProductList = *mut ::core::ffi::c_void;
 pub type IWscProduct = *mut ::core::ffi::c_void;
