@@ -1,4 +1,4 @@
-use windows_sys::{Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*,};
+use windows_sys::{Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*};
 
 #[test]
 fn test() {

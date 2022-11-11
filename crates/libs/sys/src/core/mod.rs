@@ -77,8 +77,7 @@ extern "system" {
     fn FreeLibrary(library: isize) -> i32;
 }
 
-
-#[cfg(all(windows_raw_dylib,  not(windows_delay_load), target_arch = "x86"))]
+#[cfg(all(windows_raw_dylib, not(windows_delay_load), target_arch = "x86"))]
 #[macro_export]
 macro_rules! link {
     ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
@@ -89,7 +88,7 @@ macro_rules! link {
     )
 }
 
-#[cfg(all(windows_raw_dylib,  not(windows_delay_load), not(target_arch = "x86")))]
+#[cfg(all(windows_raw_dylib, not(windows_delay_load), not(target_arch = "x86")))]
 #[macro_export]
 macro_rules! link {
     ($library:literal, $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (

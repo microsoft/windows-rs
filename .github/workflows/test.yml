@@ -178,10 +178,6 @@ jobs:
           cargo test --target ${{ matrix.target }} -p tool_windows &&
           cargo test --target ${{ matrix.target }} -p tool_yml
 
-      - name: Test debugger_visualizer feature
-        run: cargo test --target ${{ matrix.target }} -p test_debugger_visualizer -- --test-threads=1
-        if: matrix.version == 'nightly' && endsWith(matrix.target, '-msvc')
-
       - name: Check import libs
         shell: pwsh
         run: |
