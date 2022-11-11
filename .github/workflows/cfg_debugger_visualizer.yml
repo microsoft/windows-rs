@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  RUSTFLAGS: -Dwarnings --cfg windows_debugger_visualizerX
+  RUSTFLAGS: -Dwarnings --cfg windows_debugger_visualizer
 
 jobs:
   test:
