@@ -15,6 +15,10 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let return_type = gen.return_sig(&signature);
+    let abi = gen.reader.method_def_extern_abi(def);
+    let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+    let scope = gen.reader.impl_map_scope(impl_map);
+    let link = gen.reader.module_ref_name(scope).to_lowercase();
 
     let params = signature.params.iter().map(|p| {
         let name = gen.param_name(p.def);
@@ -23,9 +27,8 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     });
 
     quote! {
-        #doc
         #features
-        pub fn #name(#(#params),*) #return_type;
+        ::windows_sys::core::link!(#link #abi #doc fn #name(#(#params),*) #return_type);
     }
 }
 
@@ -51,21 +54,21 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 fn #name(#(#abi_params),*) #abi_return_type;
             }
         }
-    } else if gen.namespace.starts_with("Windows.") {
-        quote! {
-            #[cfg_attr(windows, link(name = "windows"))]
-            extern #extern_abi {
-                fn #name(#(#abi_params),*) #abi_return_type;
-            }
-        }
     } else {
         let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
         let scope = gen.reader.impl_map_scope(impl_map);
         let link = gen.reader.module_ref_name(scope).to_lowercase();
-        quote! {
-            #[link(name = #link)]
-            extern #extern_abi {
-                fn #name(#(#abi_params),*) #abi_return_type;
+
+        if gen.namespace.starts_with("Windows.") {
+            quote! {
+                ::windows::core::link!(#link #extern_abi fn #name(#(#abi_params),*) #abi_return_type);
+            }
+        } else {
+            quote! {
+                #[link(name = #link)]
+                extern #extern_abi {
+                    fn #name(#(#abi_params),*) #abi_return_type;
+                }
             }
         }
     };

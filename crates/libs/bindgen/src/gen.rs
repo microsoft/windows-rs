@@ -854,7 +854,7 @@ impl<'a> Gen<'a> {
         } else if self.reader.method_def_does_not_return(signature.def) {
             quote! { -> ! }
         } else {
-            quote! {}
+            quote! { -> () }
         }
     }
     pub fn win32_args(&self, params: &[SignatureParam], kind: SignatureKind) -> TokenStream {

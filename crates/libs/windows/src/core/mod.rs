@@ -124,3 +124,16 @@ macro_rules! interface_hierarchy {
 
 #[doc(hidden)]
 pub use interface_hierarchy;
+
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = "windows")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[doc(hidden)]
+pub use crate::link;

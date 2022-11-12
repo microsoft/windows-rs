@@ -34,3 +34,17 @@ impl GUID {
         Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
     }
 }
+
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal $(#[$($doc:tt)*])* fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = "windows")]
+        extern $abi {
+            $(#[$($doc)*])*
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[doc(hidden)]
+pub use crate::link;
