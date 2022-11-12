@@ -7,7 +7,7 @@ on:
       - master
 
 env:
-  RUSTFLAGS: -Dwarnings --cfg windows_raw_dylibX
+  RUSTFLAGS: -Dwarnings --cfg windows_raw_dylib
 
 jobs:
   test:
