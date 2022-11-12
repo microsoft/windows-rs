@@ -1,10 +1,5 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-    pub fn CoGetInterceptor(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"]
-    pub fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, typeinfo: super::ITypeInfo, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"] fn CoGetInterceptor ( iidintercepted : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , iid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ole32.dll""system" #[doc = "*Required features: `\"Win32_System_Com_CallObj\"`*"] fn CoGetInterceptorFromTypeInfo ( iidintercepted : *const :: windows_sys::core::GUID , punkouter : :: windows_sys::core::IUnknown , typeinfo : super:: ITypeInfo , iid : *const :: windows_sys::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 pub type ICallFrame = *mut ::core::ffi::c_void;
 pub type ICallFrameEvents = *mut ::core::ffi::c_void;
 pub type ICallFrameWalker = *mut ::core::ffi::c_void;

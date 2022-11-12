@@ -4,40 +4,28 @@ pub unsafe fn WMCreateBackupRestorer<'a, P0>(pcallback: P0) -> ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateBackupRestorer(pcallback: *mut ::core::ffi::c_void, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateBackupRestorer ( pcallback : * mut::core::ffi::c_void , ppbackup : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateBackupRestorer(pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMLicenseBackup>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateEditor(ppeditor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateEditor ( ppeditor : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateEditor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMetadataEditor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateIndexer(ppindexer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateIndexer ( ppindexer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMIndexer>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateProfileManager(ppprofilemanager: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateProfileManager ( ppprofilemanager : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateProfileManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfileManager>(result__)
 }
@@ -47,10 +35,7 @@ pub unsafe fn WMCreateReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReader>(result__)
 }
@@ -60,10 +45,7 @@ pub unsafe fn WMCreateSyncReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windo
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateSyncReader(punkcert: *mut ::core::ffi::c_void, dwrights: u32, ppsyncreader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateSyncReader ( punkcert : * mut::core::ffi::c_void , dwrights : u32 , ppsyncreader : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateSyncReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSyncReader>(result__)
 }
@@ -73,40 +55,28 @@ pub unsafe fn WMCreateWriter<'a, P0>(punkcert: P0) -> ::windows::core::Result<IW
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriter(punkcert: *mut ::core::ffi::c_void, ppwriter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriter ( punkcert : * mut::core::ffi::c_void , ppwriter : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriter(punkcert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterFileSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterFileSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriterFileSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterFileSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterNetworkSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterNetworkSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriterNetworkSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterNetworkSink>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMCreateWriterPushSink(ppsink: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMCreateWriterPushSink ( ppsink : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriterPushSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterPushSink>(result__)
 }
@@ -117,10 +87,7 @@ pub unsafe fn WMIsContentProtected<'a, P0>(pwszfilename: P0, pfisprotected: *mut
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WMIsContentProtected(pwszfilename: ::windows::core::PCWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "wmvcore.dll""system" fn WMIsContentProtected ( pwszfilename : :: windows::core::PCWSTR , pfisprotected : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
     WMIsContentProtected(pwszfilename.into(), ::core::mem::transmute(pfisprotected)).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]

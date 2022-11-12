@@ -6,10 +6,7 @@ pub unsafe fn WICConvertBitmapSource<'a, P0>(dstformat: *const ::windows::core::
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICConvertBitmapSource(dstformat: *const ::windows::core::GUID, pisrc: *mut ::core::ffi::c_void, ppidst: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICConvertBitmapSource ( dstformat : *const :: windows::core::GUID , pisrc : * mut::core::ffi::c_void , ppidst : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICConvertBitmapSource(::core::mem::transmute(dstformat), pisrc.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapSource>(result__)
 }
@@ -20,10 +17,7 @@ pub unsafe fn WICCreateBitmapFromSection<'a, P0>(width: u32, height: u32, pixelf
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICCreateBitmapFromSection(width, height, ::core::mem::transmute(pixelformat), hsection.into(), stride, offset, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
 }
@@ -34,10 +28,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx<'a, P0>(width: u32, height: u32, pixe
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICCreateBitmapFromSectionEx(width, height, ::core::mem::transmute(pixelformat), hsection.into(), stride, offset, desiredaccesslevel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
 }
@@ -47,20 +38,14 @@ pub unsafe fn WICGetMetadataContentSize<'a, P0>(guidcontainerformat: *const ::wi
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows::core::GUID, piwriter: *mut ::core::ffi::c_void, pcbsize: *mut u64) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , pcbsize : *mut u64 ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICGetMetadataContentSize(::core::mem::transmute(guidcontainerformat), piwriter.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: ::core::option::Option<&mut [u16]>, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, cchname: u32, wzname: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapGuidToShortName ( guid : *const :: windows::core::GUID , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
     WICMapGuidToShortName(::core::mem::transmute(guid), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -69,10 +54,7 @@ pub unsafe fn WICMapSchemaToName<'a, P0>(guidmetadataformat: *const ::windows::c
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICMapSchemaToName(guidmetadataformat: *const ::windows::core::GUID, pwzschema: ::windows::core::PCWSTR, cchname: u32, wzname: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapSchemaToName ( guidmetadataformat : *const :: windows::core::GUID , pwzschema : :: windows::core::PCWSTR , cchname : u32 , wzname : :: windows::core::PWSTR , pcchactual : *mut u32 ) -> :: windows::core::HRESULT );
     WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), pwzschema.into(), wzname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(wzname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -81,10 +63,7 @@ pub unsafe fn WICMapShortNameToGuid<'a, P0>(wzname: P0) -> ::windows::core::Resu
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICMapShortNameToGuid(wzname: ::windows::core::PCWSTR, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMapShortNameToGuid ( wzname : :: windows::core::PCWSTR , pguid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICMapShortNameToGuid(wzname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
@@ -95,10 +74,7 @@ pub unsafe fn WICMatchMetadataContent<'a, P0>(guidcontainerformat: *const ::wind
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICMatchMetadataContent(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: *mut ::core::ffi::c_void, pguidmetadataformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , pguidvendor : *const :: windows::core::GUID , pistream : * mut::core::ffi::c_void , pguidmetadataformat : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WICMatchMetadataContent(::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
@@ -110,10 +86,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>,
     P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows::core::GUID, piwriter: *mut ::core::ffi::c_void, dwpersistoptions: u32, pistream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "windowscodecs.dll""system" fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows::core::GUID , piwriter : * mut::core::ffi::c_void , dwpersistoptions : u32 , pistream : * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
     WICSerializeMetadataContent(::core::mem::transmute(guidcontainerformat), piwriter.into().abi(), dwpersistoptions, pistream.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]

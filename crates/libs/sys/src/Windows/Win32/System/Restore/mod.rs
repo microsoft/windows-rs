@@ -1,12 +1,7 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "sfc.dll""system" #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"] fn SRSetRestorePointA ( prestoreptspec : *const RESTOREPOINTINFOA , psmgrstatus : *mut STATEMGRSTATUS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "sfc.dll""system" #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"] fn SRSetRestorePointW ( prestoreptspec : *const RESTOREPOINTINFOW , psmgrstatus : *mut STATEMGRSTATUS ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]

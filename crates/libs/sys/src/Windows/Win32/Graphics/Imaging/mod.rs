@@ -1,30 +1,18 @@
 #[cfg(feature = "Win32_Graphics_Imaging_D2D")]
 pub mod D2D;
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub fn WICConvertBitmapSource(dstformat: *const ::windows_sys::core::GUID, pisrc: IWICBitmapSource, ppidst: *mut IWICBitmapSource) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows_sys::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut IWICBitmap) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, pcbsize: *mut u64) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub fn WICMapGuidToShortName(guid: *const ::windows_sys::core::GUID, cchname: u32, wzname: ::windows_sys::core::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub fn WICMapSchemaToName(guidmetadataformat: *const ::windows_sys::core::GUID, pwzschema: ::windows_sys::core::PCWSTR, cchname: u32, wzname: ::windows_sys::core::PWSTR, pcchactual: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub fn WICMapShortNameToGuid(wzname: ::windows_sys::core::PCWSTR, pguid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn WICMatchMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, pguidvendor: *const ::windows_sys::core::GUID, pistream: super::super::System::Com::IStream, pguidmetadataformat: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows_sys::core::GUID, piwriter: IWICMetadataWriter, dwpersistoptions: u32, pistream: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"] fn WICConvertBitmapSource ( dstformat : *const :: windows_sys::core::GUID , pisrc : IWICBitmapSource , ppidst : *mut IWICBitmapSource ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"] fn WICCreateBitmapFromSection ( width : u32 , height : u32 , pixelformat : *const :: windows_sys::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , ppibitmap : *mut IWICBitmap ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"] fn WICCreateBitmapFromSectionEx ( width : u32 , height : u32 , pixelformat : *const :: windows_sys::core::GUID , hsection : super::super::Foundation:: HANDLE , stride : u32 , offset : u32 , desiredaccesslevel : WICSectionAccessLevel , ppibitmap : *mut IWICBitmap ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"] fn WICGetMetadataContentSize ( guidcontainerformat : *const :: windows_sys::core::GUID , piwriter : IWICMetadataWriter , pcbsize : *mut u64 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"] fn WICMapGuidToShortName ( guid : *const :: windows_sys::core::GUID , cchname : u32 , wzname : :: windows_sys::core::PWSTR , pcchactual : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"] fn WICMapSchemaToName ( guidmetadataformat : *const :: windows_sys::core::GUID , pwzschema : :: windows_sys::core::PCWSTR , cchname : u32 , wzname : :: windows_sys::core::PWSTR , pcchactual : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"] fn WICMapShortNameToGuid ( wzname : :: windows_sys::core::PCWSTR , pguid : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_System_Com")]
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"] fn WICMatchMetadataContent ( guidcontainerformat : *const :: windows_sys::core::GUID , pguidvendor : *const :: windows_sys::core::GUID , pistream : super::super::System::Com:: IStream , pguidmetadataformat : *mut :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_System_Com")]
+::windows_sys::core::link ! ( "windowscodecs.dll""system" #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"] fn WICSerializeMetadataContent ( guidcontainerformat : *const :: windows_sys::core::GUID , piwriter : IWICMetadataWriter , dwpersistoptions : u32 , pistream : super::super::System::Com:: IStream ) -> :: windows_sys::core::HRESULT );
 pub type IWICBitmap = *mut ::core::ffi::c_void;
 pub type IWICBitmapClipper = *mut ::core::ffi::c_void;
 pub type IWICBitmapCodecInfo = *mut ::core::ffi::c_void;

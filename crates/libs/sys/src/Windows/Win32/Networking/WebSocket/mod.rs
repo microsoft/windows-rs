@@ -1,32 +1,16 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE);
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: *const ::windows_sys::core::PSTR, ulsubprotocolcount: u32, pszextensions: *const ::windows_sys::core::PSTR, ulextensioncount: u32, pinitialheaders: *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount: u32, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: ::windows_sys::core::PCSTR, pszextensionselected: *const ::windows_sys::core::PSTR, ulextensionselectedcount: u32, prequestheaders: *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount: u32, presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32);
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketCreateClientHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketCreateServerHandle(pproperties: *const WEB_SOCKET_PROPERTY, ulpropertycount: u32, phwebsocket: *mut WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE);
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount: u32, pulselectedextensions: *mut u32, pulselectedextensioncount: *mut u32, pulselectedsubprotocol: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: *mut u32, paction: *mut WEB_SOCKET_ACTION, pbuffertype: *mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: *const WEB_SOCKET_BUFFER, pvcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
-    pub fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: *const WEB_SOCKET_BUFFER, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketAbortHandle ( hwebsocket : WEB_SOCKET_HANDLE ) -> ( ) );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketBeginClientHandshake ( hwebsocket : WEB_SOCKET_HANDLE , pszsubprotocols : *const :: windows_sys::core::PSTR , ulsubprotocolcount : u32 , pszextensions : *const :: windows_sys::core::PSTR , ulextensioncount : u32 , pinitialheaders : *const WEB_SOCKET_HTTP_HEADER , ulinitialheadercount : u32 , padditionalheaders : *mut *mut WEB_SOCKET_HTTP_HEADER , puladditionalheadercount : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketBeginServerHandshake ( hwebsocket : WEB_SOCKET_HANDLE , pszsubprotocolselected : :: windows_sys::core::PCSTR , pszextensionselected : *const :: windows_sys::core::PSTR , ulextensionselectedcount : u32 , prequestheaders : *const WEB_SOCKET_HTTP_HEADER , ulrequestheadercount : u32 , presponseheaders : *mut *mut WEB_SOCKET_HTTP_HEADER , pulresponseheadercount : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketCompleteAction ( hwebsocket : WEB_SOCKET_HANDLE , pvactioncontext : *const ::core::ffi::c_void , ulbytestransferred : u32 ) -> ( ) );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketCreateClientHandle ( pproperties : *const WEB_SOCKET_PROPERTY , ulpropertycount : u32 , phwebsocket : *mut WEB_SOCKET_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketCreateServerHandle ( pproperties : *const WEB_SOCKET_PROPERTY , ulpropertycount : u32 , phwebsocket : *mut WEB_SOCKET_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketDeleteHandle ( hwebsocket : WEB_SOCKET_HANDLE ) -> ( ) );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketEndClientHandshake ( hwebsocket : WEB_SOCKET_HANDLE , presponseheaders : *const WEB_SOCKET_HTTP_HEADER , ulreponseheadercount : u32 , pulselectedextensions : *mut u32 , pulselectedextensioncount : *mut u32 , pulselectedsubprotocol : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketEndServerHandshake ( hwebsocket : WEB_SOCKET_HANDLE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketGetAction ( hwebsocket : WEB_SOCKET_HANDLE , eactionqueue : WEB_SOCKET_ACTION_QUEUE , pdatabuffers : *mut WEB_SOCKET_BUFFER , puldatabuffercount : *mut u32 , paction : *mut WEB_SOCKET_ACTION , pbuffertype : *mut WEB_SOCKET_BUFFER_TYPE , pvapplicationcontext : *mut *mut ::core::ffi::c_void , pvactioncontext : *mut *mut ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketGetGlobalProperty ( etype : WEB_SOCKET_PROPERTY_TYPE , pvvalue : *mut ::core::ffi::c_void , ulsize : *mut u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketReceive ( hwebsocket : WEB_SOCKET_HANDLE , pbuffer : *const WEB_SOCKET_BUFFER , pvcontext : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "websocket.dll""system" #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"] fn WebSocketSend ( hwebsocket : WEB_SOCKET_HANDLE , buffertype : WEB_SOCKET_BUFFER_TYPE , pbuffer : *const WEB_SOCKET_BUFFER , context : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]

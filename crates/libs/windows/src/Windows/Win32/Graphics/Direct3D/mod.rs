@@ -1938,6 +1938,6 @@ impl ::core::default::Default for D3D_SHADER_MACRO {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-pub type PFN_DESTRUCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void)>;
+pub type PFN_DESTRUCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

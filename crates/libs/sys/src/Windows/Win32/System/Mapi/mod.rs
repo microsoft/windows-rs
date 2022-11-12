@@ -1,8 +1,4 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
-    pub fn MAPIFreeBuffer(pv: *mut ::core::ffi::c_void) -> u32;
-}
+::windows_sys::core::link ! ( "mapi32.dll""system" #[doc = "*Required features: `\"Win32_System_Mapi\"`*"] fn MAPIFreeBuffer ( pv : *mut ::core::ffi::c_void ) -> u32 );
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub const MAPI_AB_NOMODIFY: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]

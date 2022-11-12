@@ -1,21 +1,11 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn XInputEnable(enable: super::super::super::Foundation::BOOL);
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: ::windows_sys::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: ::windows_sys::core::PWSTR, pcapturecount: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputGetBatteryInformation(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputGetCapabilities(dwuserindex: u32, dwflags: XINPUT_FLAG, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
-    pub fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`, `\"Win32_Foundation\"`*"] fn XInputEnable ( enable : super::super::super::Foundation:: BOOL ) -> ( ) );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputGetAudioDeviceIds ( dwuserindex : u32 , prenderdeviceid : :: windows_sys::core::PWSTR , prendercount : *mut u32 , pcapturedeviceid : :: windows_sys::core::PWSTR , pcapturecount : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputGetBatteryInformation ( dwuserindex : u32 , devtype : BATTERY_DEVTYPE , pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION ) -> u32 );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputGetCapabilities ( dwuserindex : u32 , dwflags : XINPUT_FLAG , pcapabilities : *mut XINPUT_CAPABILITIES ) -> u32 );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputGetKeystroke ( dwuserindex : u32 , dwreserved : u32 , pkeystroke : *mut XINPUT_KEYSTROKE ) -> u32 );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputGetState ( dwuserindex : u32 , pstate : *mut XINPUT_STATE ) -> u32 );
+::windows_sys::core::link ! ( "xinput1_4.dll""system" #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"] fn XInputSetState ( dwuserindex : u32 , pvibration : *const XINPUT_VIBRATION ) -> u32 );
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]
 pub const XINPUT_DLL: ::windows_sys::core::PCWSTR = ::windows_sys::w!("xinput1_4.dll");
 #[doc = "*Required features: `\"Win32_UI_Input_XboxController\"`*"]

@@ -1,12 +1,7 @@
 #[cfg(feature = "Win32_Media_DirectShow_Xml")]
 pub mod Xml;
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-    pub fn AMGetErrorTextA(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PSTR, maxlen: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-    pub fn AMGetErrorTextW(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PWSTR, maxlen: u32) -> u32;
-}
+::windows_sys::core::link ! ( "quartz.dll""system" #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"] fn AMGetErrorTextA ( hr : :: windows_sys::core::HRESULT , pbuffer : :: windows_sys::core::PSTR , maxlen : u32 ) -> u32 );
+::windows_sys::core::link ! ( "quartz.dll""system" #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"] fn AMGetErrorTextW ( hr : :: windows_sys::core::HRESULT , pbuffer : :: windows_sys::core::PWSTR , maxlen : u32 ) -> u32 );
 pub type IAMAnalogVideoDecoder = *mut ::core::ffi::c_void;
 pub type IAMAnalogVideoEncoder = *mut ::core::ffi::c_void;
 pub type IAMAsyncReaderTimestampScaling = *mut ::core::ffi::c_void;

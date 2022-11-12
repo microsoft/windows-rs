@@ -1,34 +1,20 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub fn DMOEnum(guidcategory: *const ::windows_sys::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE, ppenum: *mut IEnumDMO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub fn DMOGetName(clsiddmo: *const ::windows_sys::core::GUID, szname: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub fn DMOGetTypes(clsiddmo: *const ::windows_sys::core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub fn DMORegister(szname: ::windows_sys::core::PCWSTR, clsiddmo: *const ::windows_sys::core::GUID, guidcategory: *const ::windows_sys::core::GUID, dwflags: u32, cintypes: u32, pintypes: *const DMO_PARTIAL_MEDIATYPE, couttypes: u32, pouttypes: *const DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
-    pub fn DMOUnregister(clsiddmo: *const ::windows_sys::core::GUID, guidcategory: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoCopyMediaType(pmtdest: *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoCreateMediaType(ppmt: *mut *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoDeleteMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoDuplicateMediaType(ppmtdest: *mut *mut DMO_MEDIA_TYPE, pmtsrc: *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoFreeMediaType(pmt: *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"] fn DMOEnum ( guidcategory : *const :: windows_sys::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE , ppenum : *mut IEnumDMO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"] fn DMOGetName ( clsiddmo : *const :: windows_sys::core::GUID , szname : :: windows_sys::core::PWSTR ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"] fn DMOGetTypes ( clsiddmo : *const :: windows_sys::core::GUID , ulinputtypesrequested : u32 , pulinputtypessupplied : *mut u32 , pinputtypes : *mut DMO_PARTIAL_MEDIATYPE , uloutputtypesrequested : u32 , puloutputtypessupplied : *mut u32 , poutputtypes : *mut DMO_PARTIAL_MEDIATYPE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"] fn DMORegister ( szname : :: windows_sys::core::PCWSTR , clsiddmo : *const :: windows_sys::core::GUID , guidcategory : *const :: windows_sys::core::GUID , dwflags : u32 , cintypes : u32 , pintypes : *const DMO_PARTIAL_MEDIATYPE , couttypes : u32 , pouttypes : *const DMO_PARTIAL_MEDIATYPE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"] fn DMOUnregister ( clsiddmo : *const :: windows_sys::core::GUID , guidcategory : *const :: windows_sys::core::GUID ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoCopyMediaType ( pmtdest : *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoCreateMediaType ( ppmt : *mut *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoDeleteMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoDuplicateMediaType ( ppmtdest : *mut *mut DMO_MEDIA_TYPE , pmtsrc : *const DMO_MEDIA_TYPE ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoFreeMediaType ( pmt : *mut DMO_MEDIA_TYPE ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "msdmo.dll""system" #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"] fn MoInitMediaType ( pmt : *mut DMO_MEDIA_TYPE , cbformat : u32 ) -> :: windows_sys::core::HRESULT );
 pub type IDMOQualityControl = *mut ::core::ffi::c_void;
 pub type IDMOVideoOutputOptimizations = *mut ::core::ffi::c_void;
 pub type IEnumDMO = *mut ::core::ffi::c_void;

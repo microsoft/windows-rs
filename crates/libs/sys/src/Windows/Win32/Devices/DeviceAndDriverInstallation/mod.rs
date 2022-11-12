@@ -1,1517 +1,936 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupWriteTextLog(logtoken: u64, category: u32, flags: u32, messagestr: ::windows_sys::core::PCSTR);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupWriteTextLogError(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: ::windows_sys::core::PCSTR);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Data_HtmlHelp\"`*"]
-    #[cfg(feature = "Win32_Data_HtmlHelp")]
-    pub fn CM_Add_Empty_Log_Conf(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Data_HtmlHelp\"`*"]
-    #[cfg(feature = "Win32_Data_HtmlHelp")]
-    pub fn CM_Add_Empty_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, priority: super::super::Data::HtmlHelp::PRIORITY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_IDA(dndevinst: u32, pszid: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_IDW(dndevinst: u32, pszid: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_ID_ExA(dndevinst: u32, pszid: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_ID_ExW(dndevinst: u32, pszid: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_Res_Des(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Add_Res_Des_Ex(prdresdes: *mut usize, lclogconf: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Connect_MachineA(uncservername: ::windows_sys::core::PCSTR, phmachine: *mut isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Connect_MachineW(uncservername: ::windows_sys::core::PCWSTR, phmachine: *mut isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCSTR, dnparent: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCWSTR, dnparent: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCSTR, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCWSTR, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Class_Key(classguid: *const ::windows_sys::core::GUID, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Class_Key_Ex(classguid: *const ::windows_sys::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_DevNode_Key(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_DevNode_Key_Ex(dndevnode: u32, ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Device_Interface_KeyA(pszdeviceinterface: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Device_Interface_KeyW(pszdeviceinterface: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Delete_Range(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Detect_Resource_Conflict(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Detect_Resource_Conflict_Ex(dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, pbconflictdetected: *mut super::super::Foundation::BOOL, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows_sys::core::GUID, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windows_sys::core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Find_Range(pullstart: *mut u64, ullstart: u64, ullength: u32, ullalignment: u64, ullend: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_First_Range(rlh: usize, pullstart: *mut u64, pullend: *mut u64, preelement: *mut usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Log_Conf_Ex(lclogconftobefreed: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Child_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Key_NameA(classguid: *const ::windows_sys::core::GUID, pszkeyname: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Key_NameW(classguid: *const ::windows_sys::core::GUID, pszkeyname: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Key_Name_ExA(classguid: *const ::windows_sys::core::GUID, pszkeyname: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Key_Name_ExW(classguid: *const ::windows_sys::core::GUID, pszkeyname: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_NameA(classguid: *const ::windows_sys::core::GUID, buffer: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_NameW(classguid: *const ::windows_sys::core::GUID, buffer: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Name_ExA(classguid: *const ::windows_sys::core::GUID, buffer: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Name_ExW(classguid: *const ::windows_sys::core::GUID, buffer: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Class_PropertyW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Class_Property_ExW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Class_Property_Keys(classguid: *const ::windows_sys::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Class_Property_Keys_Ex(classguid: *const ::windows_sys::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Registry_PropertyA(classguid: *const ::windows_sys::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Class_Registry_PropertyW(classguid: *const ::windows_sys::core::GUID, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Depth_Ex(puldepth: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Custom_PropertyA(dndevinst: u32, pszcustompropertyname: ::windows_sys::core::PCSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Custom_PropertyW(dndevinst: u32, pszcustompropertyname: ::windows_sys::core::PCWSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Custom_Property_ExA(dndevinst: u32, pszcustompropertyname: ::windows_sys::core::PCSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Custom_Property_ExW(dndevinst: u32, pszcustompropertyname: ::windows_sys::core::PCWSTR, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_DevNode_Property_Keys(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_DevNode_Property_Keys_Ex(dndevinst: u32, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, pulregdatatype: *mut u32, buffer: *mut ::core::ffi::c_void, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Status(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_IDA(dndevinst: u32, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_IDW(dndevinst: u32, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_ExA(dndevinst: u32, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_ExW(dndevinst: u32, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_ListA(pszfilter: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_ListW(pszfilter: ::windows_sys::core::PCWSTR, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_ExA(pszfilter: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_ExW(pszfilter: ::windows_sys::core::PCWSTR, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_SizeA(pullen: *mut u32, pszfilter: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_SizeW(pullen: *mut u32, pszfilter: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_Size_ExA(pullen: *mut u32, pszfilter: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_List_Size_ExW(pullen: *mut u32, pszfilter: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_ID_Size_Ex(pullen: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_AliasA(pszdeviceinterface: ::windows_sys::core::PCSTR, aliasinterfaceguid: *const ::windows_sys::core::GUID, pszaliasdeviceinterface: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_AliasW(pszdeviceinterface: ::windows_sys::core::PCWSTR, aliasinterfaceguid: *const ::windows_sys::core::GUID, pszaliasdeviceinterface: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface: ::windows_sys::core::PCSTR, aliasinterfaceguid: *const ::windows_sys::core::GUID, pszaliasdeviceinterface: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, aliasinterfaceguid: *const ::windows_sys::core::GUID, pszaliasdeviceinterface: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCWSTR, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCSTR, buffer: ::windows_sys::core::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCWSTR, buffer: ::windows_sys::core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfaceclassguid: *const ::windows_sys::core::GUID, pdeviceid: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Device_Interface_PropertyW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_First_Log_Conf(plclogconf: *mut usize, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_First_Log_Conf_Ex(plclogconf: *mut usize, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Global_State_Ex(pulstate: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_HW_Prof_FlagsA(pdeviceid: ::windows_sys::core::PCSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_HW_Prof_FlagsW(pdeviceid: ::windows_sys::core::PCWSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: ::windows_sys::core::PCSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: ::windows_sys::core::PCWSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Get_Hardware_Profile_InfoA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Hardware_Profile_InfoW(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_W, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Get_Hardware_Profile_Info_ExA(ulindex: u32, phwprofileinfo: *mut HWProfileInfo_sA, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Hardware_Profile_Info_ExW(ulindex: u32, phwprofileinfo: *mut HWPROFILEINFO_W, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Log_Conf_Priority(lclogconf: usize, ppriority: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Log_Conf_Priority_Ex(lclogconf: usize, ppriority: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Next_Log_Conf(plclogconf: *mut usize, lclogconf: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Next_Log_Conf_Ex(plclogconf: *mut usize, lclogconf: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Parent_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Res_Des_Data(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Res_Des_Data_Ex(rdresdes: usize, buffer: *mut ::core::ffi::c_void, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Res_Des_Data_Size(pulsize: *mut u32, rdresdes: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Res_Des_Data_Size_Ex(pulsize: *mut u32, rdresdes: usize, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Resource_Conflict_Count(clconflictlist: usize, pulcount: *mut u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Get_Resource_Conflict_DetailsA(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_A) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Resource_Conflict_DetailsW(clconflictlist: usize, ulindex: u32, pconflictdetails: *mut CONFLICT_DETAILS_W) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Sibling_Ex(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Version() -> u16;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Get_Version_Ex(hmachine: isize) -> u16;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Intersect_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Invert_Range_List(rlhold: usize, rlhnew: usize, ullmaxvalue: u64, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Is_Dock_Station_Present(pbpresent: *mut super::super::Foundation::BOOL) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Is_Dock_Station_Present_Ex(pbpresent: *mut super::super::Foundation::BOOL, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Merge_Range_List(rlhold1: usize, rlhold2: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Modify_Res_Des(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Modify_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Move_DevNode_Ex(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Next_Range(preelement: *mut usize, pullstart: *mut u64, pullend: *mut u64, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Class_KeyA(classguid: *const ::windows_sys::core::GUID, pszclassname: ::windows_sys::core::PCSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Class_KeyW(classguid: *const ::windows_sys::core::GUID, pszclassname: ::windows_sys::core::PCWSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Class_Key_ExA(classguid: *const ::windows_sys::core::GUID, pszclassname: ::windows_sys::core::PCSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Class_Key_ExW(classguid: *const ::windows_sys::core::GUID, pszclassname: ::windows_sys::core::PCWSTR, samdesired: u32, disposition: u32, phkclass: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_DevNode_Key(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_DevNode_Key_Ex(dndevnode: u32, samdesired: u32, ulhardwareprofile: u32, disposition: u32, phkdevice: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Device_Interface_KeyA(pszdeviceinterface: ::windows_sys::core::PCSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Device_Interface_KeyW(pszdeviceinterface: ::windows_sys::core::PCWSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Device_Interface_Key_ExA(pszdeviceinterface: ::windows_sys::core::PCSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn CM_Open_Device_Interface_Key_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, samdesired: u32, disposition: u32, phkdeviceinterface: *mut super::super::System::Registry::HKEY, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_And_Remove_SubTreeA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_And_Remove_SubTreeW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_And_Remove_SubTree_ExA(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_And_Remove_SubTree_ExW(dnancestor: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Arbitrator_Free_Data(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Arbitrator_Free_Data_Ex(pdata: *mut ::core::ffi::c_void, datalen: u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Arbitrator_Free_Size(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Arbitrator_Free_Size_Ex(pulsize: *mut u32, dndevinst: u32, resourceid: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Reenumerate_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_Driver_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_InterfaceA(dndevinst: u32, interfaceclassguid: *const ::windows_sys::core::GUID, pszreference: ::windows_sys::core::PCSTR, pszdeviceinterface: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_InterfaceW(dndevinst: u32, interfaceclassguid: *const ::windows_sys::core::GUID, pszreference: ::windows_sys::core::PCWSTR, pszdeviceinterface: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_Interface_ExA(dndevinst: u32, interfaceclassguid: *const ::windows_sys::core::GUID, pszreference: ::windows_sys::core::PCSTR, pszdeviceinterface: ::windows_sys::core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Register_Device_Interface_ExW(dndevinst: u32, interfaceclassguid: *const ::windows_sys::core::GUID, pszreference: ::windows_sys::core::PCWSTR, pszdeviceinterface: ::windows_sys::core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn CM_Register_Notification(pfilter: *const CM_NOTIFY_FILTER, pcontext: *const ::core::ffi::c_void, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: *mut isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Device_EjectA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Device_EjectW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PWSTR, ulnamelength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Device_Eject_ExA(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Device_Eject_ExW(dndevinst: u32, pvetotype: *mut PNP_VETO_TYPE, pszvetoname: ::windows_sys::core::PWSTR, ulnamelength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Eject_PC() -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Run_Detection(ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_Class_PropertyW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_Class_Property_ExW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_Class_Registry_PropertyA(classguid: *const ::windows_sys::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_Class_Registry_PropertyW(classguid: *const ::windows_sys::core::GUID, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Problem_Ex(dndevinst: u32, ulproblem: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_DevNode_PropertyW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_DevNode_Property_ExW(dndevinst: u32, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Registry_PropertyA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Registry_PropertyW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Registry_Property_ExA(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u32, buffer: *const ::core::ffi::c_void, ullength: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_Device_Interface_PropertyW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
-    #[cfg(feature = "Win32_Devices_Properties")]
-    pub fn CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof_FlagsA(pdeviceid: ::windows_sys::core::PCSTR, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof_FlagsW(pdeviceid: ::windows_sys::core::PCWSTR, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: ::windows_sys::core::PCSTR, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: ::windows_sys::core::PCWSTR, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Test_Range_Available(ullstartvalue: u64, ullendvalue: u64, rlh: usize, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Unregister_Device_InterfaceA(pszdeviceinterface: ::windows_sys::core::PCSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Unregister_Device_InterfaceW(pszdeviceinterface: ::windows_sys::core::PCWSTR, ulflags: u32) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Unregister_Device_Interface_ExA(pszdeviceinterface: ::windows_sys::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface: ::windows_sys::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiInstallDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiInstallDriverA(hwndparent: super::super::Foundation::HWND, infpath: ::windows_sys::core::PCSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiInstallDriverW(hwndparent: super::super::Foundation::HWND, infpath: ::windows_sys::core::PCWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiRollbackDriver(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: super::super::Foundation::HWND, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiShowUpdateDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiShowUpdateDriver(hwndparent: super::super::Foundation::HWND, filepath: ::windows_sys::core::PCWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiUninstallDevice(hwndparent: super::super::Foundation::HWND, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiUninstallDriverA(hwndparent: super::super::Foundation::HWND, infpath: ::windows_sys::core::PCSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DiUninstallDriverW(hwndparent: super::super::Foundation::HWND, infpath: ::windows_sys::core::PCWSTR, flags: u32, needreboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallHinfSectionA(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: ::windows_sys::core::PCSTR, showcommand: i32);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn InstallHinfSectionW(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: ::windows_sys::core::PCWSTR, showcommand: i32);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddInstallSectionToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddInstallSectionToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddSectionToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddSectionToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddToDiskSpaceListA(diskspace: *const ::core::ffi::c_void, targetfilespec: ::windows_sys::core::PCSTR, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddToDiskSpaceListW(diskspace: *const ::core::ffi::c_void, targetfilespec: ::windows_sys::core::PCWSTR, filesize: i64, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddToSourceListA(flags: u32, source: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAddToSourceListW(flags: u32, source: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAdjustDiskSpaceListA(diskspace: *const ::core::ffi::c_void, driveroot: ::windows_sys::core::PCSTR, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupAdjustDiskSpaceListW(diskspace: *const ::core::ffi::c_void, driveroot: ::windows_sys::core::PCWSTR, amount: i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupBackupErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCSTR, sourcefile: ::windows_sys::core::PCSTR, targetfile: ::windows_sys::core::PCSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupBackupErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCWSTR, sourcefile: ::windows_sys::core::PCWSTR, targetfile: ::windows_sys::core::PCWSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCloseFileQueue(queuehandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupCloseLog();
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCommitFileQueueA(owner: super::super::Foundation::HWND, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCommitFileQueueW(owner: super::super::Foundation::HWND, queuehandle: *const ::core::ffi::c_void, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupConfigureWmiFromInfSectionA(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupConfigureWmiFromInfSectionW(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCopyErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCSTR, diskname: ::windows_sys::core::PCSTR, pathtosource: ::windows_sys::core::PCSTR, sourcefile: ::windows_sys::core::PCSTR, targetpathfile: ::windows_sys::core::PCSTR, win32errorcode: u32, style: u32, pathbuffer: ::windows_sys::core::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCopyErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCWSTR, diskname: ::windows_sys::core::PCWSTR, pathtosource: ::windows_sys::core::PCWSTR, sourcefile: ::windows_sys::core::PCWSTR, targetpathfile: ::windows_sys::core::PCWSTR, win32errorcode: u32, style: u32, pathbuffer: ::windows_sys::core::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCopyOEMInfA(sourceinffilename: ::windows_sys::core::PCSTR, oemsourcemedialocation: ::windows_sys::core::PCSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: ::windows_sys::core::PSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupCopyOEMInfW(sourceinffilename: ::windows_sys::core::PCWSTR, oemsourcemedialocation: ::windows_sys::core::PCWSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: ::windows_sys::core::PWSTR, destinationinffilenamesize: u32, requiredsize: *mut u32, destinationinffilenamecomponent: *mut ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupCreateDiskSpaceListA(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupCreateDiskSpaceListW(reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDecompressOrCopyFileA(sourcefilename: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR, compressiontype: *const u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDecompressOrCopyFileW(sourcefilename: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR, compressiontype: *const u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDefaultQueueCallbackA(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDefaultQueueCallbackW(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDeleteErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCSTR, file: ::windows_sys::core::PCSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDeleteErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCWSTR, file: ::windows_sys::core::PCWSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDestroyDiskSpaceList(diskspace: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiAskForOEMDisk(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiBuildClassInfoList(flags: u32, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiBuildClassInfoListExA(flags: u32, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiBuildClassInfoListExW(flags: u32, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, drivertype: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCallClassInstaller(installfunction: u32, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCancelDriverInfoSearch(deviceinfoset: HDEVINFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiChangeState(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassGuidsFromNameA(classname: ::windows_sys::core::PCSTR, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassGuidsFromNameExA(classname: ::windows_sys::core::PCSTR, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassGuidsFromNameExW(classname: ::windows_sys::core::PCWSTR, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassGuidsFromNameW(classname: ::windows_sys::core::PCWSTR, classguidlist: *mut ::windows_sys::core::GUID, classguidlistsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassNameFromGuidA(classguid: *const ::windows_sys::core::GUID, classname: ::windows_sys::core::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassNameFromGuidExA(classguid: *const ::windows_sys::core::GUID, classname: ::windows_sys::core::PSTR, classnamesize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassNameFromGuidExW(classguid: *const ::windows_sys::core::GUID, classname: ::windows_sys::core::PWSTR, classnamesize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiClassNameFromGuidW(classguid: *const ::windows_sys::core::GUID, classname: ::windows_sys::core::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiCreateDevRegKeyA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCSTR) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiCreateDevRegKeyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCWSTR) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInfoA(deviceinfoset: HDEVINFO, devicename: ::windows_sys::core::PCSTR, classguid: *const ::windows_sys::core::GUID, devicedescription: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInfoList(classguid: *const ::windows_sys::core::GUID, hwndparent: super::super::Foundation::HWND) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInfoListExA(classguid: *const ::windows_sys::core::GUID, hwndparent: super::super::Foundation::HWND, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInfoListExW(classguid: *const ::windows_sys::core::GUID, hwndparent: super::super::Foundation::HWND, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInfoW(deviceinfoset: HDEVINFO, devicename: ::windows_sys::core::PCWSTR, classguid: *const ::windows_sys::core::GUID, devicedescription: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, creationflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInterfaceA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows_sys::core::GUID, referencestring: ::windows_sys::core::PCSTR, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCSTR) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32, infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCWSTR) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiCreateDeviceInterfaceW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows_sys::core::GUID, referencestring: ::windows_sys::core::PCWSTR, creationflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDeleteDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDeleteDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiDestroyClassImageList(classimagelistdata: *const SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDestroyDeviceInfoList(deviceinfoset: HDEVINFO) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub fn SetupDiDrawMiniIcon(hdc: super::super::Graphics::Gdi::HDC, rc: super::super::Foundation::RECT, miniiconindex: i32, flags: u32) -> i32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiEnumDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, interfaceclassguid: *const ::windows_sys::core::GUID, memberindex: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiEnumDriverInfoA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupDiGetActualModelsSectionA(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: ::windows_sys::core::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupDiGetActualModelsSectionW(context: *const INFCONTEXT, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: ::windows_sys::core::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetActualSectionToInstallA(infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCSTR, infsectionwithext: ::windows_sys::core::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut ::windows_sys::core::PSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupDiGetActualSectionToInstallExA(infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: ::windows_sys::core::PSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut ::windows_sys::core::PSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupDiGetActualSectionToInstallExW(infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCWSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsectionwithext: ::windows_sys::core::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut ::windows_sys::core::PWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetActualSectionToInstallW(infhandle: *const ::core::ffi::c_void, infsectionname: ::windows_sys::core::PCWSTR, infsectionwithext: ::windows_sys::core::PWSTR, infsectionwithextsize: u32, requiredsize: *mut u32, extension: *mut ::windows_sys::core::PWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassBitmapIndex(classguid: *const ::windows_sys::core::GUID, miniiconindex: *mut i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDescriptionA(classguid: *const ::windows_sys::core::GUID, classdescription: ::windows_sys::core::PSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDescriptionExA(classguid: *const ::windows_sys::core::GUID, classdescription: ::windows_sys::core::PSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDescriptionExW(classguid: *const ::windows_sys::core::GUID, classdescription: ::windows_sys::core::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDescriptionW(classguid: *const ::windows_sys::core::GUID, classdescription: ::windows_sys::core::PWSTR, classdescriptionsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERA_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertysheetheader: *const super::super::UI::Controls::PROPSHEETHEADERW_V2, propertysheetheaderpagelistsize: u32, requiredsize: *mut u32, propertysheettype: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDevsA(classguid: *const ::windows_sys::core::GUID, enumerator: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, flags: u32) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDevsExA(classguid: *const ::windows_sys::core::GUID, enumerator: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, flags: u32, deviceinfoset: HDEVINFO, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDevsExW(classguid: *const ::windows_sys::core::GUID, enumerator: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, flags: u32, deviceinfoset: HDEVINFO, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassDevsW(classguid: *const ::windows_sys::core::GUID, enumerator: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, flags: u32) -> HDEVINFO;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiGetClassImageIndex(classimagelistdata: *const SP_CLASSIMAGELIST_DATA, classguid: *const ::windows_sys::core::GUID, imageindex: *mut i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiGetClassImageList(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiGetClassImageListExA(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiGetClassImageListExW(classimagelistdata: *mut SP_CLASSIMAGELIST_DATA, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *mut SP_CLASSINSTALL_HEADER, classinstallparamssize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetClassPropertyExW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetClassPropertyKeys(classguid: *const ::windows_sys::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetClassPropertyKeysExW(classguid: *const ::windows_sys::core::GUID, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetClassPropertyW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassRegistryPropertyA(classguid: *const ::windows_sys::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetClassRegistryPropertyW(classguid: *const ::windows_sys::core::GUID, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetCustomDevicePropertyA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: ::windows_sys::core::PCSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetCustomDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, custompropertyname: ::windows_sys::core::PCWSTR, flags: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInfoListClass(deviceinfoset: HDEVINFO, classguid: *mut ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *mut SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: ::windows_sys::core::PSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstanceid: ::windows_sys::core::PWSTR, deviceinstanceidsize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const ::windows_sys::core::GUID, aliasdeviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize: u32, requiredsize: *mut u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykeyarray: *mut super::Properties::DEVPROPKEY, propertykeycount: u32, requiredpropertykeycount: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, property: u32, propertyregdatatype: *mut u32, propertybuffer: *mut u8, propertybuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinfodetaildata: *mut SP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *mut SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: ::windows_sys::core::PSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileFriendlyNameExA(hwprofile: u32, friendlyname: ::windows_sys::core::PSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileFriendlyNameExW(hwprofile: u32, friendlyname: ::windows_sys::core::PWSTR, friendlynamesize: u32, requiredsize: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: ::windows_sys::core::PWSTR, friendlynamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileList(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileListExA(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetHwProfileListExW(hwprofilelist: *mut u32, hwprofilelistsize: u32, requiredsize: *mut u32, currentlyactiveindex: *mut u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetINFClassA(infname: ::windows_sys::core::PCSTR, classguid: *mut ::windows_sys::core::GUID, classname: ::windows_sys::core::PSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetINFClassW(infname: ::windows_sys::core::PCWSTR, classguid: *mut ::windows_sys::core::GUID, classname: ::windows_sys::core::PWSTR, classnamesize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiGetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub fn SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, installwizarddata: *const SP_INSTALLWIZARD_DATA, pagetype: u32, flags: u32) -> super::super::UI::Controls::HPROPSHEETPAGE;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallClassA(hwndparent: super::super::Foundation::HWND, inffilename: ::windows_sys::core::PCSTR, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallClassExA(hwndparent: super::super::Foundation::HWND, inffilename: ::windows_sys::core::PCSTR, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows_sys::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallClassExW(hwndparent: super::super::Foundation::HWND, inffilename: ::windows_sys::core::PCWSTR, flags: u32, filequeue: *const ::core::ffi::c_void, interfaceclassguid: *const ::windows_sys::core::GUID, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallClassW(hwndparent: super::super::Foundation::HWND, inffilename: ::windows_sys::core::PCWSTR, flags: u32, filequeue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiInstallDriverFiles(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupDiLoadClassIcon(classguid: *const ::windows_sys::core::GUID, largeicon: *mut super::super::UI::WindowsAndMessaging::HICON, miniiconindex: *mut i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, cxicon: u32, cyicon: u32, flags: u32, hicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiOpenClassRegKey(classguid: *const ::windows_sys::core::GUID, samdesired: u32) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiOpenClassRegKeyExA(classguid: *const ::windows_sys::core::GUID, samdesired: u32, flags: u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiOpenClassRegKeyExW(classguid: *const ::windows_sys::core::GUID, samdesired: u32, flags: u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiOpenDeviceInfoA(deviceinfoset: HDEVINFO, deviceinstanceid: ::windows_sys::core::PCSTR, hwndparent: super::super::Foundation::HWND, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiOpenDeviceInfoW(deviceinfoset: HDEVINFO, deviceinstanceid: ::windows_sys::core::PCWSTR, hwndparent: super::super::Foundation::HWND, openflags: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiOpenDeviceInterfaceA(deviceinfoset: HDEVINFO, devicepath: ::windows_sys::core::PCSTR, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, reserved: u32, samdesired: u32) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiOpenDeviceInterfaceW(deviceinfoset: HDEVINFO, devicepath: ::windows_sys::core::PCWSTR, openflags: u32, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, flags: u32, compareproc: PSP_DETSIG_CMPPROC, comparecontext: *const ::core::ffi::c_void, dupdeviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiRemoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiRemoveDeviceInterface(deviceinfoset: HDEVINFO, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiRestartDevices(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSelectBestCompatDrv(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSelectDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSelectOEMDrv(hwndparent: super::super::Foundation::HWND, deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, classinstallparams: *const SP_CLASSINSTALL_HEADER, classinstallparamssize: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiSetClassPropertyExW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiSetClassPropertyW(classguid: *const ::windows_sys::core::GUID, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetClassRegistryPropertyA(classguid: *const ::windows_sys::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: ::windows_sys::core::PCSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetClassRegistryPropertyW(classguid: *const ::windows_sys::core::GUID, property: u32, propertybuffer: *const u8, propertybuffersize: u32, machinename: ::windows_sys::core::PCWSTR, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, deviceinstallparams: *const SP_DEVINSTALL_PARAMS_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-    pub fn SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, propertykey: *const super::Properties::DEVPROPKEY, propertytype: u32, propertybuffer: *const u8, propertybuffersize: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, property: u32, propertybuffer: *const u8, propertybuffersize: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_A, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: *const SP_DRVINFO_DATA_V2_W, driverinstallparams: *const SP_DRVINSTALL_PARAMS) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiSetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupDiUnremoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: *mut SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDuplicateDiskSpaceListA(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupDuplicateDiskSpaceListW(diskspace: *const ::core::ffi::c_void, reserved1: *mut ::core::ffi::c_void, reserved2: u32, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupEnumInfSectionsA(infhandle: *const ::core::ffi::c_void, index: u32, buffer: ::windows_sys::core::PSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupEnumInfSectionsW(infhandle: *const ::core::ffi::c_void, index: u32, buffer: ::windows_sys::core::PWSTR, size: u32, sizeneeded: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFindFirstLineA(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR, key: ::windows_sys::core::PCSTR, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFindFirstLineW(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR, key: ::windows_sys::core::PCWSTR, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFindNextLine(contextin: *const INFCONTEXT, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFindNextMatchLineA(contextin: *const INFCONTEXT, key: ::windows_sys::core::PCSTR, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFindNextMatchLineW(contextin: *const INFCONTEXT, key: ::windows_sys::core::PCWSTR, contextout: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFreeSourceListA(list: *mut *mut ::windows_sys::core::PSTR, count: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupFreeSourceListW(list: *mut *mut ::windows_sys::core::PWSTR, count: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetBackupInformationA(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetBackupInformationW(queuehandle: *const ::core::ffi::c_void, backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetBinaryField(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: *mut u8, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetFileCompressionInfoA(sourcefilename: ::windows_sys::core::PCSTR, actualsourcefilename: *mut ::windows_sys::core::PSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetFileCompressionInfoExA(sourcefilename: ::windows_sys::core::PCSTR, actualsourcefilenamebuffer: ::windows_sys::core::PCSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetFileCompressionInfoExW(sourcefilename: ::windows_sys::core::PCWSTR, actualsourcefilenamebuffer: ::windows_sys::core::PCWSTR, actualsourcefilenamebufferlen: u32, requiredbufferlen: *mut u32, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetFileCompressionInfoW(sourcefilename: ::windows_sys::core::PCWSTR, actualsourcefilename: *mut ::windows_sys::core::PWSTR, sourcefilesize: *mut u32, targetfilesize: *mut u32, compressiontype: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetFileQueueCount(filequeue: *const ::core::ffi::c_void, subqueuefileop: u32, numoperations: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flags: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupGetInfDriverStoreLocationA(filename: ::windows_sys::core::PCSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: ::windows_sys::core::PCSTR, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupGetInfDriverStoreLocationW(filename: ::windows_sys::core::PCWSTR, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, localename: ::windows_sys::core::PCWSTR, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfFileListA(directorypath: ::windows_sys::core::PCSTR, infstyle: u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfFileListW(directorypath: ::windows_sys::core::PCWSTR, infstyle: u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfInformationA(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfInformationW(infspec: *const ::core::ffi::c_void, searchcontrol: u32, returnbuffer: *mut SP_INF_INFORMATION, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfPublishedNameA(driverstorelocation: ::windows_sys::core::PCSTR, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetInfPublishedNameW(driverstorelocation: ::windows_sys::core::PCWSTR, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetIntField(context: *const INFCONTEXT, fieldindex: u32, integervalue: *mut i32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetLineByIndexA(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetLineByIndexW(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR, index: u32, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetLineCountA(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR) -> i32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetLineCountW(infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR) -> i32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetLineTextA(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR, key: ::windows_sys::core::PCSTR, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetLineTextW(context: *const INFCONTEXT, infhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR, key: ::windows_sys::core::PCWSTR, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetMultiSzFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetMultiSzFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceFileLocationA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: ::windows_sys::core::PCSTR, sourceid: *mut u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceFileLocationW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: ::windows_sys::core::PCWSTR, sourceid: *mut u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceFileSizeA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: ::windows_sys::core::PCSTR, section: ::windows_sys::core::PCSTR, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceFileSizeW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, filename: ::windows_sys::core::PCWSTR, section: ::windows_sys::core::PCWSTR, filesize: *mut u32, roundingfactor: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceInfoA(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetSourceInfoW(infhandle: *const ::core::ffi::c_void, sourceid: u32, infodesired: u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetStringFieldA(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetStringFieldW(context: *const INFCONTEXT, fieldindex: u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetTargetPathA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: ::windows_sys::core::PCSTR, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupGetTargetPathW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, section: ::windows_sys::core::PCWSTR, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupGetThreadLogToken() -> u64;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInitDefaultQueueCallback(ownerwindow: super::super::Foundation::HWND) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInitDefaultQueueCallbackEx(ownerwindow: super::super::Foundation::HWND, alternateprogresswindow: super::super::Foundation::HWND, progressmessage: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupInitializeFileLogA(logfilename: ::windows_sys::core::PCSTR, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupInitializeFileLogW(logfilename: ::windows_sys::core::PCWSTR, flags: u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFileA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: ::windows_sys::core::PCSTR, sourcepathroot: ::windows_sys::core::PCSTR, destinationname: ::windows_sys::core::PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFileExA(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: ::windows_sys::core::PCSTR, sourcepathroot: ::windows_sys::core::PCSTR, destinationname: ::windows_sys::core::PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFileExW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: ::windows_sys::core::PCWSTR, sourcepathroot: ::windows_sys::core::PCWSTR, destinationname: ::windows_sys::core::PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, filewasinuse: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFileW(infhandle: *const ::core::ffi::c_void, infcontext: *const INFCONTEXT, sourcefile: ::windows_sys::core::PCWSTR, sourcepathroot: ::windows_sys::core::PCWSTR, destinationname: ::windows_sys::core::PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFilesFromInfSectionA(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, sourcerootpath: ::windows_sys::core::PCSTR, copyflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallFilesFromInfSectionW(infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, filequeue: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, sourcerootpath: ::windows_sys::core::PCWSTR, copyflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SetupInstallFromInfSectionA(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: ::windows_sys::core::PCSTR, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SetupInstallFromInfSectionW(owner: super::super::Foundation::HWND, infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, flags: u32, relativekeyroot: super::super::System::Registry::HKEY, sourcerootpath: ::windows_sys::core::PCWSTR, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallServicesFromInfSectionA(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallServicesFromInfSectionExA(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, flags: u32, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallServicesFromInfSectionExW(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, flags: u32, deviceinfoset: HDEVINFO, deviceinfodata: *const SP_DEVINFO_DATA, reserved1: *mut ::core::ffi::c_void, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupInstallServicesFromInfSectionW(infhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupIterateCabinetA(cabinetfile: ::windows_sys::core::PCSTR, reserved: u32, msghandler: PSP_FILE_CALLBACK_A, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupIterateCabinetW(cabinetfile: ::windows_sys::core::PCWSTR, reserved: u32, msghandler: PSP_FILE_CALLBACK_W, context: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupLogErrorA(messagestring: ::windows_sys::core::PCSTR, severity: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupLogErrorW(messagestring: ::windows_sys::core::PCWSTR, severity: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupLogFileA(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCSTR, sourcefilename: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR, checksum: u32, disktagfile: ::windows_sys::core::PCSTR, diskdescription: ::windows_sys::core::PCSTR, otherinfo: ::windows_sys::core::PCSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupLogFileW(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCWSTR, sourcefilename: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR, checksum: u32, disktagfile: ::windows_sys::core::PCWSTR, diskdescription: ::windows_sys::core::PCWSTR, otherinfo: ::windows_sys::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupOpenAppendInfFileA(filename: ::windows_sys::core::PCSTR, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupOpenAppendInfFileW(filename: ::windows_sys::core::PCWSTR, infhandle: *const ::core::ffi::c_void, errorline: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupOpenFileQueue() -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupOpenInfFileA(filename: ::windows_sys::core::PCSTR, infclass: ::windows_sys::core::PCSTR, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupOpenInfFileW(filename: ::windows_sys::core::PCWSTR, infclass: ::windows_sys::core::PCWSTR, infstyle: u32, errorline: *mut u32) -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupOpenLog(erase: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupOpenMasterInf() -> *mut ::core::ffi::c_void;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupPrepareQueueForRestoreA(queuehandle: *const ::core::ffi::c_void, backuppath: ::windows_sys::core::PCSTR, restoreflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupPrepareQueueForRestoreW(queuehandle: *const ::core::ffi::c_void, backuppath: ::windows_sys::core::PCWSTR, restoreflags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupPromptForDiskA(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCSTR, diskname: ::windows_sys::core::PCSTR, pathtosource: ::windows_sys::core::PCSTR, filesought: ::windows_sys::core::PCSTR, tagfile: ::windows_sys::core::PCSTR, diskpromptstyle: u32, pathbuffer: ::windows_sys::core::PSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupPromptForDiskW(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCWSTR, diskname: ::windows_sys::core::PCWSTR, pathtosource: ::windows_sys::core::PCWSTR, filesought: ::windows_sys::core::PCWSTR, tagfile: ::windows_sys::core::PCWSTR, diskpromptstyle: u32, pathbuffer: ::windows_sys::core::PWSTR, pathbuffersize: u32, pathrequiredsize: *mut u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupPromptReboot(filequeue: *const ::core::ffi::c_void, owner: super::super::Foundation::HWND, scanonly: super::super::Foundation::BOOL) -> i32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryDrivesInDiskSpaceListA(diskspace: *const ::core::ffi::c_void, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryDrivesInDiskSpaceListW(diskspace: *const ::core::ffi::c_void, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryFileLogA(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR, desiredinfo: SetupFileLogInfo, dataout: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryFileLogW(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR, desiredinfo: SetupFileLogInfo, dataout: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryInfFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryInfFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupQueryInfOriginalFileInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupQueryInfOriginalFileInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, originalfileinfo: *mut SP_ORIGINAL_FILE_INFO_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryInfVersionInformationA(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: ::windows_sys::core::PCSTR, returnbuffer: ::windows_sys::core::PSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueryInfVersionInformationW(infinformation: *const SP_INF_INFORMATION, infindex: u32, key: ::windows_sys::core::PCWSTR, returnbuffer: ::windows_sys::core::PWSTR, returnbuffersize: u32, requiredsize: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQuerySourceListA(flags: u32, list: *mut *mut ::windows_sys::core::PSTR, count: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQuerySourceListW(flags: u32, list: *mut *mut ::windows_sys::core::PWSTR, count: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQuerySpaceRequiredOnDriveA(diskspace: *const ::core::ffi::c_void, drivespec: ::windows_sys::core::PCSTR, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQuerySpaceRequiredOnDriveW(diskspace: *const ::core::ffi::c_void, drivespec: ::windows_sys::core::PCWSTR, spacerequired: *mut i64, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopyA(queuehandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCSTR, sourcepath: ::windows_sys::core::PCSTR, sourcefilename: ::windows_sys::core::PCSTR, sourcedescription: ::windows_sys::core::PCSTR, sourcetagfile: ::windows_sys::core::PCSTR, targetdirectory: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopyIndirectA(copyparams: *const SP_FILE_COPY_PARAMS_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopyIndirectW(copyparams: *const SP_FILE_COPY_PARAMS_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopySectionA(queuehandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCSTR, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopySectionW(queuehandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCWSTR, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueCopyW(queuehandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCWSTR, sourcepath: ::windows_sys::core::PCWSTR, sourcefilename: ::windows_sys::core::PCWSTR, sourcedescription: ::windows_sys::core::PCWSTR, sourcetagfile: ::windows_sys::core::PCWSTR, targetdirectory: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDefaultCopyA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCSTR, sourcefilename: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDefaultCopyW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, sourcerootpath: ::windows_sys::core::PCWSTR, sourcefilename: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR, copystyle: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDeleteA(queuehandle: *const ::core::ffi::c_void, pathpart1: ::windows_sys::core::PCSTR, pathpart2: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDeleteSectionA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDeleteSectionW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueDeleteW(queuehandle: *const ::core::ffi::c_void, pathpart1: ::windows_sys::core::PCWSTR, pathpart2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueRenameA(queuehandle: *const ::core::ffi::c_void, sourcepath: ::windows_sys::core::PCSTR, sourcefilename: ::windows_sys::core::PCSTR, targetpath: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueRenameSectionA(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueRenameSectionW(queuehandle: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, section: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupQueueRenameW(queuehandle: *const ::core::ffi::c_void, sourcepath: ::windows_sys::core::PCWSTR, sourcefilename: ::windows_sys::core::PCWSTR, targetpath: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFileLogEntryA(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCSTR, targetfilename: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFileLogEntryW(fileloghandle: *const ::core::ffi::c_void, logsectionname: ::windows_sys::core::PCWSTR, targetfilename: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, targetfilespec: ::windows_sys::core::PCSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, targetfilespec: ::windows_sys::core::PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFromSourceListA(flags: u32, source: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveFromSourceListW(flags: u32, source: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, layoutinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveSectionFromDiskSpaceListA(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRemoveSectionFromDiskSpaceListW(diskspace: *const ::core::ffi::c_void, infhandle: *const ::core::ffi::c_void, listinfhandle: *const ::core::ffi::c_void, sectionname: ::windows_sys::core::PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: *mut ::core::ffi::c_void, reserved2: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRenameErrorA(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCSTR, sourcefile: ::windows_sys::core::PCSTR, targetfile: ::windows_sys::core::PCSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupRenameErrorW(hwndparent: super::super::Foundation::HWND, dialogtitle: ::windows_sys::core::PCWSTR, sourcefile: ::windows_sys::core::PCWSTR, targetfile: ::windows_sys::core::PCWSTR, win32errorcode: u32, style: u32) -> u32;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupScanFileQueueA(filequeue: *const ::core::ffi::c_void, flags: u32, window: super::super::Foundation::HWND, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupScanFileQueueW(filequeue: *const ::core::ffi::c_void, flags: u32, window: super::super::Foundation::HWND, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: *const ::core::ffi::c_void, result: *mut u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetDirectoryIdA(infhandle: *const ::core::ffi::c_void, id: u32, directory: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetDirectoryIdExA(infhandle: *const ::core::ffi::c_void, id: u32, directory: ::windows_sys::core::PCSTR, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetDirectoryIdExW(infhandle: *const ::core::ffi::c_void, id: u32, directory: ::windows_sys::core::PCWSTR, flags: u32, reserved1: u32, reserved2: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetDirectoryIdW(infhandle: *const ::core::ffi::c_void, id: u32, directory: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupSetFileQueueAlternatePlatformA(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupSetFileQueueAlternatePlatformW(queuehandle: *const ::core::ffi::c_void, alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2, alternatedefaultcatalogfile: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetFileQueueFlags(filequeue: *const ::core::ffi::c_void, flagmask: u32, flags: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetNonInteractiveMode(noninteractiveflag: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetPlatformPathOverrideA(r#override: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetPlatformPathOverrideW(r#override: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetSourceListA(flags: u32, sourcelist: *const ::windows_sys::core::PSTR, sourcecount: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupSetSourceListW(flags: u32, sourcelist: *const ::windows_sys::core::PWSTR, sourcecount: u32) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupSetThreadLogToken(logtoken: u64);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupTerminateFileLog(fileloghandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupUninstallNewlyCopiedInfs(filequeue: *const ::core::ffi::c_void, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupUninstallOEMInfA(inffilename: ::windows_sys::core::PCSTR, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SetupUninstallOEMInfW(inffilename: ::windows_sys::core::PCWSTR, flags: u32, reserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupVerifyInfFileA(infname: ::windows_sys::core::PCSTR, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_A) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
-    pub fn SetupVerifyInfFileW(infname: ::windows_sys::core::PCWSTR, altplatforminfo: *const SP_ALTPLATFORM_INFO_V2, infsignerinfo: *mut SP_INF_SIGNER_INFO_V2_W) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-    pub fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT);
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateDriverForPlugAndPlayDevicesA(hwndparent: super::super::Foundation::HWND, hardwareid: ::windows_sys::core::PCSTR, fullinfpath: ::windows_sys::core::PCSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn UpdateDriverForPlugAndPlayDevicesW(hwndparent: super::super::Foundation::HWND, hardwareid: ::windows_sys::core::PCWSTR, fullinfpath: ::windows_sys::core::PCWSTR, installflags: u32, brebootrequired: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-}
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CMP_WaitNoPendingInstallEvents ( dwtimeout : u32 ) -> u32 );
+#[cfg(feature = "Win32_Data_HtmlHelp")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Data_HtmlHelp\"`*"] fn CM_Add_Empty_Log_Conf ( plclogconf : *mut usize , dndevinst : u32 , priority : super::super::Data::HtmlHelp:: PRIORITY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Data_HtmlHelp")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Data_HtmlHelp\"`*"] fn CM_Add_Empty_Log_Conf_Ex ( plclogconf : *mut usize , dndevinst : u32 , priority : super::super::Data::HtmlHelp:: PRIORITY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_IDA ( dndevinst : u32 , pszid : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_IDW ( dndevinst : u32 , pszid : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_ID_ExA ( dndevinst : u32 , pszid : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_ID_ExW ( dndevinst : u32 , pszid : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_Range ( ullstartvalue : u64 , ullendvalue : u64 , rlh : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_Res_Des ( prdresdes : *mut usize , lclogconf : usize , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Add_Res_Des_Ex ( prdresdes : *mut usize , lclogconf : usize , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Connect_MachineA ( uncservername : :: windows_sys::core::PCSTR , phmachine : *mut isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Connect_MachineW ( uncservername : :: windows_sys::core::PCWSTR , phmachine : *mut isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Create_DevNodeA ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCSTR , dnparent : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Create_DevNodeW ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCWSTR , dnparent : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Create_DevNode_ExA ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCSTR , dnparent : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Create_DevNode_ExW ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCWSTR , dnparent : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Create_Range_List ( prlh : *mut usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Class_Key ( classguid : *const :: windows_sys::core::GUID , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Class_Key_Ex ( classguid : *const :: windows_sys::core::GUID , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_DevNode_Key ( dndevnode : u32 , ulhardwareprofile : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_DevNode_Key_Ex ( dndevnode : u32 , ulhardwareprofile : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Device_Interface_KeyA ( pszdeviceinterface : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Device_Interface_KeyW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Device_Interface_Key_ExA ( pszdeviceinterface : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Device_Interface_Key_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Delete_Range ( ullstartvalue : u64 , ullendvalue : u64 , rlh : usize , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Detect_Resource_Conflict ( dndevinst : u32 , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , pbconflictdetected : *mut super::super::Foundation:: BOOL , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Detect_Resource_Conflict_Ex ( dndevinst : u32 , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , pbconflictdetected : *mut super::super::Foundation:: BOOL , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Disable_DevNode ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Disable_DevNode_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Disconnect_Machine ( hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Dup_Range_List ( rlhold : usize , rlhnew : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enable_DevNode ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enable_DevNode_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_Classes ( ulclassindex : u32 , classguid : *mut :: windows_sys::core::GUID , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_Classes_Ex ( ulclassindex : u32 , classguid : *mut :: windows_sys::core::GUID , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_EnumeratorsA ( ulenumindex : u32 , buffer : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_EnumeratorsW ( ulenumindex : u32 , buffer : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_Enumerators_ExA ( ulenumindex : u32 , buffer : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Enumerate_Enumerators_ExW ( ulenumindex : u32 , buffer : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Find_Range ( pullstart : *mut u64 , ullstart : u64 , ullength : u32 , ullalignment : u64 , ullend : u64 , rlh : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_First_Range ( rlh : usize , pullstart : *mut u64 , pullend : *mut u64 , preelement : *mut usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Log_Conf ( lclogconftobefreed : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Log_Conf_Ex ( lclogconftobefreed : usize , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Log_Conf_Handle ( lclogconf : usize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Range_List ( rlh : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Res_Des ( prdresdes : *mut usize , rdresdes : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Res_Des_Ex ( prdresdes : *mut usize , rdresdes : usize , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Res_Des_Handle ( rdresdes : usize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Free_Resource_Conflict_Handle ( clconflictlist : usize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Child ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Child_Ex ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Key_NameA ( classguid : *const :: windows_sys::core::GUID , pszkeyname : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Key_NameW ( classguid : *const :: windows_sys::core::GUID , pszkeyname : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Key_Name_ExA ( classguid : *const :: windows_sys::core::GUID , pszkeyname : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Key_Name_ExW ( classguid : *const :: windows_sys::core::GUID , pszkeyname : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_NameA ( classguid : *const :: windows_sys::core::GUID , buffer : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_NameW ( classguid : *const :: windows_sys::core::GUID , buffer : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Name_ExA ( classguid : *const :: windows_sys::core::GUID , buffer : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Name_ExW ( classguid : *const :: windows_sys::core::GUID , buffer : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Class_PropertyW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Class_Property_ExW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Class_Property_Keys ( classguid : *const :: windows_sys::core::GUID , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Class_Property_Keys_Ex ( classguid : *const :: windows_sys::core::GUID , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Registry_PropertyA ( classguid : *const :: windows_sys::core::GUID , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Class_Registry_PropertyW ( classguid : *const :: windows_sys::core::GUID , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Depth ( puldepth : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Depth_Ex ( puldepth : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Custom_PropertyA ( dndevinst : u32 , pszcustompropertyname : :: windows_sys::core::PCSTR , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Custom_PropertyW ( dndevinst : u32 , pszcustompropertyname : :: windows_sys::core::PCWSTR , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Custom_Property_ExA ( dndevinst : u32 , pszcustompropertyname : :: windows_sys::core::PCSTR , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Custom_Property_ExW ( dndevinst : u32 , pszcustompropertyname : :: windows_sys::core::PCWSTR , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_DevNode_Property_Keys ( dndevinst : u32 , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_DevNode_Property_Keys_Ex ( dndevinst : u32 , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Registry_PropertyA ( dndevinst : u32 , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Registry_PropertyW ( dndevinst : u32 , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Registry_Property_ExA ( dndevinst : u32 , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Registry_Property_ExW ( dndevinst : u32 , ulproperty : u32 , pulregdatatype : *mut u32 , buffer : *mut ::core::ffi::c_void , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Status ( pulstatus : *mut u32 , pulproblemnumber : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_DevNode_Status_Ex ( pulstatus : *mut u32 , pulproblemnumber : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_IDA ( dndevinst : u32 , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_IDW ( dndevinst : u32 , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_ExA ( dndevinst : u32 , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_ExW ( dndevinst : u32 , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_ListA ( pszfilter : :: windows_sys::core::PCSTR , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_ListW ( pszfilter : :: windows_sys::core::PCWSTR , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_ExA ( pszfilter : :: windows_sys::core::PCSTR , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_ExW ( pszfilter : :: windows_sys::core::PCWSTR , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_SizeA ( pullen : *mut u32 , pszfilter : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_SizeW ( pullen : *mut u32 , pszfilter : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_Size_ExA ( pullen : *mut u32 , pszfilter : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_List_Size_ExW ( pullen : *mut u32 , pszfilter : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_Size ( pullen : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_ID_Size_Ex ( pullen : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_AliasA ( pszdeviceinterface : :: windows_sys::core::PCSTR , aliasinterfaceguid : *const :: windows_sys::core::GUID , pszaliasdeviceinterface : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_AliasW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , aliasinterfaceguid : *const :: windows_sys::core::GUID , pszaliasdeviceinterface : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_Alias_ExA ( pszdeviceinterface : :: windows_sys::core::PCSTR , aliasinterfaceguid : *const :: windows_sys::core::GUID , pszaliasdeviceinterface : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_Alias_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , aliasinterfaceguid : *const :: windows_sys::core::GUID , pszaliasdeviceinterface : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_ListA ( interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCSTR , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_ListW ( interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCWSTR , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_ExA ( interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCSTR , buffer : :: windows_sys::core::PSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_ExW ( interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCWSTR , buffer : :: windows_sys::core::PWSTR , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_SizeA ( pullen : *mut u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_SizeW ( pullen : *mut u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_Size_ExA ( pullen : *mut u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Device_Interface_List_Size_ExW ( pullen : *mut u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pdeviceid : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Device_Interface_PropertyW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Device_Interface_Property_KeysW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Get_Device_Interface_Property_Keys_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_First_Log_Conf ( plclogconf : *mut usize , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_First_Log_Conf_Ex ( plclogconf : *mut usize , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Global_State ( pulstate : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Global_State_Ex ( pulstate : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_FlagsA ( pdeviceid : :: windows_sys::core::PCSTR , ulhardwareprofile : u32 , pulvalue : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_FlagsW ( pdeviceid : :: windows_sys::core::PCWSTR , ulhardwareprofile : u32 , pulvalue : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_Flags_ExA ( pdeviceid : :: windows_sys::core::PCSTR , ulhardwareprofile : u32 , pulvalue : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_HW_Prof_Flags_ExW ( pdeviceid : :: windows_sys::core::PCWSTR , ulhardwareprofile : u32 , pulvalue : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Get_Hardware_Profile_InfoA ( ulindex : u32 , phwprofileinfo : *mut HWProfileInfo_sA , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_InfoW ( ulindex : u32 , phwprofileinfo : *mut HWPROFILEINFO_W , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Get_Hardware_Profile_Info_ExA ( ulindex : u32 , phwprofileinfo : *mut HWProfileInfo_sA , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Hardware_Profile_Info_ExW ( ulindex : u32 , phwprofileinfo : *mut HWPROFILEINFO_W , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Log_Conf_Priority ( lclogconf : usize , ppriority : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Log_Conf_Priority_Ex ( lclogconf : usize , ppriority : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Next_Log_Conf ( plclogconf : *mut usize , lclogconf : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Next_Log_Conf_Ex ( plclogconf : *mut usize , lclogconf : usize , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Next_Res_Des ( prdresdes : *mut usize , rdresdes : usize , forresource : u32 , presourceid : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Next_Res_Des_Ex ( prdresdes : *mut usize , rdresdes : usize , forresource : u32 , presourceid : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Parent ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Parent_Ex ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Res_Des_Data ( rdresdes : usize , buffer : *mut ::core::ffi::c_void , bufferlen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Res_Des_Data_Ex ( rdresdes : usize , buffer : *mut ::core::ffi::c_void , bufferlen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Res_Des_Data_Size ( pulsize : *mut u32 , rdresdes : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Res_Des_Data_Size_Ex ( pulsize : *mut u32 , rdresdes : usize , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Resource_Conflict_Count ( clconflictlist : usize , pulcount : *mut u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Get_Resource_Conflict_DetailsA ( clconflictlist : usize , ulindex : u32 , pconflictdetails : *mut CONFLICT_DETAILS_A ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Resource_Conflict_DetailsW ( clconflictlist : usize , ulindex : u32 , pconflictdetails : *mut CONFLICT_DETAILS_W ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Sibling ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Sibling_Ex ( pdndevinst : *mut u32 , dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Version ( ) -> u16 );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Get_Version_Ex ( hmachine : isize ) -> u16 );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Intersect_Range_List ( rlhold1 : usize , rlhold2 : usize , rlhnew : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Invert_Range_List ( rlhold : usize , rlhnew : usize , ullmaxvalue : u64 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Is_Dock_Station_Present ( pbpresent : *mut super::super::Foundation:: BOOL ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Is_Dock_Station_Present_Ex ( pbpresent : *mut super::super::Foundation:: BOOL , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Is_Version_Available ( wversion : u16 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Is_Version_Available_Ex ( wversion : u16 , hmachine : isize ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Locate_DevNodeA ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Locate_DevNodeW ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Locate_DevNode_ExA ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Locate_DevNode_ExW ( pdndevinst : *mut u32 , pdeviceid : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_MapCrToWin32Err ( cmreturncode : CONFIGRET , defaulterr : u32 ) -> u32 );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Merge_Range_List ( rlhold1 : usize , rlhold2 : usize , rlhnew : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Modify_Res_Des ( prdresdes : *mut usize , rdresdes : usize , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Modify_Res_Des_Ex ( prdresdes : *mut usize , rdresdes : usize , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Move_DevNode ( dnfromdevinst : u32 , dntodevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Move_DevNode_Ex ( dnfromdevinst : u32 , dntodevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Next_Range ( preelement : *mut usize , pullstart : *mut u64 , pullend : *mut u64 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Class_KeyA ( classguid : *const :: windows_sys::core::GUID , pszclassname : :: windows_sys::core::PCSTR , samdesired : u32 , disposition : u32 , phkclass : *mut super::super::System::Registry:: HKEY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Class_KeyW ( classguid : *const :: windows_sys::core::GUID , pszclassname : :: windows_sys::core::PCWSTR , samdesired : u32 , disposition : u32 , phkclass : *mut super::super::System::Registry:: HKEY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Class_Key_ExA ( classguid : *const :: windows_sys::core::GUID , pszclassname : :: windows_sys::core::PCSTR , samdesired : u32 , disposition : u32 , phkclass : *mut super::super::System::Registry:: HKEY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Class_Key_ExW ( classguid : *const :: windows_sys::core::GUID , pszclassname : :: windows_sys::core::PCWSTR , samdesired : u32 , disposition : u32 , phkclass : *mut super::super::System::Registry:: HKEY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_DevNode_Key ( dndevnode : u32 , samdesired : u32 , ulhardwareprofile : u32 , disposition : u32 , phkdevice : *mut super::super::System::Registry:: HKEY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_DevNode_Key_Ex ( dndevnode : u32 , samdesired : u32 , ulhardwareprofile : u32 , disposition : u32 , phkdevice : *mut super::super::System::Registry:: HKEY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Device_Interface_KeyA ( pszdeviceinterface : :: windows_sys::core::PCSTR , samdesired : u32 , disposition : u32 , phkdeviceinterface : *mut super::super::System::Registry:: HKEY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Device_Interface_KeyW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , samdesired : u32 , disposition : u32 , phkdeviceinterface : *mut super::super::System::Registry:: HKEY , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Device_Interface_Key_ExA ( pszdeviceinterface : :: windows_sys::core::PCSTR , samdesired : u32 , disposition : u32 , phkdeviceinterface : *mut super::super::System::Registry:: HKEY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn CM_Open_Device_Interface_Key_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , samdesired : u32 , disposition : u32 , phkdeviceinterface : *mut super::super::System::Registry:: HKEY , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_And_Remove_SubTreeA ( dnancestor : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PSTR , ulnamelength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_And_Remove_SubTreeW ( dnancestor : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PWSTR , ulnamelength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_And_Remove_SubTree_ExA ( dnancestor : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PSTR , ulnamelength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_And_Remove_SubTree_ExW ( dnancestor : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PWSTR , ulnamelength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Arbitrator_Free_Data ( pdata : *mut ::core::ffi::c_void , datalen : u32 , dndevinst : u32 , resourceid : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Arbitrator_Free_Data_Ex ( pdata : *mut ::core::ffi::c_void , datalen : u32 , dndevinst : u32 , resourceid : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Arbitrator_Free_Size ( pulsize : *mut u32 , dndevinst : u32 , resourceid : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Arbitrator_Free_Size_Ex ( pulsize : *mut u32 , dndevinst : u32 , resourceid : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Remove_SubTree ( dnancestor : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Remove_SubTree_Ex ( dnancestor : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Query_Resource_Conflict_List ( pclconflictlist : *mut usize , dndevinst : u32 , resourceid : u32 , resourcedata : *const ::core::ffi::c_void , resourcelen : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Reenumerate_DevNode ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Reenumerate_DevNode_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_Driver ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_Driver_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_InterfaceA ( dndevinst : u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pszreference : :: windows_sys::core::PCSTR , pszdeviceinterface : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_InterfaceW ( dndevinst : u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pszreference : :: windows_sys::core::PCWSTR , pszdeviceinterface : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_Interface_ExA ( dndevinst : u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pszreference : :: windows_sys::core::PCSTR , pszdeviceinterface : :: windows_sys::core::PSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Register_Device_Interface_ExW ( dndevinst : u32 , interfaceclassguid : *const :: windows_sys::core::GUID , pszreference : :: windows_sys::core::PCWSTR , pszdeviceinterface : :: windows_sys::core::PWSTR , pullength : *mut u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn CM_Register_Notification ( pfilter : *const CM_NOTIFY_FILTER , pcontext : *const ::core::ffi::c_void , pcallback : PCM_NOTIFY_CALLBACK , pnotifycontext : *mut isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Remove_SubTree ( dnancestor : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Remove_SubTree_Ex ( dnancestor : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Device_EjectA ( dndevinst : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PSTR , ulnamelength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Device_EjectW ( dndevinst : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PWSTR , ulnamelength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Device_Eject_ExA ( dndevinst : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PSTR , ulnamelength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Device_Eject_ExW ( dndevinst : u32 , pvetotype : *mut PNP_VETO_TYPE , pszvetoname : :: windows_sys::core::PWSTR , ulnamelength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Eject_PC ( ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Request_Eject_PC_Ex ( hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Run_Detection ( ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Run_Detection_Ex ( ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_Class_PropertyW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_Class_Property_ExW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_Class_Registry_PropertyA ( classguid : *const :: windows_sys::core::GUID , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_Class_Registry_PropertyW ( classguid : *const :: windows_sys::core::GUID , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Problem ( dndevinst : u32 , ulproblem : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Problem_Ex ( dndevinst : u32 , ulproblem : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_DevNode_PropertyW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_DevNode_Property_ExW ( dndevinst : u32 , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Registry_PropertyA ( dndevinst : u32 , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Registry_PropertyW ( dndevinst : u32 , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Registry_Property_ExA ( dndevinst : u32 , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_DevNode_Registry_Property_ExW ( dndevinst : u32 , ulproperty : u32 , buffer : *const ::core::ffi::c_void , ullength : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_Device_Interface_PropertyW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 ) -> CONFIGRET );
+#[cfg(feature = "Win32_Devices_Properties")]
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"] fn CM_Set_Device_Interface_Property_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof ( ulhardwareprofile : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof_Ex ( ulhardwareprofile : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof_FlagsA ( pdeviceid : :: windows_sys::core::PCSTR , ulconfig : u32 , ulvalue : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof_FlagsW ( pdeviceid : :: windows_sys::core::PCWSTR , ulconfig : u32 , ulvalue : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof_Flags_ExA ( pdeviceid : :: windows_sys::core::PCSTR , ulconfig : u32 , ulvalue : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Set_HW_Prof_Flags_ExW ( pdeviceid : :: windows_sys::core::PCWSTR , ulconfig : u32 , ulvalue : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Setup_DevNode ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Setup_DevNode_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Test_Range_Available ( ullstartvalue : u64 , ullendvalue : u64 , rlh : usize , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Uninstall_DevNode ( dndevinst : u32 , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Uninstall_DevNode_Ex ( dndevinst : u32 , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Device_InterfaceA ( pszdeviceinterface : :: windows_sys::core::PCSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Device_InterfaceW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , ulflags : u32 ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Device_Interface_ExA ( pszdeviceinterface : :: windows_sys::core::PCSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Device_Interface_ExW ( pszdeviceinterface : :: windows_sys::core::PCWSTR , ulflags : u32 , hmachine : isize ) -> CONFIGRET );
+::windows_sys::core::link ! ( "cfgmgr32.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn CM_Unregister_Notification ( notifycontext : HCMNOTIFICATION ) -> CONFIGRET );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDevice ( hwndparent : super::super::Foundation:: HWND , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_A , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDriverA ( hwndparent : super::super::Foundation:: HWND , infpath : :: windows_sys::core::PCSTR , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiInstallDriverW ( hwndparent : super::super::Foundation:: HWND , infpath : :: windows_sys::core::PCWSTR , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiRollbackDriver ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , hwndparent : super::super::Foundation:: HWND , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiShowUpdateDevice ( hwndparent : super::super::Foundation:: HWND , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiShowUpdateDriver ( hwndparent : super::super::Foundation:: HWND , filepath : :: windows_sys::core::PCWSTR , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiUninstallDevice ( hwndparent : super::super::Foundation:: HWND , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiUninstallDriverA ( hwndparent : super::super::Foundation:: HWND , infpath : :: windows_sys::core::PCSTR , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn DiUninstallDriverW ( hwndparent : super::super::Foundation:: HWND , infpath : :: windows_sys::core::PCWSTR , flags : u32 , needreboot : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn InstallHinfSectionA ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HINSTANCE , commandline : :: windows_sys::core::PCSTR , showcommand : i32 ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn InstallHinfSectionW ( window : super::super::Foundation:: HWND , modulehandle : super::super::Foundation:: HINSTANCE , commandline : :: windows_sys::core::PCWSTR , showcommand : i32 ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddInstallSectionToDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddInstallSectionToDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddSectionToDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddSectionToDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddToDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , targetfilespec : :: windows_sys::core::PCSTR , filesize : i64 , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddToDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , targetfilespec : :: windows_sys::core::PCWSTR , filesize : i64 , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddToSourceListA ( flags : u32 , source : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAddToSourceListW ( flags : u32 , source : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAdjustDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , driveroot : :: windows_sys::core::PCSTR , amount : i64 , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupAdjustDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , driveroot : :: windows_sys::core::PCWSTR , amount : i64 , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupBackupErrorA ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCSTR , sourcefile : :: windows_sys::core::PCSTR , targetfile : :: windows_sys::core::PCSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupBackupErrorW ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCWSTR , sourcefile : :: windows_sys::core::PCWSTR , targetfile : :: windows_sys::core::PCWSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCancelTemporarySourceList ( ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCloseFileQueue ( queuehandle : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupCloseInfFile ( infhandle : *const ::core::ffi::c_void ) -> ( ) );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupCloseLog ( ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCommitFileQueueA ( owner : super::super::Foundation:: HWND , queuehandle : *const ::core::ffi::c_void , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCommitFileQueueW ( owner : super::super::Foundation:: HWND , queuehandle : *const ::core::ffi::c_void , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupConfigureWmiFromInfSectionA ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupConfigureWmiFromInfSectionW ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCopyErrorA ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCSTR , diskname : :: windows_sys::core::PCSTR , pathtosource : :: windows_sys::core::PCSTR , sourcefile : :: windows_sys::core::PCSTR , targetpathfile : :: windows_sys::core::PCSTR , win32errorcode : u32 , style : u32 , pathbuffer : :: windows_sys::core::PSTR , pathbuffersize : u32 , pathrequiredsize : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCopyErrorW ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCWSTR , diskname : :: windows_sys::core::PCWSTR , pathtosource : :: windows_sys::core::PCWSTR , sourcefile : :: windows_sys::core::PCWSTR , targetpathfile : :: windows_sys::core::PCWSTR , win32errorcode : u32 , style : u32 , pathbuffer : :: windows_sys::core::PWSTR , pathbuffersize : u32 , pathrequiredsize : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCopyOEMInfA ( sourceinffilename : :: windows_sys::core::PCSTR , oemsourcemedialocation : :: windows_sys::core::PCSTR , oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE , copystyle : u32 , destinationinffilename : :: windows_sys::core::PSTR , destinationinffilenamesize : u32 , requiredsize : *mut u32 , destinationinffilenamecomponent : *mut :: windows_sys::core::PSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupCopyOEMInfW ( sourceinffilename : :: windows_sys::core::PCWSTR , oemsourcemedialocation : :: windows_sys::core::PCWSTR , oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE , copystyle : u32 , destinationinffilename : :: windows_sys::core::PWSTR , destinationinffilenamesize : u32 , requiredsize : *mut u32 , destinationinffilenamecomponent : *mut :: windows_sys::core::PWSTR ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupCreateDiskSpaceListA ( reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 , flags : u32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupCreateDiskSpaceListW ( reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 , flags : u32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDecompressOrCopyFileA ( sourcefilename : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR , compressiontype : *const u32 ) -> u32 );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDecompressOrCopyFileW ( sourcefilename : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR , compressiontype : *const u32 ) -> u32 );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDefaultQueueCallbackA ( context : *const ::core::ffi::c_void , notification : u32 , param1 : usize , param2 : usize ) -> u32 );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDefaultQueueCallbackW ( context : *const ::core::ffi::c_void , notification : u32 , param1 : usize , param2 : usize ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDeleteErrorA ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCSTR , file : :: windows_sys::core::PCSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDeleteErrorW ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCWSTR , file : :: windows_sys::core::PCWSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDestroyDiskSpaceList ( diskspace : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiAskForOEMDisk ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiBuildClassInfoList ( flags : u32 , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiBuildClassInfoListExA ( flags : u32 , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiBuildClassInfoListExW ( flags : u32 , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiBuildDriverInfoList ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , drivertype : SETUP_DI_BUILD_DRIVER_DRIVER_TYPE ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCallClassInstaller ( installfunction : u32 , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCancelDriverInfoSearch ( deviceinfoset : HDEVINFO ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiChangeState ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassGuidsFromNameA ( classname : :: windows_sys::core::PCSTR , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassGuidsFromNameExA ( classname : :: windows_sys::core::PCSTR , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassGuidsFromNameExW ( classname : :: windows_sys::core::PCWSTR , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassGuidsFromNameW ( classname : :: windows_sys::core::PCWSTR , classguidlist : *mut :: windows_sys::core::GUID , classguidlistsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassNameFromGuidA ( classguid : *const :: windows_sys::core::GUID , classname : :: windows_sys::core::PSTR , classnamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassNameFromGuidExA ( classguid : *const :: windows_sys::core::GUID , classname : :: windows_sys::core::PSTR , classnamesize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassNameFromGuidExW ( classguid : *const :: windows_sys::core::GUID , classname : :: windows_sys::core::PWSTR , classnamesize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiClassNameFromGuidW ( classguid : *const :: windows_sys::core::GUID , classname : :: windows_sys::core::PWSTR , classnamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiCreateDevRegKeyA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , scope : u32 , hwprofile : u32 , keytype : u32 , infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCSTR ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiCreateDevRegKeyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , scope : u32 , hwprofile : u32 , keytype : u32 , infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCWSTR ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInfoA ( deviceinfoset : HDEVINFO , devicename : :: windows_sys::core::PCSTR , classguid : *const :: windows_sys::core::GUID , devicedescription : :: windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , creationflags : u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInfoList ( classguid : *const :: windows_sys::core::GUID , hwndparent : super::super::Foundation:: HWND ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInfoListExA ( classguid : *const :: windows_sys::core::GUID , hwndparent : super::super::Foundation:: HWND , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInfoListExW ( classguid : *const :: windows_sys::core::GUID , hwndparent : super::super::Foundation:: HWND , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInfoW ( deviceinfoset : HDEVINFO , devicename : :: windows_sys::core::PCWSTR , classguid : *const :: windows_sys::core::GUID , devicedescription : :: windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , creationflags : u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInterfaceA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , interfaceclassguid : *const :: windows_sys::core::GUID , referencestring : :: windows_sys::core::PCSTR , creationflags : u32 , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiCreateDeviceInterfaceRegKeyA ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , reserved : u32 , samdesired : u32 , infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCSTR ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiCreateDeviceInterfaceRegKeyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , reserved : u32 , samdesired : u32 , infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCWSTR ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiCreateDeviceInterfaceW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , interfaceclassguid : *const :: windows_sys::core::GUID , referencestring : :: windows_sys::core::PCWSTR , creationflags : u32 , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDeleteDevRegKey ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , scope : u32 , hwprofile : u32 , keytype : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDeleteDeviceInfo ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDeleteDeviceInterfaceData ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDeleteDeviceInterfaceRegKey ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , reserved : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiDestroyClassImageList ( classimagelistdata : *const SP_CLASSIMAGELIST_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDestroyDeviceInfoList ( deviceinfoset : HDEVINFO ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiDestroyDriverInfoList ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , drivertype : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn SetupDiDrawMiniIcon ( hdc : super::super::Graphics::Gdi:: HDC , rc : super::super::Foundation:: RECT , miniiconindex : i32 , flags : u32 ) -> i32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiEnumDeviceInfo ( deviceinfoset : HDEVINFO , memberindex : u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiEnumDeviceInterfaces ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , interfaceclassguid : *const :: windows_sys::core::GUID , memberindex : u32 , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiEnumDriverInfoA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , drivertype : u32 , memberindex : u32 , driverinfodata : *mut SP_DRVINFO_DATA_V2_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiEnumDriverInfoW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , drivertype : u32 , memberindex : u32 , driverinfodata : *mut SP_DRVINFO_DATA_V2_W ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupDiGetActualModelsSectionA ( context : *const INFCONTEXT , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsectionwithext : :: windows_sys::core::PSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupDiGetActualModelsSectionW ( context : *const INFCONTEXT , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsectionwithext : :: windows_sys::core::PWSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetActualSectionToInstallA ( infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCSTR , infsectionwithext : :: windows_sys::core::PSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , extension : *mut :: windows_sys::core::PSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupDiGetActualSectionToInstallExA ( infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCSTR , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsectionwithext : :: windows_sys::core::PSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , extension : *mut :: windows_sys::core::PSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupDiGetActualSectionToInstallExW ( infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCWSTR , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsectionwithext : :: windows_sys::core::PWSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , extension : *mut :: windows_sys::core::PWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetActualSectionToInstallW ( infhandle : *const ::core::ffi::c_void , infsectionname : :: windows_sys::core::PCWSTR , infsectionwithext : :: windows_sys::core::PWSTR , infsectionwithextsize : u32 , requiredsize : *mut u32 , extension : *mut :: windows_sys::core::PWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassBitmapIndex ( classguid : *const :: windows_sys::core::GUID , miniiconindex : *mut i32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDescriptionA ( classguid : *const :: windows_sys::core::GUID , classdescription : :: windows_sys::core::PSTR , classdescriptionsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDescriptionExA ( classguid : *const :: windows_sys::core::GUID , classdescription : :: windows_sys::core::PSTR , classdescriptionsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDescriptionExW ( classguid : *const :: windows_sys::core::GUID , classdescription : :: windows_sys::core::PWSTR , classdescriptionsize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDescriptionW ( classguid : *const :: windows_sys::core::GUID , classdescription : :: windows_sys::core::PWSTR , classdescriptionsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SetupDiGetClassDevPropertySheetsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertysheetheader : *const super::super::UI::Controls:: PROPSHEETHEADERA_V2 , propertysheetheaderpagelistsize : u32 , requiredsize : *mut u32 , propertysheettype : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SetupDiGetClassDevPropertySheetsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertysheetheader : *const super::super::UI::Controls:: PROPSHEETHEADERW_V2 , propertysheetheaderpagelistsize : u32 , requiredsize : *mut u32 , propertysheettype : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDevsA ( classguid : *const :: windows_sys::core::GUID , enumerator : :: windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , flags : u32 ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDevsExA ( classguid : *const :: windows_sys::core::GUID , enumerator : :: windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , flags : u32 , deviceinfoset : HDEVINFO , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDevsExW ( classguid : *const :: windows_sys::core::GUID , enumerator : :: windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , flags : u32 , deviceinfoset : HDEVINFO , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> HDEVINFO );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassDevsW ( classguid : *const :: windows_sys::core::GUID , enumerator : :: windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , flags : u32 ) -> HDEVINFO );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiGetClassImageIndex ( classimagelistdata : *const SP_CLASSIMAGELIST_DATA , classguid : *const :: windows_sys::core::GUID , imageindex : *mut i32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiGetClassImageList ( classimagelistdata : *mut SP_CLASSIMAGELIST_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiGetClassImageListExA ( classimagelistdata : *mut SP_CLASSIMAGELIST_DATA , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiGetClassImageListExW ( classimagelistdata : *mut SP_CLASSIMAGELIST_DATA , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , classinstallparams : *mut SP_CLASSINSTALL_HEADER , classinstallparamssize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , classinstallparams : *mut SP_CLASSINSTALL_HEADER , classinstallparamssize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassPropertyExW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassPropertyKeys ( classguid : *const :: windows_sys::core::GUID , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : u32 , requiredpropertykeycount : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassPropertyKeysExW ( classguid : *const :: windows_sys::core::GUID , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : u32 , requiredpropertykeycount : *mut u32 , flags : u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassPropertyW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassRegistryPropertyA ( classguid : *const :: windows_sys::core::GUID , property : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetClassRegistryPropertyW ( classguid : *const :: windows_sys::core::GUID , property : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetCustomDevicePropertyA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , custompropertyname : :: windows_sys::core::PCSTR , flags : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetCustomDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , custompropertyname : :: windows_sys::core::PCWSTR , flags : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInfoListClass ( deviceinfoset : HDEVINFO , classguid : *mut :: windows_sys::core::GUID ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInfoListDetailA ( deviceinfoset : HDEVINFO , deviceinfosetdetaildata : *mut SP_DEVINFO_LIST_DETAIL_DATA_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInfoListDetailW ( deviceinfoset : HDEVINFO , deviceinfosetdetaildata : *mut SP_DEVINFO_LIST_DETAIL_DATA_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstallparams : *mut SP_DEVINSTALL_PARAMS_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstallparams : *mut SP_DEVINSTALL_PARAMS_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInstanceIdA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstanceid : :: windows_sys::core::PSTR , deviceinstanceidsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInstanceIdW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstanceid : :: windows_sys::core::PWSTR , deviceinstanceidsize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInterfaceAlias ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , aliasinterfaceclassguid : *const :: windows_sys::core::GUID , aliasdeviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInterfaceDetailA ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , deviceinterfacedetaildata : *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A , deviceinterfacedetaildatasize : u32 , requiredsize : *mut u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInterfaceDetailW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , deviceinterfacedetaildata : *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W , deviceinterfacedetaildatasize : u32 , requiredsize : *mut u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInterfacePropertyKeys ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : u32 , requiredpropertykeycount : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDevicePropertyKeys ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykeyarray : *mut super::Properties:: DEVPROPKEY , propertykeycount : u32 , requiredpropertykeycount : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceRegistryPropertyA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , property : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDeviceRegistryPropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , property : u32 , propertyregdatatype : *mut u32 , propertybuffer : *mut u8 , propertybuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDriverInfoDetailA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_A , driverinfodetaildata : *mut SP_DRVINFO_DETAIL_DATA_A , driverinfodetaildatasize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDriverInfoDetailW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_W , driverinfodetaildata : *mut SP_DRVINFO_DETAIL_DATA_W , driverinfodetaildatasize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDriverInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_A , driverinstallparams : *mut SP_DRVINSTALL_PARAMS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetDriverInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_W , driverinstallparams : *mut SP_DRVINSTALL_PARAMS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileFriendlyNameA ( hwprofile : u32 , friendlyname : :: windows_sys::core::PSTR , friendlynamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileFriendlyNameExA ( hwprofile : u32 , friendlyname : :: windows_sys::core::PSTR , friendlynamesize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileFriendlyNameExW ( hwprofile : u32 , friendlyname : :: windows_sys::core::PWSTR , friendlynamesize : u32 , requiredsize : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileFriendlyNameW ( hwprofile : u32 , friendlyname : :: windows_sys::core::PWSTR , friendlynamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileList ( hwprofilelist : *mut u32 , hwprofilelistsize : u32 , requiredsize : *mut u32 , currentlyactiveindex : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileListExA ( hwprofilelist : *mut u32 , hwprofilelistsize : u32 , requiredsize : *mut u32 , currentlyactiveindex : *mut u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetHwProfileListExW ( hwprofilelist : *mut u32 , hwprofilelistsize : u32 , requiredsize : *mut u32 , currentlyactiveindex : *mut u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetINFClassA ( infname : :: windows_sys::core::PCSTR , classguid : *mut :: windows_sys::core::GUID , classname : :: windows_sys::core::PSTR , classnamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetINFClassW ( infname : :: windows_sys::core::PCWSTR , classguid : *mut :: windows_sys::core::GUID , classname : :: windows_sys::core::PWSTR , classnamesize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetSelectedDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetSelectedDriverA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *mut SP_DRVINFO_DATA_V2_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiGetSelectedDriverW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *mut SP_DRVINFO_DATA_V2_W ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"] fn SetupDiGetWizardPage ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , installwizarddata : *const SP_INSTALLWIZARD_DATA , pagetype : u32 , flags : u32 ) -> super::super::UI::Controls:: HPROPSHEETPAGE );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallClassA ( hwndparent : super::super::Foundation:: HWND , inffilename : :: windows_sys::core::PCSTR , flags : u32 , filequeue : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallClassExA ( hwndparent : super::super::Foundation:: HWND , inffilename : :: windows_sys::core::PCSTR , flags : u32 , filequeue : *const ::core::ffi::c_void , interfaceclassguid : *const :: windows_sys::core::GUID , reserved1 : *mut ::core::ffi::c_void , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallClassExW ( hwndparent : super::super::Foundation:: HWND , inffilename : :: windows_sys::core::PCWSTR , flags : u32 , filequeue : *const ::core::ffi::c_void , interfaceclassguid : *const :: windows_sys::core::GUID , reserved1 : *mut ::core::ffi::c_void , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallClassW ( hwndparent : super::super::Foundation:: HWND , inffilename : :: windows_sys::core::PCWSTR , flags : u32 , filequeue : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallDeviceInterfaces ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiInstallDriverFiles ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SetupDiLoadClassIcon ( classguid : *const :: windows_sys::core::GUID , largeicon : *mut super::super::UI::WindowsAndMessaging:: HICON , miniiconindex : *mut i32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn SetupDiLoadDeviceIcon ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , cxicon : u32 , cyicon : u32 , flags : u32 , hicon : *mut super::super::UI::WindowsAndMessaging:: HICON ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiOpenClassRegKey ( classguid : *const :: windows_sys::core::GUID , samdesired : u32 ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiOpenClassRegKeyExA ( classguid : *const :: windows_sys::core::GUID , samdesired : u32 , flags : u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiOpenClassRegKeyExW ( classguid : *const :: windows_sys::core::GUID , samdesired : u32 , flags : u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiOpenDevRegKey ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , scope : u32 , hwprofile : u32 , keytype : u32 , samdesired : u32 ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiOpenDeviceInfoA ( deviceinfoset : HDEVINFO , deviceinstanceid : :: windows_sys::core::PCSTR , hwndparent : super::super::Foundation:: HWND , openflags : u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiOpenDeviceInfoW ( deviceinfoset : HDEVINFO , deviceinstanceid : :: windows_sys::core::PCWSTR , hwndparent : super::super::Foundation:: HWND , openflags : u32 , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiOpenDeviceInterfaceA ( deviceinfoset : HDEVINFO , devicepath : :: windows_sys::core::PCSTR , openflags : u32 , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_System_Registry")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"] fn SetupDiOpenDeviceInterfaceRegKey ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , reserved : u32 , samdesired : u32 ) -> super::super::System::Registry:: HKEY );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiOpenDeviceInterfaceW ( deviceinfoset : HDEVINFO , devicepath : :: windows_sys::core::PCWSTR , openflags : u32 , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiRegisterCoDeviceInstallers ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiRegisterDeviceInfo ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , flags : u32 , compareproc : PSP_DETSIG_CMPPROC , comparecontext : *const ::core::ffi::c_void , dupdeviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiRemoveDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiRemoveDeviceInterface ( deviceinfoset : HDEVINFO , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiRestartDevices ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSelectBestCompatDrv ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSelectDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSelectOEMDrv ( hwndparent : super::super::Foundation:: HWND , deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , classinstallparams : *const SP_CLASSINSTALL_HEADER , classinstallparamssize : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , classinstallparams : *const SP_CLASSINSTALL_HEADER , classinstallparamssize : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassPropertyExW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassPropertyW ( classguid : *const :: windows_sys::core::GUID , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassRegistryPropertyA ( classguid : *const :: windows_sys::core::GUID , property : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , machinename : :: windows_sys::core::PCSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetClassRegistryPropertyW ( classguid : *const :: windows_sys::core::GUID , property : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , machinename : :: windows_sys::core::PCWSTR , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstallparams : *const SP_DEVINSTALL_PARAMS_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , deviceinstallparams : *const SP_DEVINSTALL_PARAMS_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceInterfaceDefault ( deviceinfoset : HDEVINFO , deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA , flags : u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceInterfacePropertyW ( deviceinfoset : HDEVINFO , deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDevicePropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , propertykey : *const super::Properties:: DEVPROPKEY , propertytype : u32 , propertybuffer : *const u8 , propertybuffersize : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceRegistryPropertyA ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , property : u32 , propertybuffer : *const u8 , propertybuffersize : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDeviceRegistryPropertyW ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , property : u32 , propertybuffer : *const u8 , propertybuffersize : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDriverInstallParamsA ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_A , driverinstallparams : *const SP_DRVINSTALL_PARAMS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetDriverInstallParamsW ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , driverinfodata : *const SP_DRVINFO_DATA_V2_W , driverinstallparams : *const SP_DRVINSTALL_PARAMS ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetSelectedDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetSelectedDriverA ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , driverinfodata : *mut SP_DRVINFO_DATA_V2_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiSetSelectedDriverW ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA , driverinfodata : *mut SP_DRVINFO_DATA_V2_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupDiUnremoveDevice ( deviceinfoset : HDEVINFO , deviceinfodata : *mut SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDuplicateDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 , flags : u32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupDuplicateDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 , flags : u32 ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupEnumInfSectionsA ( infhandle : *const ::core::ffi::c_void , index : u32 , buffer : :: windows_sys::core::PSTR , size : u32 , sizeneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupEnumInfSectionsW ( infhandle : *const ::core::ffi::c_void , index : u32 , buffer : :: windows_sys::core::PWSTR , size : u32 , sizeneeded : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindFirstLineA ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR , key : :: windows_sys::core::PCSTR , context : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindFirstLineW ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR , key : :: windows_sys::core::PCWSTR , context : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindNextLine ( contextin : *const INFCONTEXT , contextout : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindNextMatchLineA ( contextin : *const INFCONTEXT , key : :: windows_sys::core::PCSTR , contextout : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFindNextMatchLineW ( contextin : *const INFCONTEXT , key : :: windows_sys::core::PCWSTR , contextout : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListA ( list : *mut *mut :: windows_sys::core::PSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupFreeSourceListW ( list : *mut *mut :: windows_sys::core::PWSTR , count : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetBackupInformationA ( queuehandle : *const ::core::ffi::c_void , backupparams : *mut SP_BACKUP_QUEUE_PARAMS_V2_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetBackupInformationW ( queuehandle : *const ::core::ffi::c_void , backupparams : *mut SP_BACKUP_QUEUE_PARAMS_V2_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetBinaryField ( context : *const INFCONTEXT , fieldindex : u32 , returnbuffer : *mut u8 , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetFieldCount ( context : *const INFCONTEXT ) -> u32 );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetFileCompressionInfoA ( sourcefilename : :: windows_sys::core::PCSTR , actualsourcefilename : *mut :: windows_sys::core::PSTR , sourcefilesize : *mut u32 , targetfilesize : *mut u32 , compressiontype : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetFileCompressionInfoExA ( sourcefilename : :: windows_sys::core::PCSTR , actualsourcefilenamebuffer : :: windows_sys::core::PCSTR , actualsourcefilenamebufferlen : u32 , requiredbufferlen : *mut u32 , sourcefilesize : *mut u32 , targetfilesize : *mut u32 , compressiontype : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetFileCompressionInfoExW ( sourcefilename : :: windows_sys::core::PCWSTR , actualsourcefilenamebuffer : :: windows_sys::core::PCWSTR , actualsourcefilenamebufferlen : u32 , requiredbufferlen : *mut u32 , sourcefilesize : *mut u32 , targetfilesize : *mut u32 , compressiontype : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetFileCompressionInfoW ( sourcefilename : :: windows_sys::core::PCWSTR , actualsourcefilename : *mut :: windows_sys::core::PWSTR , sourcefilesize : *mut u32 , targetfilesize : *mut u32 , compressiontype : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetFileQueueCount ( filequeue : *const ::core::ffi::c_void , subqueuefileop : u32 , numoperations : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetFileQueueFlags ( filequeue : *const ::core::ffi::c_void , flags : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupGetInfDriverStoreLocationA ( filename : :: windows_sys::core::PCSTR , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , localename : :: windows_sys::core::PCSTR , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupGetInfDriverStoreLocationW ( filename : :: windows_sys::core::PCWSTR , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , localename : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfFileListA ( directorypath : :: windows_sys::core::PCSTR , infstyle : u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfFileListW ( directorypath : :: windows_sys::core::PCWSTR , infstyle : u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfInformationA ( infspec : *const ::core::ffi::c_void , searchcontrol : u32 , returnbuffer : *mut SP_INF_INFORMATION , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfInformationW ( infspec : *const ::core::ffi::c_void , searchcontrol : u32 , returnbuffer : *mut SP_INF_INFORMATION , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfPublishedNameA ( driverstorelocation : :: windows_sys::core::PCSTR , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetInfPublishedNameW ( driverstorelocation : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetIntField ( context : *const INFCONTEXT , fieldindex : u32 , integervalue : *mut i32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetLineByIndexA ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR , index : u32 , context : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetLineByIndexW ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR , index : u32 , context : *mut INFCONTEXT ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetLineCountA ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR ) -> i32 );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetLineCountW ( infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR ) -> i32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetLineTextA ( context : *const INFCONTEXT , infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR , key : :: windows_sys::core::PCSTR , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetLineTextW ( context : *const INFCONTEXT , infhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR , key : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetMultiSzFieldA ( context : *const INFCONTEXT , fieldindex : u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetMultiSzFieldW ( context : *const INFCONTEXT , fieldindex : u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetNonInteractiveMode ( ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceFileLocationA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , filename : :: windows_sys::core::PCSTR , sourceid : *mut u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceFileLocationW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , filename : :: windows_sys::core::PCWSTR , sourceid : *mut u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceFileSizeA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , filename : :: windows_sys::core::PCSTR , section : :: windows_sys::core::PCSTR , filesize : *mut u32 , roundingfactor : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceFileSizeW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , filename : :: windows_sys::core::PCWSTR , section : :: windows_sys::core::PCWSTR , filesize : *mut u32 , roundingfactor : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceInfoA ( infhandle : *const ::core::ffi::c_void , sourceid : u32 , infodesired : u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetSourceInfoW ( infhandle : *const ::core::ffi::c_void , sourceid : u32 , infodesired : u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetStringFieldA ( context : *const INFCONTEXT , fieldindex : u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetStringFieldW ( context : *const INFCONTEXT , fieldindex : u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetTargetPathA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , section : :: windows_sys::core::PCSTR , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupGetTargetPathW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , section : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupGetThreadLogToken ( ) -> u64 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInitDefaultQueueCallback ( ownerwindow : super::super::Foundation:: HWND ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInitDefaultQueueCallbackEx ( ownerwindow : super::super::Foundation:: HWND , alternateprogresswindow : super::super::Foundation:: HWND , progressmessage : u32 , reserved1 : u32 , reserved2 : *mut ::core::ffi::c_void ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupInitializeFileLogA ( logfilename : :: windows_sys::core::PCSTR , flags : u32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupInitializeFileLogW ( logfilename : :: windows_sys::core::PCWSTR , flags : u32 ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFileA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows_sys::core::PCSTR , sourcepathroot : :: windows_sys::core::PCSTR , destinationname : :: windows_sys::core::PCSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFileExA ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows_sys::core::PCSTR , sourcepathroot : :: windows_sys::core::PCSTR , destinationname : :: windows_sys::core::PCSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void , filewasinuse : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFileExW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows_sys::core::PCWSTR , sourcepathroot : :: windows_sys::core::PCWSTR , destinationname : :: windows_sys::core::PCWSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void , filewasinuse : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFileW ( infhandle : *const ::core::ffi::c_void , infcontext : *const INFCONTEXT , sourcefile : :: windows_sys::core::PCWSTR , sourcepathroot : :: windows_sys::core::PCWSTR , destinationname : :: windows_sys::core::PCWSTR , copystyle : SP_COPY_STYLE , copymsghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFilesFromInfSectionA ( infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , filequeue : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , sourcerootpath : :: windows_sys::core::PCSTR , copyflags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallFilesFromInfSectionW ( infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , filequeue : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , sourcerootpath : :: windows_sys::core::PCWSTR , copyflags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn SetupInstallFromInfSectionA ( owner : super::super::Foundation:: HWND , infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , flags : u32 , relativekeyroot : super::super::System::Registry:: HKEY , sourcerootpath : :: windows_sys::core::PCSTR , copyflags : u32 , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"] fn SetupInstallFromInfSectionW ( owner : super::super::Foundation:: HWND , infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , flags : u32 , relativekeyroot : super::super::System::Registry:: HKEY , sourcerootpath : :: windows_sys::core::PCWSTR , copyflags : u32 , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallServicesFromInfSectionA ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallServicesFromInfSectionExA ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , flags : u32 , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , reserved1 : *mut ::core::ffi::c_void , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallServicesFromInfSectionExW ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , flags : u32 , deviceinfoset : HDEVINFO , deviceinfodata : *const SP_DEVINFO_DATA , reserved1 : *mut ::core::ffi::c_void , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupInstallServicesFromInfSectionW ( infhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupIterateCabinetA ( cabinetfile : :: windows_sys::core::PCSTR , reserved : u32 , msghandler : PSP_FILE_CALLBACK_A , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupIterateCabinetW ( cabinetfile : :: windows_sys::core::PCWSTR , reserved : u32 , msghandler : PSP_FILE_CALLBACK_W , context : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupLogErrorA ( messagestring : :: windows_sys::core::PCSTR , severity : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupLogErrorW ( messagestring : :: windows_sys::core::PCWSTR , severity : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupLogFileA ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCSTR , sourcefilename : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR , checksum : u32 , disktagfile : :: windows_sys::core::PCSTR , diskdescription : :: windows_sys::core::PCSTR , otherinfo : :: windows_sys::core::PCSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupLogFileW ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCWSTR , sourcefilename : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR , checksum : u32 , disktagfile : :: windows_sys::core::PCWSTR , diskdescription : :: windows_sys::core::PCWSTR , otherinfo : :: windows_sys::core::PCWSTR , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupOpenAppendInfFileA ( filename : :: windows_sys::core::PCSTR , infhandle : *const ::core::ffi::c_void , errorline : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupOpenAppendInfFileW ( filename : :: windows_sys::core::PCWSTR , infhandle : *const ::core::ffi::c_void , errorline : *mut u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupOpenFileQueue ( ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupOpenInfFileA ( filename : :: windows_sys::core::PCSTR , infclass : :: windows_sys::core::PCSTR , infstyle : u32 , errorline : *mut u32 ) -> *mut ::core::ffi::c_void );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupOpenInfFileW ( filename : :: windows_sys::core::PCWSTR , infclass : :: windows_sys::core::PCWSTR , infstyle : u32 , errorline : *mut u32 ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupOpenLog ( erase : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupOpenMasterInf ( ) -> *mut ::core::ffi::c_void );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupPrepareQueueForRestoreA ( queuehandle : *const ::core::ffi::c_void , backuppath : :: windows_sys::core::PCSTR , restoreflags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupPrepareQueueForRestoreW ( queuehandle : *const ::core::ffi::c_void , backuppath : :: windows_sys::core::PCWSTR , restoreflags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupPromptForDiskA ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCSTR , diskname : :: windows_sys::core::PCSTR , pathtosource : :: windows_sys::core::PCSTR , filesought : :: windows_sys::core::PCSTR , tagfile : :: windows_sys::core::PCSTR , diskpromptstyle : u32 , pathbuffer : :: windows_sys::core::PSTR , pathbuffersize : u32 , pathrequiredsize : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupPromptForDiskW ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCWSTR , diskname : :: windows_sys::core::PCWSTR , pathtosource : :: windows_sys::core::PCWSTR , filesought : :: windows_sys::core::PCWSTR , tagfile : :: windows_sys::core::PCWSTR , diskpromptstyle : u32 , pathbuffer : :: windows_sys::core::PWSTR , pathbuffersize : u32 , pathrequiredsize : *mut u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupPromptReboot ( filequeue : *const ::core::ffi::c_void , owner : super::super::Foundation:: HWND , scanonly : super::super::Foundation:: BOOL ) -> i32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryDrivesInDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryDrivesInDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryFileLogA ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR , desiredinfo : SetupFileLogInfo , dataout : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryFileLogW ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR , desiredinfo : SetupFileLogInfo , dataout : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryInfFileInformationA ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryInfFileInformationW ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupQueryInfOriginalFileInformationA ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_A ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupQueryInfOriginalFileInformationW ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , originalfileinfo : *mut SP_ORIGINAL_FILE_INFO_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryInfVersionInformationA ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , key : :: windows_sys::core::PCSTR , returnbuffer : :: windows_sys::core::PSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueryInfVersionInformationW ( infinformation : *const SP_INF_INFORMATION , infindex : u32 , key : :: windows_sys::core::PCWSTR , returnbuffer : :: windows_sys::core::PWSTR , returnbuffersize : u32 , requiredsize : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListA ( flags : u32 , list : *mut *mut :: windows_sys::core::PSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySourceListW ( flags : u32 , list : *mut *mut :: windows_sys::core::PWSTR , count : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySpaceRequiredOnDriveA ( diskspace : *const ::core::ffi::c_void , drivespec : :: windows_sys::core::PCSTR , spacerequired : *mut i64 , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQuerySpaceRequiredOnDriveW ( diskspace : *const ::core::ffi::c_void , drivespec : :: windows_sys::core::PCWSTR , spacerequired : *mut i64 , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopyA ( queuehandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCSTR , sourcepath : :: windows_sys::core::PCSTR , sourcefilename : :: windows_sys::core::PCSTR , sourcedescription : :: windows_sys::core::PCSTR , sourcetagfile : :: windows_sys::core::PCSTR , targetdirectory : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopyIndirectA ( copyparams : *const SP_FILE_COPY_PARAMS_A ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopyIndirectW ( copyparams : *const SP_FILE_COPY_PARAMS_W ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopySectionA ( queuehandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCSTR , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopySectionW ( queuehandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCWSTR , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueCopyW ( queuehandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCWSTR , sourcepath : :: windows_sys::core::PCWSTR , sourcefilename : :: windows_sys::core::PCWSTR , sourcedescription : :: windows_sys::core::PCWSTR , sourcetagfile : :: windows_sys::core::PCWSTR , targetdirectory : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDefaultCopyA ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCSTR , sourcefilename : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDefaultCopyW ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , sourcerootpath : :: windows_sys::core::PCWSTR , sourcefilename : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR , copystyle : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDeleteA ( queuehandle : *const ::core::ffi::c_void , pathpart1 : :: windows_sys::core::PCSTR , pathpart2 : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDeleteSectionA ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDeleteSectionW ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueDeleteW ( queuehandle : *const ::core::ffi::c_void , pathpart1 : :: windows_sys::core::PCWSTR , pathpart2 : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueRenameA ( queuehandle : *const ::core::ffi::c_void , sourcepath : :: windows_sys::core::PCSTR , sourcefilename : :: windows_sys::core::PCSTR , targetpath : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueRenameSectionA ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueRenameSectionW ( queuehandle : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , section : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupQueueRenameW ( queuehandle : *const ::core::ffi::c_void , sourcepath : :: windows_sys::core::PCWSTR , sourcefilename : :: windows_sys::core::PCWSTR , targetpath : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFileLogEntryA ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCSTR , targetfilename : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFileLogEntryW ( fileloghandle : *const ::core::ffi::c_void , logsectionname : :: windows_sys::core::PCWSTR , targetfilename : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFromDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , targetfilespec : :: windows_sys::core::PCSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFromDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , targetfilespec : :: windows_sys::core::PCWSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFromSourceListA ( flags : u32 , source : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveFromSourceListW ( flags : u32 , source : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveInstallSectionFromDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveInstallSectionFromDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , layoutinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveSectionFromDiskSpaceListA ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRemoveSectionFromDiskSpaceListW ( diskspace : *const ::core::ffi::c_void , infhandle : *const ::core::ffi::c_void , listinfhandle : *const ::core::ffi::c_void , sectionname : :: windows_sys::core::PCWSTR , operation : SETUP_FILE_OPERATION , reserved1 : *mut ::core::ffi::c_void , reserved2 : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRenameErrorA ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCSTR , sourcefile : :: windows_sys::core::PCSTR , targetfile : :: windows_sys::core::PCSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupRenameErrorW ( hwndparent : super::super::Foundation:: HWND , dialogtitle : :: windows_sys::core::PCWSTR , sourcefile : :: windows_sys::core::PCWSTR , targetfile : :: windows_sys::core::PCWSTR , win32errorcode : u32 , style : u32 ) -> u32 );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupScanFileQueueA ( filequeue : *const ::core::ffi::c_void , flags : u32 , window : super::super::Foundation:: HWND , callbackroutine : PSP_FILE_CALLBACK_A , callbackcontext : *const ::core::ffi::c_void , result : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupScanFileQueueW ( filequeue : *const ::core::ffi::c_void , flags : u32 , window : super::super::Foundation:: HWND , callbackroutine : PSP_FILE_CALLBACK_W , callbackcontext : *const ::core::ffi::c_void , result : *mut u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetDirectoryIdA ( infhandle : *const ::core::ffi::c_void , id : u32 , directory : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetDirectoryIdExA ( infhandle : *const ::core::ffi::c_void , id : u32 , directory : :: windows_sys::core::PCSTR , flags : u32 , reserved1 : u32 , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetDirectoryIdExW ( infhandle : *const ::core::ffi::c_void , id : u32 , directory : :: windows_sys::core::PCWSTR , flags : u32 , reserved1 : u32 , reserved2 : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetDirectoryIdW ( infhandle : *const ::core::ffi::c_void , id : u32 , directory : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupSetFileQueueAlternatePlatformA ( queuehandle : *const ::core::ffi::c_void , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , alternatedefaultcatalogfile : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupSetFileQueueAlternatePlatformW ( queuehandle : *const ::core::ffi::c_void , alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , alternatedefaultcatalogfile : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetFileQueueFlags ( filequeue : *const ::core::ffi::c_void , flagmask : u32 , flags : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetNonInteractiveMode ( noninteractiveflag : super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetPlatformPathOverrideA ( r#override : :: windows_sys::core::PCSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetPlatformPathOverrideW ( r#override : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListA ( flags : u32 , sourcelist : *const :: windows_sys::core::PSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupSetSourceListW ( flags : u32 , sourcelist : *const :: windows_sys::core::PWSTR , sourcecount : u32 ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupSetThreadLogToken ( logtoken : u64 ) -> ( ) );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupTermDefaultQueueCallback ( context : *const ::core::ffi::c_void ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupTerminateFileLog ( fileloghandle : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupUninstallNewlyCopiedInfs ( filequeue : *const ::core::ffi::c_void , flags : u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupUninstallOEMInfA ( inffilename : :: windows_sys::core::PCSTR , flags : u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn SetupUninstallOEMInfW ( inffilename : :: windows_sys::core::PCWSTR , flags : u32 , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupVerifyInfFileA ( infname : :: windows_sys::core::PCSTR , altplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsignerinfo : *mut SP_INF_SIGNER_INFO_V2_A ) -> super::super::Foundation:: BOOL );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`*"] fn SetupVerifyInfFileW ( infname : :: windows_sys::core::PCWSTR , altplatforminfo : *const SP_ALTPLATFORM_INFO_V2 , infsignerinfo : *mut SP_INF_SIGNER_INFO_V2_W ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "setupapi.dll""cdecl" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupWriteTextLog ( logtoken : u64 , category : u32 , flags : u32 , messagestr : :: windows_sys::core::PCSTR ) -> ( ) );
+::windows_sys::core::link ! ( "setupapi.dll""cdecl" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupWriteTextLogError ( logtoken : u64 , category : u32 , logflags : u32 , error : u32 , messagestr : :: windows_sys::core::PCSTR ) -> ( ) );
+::windows_sys::core::link ! ( "setupapi.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"] fn SetupWriteTextLogInfLine ( logtoken : u64 , flags : u32 , infhandle : *const ::core::ffi::c_void , context : *const INFCONTEXT ) -> ( ) );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn UpdateDriverForPlugAndPlayDevicesA ( hwndparent : super::super::Foundation:: HWND , hardwareid : :: windows_sys::core::PCSTR , fullinfpath : :: windows_sys::core::PCSTR , installflags : u32 , brebootrequired : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "newdev.dll""system" #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"] fn UpdateDriverForPlugAndPlayDevicesW ( hwndparent : super::super::Foundation:: HWND , hardwareid : :: windows_sys::core::PCWSTR , fullinfpath : :: windows_sys::core::PCWSTR , installflags : u32 , brebootrequired : *mut super::super::Foundation:: BOOL ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const ALLOC_LOG_CONF: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
