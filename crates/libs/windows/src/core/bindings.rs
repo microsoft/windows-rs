@@ -1,31 +1,28 @@
 use super::*;
 use std::ffi::c_void;
 
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    pub fn CloseHandle(handle: isize) -> i32;
-    pub fn GetLastError() -> u32;
-    pub fn SysAllocStringLen(input: *const u16, len: u32) -> *const u16;
-    pub fn SysFreeString(bstr: *const u16);
-    pub fn SysStringLen(bstr: *const u16) -> u32;
-    pub fn CoCreateGuid(guid: *mut GUID) -> HRESULT;
-    pub fn CoTaskMemAlloc(len: usize) -> *mut c_void;
-    pub fn CoTaskMemFree(ptr: *const c_void);
-    pub fn GetErrorInfo(reserved: u32, info: *mut *mut c_void) -> HRESULT;
-    pub fn SetErrorInfo(reserved: u32, info: *const c_void) -> HRESULT;
-    pub fn EncodePointer(ptr: *const c_void) -> *mut c_void;
-    pub fn FormatMessageW(flags: u32, source: *const c_void, code: u32, lang: u32, buffer: PWSTR, len: u32, args: *const *const i8) -> u32;
-    pub fn FreeLibrary(library: isize) -> i32;
-    pub fn GetProcAddress(library: isize, name: PCSTR) -> *const c_void;
-    pub fn LoadLibraryA(name: PCSTR) -> isize;
-    pub fn GetProcessHeap() -> isize;
-    pub fn HeapAlloc(heap: isize, flags: u32, len: usize) -> *mut c_void;
-    pub fn HeapFree(heap: isize, flags: u32, ptr: *const c_void) -> i32;
-    pub fn CreateEventW(attributes: *const c_void, manual_reset: i32, initial_state: i32, name: *const c_void) -> isize;
-    pub fn WaitForSingleObject(handle: isize, milliseconds: u32) -> u32;
-    pub fn SetEvent(handle: isize) -> i32;
-    pub fn RoGetAgileReference(options: i32, iid: &GUID, object: *const c_void, reference: *mut *mut c_void) -> HRESULT;
-}
+link!("kernel32.dll""system" fn CloseHandle(handle: isize) -> i32);
+link!("kernel32.dll" "system" fn GetLastError() -> u32);
+link!("oleaut32.dll" "system" fn SysAllocStringLen(input: *const u16, len: u32) -> *const u16);
+link!("oleaut32.dll" "system" fn SysFreeString(bstr: *const u16) -> ());
+link!("oleaut32.dll" "system" fn SysStringLen(bstr: *const u16) -> u32);
+link!("ole32.dll" "system" fn CoCreateGuid(guid: *mut GUID) -> HRESULT);
+link!("ole32.dll" "system" fn CoTaskMemAlloc(len: usize) -> *mut c_void);
+link!("ole32.dll" "system" fn CoTaskMemFree(ptr: *const c_void) -> ());
+link!("oleaut32.dll" "system" fn GetErrorInfo(reserved: u32, info: *mut *mut c_void) -> HRESULT);
+link!("oleaut32.dll" "system" fn SetErrorInfo(reserved: u32, info: *const c_void) -> HRESULT);
+link!("kernel32.dll" "system" fn EncodePointer(ptr: *const c_void) -> *mut c_void);
+link!("kernel32.dll" "system" fn FormatMessageW(flags: u32, source: *const c_void, code: u32, lang: u32, buffer: PWSTR, len: u32, args: *const *const i8) -> u32);
+link!("kernel32.dll" "system" fn FreeLibrary(library: isize) -> i32);
+link!("kernel32.dll" "system" fn GetProcAddress(library: isize, name: PCSTR) -> *const c_void);
+link!("kernel32.dll" "system" fn LoadLibraryA(name: PCSTR) -> isize);
+link!("kernel32.dll" "system" fn GetProcessHeap() -> isize);
+link!("kernel32.dll" "system" fn HeapAlloc(heap: isize, flags: u32, len: usize) -> *mut c_void);
+link!("kernel32.dll" "system" fn HeapFree(heap: isize, flags: u32, ptr: *const c_void) -> i32);
+link!("kernel32.dll" "system" fn CreateEventW(attributes: *const c_void, manual_reset: i32, initial_state: i32, name: *const c_void) -> isize);
+link!("kernel32.dll" "system" fn WaitForSingleObject(handle: isize, milliseconds: u32) -> u32);
+link!("kernel32.dll" "system" fn SetEvent(handle: isize) -> i32);
+link!("ole32.dll" "system" fn RoGetAgileReference(options: i32, iid: &GUID, object: *const c_void, reference: *mut *mut c_void) -> HRESULT);
 
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: u32 = 256;
 pub const FORMAT_MESSAGE_FROM_SYSTEM: u32 = 4096;

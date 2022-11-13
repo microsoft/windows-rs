@@ -4,10 +4,7 @@ pub unsafe fn CloseHandle<'a, P0>(hobject: P0) -> BOOL
 where
     P0: ::std::convert::Into<HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CloseHandle(hobject: HANDLE) -> BOOL;
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn CloseHandle ( hobject : HANDLE ) -> BOOL );
     CloseHandle(hobject.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -17,10 +14,7 @@ where
     P0: ::std::convert::Into<HANDLE>,
     P1: ::std::convert::Into<HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
-    }
+    ::windows::core::link ! ( "api-ms-win-core-handle-l1-1-0.dll""system" fn CompareObjectHandles ( hfirstobjecthandle : HANDLE , hsecondobjecthandle : HANDLE ) -> BOOL );
     CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -32,10 +26,7 @@ where
     P2: ::std::convert::Into<HANDLE>,
     P3: ::std::convert::Into<BOOL>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn DuplicateHandle ( hsourceprocesshandle : HANDLE , hsourcehandle : HANDLE , htargetprocesshandle : HANDLE , lptargethandle : *mut HANDLE , dwdesiredaccess : u32 , binherithandle : BOOL , dwoptions : DUPLICATE_HANDLE_OPTIONS ) -> BOOL );
     DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -44,19 +35,13 @@ pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: *mut u32) -> 
 where
     P0: ::std::convert::Into<HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn GetHandleInformation ( hobject : HANDLE , lpdwflags : *mut u32 ) -> BOOL );
     GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetLastError() -> WIN32_ERROR;
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn GetLastError ( ) -> WIN32_ERROR );
     GetLastError()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -65,10 +50,7 @@ pub unsafe fn RtlNtStatusToDosError<'a, P0>(status: P0) -> u32
 where
     P0: ::std::convert::Into<NTSTATUS>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-    }
+    ::windows::core::link ! ( "ntdll.dll""system" fn RtlNtStatusToDosError ( status : NTSTATUS ) -> u32 );
     RtlNtStatusToDosError(status.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -77,37 +59,25 @@ pub unsafe fn SetHandleInformation<'a, P0>(hobject: P0, dwmask: u32, dwflags: HA
 where
     P0: ::std::convert::Into<HANDLE>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn SetHandleInformation ( hobject : HANDLE , dwmask : u32 , dwflags : HANDLE_FLAGS ) -> BOOL );
     SetHandleInformation(hobject.into(), dwmask, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetLastError(dwerrcode: WIN32_ERROR);
-    }
+    ::windows::core::link ! ( "kernel32.dll""system" fn SetLastError ( dwerrcode : WIN32_ERROR ) -> ( ) );
     SetLastError(dwerrcode)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
-    }
+    ::windows::core::link ! ( "user32.dll""system" fn SetLastErrorEx ( dwerrcode : WIN32_ERROR , dwtype : u32 ) -> ( ) );
     SetLastErrorEx(dwerrcode, dwtype)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAddRefString(bstrstring: &::windows::core::BSTR) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> ::windows::core::HRESULT;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAddRefString ( bstrstring : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> :: windows::core::HRESULT );
     SysAddRefString(::core::mem::transmute_copy(bstrstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -116,37 +86,25 @@ pub unsafe fn SysAllocString<'a, P0>(psz: P0) -> ::windows::core::BSTR
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocString(psz: ::windows::core::PCWSTR) -> ::windows::core::BSTR;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAllocString ( psz : :: windows::core::PCWSTR ) -> :: windows::core::BSTR );
     SysAllocString(psz.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> ::windows::core::BSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> ::windows::core::BSTR;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAllocStringByteLen ( psz : :: windows::core::PCSTR , len : u32 ) -> :: windows::core::BSTR );
     SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> ::windows::core::BSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> ::windows::core::BSTR;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysAllocStringLen ( strin : :: windows::core::PCWSTR , ui : u32 ) -> :: windows::core::BSTR );
     SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &::windows::core::BSTR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>);
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysFreeString ( bstrstring : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> ( ) );
     SysFreeString(::core::mem::transmute_copy(bstrstring))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -155,10 +113,7 @@ pub unsafe fn SysReAllocString<'a, P0>(pbstr: *mut ::windows::core::BSTR, psz: P
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReAllocString(pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, psz: ::windows::core::PCWSTR) -> i32;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocString ( pbstr : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > , psz : :: windows::core::PCWSTR ) -> i32 );
     SysReAllocString(::core::mem::transmute(pbstr), psz.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -167,37 +122,25 @@ pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: *mut ::windows::core::BSTR, psz
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReAllocStringLen(pbstr: *mut ::core::mem::ManuallyDrop<::windows::core::BSTR>, psz: ::windows::core::PCWSTR, len: u32) -> i32;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReAllocStringLen ( pbstr : *mut ::core::mem::ManuallyDrop <::windows::core::BSTR > , psz : :: windows::core::PCWSTR , len : u32 ) -> i32 );
     SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len)
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &::windows::core::BSTR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<::windows::core::BSTR>);
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysReleaseString ( bstrstring : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> ( ) );
     SysReleaseString(::core::mem::transmute_copy(bstrstring))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringByteLen(bstr: &::windows::core::BSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> u32;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringByteLen ( bstr : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> u32 );
     SysStringByteLen(::core::mem::transmute_copy(bstr))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
 pub unsafe fn SysStringLen(pbstr: &::windows::core::BSTR) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<::windows::core::BSTR>) -> u32;
-    }
+    ::windows::core::link ! ( "oleaut32.dll""system" fn SysStringLen ( pbstr : ::core::mem::ManuallyDrop <::windows::core::BSTR > ) -> u32 );
     SysStringLen(::core::mem::transmute_copy(pbstr))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21212,7 +21155,7 @@ pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize) -> ()>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[cfg(feature = "implement")]

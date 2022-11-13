@@ -1,19 +1,8 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
-    #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub fn CreateFX(clsid: *const ::windows_sys::core::GUID, peffect: *mut ::windows_sys::core::IUnknown, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows_sys::core::HRESULT;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub fn CreateAudioReverb(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub fn CreateAudioVolumeMeter(ppapo: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut IXAPO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-    pub fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut IXAudio2, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "xaudio2_8.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"] fn CreateAudioReverb ( ppapo : *mut :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "xaudio2_8.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"] fn CreateAudioVolumeMeter ( ppapo : *mut :: windows_sys::core::IUnknown ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "xaudio2_8.dll""cdecl" #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"] fn CreateFX ( clsid : *const :: windows_sys::core::GUID , peffect : *mut :: windows_sys::core::IUnknown , pinitdat : *const ::core::ffi::c_void , initdatabytesize : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "hrtfapo.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"] fn CreateHrtfApo ( init : *const HrtfApoInit , xapo : *mut IXAPO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "xaudio2_8.dll""system" #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"] fn XAudio2CreateWithVersionInfo ( ppxaudio2 : *mut IXAudio2 , flags : u32 , xaudio2processor : u32 , ntddiversion : u32 ) -> :: windows_sys::core::HRESULT );
 pub type IXAPO = *mut ::core::ffi::c_void;
 pub type IXAPOHrtfParameters = *mut ::core::ffi::c_void;
 pub type IXAPOParameters = *mut ::core::ffi::c_void;

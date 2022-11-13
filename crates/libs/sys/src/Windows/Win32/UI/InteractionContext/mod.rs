@@ -1,71 +1,38 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn CreateInteractionContext(interactioncontext: *mut HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-    pub fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows_sys::core::HRESULT;
-}
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn AddPointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn BufferPointerPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn CreateInteractionContext ( interactioncontext : *mut HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn DestroyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetCrossSlideParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , threshold : CROSS_SLIDE_THRESHOLD , distance : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *mut INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : *mut u32 ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn GetStateInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerinfo : *const super::Input::Pointer:: POINTER_INFO , state : *mut INTERACTION_STATE ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn GetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : *mut f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn ProcessBufferedPacketsInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn ProcessInertiaInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn ProcessPointerFramesInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , entriescount : u32 , pointercount : u32 , pointerinfo : *const super::Input::Pointer:: POINTER_INFO ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterOutputCallbackInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK , clientdata : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"] fn RegisterOutputCallbackInteractionContext2 ( interactioncontext : HINTERACTIONCONTEXT , outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2 , clientdata : *const ::core::ffi::c_void ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn RemovePointerInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerid : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn ResetInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetCrossSlideParametersInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parametercount : u32 , crossslideparameters : *const CROSS_SLIDE_PARAMETER ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetInteractionConfigurationInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , configurationcount : u32 , configuration : *const INTERACTION_CONTEXT_CONFIGURATION ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetPivotInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , x : f32 , y : f32 , radius : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : u32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn SetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : f32 ) -> :: windows_sys::core::HRESULT );
+::windows_sys::core::link ! ( "ninput.dll""system" #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"] fn StopInteractionContext ( interactioncontext : HINTERACTIONCONTEXT ) -> :: windows_sys::core::HRESULT );
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub type CROSS_SLIDE_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -436,7 +403,7 @@ impl ::core::clone::Clone for MANIPULATION_VELOCITY {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT) -> ()>;
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;
+pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2) -> ()>;

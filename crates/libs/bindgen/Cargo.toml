@@ -12,5 +12,5 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-tokens = { package = "windows-tokens", path = "../tokens", version = "0.42.0" }
+tokens = { package = "windows-tokens", path = "../tokens", version = "0.43.0" }
 metadata = { package = "windows-metadata", path = "../metadata", version = "0.43.0" }

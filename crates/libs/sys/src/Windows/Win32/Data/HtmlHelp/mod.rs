@@ -1,12 +1,7 @@
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HtmlHelpA(hwndcaller: super::super::Foundation::HWND, pszfile: ::windows_sys::core::PCSTR, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND;
-    #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn HtmlHelpW(hwndcaller: super::super::Foundation::HWND, pszfile: ::windows_sys::core::PCWSTR, ucommand: u32, dwdata: usize) -> super::super::Foundation::HWND;
-}
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpA ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows_sys::core::PCSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: HWND );
+#[cfg(feature = "Win32_Foundation")]
+::windows_sys::core::link ! ( "htmlhelp.dll""system" #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`*"] fn HtmlHelpW ( hwndcaller : super::super::Foundation:: HWND , pszfile : :: windows_sys::core::PCWSTR , ucommand : u32 , dwdata : usize ) -> super::super::Foundation:: HWND );
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;
