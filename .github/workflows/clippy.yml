@@ -32,13 +32,6 @@ jobs:
             >> $env:GITHUB_ENV
       - name: Run cargo clippy
         run: |
-          cargo clippy -p windows-bindgen &&
-          cargo clippy -p windows-implement &&
-          cargo clippy -p windows-interface &&
-          cargo clippy -p windows-metadata &&
-          cargo clippy -p windows-sys &&
-          cargo clippy -p windows-tokens &&
-          cargo clippy -p windows &&
           cargo clippy -p sample_com_uri &&
           cargo clippy -p sample_consent &&
           cargo clippy -p sample_core_app &&
@@ -64,13 +57,6 @@ jobs:
           cargo clippy -p sample_uiautomation &&
           cargo clippy -p sample_wmi &&
           cargo clippy -p sample_xml &&
-          cargo clippy -p windows_aarch64_gnullvm &&
-          cargo clippy -p windows_aarch64_msvc &&
-          cargo clippy -p windows_i686_gnu &&
-          cargo clippy -p windows_i686_msvc &&
-          cargo clippy -p windows_x86_64_gnu &&
-          cargo clippy -p windows_x86_64_gnullvm &&
-          cargo clippy -p windows_x86_64_msvc &&
           cargo clippy -p test_agile &&
           cargo clippy -p test_agile_reference &&
           cargo clippy -p test_alternate_success_code &&
@@ -125,4 +111,18 @@ jobs:
           cargo clippy -p tool_sys &&
           cargo clippy -p tool_windows &&
           cargo clippy -p tool_yml &&
+          cargo clippy -p windows &&
+          cargo clippy -p windows-bindgen &&
+          cargo clippy -p windows-implement &&
+          cargo clippy -p windows-interface &&
+          cargo clippy -p windows-metadata &&
+          cargo clippy -p windows-sys &&
+          cargo clippy -p windows-tokens &&
+          cargo clippy -p windows_aarch64_gnullvm &&
+          cargo clippy -p windows_aarch64_msvc &&
+          cargo clippy -p windows_i686_gnu &&
+          cargo clippy -p windows_i686_msvc &&
+          cargo clippy -p windows_x86_64_gnu &&
+          cargo clippy -p windows_x86_64_gnullvm &&
+          cargo clippy -p windows_x86_64_msvc &&
           cargo clippy -p test_debugger_visualizer
