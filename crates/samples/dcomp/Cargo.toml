@@ -27,4 +27,5 @@ features = [
     "Win32_UI_Animation",
     "Win32_UI_HiDpi",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
 ]
