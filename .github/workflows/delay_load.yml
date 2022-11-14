@@ -38,4 +38,4 @@ jobs:
         run: cargo test -p test_calling_convention
 
       - name: Test
-        run: cargo test -p delay_load_x
+        run: cargo test -p test_delay_load_x
