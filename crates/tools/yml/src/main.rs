@@ -1,8 +1,10 @@
+use regex::Regex;
 use std::fmt::Write;
+use std::path::Path;
 
 fn main() {
     test_yml();
-    build_yml();
+    clippy_yml();
 }
 
 fn test_yml() {
@@ -92,7 +94,7 @@ jobs:
         run: >"#
         .to_string();
 
-    let crates = crates();
+    let crates = crates(true);
     let (first, last) = crates.split_at(crates.len() / 2);
 
     for name in first {
@@ -106,17 +108,6 @@ jobs:
     }
 
     yml.truncate(yml.len() - 3);
-
-    // Enable running the debugger_visualizer tests against nightly only
-    // since it requires the unstable debugger_visualizer feature.
-    // https://github.com/rust-lang/rust/issues/95939
-    yml.push_str(
-        r#"
-
-      - name: Test debugger_visualizer feature
-        run: cargo test --target ${{ matrix.target }} -p test_debugger_visualizer -- --test-threads=1
-        if: matrix.version == 'nightly' && endsWith(matrix.target, '-msvc')"#,
-    );
 
     yml.push_str(
         r#"
@@ -148,7 +139,7 @@ jobs:
     std::fs::write(".github/workflows/test.yml", yml.as_bytes()).unwrap();
 }
 
-fn build_yml() {
+fn clippy_yml() {
     let mut yml = r#"name: clippy
 
 on:
@@ -185,63 +176,39 @@ jobs:
         run: |"#
         .to_string();
 
-    for name in crates() {
+    for name in crates(false) {
         write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
     }
 
-    write!(&mut yml, "\n          cargo clippy -p test_debugger_visualizer\n").unwrap();
-
+    yml.truncate(yml.len() - 3);
     std::fs::write(".github/workflows/clippy.yml", yml.as_bytes()).unwrap();
 }
 
-fn crates() -> Vec<String> {
-    let mut crates = vec![];
-
-    for dir in dirs("crates/libs") {
-        if dir == "windows" {
-            crates.push("windows".to_string());
-        } else {
-            crates.push(format!("windows-{dir}"));
-        }
-    }
-
-    for dir in dirs("crates/samples") {
-        crates.push(format!("sample_{dir}"));
-    }
-
-    for dir in dirs("crates/targets") {
-        if dir == "baseline" {
-            continue;
-        }
-        crates.push(format!("windows_{dir}"));
-    }
-
-    for dir in dirs("crates/tests") {
-        if dir != "debugger_visualizer" {
-            crates.push(format!("test_{dir}"));
-        }
-    }
-
-    for dir in dirs("crates/tools") {
-        crates.push(format!("tool_{dir}"));
-    }
-
-    crates
+fn crates(filter: bool) -> Vec<String> {
+    let regex = Regex::new(r#"name = "([^"]+)""#).expect("regex");
+    let mut names = find("crates", &regex, filter);
+    names.sort();
+    names
 }
 
-fn dirs(path: &str) -> Vec<String> {
-    let mut dirs = vec![];
+fn find<P: AsRef<Path>>(path: P, regex: &Regex, filter: bool) -> Vec<String> {
+    let mut names = vec![];
 
     if let Ok(files) = std::fs::read_dir(path) {
         for file in files.filter_map(|file| file.ok()) {
             if let Ok(file_type) = file.file_type() {
                 if file_type.is_dir() {
-                    dirs.push(file.file_name().to_str().unwrap().to_string());
+                    names.append(&mut find(file.path(), regex, filter));
+                } else if file.file_name() == "Cargo.toml" {
+                    let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
+                    let name = regex.captures(&text).expect("captures").get(1).expect("name");
+                    if !filter || !name.as_str().ends_with("_x") {
+                        names.push(name.as_str().to_string());
+                    }
                 }
             }
         }
     }
 
-    dirs.sort();
-    dirs
+    names
 }

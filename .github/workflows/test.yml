@@ -82,13 +82,6 @@ jobs:
           }
       - name: Test
         run: >
-          cargo test --target ${{ matrix.target }} -p windows-bindgen &&
-          cargo test --target ${{ matrix.target }} -p windows-implement &&
-          cargo test --target ${{ matrix.target }} -p windows-interface &&
-          cargo test --target ${{ matrix.target }} -p windows-metadata &&
-          cargo test --target ${{ matrix.target }} -p windows-sys &&
-          cargo test --target ${{ matrix.target }} -p windows-tokens &&
-          cargo test --target ${{ matrix.target }} -p windows &&
           cargo test --target ${{ matrix.target }} -p sample_com_uri &&
           cargo test --target ${{ matrix.target }} -p sample_consent &&
           cargo test --target ${{ matrix.target }} -p sample_core_app &&
@@ -114,13 +107,6 @@ jobs:
           cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
           cargo test --target ${{ matrix.target }} -p sample_wmi &&
           cargo test --target ${{ matrix.target }} -p sample_xml &&
-          cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
-          cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-          cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
-          cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnullvm &&
-          cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
           cargo test --target ${{ matrix.target }} -p test_agile &&
           cargo test --target ${{ matrix.target }} -p test_agile_reference &&
           cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
@@ -128,7 +114,6 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_arch_feature &&
           cargo test --target ${{ matrix.target }} -p test_bcrypt &&
           cargo test --target ${{ matrix.target }} -p test_bstr &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_calling_convention &&
           cargo test --target ${{ matrix.target }} -p test_cfg_generic &&
           cargo test --target ${{ matrix.target }} -p test_component &&
@@ -143,6 +128,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
@@ -175,11 +161,21 @@ jobs:
           cargo test --target ${{ matrix.target }} -p tool_msvc &&
           cargo test --target ${{ matrix.target }} -p tool_sys &&
           cargo test --target ${{ matrix.target }} -p tool_windows &&
-          cargo test --target ${{ matrix.target }} -p tool_yml
-
-      - name: Test debugger_visualizer feature
-        run: cargo test --target ${{ matrix.target }} -p test_debugger_visualizer -- --test-threads=1
-        if: matrix.version == 'nightly' && endsWith(matrix.target, '-msvc')
+          cargo test --target ${{ matrix.target }} -p tool_yml &&
+          cargo test --target ${{ matrix.target }} -p windows &&
+          cargo test --target ${{ matrix.target }} -p windows-bindgen &&
+          cargo test --target ${{ matrix.target }} -p windows-implement &&
+          cargo test --target ${{ matrix.target }} -p windows-interface &&
+          cargo test --target ${{ matrix.target }} -p windows-metadata &&
+          cargo test --target ${{ matrix.target }} -p windows-sys &&
+          cargo test --target ${{ matrix.target }} -p windows-tokens &&
+          cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
+          cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
+          cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
+          cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
+          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
+          cargo test --target ${{ matrix.target }} -p windows_x86_64_gnullvm &&
+          cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc
 
       - name: Check import libs
         shell: pwsh
