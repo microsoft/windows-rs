@@ -128,8 +128,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
           cargo test --target ${{ matrix.target }} -p test_interface &&
@@ -168,6 +168,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p windows-interface &&
           cargo test --target ${{ matrix.target }} -p windows-metadata &&
           cargo test --target ${{ matrix.target }} -p windows-sys &&
+          cargo test --target ${{ matrix.target }} -p windows-targets &&
           cargo test --target ${{ matrix.target }} -p windows-tokens &&
           cargo test --target ${{ matrix.target }} -p windows_aarch64_gnullvm &&
           cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&

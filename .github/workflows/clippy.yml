@@ -118,6 +118,7 @@ jobs:
           cargo clippy -p windows-interface &&
           cargo clippy -p windows-metadata &&
           cargo clippy -p windows-sys &&
+          cargo clippy -p windows-targets &&
           cargo clippy -p windows-tokens &&
           cargo clippy -p windows_aarch64_gnullvm &&
           cargo clippy -p windows_aarch64_msvc &&
