@@ -8,4 +8,5 @@ path = "../../libs/sys"
 features = [
     "Win32_Foundation",
     "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
 ]

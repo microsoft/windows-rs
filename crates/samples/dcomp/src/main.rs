@@ -6,7 +6,7 @@ use windows::{
         Graphics::Direct3D11::*, Graphics::DirectComposition::*, Graphics::DirectWrite::*,
         Graphics::Dxgi::Common::*, Graphics::Dxgi::*, Graphics::Gdi::*, Graphics::Imaging::D2D::*,
         Graphics::Imaging::*, System::Com::*, System::LibraryLoader::*, System::SystemServices::*,
-        UI::Animation::*, UI::HiDpi::*, UI::WindowsAndMessaging::*,
+        UI::Animation::*, UI::HiDpi::*, UI::Shell::*, UI::WindowsAndMessaging::*,
     },
 };
 
@@ -513,8 +513,15 @@ fn create_image() -> Result<IWICFormatConverter> {
         let factory: IWICImagingFactory2 =
             CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
+        // Just a little hack to make it simpler to run the sample from the root of the workspace.
+        let path = if PathFileExistsW(w!("image.jpg")).into() {
+            w!("image.jpg")
+        } else {
+            w!("crates/samples/dcomp/image.jpg")
+        };
+
         let decoder = factory.CreateDecoderFromFilename(
-            w!("image.jpg"),
+            path,
             None,
             GENERIC_READ,
             WICDecodeMetadataCacheOnDemand,

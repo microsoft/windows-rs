@@ -9,6 +9,7 @@ path = "../../libs/windows"
 features = [
     "Win32_Foundation",
     "Win32_Networking_Ldap",
+    "Win32_System_SystemInformation",
 ]
 
 [dependencies.windows-sys]
@@ -16,4 +17,5 @@ path = "../../libs/sys"
 features = [
     "Win32_Foundation",
     "Win32_Networking_Ldap",
+    "Win32_System_SystemInformation",
 ]
