@@ -689,7 +689,3 @@ Win32_UI_WindowsAndMessaging = ["Win32_UI"]
 Win32_UI_Wpf = ["Win32_UI"]
 Win32_UI_Xaml = ["Win32_UI"]
 Win32_UI_Xaml_Diagnostics = ["Win32_UI_Xaml"]
-
-# These features are unstable and require Rust nightly:
-debugger_visualizer = []
-

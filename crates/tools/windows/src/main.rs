@@ -81,16 +81,6 @@ interface = ["windows-interface"]
         }
     }
 
-    file.write_all(
-        r#"
-# These features are unstable and require Rust nightly:
-debugger_visualizer = []
-
-"#
-        .as_bytes(),
-    )
-    .unwrap();
-
     std::fs::copy("license-mit", "crates/libs/windows/license-mit").unwrap();
     std::fs::copy("license-apache-2.0", "crates/libs/windows/license-apache-2.0").unwrap();
 }
