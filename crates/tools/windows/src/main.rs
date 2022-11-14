@@ -55,8 +55,6 @@ targets = []
 
 [dependencies]
 windows-targets = { path = "../targets",  version = "0.43.0" }
-
-[dependencies]
 windows-implement = { path = "../implement",  version = "0.43.0", optional = true }
 windows-interface = { path = "../interface",  version = "0.43.0", optional = true }
 
