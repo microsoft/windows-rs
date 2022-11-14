@@ -1,0 +1,41 @@
+name: delay_load
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings --cfg windows_delay_load
+
+jobs:
+  test:
+    name: Test
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        include:
+          - version: stable
+            target: x86_64-pc-windows-msvc
+          - version: nightly
+            target: i686-pc-windows-msvc
+          - version: nightly
+            target: x86_64-pc-windows-gnu
+          - version: stable
+            target: i686-pc-windows-gnu
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Update toolchain
+        run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Test
+        run: cargo test -p test_calling_convention
+
+      - name: Test
+        run: cargo test -p delay_load_x

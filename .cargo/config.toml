@@ -1,4 +1,5 @@
 [build]
 rustflags = [
+    # "--cfg", "windows_delay_load",
     # "--cfg", "windows_debugger_visualizer",
 ]

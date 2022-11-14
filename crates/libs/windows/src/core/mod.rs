@@ -34,7 +34,7 @@ pub use array::*;
 #[doc(hidden)]
 pub use as_impl::*;
 pub use borrowed::*;
-pub(crate) use delay_load::*;
+pub use delay_load::*;
 pub use error::*;
 pub use event::*;
 pub use factory_cache::*;
@@ -125,12 +125,34 @@ macro_rules! interface_hierarchy {
 #[doc(hidden)]
 pub use interface_hierarchy;
 
+#[cfg(not(windows_delay_load))]
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
         #[link(name = "windows")]
         extern $abi {
             pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(windows_delay_load)]
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[cfg(target_arch = "x86")]
+        type $name = ::core::option::Option<unsafe extern $abi fn($($argty),*) -> $ret>;
+        #[cfg(not(target_arch = "x86"))]
+        type $name = ::core::option::Option<unsafe extern "system" fn($($argty),*) -> $ret>;
+        pub unsafe fn $name($($arg: $argty),*) -> $ret {
+            static mut CACHE: $name = None;
+            unsafe {
+                if CACHE.is_none() {
+                    let name = ::core::concat!(::core::stringify!($name), "\0");
+                    CACHE = $crate::core::delay_load($crate::core::s!($library), $crate::core::PCSTR(name.as_ptr()));
+                }
+                CACHE.unwrap()($($arg),*)
+            }
         }
     )
 }

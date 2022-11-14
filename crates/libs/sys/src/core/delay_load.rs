@@ -17,7 +17,7 @@ pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
     let address = GetProcAddress(library, function);
 
     if !address.is_null() {
-        return Some(std::mem::transmute_copy(&address));
+        return Some(core::mem::transmute_copy(&address));
     }
 
     FreeLibrary(library);
@@ -26,7 +26,7 @@ pub unsafe fn delay_load<T>(library: PCSTR, function: PCSTR) -> Option<T> {
 
 #[link(name = "windows")]
 extern "system" {
-    fn GetProcAddress(library: isize, name: PCSTR) -> *const std::ffi::c_void;
+    fn GetProcAddress(library: isize, name: PCSTR) -> *const core::ffi::c_void;
     fn LoadLibraryA(name: PCSTR) -> isize;
     fn FreeLibrary(library: isize) -> i32;
 }
