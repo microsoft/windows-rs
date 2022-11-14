@@ -54,7 +54,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies]
-windows_targets = { path = "../targets",  version = "0.43.0" }
+windows-targets = { path = "../targets",  version = "0.43.0" }
 
 [dependencies]
 windows-implement = { path = "../implement",  version = "0.43.0", optional = true }

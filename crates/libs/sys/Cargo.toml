@@ -16,7 +16,7 @@ targets = []
 all-features = true
 
 [dependencies]
-windows_targets = { path = "../targets",  version = "0.43.0" }
+windows-targets = { path = "../targets",  version = "0.43.0" }
 
 [features]
 default = []

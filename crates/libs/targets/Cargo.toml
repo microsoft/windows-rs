@@ -1,6 +1,6 @@
 
 [package]
-name = "windows_targets"
+name = "windows-targets"
 version = "0.43.0"
 authors = ["Microsoft"]
 edition = "2018"
