@@ -1,9 +1,9 @@
-mod literals;
 mod delay_load;
+mod literals;
 
+pub use delay_load::*;
 #[doc(hidden)]
 pub use literals::*;
-pub use delay_load::*;
 
 pub type HRESULT = i32;
 pub type HSTRING = *mut ::core::ffi::c_void;
