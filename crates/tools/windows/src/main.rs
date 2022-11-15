@@ -2,21 +2,7 @@ use rayon::prelude::*;
 use std::io::prelude::*;
 
 /// Namespaces to exclude from code generation for the `windows` crate.
-const EXCLUDE_NAMESPACES: [&str; 13] = [
-    "Windows.AI.MachineLearning.Preview", 
-    "Windows.ApplicationModel.SocialInfo", 
-    "Windows.Devices.AllJoyn", 
-    "Windows.Devices.Perception", 
-    "Windows.Security.Authentication.Identity.Provider", 
-    "Windows.Services.Cortana", 
-    "Windows.System.Power.Diagnostics", 
-    "Windows.System.Preview", 
-    "Windows.UI.Xaml", 
-    "Windows.Win32.Interop", 
-    "Windows.Win32.System.Diagnostics.Debug.WebApp", 
-    "Windows.Win32.System.WinRT.Xaml", 
-    "Windows.Win32.Web",
-];
+const EXCLUDE_NAMESPACES: [&str; 13] = ["Windows.AI.MachineLearning.Preview", "Windows.ApplicationModel.SocialInfo", "Windows.Devices.AllJoyn", "Windows.Devices.Perception", "Windows.Security.Authentication.Identity.Provider", "Windows.Services.Cortana", "Windows.System.Power.Diagnostics", "Windows.System.Preview", "Windows.UI.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Web"];
 
 fn main() {
     let mut rustfmt = true;
