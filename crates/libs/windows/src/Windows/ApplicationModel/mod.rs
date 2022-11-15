@@ -38,8 +38,6 @@ pub mod Preview;
 pub mod Resources;
 #[cfg(feature = "ApplicationModel_Search")]
 pub mod Search;
-#[cfg(feature = "ApplicationModel_SocialInfo")]
-pub mod SocialInfo;
 #[cfg(feature = "ApplicationModel_Store")]
 pub mod Store;
 #[cfg(feature = "ApplicationModel_UserActivities")]

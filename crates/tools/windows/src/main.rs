@@ -1,6 +1,23 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
+/// Namespaces to exclude from code generation for the `windows` crate.
+const EXCLUDE_NAMESPACES: [&str; 13] = [
+    "Windows.AI.MachineLearning.Preview", 
+    "Windows.ApplicationModel.SocialInfo", 
+    "Windows.Devices.AllJoyn", 
+    "Windows.Devices.Perception", 
+    "Windows.Security.Authentication.Identity.Provider", 
+    "Windows.Services.Cortana", 
+    "Windows.System.Power.Diagnostics", 
+    "Windows.System.Preview", 
+    "Windows.UI.Xaml", 
+    "Windows.Win32.Interop", 
+    "Windows.Win32.System.Diagnostics.Debug.WebApp", 
+    "Windows.Win32.System.WinRT.Xaml", 
+    "Windows.Win32.Web",
+];
+
 fn main() {
     let mut rustfmt = true;
     let mut expect_namespace = false;
@@ -28,7 +45,7 @@ fn main() {
         gen_tree(reader, &output, &tree, rustfmt);
         return;
     }
-    let root = reader.tree("Windows", &lib::EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
+    let root = reader.tree("Windows", &EXCLUDE_NAMESPACES).expect("`Windows` namespace not found");
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
     output.pop();

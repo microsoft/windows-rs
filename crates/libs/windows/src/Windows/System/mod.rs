@@ -8,8 +8,6 @@ pub mod Implementation;
 pub mod Inventory;
 #[cfg(feature = "System_Power")]
 pub mod Power;
-#[cfg(feature = "System_Preview")]
-pub mod Preview;
 #[cfg(feature = "System_Profile")]
 pub mod Profile;
 #[cfg(feature = "System_RemoteDesktop")]

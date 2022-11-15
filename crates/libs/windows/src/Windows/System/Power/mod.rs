@@ -1,5 +1,3 @@
-#[cfg(feature = "System_Power_Diagnostics")]
-pub mod Diagnostics;
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]

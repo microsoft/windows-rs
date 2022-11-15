@@ -1,7 +1,5 @@
 #[cfg(feature = "Devices_Adc")]
 pub mod Adc;
-#[cfg(feature = "Devices_AllJoyn")]
-pub mod AllJoyn;
 #[cfg(feature = "Devices_Background")]
 pub mod Background;
 #[cfg(feature = "Devices_Bluetooth")]
@@ -28,8 +26,6 @@ pub mod Input;
 pub mod Lights;
 #[cfg(feature = "Devices_Midi")]
 pub mod Midi;
-#[cfg(feature = "Devices_Perception")]
-pub mod Perception;
 #[cfg(feature = "Devices_PointOfService")]
 pub mod PointOfService;
 #[cfg(feature = "Devices_Portable")]

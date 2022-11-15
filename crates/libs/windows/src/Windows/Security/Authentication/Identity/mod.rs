@@ -1,7 +1,5 @@
 #[cfg(feature = "Security_Authentication_Identity_Core")]
 pub mod Core;
-#[cfg(feature = "Security_Authentication_Identity_Provider")]
-pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);
