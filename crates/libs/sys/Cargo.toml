@@ -20,7 +20,6 @@ windows-targets = { path = "../targets",  version = "0.43.0" }
 
 [features]
 default = []
-deprecated = []
 Win32 = []
 Win32_AI = ["Win32"]
 Win32_AI_MachineLearning = ["Win32_AI"]

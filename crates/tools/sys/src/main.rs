@@ -2,6 +2,9 @@ use rayon::prelude::*;
 use std::collections::*;
 use std::io::prelude::*;
 
+/// Namespaces to exclude from code generation for the `windows-sys` crate.
+const EXCLUDE_NAMESPACES: [&str; 4] = ["Windows.Win32.System.WinRT.Xaml", "Windows.Win32.Interop", "Windows.Win32.System.Diagnostics.Debug.WebApp", "Windows.Win32.Web"];
+
 fn main() {
     let mut rustfmt = true;
     let mut expect_namespace = false;
@@ -29,7 +32,7 @@ fn main() {
         gen_tree(reader, &output, &tree, rustfmt);
         return;
     }
-    let win32 = reader.tree("Windows.Win32", &lib::EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
+    let win32 = reader.tree("Windows.Win32", &EXCLUDE_NAMESPACES).expect("`Windows.Win32` namespace not found");
     let root = metadata::reader::Tree { namespace: "Windows", nested: BTreeMap::from([("Win32", win32)]) };
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree, rustfmt));
@@ -60,7 +63,6 @@ windows-targets = { path = "../targets",  version = "0.43.0" }
 
 [features]
 default = []
-deprecated = []
 "#
         .as_bytes(),
     )

@@ -1,5 +1,3 @@
-#[cfg(feature = "AI_MachineLearning_Preview")]
-pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IImageFeatureDescriptor(::windows::core::IUnknown);
