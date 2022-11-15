@@ -34,7 +34,7 @@ pub use array::*;
 #[doc(hidden)]
 pub use as_impl::*;
 pub use borrowed::*;
-pub(crate) use delay_load::*;
+pub use delay_load::*;
 pub use error::*;
 pub use event::*;
 pub use factory_cache::*;
@@ -125,6 +125,29 @@ macro_rules! interface_hierarchy {
 #[doc(hidden)]
 pub use interface_hierarchy;
 
+#[cfg(all(windows_raw_dylib, target_arch = "x86"))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
+        extern "system" {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(not(windows_raw_dylib))]
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (

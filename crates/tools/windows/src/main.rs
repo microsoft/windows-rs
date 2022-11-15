@@ -53,8 +53,10 @@ rust-version = "1.64"
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
-[dependencies]
+[target.'cfg(not(windows_raw_dylib))'.dependencies]
 windows-targets = { path = "../targets",  version = "0.43.0" }
+
+[dependencies]
 windows-implement = { path = "../implement",  version = "0.43.0", optional = true }
 windows-interface = { path = "../interface",  version = "0.43.0", optional = true }
 

@@ -1,0 +1,33 @@
+name: raw_dylib
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+env:
+  RUSTFLAGS: -Dwarnings --cfg windows_raw_dylib
+
+jobs:
+  test:
+    name: Test
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        include:
+          - target: x86_64-pc-windows-msvc
+          - target: i686-pc-windows-msvc
+          - target: x86_64-pc-windows-gnu
+          - target: i686-pc-windows-gnu
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Update toolchain
+        run: rustup update --no-self-update nightly && rustup default nightly-${{ matrix.target }}
+      - name: Add toolchain target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Test
+        run: cargo test -p test_calling_convention

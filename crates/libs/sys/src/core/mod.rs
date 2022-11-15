@@ -35,6 +35,29 @@ impl GUID {
     }
 }
 
+#[cfg(all(windows_raw_dylib, target_arch = "x86"))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal $(#[$($doc:tt)*])* fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
+#[macro_export]
+macro_rules! link {
+    ($library:literal $abi:literal $(#[$($doc:tt)*])* fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
+        #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
+        extern "system" {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(not(windows_raw_dylib))]
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal $(#[$($doc:tt)*])* fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
