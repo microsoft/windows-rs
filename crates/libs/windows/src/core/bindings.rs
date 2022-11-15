@@ -13,9 +13,6 @@ link!("oleaut32.dll" "system" fn GetErrorInfo(reserved: u32, info: *mut *mut c_v
 link!("oleaut32.dll" "system" fn SetErrorInfo(reserved: u32, info: *const c_void) -> HRESULT);
 link!("kernel32.dll" "system" fn EncodePointer(ptr: *const c_void) -> *mut c_void);
 link!("kernel32.dll" "system" fn FormatMessageW(flags: u32, source: *const c_void, code: u32, lang: u32, buffer: PWSTR, len: u32, args: *const *const i8) -> u32);
-link!("kernel32.dll" "system" fn FreeLibrary(library: isize) -> i32);
-link!("kernel32.dll" "system" fn GetProcAddress(library: isize, name: PCSTR) -> *const c_void);
-link!("kernel32.dll" "system" fn LoadLibraryA(name: PCSTR) -> isize);
 link!("kernel32.dll" "system" fn GetProcessHeap() -> isize);
 link!("kernel32.dll" "system" fn HeapAlloc(heap: isize, flags: u32, len: usize) -> *mut c_void);
 link!("kernel32.dll" "system" fn HeapFree(heap: isize, flags: u32, ptr: *const c_void) -> i32);
